@@ -3,1324 +3,792 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1557c0">
+
 <title>Asim Tech | Apps • Tools • Innovation</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f4f7fb;
-  color:#172033;
-  line-height:1.6;
-}
-
-.app{
-  min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#030914;
+    color:#fff;
+    line-height:1.6;
 }
 
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#ffffff;
-  border-bottom:1px solid #dbe3ef;
-  padding:14px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
+    height:68px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#030914;
+    border-bottom:1px solid #1b2b40;
 }
 
 .logo{
-  font-size:23px;
-  font-weight:bold;
-  color:#1557c0;
+    font-size:24px;
+    font-weight:bold;
 }
 
-.brand{
-  font-size:18px;
-  font-weight:bold;
+.logo span{
+    color:#1685ff;
 }
 
-.sub{
-  font-size:12px;
-  color:#777;
+nav{
+    display:flex;
+    gap:25px;
 }
 
-.layout{
-  display:flex;
-  min-height:calc(100vh - 70px);
+nav a{
+    color:#d8e1ed;
+    text-decoration:none;
+    font-size:14px;
 }
 
-.side{
-  width:220px;
-  background:#fff;
-  border-right:1px solid #dbe3ef;
-  padding:15px;
+nav a:hover{
+    color:#1685ff;
 }
 
-.side button{
-  width:100%;
-  margin-bottom:8px;
-  padding:11px;
-  border:0;
-  border-radius:8px;
-  background:#eef4ff;
-  color:#1557c0;
-  text-align:left;
-  font-size:15px;
-  cursor:pointer;
-}
-
-.side button:hover{
-  background:#dce9ff;
-}
-
-.content{
-  flex:1;
-  padding:20px;
-  min-width:0;
-}
-
-.screen{
-  display:none;
-}
-
-.screen.active{
-  display:block;
-}
+/* HOME */
 
 .hero{
-  background:linear-gradient(135deg,#1557c0,#4d8cff);
-  color:white;
-  border-radius:18px;
-  padding:35px 25px;
-  margin-bottom:20px;
-  box-shadow:0 8px 25px rgba(21,87,192,.18);
+    min-height:calc(100vh - 68px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:70px 8%;
+    background:
+    radial-gradient(circle at 80% 50%,#0759a855,transparent 35%),
+    radial-gradient(circle at 20% 20%,#1685ff18,transparent 30%);
+}
+
+.hero-text{
+    max-width:620px;
+}
+
+.welcome{
+    color:#1685ff;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:12px;
 }
 
 .hero h1{
-  font-size:32px;
-  margin-bottom:8px;
+    font-size:70px;
+    line-height:1;
+    margin-bottom:18px;
 }
 
-.muted{
-  color:#6b7280;
+.hero h1 span{
+    color:#1685ff;
 }
 
-.hero .muted{
-  color:#eaf2ff;
+.tagline{
+    font-size:27px;
+    color:#dce5f0;
+    margin-bottom:20px;
 }
 
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:15px;
+.description{
+    font-size:18px;
+    color:#aab8ca;
 }
 
-.card{
-  background:#fff;
-  border:1px solid #e1e7ef;
-  border-radius:14px;
-  padding:20px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
-.panel{
-  background:#fff;
-  border:1px solid #dfe6ef;
-  border-radius:14px;
-  padding:18px;
-  box-shadow:0 4px 15px rgba(0,0,0,.04);
-}
-
-.toolbar{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:12px;
-}
-
-.toolbtn{
-  border:1px solid #cdd7e5;
-  background:#fff;
-  border-radius:7px;
-  padding:8px 12px;
-  cursor:pointer;
-}
-
-.toolbtn:hover{
-  background:#eef4ff;
-}
-
-.editor{
-  min-height:350px;
-  border:1px solid #ccd6e4;
-  border-radius:8px;
-  padding:15px;
-  outline:none;
-}
-
-.input{
-  width:100%;
-  padding:12px;
-  border:1px solid #ccd6e4;
-  border-radius:8px;
-  font-size:16px;
-  margin-bottom:10px;
-}
-
-.calc-result{
-  min-height:70px;
-  background:#101828;
-  color:#fff;
-  border-radius:10px;
-  padding:15px;
-  font-size:28px;
-  text-align:right;
-  margin-bottom:15px;
-  word-break:break-all;
-}
-
-.calc-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-}
-
-.calc-grid button{
-  padding:16px 5px;
-  border:0;
-  border-radius:9px;
-  background:#eef2f7;
-  font-size:18px;
-  cursor:pointer;
-}
-
-.calc-grid button:hover{
-  background:#dce5f1;
-}
-
-.calc-grid .equal{
-  background:#1557c0;
-  color:white;
-}
-
-.calc-grid .clear{
-  background:#dc3545;
-  color:white;
-}
-
-.table-wrap{
-  overflow:auto;
-}
-
-.sheet{
-  border-collapse:collapse;
-  width:100%;
-  min-width:600px;
-}
-
-.sheet th,
-.sheet td{
-  border:1px solid #cfd8e3;
-  min-width:100px;
-  height:38px;
-  padding:5px;
-}
-
-.sheet th{
-  background:#eef4ff;
-  text-align:center;
-}
-
-.sheet td{
-  background:#fff;
-}
-
-.drop{
-  border:2px dashed #9fb3ca;
-  border-radius:12px;
-  padding:35px;
-  text-align:center;
-  color:#667085;
-}
-
-.file-item{
-  padding:10px;
-  border-bottom:1px solid #e5e7eb;
-}
-
-.toast{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#101828;
-  color:white;
-  padding:12px 18px;
-  border-radius:8px;
-  display:none;
-  z-index:999;
-}
-
-.dark{
-  background:#101828;
-  color:#f8fafc;
-}
-
-.dark header,
-.dark .side,
-.dark .panel,
-.dark .card{
-  background:#182230;
-  color:#f8fafc;
-  border-color:#344054;
-}
-
-.dark .toolbtn,
-.dark .side button,
-.dark .sheet td{
-  background:#253244;
-  color:#fff;
-}
-
-.dark .sheet th{
-  background:#344054;
-}
-
-@media(max-width:750px){
-  header{
-    padding:12px 15px;
-  }
-
-  .layout{
-    display:block;
-  }
-
-  .side{
-    width:100%;
+.buttons{
+    margin-top:30px;
     display:flex;
-    overflow:auto;
-    gap:7px;
-    border-right:0;
-    border-bottom:1px solid #dbe3ef;
-  }
-
-  .side button{
-    width:auto;
-    min-width:max-content;
-    margin:0;
-  }
-
-  .content{
-    padding:12px;
-  }
-
-  .hero h1{
-    font-size:25px;
-  }
-
-  .cards{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .calc-grid button{
-    padding:14px 3px;
-  }
+    gap:15px;
 }
 
-@media(max-width:420px){
-  .cards{
-    grid-template-columns:1fr;
-  }
+.btn{
+    padding:13px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.primary{
+    background:#1685ff;
+    color:white;
+}
+
+.secondary{
+    border:1px solid #53657b;
+    color:white;
+}
+
+/* PHONE */
+
+.phone-area{
+    width:38%;
+    display:flex;
+    justify-content:center;
+}
+
+.phone{
+    width:220px;
+    height:420px;
+    padding:10px;
+    border:4px solid #65768b;
+    border-radius:36px;
+    transform:rotate(4deg);
+    box-shadow:0 0 70px #006dff55;
+}
+
+.phone-screen{
+    height:100%;
+    border-radius:27px;
+    padding:28px 18px;
+    background:linear-gradient(160deg,#082442,#040c18);
+}
+
+.phone-brand{
+    color:#1685ff;
+    font-weight:bold;
+}
+
+.phone-screen h2{
+    margin-top:55px;
+    font-size:22px;
+}
+
+.phone-screen p{
+    color:#a9b7c9;
+    margin-top:8px;
+}
+
+.phone-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-top:25px;
+}
+
+.phone-box{
+    background:#0b2947;
+    border:1px solid #1c4c76;
+    border-radius:10px;
+    padding:13px 4px;
+    text-align:center;
+}
+
+/* SECTIONS */
+
+section{
+    max-width:1250px;
+    margin:auto;
+    padding:75px 7%;
+}
+
+.section-label{
+    color:#1685ff;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+section h2{
+    font-size:36px;
+    margin:7px 0 30px;
+}
+
+/* APPS */
+
+.apps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.app{
+    background:#0b1625;
+    border:1px solid #1b2d43;
+    border-radius:17px;
+    padding:20px;
+    transition:.25s;
+}
+
+.app:hover{
+    transform:translateY(-5px);
+    border-color:#1685ff;
+}
+
+.app-icon{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    border-radius:13px;
+    margin-bottom:17px;
+    background:#102039;
+}
+
+.app h3{
+    margin-bottom:8px;
+}
+
+.app p{
+    font-size:14px;
+    color:#9eacbf;
+    min-height:65px;
+}
+
+.version{
+    display:block;
+    font-size:12px;
+    color:#718198;
+    margin-top:10px;
+}
+
+.download{
+    display:block;
+    background:#1685ff;
+    color:white;
+    text-align:center;
+    padding:11px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-top:17px;
+}
+
+/* TOOLS */
+
+.simple{
+    border-top:1px solid #17263a;
+}
+
+.simple p{
+    color:#9eacbf;
+}
+
+/* ABOUT */
+
+.about{
+    background:#091523;
+    border:1px solid #1b2c42;
+    border-radius:18px;
+    padding:40px;
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.avatar{
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1685ff,#713cff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.about p{
+    color:#aab8ca;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#9eacbf;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px;
+    border-top:1px solid #17263a;
+    color:#718096;
+}
+
+footer span{
+    color:#1685ff;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        min-height:auto;
+        flex-direction:column;
+        text-align:center;
+        padding:55px 6% 75px;
+    }
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .tagline{
+        font-size:23px;
+    }
+
+    .description{
+        font-size:16px;
+    }
+
+    .buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .phone-area{
+        width:100%;
+        margin-top:60px;
+    }
+
+    .phone{
+        width:195px;
+        height:375px;
+    }
+
+    .apps{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+@media(max-width:550px){
+
+    header{
+        padding:0 5%;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .hero{
+        padding:45px 6% 70px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .tagline{
+        font-size:21px;
+    }
+
+    .buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:230px;
+        text-align:center;
+    }
+
+    .phone-area{
+        margin-top:50px;
+    }
+
+    .apps{
+        grid-template-columns:1fr;
+    }
+
+    .app-icon{
+        height:230px;
+    }
+
+    section{
+        padding:60px 6%;
+    }
+
+    section h2{
+        font-size:32px;
+    }
+
+    .about{
+        padding:30px 20px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
-
 <header>
-  <div>
-    <div class="logo">ASIM TECH</div>
-    <div class="sub">Apps • Tools • Innovation</div>
-  </div>
 
-  <div>
-    <button class="toolbtn" onclick="toggleDark()">🌙</button>
-  </div>
+<div class="logo">
+▲ ASIM <span>TECH</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#apps">My Apps</a>
+<a href="#tools">Tools</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
 </header>
 
-<div class="layout">
-
-<aside class="side">
-
-<button onclick="show('home')">🏠 Home</button>
-<button onclick="show('doc')">📝 Document</button>
-<button onclick="show('calc')">🧮 Calculator</button>
-<button onclick="show('sheet')">📊 Spreadsheet</button>
-<button onclick="show('pdf')">📄 PDF Tools</button>
-<button onclick="show('scan')">📷 Scanner</button>
-<button onclick="show('files')">📁 My Files</button>
-
-</aside>
-
-<main class="content">
 
 <!-- HOME -->
 
-<section id="home" class="screen active">
+<div class="hero" id="home">
 
-<div class="hero">
-<h1>Asim Tech</h1>
-<p>Office tools, useful apps and digital utilities — all in one place.</p>
+<div class="hero-text">
+
+<div class="welcome">
+WELCOME TO
 </div>
 
-<div class="cards">
+<h1>
+ASIM <span>TECH</span>
+</h1>
 
-<div class="card" onclick="show('doc')">
-<h2>📝 Document</h2>
-<p class="muted">Create and edit documents.</p>
+<div class="tagline">
+Apps • Tools • Innovation
 </div>
 
-<div class="card" onclick="show('calc')">
-<h2>🧮 Calculator</h2>
-<p class="muted">Calculate expressions instantly.</p>
-</div>
+<p class="description">
+I create simple, useful and powerful apps
+to make everyday tasks easier.
+</p>
 
-<div class="card" onclick="show('sheet')">
-<h2>📊 Spreadsheet</h2>
-<p class="muted">Work with rows, columns and formulas.</p>
-</div>
+<div class="buttons">
 
-<div class="card" onclick="show('pdf')">
-<h2>📄 PDF Tools</h2>
-<p class="muted">PDF utilities and document tools.</p>
-</div>
+<a href="#apps" class="btn primary">
+Explore Apps
+</a>
 
-<div class="card" onclick="show('scan')">
-<h2>📷 Scanner</h2>
-<p class="muted">Scan documents using your camera.</p>
-</div>
+<a href="#about" class="btn secondary">
+About Asim
+</a>
 
-<div class="card" onclick="show('files')">
-<h2>📁 My Files</h2>
-<p class="muted">Access your saved files.</p>
 </div>
 
 </div>
 
-</section>
 
+<div class="phone-area">
 
-<!-- DOCUMENT -->
+<div class="phone">
 
-<section id="doc" class="screen">
+<div class="phone-screen">
 
-<div class="panel">
+<div class="phone-brand">
+▲ ASIM TECH
+</div>
 
-<h2>📝 Document Editor</h2>
+<h2>Hello, Asim 👋</h2>
 
-<div class="toolbar">
+<p>
+Building apps for<br>
+<b>a better tomorrow</b>
+</p>
 
-<button class="toolbtn" onclick="cmd('bold')"><b>B</b></button>
+<div class="phone-grid">
 
-<button class="toolbtn" onclick="cmd('italic')"><i>I</i></button>
+<div class="phone-box">
+📻<br>Radio
+</div>
 
-<button class="toolbtn" onclick="cmd('underline')"><u>U</u></button>
+<div class="phone-box">
+🎵<br>Music
+</div>
 
-<select class="toolbtn" onchange="fontSize(this.value)">
-<option value="3">Size</option>
-<option value="2">Small</option>
-<option value="4">Medium</option>
-<option value="6">Large</option>
-</select>
+<div class="phone-box">
+🎧<br>Audio
+</div>
 
-<button class="toolbtn" onclick="saveDoc()">💾 Save</button>
-
-<button class="toolbtn" onclick="downloadDoc()">⬇ Download</button>
+<div class="phone-box">
+📱<br>Apps
+</div>
 
 </div>
 
-<div id="editor" class="editor" contenteditable="true">
-Start typing your document here...
 </div>
 
 </div>
 
-</section>
+</div>
+
+</div>
 
 
-<!-- CALCULATOR -->
+<!-- MY APPS -->
 
-<section id="calc" class="screen">
+<section id="apps">
 
-<div class="panel">
+<div class="section-label">
+MY APPLICATIONS
+</div>
 
-<h2>🧮 Calculator</h2>
+<h2>
+My Apps
+</h2>
 
-<br>
+<div class="apps">
 
-<input
-id="calcInput"
-class="input"
-type="text"
-placeholder="Example: 100+90 or (50*2)+10"
-onkeydown="if(event.key==='Enter') calculate()"
+
+<!-- DEVOTIONAL RADIO -->
+
+<div class="app">
+
+<img
+class="app-icon"
+src="devotional-radio.png"
+alt="Devotional Radio"
 >
 
-<div id="calcResult" class="calc-result">0</div>
+<h3>
+Devotional Radio
+</h3>
 
-<div class="calc-grid">
+<p>
+Listen to devotional radio and spiritual music.
+</p>
 
-<button onclick="pressCalc('7')">7</button>
-<button onclick="pressCalc('8')">8</button>
-<button onclick="pressCalc('9')">9</button>
-<button onclick="pressCalc('/')">÷</button>
+<span class="version">
+Android App
+</span>
 
-<button onclick="pressCalc('4')">4</button>
-<button onclick="pressCalc('5')">5</button>
-<button onclick="pressCalc('6')">6</button>
-<button onclick="pressCalc('*')">×</button>
-
-<button onclick="pressCalc('1')">1</button>
-<button onclick="pressCalc('2')">2</button>
-<button onclick="pressCalc('3')">3</button>
-<button onclick="pressCalc('-')">−</button>
-
-<button onclick="pressCalc('0')">0</button>
-<button onclick="pressCalc('.')">.</button>
-<button onclick="pressCalc('(')">(</button>
-<button onclick="pressCalc(')')">)</button>
-
-<button onclick="clearCalc()" class="clear">C</button>
-<button onclick="pressCalc('+')">+</button>
-<button onclick="backCalc()">⌫</button>
-<button onclick="calculate()" class="equal">=</button>
+<a
+class="download"
+href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
+download
+>
+⬇ Download APK
+</a>
 
 </div>
 
-<br>
 
-<p class="muted">
-You can also type directly, for example:
-<b>100+90</b>, <b>500/5</b>, <b>(20+30)*2</b>
+<!-- OLD IS GOLD -->
+
+<div class="app">
+
+<img
+class="app-icon"
+src="old_gold_logo.png"
+alt="80s 90s Old Is Gold"
+>
+
+<h3>
+80s & 90s Old Is Gold
+</h3>
+
+<p>
+Enjoy classic songs and timeless memories
+from the golden era.
+</p>
+
+<span class="version">
+Android App
+</span>
+
+<a
+class="download"
+href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
+download
+>
+⬇ Download APK
+</a>
+
+</div>
+
+
+<!-- MADHU MUSIC WORLD -->
+
+<div class="app">
+
+<img
+class="app-icon"
+src="madhu-music-world.png"
+alt="Madhu Music World"
+>
+
+<h3>
+Madhu Music World
+</h3>
+
+<p>
+Enjoy music, radio and entertainment
+from Madhu Music World.
+</p>
+
+<span class="version">
+Android App
+</span>
+
+<a
+class="download"
+href="#contact"
+>
+More Info
+</a>
+
+</div>
+
+
+<!-- SANGIT -->
+
+<div class="app">
+
+<img
+class="app-icon"
+src="sangit.png"
+alt="Sangit"
+>
+
+<h3>
+Sangit
+</h3>
+
+<p>
+A music application created by Asim
+for music lovers.
+</p>
+
+<span class="version">
+Android App
+</span>
+
+<a
+class="download"
+href="Sangit.apk"
+download
+>
+⬇ Download APK
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- TOOLS -->
+
+<section id="tools" class="simple">
+
+<div class="section-label">
+MY PROJECTS
+</div>
+
+<h2>
+My Tools
+</h2>
+
+<p>
+Useful tools and new projects created by Asim.
+More projects will be added soon.
+</p>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="about">
+
+<div class="avatar">
+A
+</div>
+
+<div>
+
+<div class="section-label">
+ABOUT ME
+</div>
+
+<h2>
+Hi, I'm Asim 👋
+</h2>
+
+<p>
+I create useful Android applications
+and technology projects.
+<br><br>
+Welcome to Asim Tech — my personal place
+for sharing my apps and projects.
 </p>
 
 </div>
 
-</section>
-
-
-<!-- SPREADSHEET -->
-
-<section id="sheet" class="screen">
-
-<div class="panel">
-
-<h2>📊 Spreadsheet</h2>
-
-<div class="toolbar">
-
-<input
-id="formula"
-class="input"
-style="margin:0;max-width:500px"
-placeholder="Formula e.g. =SUM(A1:A4)"
->
-
-<button class="toolbtn" onclick="applyFormula()">Calculate</button>
-
-<button class="toolbtn" onclick="addRow()">+ Row</button>
-
-<button class="toolbtn" onclick="addColumn()">+ Column</button>
-
-</div>
-
-<div class="table-wrap">
-
-<table id="spreadsheet" class="sheet">
-
-<thead>
-<tr>
-<th></th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<th>1</th>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
-
-<tr>
-<th>2</th>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
-
-<tr>
-<th>3</th>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
-
-<tr>
-<th>4</th>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-<td contenteditable="true"></td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
 </div>
 
 </section>
 
 
-<!-- PDF -->
+<!-- CONTACT -->
 
-<section id="pdf" class="screen">
+<section id="contact" class="contact">
 
-<div class="panel">
+<div class="section-label">
+GET IN TOUCH
+</div>
 
-<h2>📄 PDF Tools</h2>
+<h2>
+Contact Asim
+</h2>
 
-<p class="muted">
-Create a PDF from your document.
+<p>
+For suggestions, feedback or app related queries.
 </p>
 
-<br>
-
-<button class="toolbtn" onclick="printPDF()">
-🖨 Print / Save as PDF
-</button>
-
-</div>
+<a
+href="mailto:your-email@example.com"
+class="btn primary"
+>
+📧 Email Me
+</a>
 
 </section>
 
 
-<!-- SCANNER -->
+<!-- FOOTER -->
 
-<section id="scan" class="screen">
+<footer>
 
-<div class="panel">
-
-<h2>📷 Document Scanner</h2>
-
-<p class="muted">
-Use your phone camera to capture a document.
-</p>
-
-<br>
-
-<input
-type="file"
-accept="image/*"
-capture="environment"
-onchange="scanPreview(event)"
->
+<b>
+▲ ASIM <span>TECH</span>
+</b>
 
 <br><br>
 
-<div id="scanPreview"></div>
+© 2026 Asim Tech. All Rights Reserved.
 
-</div>
-
-</section>
-
-
-<!-- FILES -->
-
-<section id="files" class="screen">
-
-<div class="panel">
-
-<h2>📁 My Files</h2>
-
-<p class="muted">
-Files saved by this browser will appear here.
-</p>
-
-<br>
-
-<div id="fileList"></div>
-
-</div>
-
-</section>
-
-</main>
-
-</div>
-
-</div>
-
-<div id="toast" class="toast"></div>
-
-
-<script>
-
-/* ---------------- BASIC NAVIGATION ---------------- */
-
-function show(id){
-
-  document.querySelectorAll('.screen').forEach(function(s){
-    s.classList.remove('active');
-  });
-
-  const target=document.getElementById(id);
-
-  if(target){
-    target.classList.add('active');
-  }
-
-  window.scrollTo(0,0);
-}
-
-
-/* ---------------- TOAST ---------------- */
-
-function toast(message){
-
-  const t=document.getElementById('toast');
-
-  t.textContent=message;
-  t.style.display='block';
-
-  setTimeout(function(){
-    t.style.display='none';
-  },1800);
-}
-
-
-/* ---------------- DARK MODE ---------------- */
-
-function toggleDark(){
-
-  document.body.classList.toggle('dark');
-
-  localStorage.setItem(
-    'asimDark',
-    document.body.classList.contains('dark')
-  );
-
-}
-
-if(localStorage.getItem('asimDark')==='true'){
-  document.body.classList.add('dark');
-}
-
-
-/* ---------------- DOCUMENT ---------------- */
-
-function cmd(command){
-
-  document.execCommand(command,false,null);
-
-  document.getElementById('editor').focus();
-}
-
-
-function fontSize(value){
-
-  document.getElementById('editor').focus();
-
-  document.execCommand(
-    'fontSize',
-    false,
-    value
-  );
-}
-
-
-function saveDoc(){
-
-  const text=document.getElementById('editor').innerHTML;
-
-  localStorage.setItem('asimDoc',text);
-
-  toast('Document saved');
-}
-
-
-function downloadDoc(){
-
-  const content=document.getElementById('editor').innerHTML;
-
-  const blob=new Blob(
-    [
-      '<!DOCTYPE html><html><body>',
-      content,
-      '</body></html>'
-    ],
-    {type:'text/html'}
-  );
-
-  const url=URL.createObjectURL(blob);
-
-  const a=document.createElement('a');
-
-  a.href=url;
-  a.download='Asim-Tech-Document.html';
-
-  a.click();
-
-  URL.revokeObjectURL(url);
-
-  toast('Document downloaded');
-}
-
-
-if(localStorage.getItem('asimDoc')){
-
-  document.getElementById('editor').innerHTML =
-    localStorage.getItem('asimDoc');
-
-}
-
-
-/* ---------------- CALCULATOR ---------------- */
-
-/*
-   SAFE CALCULATOR
-   Supports + - * / % ( )
-*/
-
-function pressCalc(value){
-
-  const input=document.getElementById('calcInput');
-
-  input.value += value;
-
-  input.focus();
-}
-
-
-function clearCalc(){
-
-  document.getElementById('calcInput').value='';
-  document.getElementById('calcResult').textContent='0';
-
-}
-
-
-function backCalc(){
-
-  const input=document.getElementById('calcInput');
-
-  input.value=input.value.slice(0,-1);
-
-  input.focus();
-}
-
-
-function calculate(){
-
-  const input=document.getElementById('calcInput');
-
-  let expression=input.value.trim();
-
-  if(!expression){
-
-    document.getElementById('calcResult').textContent='0';
-
-    return;
-  }
-
-  try{
-
-    /*
-      Only allow numbers and mathematical operators.
-    */
-
-    if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
-
-      throw new Error('Invalid characters');
-
-    }
-
-    /*
-      Convert percentage.
-      Example: 50% = 0.5
-    */
-
-    expression=expression.replace(
-      /(\d+(?:\.\d+)?)%/g,
-      '($1/100)'
-    );
-
-    const result=Function(
-      '"use strict"; return (' + expression + ')'
-    )();
-
-    if(!Number.isFinite(result)){
-
-      throw new Error('Invalid calculation');
-
-    }
-
-    document.getElementById('calcResult').textContent =
-      Number.isInteger(result)
-      ? result
-      : parseFloat(result.toFixed(10));
-
-  }
-
-  catch(error){
-
-    document.getElementById('calcResult').textContent='Error';
-
-  }
-
-}
-
-
-/* ---------------- SPREADSHEET ---------------- */
-
-function columnName(number){
-
-  let name='';
-
-  while(number>0){
-
-    let remainder=(number-1)%26;
-
-    name=String.fromCharCode(65+remainder)+name;
-
-    number=Math.floor((number-1)/26);
-
-  }
-
-  return name;
-}
-
-
-function getCell(row,col){
-
-  const table=document.getElementById('spreadsheet');
-
-  const tr=table.tBodies[0].rows[row-1];
-
-  if(!tr) return null;
-
-  return tr.cells[col];
-
-}
-
-
-function parseCellReference(ref){
-
-  const match=ref.match(/^([A-Z]+)(\d+)$/);
-
-  if(!match) return null;
-
-  let letters=match[1];
-
-  let row=parseInt(match[2],10);
-
-  let col=0;
-
-  for(let i=0;i<letters.length;i++){
-
-    col =
-      col*26 +
-      (letters.charCodeAt(i)-64);
-
-  }
-
-  return {
-    row:row,
-    col:col
-  };
-
-}
-
-
-function cellValue(ref){
-
-  const pos=parseCellReference(ref);
-
-  if(!pos) return 0;
-
-  const cell=getCell(pos.row,pos.col);
-
-  if(!cell) return 0;
-
-  const value=cell.textContent.trim();
-
-  const number=parseFloat(value);
-
-  return Number.isFinite(number) ? number : 0;
-
-}
-
-
-function rangeValues(range){
-
-  const parts=range.split(':');
-
-  if(parts.length!==2) return [];
-
-  const start=parseCellReference(parts[0].trim());
-
-  const end=parseCellReference(parts[1].trim());
-
-  if(!start || !end) return [];
-
-  let values=[];
-
-  for(
-    let r=start.row;
-    r<=end.row;
-    r++
-  ){
-
-    for(
-      let c=start.col;
-      c<=end.col;
-      c++
-    ){
-
-      values.push(
-        cellValue(
-          columnName(c)+r
-        )
-      );
-
-    }
-
-  }
-
-  return values;
-
-}
-
-
-function applyFormula(){
-
-  let formula=document
-    .getElementById('formula')
-    .value
-    .trim()
-    .toUpperCase();
-
-  if(!formula){
-
-    toast('Enter a formula');
-
-    return;
-  }
-
-  try{
-
-    if(!formula.startsWith('=')){
-
-      formula='='+formula;
-
-    }
-
-    let result=0;
-
-    /*
-      SUM
-    */
-
-    let match=formula.match(
-      /^=SUM\(([A-Z]+\d+):([A-Z]+\d+)\)$/
-    );
-
-    if(match){
-
-      result=rangeValues(
-        match[1]+':'+match[2]
-      ).reduce(
-        (a,b)=>a+b,
-        0
-      );
-
-    }
-
-    /*
-      AVERAGE
-    */
-
-    else if(
-      (match=formula.match(
-        /^=AVERAGE\(([A-Z]+\d+):([A-Z]+\d+)\)$/
-      ))
-    ){
-
-      const values=rangeValues(
-        match[1]+':'+match[2]
-      );
-
-      result=
-        values.length
-        ? values.reduce((a,b)=>a+b,0)/values.length
-        : 0;
-
-    }
-
-    /*
-      MAX
-    */
-
-    else if(
-      (match=formula.match(
-        /^=MAX\(([A-Z]+\d+):([A-Z]+\d+)\)$/
-      ))
-    ){
-
-      result=Math.max(
-        ...rangeValues(
-          match[1]+':'+match[2]
-        )
-      );
-
-    }
-
-    /*
-      MIN
-    */
-
-    else if(
-      (match=formula.match(
-        /^=MIN\(([A-Z]+\d+):([A-Z]+\d+)\)$/
-      ))
-    ){
-
-      result=Math.min(
-        ...rangeValues(
-          match[1]+':'+match[2]
-        )
-      );
-
-    }
-
-    /*
-      Direct cell arithmetic
-    */
-
-    else{
-
-      let expression=formula.substring(1);
-
-      expression=expression.replace(
-        /([A-Z]+\d+)/g,
-        function(ref){
-          return cellValue(ref);
-        }
-      );
-
-      if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
-
-        throw new Error('Invalid formula');
-
-      }
-
-      result=Function(
-        '"use strict"; return ('+expression+')'
-      )();
-
-    }
-
-    if(!Number.isFinite(result)){
-
-      throw new Error('Invalid result');
-
-    }
-
-    toast('Result: '+result);
-
-  }
-
-  catch(error){
-
-    toast('Invalid formula');
-
-  }
-
-}
-
-
-/* ---------------- ADD ROW ---------------- */
-
-function addRow(){
-
-  const table=document.getElementById('spreadsheet');
-
-  const tbody=table.tBodies[0];
-
-  const rowNumber=tbody.rows.length+1;
-
-  const tr=tbody.insertRow();
-
-  const th=document.createElement('th');
-
-  th.textContent=rowNumber;
-
-  tr.appendChild(th);
-
-  const columns=
-    table.tHead.rows[0].cells.length-1;
-
-  for(
-    let i=0;
-    i<columns;
-    i++
-  ){
-
-    const td=tr.insertCell();
-
-    td.contentEditable='true';
-
-  }
-
-}
-
-
-/* ---------------- ADD COLUMN ---------------- */
-
-function addColumn(){
-
-  const table=document.getElementById('spreadsheet');
-
-  const header=table.tHead.rows[0];
-
-  const newColumn=
-    header.cells.length;
-
-  const th=document.createElement('th');
-
-  th.textContent=columnName(newColumn);
-
-  header.appendChild(th);
-
-  Array.from(table.tBodies[0].rows)
-    .forEach(function(row){
-
-      const td=row.insertCell();
-
-      td.contentEditable='true';
-
-    });
-
-}
-
-
-/* ---------------- PDF ---------------- */
-
-function printPDF(){
-
-  window.print();
-
-}
-
-
-/* ---------------- SCANNER ---------------- */
-
-function scanPreview(event){
-
-  const file=event.target.files[0];
-
-  if(!file) return;
-
-  const url=URL.createObjectURL(file);
-
-  document.getElementById('scanPreview').innerHTML=
-    '<img src="'+url+'" style="max-width:100%;border-radius:10px;">';
-
-}
-
-
-/* ---------------- FILES ---------------- */
-
-function refreshFiles(){
-
-  const list=
-    document.getElementById('fileList');
-
-  const files=
-    JSON.parse(
-      localStorage.getItem('asimFiles') || '[]'
-    );
-
-  if(!files.length){
-
-    list.innerHTML=
-      '<p class="muted">No saved files yet.</p>';
-
-    return;
-
-  }
-
-  list.innerHTML=files.map(function(file){
-
-    return '<div class="file-item">📄 '+file.name+'</div>';
-
-  }).join('');
-
-}
-
-
-refreshFiles();
-
-
-/* ---------------- FORMULA ENTER KEY ---------------- */
-
-document
-  .getElementById('formula')
-  .addEventListener(
-    'keydown',
-    function(event){
-
-      if(event.key==='Enter'){
-
-        applyFormula();
-
-      }
-
-    }
-  );
-
-</script>
+</footer>
 
 </body>
 </html>
