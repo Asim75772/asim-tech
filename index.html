@@ -1,70 +1,1326 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1557c0">
-<link rel="manifest" href="manifest.json">
-<title>Asim Office Suite V5</title>
+<title>Asim Tech | Apps • Tools • Innovation</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial;background:#f4f7fb;color:#172033}.app{max-width:1180px;margin:auto}.top{background:linear-gradient(135deg,#101b3d,#1557c0);color:#fff;padding:16px}.bar{display:flex;align-items:center;gap:12px}.logo{font-size:28px}.brand{font-weight:800;font-size:21px}.sub{font-size:12px;opacity:.8}.actions{margin-left:auto;display:flex;gap:7px}.btn,.toolbtn{border:0;border-radius:9px;padding:10px 13px;font-weight:700;cursor:pointer}.btn{background:#1557c0;color:white}.toolbtn{background:#edf2ff;color:#174caa}.layout{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:16px}.side,.panel{background:#fff;border-radius:16px;box-shadow:0 4px 18px #17203312}.side{padding:12px;height:max-content}.side button{width:100%;text-align:left;border:0;background:none;padding:12px;border-radius:9px;cursor:pointer;font-weight:650}.side button:hover{background:#edf3ff}.content{min-width:0}.screen{display:none}.screen.active{display:block}.hero{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px #17203312;margin-bottom:16px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}.card{background:#fff;border-radius:14px;padding:17px;box-shadow:0 4px 18px #1720330d;cursor:pointer}.ico{font-size:30px}.muted{color:#667085;font-size:13px}.editorbar{display:flex;flex-wrap:wrap;gap:6px;padding:10px;border-bottom:1px solid #dde3ee}.editor{min-height:430px;padding:18px;outline:0}.sheetwrap{overflow:auto}.sheet{border-collapse:collapse;min-width:800px;width:100%}.sheet td{border:1px solid #d8deea;min-width:110px;height:32px;padding:5px}.sheet td:focus{outline:2px solid #6c9cf0}.toolbar{display:flex;flex-wrap:wrap;gap:7px;padding:12px;border-bottom:1px solid #dde3ee}.input{padding:10px;border:1px solid #d4dbe8;border-radius:9px;width:100%}.drop{border:2px dashed #bdc9dd;padding:28px;text-align:center;border-radius:14px}.files .row{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:12px;border-bottom:1px solid #edf0f5}.dark{background:#101522;color:#eef2f7}.dark .panel,.dark .side,.dark .hero,.dark .card{background:#171e2d;color:#eef2f7}.dark .muted{color:#aeb8ca}.dark .editor{color:#eef2f7}.dark .toolbtn{background:#27344f;color:#dce7ff}.dark .input,.dark .sheet td{background:#121927;color:#eef2f7;border-color:#344057}.install{display:none}.status{padding:10px;border-radius:9px;background:#eaf8ef;color:#13733b;margin-top:10px}.toast{position:fixed;right:16px;bottom:16px;background:#172033;color:white;padding:12px 15px;border-radius:10px;display:none}
-@media(max-width:750px){.layout{grid-template-columns:1fr}.side{display:flex;overflow:auto;gap:5px}.side button{min-width:max-content}.actions .btn{display:none}}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f7fb;
+  color:#172033;
+  line-height:1.6;
+}
+
+.app{
+  min-height:100vh;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#ffffff;
+  border-bottom:1px solid #dbe3ef;
+  padding:14px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:bold;
+  color:#1557c0;
+}
+
+.brand{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.sub{
+  font-size:12px;
+  color:#777;
+}
+
+.layout{
+  display:flex;
+  min-height:calc(100vh - 70px);
+}
+
+.side{
+  width:220px;
+  background:#fff;
+  border-right:1px solid #dbe3ef;
+  padding:15px;
+}
+
+.side button{
+  width:100%;
+  margin-bottom:8px;
+  padding:11px;
+  border:0;
+  border-radius:8px;
+  background:#eef4ff;
+  color:#1557c0;
+  text-align:left;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.side button:hover{
+  background:#dce9ff;
+}
+
+.content{
+  flex:1;
+  padding:20px;
+  min-width:0;
+}
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+.hero{
+  background:linear-gradient(135deg,#1557c0,#4d8cff);
+  color:white;
+  border-radius:18px;
+  padding:35px 25px;
+  margin-bottom:20px;
+  box-shadow:0 8px 25px rgba(21,87,192,.18);
+}
+
+.hero h1{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.muted{
+  color:#6b7280;
+}
+
+.hero .muted{
+  color:#eaf2ff;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #e1e7ef;
+  border-radius:14px;
+  padding:20px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.panel{
+  background:#fff;
+  border:1px solid #dfe6ef;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 4px 15px rgba(0,0,0,.04);
+}
+
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.toolbtn{
+  border:1px solid #cdd7e5;
+  background:#fff;
+  border-radius:7px;
+  padding:8px 12px;
+  cursor:pointer;
+}
+
+.toolbtn:hover{
+  background:#eef4ff;
+}
+
+.editor{
+  min-height:350px;
+  border:1px solid #ccd6e4;
+  border-radius:8px;
+  padding:15px;
+  outline:none;
+}
+
+.input{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccd6e4;
+  border-radius:8px;
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.calc-result{
+  min-height:70px;
+  background:#101828;
+  color:#fff;
+  border-radius:10px;
+  padding:15px;
+  font-size:28px;
+  text-align:right;
+  margin-bottom:15px;
+  word-break:break-all;
+}
+
+.calc-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.calc-grid button{
+  padding:16px 5px;
+  border:0;
+  border-radius:9px;
+  background:#eef2f7;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.calc-grid button:hover{
+  background:#dce5f1;
+}
+
+.calc-grid .equal{
+  background:#1557c0;
+  color:white;
+}
+
+.calc-grid .clear{
+  background:#dc3545;
+  color:white;
+}
+
+.table-wrap{
+  overflow:auto;
+}
+
+.sheet{
+  border-collapse:collapse;
+  width:100%;
+  min-width:600px;
+}
+
+.sheet th,
+.sheet td{
+  border:1px solid #cfd8e3;
+  min-width:100px;
+  height:38px;
+  padding:5px;
+}
+
+.sheet th{
+  background:#eef4ff;
+  text-align:center;
+}
+
+.sheet td{
+  background:#fff;
+}
+
+.drop{
+  border:2px dashed #9fb3ca;
+  border-radius:12px;
+  padding:35px;
+  text-align:center;
+  color:#667085;
+}
+
+.file-item{
+  padding:10px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#101828;
+  color:white;
+  padding:12px 18px;
+  border-radius:8px;
+  display:none;
+  z-index:999;
+}
+
+.dark{
+  background:#101828;
+  color:#f8fafc;
+}
+
+.dark header,
+.dark .side,
+.dark .panel,
+.dark .card{
+  background:#182230;
+  color:#f8fafc;
+  border-color:#344054;
+}
+
+.dark .toolbtn,
+.dark .side button,
+.dark .sheet td{
+  background:#253244;
+  color:#fff;
+}
+
+.dark .sheet th{
+  background:#344054;
+}
+
+@media(max-width:750px){
+  header{
+    padding:12px 15px;
+  }
+
+  .layout{
+    display:block;
+  }
+
+  .side{
+    width:100%;
+    display:flex;
+    overflow:auto;
+    gap:7px;
+    border-right:0;
+    border-bottom:1px solid #dbe3ef;
+  }
+
+  .side button{
+    width:auto;
+    min-width:max-content;
+    margin:0;
+  }
+
+  .content{
+    padding:12px;
+  }
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .calc-grid button{
+    padding:14px 3px;
+  }
+}
+
+@media(max-width:420px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
 </head>
+
 <body>
+
 <div class="app">
-<header class="top"><div class="bar"><div class="logo">▲</div><div><div class="brand">ASIM TECH</div><div class="sub">Asim Office Suite V5</div></div><div class="actions"><button class="btn" onclick="toggleDark()">🌙</button><button id="installBtn" class="btn install" onclick="installApp()">Install App</button></div></div></header>
+
+<header>
+  <div>
+    <div class="logo">ASIM TECH</div>
+    <div class="sub">Apps • Tools • Innovation</div>
+  </div>
+
+  <div>
+    <button class="toolbtn" onclick="toggleDark()">🌙</button>
+  </div>
+</header>
+
 <div class="layout">
+
 <aside class="side">
-<button onclick="show('home')">🏠 Home</button><button onclick="show('doc')">📝 Document</button><button onclick="show('sheet')">📊 Spreadsheet</button><button onclick="show('pdf')">📕 PDF Tools</button><button onclick="show('scan')">📷 Scanner</button><button onclick="show('files');refreshFiles()">📂 My Files</button>
+
+<button onclick="show('home')">🏠 Home</button>
+<button onclick="show('doc')">📝 Document</button>
+<button onclick="show('calc')">🧮 Calculator</button>
+<button onclick="show('sheet')">📊 Spreadsheet</button>
+<button onclick="show('pdf')">📄 PDF Tools</button>
+<button onclick="show('scan')">📷 Scanner</button>
+<button onclick="show('files')">📁 My Files</button>
+
 </aside>
+
 <main class="content">
-<section id="home" class="screen active"><div class="hero"><h1>Office tools, in one place.</h1><p class="muted">Create documents, spreadsheets and PDFs directly in your browser.</p></div>
-<div class="cards"><div class="card" onclick="show('doc')"><div class="ico">📝</div><b>Document</b><p class="muted">Write and export DOCX/PDF.</p></div><div class="card" onclick="show('sheet')"><div class="ico">📊</div><b>Spreadsheet</b><p class="muted">Calculate and export XLSX.</p></div><div class="card" onclick="show('pdf')"><div class="ico">📕</div><b>PDF Tools</b><p class="muted">Merge, extract and images to PDF.</p></div><div class="card" onclick="show('scan')"><div class="ico">📷</div><b>Scanner</b><p class="muted">Camera/images to PDF.</p></div></div></section>
 
-<section id="doc" class="screen"><div class="panel"><div class="toolbar">
-<select class="toolbtn" onchange="fontSize(this.value)"><option value="3">Size</option><option value="2">Small</option><option value="3">Normal</option><option value="5">Large</option><option value="7">Title</option></select>
-<button class="toolbtn" onclick="cmd('bold')"><b>B</b></button><button class="toolbtn" onclick="cmd('italic')"><i>I</i></button><button class="toolbtn" onclick="cmd('underline')"><u>U</u></button><button class="toolbtn" onclick="cmd('insertUnorderedList')">• List</button><button class="toolbtn" onclick="cmd('insertOrderedList')">1. List</button><button class="toolbtn" onclick="cmd('justifyLeft')">Left</button><button class="toolbtn" onclick="cmd('justifyCenter')">Center</button><button class="toolbtn" onclick="cmd('justifyRight')">Right</button><button class="toolbtn" onclick="cmd('undo')">↶</button><button class="toolbtn" onclick="cmd('redo')">↷</button>
-</div><div id="editor" class="editor" contenteditable="true">Start typing your document here...</div><div style="padding:12px"><button class="btn" onclick="saveDoc()">💾 Save</button> <button class="btn" onclick="docxDownload()">Download DOCX</button> <button class="btn" onclick="printPDF()">Save PDF</button></div></div></section>
+<!-- HOME -->
 
-<section id="sheet" class="screen"><div class="panel"><div class="toolbar"><input id="formula" class="input" style="max-width:330px" placeholder="Formula, e.g. =SUM(B2:B6)"><button class="btn" onclick="applyFormula()">Calculate</button><button class="btn" onclick="addRow()">+ Row</button><button class="btn" onclick="addCol()">+ Column</button><button class="btn" onclick="xlsxDownload()">Download XLSX</button><button class="btn" onclick="csvDownload()">CSV</button></div><div class="sheetwrap"><table id="sheet" class="sheet"></table></div></div></section>
+<section id="home" class="screen active">
 
-<section id="pdf" class="screen"><div class="panel" style="padding:18px"><h2>📕 PDF Tools</h2><div class="drop"><b>Merge PDFs</b><br><input id="merge" type="file" accept=".pdf" multiple><br><button class="btn" onclick="mergePDF()">Merge & Download</button></div><br><div class="drop"><b>Extract Pages</b><br><input id="split" type="file" accept=".pdf"><br><input id="pages" class="input" placeholder="Pages: 1,3,5"><br><button class="btn" onclick="extractPDF()">Extract & Download</button></div><br><div class="drop"><b>Images → PDF</b><br><input id="imgs" type="file" accept="image/*" multiple><br><button class="btn" onclick="imagesPDF()">Create PDF</button></div></div></section>
+<div class="hero">
+<h1>Asim Tech</h1>
+<p>Office tools, useful apps and digital utilities — all in one place.</p>
+</div>
 
-<section id="scan" class="screen"><div class="panel" style="padding:18px"><h2>📷 Document Scanner</h2><p class="muted">Use your phone camera or select multiple images.</p><input id="scanfiles" type="file" accept="image/*" capture="environment" multiple><br><br><button class="btn" onclick="scanPDF()">Create Scanned PDF</button><div id="scanstatus"></div></div></section>
+<div class="cards">
 
-<section id="files" class="screen"><div class="panel" style="padding:18px"><h2>📂 My Files</h2><div id="fileList"></div><p class="muted">Files saved here are browser-local. They are not uploaded to a server.</p></div></section>
-</main></div><div id="toast" class="toast"></div></div>
+<div class="card" onclick="show('doc')">
+<h2>📝 Document</h2>
+<p class="muted">Create and edit documents.</p>
+</div>
+
+<div class="card" onclick="show('calc')">
+<h2>🧮 Calculator</h2>
+<p class="muted">Calculate expressions instantly.</p>
+</div>
+
+<div class="card" onclick="show('sheet')">
+<h2>📊 Spreadsheet</h2>
+<p class="muted">Work with rows, columns and formulas.</p>
+</div>
+
+<div class="card" onclick="show('pdf')">
+<h2>📄 PDF Tools</h2>
+<p class="muted">PDF utilities and document tools.</p>
+</div>
+
+<div class="card" onclick="show('scan')">
+<h2>📷 Scanner</h2>
+<p class="muted">Scan documents using your camera.</p>
+</div>
+
+<div class="card" onclick="show('files')">
+<h2>📁 My Files</h2>
+<p class="muted">Access your saved files.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DOCUMENT -->
+
+<section id="doc" class="screen">
+
+<div class="panel">
+
+<h2>📝 Document Editor</h2>
+
+<div class="toolbar">
+
+<button class="toolbtn" onclick="cmd('bold')"><b>B</b></button>
+
+<button class="toolbtn" onclick="cmd('italic')"><i>I</i></button>
+
+<button class="toolbtn" onclick="cmd('underline')"><u>U</u></button>
+
+<select class="toolbtn" onchange="fontSize(this.value)">
+<option value="3">Size</option>
+<option value="2">Small</option>
+<option value="4">Medium</option>
+<option value="6">Large</option>
+</select>
+
+<button class="toolbtn" onclick="saveDoc()">💾 Save</button>
+
+<button class="toolbtn" onclick="downloadDoc()">⬇ Download</button>
+
+</div>
+
+<div id="editor" class="editor" contenteditable="true">
+Start typing your document here...
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CALCULATOR -->
+
+<section id="calc" class="screen">
+
+<div class="panel">
+
+<h2>🧮 Calculator</h2>
+
+<br>
+
+<input
+id="calcInput"
+class="input"
+type="text"
+placeholder="Example: 100+90 or (50*2)+10"
+onkeydown="if(event.key==='Enter') calculate()"
+>
+
+<div id="calcResult" class="calc-result">0</div>
+
+<div class="calc-grid">
+
+<button onclick="pressCalc('7')">7</button>
+<button onclick="pressCalc('8')">8</button>
+<button onclick="pressCalc('9')">9</button>
+<button onclick="pressCalc('/')">÷</button>
+
+<button onclick="pressCalc('4')">4</button>
+<button onclick="pressCalc('5')">5</button>
+<button onclick="pressCalc('6')">6</button>
+<button onclick="pressCalc('*')">×</button>
+
+<button onclick="pressCalc('1')">1</button>
+<button onclick="pressCalc('2')">2</button>
+<button onclick="pressCalc('3')">3</button>
+<button onclick="pressCalc('-')">−</button>
+
+<button onclick="pressCalc('0')">0</button>
+<button onclick="pressCalc('.')">.</button>
+<button onclick="pressCalc('(')">(</button>
+<button onclick="pressCalc(')')">)</button>
+
+<button onclick="clearCalc()" class="clear">C</button>
+<button onclick="pressCalc('+')">+</button>
+<button onclick="backCalc()">⌫</button>
+<button onclick="calculate()" class="equal">=</button>
+
+</div>
+
+<br>
+
+<p class="muted">
+You can also type directly, for example:
+<b>100+90</b>, <b>500/5</b>, <b>(20+30)*2</b>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SPREADSHEET -->
+
+<section id="sheet" class="screen">
+
+<div class="panel">
+
+<h2>📊 Spreadsheet</h2>
+
+<div class="toolbar">
+
+<input
+id="formula"
+class="input"
+style="margin:0;max-width:500px"
+placeholder="Formula e.g. =SUM(A1:A4)"
+>
+
+<button class="toolbtn" onclick="applyFormula()">Calculate</button>
+
+<button class="toolbtn" onclick="addRow()">+ Row</button>
+
+<button class="toolbtn" onclick="addColumn()">+ Column</button>
+
+</div>
+
+<div class="table-wrap">
+
+<table id="spreadsheet" class="sheet">
+
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<th>1</th>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<th>2</th>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<th>3</th>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+<tr>
+<th>4</th>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+<td contenteditable="true"></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PDF -->
+
+<section id="pdf" class="screen">
+
+<div class="panel">
+
+<h2>📄 PDF Tools</h2>
+
+<p class="muted">
+Create a PDF from your document.
+</p>
+
+<br>
+
+<button class="toolbtn" onclick="printPDF()">
+🖨 Print / Save as PDF
+</button>
+
+</div>
+
+</section>
+
+
+<!-- SCANNER -->
+
+<section id="scan" class="screen">
+
+<div class="panel">
+
+<h2>📷 Document Scanner</h2>
+
+<p class="muted">
+Use your phone camera to capture a document.
+</p>
+
+<br>
+
+<input
+type="file"
+accept="image/*"
+capture="environment"
+onchange="scanPreview(event)"
+>
+
+<br><br>
+
+<div id="scanPreview"></div>
+
+</div>
+
+</section>
+
+
+<!-- FILES -->
+
+<section id="files" class="screen">
+
+<div class="panel">
+
+<h2>📁 My Files</h2>
+
+<p class="muted">
+Files saved by this browser will appear here.
+</p>
+
+<br>
+
+<div id="fileList"></div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+
 <script>
-const $=id=>document.getElementById(id);
-function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');if(id==='sheet'&&!$('sheet').rows.length)initSheet();window.scrollTo(0,0)}
-function toast(s){$('toast').textContent=s;$('toast').style.display='block';setTimeout(()=>{$('toast').style.display='none'},2200)}
-function toggleDark(){document.body.classList.toggle('dark');localStorage.setItem('asimDark',document.body.classList.contains('dark'))}
-if(localStorage.getItem('asimDark')==='true')document.body.classList.add('dark')
-function cmd(c){$('editor').focus();document.execCommand(c,false,null)}
-function fontSize(v){$('editor').focus();document.execCommand('fontSize',false,v)}
-function saveDoc(){localStorage.setItem('asimDoc',$('editor').innerHTML);saveFileMeta('Document draft','text/html');toast('Draft saved')}
-if(localStorage.getItem('asimDoc'))$('editor').innerHTML=localStorage.getItem('asimDoc')
-function blobDownload(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-async function docxDownload(){if(!window.docx)return toast('DOCX library unavailable');const {Document,Packer,Paragraph}=docx;const text=$('editor').innerText;const d=new Document({sections:[{children:text.split('\\n').map(x=>new Paragraph(x))}]});blobDownload(await Packer.toBlob(d),'AsimTech-Document.docx')}
-function printPDF(){window.print()}
-function initSheet(){let t=$('sheet');for(let r=0;r<12;r++){let tr=t.insertRow();for(let c=0;c<8;c++){let td=tr.insertCell();td.contentEditable='true';if(r===0)td.textContent=String.fromCharCode(65+c)}}}
-function addRow(){let t=$('sheet'),tr=t.insertRow();for(let i=0;i<t.rows[0].cells.length;i++){let td=tr.insertCell();td.contentEditable='true'}}
-function addCol(){[...$('sheet').rows].forEach(tr=>{let td=tr.insertCell();td.contentEditable='true'})}
-function applyFormula(){let f=$('formula').value.trim().toUpperCase(),m=f.match(/^=([A-Z]+)\\(([A-Z]+)(\\d+):([A-Z]+)(\\d+)\\)$/);if(!m)return toast('Use =SUM(B2:B6), etc.');let fn=m[1],c1=m[2].charCodeAt(0)-65,r1=+m[3]-1,c2=m[4].charCodeAt(0)-65,r2=+m[5]-1,vals=[];for(let r=r1;r<=r2;r++){let v=parseFloat($('sheet').rows[r]?.cells[c1]?.innerText);if(!isNaN(v))vals.push(v)}let out=fn==='SUM'?vals.reduce((a,b)=>a+b,0):fn==='AVERAGE'?(vals.reduce((a,b)=>a+b,0)/(vals.length||1)):fn==='MIN'?Math.min(...vals):Math.max(...vals);toast('Result: '+out)}
-function xlsxDownload(){if(!window.XLSX)return toast('XLSX library unavailable');let wb=XLSX.utils.book_new(),ws=XLSX.utils.table_to_sheet($('sheet'));XLSX.utils.book_append_sheet(wb,ws,'Sheet1');XLSX.writeFile(wb,'AsimTech-Spreadsheet.xlsx')}
-function csvDownload(){let rows=[...$('sheet').rows].map(r=>[...r.cells].map(c=>`"${c.innerText.replaceAll('"','""')}"`).join(','));blobDownload(new Blob([rows.join('\\n')],{type:'text/csv'}),'AsimTech-Spreadsheet.csv')}
-async function mergePDF(){let fs=[...$('merge').files];if(!fs.length)return toast('Select PDFs');let out=await PDFLib.PDFDocument.create();for(let f of fs){let s=await PDFLib.PDFDocument.load(await f.arrayBuffer());(await out.copyPages(s,s.getPageIndices())).forEach(p=>out.addPage(p))}blobDownload(new Blob([await out.save()],{type:'application/pdf'}),'AsimTech-Merged.pdf')}
-async function extractPDF(){let f=$('split').files[0],nums=$('pages').value.split(',').map(x=>+x.trim()-1).filter(x=>x>=0);if(!f||!nums.length)return toast('Choose PDF and pages');let s=await PDFLib.PDFDocument.load(await f.arrayBuffer()),o=await PDFLib.PDFDocument.create();(await o.copyPages(s,nums.filter(x=>x<s.getPageCount()))).forEach(p=>o.addPage(p));blobDownload(new Blob([await o.save()],{type:'application/pdf'}),'AsimTech-Extracted.pdf')}
-async function makePDF(files,name){let o=await PDFLib.PDFDocument.create();for(let f of files){let b=new Uint8Array(await f.arrayBuffer()),im=f.type==='image/png'?await o.embedPng(b):await o.embedJpg(b),scale=Math.min(560/im.width,760/im.height,1),p=o.addPage([im.width*scale,im.height*scale]);p.drawImage(im,{x:0,y:0,width:im.width*scale,height:im.height*scale})}blobDownload(new Blob([await o.save()],{type:'application/pdf'}),name)}
-async function imagesPDF(){let fs=[...$('imgs').files];if(fs.length)await makePDF(fs,'AsimTech-Images.pdf');else toast('Select images')}
-async function scanPDF(){let fs=[...$('scanfiles').files];if(!fs.length)return toast('Capture/select images');await makePDF(fs,'AsimTech-Scanned-Document.pdf');$('scanstatus').innerHTML='<div class="status">Scanned PDF created and downloaded.</div>'}
-function saveFileMeta(name,type){let a=JSON.parse(localStorage.getItem('asimFiles')||'[]');a.unshift({name,type,date:new Date().toLocaleString()});localStorage.setItem('asimFiles',JSON.stringify(a));refreshFiles()}
-function refreshFiles(){let a=JSON.parse(localStorage.getItem('asimFiles')||'[]');$('fileList').innerHTML=a.length?a.map((x,i)=>`<div class="files"><div class="row"><div>📄 <b>${x.name}</b><div class="muted">${x.type} • ${x.date}</div></div><button class="toolbtn" onclick="deleteFile(${i})">Delete</button></div></div>`).join(''):'<p class="muted">No saved files yet.</p>'}
-function deleteFile(i){let a=JSON.parse(localStorage.getItem('asimFiles')||'[]');a.splice(i,1);localStorage.setItem('asimFiles',JSON.stringify(a));refreshFiles()}
-let deferredPrompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;$('installBtn').style.display='block'});async function installApp(){if(!deferredPrompt)return toast('Use browser menu → Install App');deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null}
+
+/* ---------------- BASIC NAVIGATION ---------------- */
+
+function show(id){
+
+  document.querySelectorAll('.screen').forEach(function(s){
+    s.classList.remove('active');
+  });
+
+  const target=document.getElementById(id);
+
+  if(target){
+    target.classList.add('active');
+  }
+
+  window.scrollTo(0,0);
+}
+
+
+/* ---------------- TOAST ---------------- */
+
+function toast(message){
+
+  const t=document.getElementById('toast');
+
+  t.textContent=message;
+  t.style.display='block';
+
+  setTimeout(function(){
+    t.style.display='none';
+  },1800);
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+function toggleDark(){
+
+  document.body.classList.toggle('dark');
+
+  localStorage.setItem(
+    'asimDark',
+    document.body.classList.contains('dark')
+  );
+
+}
+
+if(localStorage.getItem('asimDark')==='true'){
+  document.body.classList.add('dark');
+}
+
+
+/* ---------------- DOCUMENT ---------------- */
+
+function cmd(command){
+
+  document.execCommand(command,false,null);
+
+  document.getElementById('editor').focus();
+}
+
+
+function fontSize(value){
+
+  document.getElementById('editor').focus();
+
+  document.execCommand(
+    'fontSize',
+    false,
+    value
+  );
+}
+
+
+function saveDoc(){
+
+  const text=document.getElementById('editor').innerHTML;
+
+  localStorage.setItem('asimDoc',text);
+
+  toast('Document saved');
+}
+
+
+function downloadDoc(){
+
+  const content=document.getElementById('editor').innerHTML;
+
+  const blob=new Blob(
+    [
+      '<!DOCTYPE html><html><body>',
+      content,
+      '</body></html>'
+    ],
+    {type:'text/html'}
+  );
+
+  const url=URL.createObjectURL(blob);
+
+  const a=document.createElement('a');
+
+  a.href=url;
+  a.download='Asim-Tech-Document.html';
+
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  toast('Document downloaded');
+}
+
+
+if(localStorage.getItem('asimDoc')){
+
+  document.getElementById('editor').innerHTML =
+    localStorage.getItem('asimDoc');
+
+}
+
+
+/* ---------------- CALCULATOR ---------------- */
+
+/*
+   SAFE CALCULATOR
+   Supports + - * / % ( )
+*/
+
+function pressCalc(value){
+
+  const input=document.getElementById('calcInput');
+
+  input.value += value;
+
+  input.focus();
+}
+
+
+function clearCalc(){
+
+  document.getElementById('calcInput').value='';
+  document.getElementById('calcResult').textContent='0';
+
+}
+
+
+function backCalc(){
+
+  const input=document.getElementById('calcInput');
+
+  input.value=input.value.slice(0,-1);
+
+  input.focus();
+}
+
+
+function calculate(){
+
+  const input=document.getElementById('calcInput');
+
+  let expression=input.value.trim();
+
+  if(!expression){
+
+    document.getElementById('calcResult').textContent='0';
+
+    return;
+  }
+
+  try{
+
+    /*
+      Only allow numbers and mathematical operators.
+    */
+
+    if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
+
+      throw new Error('Invalid characters');
+
+    }
+
+    /*
+      Convert percentage.
+      Example: 50% = 0.5
+    */
+
+    expression=expression.replace(
+      /(\d+(?:\.\d+)?)%/g,
+      '($1/100)'
+    );
+
+    const result=Function(
+      '"use strict"; return (' + expression + ')'
+    )();
+
+    if(!Number.isFinite(result)){
+
+      throw new Error('Invalid calculation');
+
+    }
+
+    document.getElementById('calcResult').textContent =
+      Number.isInteger(result)
+      ? result
+      : parseFloat(result.toFixed(10));
+
+  }
+
+  catch(error){
+
+    document.getElementById('calcResult').textContent='Error';
+
+  }
+
+}
+
+
+/* ---------------- SPREADSHEET ---------------- */
+
+function columnName(number){
+
+  let name='';
+
+  while(number>0){
+
+    let remainder=(number-1)%26;
+
+    name=String.fromCharCode(65+remainder)+name;
+
+    number=Math.floor((number-1)/26);
+
+  }
+
+  return name;
+}
+
+
+function getCell(row,col){
+
+  const table=document.getElementById('spreadsheet');
+
+  const tr=table.tBodies[0].rows[row-1];
+
+  if(!tr) return null;
+
+  return tr.cells[col];
+
+}
+
+
+function parseCellReference(ref){
+
+  const match=ref.match(/^([A-Z]+)(\d+)$/);
+
+  if(!match) return null;
+
+  let letters=match[1];
+
+  let row=parseInt(match[2],10);
+
+  let col=0;
+
+  for(let i=0;i<letters.length;i++){
+
+    col =
+      col*26 +
+      (letters.charCodeAt(i)-64);
+
+  }
+
+  return {
+    row:row,
+    col:col
+  };
+
+}
+
+
+function cellValue(ref){
+
+  const pos=parseCellReference(ref);
+
+  if(!pos) return 0;
+
+  const cell=getCell(pos.row,pos.col);
+
+  if(!cell) return 0;
+
+  const value=cell.textContent.trim();
+
+  const number=parseFloat(value);
+
+  return Number.isFinite(number) ? number : 0;
+
+}
+
+
+function rangeValues(range){
+
+  const parts=range.split(':');
+
+  if(parts.length!==2) return [];
+
+  const start=parseCellReference(parts[0].trim());
+
+  const end=parseCellReference(parts[1].trim());
+
+  if(!start || !end) return [];
+
+  let values=[];
+
+  for(
+    let r=start.row;
+    r<=end.row;
+    r++
+  ){
+
+    for(
+      let c=start.col;
+      c<=end.col;
+      c++
+    ){
+
+      values.push(
+        cellValue(
+          columnName(c)+r
+        )
+      );
+
+    }
+
+  }
+
+  return values;
+
+}
+
+
+function applyFormula(){
+
+  let formula=document
+    .getElementById('formula')
+    .value
+    .trim()
+    .toUpperCase();
+
+  if(!formula){
+
+    toast('Enter a formula');
+
+    return;
+  }
+
+  try{
+
+    if(!formula.startsWith('=')){
+
+      formula='='+formula;
+
+    }
+
+    let result=0;
+
+    /*
+      SUM
+    */
+
+    let match=formula.match(
+      /^=SUM\(([A-Z]+\d+):([A-Z]+\d+)\)$/
+    );
+
+    if(match){
+
+      result=rangeValues(
+        match[1]+':'+match[2]
+      ).reduce(
+        (a,b)=>a+b,
+        0
+      );
+
+    }
+
+    /*
+      AVERAGE
+    */
+
+    else if(
+      (match=formula.match(
+        /^=AVERAGE\(([A-Z]+\d+):([A-Z]+\d+)\)$/
+      ))
+    ){
+
+      const values=rangeValues(
+        match[1]+':'+match[2]
+      );
+
+      result=
+        values.length
+        ? values.reduce((a,b)=>a+b,0)/values.length
+        : 0;
+
+    }
+
+    /*
+      MAX
+    */
+
+    else if(
+      (match=formula.match(
+        /^=MAX\(([A-Z]+\d+):([A-Z]+\d+)\)$/
+      ))
+    ){
+
+      result=Math.max(
+        ...rangeValues(
+          match[1]+':'+match[2]
+        )
+      );
+
+    }
+
+    /*
+      MIN
+    */
+
+    else if(
+      (match=formula.match(
+        /^=MIN\(([A-Z]+\d+):([A-Z]+\d+)\)$/
+      ))
+    ){
+
+      result=Math.min(
+        ...rangeValues(
+          match[1]+':'+match[2]
+        )
+      );
+
+    }
+
+    /*
+      Direct cell arithmetic
+    */
+
+    else{
+
+      let expression=formula.substring(1);
+
+      expression=expression.replace(
+        /([A-Z]+\d+)/g,
+        function(ref){
+          return cellValue(ref);
+        }
+      );
+
+      if(!/^[0-9+\-*/().%\s]+$/.test(expression)){
+
+        throw new Error('Invalid formula');
+
+      }
+
+      result=Function(
+        '"use strict"; return ('+expression+')'
+      )();
+
+    }
+
+    if(!Number.isFinite(result)){
+
+      throw new Error('Invalid result');
+
+    }
+
+    toast('Result: '+result);
+
+  }
+
+  catch(error){
+
+    toast('Invalid formula');
+
+  }
+
+}
+
+
+/* ---------------- ADD ROW ---------------- */
+
+function addRow(){
+
+  const table=document.getElementById('spreadsheet');
+
+  const tbody=table.tBodies[0];
+
+  const rowNumber=tbody.rows.length+1;
+
+  const tr=tbody.insertRow();
+
+  const th=document.createElement('th');
+
+  th.textContent=rowNumber;
+
+  tr.appendChild(th);
+
+  const columns=
+    table.tHead.rows[0].cells.length-1;
+
+  for(
+    let i=0;
+    i<columns;
+    i++
+  ){
+
+    const td=tr.insertCell();
+
+    td.contentEditable='true';
+
+  }
+
+}
+
+
+/* ---------------- ADD COLUMN ---------------- */
+
+function addColumn(){
+
+  const table=document.getElementById('spreadsheet');
+
+  const header=table.tHead.rows[0];
+
+  const newColumn=
+    header.cells.length;
+
+  const th=document.createElement('th');
+
+  th.textContent=columnName(newColumn);
+
+  header.appendChild(th);
+
+  Array.from(table.tBodies[0].rows)
+    .forEach(function(row){
+
+      const td=row.insertCell();
+
+      td.contentEditable='true';
+
+    });
+
+}
+
+
+/* ---------------- PDF ---------------- */
+
+function printPDF(){
+
+  window.print();
+
+}
+
+
+/* ---------------- SCANNER ---------------- */
+
+function scanPreview(event){
+
+  const file=event.target.files[0];
+
+  if(!file) return;
+
+  const url=URL.createObjectURL(file);
+
+  document.getElementById('scanPreview').innerHTML=
+    '<img src="'+url+'" style="max-width:100%;border-radius:10px;">';
+
+}
+
+
+/* ---------------- FILES ---------------- */
+
+function refreshFiles(){
+
+  const list=
+    document.getElementById('fileList');
+
+  const files=
+    JSON.parse(
+      localStorage.getItem('asimFiles') || '[]'
+    );
+
+  if(!files.length){
+
+    list.innerHTML=
+      '<p class="muted">No saved files yet.</p>';
+
+    return;
+
+  }
+
+  list.innerHTML=files.map(function(file){
+
+    return '<div class="file-item">📄 '+file.name+'</div>';
+
+  }).join('');
+
+}
+
+
+refreshFiles();
+
+
+/* ---------------- FORMULA ENTER KEY ---------------- */
+
+document
+  .getElementById('formula')
+  .addEventListener(
+    'keydown',
+    function(event){
+
+      if(event.key==='Enter'){
+
+        applyFormula();
+
+      }
+
+    }
+  );
+
 </script>
-</body></html>
+
+</body>
+</html>
