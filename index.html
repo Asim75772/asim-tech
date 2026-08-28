@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asim Tech</title>
+<title>ASIM TECH | Apps & Innovation</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#030914;
 color:#fff;
 line-height:1.6;
 }
+
 header{
 height:68px;
 padding:0 7%;
@@ -22,156 +25,229 @@ align-items:center;
 justify-content:space-between;
 position:sticky;
 top:0;
-z-index:100;
+z-index:1000;
 background:#030914;
-border-bottom:1px solid #1b2b40;
+border-bottom:1px solid #17263a;
 }
-.logo{font-size:24px;font-weight:bold}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
 .logo span{color:#1685ff}
-nav{display:flex;gap:25px}
-nav a{color:#d8e1ed;text-decoration:none;font-size:14px}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+color:#dce5ef;
+text-decoration:none;
+font-size:14px;
+}
+
 nav a:hover{color:#1685ff}
+
+
+/* HERO */
 
 .hero{
 min-height:calc(100vh - 68px);
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:70px 8%;
-background:radial-gradient(circle at 80% 50%,#0759a855,transparent 35%);
+padding:60px 8%;
+background:
+radial-gradient(circle at 80% 50%,#0759a855,transparent 35%),
+radial-gradient(circle at 20% 30%,#1685ff18,transparent 30%);
 }
-.hero-text{max-width:620px}
+
+.hero-text{
+max-width:620px;
+}
+
 .welcome{
 color:#1685ff;
 font-weight:bold;
-letter-spacing:2px;
+letter-spacing:3px;
+font-size:17px;
 margin-bottom:12px;
 }
+
 .hero h1{
 font-size:70px;
 line-height:1;
 margin-bottom:18px;
 }
+
 .hero h1 span{color:#1685ff}
+
 .tagline{
 font-size:27px;
-color:#dce5f0;
+color:#dce5ef;
 margin-bottom:20px;
 }
+
 .description{
 font-size:18px;
 color:#aab8ca;
 }
+
 .buttons{
-margin-top:30px;
 display:flex;
 gap:15px;
+margin-top:30px;
 }
+
 .btn{
-padding:13px 24px;
-border-radius:8px;
+display:inline-block;
+padding:13px 25px;
+border-radius:9px;
 text-decoration:none;
 font-weight:bold;
-display:inline-block;
 }
-.primary{background:#1685ff;color:white}
-.secondary{border:1px solid #53657b;color:white}
+
+.primary{
+background:#1685ff;
+color:white;
+}
+
+.secondary{
+border:1px solid #53657b;
+color:white;
+}
+
+.primary:hover{background:#006fe6}
+
+
+/* PHONE */
 
 .phone-area{
 width:38%;
 display:flex;
 justify-content:center;
 }
+
 .phone{
-width:220px;
-height:420px;
+width:215px;
+height:410px;
 padding:10px;
 border:4px solid #65768b;
-border-radius:36px;
+border-radius:35px;
 transform:rotate(4deg);
 box-shadow:0 0 70px #006dff55;
 }
+
 .phone-screen{
 height:100%;
 border-radius:27px;
-padding:28px 18px;
+padding:27px 17px;
 background:linear-gradient(160deg,#082442,#040c18);
 }
+
 .phone-brand{
 color:#1685ff;
 font-weight:bold;
 }
+
 .phone-screen h2{
 margin-top:55px;
 font-size:22px;
 }
-.phone-screen p{color:#a9b7c9;margin-top:8px}
+
+.phone-screen p{
+color:#a9b7c9;
+margin-top:8px;
+}
+
 .phone-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:9px;
 margin-top:25px;
 }
+
 .phone-box{
 background:#0b2947;
 border:1px solid #1c4c76;
 border-radius:10px;
-padding:13px 4px;
+padding:12px 4px;
 text-align:center;
 }
+
+
+/* SECTIONS */
 
 section{
 max-width:1250px;
 margin:auto;
 padding:75px 7%;
 }
+
 .section-label{
 color:#1685ff;
 font-size:13px;
 font-weight:bold;
 letter-spacing:2px;
 }
+
 section h2{
 font-size:36px;
 margin:7px 0 30px;
 }
+
+
+/* APPS */
 
 .apps{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:20px;
 }
+
 .app{
 background:#0b1625;
 border:1px solid #1b2d43;
 border-radius:17px;
-padding:20px;
+padding:18px;
 transition:.25s;
+overflow:hidden;
 }
+
 .app:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 border-color:#1685ff;
 }
+
 .app-icon{
 width:100%;
-height:170px;
+height:190px;
 object-fit:cover;
 border-radius:13px;
 margin-bottom:17px;
-background:#102039;
+background:#07111f;
 }
-.app h3{margin-bottom:8px}
+
+.app h3{
+font-size:19px;
+margin-bottom:8px;
+}
+
 .app p{
 font-size:14px;
 color:#9eacbf;
 min-height:65px;
 }
+
 .version{
 display:block;
 font-size:12px;
 color:#718198;
 margin-top:10px;
 }
+
 .download{
 display:block;
 background:#1685ff;
@@ -184,10 +260,23 @@ font-weight:bold;
 margin-top:17px;
 }
 
-.simple{
+.download:hover{
+background:#006fe6;
+}
+
+
+/* TOOLS */
+
+.tools{
 border-top:1px solid #17263a;
 }
-.simple p{color:#9eacbf}
+
+.tools p{
+color:#9eacbf;
+}
+
+
+/* ABOUT */
 
 .about{
 background:#091523;
@@ -198,6 +287,7 @@ display:flex;
 align-items:center;
 gap:30px;
 }
+
 .avatar{
 width:105px;
 height:105px;
@@ -210,13 +300,25 @@ font-size:45px;
 font-weight:bold;
 flex-shrink:0;
 }
-.about p{color:#aab8ca}
 
-.contact{text-align:center}
+.about p{
+color:#aab8ca;
+}
+
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
 .contact p{
 color:#9eacbf;
 margin-bottom:25px;
 }
+
+
+/* FOOTER */
 
 footer{
 text-align:center;
@@ -224,7 +326,11 @@ padding:35px;
 border-top:1px solid #17263a;
 color:#718096;
 }
+
 footer span{color:#1685ff}
+
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -234,12 +340,15 @@ nav{display:none}
 min-height:auto;
 flex-direction:column;
 text-align:center;
-padding:55px 6% 75px;
+padding:55px 6% 70px;
 }
 
 .hero h1{font-size:52px}
+
 .tagline{font-size:23px}
+
 .description{font-size:16px}
+
 .buttons{
 justify-content:center;
 flex-wrap:wrap;
@@ -247,7 +356,7 @@ flex-wrap:wrap;
 
 .phone-area{
 width:100%;
-margin-top:60px;
+margin-top:55px;
 }
 
 .phone{
@@ -263,30 +372,44 @@ grid-template-columns:repeat(2,1fr);
 flex-direction:column;
 text-align:center;
 }
+
 }
 
 @media(max-width:550px){
 
-header{padding:0 5%}
+header{
+padding:0 5%;
+}
 
-.logo{font-size:21px}
+.logo{
+font-size:21px;
+}
 
 .hero{
 padding:45px 6% 70px;
 }
 
-.hero h1{font-size:43px}
+.hero h1{
+font-size:43px;
+}
 
-.tagline{font-size:21px}
+.tagline{
+font-size:21px;
+}
 
 .buttons{
 flex-direction:column;
 align-items:center;
 }
 
-.btn{width:230px;text-align:center}
+.btn{
+width:230px;
+text-align:center;
+}
 
-.phone-area{margin-top:50px}
+.phone-area{
+margin-top:50px;
+}
 
 .apps{
 grid-template-columns:1fr;
@@ -300,14 +423,22 @@ section{
 padding:60px 6%;
 }
 
-section h2{font-size:32px}
+section h2{
+font-size:32px;
+}
 
-.about{padding:30px 20px}
+.about{
+padding:30px 20px;
+}
+
 }
 </style>
 </head>
 
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
@@ -391,7 +522,9 @@ Building apps for<br>
 </div>
 
 </div>
+
 </div>
+
 </div>
 
 </div>
@@ -407,19 +540,22 @@ MY APPLICATIONS
 
 <h2>My Apps</h2>
 
+
 <div class="apps">
 
 
-<!-- APP 1 -->
+<!-- DEVOTIONAL RADIO -->
 
 <div class="app">
 
 <img
-class="app-icon"
 src="devotional-radio.png"
+class="app-icon"
 alt="Devotional Radio">
 
-<h3>Devotional Radio</h3>
+<h3>
+Devotional Radio
+</h3>
 
 <p>
 Listen to devotional radio and spiritual music.
@@ -430,8 +566,8 @@ Android App
 </span>
 
 <a
-class="download"
 href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
+class="download"
 download>
 ⬇ Download APK
 </a>
@@ -439,16 +575,18 @@ download>
 </div>
 
 
-<!-- APP 2 -->
+<!-- OLD IS GOLD -->
 
 <div class="app">
 
 <img
+src="old_gold_logo.png"
 class="app-icon"
-src="old-is-gold.png"
 alt="80s 90s Old Is Gold">
 
-<h3>80s & 90s Old Is Gold</h3>
+<h3>
+80s & 90s Old Is Gold
+</h3>
 
 <p>
 Enjoy classic songs and timeless memories
@@ -460,8 +598,8 @@ Android App
 </span>
 
 <a
-class="download"
 href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
+class="download"
 download>
 ⬇ Download APK
 </a>
@@ -469,20 +607,21 @@ download>
 </div>
 
 
-<!-- APP 3 -->
+<!-- MADHU MUSIC WORLD -->
 
 <div class="app">
 
 <img
-class="app-icon"
 src="madhu-music-world.png"
+class="app-icon"
 alt="Madhu Music World">
 
-<h3>Madhu Music World</h3>
+<h3>
+Madhu Music World
+</h3>
 
 <p>
-Enjoy music, radio and entertainment
-from Madhu Music World.
+Enjoy 24x7 live radio, music and entertainment.
 </p>
 
 <span class="version">
@@ -490,8 +629,8 @@ Android App
 </span>
 
 <a
-class="download"
 href="Madhu_Music_World_com_madhumusicworld_app_PlayStore.apk"
+class="download"
 download>
 ⬇ Download APK
 </a>
@@ -499,23 +638,18 @@ download>
 </div>
 
 
-<!-- APP 4 -->
+<!-- SANGIT -->
 
 <div class="app">
 
-<div
+<img
+src="sangit.png"
 class="app-icon"
-style="
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:70px;
-background:linear-gradient(135deg,#162d50,#6b35a8);
-">
-🎶
-</div>
+alt="Sangit">
 
-<h3>Sangit</h3>
+<h3>
+Sangit
+</h3>
 
 <p>
 A music application created by Asim
@@ -527,8 +661,8 @@ Android App
 </span>
 
 <a
-class="download"
 href="Sangit.apk"
+class="download"
 download>
 ⬇ Download APK
 </a>
@@ -537,18 +671,21 @@ download>
 
 
 </div>
+
 </section>
 
 
 <!-- TOOLS -->
 
-<section id="tools" class="simple">
+<section id="tools" class="tools">
 
 <div class="section-label">
 MY PROJECTS
 </div>
 
-<h2>My Tools</h2>
+<h2>
+My Tools
+</h2>
 
 <p>
 Useful tools and new projects created by Asim.
@@ -574,7 +711,9 @@ A
 ABOUT ME
 </div>
 
-<h2>Hi, I'm Asim 👋</h2>
+<h2>
+Hi, I'm Asim 👋
+</h2>
 
 <p>
 I create useful Android applications
@@ -599,7 +738,9 @@ for sharing my apps and projects.
 GET IN TOUCH
 </div>
 
-<h2>Contact Asim</h2>
+<h2>
+Contact Asim
+</h2>
 
 <p>
 For suggestions, feedback or app related queries.
@@ -627,6 +768,7 @@ class="btn primary">
 © 2026 Asim Tech. All Rights Reserved.
 
 </footer>
+
 
 </body>
 </html>
