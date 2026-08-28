@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Asim Tech | Apps • Tools • Innovation</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050b16;
+    color:white;
+    line-height:1.6;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,11,22,.95);
+    border-bottom:1px solid #1b2a40;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.logo span{
+    color:#1685ff;
+}
+
+nav a{
+    color:#cbd5e1;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#1685ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:620px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 8%;
+    background:
+    radial-gradient(circle at 80% 50%,#0b55a944,transparent 35%),
+    radial-gradient(circle at 20% 20%,#1685ff22,transparent 30%);
+}
+
+.hero-text{
+    max-width:650px;
+}
+
+.small-title{
+    color:#1685ff;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:75px;
+    line-height:1;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#1685ff;
+}
+
+.hero h2{
+    color:#d7dfeb;
+    font-size:28px;
+    font-weight:normal;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#9eacbf;
+    font-size:18px;
+    max-width:560px;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.primary{
+    background:#1685ff;
+    color:white;
+}
+
+.secondary{
+    border:1px solid #53657d;
+    color:white;
+}
+
+/* PHONE */
+
+.phone{
+    width:240px;
+    height:460px;
+    border:4px solid #66758a;
+    border-radius:35px;
+    padding:10px;
+    transform:rotate(6deg);
+    box-shadow:0 0 70px #006dff55;
+}
+
+.phone-screen{
+    width:100%;
+    height:100%;
+    border-radius:26px;
+    background:linear-gradient(160deg,#071b37,#07101d);
+    padding:30px 20px;
+}
+
+.phone-screen .brand{
+    color:#1685ff;
+    font-weight:bold;
+}
+
+.phone-screen h3{
+    margin-top:70px;
+    font-size:23px;
+}
+
+.phone-screen p{
+    color:#aebbd0;
+    font-size:14px;
+    margin-top:8px;
+}
+
+.mini-boxes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:30px;
+}
+
+.mini-box{
+    background:#10243d;
+    border:1px solid #214466;
+    padding:14px 5px;
+    border-radius:10px;
+    text-align:center;
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 7%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.section-title{
+    color:#1685ff;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+section h2{
+    font-size:36px;
+    margin-bottom:30px;
+}
+
+/* APPS */
+
+.apps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.app{
+    background:#0d1726;
+    border:1px solid #1c2d43;
+    padding:23px;
+    border-radius:16px;
+    transition:.25s;
+}
+
+.app:hover{
+    transform:translateY(-6px);
+    border-color:#1685ff;
+}
+
+.app-icon{
+    width:65px;
+    height:65px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#1685ff,#713cff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.app h3{
+    margin-bottom:8px;
+}
+
+.app p{
+    color:#9eacbf;
+    font-size:14px;
+    min-height:65px;
+}
+
+.download{
+    display:block;
+    margin-top:18px;
+    text-align:center;
+    background:#1685ff;
+    color:white;
+    padding:10px;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ABOUT */
+
+.about{
+    background:#0b1524;
+    border:1px solid #1b2b40;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1685ff,#713cff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.about p{
+    color:#aebbd0;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#9eacbf;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px;
+    border-top:1px solid #17263a;
+    color:#77869b;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding-top:60px;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .hero p{
+        margin:auto;
+    }
+
+    .phone{
+        margin-top:60px;
+        width:210px;
+        height:400px;
+    }
+
+    .apps{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+@media(max-width:550px){
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .apps{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:60px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+▲ ASIM <span>TECH</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#apps">My Apps</a>
+<a href="#tools">Tools</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<div class="hero" id="home">
+
+<div class="hero-text">
+
+<div class="small-title">
+WELCOME TO
+</div>
+
+<h1>
+ASIM <span>TECH</span>
+</h1>
+
+<h2>
+Apps • Tools • Innovation
+</h2>
+
+<p>
+I create simple, useful and powerful apps
+to make everyday tasks easier.
+</p>
+
+<div class="buttons">
+
+<a href="#apps" class="btn primary">
+Explore Apps
+</a>
+
+<a href="#about" class="btn secondary">
+About Asim
+</a>
+
+</div>
+
+</div>
+
+
+<div class="phone">
+
+<div class="phone-screen">
+
+<div class="brand">
+▲ ASIM TECH
+</div>
+
+<h3>
+Hello, Asim 👋
+</h3>
+
+<p>
+Building apps for
+<br>
+<b>a better tomorrow</b>
+</p>
+
+<div class="mini-boxes">
+
+<div class="mini-box">
+📱<br>Apps
+</div>
+
+<div class="mini-box">
+🛠️<br>Tools
+</div>
+
+<div class="mini-box">
+🔄<br>Updates
+</div>
+
+<div class="mini-box">
+👤<br>About
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+<!-- APPS -->
+
+<section id="apps">
+
+<div class="section-title">
+FEATURED
+</div>
+
+<h2>
+My Apps
+</h2>
+
+<div class="apps">
+
+
+<div class="app">
+
+<div class="app-icon">
+📱
+</div>
+
+<h3>
+My First App
+</h3>
+
+<p>
+Your first application description goes here.
+</p>
+
+<small>
+Version 1.0
+</small>
+
+<a href="#" class="download">
+⬇ Download APK
+</a>
+
+</div>
+
+
+<div class="app">
+
+<div class="app-icon">
+⚡
+</div>
+
+<h3>
+My Second App
+</h3>
+
+<p>
+A useful application created by Asim.
+</p>
+
+<small>
+Version 1.0
+</small>
+
+<a href="#" class="download">
+⬇ Download APK
+</a>
+
+</div>
+
+
+<div class="app">
+
+<div class="app-icon">
+🛠️
+</div>
+
+<h3>
+My Third App
+</h3>
+
+<p>
+Simple tools for everyday users.
+</p>
+
+<small>
+Version 1.0
+</small>
+
+<a href="#" class="download">
+⬇ Download APK
+</a>
+
+</div>
+
+
+<div class="app">
+
+<div class="app-icon">
+🚀
+</div>
+
+<h3>
+Coming Soon
+</h3>
+
+<p>
+Your next amazing app will appear here.
+</p>
+
+<small>
+Coming Soon
+</small>
+
+<a href="#contact" class="download">
+More Info
+</a>
+
+</div>
+
+
+</div>
+</section>
+
+
+<!-- TOOLS -->
+
+<section id="tools">
+
+<div class="section-title">
+MY PROJECTS
+</div>
+
+<h2>
+My Tools
+</h2>
+
+<p style="color:#9eacbf;">
+Useful tools and small projects created by Asim.
+</p>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="about">
+
+<div class="avatar">
+A
+</div>
+
+<div>
+
+<div class="section-title">
+ABOUT ME
+</div>
+
+<h2>
+Hi, I'm Asim 👋
+</h2>
+
+<p>
+I build simple, useful and powerful apps.
+This website is my personal space for sharing
+my applications and technology projects.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<div class="section-title">
+GET IN TOUCH
+</div>
+
+<h2>
+Contact Asim
+</h2>
+
+<p>
+Have an idea or want to know more about my apps?
+</p>
+
+<a class="btn primary"
+href="mailto:your-email@example.com">
+📧 Email Me
+</a>
+
+</section>
+
+
+<footer>
+
+<b>▲ ASIM TECH</b>
+
+<br><br>
+
+© 2026 Asim Tech. All Rights Reserved.
+
+</footer>
+
+
+</body>
+</html>
