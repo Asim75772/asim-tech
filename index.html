@@ -235,6 +235,18 @@ section h2{
     background:#102039;
 }
 
+.office-icon{
+    width:100%;
+    height:170px;
+    border-radius:13px;
+    margin-bottom:17px;
+    background:linear-gradient(135deg,#0750b8,#1685ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+}
+
 .app h3{
     margin-bottom:8px;
 }
@@ -262,6 +274,10 @@ section h2{
     text-decoration:none;
     font-weight:bold;
     margin-top:17px;
+}
+
+.download:hover{
+    background:#0874e8;
 }
 
 /* TOOLS */
@@ -329,6 +345,13 @@ footer span{
 
 /* MOBILE */
 
+@media(max-width:1100px){
+
+    .apps{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
 @media(max-width:900px){
 
     nav{
@@ -367,10 +390,6 @@ footer span{
     .phone{
         width:195px;
         height:375px;
-    }
-
-    .apps{
-        grid-template-columns:repeat(2,1fr);
     }
 
     .about{
@@ -419,7 +438,8 @@ footer span{
         grid-template-columns:1fr;
     }
 
-    .app-icon{
+    .app-icon,
+    .office-icon{
         height:230px;
     }
 
@@ -554,6 +574,37 @@ My Apps
 </h2>
 
 <div class="apps">
+
+
+<!-- OFFICE SUITE -->
+
+<div class="app">
+
+<div class="office-icon">
+📄
+</div>
+
+<h3>
+Asim Office Suite V5
+</h3>
+
+<p>
+Create and edit documents, spreadsheets,
+PDF files and other office documents.
+</p>
+
+<span class="version">
+Office • Document • Spreadsheet • PDF
+</span>
+
+<a
+class="download"
+href="office/"
+>
+🚀 Open Office Tool
+</a>
+
+</div>
 
 
 <!-- DEVOTIONAL RADIO -->
