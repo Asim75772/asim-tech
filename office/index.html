@@ -1,70 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#1557c0">
-
-<meta name="description"
-content="Asim Tech Office Suite — Documents, Spreadsheet, PDF Tools and Scanner.">
-
 <title>Asim Office Suite V5</title>
 
 <link rel="manifest" href="manifest.json">
-
-<link rel="icon"
-href="icon-192.png"
-type="image/png">
+<link rel="icon" href="icon-192.png" type="image/png">
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#f4f7fb;
 color:#172033;
-line-height:1.6;
+line-height:1.6
 }
-
-button,
-input,
-select{
-font-family:inherit;
-}
-
-button{
-cursor:pointer;
-}
-
-.app{
-min-height:100vh;
-}
-
-/* HEADER */
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+.app{min-height:100vh}
 
 .top{
 height:64px;
-background:#ffffff;
+background:#fff;
 border-bottom:1px solid #dbe3ef;
 display:flex;
 align-items:center;
 padding:0 18px;
 position:sticky;
 top:0;
-z-index:100;
+z-index:100
 }
 
 .bar{
@@ -72,69 +39,66 @@ width:100%;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:15px;
+gap:15px
 }
 
 .logo{
 font-size:23px;
 font-weight:bold;
-color:#1557c0;
+color:#1557c0
 }
 
 .brand{
 font-size:18px;
-font-weight:bold;
+font-weight:bold
 }
 
 .sub{
 font-size:11px;
-color:#7a8799;
+color:#7a8799
 }
 
-/* INSTALL */
+.header-buttons{
+display:flex;
+align-items:center;
+gap:7px
+}
+
+.toolbtn{
+border:1px solid #cbd5e1;
+background:#f8fafc;
+padding:8px 12px;
+border-radius:7px;
+font-weight:bold
+}
+
+.toolbtn:hover{
+background:#e8f1ff;
+border-color:#1685ff
+}
 
 .install-btn{
 display:none;
 background:#1685ff;
-color:white;
-border:0;
-font-weight:bold;
+color:#fff;
+border:0
 }
 
-.install-btn:hover{
-background:#0874e8;
+.back-btn{
+background:#eef4ff;
+color:#172033
 }
-
-.install-hero{
-display:none;
-margin-top:20px;
-padding:12px 18px;
-border:0;
-border-radius:8px;
-background:white;
-color:#0750b8;
-font-weight:bold;
-font-size:15px;
-}
-
-.install-hero:hover{
-background:#eef6ff;
-}
-
-/* LAYOUT */
 
 .layout{
 display:flex;
-min-height:calc(100vh - 64px);
+min-height:calc(100vh - 64px)
 }
-
-/* SIDE */
 
 .side{
 width:210px;
-background:#ffffff;
+background:#fff;
 border-right:1px solid #dbe3ef;
-padding:18px 12px;
+padding:18px 12px
 }
 
 .side button{
@@ -146,117 +110,95 @@ padding:11px;
 margin-bottom:8px;
 border-radius:8px;
 text-align:left;
-font-size:14px;
+font-size:14px
 }
 
 .side button:hover{
-background:#dceaff;
+background:#dceaff
 }
 
 .content{
 flex:1;
 padding:25px;
-overflow:auto;
+overflow:auto
 }
 
-/* SCREENS */
-
-.screen{
-display:none;
-}
-
-.screen.active{
-display:block;
-}
-
-/* HERO */
+.screen{display:none}
+.screen.active{display:block}
 
 .hero{
 background:linear-gradient(135deg,#0750b8,#1685ff);
-color:white;
+color:#fff;
 border-radius:16px;
 padding:35px;
 margin-bottom:25px;
-box-shadow:0 10px 30px #0750b833;
+box-shadow:0 10px 30px #0750b833
 }
 
 .hero h1{
 font-size:34px;
-margin-bottom:8px;
+margin-bottom:8px
 }
 
-.hero p{
-opacity:.9;
-}
+.hero p{opacity:.9}
 
-/* CARDS */
+.install-hero{
+display:none;
+margin-top:20px;
+padding:12px 18px;
+border:0;
+border-radius:8px;
+background:#fff;
+color:#0750b8;
+font-weight:bold
+}
 
 .cards{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:18px;
+gap:18px
 }
 
 .card{
-background:white;
+background:#fff;
 border:1px solid #dbe3ef;
 border-radius:14px;
 padding:22px;
-box-shadow:0 4px 15px #1d3c6610;
+box-shadow:0 4px 15px #1d3c6610
 }
 
 .card:hover{
-border-color:#1685ff;
+border-color:#1685ff
 }
 
 .icon{
 font-size:32px;
-margin-bottom:8px;
+margin-bottom:8px
 }
 
-.card h3{
-margin-bottom:5px;
-}
-
-.muted{
-color:#718096;
-}
-
-/* PANEL */
+.card h3{margin-bottom:5px}
+.muted{color:#718096}
 
 .panel{
-background:white;
+background:#fff;
 border:1px solid #dbe3ef;
 border-radius:14px;
 padding:18px;
-box-shadow:0 4px 15px #1d3c6610;
+box-shadow:0 4px 15px #1d3c6610
 }
 
 .toolbar{
 display:flex;
 flex-wrap:wrap;
 gap:7px;
-margin-bottom:12px;
-}
-
-.toolbtn{
-border:1px solid #cbd5e1;
-background:#f8fafc;
-padding:8px 12px;
-border-radius:7px;
-font-weight:bold;
-}
-
-.toolbtn:hover{
-background:#e8f1ff;
-border-color:#1685ff;
+margin-bottom:12px
 }
 
 .input{
 border:1px solid #cbd5e1;
 padding:9px 10px;
 border-radius:7px;
-width:100%;
+width:100%
 }
 
 .editor{
@@ -265,111 +207,94 @@ border:1px solid #cbd5e1;
 border-radius:8px;
 padding:18px;
 outline:none;
-background:white;
+background:#fff
 }
 
 .editor:focus{
-border-color:#1685ff;
+border-color:#1685ff
 }
 
-/* SPREADSHEET */
-
-.sheet-wrap{
-overflow:auto;
-}
+.sheet-wrap{overflow:auto}
 
 table{
 border-collapse:collapse;
 width:100%;
 min-width:650px;
-background:white;
+background:#fff
 }
 
-th,
-td{
+th,td{
 border:1px solid #cbd5e1;
 padding:8px;
-min-width:80px;
+min-width:80px
 }
 
-th{
-background:#eef4ff;
-}
+th{background:#eef4ff}
 
 td[contenteditable="true"]{
-outline:none;
+outline:none
 }
 
 td[contenteditable="true"]:focus{
-box-shadow:inset 0 0 0 2px #1685ff;
+box-shadow:inset 0 0 0 2px #1685ff
 }
-
-/* PDF */
 
 .drop{
 border:2px dashed #aebbd0;
 border-radius:12px;
 padding:40px 20px;
 text-align:center;
-background:#f8fafc;
+background:#f8fafc
 }
-
-/* SCANNER */
 
 .scan-actions{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
-margin-top:20px;
+margin-top:20px
 }
 
 .scan-box{
 border:1px solid #dbe3ef;
 border-radius:12px;
 padding:18px;
-background:#f8fafc;
+background:#f8fafc
 }
 
 .scan-button{
 border:1px solid #cbd5e1;
-background:white;
+background:#fff;
 padding:10px 14px;
 border-radius:7px;
 font-weight:bold;
-margin-top:10px;
-}
-
-.scan-button:hover{
-background:#e8f1ff;
-border-color:#1685ff;
+margin-top:10px
 }
 
 .preview-grid{
 display:grid;
-grid-template-columns:
-repeat(auto-fill,minmax(140px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
 gap:12px;
-margin-top:20px;
+margin-top:20px
 }
 
 .preview-item{
-background:white;
+background:#fff;
 border:1px solid #dbe3ef;
 border-radius:10px;
-padding:8px;
+padding:8px
 }
 
 .preview-item img{
 width:100%;
 height:150px;
 object-fit:cover;
-border-radius:7px;
+border-radius:7px
 }
 
 .preview-name{
 font-size:12px;
 margin-top:5px;
-word-break:break-word;
+word-break:break-word
 }
 
 .remove-button{
@@ -377,44 +302,38 @@ width:100%;
 margin-top:7px;
 border:0;
 background:#ef4444;
-color:white;
+color:#fff;
 padding:7px;
-border-radius:6px;
+border-radius:6px
 }
 
-/* FILES */
-
-.file-list{
-margin-top:15px;
-}
+.file-list{margin-top:15px}
 
 .file-item{
 padding:12px;
 border:1px solid #dbe3ef;
 border-radius:8px;
 margin-bottom:8px;
-background:white;
+background:#fff
 }
-
-/* TOAST */
 
 .toast{
 position:fixed;
 bottom:25px;
 right:25px;
 background:#172033;
-color:white;
+color:#fff;
 padding:12px 18px;
 border-radius:8px;
 display:none;
-z-index:500;
+z-index:500
 }
 
 /* DARK */
 
 body.dark{
 background:#07111f;
-color:#e8eef8;
+color:#e8eef8
 }
 
 body.dark .top,
@@ -424,49 +343,49 @@ body.dark .card,
 body.dark .file-item,
 body.dark table{
 background:#0d1b2c;
-color:#e8eef8;
+color:#e8eef8
 }
 
 body.dark .side{
-border-color:#22344b;
+border-color:#22344b
 }
 
 body.dark .panel,
 body.dark .card,
 body.dark .file-item{
-border-color:#22344b;
+border-color:#22344b
 }
 
 body.dark .editor{
 background:#091625;
-color:white;
-border-color:#30445d;
+color:#fff;
+border-color:#30445d
 }
 
 body.dark .toolbtn{
 background:#13253b;
-color:white;
-border-color:#30445d;
+color:#fff;
+border-color:#30445d
 }
 
 body.dark .scan-box,
 body.dark .drop{
 background:#0b1929;
-border-color:#30445d;
+border-color:#30445d
 }
 
 body.dark th{
-background:#132b49;
+background:#132b49
 }
 
 body.dark td{
-border-color:#30445d;
+border-color:#30445d
 }
 
 body.dark .scan-button{
 background:#13253b;
-color:white;
-border-color:#30445d;
+color:#fff;
+border-color:#30445d
 }
 
 /* MOBILE */
@@ -475,32 +394,34 @@ border-color:#30445d;
 
 .side{
 width:145px;
-padding:12px 8px;
+padding:12px 8px
 }
 
 .side button{
 font-size:12px;
-padding:10px 7px;
+padding:10px 7px
 }
 
-.content{
-padding:15px;
-}
+.content{padding:15px}
 
 .cards{
-grid-template-columns:1fr;
+grid-template-columns:1fr
 }
 
 .hero{
-padding:25px;
+padding:25px
 }
 
 .hero h1{
-font-size:27px;
+font-size:27px
 }
 
 .scan-actions{
-grid-template-columns:1fr;
+grid-template-columns:1fr
+}
+
+.brand{
+display:none
 }
 
 }
@@ -508,28 +429,24 @@ grid-template-columns:1fr;
 @media(max-width:500px){
 
 .top{
-padding:0 10px;
+padding:0 8px
 }
 
 .logo{
-font-size:19px;
-}
-
-.brand{
-font-size:15px;
+font-size:18px
 }
 
 .side{
-width:125px;
+width:120px
 }
 
 .content{
-padding:10px;
+padding:10px
 }
 
-.install-btn{
-padding:8px 9px;
-font-size:12px;
+.toolbtn{
+padding:7px 8px;
+font-size:12px
 }
 
 }
@@ -546,55 +463,43 @@ font-size:12px;
 #pdf,
 #scan,
 #files{
-display:none !important;
+display:none!important
 }
 
 .content{
-padding:0;
+padding:0
 }
 
 #doc{
-display:block !important;
+display:block!important
 }
 
 .panel{
 border:0;
-box-shadow:none;
+box-shadow:none
 }
 
 .editor{
-border:0;
+border:0
 }
 
 }
-
 </style>
 
-
-<!-- LIBRARIES -->
-
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 </head>
-
 
 <body>
 
 <div class="app">
 
-
-<!-- HEADER -->
-
 <header class="top">
 
 <div class="bar">
-
 
 <div>
 
@@ -608,17 +513,21 @@ Office • Documents • PDF • Spreadsheet
 
 </div>
 
-
-<div style="
-display:flex;
-align-items:center;
-gap:8px;
-">
+<div class="header-buttons">
 
 <div class="brand">
 Asim Office Suite V5
 </div>
 
+<!-- BACK BUTTON -->
+
+<button
+class="toolbtn back-btn"
+onclick="goBack()">
+
+← Back
+
+</button>
 
 <!-- INSTALL BUTTON -->
 
@@ -631,6 +540,7 @@ onclick="installApp()">
 
 </button>
 
+<!-- DARK MODE -->
 
 <button
 class="toolbtn"
@@ -649,8 +559,6 @@ onclick="toggleDark()">
 
 <div class="layout">
 
-
-<!-- SIDE MENU -->
 
 <aside class="side">
 
@@ -690,7 +598,6 @@ onclick="toggleDark()">
 id="home"
 class="screen active">
 
-
 <div class="hero">
 
 <h1>
@@ -701,9 +608,6 @@ Asim Office Suite V5
 Create documents, spreadsheets and PDF files
 in one simple place.
 </p>
-
-
-<!-- HERO INSTALL -->
 
 <button
 id="heroInstallBtn"
@@ -719,18 +623,13 @@ onclick="installApp()">
 
 <div class="cards">
 
-
 <div
 class="card"
 onclick="show('doc')">
 
-<div class="icon">
-📄
-</div>
+<div class="icon">📄</div>
 
-<h3>
-Document
-</h3>
+<h3>Document</h3>
 
 <p class="muted">
 Create and edit documents.
@@ -743,13 +642,9 @@ Create and edit documents.
 class="card"
 onclick="show('sheet')">
 
-<div class="icon">
-📊
-</div>
+<div class="icon">📊</div>
 
-<h3>
-Spreadsheet
-</h3>
+<h3>Spreadsheet</h3>
 
 <p class="muted">
 Work with rows, columns and formulas.
@@ -762,13 +657,9 @@ Work with rows, columns and formulas.
 class="card"
 onclick="show('pdf')">
 
-<div class="icon">
-📑
-</div>
+<div class="icon">📑</div>
 
-<h3>
-PDF Tools
-</h3>
+<h3>PDF Tools</h3>
 
 <p class="muted">
 Create and manage PDF documents.
@@ -781,13 +672,9 @@ Create and manage PDF documents.
 class="card"
 onclick="show('scan')">
 
-<div class="icon">
-📷
-</div>
+<div class="icon">📷</div>
 
-<h3>
-Scanner
-</h3>
+<h3>Scanner</h3>
 
 <p class="muted">
 Scan documents using camera or gallery.
@@ -800,20 +687,15 @@ Scan documents using camera or gallery.
 class="card"
 onclick="show('files')">
 
-<div class="icon">
-📁
-</div>
+<div class="icon">📁</div>
 
-<h3>
-My Files
-</h3>
+<h3>My Files</h3>
 
 <p class="muted">
 Access your saved files.
 </p>
 
 </div>
-
 
 </div>
 
@@ -832,9 +714,7 @@ class="screen">
 📄 Document Editor
 </h2>
 
-
 <div class="toolbar">
-
 
 <select
 class="toolbtn"
@@ -862,96 +742,65 @@ Huge
 
 </select>
 
-
 <button
 class="toolbtn"
 onclick="cmd('bold')">
-
 <b>B</b>
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="cmd('italic')">
-
 <i>I</i>
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="cmd('underline')">
-
 <u>U</u>
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="cmd('insertUnorderedList')">
-
 ☷ List
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="cmd('justifyLeft')">
-
 ⬅
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="cmd('justifyCenter')">
-
 ↔
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="cmd('justifyRight')">
-
 ➡
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="saveDoc()">
-
 💾 Save
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="downloadDocx()">
-
 📥 DOCX
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="printPDF()">
-
 🖨️ Print / PDF
-
 </button>
-
 
 </div>
 
@@ -988,9 +837,7 @@ class="screen">
 📊 Spreadsheet
 </h2>
 
-
 <div class="toolbar">
-
 
 <input
 id="formula"
@@ -999,149 +846,101 @@ style="max-width:400px"
 placeholder="Formula e.g. =SUM(A1:A4)"
 >
 
-
 <button
 class="toolbtn"
 onclick="applyFormula()">
-
 Calculate
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="addRow()">
-
 + Row
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="addCol()">
-
 + Column
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="xlsxDownload()">
-
 📥 XLSX
-
 </button>
-
 
 <button
 class="toolbtn"
 onclick="csvDownload()">
-
 📥 CSV
-
 </button>
-
 
 </div>
 
-
 <div class="sheet-wrap">
 
-
 <table id="sheetTable">
-
 
 <thead>
 
 <tr>
-
 <th></th>
-
 <th>A</th>
-
 <th>B</th>
-
 <th>C</th>
-
 <th>D</th>
-
 <th>E</th>
-
 </tr>
 
 </thead>
 
-
 <tbody>
 
-
 <tr>
-
 <th>1</th>
-
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
-
 </tr>
 
-
 <tr>
-
 <th>2</th>
-
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
-
 </tr>
 
-
 <tr>
-
 <th>3</th>
-
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
-
 </tr>
 
-
 <tr>
-
 <th>4</th>
-
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
-
 </tr>
-
 
 <tr>
-
 <th>5</th>
-
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
 <td contenteditable="true"></td>
-
 </tr>
-
 
 </tbody>
 
@@ -1166,7 +965,6 @@ class="screen">
 📑 PDF Tools
 </h2>
 
-
 <div class="drop">
 
 <h3>
@@ -1178,7 +976,6 @@ Use Document Editor or Scanner to create PDF files.
 </p>
 
 <br>
-
 
 <button
 class="toolbtn"
@@ -1212,9 +1009,7 @@ Take photos with camera or select existing images
 from Gallery / Files.
 </p>
 
-
 <div class="scan-actions">
-
 
 <div class="scan-box">
 
@@ -1226,7 +1021,6 @@ from Gallery / Files.
 Take a new document photo.
 </p>
 
-
 <button
 type="button"
 class="scan-button"
@@ -1235,7 +1029,6 @@ onclick="openCamera()">
 📷 Open Camera
 
 </button>
-
 
 <input
 type="file"
@@ -1258,7 +1051,6 @@ style="display:none"
 Choose existing document images.
 </p>
 
-
 <button
 type="button"
 class="scan-button"
@@ -1267,7 +1059,6 @@ onclick="openGallery()">
 🖼️ Choose Images
 
 </button>
-
 
 <input
 type="file"
@@ -1278,7 +1069,6 @@ style="display:none"
 >
 
 </div>
-
 
 </div>
 
@@ -1315,13 +1105,12 @@ style="width:100%">
 
 </div>
 
-
 </div>
 
 </section>
 
 
-<!-- MY FILES -->
+<!-- FILES -->
 
 <section
 id="files"
@@ -1336,7 +1125,6 @@ class="screen">
 <p class="muted">
 Files saved in this browser.
 </p>
-
 
 <div
 id="fileList"
@@ -1356,9 +1144,7 @@ class="file-list">
 <div
 id="toast"
 class="toast">
-
 Saved
-
 </div>
 
 
@@ -1386,16 +1172,33 @@ document.getElementById(id);
 
 
 if(target){
-
 target.classList.add("active");
-
 }
-
 
 window.scrollTo({
 top:0,
 behavior:"smooth"
 });
+
+}
+
+
+/* BACK BUTTON */
+
+function goBack(){
+
+if(
+document.referrer &&
+document.referrer !== window.location.href
+){
+
+window.history.back();
+
+}else{
+
+show("home");
+
+}
 
 }
 
@@ -1407,18 +1210,16 @@ function toast(message){
 const t =
 document.getElementById("toast");
 
-
 t.textContent =
 message;
-
 
 t.style.display =
 "block";
 
-
 setTimeout(
-() =>
-t.style.display="none",
+function(){
+t.style.display="none";
+},
 2200
 );
 
@@ -1431,7 +1232,6 @@ function toggleDark(){
 
 document.body.classList.toggle("dark");
 
-
 localStorage.setItem(
 "asimDark",
 document.body.classList.contains("dark")
@@ -1439,10 +1239,8 @@ document.body.classList.contains("dark")
 
 }
 
-
 if(
-localStorage.getItem("asimDark")
-==="true"
+localStorage.getItem("asimDark")==="true"
 ){
 
 document.body.classList.add("dark");
@@ -1460,7 +1258,6 @@ false,
 null
 );
 
-
 document.getElementById(
 "editor"
 ).focus();
@@ -1476,7 +1273,6 @@ false,
 value
 );
 
-
 document.getElementById(
 "editor"
 ).focus();
@@ -1484,7 +1280,7 @@ document.getElementById(
 }
 
 
-/* SAVE */
+/* SAVE DOCUMENT */
 
 function saveDoc(){
 
@@ -1493,12 +1289,10 @@ document.getElementById(
 "editor"
 ).innerHTML;
 
-
 localStorage.setItem(
 "asimDoc",
 html
 );
-
 
 saveFileMeta(
 "Document draft",
@@ -1506,13 +1300,14 @@ saveFileMeta(
 new Date().toLocaleString()
 );
 
-
-toast("Document saved");
+toast(
+"Document saved"
+);
 
 }
 
 
-/* LOAD */
+/* LOAD DOCUMENT */
 
 if(
 localStorage.getItem("asimDoc")
@@ -1542,18 +1337,17 @@ return;
 
 }
 
-
 const text =
 document.getElementById(
 "editor"
 ).innerText ||
 "Asim Office Document";
 
-
 const children =
 text.split("\n").map(
-line =>
-new docx.Paragraph({
+function(line){
+
+return new docx.Paragraph({
 
 children:[
 new docx.TextRun({
@@ -1561,9 +1355,10 @@ text:line
 })
 ]
 
-})
-);
+});
 
+}
+);
 
 const documentObj =
 new docx.Document({
@@ -1576,28 +1371,23 @@ children:children
 
 });
 
-
 const blob =
 await docx.Packer.toBlob(
 documentObj
 );
 
-
 const url =
-URL.createObjectURL(blob);
-
+URL.createObjectURL(
+blob
+);
 
 const a =
 document.createElement("a");
 
-
-a.href =
-url;
-
+a.href=url;
 
 a.download =
 "Asim-Office-Document.docx";
-
 
 document.body.appendChild(a);
 
@@ -1605,13 +1395,12 @@ a.click();
 
 a.remove();
 
-
 setTimeout(
-() =>
-URL.revokeObjectURL(url),
+function(){
+URL.revokeObjectURL(url);
+},
 1000
 );
-
 
 toast(
 "DOCX downloaded"
@@ -1638,17 +1427,15 @@ document
 "#sheetTable tbody td"
 )
 .forEach(
-cell =>
-cell.contentEditable="true"
+function(cell){
+cell.contentEditable="true";
+}
 );
 
 }
 
-
 initSheet();
 
-
-/* ADD ROW */
 
 function addRow(){
 
@@ -1657,35 +1444,28 @@ document.getElementById(
 "sheetTable"
 );
 
-
 const tbody =
 table.querySelector(
 "tbody"
 );
 
-
 const tr =
 tbody.insertRow();
-
 
 const th =
 document.createElement(
 "th"
 );
 
-
 th.textContent =
 tbody.rows.length;
 
-
 tr.appendChild(th);
-
 
 const columnCount =
 table.querySelector(
 "thead tr"
 ).cells.length-1;
-
 
 for(
 let i=0;
@@ -1704,24 +1484,19 @@ td.contentEditable =
 }
 
 
-/* COLUMN LETTER */
-
 function columnLetter(number){
 
 let result="";
-
 
 while(number>0){
 
 let remainder =
 (number-1)%26;
 
-
 result =
 String.fromCharCode(
 65+remainder
 )+result;
-
 
 number =
 Math.floor(
@@ -1730,13 +1505,10 @@ Math.floor(
 
 }
 
-
 return result;
 
 }
 
-
-/* ADD COLUMN */
 
 function addCol(){
 
@@ -1745,36 +1517,30 @@ document.getElementById(
 "sheetTable"
 );
 
-
 const head =
 table.querySelector(
 "thead tr"
 );
 
-
 const newIndex =
 head.cells.length;
-
 
 const th =
 document.createElement(
 "th"
 );
 
-
 th.textContent =
 columnLetter(newIndex);
 
-
 head.appendChild(th);
-
 
 table
 .querySelectorAll(
 "tbody tr"
 )
 .forEach(
-row => {
+function(row){
 
 const td =
 row.insertCell();
@@ -1788,15 +1554,12 @@ td.contentEditable =
 }
 
 
-/* CELL VALUE */
-
 function getCellValue(cell){
 
 const number =
 parseFloat(
 cell.textContent.trim()
 );
-
 
 return isNaN(number)
 ?0
@@ -1816,7 +1579,6 @@ document.getElementById(
 .trim()
 .toUpperCase();
 
-
 if(
 !formula.startsWith("=")
 ){
@@ -1829,12 +1591,10 @@ return;
 
 }
 
-
 const match =
 formula.match(
 /^=(SUM|AVERAGE|MIN|MAX)\(([A-Z]+)(\d+):([A-Z]+)(\d+)\)$/
 );
-
 
 if(!match){
 
@@ -1846,35 +1606,27 @@ return;
 
 }
 
-
 const type =
 match[1];
-
 
 const startCol =
 match[2].charCodeAt(0)-65;
 
-
 const startRow =
 parseInt(match[3])-1;
-
 
 const endCol =
 match[4].charCodeAt(0)-65;
 
-
 const endRow =
 parseInt(match[5])-1;
-
 
 const table =
 document.getElementById(
 "sheetTable"
 );
 
-
 const values=[];
-
 
 for(
 let r=startRow;
@@ -1905,9 +1657,7 @@ table.rows[r+1].cells[c+1]
 
 }
 
-
 let result=0;
-
 
 if(type==="SUM"){
 
@@ -1918,7 +1668,6 @@ values.reduce(
 );
 
 }
-
 
 if(type==="AVERAGE"){
 
@@ -1933,7 +1682,6 @@ values.reduce(
 
 }
 
-
 if(type==="MIN"){
 
 result =
@@ -1944,7 +1692,6 @@ Math.min(...values)
 
 }
 
-
 if(type==="MAX"){
 
 result =
@@ -1954,7 +1701,6 @@ Math.max(...values)
 :0;
 
 }
-
 
 toast(
 "Result: "+result
@@ -1977,7 +1723,6 @@ return;
 
 }
 
-
 const workbook =
 XLSX.utils.table_to_book(
 document.getElementById(
@@ -1985,12 +1730,10 @@ document.getElementById(
 )
 );
 
-
 XLSX.writeFile(
 workbook,
 "Asim-Spreadsheet.xlsx"
 );
-
 
 toast(
 "XLSX downloaded"
@@ -2008,33 +1751,32 @@ document.getElementById(
 "sheetTable"
 );
 
-
 const rows =
 [
 ...table.querySelectorAll("tr")
 ];
 
-
 const csv =
 rows.map(
-row =>
-[...row.cells]
+function(row){
+
+return [...row.cells]
 .map(
-cell => {
+function(cell){
 
 let text =
 cell.innerText
 .replace(/"/g,'""');
 
-
 return '"'+text+'"';
 
 }
 )
-.join(",")
+.join(",");
+
+}
 )
 .join("\n");
-
 
 const blob =
 new Blob(
@@ -2042,26 +1784,18 @@ new Blob(
 {type:"text/csv"}
 );
 
-
 const url =
 URL.createObjectURL(
 blob
 );
 
-
 const a =
-document.createElement(
-"a"
-);
+document.createElement("a");
 
-
-a.href =
-url;
-
+a.href=url;
 
 a.download =
 "Asim-Spreadsheet.csv";
-
 
 document.body.appendChild(a);
 
@@ -2069,13 +1803,12 @@ a.click();
 
 a.remove();
 
-
 setTimeout(
-() =>
-URL.revokeObjectURL(url),
+function(){
+URL.revokeObjectURL(url);
+},
 1000
 );
-
 
 toast(
 "CSV downloaded"
@@ -2088,20 +1821,16 @@ toast(
 
 let scannedImages=[];
 
-
 const cameraInput =
 document.getElementById(
 "scanCamera"
 );
-
 
 const galleryInput =
 document.getElementById(
 "scanFiles"
 );
 
-
-/* CAMERA */
 
 function openCamera(){
 
@@ -2110,16 +1839,12 @@ cameraInput.click();
 }
 
 
-/* GALLERY */
-
 function openGallery(){
 
 galleryInput.click();
 
 }
 
-
-/* CAMERA CHANGE */
 
 cameraInput.addEventListener(
 "change",
@@ -2130,21 +1855,17 @@ Array.from(
 event.target.files || []
 );
 
-
 if(files.length){
 
 addScanFiles(files);
 
 }
 
-
 event.target.value="";
 
 }
 );
 
-
-/* GALLERY CHANGE */
 
 galleryInput.addEventListener(
 "change",
@@ -2155,21 +1876,17 @@ Array.from(
 event.target.files || []
 );
 
-
 if(files.length){
 
 addScanFiles(files);
 
 }
 
-
 event.target.value="";
 
 }
 );
 
-
-/* ADD FILES */
 
 function addScanFiles(files){
 
@@ -2186,10 +1903,8 @@ return;
 
 }
 
-
 const reader =
 new FileReader();
-
 
 reader.onload =
 function(event){
@@ -2202,11 +1917,9 @@ name:file.name
 
 });
 
-
 renderScans();
 
 };
-
 
 reader.readAsDataURL(file);
 
@@ -2216,8 +1929,6 @@ reader.readAsDataURL(file);
 }
 
 
-/* PREVIEW */
-
 function renderScans(){
 
 const preview =
@@ -2225,9 +1936,7 @@ document.getElementById(
 "scanPreview"
 );
 
-
 preview.innerHTML="";
-
 
 scannedImages.forEach(
 function(image,index){
@@ -2237,52 +1946,41 @@ document.createElement(
 "div"
 );
 
-
 item.className =
 "preview-item";
-
 
 const img =
 document.createElement(
 "img"
 );
 
-
 img.src =
 image.src;
 
-
 img.alt =
 "Scanned document";
-
 
 const name =
 document.createElement(
 "div"
 );
 
-
 name.className =
 "preview-name";
 
-
 name.textContent =
 (index+1)+". "+image.name;
-
 
 const remove =
 document.createElement(
 "button"
 );
 
-
 remove.className =
 "remove-button";
 
-
 remove.textContent =
 "Remove";
-
 
 remove.onclick =
 function(){
@@ -2291,13 +1989,11 @@ removeScan(index);
 
 };
 
-
 item.appendChild(img);
 
 item.appendChild(name);
 
 item.appendChild(remove);
-
 
 preview.appendChild(item);
 
@@ -2307,8 +2003,6 @@ preview.appendChild(item);
 }
 
 
-/* REMOVE */
-
 function removeScan(index){
 
 scannedImages.splice(
@@ -2316,9 +2010,7 @@ index,
 1
 );
 
-
 renderScans();
-
 
 toast(
 "Image removed"
@@ -2327,15 +2019,11 @@ toast(
 }
 
 
-/* CLEAR */
-
 function clearScans(){
 
 scannedImages=[];
 
-
 renderScans();
-
 
 toast(
 "Images cleared"
@@ -2344,7 +2032,7 @@ toast(
 }
 
 
-/* CREATE PDF */
+/* SCANNED PDF */
 
 async function scanPDF(){
 
@@ -2360,7 +2048,6 @@ return;
 
 }
 
-
 if(
 !window.jspdf
 ){
@@ -2373,10 +2060,8 @@ return;
 
 }
 
-
 const {jsPDF} =
 window.jspdf;
-
 
 const pdf =
 new jsPDF({
@@ -2388,7 +2073,6 @@ unit:"mm",
 format:"a4"
 
 });
-
 
 for(
 let i=0;
@@ -2404,11 +2088,9 @@ i
 
 }
 
-
 pdf.save(
 "Asim-Scanned-Document.pdf"
 );
-
 
 saveFileMeta(
 "Asim-Scanned-Document.pdf",
@@ -2416,15 +2098,12 @@ saveFileMeta(
 new Date().toLocaleString()
 );
 
-
 toast(
 "PDF created successfully"
 );
 
 }
 
-
-/* ADD IMAGE */
 
 function addImageToPDF(
 pdf,
@@ -2438,37 +2117,26 @@ function(resolve){
 const img =
 new Image();
 
-
 img.onload =
 function(){
 
-const pageWidth =
-210;
+const pageWidth=210;
 
+const pageHeight=297;
 
-const pageHeight =
-297;
-
-
-const margin =
-10;
-
+const margin=10;
 
 const maxWidth =
 pageWidth-(margin*2);
 
-
 const maxHeight =
 pageHeight-(margin*2);
-
 
 let width =
 img.width;
 
-
 let height =
 img.height;
-
 
 const ratio =
 Math.min(
@@ -2476,26 +2144,21 @@ maxWidth/width,
 maxHeight/height
 );
 
-
 width *= ratio;
 
 height *= ratio;
 
-
 const x =
 (pageWidth-width)/2;
 
-
 const y =
 (pageHeight-height)/2;
-
 
 if(index>0){
 
 pdf.addPage();
 
 }
-
 
 const format =
 src.startsWith(
@@ -2506,7 +2169,6 @@ src.startsWith(
 :
 "JPEG";
 
-
 pdf.addImage(
 img,
 format,
@@ -2516,11 +2178,9 @@ width,
 height
 );
 
-
 resolve();
 
 };
-
 
 img.onerror =
 function(){
@@ -2529,14 +2189,11 @@ resolve();
 
 };
 
-
 img.src =
 src;
 
 }
 );
-
-}
 
 
 /* FILE METADATA */
@@ -2554,7 +2211,6 @@ localStorage.getItem(
 )||"[]"
 );
 
-
 files.unshift({
 
 name:name,
@@ -2565,16 +2221,13 @@ date:date
 
 });
 
-
 files =
 files.slice(0,30);
-
 
 localStorage.setItem(
 "asimFiles",
 JSON.stringify(files)
 );
-
 
 refreshFiles();
 
@@ -2590,14 +2243,12 @@ document.getElementById(
 "fileList"
 );
 
-
 const files =
 JSON.parse(
 localStorage.getItem(
 "asimFiles"
 )||"[]"
 );
-
 
 if(!files.length){
 
@@ -2608,9 +2259,7 @@ return;
 
 }
 
-
 list.innerHTML="";
-
 
 files.forEach(
 function(file){
@@ -2620,40 +2269,32 @@ document.createElement(
 "div"
 );
 
-
 div.className =
 "file-item";
-
 
 const title =
 document.createElement(
 "b"
 );
 
-
 title.textContent =
 "📄 "+file.name;
-
 
 const br =
 document.createElement(
 "br"
 );
 
-
 const info =
 document.createElement(
 "span"
 );
 
-
 info.className =
 "muted";
 
-
 info.textContent =
 file.type+" • "+file.date;
-
 
 div.appendChild(title);
 
@@ -2661,14 +2302,12 @@ div.appendChild(br);
 
 div.appendChild(info);
 
-
 list.appendChild(div);
 
 }
 );
 
 }
-
 
 refreshFiles();
 
@@ -2685,21 +2324,19 @@ function setInstallButtons(
 visible
 ){
 
-const topButton =
+const top =
 document.getElementById(
 "installBtn"
 );
 
-
-const heroButton =
+const hero =
 document.getElementById(
 "heroInstallBtn"
 );
 
+if(top){
 
-if(topButton){
-
-topButton.style.display =
+top.style.display =
 visible
 ?
 "block"
@@ -2708,10 +2345,9 @@ visible
 
 }
 
+if(hero){
 
-if(heroButton){
-
-heroButton.style.display =
+hero.style.display =
 visible
 ?
 "inline-block"
@@ -2731,10 +2367,8 @@ function(event){
 
 event.preventDefault();
 
-
 deferredPrompt =
 event;
-
 
 setInstallButtons(true);
 
@@ -2749,27 +2383,22 @@ async function installApp(){
 if(!deferredPrompt){
 
 toast(
-"Install option is not available yet"
+"Install is not available here. Open this site in Chrome."
 );
 
 return;
 
 }
 
-
 deferredPrompt.prompt();
-
 
 const result =
 await deferredPrompt.userChoice;
 
-
 deferredPrompt =
 null;
 
-
 setInstallButtons(false);
-
 
 if(
 result.outcome==="accepted"
@@ -2790,12 +2419,9 @@ window.addEventListener(
 "appinstalled",
 function(){
 
-deferredPrompt =
-null;
-
+deferredPrompt=null;
 
 setInstallButtons(false);
-
 
 toast(
 "Asim Office Suite installed"
@@ -2804,9 +2430,7 @@ toast(
 });
 
 
-/* ================================= */
 /* SERVICE WORKER */
-/* ================================= */
 
 if(
 "serviceWorker" in navigator
