@@ -1,44 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <meta name="theme-color" content="#1557c0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <title>Asim Office Suite V6</title>
 
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png" type="image/png">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 
-html{scroll-behavior:smooth}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#f4f7fb;
 color:#172033;
-line-height:1.6
+line-height:1.6;
 }
 
-button,input,select{font-family:inherit}
-button{cursor:pointer}
+button,input,select{
+font-family:inherit;
+}
 
-.app{min-height:100vh}
+button{
+cursor:pointer;
+}
 
-/* HEADER */
+.app{
+min-height:100vh;
+}
+
+/* ================= HEADER ================= */
 
 .top{
-height:68px;
+min-height:68px;
 background:#fff;
 border-bottom:1px solid #dbe3ef;
 display:flex;
 align-items:center;
-padding:0 15px;
+padding:10px 18px;
 position:sticky;
 top:0;
-z-index:100
+z-index:100;
 }
 
 .bar{
@@ -46,61 +65,68 @@ width:100%;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:10px
+gap:10px;
 }
 
 .logo{
-font-size:22px;
+font-size:23px;
 font-weight:bold;
-color:#1557c0
+color:#1557c0;
 }
 
 .sub{
-font-size:11px;
-color:#7a8799
+font-size:12px;
+color:#7a8799;
 }
 
 .header-buttons{
 display:flex;
 align-items:center;
-gap:6px
+gap:7px;
 }
 
 .brand{
-font-size:17px;
-font-weight:bold
+font-size:18px;
+font-weight:bold;
 }
 
 .toolbtn{
 border:1px solid #cbd5e1;
 background:#f8fafc;
-color:#172033;
-padding:9px 11px;
+padding:9px 12px;
 border-radius:8px;
-font-weight:bold
+font-weight:bold;
+color:#172033;
 }
 
 .toolbtn:hover{
 background:#e8f1ff;
-border-color:#1685ff
+border-color:#1685ff;
 }
 
 .back-btn{
-background:#eef4ff
+background:#eef4ff;
+text-decoration:none;
+display:inline-block;
 }
 
 .install-btn{
 display:none;
 background:#1685ff;
 color:#fff;
-border-color:#1685ff
+border-color:#1685ff;
 }
 
-/* LAYOUT */
+.install-btn:disabled{
+opacity:.8;
+cursor:default;
+}
+
+/* ================= LAYOUT ================= */
 
 .layout{
 display:flex;
-min-height:calc(100vh - 68px)
+min-height:calc(100vh - 68px);
 }
 
 .side{
@@ -108,7 +134,7 @@ width:210px;
 background:#fff;
 border-right:1px solid #dbe3ef;
 padding:18px 12px;
-flex-shrink:0
+flex-shrink:0;
 }
 
 .side button{
@@ -118,184 +144,196 @@ background:#eef4ff;
 color:#172033;
 padding:12px 10px;
 margin-bottom:9px;
-border-radius:9px;
+border-radius:10px;
 text-align:left;
-font-size:14px
+font-size:15px;
 }
 
 .side button:hover{
-background:#dceaff
+background:#dceaff;
 }
 
 .content{
 flex:1;
-padding:22px;
-overflow:auto
+padding:25px;
+overflow:auto;
 }
 
-/* SCREENS */
+.screen{
+display:none;
+}
 
-.screen{display:none}
+.screen.active{
+display:block;
+}
 
-.screen.active{display:block}
-
-/* HOME */
+/* ================= HOME ================= */
 
 .hero{
 background:linear-gradient(135deg,#0750b8,#1685ff);
 color:#fff;
-border-radius:17px;
-padding:35px;
-margin-bottom:22px;
-box-shadow:0 10px 30px #0750b833
+border-radius:18px;
+padding:40px;
+margin-bottom:25px;
+box-shadow:0 10px 30px #0750b833;
 }
 
 .hero h1{
-font-size:35px;
-margin-bottom:8px
+font-size:36px;
+margin-bottom:10px;
 }
 
 .hero p{
-opacity:.94
+font-size:18px;
+opacity:.95;
 }
 
 .install-hero{
 display:none;
-margin-top:18px;
-padding:11px 18px;
+margin-top:20px;
+padding:12px 18px;
 border:0;
-border-radius:8px;
+border-radius:9px;
 background:#fff;
 color:#0750b8;
-font-weight:bold
+font-weight:bold;
 }
 
 .cards{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:17px
+gap:18px;
 }
 
 .card{
 background:#fff;
 border:1px solid #dbe3ef;
-border-radius:14px;
-padding:22px;
+border-radius:16px;
+padding:25px;
 box-shadow:0 4px 15px #1d3c6610;
 cursor:pointer;
-transition:.2s
+transition:.15s;
 }
 
 .card:hover{
 border-color:#1685ff;
-transform:translateY(-2px)
+transform:translateY(-2px);
 }
 
 .icon{
-font-size:32px;
-margin-bottom:8px
+font-size:35px;
+margin-bottom:10px;
 }
 
-.card h3{margin-bottom:5px}
+.card h3{
+font-size:22px;
+margin-bottom:5px;
+}
 
-.muted{color:#718096}
+.muted{
+color:#718096;
+}
 
-/* PANEL */
+/* ================= PANEL ================= */
 
 .panel{
 background:#fff;
 border:1px solid #dbe3ef;
-border-radius:14px;
-padding:18px;
-box-shadow:0 4px 15px #1d3c6610
+border-radius:15px;
+padding:20px;
+box-shadow:0 4px 15px #1d3c6610;
 }
 
-.panel h2{margin-bottom:15px}
+.panel h2{
+margin-bottom:15px;
+}
 
-/* TOOLBAR */
+/* ================= TOOLBAR ================= */
 
 .toolbar{
 display:flex;
 flex-wrap:wrap;
 gap:7px;
-margin-bottom:12px
+margin-bottom:12px;
 }
 
 .input{
 border:1px solid #cbd5e1;
-padding:9px 10px;
+padding:9px;
 border-radius:7px;
-width:100%
+width:100%;
 }
 
-/* DOCUMENT */
+/* ================= DOCUMENT ================= */
 
 .editor{
-min-height:450px;
+min-height:430px;
 border:1px solid #cbd5e1;
-border-radius:8px;
+border-radius:9px;
 padding:20px;
 outline:none;
-background:#fff
+background:#fff;
 }
 
 .editor:focus{
-border-color:#1685ff
+border-color:#1685ff;
 }
 
-/* SHEET */
+/* ================= SHEET ================= */
 
 .sheet-wrap{
-overflow:auto
+overflow:auto;
 }
 
 table{
 border-collapse:collapse;
 width:100%;
 min-width:650px;
-background:#fff
+background:#fff;
 }
 
 th,td{
 border:1px solid #cbd5e1;
-padding:8px;
-min-width:80px
+padding:9px;
+min-width:80px;
 }
 
-th{background:#eef4ff}
+th{
+background:#eef4ff;
+}
 
 td[contenteditable="true"]{
-outline:none
+outline:none;
 }
 
 td[contenteditable="true"]:focus{
-box-shadow:inset 0 0 0 2px #1685ff
+box-shadow:inset 0 0 0 2px #1685ff;
 }
 
-/* PDF */
+/* ================= PDF ================= */
 
 .drop{
 border:2px dashed #aebbd0;
 border-radius:12px;
 padding:45px 20px;
 text-align:center;
-background:#f8fafc
+background:#f8fafc;
 }
 
-/* SCANNER */
+/* ================= SCANNER ================= */
 
 .scan-actions{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
-margin-top:20px
+margin-top:20px;
 }
 
 .scan-box{
 border:1px solid #dbe3ef;
 border-radius:12px;
 padding:20px;
-background:#f8fafc
+background:#f8fafc;
 }
 
 .scan-button{
@@ -304,34 +342,34 @@ background:#fff;
 padding:11px 15px;
 border-radius:8px;
 font-weight:bold;
-margin-top:10px
+margin-top:10px;
 }
 
 .preview-grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(145px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
 gap:12px;
-margin-top:20px
+margin-top:20px;
 }
 
 .preview-item{
 background:#fff;
 border:1px solid #dbe3ef;
 border-radius:10px;
-padding:8px
+padding:8px;
 }
 
 .preview-item img{
 width:100%;
 height:160px;
 object-fit:cover;
-border-radius:7px
+border-radius:7px;
 }
 
 .preview-name{
 font-size:12px;
 margin-top:6px;
-word-break:break-word
+word-break:break-word;
 }
 
 .remove-button{
@@ -341,22 +379,24 @@ border:0;
 background:#ef4444;
 color:#fff;
 padding:8px;
-border-radius:6px
+border-radius:6px;
 }
 
-/* FILES */
+/* ================= FILES ================= */
 
-.file-list{margin-top:15px}
+.file-list{
+margin-top:15px;
+}
 
 .file-item{
 padding:13px;
 border:1px solid #dbe3ef;
 border-radius:9px;
 margin-bottom:8px;
-background:#fff
+background:#fff;
 }
 
-/* TOAST */
+/* ================= TOAST ================= */
 
 .toast{
 position:fixed;
@@ -368,14 +408,14 @@ color:#fff;
 padding:12px 20px;
 border-radius:9px;
 display:none;
-z-index:500
+z-index:500;
 }
 
-/* DARK */
+/* ================= DARK ================= */
 
 body.dark{
 background:#07111f;
-color:#e8eef8
+color:#e8eef8;
 }
 
 body.dark .top,
@@ -385,93 +425,106 @@ body.dark .card,
 body.dark .file-item,
 body.dark table{
 background:#0d1b2c;
-color:#e8eef8
+color:#e8eef8;
 }
 
 body.dark .side{
-border-color:#22344b
+border-color:#22344b;
 }
 
 body.dark .panel,
 body.dark .card,
 body.dark .file-item{
-border-color:#22344b
+border-color:#22344b;
 }
 
 body.dark .editor{
 background:#091625;
 color:#fff;
-border-color:#30445d
+border-color:#30445d;
 }
 
 body.dark .toolbtn{
 background:#13253b;
 color:#fff;
-border-color:#30445d
+border-color:#30445d;
+}
+
+body.dark .back-btn{
+background:#13253b;
+color:#fff;
 }
 
 body.dark .scan-box,
 body.dark .drop{
 background:#0b1929;
-border-color:#30445d
+border-color:#30445d;
 }
 
 body.dark .scan-button{
 background:#13253b;
 color:#fff;
-border-color:#30445d
+border-color:#30445d;
 }
 
 body.dark th{
-background:#132b49
+background:#132b49;
 }
 
 body.dark td{
-border-color:#30445d
+border-color:#30445d;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:800px){
 
 .top{
 height:auto;
 min-height:68px;
-padding:9px
+padding:10px;
 }
 
-.brand{display:none}
+.brand{
+display:none;
+}
 
-.logo{font-size:18px}
+.logo{
+font-size:19px;
+}
 
 .side{
-width:140px;
-padding:12px 7px
+width:145px;
+padding:12px 8px;
 }
 
 .side button{
-font-size:12px;
-padding:10px 7px
+font-size:13px;
+padding:11px 7px;
 }
 
 .content{
-padding:13px
+padding:15px;
 }
 
 .cards{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 .hero{
-padding:27px
+padding:28px;
 }
 
 .hero h1{
-font-size:28px
+font-size:29px;
+}
+
+.hero p{
+font-size:16px;
 }
 
 .scan-actions{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 }
@@ -479,37 +532,41 @@ grid-template-columns:1fr
 @media(max-width:500px){
 
 .side{
-width:118px
+width:120px;
 }
 
 .content{
-padding:9px
+padding:10px;
 }
 
 .logo{
-font-size:16px
+font-size:17px;
 }
 
 .sub{
-font-size:9px
+font-size:10px;
 }
 
 .toolbtn{
-font-size:11px;
-padding:7px 8px
+padding:8px 9px;
+font-size:12px;
 }
 
 .hero{
-padding:22px
+padding:24px;
 }
 
 .hero h1{
-font-size:25px
+font-size:26px;
+}
+
+.header-buttons{
+gap:4px;
 }
 
 }
 
-/* PRINT */
+/* ================= PRINT ================= */
 
 @media print{
 
@@ -521,42 +578,48 @@ font-size:25px
 #pdf,
 #scan,
 #files{
-display:none!important
+display:none!important;
 }
 
 .content{
-padding:0
+padding:0;
 }
 
 #doc{
-display:block!important
+display:block!important;
 }
 
 .panel{
 border:0;
-box-shadow:none
+box-shadow:none;
 }
 
 .editor{
-border:0
+border:0;
 }
 
 }
+
 </style>
 
-<!-- LIBRARIES -->
+
+<!-- ================= LIBRARIES ================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 </head>
+
 
 <body>
 
 <div class="app">
 
-<!-- HEADER -->
+
+<!-- ================= HEADER ================= -->
 
 <header class="top">
 
@@ -574,30 +637,39 @@ Office • Documents • PDF • Spreadsheet
 
 </div>
 
+
 <div class="header-buttons">
 
 <div class="brand">
 Asim Office Suite V6
 </div>
 
+
 <a
 href="../"
-class="toolbtn back-btn"
-style="text-decoration:none">
-← Back
+class="toolbtn back-btn">
+
+← Back to Asim Tech
+
 </a>
+
 
 <button
 id="installBtn"
 class="toolbtn install-btn"
 onclick="installApp()">
+
 📲 Install
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="toggleDark()">
+
 🌙
+
 </button>
 
 </div>
@@ -607,9 +679,12 @@ onclick="toggleDark()">
 </header>
 
 
+<!-- ================= LAYOUT ================= -->
+
 <div class="layout">
 
-<!-- SIDE MENU -->
+
+<!-- ================= SIDE MENU ================= -->
 
 <aside class="side">
 
@@ -643,7 +718,7 @@ onclick="toggleDark()">
 <main class="content">
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <section id="home" class="screen active">
 
@@ -654,9 +729,10 @@ Asim Office Suite V6
 </h1>
 
 <p>
-Documents, Spreadsheet, PDF and Scanner
-in one simple office tool.
+Create documents, spreadsheets and PDF files
+in one simple place.
 </p>
+
 
 <button
 id="heroInstallBtn"
@@ -672,76 +748,108 @@ onclick="installApp()">
 
 <div class="cards">
 
-<div class="card" onclick="show('doc')">
 
-<div class="icon">📄</div>
+<div
+class="card"
+onclick="show('doc')">
 
-<h3>Document</h3>
+<div class="icon">
+📄
+</div>
+
+<h3>
+Document
+</h3>
 
 <p class="muted">
-Write, edit and save documents.
+Create and edit documents.
 </p>
 
 </div>
 
 
-<div class="card" onclick="show('sheet')">
+<div
+class="card"
+onclick="show('sheet')">
 
-<div class="icon">📊</div>
+<div class="icon">
+📊
+</div>
 
-<h3>Spreadsheet</h3>
+<h3>
+Spreadsheet
+</h3>
 
 <p class="muted">
-Rows, columns and basic formulas.
+Work with rows, columns and formulas.
 </p>
 
 </div>
 
 
-<div class="card" onclick="show('pdf')">
+<div
+class="card"
+onclick="show('pdf')">
 
-<div class="icon">📑</div>
+<div class="icon">
+📑
+</div>
 
-<h3>PDF Tools</h3>
+<h3>
+PDF Tools
+</h3>
 
 <p class="muted">
-Print and save your document as PDF.
+Create and manage PDF documents.
 </p>
 
 </div>
 
 
-<div class="card" onclick="show('scan')">
+<div
+class="card"
+onclick="show('scan')">
 
-<div class="icon">📷</div>
+<div class="icon">
+📷
+</div>
 
-<h3>Scanner</h3>
+<h3>
+Scanner
+</h3>
 
 <p class="muted">
-Camera or gallery to PDF.
+Scan documents using camera or gallery.
 </p>
 
 </div>
 
 
-<div class="card" onclick="show('files')">
+<div
+class="card"
+onclick="show('files')">
 
-<div class="icon">📁</div>
+<div class="icon">
+📁
+</div>
 
-<h3>My Files</h3>
+<h3>
+My Files
+</h3>
 
 <p class="muted">
-View saved file information.
+Access your saved files.
 </p>
 
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- DOCUMENT -->
+<!-- ================= DOCUMENT ================= -->
 
 <section id="doc" class="screen">
 
@@ -751,7 +859,9 @@ View saved file information.
 📄 Document Editor
 </h2>
 
+
 <div class="toolbar">
+
 
 <select
 class="toolbtn"
@@ -780,59 +890,95 @@ Huge
 </select>
 
 
-<button class="toolbtn" onclick="cmd('bold')">
+<button
+class="toolbtn"
+onclick="cmd('bold')">
+
 <b>B</b>
+
 </button>
 
-<button class="toolbtn" onclick="cmd('italic')">
+
+<button
+class="toolbtn"
+onclick="cmd('italic')">
+
 <i>I</i>
+
 </button>
 
-<button class="toolbtn" onclick="cmd('underline')">
+
+<button
+class="toolbtn"
+onclick="cmd('underline')">
+
 <u>U</u>
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="cmd('insertUnorderedList')">
+
 ☷ List
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="cmd('justifyLeft')">
+
 ⬅
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="cmd('justifyCenter')">
+
 ↔
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="cmd('justifyRight')">
+
 ➡
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="saveDoc()">
+
 💾 Save
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="downloadDocx()">
+
 📥 DOCX
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="printPDF()">
+
 🖨️ PDF
+
 </button>
+
 
 </div>
 
@@ -857,7 +1003,7 @@ Start typing your document here...
 </section>
 
 
-<!-- SPREADSHEET -->
+<!-- ================= SPREADSHEET ================= -->
 
 <section id="sheet" class="screen">
 
@@ -867,43 +1013,59 @@ Start typing your document here...
 📊 Spreadsheet
 </h2>
 
+
 <div class="toolbar">
 
 <input
 id="formula"
 class="input"
 style="max-width:400px"
-placeholder="Example: =SUM(A1:A5)"
+placeholder="Formula e.g. =SUM(A1:A4)"
 >
+
 
 <button
 class="toolbtn"
 onclick="applyFormula()">
+
 Calculate
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="addRow()">
+
 + Row
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="addCol()">
+
 + Column
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="xlsxDownload()">
+
 📥 XLSX
+
 </button>
+
 
 <button
 class="toolbtn"
 onclick="csvDownload()">
+
 📥 CSV
+
 </button>
 
 </div>
@@ -916,15 +1078,18 @@ onclick="csvDownload()">
 <thead>
 
 <tr>
+
 <th></th>
 <th>A</th>
 <th>B</th>
 <th>C</th>
 <th>D</th>
 <th>E</th>
+
 </tr>
 
 </thead>
+
 
 <tbody>
 
@@ -984,7 +1149,7 @@ onclick="csvDownload()">
 </section>
 
 
-<!-- PDF -->
+<!-- ================= PDF ================= -->
 
 <section id="pdf" class="screen">
 
@@ -994,6 +1159,7 @@ onclick="csvDownload()">
 📑 PDF Tools
 </h2>
 
+
 <div class="drop">
 
 <h3>
@@ -1001,21 +1167,12 @@ Create PDF
 </h3>
 
 <p class="muted">
-Write your document in Document Editor,
-then use Print / Save as PDF.
+Create a PDF from your document.
 </p>
+
 
 <br>
 
-<button
-class="toolbtn"
-onclick="openDocumentForPDF()">
-
-📄 Open Document Editor
-
-</button>
-
-<br><br>
 
 <button
 class="toolbtn"
@@ -1032,7 +1189,7 @@ onclick="printPDF()">
 </section>
 
 
-<!-- SCANNER -->
+<!-- ================= SCANNER ================= -->
 
 <section id="scan" class="screen">
 
@@ -1042,13 +1199,17 @@ onclick="printPDF()">
 📷 Document Scanner
 </h2>
 
+
 <p class="muted">
-Take document photos or select images from Gallery.
+Take photos with camera or select images
+from Gallery / Files.
 </p>
 
 
 <div class="scan-actions">
 
+
+<!-- CAMERA -->
 
 <div class="scan-box">
 
@@ -1056,9 +1217,11 @@ Take document photos or select images from Gallery.
 📷 Camera
 </h3>
 
+
 <p class="muted">
 Take a new document photo.
 </p>
+
 
 <button
 type="button"
@@ -1069,16 +1232,19 @@ onclick="openCamera()">
 
 </button>
 
+
 <input
 type="file"
 id="scanCamera"
 accept="image/*"
 capture="environment"
-style="display:none"
+style="display:none;"
 >
 
 </div>
 
+
+<!-- GALLERY -->
 
 <div class="scan-box">
 
@@ -1086,9 +1252,11 @@ style="display:none"
 🖼️ Gallery / Files
 </h3>
 
+
 <p class="muted">
-Select one or more images.
+Choose existing document images.
 </p>
+
 
 <button
 type="button"
@@ -1099,12 +1267,13 @@ onclick="openGallery()">
 
 </button>
 
+
 <input
 type="file"
 id="scanFiles"
 accept="image/*"
 multiple
-style="display:none"
+style="display:none;"
 >
 
 </div>
@@ -1112,11 +1281,15 @@ style="display:none"
 </div>
 
 
+<!-- PREVIEW -->
+
 <div
 id="scanPreview"
 class="preview-grid">
 </div>
 
+
+<!-- CREATE PDF -->
 
 <div style="margin-top:20px">
 
@@ -1131,12 +1304,14 @@ onclick="scanPDF()">
 </div>
 
 
+<!-- CLEAR -->
+
 <div style="margin-top:10px">
 
 <button
 class="toolbtn"
 onclick="clearScans()"
-style="width:100%">
+style="width:100%;">
 
 🗑️ Clear All Images
 
@@ -1149,7 +1324,7 @@ style="width:100%">
 </section>
 
 
-<!-- FILES -->
+<!-- ================= FILES ================= -->
 
 <section id="files" class="screen">
 
@@ -1159,9 +1334,11 @@ style="width:100%">
 📁 My Files
 </h2>
 
+
 <p class="muted">
-Saved file information stored in this browser.
+Files saved in this browser.
 </p>
+
 
 <div
 id="fileList"
@@ -1183,33 +1360,41 @@ class="file-list">
 <div
 id="toast"
 class="toast">
-Ready
+
+Saved
+
 </div>
+
 
 </div>
 
 
 <script>
 
-/* =========================
+/* ==================================================
 NAVIGATION
-========================= */
+================================================== */
 
 const screens =
 document.querySelectorAll(".screen");
 
+
 function show(id){
 
 screens.forEach(function(screen){
+
 screen.classList.remove("active");
+
 });
+
 
 const target =
 document.getElementById(id);
 
+
 if(target){
+
 target.classList.add("active");
-}
 
 window.scrollTo({
 top:0,
@@ -1218,48 +1403,49 @@ behavior:"smooth"
 
 }
 
-function openDocumentForPDF(){
-
-show("doc");
-
-toast("Document Editor opened");
-
 }
 
 
-/* =========================
+/* ==================================================
 TOAST
-========================= */
-
-let toastTimer=null;
+================================================== */
 
 function toast(message){
 
-const box =
+const t =
 document.getElementById("toast");
 
-box.textContent=message;
 
-box.style.display="block";
+t.textContent =
+message;
 
-clearTimeout(toastTimer);
 
-toastTimer=setTimeout(function(){
+t.style.display =
+"block";
 
-box.style.display="none";
+
+clearTimeout(window.toastTimer);
+
+
+window.toastTimer =
+setTimeout(function(){
+
+t.style.display =
+"none";
 
 },2200);
 
 }
 
 
-/* =========================
+/* ==================================================
 DARK MODE
-========================= */
+================================================== */
 
 function toggleDark(){
 
 document.body.classList.toggle("dark");
+
 
 localStorage.setItem(
 "asimDark",
@@ -1267,6 +1453,7 @@ document.body.classList.contains("dark")
 );
 
 }
+
 
 if(
 localStorage.getItem("asimDark")==="true"
@@ -1277,21 +1464,11 @@ document.body.classList.add("dark");
 }
 
 
-/* =========================
-DOCUMENT
-========================= */
-
-function focusEditor(){
-
-document.getElementById("editor").focus();
-
-}
+/* ==================================================
+DOCUMENT EDITOR
+================================================== */
 
 function cmd(command){
-
-focusEditor();
-
-try{
 
 document.execCommand(
 command,
@@ -1299,19 +1476,15 @@ false,
 null
 );
 
-}catch(error){
 
-console.log(error);
-
-}
-
-focusEditor();
+document.getElementById(
+"editor"
+).focus();
 
 }
+
 
 function fontSize(value){
-
-focusEditor();
 
 document.execCommand(
 "fontSize",
@@ -1319,7 +1492,10 @@ false,
 value
 );
 
-focusEditor();
+
+document.getElementById(
+"editor"
+).focus();
 
 }
 
@@ -1328,13 +1504,19 @@ focusEditor();
 
 function saveDoc(){
 
+const editor =
+document.getElementById("editor");
+
+
 const html =
-document.getElementById("editor").innerHTML;
+editor.innerHTML;
+
 
 localStorage.setItem(
 "asimDoc",
 html
 );
+
 
 saveFileMeta(
 "Document draft",
@@ -1342,7 +1524,10 @@ saveFileMeta(
 new Date().toLocaleString()
 );
 
-toast("Document saved");
+
+toast(
+"Document saved"
+);
 
 }
 
@@ -1352,93 +1537,149 @@ toast("Document saved");
 const savedDoc =
 localStorage.getItem("asimDoc");
 
+
 if(savedDoc){
 
-document.getElementById("editor").innerHTML =
+document.getElementById(
+"editor"
+).innerHTML =
 savedDoc;
 
 }
 
 
-/* =========================
-DOCX
-========================= */
+/* ==================================================
+DOCX DOWNLOAD
+================================================== */
 
 async function downloadDocx(){
 
 if(!window.docx){
 
-toast("DOCX library unavailable");
+toast(
+"DOCX library unavailable"
+);
 
 return;
 
 }
 
+
 try{
 
 const editor =
-document.getElementById("editor");
+document.getElementById(
+"editor"
+);
+
 
 const text =
 editor.innerText ||
 "Asim Office Document";
 
+
 const children =
-text.split("\n").map(function(line){
+text
+.split("\n")
+.map(function(line){
 
 return new docx.Paragraph({
 
 children:[
+
 new docx.TextRun({
-text:line || " "
+
+text:line
+
 })
+
 ]
 
 });
 
 });
 
-const doc =
+
+const documentObject =
 new docx.Document({
 
 sections:[
+
 {
+
 children:children
+
 }
+
 ]
 
 });
 
+
 const blob =
-await docx.Packer.toBlob(doc);
-
-downloadBlob(
-blob,
-"Asim-Office-Document.docx"
+await docx.Packer.toBlob(
+documentObject
 );
 
-saveFileMeta(
-"Asim-Office-Document.docx",
-"DOCX",
-new Date().toLocaleString()
+
+const url =
+URL.createObjectURL(
+blob
 );
 
-toast("DOCX downloaded");
 
-}catch(error){
+const a =
+document.createElement("a");
+
+
+a.href =
+url;
+
+
+a.download =
+"Asim-Office-Document.docx";
+
+
+document.body.appendChild(a);
+
+
+a.click();
+
+
+a.remove();
+
+
+setTimeout(function(){
+
+URL.revokeObjectURL(url);
+
+},1000);
+
+
+toast(
+"DOCX downloaded"
+);
+
+
+}
+
+catch(error){
 
 console.error(error);
 
-toast("DOCX creation failed");
+
+toast(
+"DOCX creation failed"
+);
 
 }
 
 }
 
 
-/* =========================
-PRINT / PDF
-========================= */
+/* ==================================================
+PDF PRINT
+================================================== */
 
 function printPDF(){
 
@@ -1447,33 +1688,49 @@ window.print();
 }
 
 
-/* =========================
+/* ==================================================
 SPREADSHEET
-========================= */
+================================================== */
+
+
+/* ADD ROW */
 
 function addRow(){
 
 const table =
-document.getElementById("sheetTable");
+document.getElementById(
+"sheetTable"
+);
+
 
 const tbody =
-table.querySelector("tbody");
+table.querySelector(
+"tbody"
+);
+
 
 const tr =
 tbody.insertRow();
 
+
 const th =
-document.createElement("th");
+document.createElement(
+"th"
+);
+
 
 th.textContent =
 tbody.rows.length;
 
+
 tr.appendChild(th);
+
 
 const count =
 table.querySelector(
 "thead tr"
-).cells.length-1;
+).cells.length - 1;
+
 
 for(
 let i=0;
@@ -1484,11 +1741,11 @@ i++
 const td =
 tr.insertCell();
 
-td.contentEditable="true";
+
+td.contentEditable =
+"true";
 
 }
-
-toast("Row added");
 
 }
 
@@ -1497,24 +1754,28 @@ toast("Row added");
 
 function columnLetter(number){
 
-let result="";
+let result = "";
 
-while(number>0){
+
+while(number > 0){
 
 const remainder =
-(number-1)%26;
+(number - 1) % 26;
+
 
 result =
 String.fromCharCode(
-65+remainder
-)+result;
+65 + remainder
+) + result;
+
 
 number =
 Math.floor(
-(number-1)/26
+(number - 1) / 26
 );
 
 }
+
 
 return result;
 
@@ -1526,34 +1787,48 @@ return result;
 function addCol(){
 
 const table =
-document.getElementById("sheetTable");
+document.getElementById(
+"sheetTable"
+);
+
 
 const head =
-table.querySelector("thead tr");
+table.querySelector(
+"thead tr"
+);
+
 
 const newIndex =
 head.cells.length;
 
+
 const th =
-document.createElement("th");
+document.createElement(
+"th"
+);
+
 
 th.textContent =
 columnLetter(newIndex);
 
+
 head.appendChild(th);
 
+
 table
-.querySelectorAll("tbody tr")
+.querySelectorAll(
+"tbody tr"
+)
 .forEach(function(row){
 
 const td =
 row.insertCell();
 
-td.contentEditable="true";
+
+td.contentEditable =
+"true";
 
 });
-
-toast("Column added");
 
 }
 
@@ -1562,15 +1837,15 @@ toast("Column added");
 
 function getCellValue(cell){
 
-const value =
-cell.textContent.trim();
-
 const number =
-parseFloat(value);
+parseFloat(
+cell.textContent.trim()
+);
+
 
 return isNaN(number)
-?0
-:number;
+? 0
+: number;
 
 }
 
@@ -1580,53 +1855,71 @@ return isNaN(number)
 function applyFormula(){
 
 const formula =
-document.getElementById("formula")
-.value
+document.getElementById(
+"formula"
+).value
 .trim()
 .toUpperCase();
 
-if(!formula.startsWith("=")){
 
-toast("Formula must begin with =");
+if(
+!formula.startsWith("=")
+){
+
+toast(
+"Enter a formula beginning with ="
+);
 
 return;
 
 }
+
 
 const match =
 formula.match(
 /^=(SUM|AVERAGE|MIN|MAX)\(([A-Z]+)(\d+):([A-Z]+)(\d+)\)$/
 );
 
+
 if(!match){
 
 toast(
-"Use SUM, AVERAGE, MIN or MAX"
+"Supported: SUM, AVERAGE, MIN, MAX"
 );
 
 return;
 
 }
 
+
 const type =
 match[1];
 
+
 const startCol =
-match[2].charCodeAt(0)-65;
+match[2].charCodeAt(0) - 65;
+
 
 const startRow =
-parseInt(match[3])-1;
+parseInt(match[3]) - 1;
+
 
 const endCol =
-match[4].charCodeAt(0)-65;
+match[4].charCodeAt(0) - 65;
+
 
 const endRow =
-parseInt(match[5])-1;
+parseInt(match[5]) - 1;
+
 
 const table =
-document.getElementById("sheetTable");
+document.getElementById(
+"sheetTable"
+);
 
-const values=[];
+
+const values = [];
+
 
 for(
 let r=startRow;
@@ -1640,14 +1933,18 @@ c<=endCol;
 c++
 ){
 
+const row =
+table.rows[r + 1];
+
+
 if(
-table.rows[r+1] &&
-table.rows[r+1].cells[c+1]
+row &&
+row.cells[c + 1]
 ){
 
 values.push(
 getCellValue(
-table.rows[r+1].cells[c+1]
+row.cells[c + 1]
 )
 );
 
@@ -1657,127 +1954,147 @@ table.rows[r+1].cells[c+1]
 
 }
 
-if(!values.length){
 
-toast("No cells found");
+let result = 0;
 
-return;
 
-}
-
-let result=0;
-
-if(type==="SUM"){
+if(type === "SUM"){
 
 result =
 values.reduce(
-(a,b)=>a+b,
+(a,b) => a+b,
 0
 );
 
 }
 
-if(type==="AVERAGE"){
+
+if(type === "AVERAGE"){
 
 result =
+values.length
+?
 values.reduce(
-(a,b)=>a+b,
+(a,b) => a+b,
 0
-)/values.length;
+) / values.length
+: 0;
 
 }
 
-if(type==="MIN"){
+
+if(type === "MIN"){
 
 result =
-Math.min(...values);
+values.length
+?
+Math.min(...values)
+: 0;
 
 }
 
-if(type==="MAX"){
+
+if(type === "MAX"){
 
 result =
-Math.max(...values);
+values.length
+?
+Math.max(...values)
+: 0;
 
 }
 
-toast("Result: "+result);
+
+toast(
+"Result: " + result
+);
 
 }
 
 
-/* =========================
-XLSX
-========================= */
+/* XLSX */
 
 function xlsxDownload(){
 
 if(!window.XLSX){
 
-toast("XLSX library unavailable");
+toast(
+"XLSX library unavailable"
+);
 
 return;
 
 }
 
+
 try{
 
 const table =
-document.getElementById("sheetTable");
+document.getElementById(
+"sheetTable"
+);
+
 
 const workbook =
 XLSX.utils.table_to_book(
-table,
-{sheet:"Sheet1"}
+table
 );
+
 
 XLSX.writeFile(
 workbook,
 "Asim-Spreadsheet.xlsx"
 );
 
-saveFileMeta(
-"Asim-Spreadsheet.xlsx",
-"XLSX",
-new Date().toLocaleString()
+
+toast(
+"XLSX downloaded"
 );
 
-toast("XLSX downloaded");
+}
 
-}catch(error){
+catch(error){
 
 console.error(error);
 
-toast("XLSX download failed");
+toast(
+"XLSX download failed"
+);
 
 }
 
 }
 
 
-/* =========================
-CSV
-========================= */
+/* CSV */
 
 function csvDownload(){
 
 const table =
-document.getElementById("sheetTable");
+document.getElementById(
+"sheetTable"
+);
+
 
 const rows =
-[...table.querySelectorAll("tr")];
+[
+...table.querySelectorAll("tr")
+];
+
 
 const csv =
-rows.map(function(row){
+rows
+.map(function(row){
 
 return [...row.cells]
 .map(function(cell){
 
-const text =
+let text =
 cell.innerText
 .replace(/"/g,'""');
 
-return '"'+text+'"';
+
+return '"' + text + '"';
 
 })
 .join(",");
@@ -1785,71 +2102,77 @@ return '"'+text+'"';
 })
 .join("\n");
 
+
 const blob =
 new Blob(
-["\uFEFF"+csv],
-{type:"text/csv;charset=utf-8"}
-);
-
-downloadBlob(
-blob,
-"Asim-Spreadsheet.csv"
-);
-
-saveFileMeta(
-"Asim-Spreadsheet.csv",
-"CSV",
-new Date().toLocaleString()
-);
-
-toast("CSV downloaded");
-
+[csv],
+{
+type:"text/csv;charset=utf-8;"
 }
+);
 
-
-/* =========================
-DOWNLOAD HELPER
-========================= */
-
-function downloadBlob(blob,filename){
 
 const url =
-URL.createObjectURL(blob);
+URL.createObjectURL(
+blob
+);
+
 
 const a =
 document.createElement("a");
 
-a.href=url;
 
-a.download=filename;
+a.href =
+url;
+
+
+a.download =
+"Asim-Spreadsheet.csv";
+
 
 document.body.appendChild(a);
 
+
 a.click();
 
+
 a.remove();
+
 
 setTimeout(function(){
 
 URL.revokeObjectURL(url);
 
-},1500);
+},1000);
+
+
+toast(
+"CSV downloaded"
+);
 
 }
 
 
-/* =========================
+/* ==================================================
 SCANNER
-========================= */
+================================================== */
 
-let scannedImages=[];
+let scannedImages = [];
+
 
 const cameraInput =
-document.getElementById("scanCamera");
+document.getElementById(
+"scanCamera"
+);
+
 
 const galleryInput =
-document.getElementById("scanFiles");
+document.getElementById(
+"scanFiles"
+);
 
+
+/* CAMERA */
 
 function openCamera(){
 
@@ -1857,12 +2180,17 @@ cameraInput.click();
 
 }
 
+
+/* GALLERY */
+
 function openGallery(){
 
 galleryInput.click();
 
 }
 
+
+/* CAMERA CHANGE */
 
 cameraInput.addEventListener(
 "change",
@@ -1873,15 +2201,21 @@ Array.from(
 event.target.files || []
 );
 
+
 if(files.length){
+
 addScanFiles(files);
+
 }
 
-event.target.value="";
+
+event.target.value = "";
 
 }
 );
 
+
+/* GALLERY CHANGE */
 
 galleryInput.addEventListener(
 "change",
@@ -1892,11 +2226,15 @@ Array.from(
 event.target.files || []
 );
 
+
 if(files.length){
+
 addScanFiles(files);
+
 }
 
-event.target.value="";
+
+event.target.value = "";
 
 }
 );
@@ -1911,11 +2249,15 @@ files.forEach(function(file){
 if(
 !file.type.startsWith("image/")
 ){
+
 return;
+
 }
+
 
 const reader =
 new FileReader();
+
 
 reader.onload =
 function(event){
@@ -1928,16 +2270,11 @@ name:file.name
 
 });
 
+
 renderScans();
 
 };
 
-reader.onerror =
-function(){
-
-toast("Image could not be loaded");
-
-};
 
 reader.readAsDataURL(file);
 
@@ -1951,9 +2288,13 @@ reader.readAsDataURL(file);
 function renderScans(){
 
 const preview =
-document.getElementById("scanPreview");
+document.getElementById(
+"scanPreview"
+);
 
-preview.innerHTML="";
+
+preview.innerHTML = "";
+
 
 scannedImages.forEach(
 function(image,index){
@@ -1961,37 +2302,54 @@ function(image,index){
 const item =
 document.createElement("div");
 
+
 item.className =
 "preview-item";
+
 
 const img =
 document.createElement("img");
 
-img.src=image.src;
 
-img.alt="Scanned document";
+img.src =
+image.src;
+
+
+img.alt =
+"Scanned document";
+
 
 const name =
 document.createElement("div");
 
-name.className="preview-name";
+
+name.className =
+"preview-name";
+
 
 name.textContent =
-(index+1)+". "+image.name;
+(index + 1) + ". " + image.name;
+
 
 const remove =
 document.createElement("button");
 
+
 remove.className =
 "remove-button";
 
-remove.textContent="Remove";
 
-remove.onclick=function(){
+remove.textContent =
+"Remove";
+
+
+remove.onclick =
+function(){
 
 removeScan(index);
 
 };
+
 
 item.appendChild(img);
 
@@ -1999,9 +2357,11 @@ item.appendChild(name);
 
 item.appendChild(remove);
 
+
 preview.appendChild(item);
 
-});
+}
+);
 
 }
 
@@ -2015,9 +2375,13 @@ index,
 1
 );
 
+
 renderScans();
 
-toast("Image removed");
+
+toast(
+"Image removed"
+);
 
 }
 
@@ -2026,22 +2390,28 @@ toast("Image removed");
 
 function clearScans(){
 
-scannedImages=[];
+scannedImages = [];
+
 
 renderScans();
 
-toast("Images cleared");
+
+toast(
+"Images cleared"
+);
 
 }
 
 
-/* =========================
-SCANNER PDF
-========================= */
+/* ==================================================
+CREATE SCANNED PDF
+================================================== */
 
 async function scanPDF(){
 
-if(!scannedImages.length){
+if(
+scannedImages.length === 0
+){
 
 toast(
 "Choose or capture an image first"
@@ -2050,6 +2420,7 @@ toast(
 return;
 
 }
+
 
 if(!window.jspdf){
 
@@ -2061,10 +2432,12 @@ return;
 
 }
 
+
 try{
 
-const {jsPDF} =
+const { jsPDF } =
 window.jspdf;
+
 
 const pdf =
 new jsPDF({
@@ -2073,11 +2446,10 @@ orientation:"p",
 
 unit:"mm",
 
-format:"a4",
-
-compress:true
+format:"a4"
 
 });
+
 
 for(
 let i=0;
@@ -2093,9 +2465,11 @@ i
 
 }
 
+
 pdf.save(
 "Asim-Scanned-Document.pdf"
 );
+
 
 saveFileMeta(
 "Asim-Scanned-Document.pdf",
@@ -2103,16 +2477,20 @@ saveFileMeta(
 new Date().toLocaleString()
 );
 
+
 toast(
 "PDF created successfully"
 );
 
-}catch(error){
+}
+
+catch(error){
 
 console.error(error);
 
+
 toast(
-"Scanner PDF creation failed"
+"PDF creation failed"
 );
 
 }
@@ -2133,62 +2511,69 @@ return new Promise(function(resolve){
 const img =
 new Image();
 
+
 img.onload =
 function(){
 
-const pageWidth=210;
-const pageHeight=297;
-const margin=10;
+const pageWidth = 210;
+
+const pageHeight = 297;
+
+const margin = 10;
+
 
 const maxWidth =
-pageWidth-(margin*2);
+pageWidth - margin * 2;
+
 
 const maxHeight =
-pageHeight-(margin*2);
+pageHeight - margin * 2;
 
-let width=img.width;
-let height=img.height;
 
-if(!width || !height){
+let width =
+img.width;
 
-resolve();
 
-return;
+let height =
+img.height;
 
-}
 
 const ratio =
 Math.min(
-maxWidth/width,
-maxHeight/height
+maxWidth / width,
+maxHeight / height
 );
 
+
 width *= ratio;
+
 height *= ratio;
 
+
 const x =
-(pageWidth-width)/2;
+(pageWidth - width) / 2;
+
 
 const y =
-(pageHeight-height)/2;
+(pageHeight - height) / 2;
 
-if(index>0){
+
+if(index > 0){
+
 pdf.addPage();
+
 }
 
-let format="JPEG";
 
-if(
-src.startsWith("data:image/png")
-){
-format="PNG";
-}
+const format =
+src.startsWith(
+"data:image/png"
+)
+?
+"PNG"
+:
+"JPEG";
 
-if(
-src.startsWith("data:image/webp")
-){
-format="JPEG";
-}
 
 pdf.addImage(
 img,
@@ -2196,14 +2581,14 @@ format,
 x,
 y,
 width,
-height,
-undefined,
-"FAST"
+height
 );
+
 
 resolve();
 
 };
+
 
 img.onerror =
 function(){
@@ -2212,16 +2597,18 @@ resolve();
 
 };
 
-img.src=src;
+
+img.src =
+src;
 
 });
 
 }
 
 
-/* =========================
+/* ==================================================
 FILE METADATA
-========================= */
+================================================== */
 
 function saveFileMeta(
 name,
@@ -2229,67 +2616,59 @@ type,
 date
 ){
 
-let files=[];
-
-try{
-
-files =
+let files =
 JSON.parse(
 localStorage.getItem(
 "asimFiles"
-)||"[]"
+) || "[]"
 );
 
-}catch(error){
-
-files=[];
-
-}
 
 files.unshift({
 
 name:name,
+
 type:type,
+
 date:date
 
 });
 
+
 files =
-files.slice(0,50);
+files.slice(0,30);
+
 
 localStorage.setItem(
 "asimFiles",
 JSON.stringify(files)
 );
 
+
 refreshFiles();
 
 }
 
 
-/* FILE LIST */
+/* ==================================================
+MY FILES
+================================================== */
 
 function refreshFiles(){
 
 const list =
-document.getElementById("fileList");
+document.getElementById(
+"fileList"
+);
 
-let files=[];
 
-try{
-
-files =
+const files =
 JSON.parse(
 localStorage.getItem(
 "asimFiles"
-)||"[]"
+) || "[]"
 );
 
-}catch(error){
-
-files=[];
-
-}
 
 if(!files.length){
 
@@ -2300,67 +2679,167 @@ return;
 
 }
 
-list.innerHTML="";
 
-files.forEach(function(file){
+list.innerHTML = "";
+
+
+files.forEach(
+function(file){
 
 const div =
-document.createElement("div");
+document.createElement(
+"div"
+);
 
-div.className="file-item";
+
+div.className =
+"file-item";
+
 
 const title =
-document.createElement("b");
+document.createElement(
+"b"
+);
+
 
 title.textContent =
-"📄 "+file.name;
+"📄 " + file.name;
+
 
 const br =
-document.createElement("br");
+document.createElement(
+"br"
+);
+
 
 const info =
-document.createElement("span");
+document.createElement(
+"span"
+);
 
-info.className="muted";
+
+info.className =
+"muted";
+
 
 info.textContent =
-file.type+" • "+file.date;
+file.type + " • " + file.date;
+
 
 div.appendChild(title);
+
 div.appendChild(br);
+
 div.appendChild(info);
+
 
 list.appendChild(div);
 
-});
+}
+);
 
 }
+
 
 refreshFiles();
 
 
-/* =========================
+/* ==================================================
 PWA INSTALL
-========================= */
+================================================== */
 
-let deferredPrompt=null;
+let deferredPrompt = null;
 
-function setInstallButtons(showButton){
 
-const top =
-document.getElementById("installBtn");
+/* CHECK INSTALLED */
 
-const hero =
-document.getElementById("heroInstallBtn");
+function isAppInstalled(){
 
-if(top){
-top.style.display =
-showButton ? "block" : "none";
+return(
+window.matchMedia(
+"(display-mode: standalone)"
+).matches
+||
+window.navigator.standalone === true
+);
+
 }
 
-if(hero){
-hero.style.display =
-showButton ? "inline-block" : "none";
+
+/* INSTALL UI */
+
+function updateInstallUI(){
+
+const topButton =
+document.getElementById(
+"installBtn"
+);
+
+
+const heroButton =
+document.getElementById(
+"heroInstallBtn"
+);
+
+
+if(isAppInstalled()){
+
+if(topButton){
+
+topButton.style.display =
+"block";
+
+topButton.textContent =
+"✅ Installed";
+
+topButton.disabled =
+true;
+
+}
+
+
+if(heroButton){
+
+heroButton.style.display =
+"none";
+
+}
+
+return;
+
+}
+
+
+/* NOT INSTALLED */
+
+if(topButton){
+
+topButton.disabled =
+false;
+
+topButton.textContent =
+"📲 Install";
+
+
+topButton.style.display =
+deferredPrompt
+?
+"block"
+:
+"none";
+
+}
+
+
+if(heroButton){
+
+heroButton.style.display =
+deferredPrompt
+?
+"inline-block"
+:
+"none";
+
 }
 
 }
@@ -2374,17 +2853,29 @@ function(event){
 
 event.preventDefault();
 
-deferredPrompt=event;
+deferredPrompt =
+event;
 
-setInstallButtons(true);
+updateInstallUI();
 
 }
 );
 
 
-/* INSTALL */
+/* INSTALL APP */
 
 async function installApp(){
+
+if(isAppInstalled()){
+
+toast(
+"Asim Office is already installed"
+);
+
+return;
+
+}
+
 
 if(!deferredPrompt){
 
@@ -2396,37 +2887,54 @@ return;
 
 }
 
+
 try{
 
 deferredPrompt.prompt();
 
-const result =
+
+const choice =
 await deferredPrompt.userChoice;
 
+
 if(
-result &&
-result.outcome==="accepted"
+choice.outcome === "accepted"
 ){
 
-toast("Installing Asim Office...");
+toast(
+"Installing Asim Office..."
+);
 
-}else{
+}
+else{
 
-toast("Install cancelled");
+toast(
+"Installation cancelled"
+);
 
 }
 
-}catch(error){
+}
 
-console.error(error);
+catch(error){
 
-toast("Install failed");
+console.error(
+"Install error:",
+error
+);
+
+
+toast(
+"Installation failed"
+);
 
 }
 
-deferredPrompt=null;
 
-setInstallButtons(false);
+deferredPrompt = null;
+
+
+updateInstallUI();
 
 }
 
@@ -2437,81 +2945,81 @@ window.addEventListener(
 "appinstalled",
 function(){
 
-deferredPrompt=null;
+deferredPrompt = null;
 
-setInstallButtons(false);
+
+updateInstallUI();
+
 
 toast(
-"Asim Office Suite installed"
+"✅ Asim Office Suite installed"
 );
 
 });
 
 
-/* =========================
-SERVICE WORKER
-========================= */
+/* PAGE LOAD */
 
-if(
-"serviceWorker" in navigator
-){
+window.addEventListener(
+"load",
+function(){
+
+setTimeout(
+updateInstallUI,
+500
+);
+
+});
+
+
+/* DISPLAY MODE */
+
+const displayMode =
+window.matchMedia(
+"(display-mode: standalone)"
+);
+
+
+if(displayMode.addEventListener){
+
+displayMode.addEventListener(
+"change",
+updateInstallUI
+);
+
+}
+
+
+/* ==================================================
+SERVICE WORKER
+================================================== */
+
+if("serviceWorker" in navigator){
 
 window.addEventListener(
 "load",
 function(){
 
 navigator.serviceWorker
-.register(
-"sw.js",
-{updateViaCache:"none"}
-)
-.then(function(registration){
-
-registration.update();
+.register("./sw.js")
+.then(function(){
 
 console.log(
-"Asim Office Service Worker ready"
+"Asim Office Service Worker registered"
 );
 
 })
 .catch(function(error){
 
-console.log(
+console.error(
 "Service Worker error:",
 error
 );
 
 });
 
-});
-
 }
-
-
-/* =========================
-FORCE REFRESH ON NEW VERSION
-========================= */
-
-if(
-"serviceWorker" in navigator
-){
-
-navigator.serviceWorker.addEventListener(
-"controllerchange",
-function(){
-
-if(!sessionStorage.getItem("asimV6Reloaded")){
-
-sessionStorage.setItem(
-"asimV6Reloaded",
-"1"
 );
-
-window.location.reload();
-
-}
-
-});
 
 }
 
