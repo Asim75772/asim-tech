@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#030914">
 
 <meta name="description"
-content="Asim Tech - Apps, Photo Resizer, ID Photo Maker, Office Tools and Innovation">
+content="Asim Tech - Apps, Photo Resizer, ID Photo Maker, Signature Maker, Office Tools and Innovation">
 
 <title>Asim Tech | Apps • Tools • Innovation</title>
 
@@ -31,6 +31,8 @@ body{
     color:#fff;
     line-height:1.6;
 }
+
+/* HEADER */
 
 header{
     height:68px;
@@ -68,6 +70,7 @@ nav a{
 nav a:hover{
     color:#1685ff;
 }
+
 
 /* HERO */
 
@@ -156,6 +159,7 @@ nav a:hover{
     color:#1685ff;
 }
 
+
 /* PHONE */
 
 .phone-area{
@@ -217,6 +221,7 @@ nav a:hover{
     text-align:center;
 }
 
+
 /* SECTIONS */
 
 section{
@@ -236,6 +241,7 @@ section h2{
     font-size:36px;
     margin:7px 0 30px;
 }
+
 
 /* APPS */
 
@@ -287,6 +293,7 @@ section h2{
     font-size:70px;
 }
 
+
 /* PHOTO RESIZER ICON */
 
 .photo-icon{
@@ -296,6 +303,7 @@ section h2{
     border-radius:13px;
     margin-bottom:17px;
 }
+
 
 /* ID PHOTO ICON */
 
@@ -332,6 +340,43 @@ section h2{
     font-size:70px;
 }
 
+
+/* SIGNATURE ICON */
+
+.signature-icon{
+    width:100%;
+    height:170px;
+    border-radius:13px;
+    margin-bottom:17px;
+
+    background:
+    radial-gradient(
+        circle at 25% 30%,
+        #22d3ee,
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 75% 70%,
+        #f472b6,
+        transparent 35%
+    ),
+
+    linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed,
+        #ec4899
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:70px;
+}
+
+
 /* TEXT */
 
 .app h3{
@@ -351,6 +396,7 @@ section h2{
     margin-top:10px;
 }
 
+
 /* BUTTON */
 
 .download{
@@ -369,10 +415,12 @@ section h2{
     background:#0874e8;
 }
 
-/* SPECIAL BUTTONS */
+
+/* PHOTO BUTTONS */
 
 .photo-web{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #7c3aed,
         #ec4899
@@ -380,7 +428,8 @@ section h2{
 }
 
 .photo-web:hover{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #6d28d9,
         #db2777
@@ -388,7 +437,8 @@ section h2{
 }
 
 .photo-apk{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #16a34a,
         #059669
@@ -396,15 +446,20 @@ section h2{
 }
 
 .photo-apk:hover{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #15803d,
         #047857
     );
 }
 
+
+/* ID BUTTONS */
+
 .id-web{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #2563eb,
         #7c3aed
@@ -412,7 +467,8 @@ section h2{
 }
 
 .id-web:hover{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #1d4ed8,
         #6d28d9
@@ -420,7 +476,8 @@ section h2{
 }
 
 .id-apk{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #f97316,
         #ea580c
@@ -428,12 +485,37 @@ section h2{
 }
 
 .id-apk:hover{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #ea580c,
         #c2410c
     );
 }
+
+
+/* SIGNATURE BUTTON */
+
+.signature-web{
+    background:
+    linear-gradient(
+        135deg,
+        #06b6d4,
+        #4f46e5,
+        #9333ea
+    );
+}
+
+.signature-web:hover{
+    background:
+    linear-gradient(
+        135deg,
+        #0891b2,
+        #4338ca,
+        #7e22ce
+    );
+}
+
 
 /* TOOLS */
 
@@ -444,6 +526,7 @@ section h2{
 .simple p{
     color:#9eacbf;
 }
+
 
 /* ABOUT */
 
@@ -482,6 +565,7 @@ section h2{
     color:#aab8ca;
 }
 
+
 /* CONTACT */
 
 .contact{
@@ -492,6 +576,7 @@ section h2{
     color:#9eacbf;
     margin-bottom:25px;
 }
+
 
 /* FOOTER */
 
@@ -506,6 +591,7 @@ footer span{
     color:#1685ff;
 }
 
+
 /* MOBILE */
 
 @media(max-width:1100px){
@@ -515,6 +601,7 @@ footer span{
     }
 
 }
+
 
 @media(max-width:900px){
 
@@ -563,6 +650,7 @@ footer span{
 
 }
 
+
 @media(max-width:550px){
 
     header{
@@ -606,7 +694,8 @@ footer span{
     .app-icon,
     .office-icon,
     .photo-icon,
-    .id-icon{
+    .id-icon,
+    .signature-icon{
         height:230px;
     }
 
@@ -636,20 +725,33 @@ footer span{
 <header>
 
 <div class="logo">
+
 ▲ ASIM <span>TECH</span>
+
 </div>
+
 
 <nav>
 
-<a href="#home">Home</a>
+<a href="#home">
+Home
+</a>
 
-<a href="#apps">My Apps</a>
+<a href="#apps">
+My Apps
+</a>
 
-<a href="#tools">Tools</a>
+<a href="#tools">
+Tools
+</a>
 
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 
 </nav>
 
@@ -662,40 +764,62 @@ footer span{
 class="hero"
 id="home">
 
+
 <div class="hero-text">
 
+
 <div class="welcome">
+
 WELCOME TO
+
 </div>
+
 
 <h1>
+
 ASIM <span>TECH</span>
+
 </h1>
 
+
 <div class="tagline">
+
 Apps • Tools • Innovation
+
 </div>
 
+
 <p class="description">
+
 I create simple, useful and powerful apps
 to make everyday tasks easier.
+
 </p>
 
+
 <div class="buttons">
+
 
 <a
 href="#apps"
 class="btn primary">
+
 Explore Apps
+
 </a>
+
 
 <a
 href="#about"
 class="btn secondary">
+
 About Asim
+
 </a>
 
+
 </div>
+
 
 </div>
 
@@ -704,46 +828,75 @@ About Asim
 
 <div class="phone-area">
 
+
 <div class="phone">
+
 
 <div class="phone-screen">
 
+
 <div class="phone-brand">
+
 ▲ ASIM TECH
+
 </div>
 
+
 <h2>
+
 Hello, Asim 👋
+
 </h2>
 
+
 <p>
+
 Building apps for<br>
-<b>a better tomorrow</b>
+
+<b>
+a better tomorrow
+</b>
+
 </p>
+
 
 <div class="phone-grid">
 
+
 <div class="phone-box">
+
 📻<br>
 Radio
+
 </div>
 
+
 <div class="phone-box">
+
 🎵<br>
 Music
+
 </div>
 
+
 <div class="phone-box">
+
 🎧<br>
 Audio
+
 </div>
+
 
 <div class="phone-box">
+
 📱<br>
 Apps
-</div>
 
 </div>
+
+
+</div>
+
 
 </div>
 
@@ -756,143 +909,212 @@ Apps
 
 <!-- MY APPS -->
 
-<section id="apps">
+<section
+id="apps">
+
 
 <div class="section-label">
+
 MY APPLICATIONS
+
 </div>
 
+
 <h2>
+
 My Apps
+
 </h2>
+
 
 <div class="apps">
 
 
-<!-- OFFICE -->
+<!-- OFFICE SUITE -->
 
 <div class="app">
 
+
 <div class="office-icon">
+
 📄
+
 </div>
 
+
 <h3>
+
 Asim Office Suite V5
+
 </h3>
 
+
 <p>
+
 Create and edit documents,
 spreadsheets, PDF files and
 scan documents.
+
 </p>
 
+
 <span class="version">
+
 Office • Document • Spreadsheet • PDF • Scanner
+
 </span>
+
 
 <a
 class="download"
 href="office/">
+
 🚀 Open Office Suite
+
 </a>
+
 
 </div>
 
 
-<!-- DEVOTIONAL -->
+<!-- DEVOTIONAL RADIO -->
 
 <div class="app">
+
 
 <img
 class="app-icon"
 src="devotional-radio.png"
-alt="Devotional Radio">
+alt="Devotional Radio"
+>
+
 
 <h3>
+
 Devotional Radio
+
 </h3>
 
+
 <p>
+
 Listen to devotional radio
 and spiritual music.
+
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
+
 
 <a
 class="download"
 href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
 
-<!-- OLD GOLD -->
+<!-- OLD IS GOLD -->
 
 <div class="app">
+
 
 <img
 class="app-icon"
 src="old_gold_logo.png"
-alt="80s 90s Old Is Gold">
+alt="80s 90s Old Is Gold"
+>
+
 
 <h3>
+
 80s & 90s Old Is Gold
+
 </h3>
 
+
 <p>
+
 Enjoy classic songs and
 timeless memories from
 the golden era.
+
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
+
 
 <a
 class="download"
 href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
 
-<!-- MADHU -->
+<!-- MADHU MUSIC WORLD -->
 
 <div class="app">
+
 
 <img
 class="app-icon"
 src="madhu-music-world.png"
-alt="Madhu Music World">
+alt="Madhu Music World"
+>
+
 
 <h3>
+
 Madhu Music World
+
 </h3>
 
+
 <p>
+
 Enjoy music, radio and
 entertainment from Madhu
 Music World.
+
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
+
 
 <a
 class="download"
 href="#contact">
+
 More Info
+
 </a>
+
 
 </div>
 
@@ -901,30 +1123,45 @@ More Info
 
 <div class="app">
 
+
 <img
 class="app-icon"
 src="sangit.png"
-alt="Sangit">
+alt="Sangit"
+>
+
 
 <h3>
+
 Sangit
+
 </h3>
 
+
 <p>
+
 A music application created
 by Asim for music lovers.
+
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
+
 
 <a
 class="download"
 href="Sangit.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
@@ -933,37 +1170,55 @@ download>
 
 <div class="app">
 
+
 <img
 class="photo-icon"
 src="photo-resizer-icon.png"
-alt="Asim Tech Photo Resizer">
+alt="Asim Tech Photo Resizer"
+>
+
 
 <h3>
+
 Asim Tech Photo Resizer
+
 </h3>
 
+
 <p>
+
 Resize, crop, filter and compress
 photos. Create passport,
 stamp and custom-size photos.
+
 </p>
 
+
 <span class="version">
+
 Photo Tool • Passport • Stamp • Crop • Filter
+
 </span>
+
 
 <a
 class="download photo-web"
 href="photo-resizer/">
+
 🌐 Open Photo Resizer
+
 </a>
+
 
 <a
 class="download photo-apk"
 href="photo-resizer.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
@@ -972,36 +1227,102 @@ download>
 
 <div class="app">
 
+
 <div class="id-icon">
+
 🪪
+
 </div>
 
+
 <h3>
+
 Asim Tech ID Photo Maker
+
 </h3>
 
+
 <p>
+
 Create passport, stamp and
 2×2 ID photos with smart crop,
 filters and printable sheets.
+
 </p>
 
+
 <span class="version">
+
 ID Photo • Passport • Stamp • 2×2 • 4×6
+
 </span>
+
 
 <a
 class="download id-web"
 href="id-photo-maker/">
+
 🌐 Open ID Photo Maker
+
 </a>
+
 
 <a
 class="download id-apk"
 href="id-photo-maker.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
+
+</div>
+
+
+<!-- SIGNATURE MAKER -->
+
+<div class="app">
+
+
+<div class="signature-icon">
+
+✍️
+
+</div>
+
+
+<h3>
+
+Asim Tech Signature Maker
+
+</h3>
+
+
+<p>
+
+Create digital signatures by
+drawing with your finger or
+uploading an existing signature.
+
+</p>
+
+
+<span class="version">
+
+Signature • Draw • Upload • PNG • JPG
+
+</span>
+
+
+<a
+class="download signature-web"
+href="signature-maker/">
+
+🌐 Open Signature Maker
+
+</a>
+
 
 </div>
 
@@ -1017,20 +1338,48 @@ download>
 id="tools"
 class="simple">
 
+
 <div class="section-label">
+
 MY PROJECTS
+
 </div>
 
+
 <h2>
+
 My Tools
+
 </h2>
 
+
 <p>
+
 Useful tools and new projects
 created by Asim.
 
+<br><br>
+
+Current tools:
+
+<br>
+
+📸 Photo Resizer
+
+<br>
+
+🪪 ID Photo Maker
+
+<br>
+
+✍️ Signature Maker
+
+<br><br>
+
 More projects will be added soon.
+
 </p>
+
 
 </section>
 
@@ -1040,23 +1389,36 @@ More projects will be added soon.
 <section
 id="about">
 
+
 <div class="about">
 
+
 <div class="avatar">
+
 A
+
 </div>
+
 
 <div>
 
+
 <div class="section-label">
+
 ABOUT ME
+
 </div>
 
+
 <h2>
+
 Hi, I'm Asim 👋
+
 </h2>
 
+
 <p>
+
 I create useful Android applications
 and technology projects.
 
@@ -1064,11 +1426,15 @@ and technology projects.
 
 Welcome to Asim Tech — my personal
 place for sharing my apps and projects.
+
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
@@ -1079,24 +1445,37 @@ place for sharing my apps and projects.
 id="contact"
 class="contact">
 
+
 <div class="section-label">
+
 GET IN TOUCH
+
 </div>
 
+
 <h2>
+
 Contact Asim
+
 </h2>
 
+
 <p>
+
 For suggestions, feedback or
 app related queries.
+
 </p>
+
 
 <a
 href="mailto:your-email@example.com"
 class="btn primary">
+
 📧 Email Me
+
 </a>
+
 
 </section>
 
@@ -1106,7 +1485,9 @@ class="btn primary">
 <footer>
 
 <b>
+
 ▲ ASIM <span>TECH</span>
+
 </b>
 
 <br><br>
@@ -1116,5 +1497,7 @@ All Rights Reserved.
 
 </footer>
 
+
 </body>
+
 </html>
