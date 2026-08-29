@@ -11,7 +11,7 @@ content="width=device-width, initial-scale=1.0">
 content="#030914">
 
 <meta name="description"
-content="Asim Tech - Apps, Office Tools and Innovation">
+content="Asim Tech - Apps, Office Tools, Photo Resizer and Innovation">
 
 <title>Asim Tech | Apps • Tools • Innovation</title>
 
@@ -245,8 +245,7 @@ section h2{
 
 .apps{
     display:grid;
-    grid-template-columns:
-    repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:20px;
 }
 
@@ -292,6 +291,21 @@ section h2{
     font-size:70px;
 }
 
+/* PHOTO RESIZER ICON */
+
+.photo-icon{
+    width:100%;
+    height:170px;
+    border-radius:13px;
+    margin-bottom:17px;
+    object-fit:cover;
+    display:block;
+
+    background:#102039;
+}
+
+/* APP TEXT */
+
 .app h3{
     margin-bottom:8px;
 }
@@ -309,6 +323,8 @@ section h2{
     margin-top:10px;
 }
 
+/* DOWNLOAD BUTTON */
+
 .download{
     display:block;
     background:#1685ff;
@@ -323,6 +339,46 @@ section h2{
 
 .download:hover{
     background:#0874e8;
+}
+
+/* PHOTO WEB BUTTON */
+
+.photo-web{
+    background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #ec4899
+    );
+}
+
+.photo-web:hover{
+    background:
+    linear-gradient(
+        135deg,
+        #6d28d9,
+        #db2777
+    );
+}
+
+/* PHOTO APK BUTTON */
+
+.photo-apk{
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #059669
+    );
+}
+
+.photo-apk:hover{
+    background:
+    linear-gradient(
+        135deg,
+        #15803d,
+        #047857
+    );
 }
 
 /* TOOLS */
@@ -401,8 +457,7 @@ footer span{
 @media(max-width:1100px){
 
     .apps{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
@@ -495,7 +550,8 @@ footer span{
     }
 
     .app-icon,
-    .office-icon{
+    .office-icon,
+    .photo-icon{
         height:230px;
     }
 
@@ -734,20 +790,17 @@ My Apps
 
 <div class="app">
 
-
 <div class="office-icon">
 
 📄
 
 </div>
 
-
 <h3>
 
 Asim Office Suite V5
 
 </h3>
-
 
 <p>
 
@@ -757,13 +810,11 @@ scan documents.
 
 </p>
 
-
 <span class="version">
 
 Office • Document • Spreadsheet • PDF • Scanner
 
 </span>
-
 
 <a
 class="download"
@@ -773,7 +824,6 @@ href="office/">
 
 </a>
 
-
 </div>
 
 
@@ -781,20 +831,17 @@ href="office/">
 
 <div class="app">
 
-
 <img
 class="app-icon"
 src="devotional-radio.png"
 alt="Devotional Radio"
 >
 
-
 <h3>
 
 Devotional Radio
 
 </h3>
-
 
 <p>
 
@@ -803,13 +850,11 @@ and spiritual music.
 
 </p>
 
-
 <span class="version">
 
 Android App
 
 </span>
-
 
 <a
 class="download"
@@ -820,7 +865,6 @@ download>
 
 </a>
 
-
 </div>
 
 
@@ -828,20 +872,17 @@ download>
 
 <div class="app">
 
-
 <img
 class="app-icon"
 src="old_gold_logo.png"
 alt="80s 90s Old Is Gold"
 >
 
-
 <h3>
 
 80s & 90s Old Is Gold
 
 </h3>
-
 
 <p>
 
@@ -851,13 +892,11 @@ the golden era.
 
 </p>
 
-
 <span class="version">
 
 Android App
 
 </span>
-
 
 <a
 class="download"
@@ -868,7 +907,6 @@ download>
 
 </a>
 
-
 </div>
 
 
@@ -876,20 +914,17 @@ download>
 
 <div class="app">
 
-
 <img
 class="app-icon"
 src="madhu-music-world.png"
 alt="Madhu Music World"
 >
 
-
 <h3>
 
 Madhu Music World
 
 </h3>
-
 
 <p>
 
@@ -899,13 +934,11 @@ Music World.
 
 </p>
 
-
 <span class="version">
 
 Android App
 
 </span>
-
 
 <a
 class="download"
@@ -915,7 +948,6 @@ More Info
 
 </a>
 
-
 </div>
 
 
@@ -923,20 +955,17 @@ More Info
 
 <div class="app">
 
-
 <img
 class="app-icon"
 src="sangit.png"
 alt="Sangit"
 >
 
-
 <h3>
 
 Sangit
 
 </h3>
-
 
 <p>
 
@@ -945,17 +974,75 @@ by Asim for music lovers.
 
 </p>
 
-
 <span class="version">
 
 Android App
 
 </span>
 
-
 <a
 class="download"
 href="Sangit.apk"
+download>
+
+⬇ Download APK
+
+</a>
+
+</div>
+
+
+<!-- PHOTO RESIZER -->
+
+<div class="app">
+
+
+<img
+class="photo-icon"
+src="photo-resizer-icon.png"
+alt="Asim Tech Photo Resizer"
+>
+
+
+<h3>
+
+Asim Tech Photo Resizer
+
+</h3>
+
+
+<p>
+
+Resize, crop, filter and compress
+photos. Create passport,
+stamp and custom-size photos.
+
+</p>
+
+
+<span class="version">
+
+Photo Tool • Passport • Stamp • Crop • Filter
+
+</span>
+
+
+<!-- WEB APP -->
+
+<a
+class="download photo-web"
+href="photo-resizer/">
+
+🌐 Open Photo Resizer
+
+</a>
+
+
+<!-- APK -->
+
+<a
+class="download photo-apk"
+href="photo-resizer.apk"
 download>
 
 ⬇ Download APK
