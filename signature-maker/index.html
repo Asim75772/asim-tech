@@ -1,14 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#4f46e5">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+  name="theme-color"
+  content="#4f46e5"
+>
 
 <title>Asim Tech Signature Maker</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -18,16 +31,35 @@
 body{
   font-family:Arial,Helvetica,sans-serif;
   min-height:100vh;
-  background:linear-gradient(135deg,#eef2ff,#fdf2f8);
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff,
+      #fdf2f8
+    );
   color:#172033;
 }
 
+
+/* =========================
+   HEADER
+========================= */
+
 header{
-  background:linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed,
+      #ec4899
+    );
+
   color:white;
   text-align:center;
-  padding:24px 15px;
-  box-shadow:0 5px 25px #0003;
+  padding:25px 15px;
+
+  box-shadow:
+    0 5px 25px #0003;
 }
 
 .logo{
@@ -44,6 +76,11 @@ header p{
   font-size:14px;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
   max-width:900px;
   margin:auto;
@@ -55,8 +92,15 @@ header p{
   border-radius:22px;
   padding:20px;
   margin-top:18px;
-  box-shadow:0 10px 35px #00000015;
+
+  box-shadow:
+    0 10px 35px #00000015;
 }
+
+
+/* =========================
+   TITLE
+========================= */
 
 .title{
   color:#5b21b6;
@@ -65,263 +109,514 @@ header p{
   margin-bottom:12px;
 }
 
-.upload{
-  display:block;
-  text-align:center;
-  padding:28px 15px;
-  border:3px dashed #8b5cf6;
-  border-radius:18px;
-  background:linear-gradient(135deg,#f5f3ff,#fdf2f8);
-  cursor:pointer;
-}
 
-.upload-icon{
-  font-size:50px;
-}
-
-.upload h2{
-  margin:8px 0;
-  color:#5b21b6;
-}
-
-.upload p{
-  color:#64748b;
-  font-size:13px;
-}
-
-#photoInput{
-  display:none;
-}
-
-.workspace{
-  display:none;
-  margin-top:20px;
-}
+/* =========================
+   CANVAS
+========================= */
 
 .canvas-wrap{
+
   background:#111827;
+
   padding:12px;
+
   border-radius:18px;
+
+  margin-top:10px;
 }
 
 #signatureCanvas{
+
   width:100%;
-  height:320px;
+
+  height:330px;
+
   display:block;
+
   background:white;
+
   border-radius:12px;
+
   touch-action:none;
+
   cursor:crosshair;
 }
 
 .help{
+
   text-align:center;
+
   color:#cbd5e1;
+
   font-size:12px;
+
   padding:10px 5px 2px;
 }
 
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload-box{
+
+  border:3px dashed #8b5cf6;
+
+  border-radius:18px;
+
+  padding:18px 15px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f3ff,
+      #fdf2f8
+    );
+
+  margin-bottom:18px;
+}
+
+.upload-box h2{
+
+  color:#5b21b6;
+
+  margin-bottom:6px;
+}
+
+.upload-box p{
+
+  color:#64748b;
+
+  font-size:13px;
+
+  margin-bottom:12px;
+}
+
+#photoInput{
+
+  display:none;
+}
+
+.upload-btn{
+
+  display:inline-block;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #4f46e5
+    );
+
+  color:white;
+
+  padding:12px 20px;
+
+  border-radius:12px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
 .controls{
+
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:12px;
+
   margin-top:18px;
 }
 
 .control{
+
   background:#f8fafc;
+
   padding:14px;
+
   border-radius:13px;
 }
 
 .control label{
+
   display:flex;
+
   justify-content:space-between;
+
   font-weight:bold;
+
   font-size:13px;
+
   margin-bottom:8px;
 }
 
 input[type="range"]{
+
   width:100%;
+
   accent-color:#7c3aed;
 }
 
-select{
-  width:100%;
-  padding:12px;
-  border:2px solid #e5e7eb;
-  border-radius:10px;
-  background:white;
-  font-size:16px;
-}
+
+/* =========================
+   COLOR
+========================= */
 
 .color-row{
+
   display:flex;
+
   align-items:center;
+
   gap:12px;
 }
 
 #penColor{
-  width:55px;
+
+  width:60px;
+
   height:42px;
+
   border:0;
+
   padding:0;
+
   background:none;
 }
 
+
+/* =========================
+   SELECT
+========================= */
+
+select{
+
+  width:100%;
+
+  padding:12px;
+
+  border:2px solid #e5e7eb;
+
+  border-radius:10px;
+
+  background:white;
+
+  font-size:16px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
 .buttons{
+
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:10px;
+
   margin-top:15px;
 }
 
 .btn{
+
   border:0;
+
   border-radius:13px;
+
   padding:14px;
+
   font-size:15px;
+
   font-weight:bold;
+
   cursor:pointer;
 }
 
-.clear{
-  background:#fee2e2;
-  color:#b91c1c;
-}
-
 .undo{
+
   background:#e0e7ff;
+
   color:#3730a3;
 }
 
+.clear{
+
+  background:#fee2e2;
+
+  color:#b91c1c;
+}
+
 .download{
-  background:linear-gradient(135deg,#16a34a,#059669);
+
+  background:
+    linear-gradient(
+      135deg,
+      #16a34a,
+      #059669
+    );
+
   color:white;
 }
 
 .download-jpg{
-  background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
   color:white;
 }
 
-.save{
-  background:linear-gradient(135deg,#f97316,#ea580c);
+.new-btn{
+
+  background:
+    linear-gradient(
+      135deg,
+      #f97316,
+      #ea580c
+    );
+
   color:white;
 }
+
+
+/* =========================
+   RESULT
+========================= */
 
 .result{
+
   display:none;
+
   margin-top:20px;
+
   padding:15px;
+
   background:#f8fafc;
+
   border-radius:16px;
+
   text-align:center;
 }
 
 .result h3{
+
   color:#16a34a;
+
   margin-bottom:10px;
 }
 
 #resultImage{
+
   max-width:100%;
+
   max-height:300px;
+
   border:1px solid #ddd;
+
   background:white;
 }
 
 .info{
+
   margin-top:10px;
+
   color:#64748b;
+
   font-size:13px;
 }
 
+
+/* =========================
+   MESSAGE
+========================= */
+
 .success{
+
   position:fixed;
+
   top:20px;
+
   left:50%;
-  transform:translate(-50%,-100px);
+
+  transform:
+    translate(-50%,-100px);
+
   background:#16a34a;
+
   color:white;
+
   padding:14px 20px;
+
   border-radius:13px;
+
   font-weight:bold;
+
   z-index:999;
+
   opacity:0;
+
   transition:.3s;
+
+  text-align:center;
+
+  box-shadow:
+    0 8px 30px #0004;
 }
 
 .success.show{
-  transform:translate(-50%,0);
+
+  transform:
+    translate(-50%,0);
+
   opacity:1;
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
+
   margin-top:25px;
+
   background:#111827;
+
   color:#cbd5e1;
+
   text-align:center;
+
   padding:25px;
+
   font-size:13px;
 }
 
 footer b{
+
   color:#60a5fa;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
   .container{
+
     padding:10px;
   }
 
   .card{
+
     padding:16px;
   }
 
   .controls,
   .buttons{
+
     grid-template-columns:1fr;
   }
 
   #signatureCanvas{
+
     height:280px;
   }
+
+  .logo{
+
+    font-size:27px;
+  }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<header>
-  <div class="logo">
-    ▲ ASIM <span>TECH</span>
-  </div>
 
-  <p>
-    Digital Signature Maker • Draw • Upload • Download
-  </p>
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="logo">
+
+▲ ASIM <span>TECH</span>
+
+</div>
+
+<p>
+
+Digital Signature Maker • Draw • Upload • Download
+
+</p>
+
 </header>
+
 
 <div class="container">
 
+
+<!-- =========================
+     MAIN CARD
+========================= -->
+
 <div class="card">
 
+
 <div class="title">
+
 ✍️ Create Your Signature
+
 </div>
 
-<label class="upload" for="photoInput">
 
-<div class="upload-icon">✍️</div>
+<!-- UPLOAD -->
 
-<h2>Draw Your Signature</h2>
+<div class="upload-box">
+
+<h2>
+
+🖼️ Upload Photo / Signature
+
+</h2>
 
 <p>
-Use your finger or mouse to write your signature
+
+Optional — upload an existing signature or photo
+
 </p>
+
+<label
+  class="upload-btn"
+  for="photoInput"
+>
+
+📁 CHOOSE IMAGE
 
 </label>
 
@@ -331,29 +626,57 @@ Use your finger or mouse to write your signature
   accept="image/*"
 >
 
-<div class="workspace" id="workspace">
+</div>
+
+
+<!-- CANVAS -->
 
 <div class="canvas-wrap">
 
-<canvas id="signatureCanvas"></canvas>
+<canvas
+  id="signatureCanvas"
+></canvas>
 
 <div class="help">
-👆 Draw with finger • Mouse also supported
-</div>
+
+👆 Draw your signature here with your finger or mouse
 
 </div>
 
-<div class="title" style="margin-top:20px;">
+</div>
+
+
+<!-- =========================
+     SETTINGS
+========================= -->
+
+<div
+  class="title"
+  style="margin-top:20px;"
+>
+
 🎨 Signature Settings
+
 </div>
+
 
 <div class="controls">
+
+
+<!-- PEN SIZE -->
 
 <div class="control">
 
 <label>
+
 Pen Size
-<span id="sizeValue">4 px</span>
+
+<span id="sizeValue">
+
+4 px
+
+</span>
+
 </label>
 
 <input
@@ -366,25 +689,50 @@ Pen Size
 
 </div>
 
+
+<!-- BACKGROUND -->
+
 <div class="control">
 
 <label>
+
 Background
+
 </label>
 
 <select id="background">
-<option value="white">White</option>
-<option value="transparent">Transparent</option>
+
+<option value="white">
+
+White
+
+</option>
+
+<option value="transparent">
+
+Transparent
+
+</option>
+
 </select>
 
 </div>
 
+
 </div>
 
-<div class="control" style="margin-top:12px;">
+
+<!-- COLOR -->
+
+<div
+  class="control"
+  style="margin-top:12px;"
+>
 
 <label>
+
 Pen Colour
+
 </label>
 
 <div class="color-row">
@@ -396,98 +744,173 @@ Pen Colour
 >
 
 <span>
+
 Choose signature colour
+
 </span>
 
 </div>
 
 </div>
 
+
+<!-- =========================
+     CONTROL BUTTONS
+========================= -->
+
 <div class="buttons">
+
 
 <button
   class="btn undo"
-  onclick="undoSignature()">
+  onclick="undoSignature()"
+>
+
 ↩️ UNDO
+
 </button>
+
 
 <button
   class="btn clear"
-  onclick="clearSignature()">
+  onclick="clearSignature()"
+>
+
 🗑️ CLEAR
+
 </button>
+
 
 </div>
 
+
 <div class="buttons">
+
 
 <button
   class="btn download"
-  onclick="downloadPNG()">
+  onclick="downloadPNG()"
+>
+
 ⬇️ DOWNLOAD PNG
+
 </button>
+
 
 <button
   class="btn download-jpg"
-  onclick="downloadJPG()">
+  onclick="downloadJPG()"
+>
+
 ⬇️ DOWNLOAD JPG
+
 </button>
 
+
 </div>
+
 
 <div class="buttons">
 
-<button
-  class="btn save"
-  onclick="saveSignature()">
-💾 SAVE SIGNATURE
-</button>
 
 <button
-  class="btn clear"
-  onclick="startAgain()">
-♻️ START AGAIN
+  class="btn new-btn"
+  onclick="newSignature()"
+>
+
+♻️ NEW SIGNATURE
+
 </button>
 
 </div>
 
-<div class="result" id="result">
 
-<h3>✅ Signature Ready</h3>
+<!-- =========================
+     RESULT
+========================= -->
 
-<img id="resultImage">
+<div
+  class="result"
+  id="result"
+>
 
-<div class="info" id="resultInfo"></div>
+<h3>
+
+✅ Signature Ready
+
+</h3>
+
+
+<img
+  id="resultImage"
+>
+
+
+<div
+  class="info"
+  id="resultInfo"
+>
 
 </div>
 
-</div>
 
 </div>
 
+
 </div>
+
+
+<!-- =========================
+     INSTRUCTIONS
+========================= -->
 
 <div class="card">
 
 <div class="title">
+
 📌 How To Use
+
 </div>
 
-<p style="line-height:1.7;color:#64748b;font-size:14px;">
-1. Open the Signature Maker.<br>
-2. Draw your signature with your finger.<br>
-3. Adjust pen size and colour.<br>
-4. Choose white or transparent background.<br>
-5. Download your signature as PNG or JPG.
+<p
+  style="
+  line-height:1.8;
+  color:#64748b;
+  font-size:14px;
+  "
+>
+
+1. সাদা canvas-এর মধ্যে আঙুল দিয়ে signature আঁকুন।<br>
+
+2. Pen Size দিয়ে লেখার thickness পরিবর্তন করুন।<br>
+
+3. Pen Colour দিয়ে signature-এর colour নির্বাচন করুন।<br>
+
+4. White অথবা Transparent background নির্বাচন করুন।<br>
+
+5. PNG অথবা JPG Download করুন।<br>
+
+6. চাইলে নিজের পুরনো signature/photo upload করতে পারবেন।
+
 </p>
 
 </div>
 
+
 </div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-<b>▲ ASIM TECH</b>
+<b>
+
+▲ ASIM TECH
+
+</b>
 
 <br><br>
 
@@ -499,643 +922,838 @@ Digital Signature Maker
 
 </footer>
 
-<div class="success" id="success"></div>
+
+<!-- MESSAGE -->
+
+<div
+  class="success"
+  id="success"
+>
+</div>
+
 
 <script>
 
+/* ==================================================
+   VARIABLES
+================================================== */
+
 const canvas =
-document.getElementById("signatureCanvas");
+document.getElementById(
+  "signatureCanvas"
+);
 
 const ctx =
-canvas.getContext("2d");
-
-const workspace =
-document.getElementById("workspace");
+canvas.getContext(
+  "2d"
+);
 
 const penSize =
-document.getElementById("penSize");
+document.getElementById(
+  "penSize"
+);
 
 const penColor =
-document.getElementById("penColor");
+document.getElementById(
+  "penColor"
+);
 
 const background =
-document.getElementById("background");
+document.getElementById(
+  "background"
+);
 
-let drawing = false;
+const photoInput =
+document.getElementById(
+  "photoInput"
+);
 
-let history = [];
+let drawing=false;
 
-let lastX = 0;
-let lastY = 0;
+let history=[];
+
+let importedImage=null;
+
+let dpr=1;
 
 
-/* CANVAS SIZE */
+/* ==================================================
+   CANVAS SETUP
+================================================== */
 
 function setupCanvas(){
 
-const rect =
-canvas.getBoundingClientRect();
+  const rect =
+  canvas.getBoundingClientRect();
 
-const ratio =
-window.devicePixelRatio || 1;
+  dpr =
+  window.devicePixelRatio || 1;
 
-canvas.width =
-rect.width * ratio;
+  canvas.width =
+  Math.round(
+    rect.width * dpr
+  );
 
-canvas.height =
-rect.height * ratio;
+  canvas.height =
+  Math.round(
+    rect.height * dpr
+  );
 
-ctx.setTransform(
-ratio,
-0,
-0,
-ratio,
-0,
-0
-);
+  ctx.setTransform(
+    dpr,
+    0,
+    0,
+    dpr,
+    0,
+    0
+  );
 
-ctx.lineCap = "round";
-ctx.lineJoin = "round";
+  ctx.lineCap="round";
 
-clearCanvas(false);
+  ctx.lineJoin="round";
 
-}
-
-
-/* CLEAR CANVAS */
-
-function clearCanvas(saveHistory=true){
-
-if(saveHistory){
-saveState();
-}
-
-const rect =
-canvas.getBoundingClientRect();
-
-ctx.clearRect(
-0,
-0,
-rect.width,
-rect.height
-);
-
-if(background.value === "white"){
-
-ctx.fillStyle = "#ffffff";
-
-ctx.fillRect(
-0,
-0,
-rect.width,
-rect.height
-);
-
-}
+  drawBackground();
 
 }
 
 
-/* SAVE STATE */
+/* ==================================================
+   BACKGROUND
+================================================== */
+
+function drawBackground(){
+
+  const rect =
+  canvas.getBoundingClientRect();
+
+  ctx.clearRect(
+    0,
+    0,
+    rect.width,
+    rect.height
+  );
+
+  if(background.value==="white"){
+
+    ctx.fillStyle="#ffffff";
+
+    ctx.fillRect(
+      0,
+      0,
+      rect.width,
+      rect.height
+    );
+
+  }
+
+  if(importedImage){
+
+    const iw =
+    importedImage.width;
+
+    const ih =
+    importedImage.height;
+
+    const scale =
+    Math.min(
+      rect.width / iw,
+      rect.height / ih
+    );
+
+    const w =
+    iw * scale;
+
+    const h =
+    ih * scale;
+
+    const x =
+    (rect.width-w)/2;
+
+    const y =
+    (rect.height-h)/2;
+
+    ctx.drawImage(
+      importedImage,
+      x,
+      y,
+      w,
+      h
+    );
+
+  }
+
+}
+
+
+/* ==================================================
+   SAVE STATE
+================================================== */
 
 function saveState(){
 
-try{
+  try{
 
-history.push(
-canvas.toDataURL("image/png")
-);
+    history.push(
+      canvas.toDataURL(
+        "image/png"
+      )
+    );
 
-if(history.length > 20){
-history.shift();
+    if(history.length>30){
+
+      history.shift();
+
+    }
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
 }
 
-}catch(e){}
 
-}
-
-
-/* RESTORE STATE */
+/* ==================================================
+   RESTORE
+================================================== */
 
 function restoreState(data){
 
-const img = new Image();
+  const img =
+  new Image();
 
-img.onload=function(){
+  img.onload=function(){
 
-const rect =
-canvas.getBoundingClientRect();
+    const rect =
+    canvas.getBoundingClientRect();
 
-ctx.clearRect(
-0,
-0,
-rect.width,
-rect.height
-);
+    ctx.clearRect(
+      0,
+      0,
+      rect.width,
+      rect.height
+    );
 
-ctx.drawImage(
-img,
-0,
-0,
-rect.width,
-rect.height
-);
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      rect.width,
+      rect.height
+    );
 
-};
+  };
 
-img.src=data;
+  img.src=data;
 
 }
 
 
-/* POINTER POSITION */
+/* ==================================================
+   POINTER POSITION
+================================================== */
 
 function getPosition(e){
 
-const rect =
-canvas.getBoundingClientRect();
+  const rect =
+  canvas.getBoundingClientRect();
 
-return {
+  return{
 
-x:e.clientX-rect.left,
+    x:
+    e.clientX -
+    rect.left,
 
-y:e.clientY-rect.top
+    y:
+    e.clientY -
+    rect.top
 
-};
-
-}
-
-
-/* START DRAW */
-
-canvas.addEventListener(
-"pointerdown",
-function(e){
-
-drawing=true;
-
-const p =
-getPosition(e);
-
-lastX=p.x;
-lastY=p.y;
-
-saveState();
-
-canvas.setPointerCapture(
-e.pointerId
-);
-
-ctx.beginPath();
-
-ctx.moveTo(
-lastX,
-lastY
-);
+  };
 
 }
-);
 
 
-/* DRAW */
-
-canvas.addEventListener(
-"pointermove",
-function(e){
-
-if(!drawing)return;
-
-const p =
-getPosition(e);
-
-ctx.strokeStyle =
-penColor.value;
-
-ctx.lineWidth =
-parseInt(penSize.value);
-
-ctx.lineTo(
-p.x,
-p.y
-);
-
-ctx.stroke();
-
-ctx.beginPath();
-
-ctx.moveTo(
-p.x,
-p.y
-);
-
-lastX=p.x;
-lastY=p.y;
-
-}
-);
-
-
-/* END DRAW */
+/* ==================================================
+   START DRAWING
+================================================== */
 
 canvas.addEventListener(
-"pointerup",
-stopDrawing
+  "pointerdown",
+  function(e){
+
+    e.preventDefault();
+
+    drawing=true;
+
+    saveState();
+
+    const p =
+    getPosition(e);
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      p.x,
+      p.y
+    );
+
+    ctx.strokeStyle =
+    penColor.value;
+
+    ctx.lineWidth =
+    Number(
+      penSize.value
+    );
+
+    canvas.setPointerCapture(
+      e.pointerId
+    );
+
+  }
+);
+
+
+/* ==================================================
+   DRAW
+================================================== */
+
+canvas.addEventListener(
+  "pointermove",
+  function(e){
+
+    if(!drawing)return;
+
+    e.preventDefault();
+
+    const p =
+    getPosition(e);
+
+    ctx.strokeStyle =
+    penColor.value;
+
+    ctx.lineWidth =
+    Number(
+      penSize.value
+    );
+
+    ctx.lineTo(
+      p.x,
+      p.y
+    );
+
+    ctx.stroke();
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      p.x,
+      p.y
+    );
+
+  }
+);
+
+
+/* ==================================================
+   STOP DRAWING
+================================================== */
+
+canvas.addEventListener(
+  "pointerup",
+  stopDrawing
 );
 
 canvas.addEventListener(
-"pointercancel",
-stopDrawing
+  "pointercancel",
+  stopDrawing
 );
-
-canvas.addEventListener(
-"pointerleave",
-function(e){
-
-if(e.buttons===0){
-drawing=false;
-}
-
-}
-);
-
 
 function stopDrawing(){
 
-drawing=false;
+  drawing=false;
 
-ctx.beginPath();
+  ctx.beginPath();
 
 }
 
 
-/* PEN SIZE */
+/* ==================================================
+   PEN SIZE
+================================================== */
 
 penSize.addEventListener(
-"input",
-function(){
+  "input",
+  function(){
 
-document.getElementById(
-"sizeValue"
-).innerText =
-this.value+" px";
+    document.getElementById(
+      "sizeValue"
+    ).innerText =
+    this.value+
+    " px";
 
-}
+  }
 );
 
 
-/* BACKGROUND */
+/* ==================================================
+   BACKGROUND CHANGE
+================================================== */
 
 background.addEventListener(
-"change",
-function(){
+  "change",
+  function(){
 
-saveState();
+    saveState();
 
-if(this.value==="white"){
+    drawBackground();
 
-const rect =
-canvas.getBoundingClientRect();
-
-const old =
-canvas.toDataURL();
-
-const img =
-new Image();
-
-img.onload=function(){
-
-ctx.fillStyle="white";
-
-ctx.fillRect(
-0,
-0,
-rect.width,
-rect.height
-);
-
-ctx.drawImage(
-img,
-0,
-0,
-rect.width,
-rect.height
-);
-
-};
-
-img.src=old;
-
-}
-
-}
+  }
 );
 
 
-/* UNDO */
-
-function undoSignature(){
-
-if(history.length===0){
-
-showMessage(
-"Nothing to undo"
-);
-
-return;
-
-}
-
-const previous =
-history.pop();
-
-restoreState(previous);
-
-}
-
-
-/* CLEAR */
+/* ==================================================
+   CLEAR
+================================================== */
 
 function clearSignature(){
 
-saveState();
+  saveState();
 
-clearCanvas(false);
+  importedImage=null;
 
-showMessage(
-"Signature cleared"
-);
+  drawBackground();
 
-}
-
-
-/* GET PNG DATA */
-
-function getPNG(){
-
-const temp =
-document.createElement("canvas");
-
-const rect =
-canvas.getBoundingClientRect();
-
-temp.width =
-Math.round(rect.width);
-
-temp.height =
-Math.round(rect.height);
-
-const t =
-temp.getContext("2d");
-
-if(background.value==="white"){
-
-t.fillStyle="white";
-
-t.fillRect(
-0,
-0,
-temp.width,
-temp.height
-);
-
-}
-
-t.drawImage(
-canvas,
-0,
-0,
-canvas.width,
-canvas.height,
-0,
-0,
-temp.width,
-temp.height
-);
-
-return temp;
+  showMessage(
+    "🗑️ Signature cleared"
+  );
 
 }
 
 
-/* DOWNLOAD PNG */
+/* ==================================================
+   UNDO
+================================================== */
+
+function undoSignature(){
+
+  if(history.length===0){
+
+    showMessage(
+      "Nothing to undo"
+    );
+
+    return;
+
+  }
+
+  const previous =
+  history.pop();
+
+  restoreState(
+    previous
+  );
+
+  showMessage(
+    "↩️ Undo successful"
+  );
+
+}
+
+
+/* ==================================================
+   UPLOAD IMAGE
+================================================== */
+
+photoInput.addEventListener(
+  "change",
+  function(){
+
+    const file =
+    this.files[0];
+
+    if(!file)return;
+
+    if(
+      !file.type.startsWith(
+        "image/"
+      )
+    ){
+
+      alert(
+        "Please select an image."
+      );
+
+      return;
+
+    }
+
+    const reader =
+    new FileReader();
+
+    reader.onload=function(e){
+
+      const img =
+      new Image();
+
+      img.onload=function(){
+
+        saveState();
+
+        importedImage=img;
+
+        drawBackground();
+
+        showMessage(
+          "🖼️ Image loaded"
+        );
+
+      };
+
+      img.src =
+      e.target.result;
+
+    };
+
+    reader.readAsDataURL(
+      file
+    );
+
+  }
+);
+
+
+/* ==================================================
+   GET OUTPUT CANVAS
+================================================== */
+
+function getOutputCanvas(){
+
+  const out =
+  document.createElement(
+    "canvas"
+  );
+
+  const rect =
+  canvas.getBoundingClientRect();
+
+  out.width =
+  Math.round(
+    rect.width
+  );
+
+  out.height =
+  Math.round(
+    rect.height
+  );
+
+  const o =
+  out.getContext(
+    "2d"
+  );
+
+  if(
+    background.value==="white"
+  ){
+
+    o.fillStyle="white";
+
+    o.fillRect(
+      0,
+      0,
+      out.width,
+      out.height
+    );
+
+  }
+
+  o.drawImage(
+    canvas,
+    0,
+    0,
+    canvas.width,
+    canvas.height,
+    0,
+    0,
+    out.width,
+    out.height
+  );
+
+  return out;
+
+}
+
+
+/* ==================================================
+   DOWNLOAD PNG
+================================================== */
 
 function downloadPNG(){
 
-const temp =
-getPNG();
+  const out =
+  getOutputCanvas();
 
-temp.toBlob(
-function(blob){
+  out.toBlob(
+    function(blob){
 
-const url =
-URL.createObjectURL(blob);
+      if(!blob){
 
-const a =
-document.createElement("a");
+        showMessage(
+          "❌ Download failed"
+        );
 
-a.href=url;
+        return;
 
-a.download =
-"AsimTech-Signature.png";
+      }
 
-document.body.appendChild(a);
+      const url =
+      URL.createObjectURL(
+        blob
+      );
 
-a.click();
+      const a =
+      document.createElement(
+        "a"
+      );
 
-a.remove();
+      a.href=url;
 
-URL.revokeObjectURL(url);
+      a.download=
+      "AsimTech-Signature.png";
 
-showMessage(
-"✅ PNG Downloaded"
-);
+      document.body.appendChild(
+        a
+      );
 
-},
-"image/png"
-);
+      a.click();
+
+      a.remove();
+
+      URL.revokeObjectURL(
+        url
+      );
+
+      showMessage(
+        "✅ PNG Downloaded"
+      );
+
+    },
+    "image/png"
+  );
 
 }
 
 
-/* DOWNLOAD JPG */
+/* ==================================================
+   DOWNLOAD JPG
+================================================== */
 
 function downloadJPG(){
 
-const temp =
-getPNG();
+  const source =
+  getOutputCanvas();
 
-const jpg =
-document.createElement("canvas");
+  const jpg =
+  document.createElement(
+    "canvas"
+  );
 
-jpg.width =
-temp.width;
+  jpg.width =
+  source.width;
 
-jpg.height =
-temp.height;
+  jpg.height =
+  source.height;
 
-const j =
-jpg.getContext("2d");
+  const j =
+  jpg.getContext(
+    "2d"
+  );
 
-j.fillStyle="white";
+  j.fillStyle="white";
 
-j.fillRect(
-0,
-0,
-jpg.width,
-jpg.height
-);
+  j.fillRect(
+    0,
+    0,
+    jpg.width,
+    jpg.height
+  );
 
-j.drawImage(
-temp,
-0,
-0
-);
+  j.drawImage(
+    source,
+    0,
+    0
+  );
 
-jpg.toBlob(
-function(blob){
+  jpg.toBlob(
+    function(blob){
 
-const url =
-URL.createObjectURL(blob);
+      if(!blob){
 
-const a =
-document.createElement("a");
+        showMessage(
+          "❌ Download failed"
+        );
 
-a.href=url;
+        return;
 
-a.download =
-"AsimTech-Signature.jpg";
+      }
 
-document.body.appendChild(a);
+      const url =
+      URL.createObjectURL(
+        blob
+      );
 
-a.click();
+      const a =
+      document.createElement(
+        "a"
+      );
 
-a.remove();
+      a.href=url;
 
-URL.revokeObjectURL(url);
+      a.download=
+      "AsimTech-Signature.jpg";
 
-showMessage(
-"✅ JPG Downloaded"
-);
+      document.body.appendChild(
+        a
+      );
 
-},
-"image/jpeg",
-0.95
-);
+      a.click();
 
-}
+      a.remove();
 
+      URL.revokeObjectURL(
+        url
+      );
 
-/* SAVE SIGNATURE */
+      showMessage(
+        "✅ JPG Downloaded"
+      );
 
-function saveSignature(){
-
-const temp =
-getPNG();
-
-const img =
-document.getElementById(
-"resultImage"
-);
-
-img.src =
-temp.toDataURL(
-"image/png"
-);
-
-document.getElementById(
-"result"
-).style.display =
-"block";
-
-document.getElementById(
-"resultInfo"
-).innerText =
-"Signature created successfully.";
-
-showMessage(
-"✅ Signature Ready"
-);
+    },
+    "image/jpeg",
+    0.95
+  );
 
 }
 
 
-/* START AGAIN */
+/* ==================================================
+   SHOW RESULT
+================================================== */
 
-function startAgain(){
+function showResult(){
 
-history=[];
+  const out =
+  getOutputCanvas();
 
-clearCanvas(false);
+  const image =
+  document.getElementById(
+    "resultImage"
+  );
 
-document.getElementById(
-"result"
-).style.display =
-"none";
+  image.src =
+  out.toDataURL(
+    "image/png"
+  );
 
-showMessage(
-"Ready for a new signature"
-);
+  document.getElementById(
+    "result"
+  ).style.display=
+  "block";
+
+  document.getElementById(
+    "resultInfo"
+  ).innerText=
+  out.width+
+  " × "+
+  out.height+
+  " px";
 
 }
 
 
-/* MESSAGE */
+/* ==================================================
+   NEW SIGNATURE
+================================================== */
+
+function newSignature(){
+
+  history=[];
+
+  importedImage=null;
+
+  photoInput.value="";
+
+  drawBackground();
+
+  document.getElementById(
+    "result"
+  ).style.display=
+  "none";
+
+  showMessage(
+    "✍️ Ready for new signature"
+  );
+
+}
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
 
 function showMessage(message){
 
-const box =
-document.getElementById(
-"success"
-);
+  const box =
+  document.getElementById(
+    "success"
+  );
 
-box.innerHTML =
-message;
+  box.innerHTML =
+  message;
 
-box.classList.add("show");
+  box.classList.add(
+    "show"
+  );
 
-setTimeout(
-function(){
+  setTimeout(
+    function(){
 
-box.classList.remove("show");
+      box.classList.remove(
+        "show"
+      );
 
-},
-2500
-);
-
-}
-
-
-/* OPEN WORKSPACE */
-
-document
-.getElementById("photoInput")
-.addEventListener(
-"change",
-function(){
-
-workspace.style.display =
-"block";
-
-setTimeout(
-setupCanvas,
-50
-);
+    },
+    2500
+  );
 
 }
-);
 
 
-/* INITIAL */
+/* ==================================================
+   INITIALIZE
+================================================== */
 
 window.addEventListener(
-"resize",
-function(){
+  "load",
+  function(){
 
-if(workspace.style.display==="block"){
-setupCanvas();
-}
+    setupCanvas();
 
-}
+  }
+);
+
+
+/* ==================================================
+   RESIZE
+================================================== */
+
+window.addEventListener(
+  "resize",
+  function(){
+
+    setupCanvas();
+
+  }
 );
 
 </script>
