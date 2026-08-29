@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color"
-content="#030914">
+<meta name="theme-color" content="#030914">
 
 <meta name="description"
 content="Asim Tech - Apps, Photo Resizer, ID Photo Maker, Signature Maker, Office Tools and Innovation">
@@ -17,6 +14,10 @@ content="Asim Tech - Apps, Photo Resizer, ID Photo Maker, Signature Maker, Offic
 <title>Asim Tech | Apps • Tools • Innovation</title>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     box-sizing:border-box;
@@ -31,29 +32,34 @@ html{
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#030914;
-    color:#fff;
+    color:#ffffff;
     line-height:1.6;
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
-    height:68px;
-    padding:0 7%;
+    height:70px;
+    padding:0 6%;
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     position:sticky;
     top:0;
     z-index:1000;
+
     background:#030914;
-    border-bottom:1px solid #1b2b40;
+    border-bottom:1px solid #17283d;
 }
 
 .logo{
-    font-size:24px;
+    font-size:25px;
     font-weight:bold;
+    white-space:nowrap;
 }
 
 .logo span{
@@ -69,6 +75,7 @@ nav a{
     color:#d8e1ed;
     text-decoration:none;
     font-size:14px;
+    font-weight:bold;
 }
 
 nav a:hover{
@@ -76,13 +83,17 @@ nav a:hover{
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    min-height:calc(100vh - 68px);
+    min-height:calc(100vh - 70px);
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:70px 8%;
 
     background:
@@ -91,7 +102,6 @@ nav a:hover{
         #0759a855,
         transparent 35%
     ),
-
     radial-gradient(
         circle at 20% 20%,
         #1685ff18,
@@ -147,7 +157,7 @@ nav a:hover{
 
 .primary{
     background:#1685ff;
-    color:white;
+    color:#ffffff;
 }
 
 .primary:hover{
@@ -156,7 +166,7 @@ nav a:hover{
 
 .secondary{
     border:1px solid #53657b;
-    color:white;
+    color:#ffffff;
 }
 
 .secondary:hover{
@@ -165,7 +175,9 @@ nav a:hover{
 }
 
 
-/* PHONE */
+/* =========================
+   PHONE
+========================= */
 
 .phone-area{
     width:38%;
@@ -176,16 +188,23 @@ nav a:hover{
 .phone{
     width:220px;
     height:420px;
+
     padding:10px;
+
     border:4px solid #65768b;
     border-radius:36px;
+
     transform:rotate(4deg);
-    box-shadow:0 0 70px #006dff55;
+
+    box-shadow:
+    0 0 70px #006dff55;
 }
 
 .phone-screen{
     height:100%;
+
     border-radius:27px;
+
     padding:28px 18px;
 
     background:
@@ -227,7 +246,9 @@ nav a:hover{
 }
 
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 
 section{
     max-width:1250px;
@@ -248,7 +269,9 @@ section h2{
 }
 
 
-/* APPS */
+/* =========================
+   APPS GRID
+========================= */
 
 .apps{
     display:grid;
@@ -257,45 +280,56 @@ section h2{
 }
 
 .app{
-    background:#0b1625;
-    border:1px solid #1b2d43;
-    border-radius:17px;
+    background:#071522;
+
+    border:1px solid #183047;
+
+    border-radius:18px;
+
     padding:20px;
+
     transition:.25s;
+
+    overflow:hidden;
 }
 
 .app:hover{
     transform:translateY(-5px);
     border-color:#1685ff;
+
+    box-shadow:
+    0 10px 35px #006dff20;
 }
 
 
-/* IMAGES */
+/* =========================
+   ALL APP IMAGES
+========================= */
 
 .app-icon{
     width:100%;
     height:170px;
+
     object-fit:cover;
+
     border-radius:13px;
+
     margin-bottom:17px;
+
     background:#102039;
 }
 
-.photo-icon{
-    width:100%;
-    height:170px;
-    object-fit:cover;
-    border-radius:13px;
-    margin-bottom:17px;
-}
 
-
-/* OFFICE */
+/* =========================
+   OFFICE ICON
+========================= */
 
 .office-icon{
     width:100%;
     height:170px;
+
     border-radius:13px;
+
     margin-bottom:17px;
 
     background:
@@ -313,12 +347,16 @@ section h2{
 }
 
 
-/* ID PHOTO */
+/* =========================
+   ID PHOTO ICON
+========================= */
 
 .id-icon{
     width:100%;
     height:170px;
+
     border-radius:13px;
+
     margin-bottom:17px;
 
     background:
@@ -349,123 +387,83 @@ section h2{
 }
 
 
-/* SIGNATURE */
-
-.signature-icon{
-    width:100%;
-    height:170px;
-    border-radius:13px;
-    margin-bottom:17px;
-
-    background:
-    radial-gradient(
-        circle at 25% 30%,
-        #22d3ee,
-        transparent 30%
-    ),
-
-    radial-gradient(
-        circle at 75% 70%,
-        #f472b6,
-        transparent 35%
-    ),
-
-    linear-gradient(
-        135deg,
-        #4f46e5,
-        #7c3aed,
-        #ec4899
-    );
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:70px;
-}
-
-
-/* APP TEXT */
+/* =========================
+   TEXT
+========================= */
 
 .app h3{
     margin-bottom:8px;
+    font-size:20px;
 }
 
 .app p{
     font-size:14px;
     color:#9eacbf;
+
     min-height:65px;
 }
 
 .version{
     display:block;
+
     font-size:12px;
+
     color:#718198;
+
     margin-top:10px;
 }
 
 
-/* DOWNLOAD */
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
 
 .download{
     display:block;
+
     background:#1685ff;
+
     color:white;
+
     text-align:center;
-    padding:11px;
-    border-radius:8px;
+
+    padding:12px;
+
+    border-radius:9px;
+
     text-decoration:none;
+
     font-weight:bold;
+
     margin-top:17px;
+
+    transition:.2s;
 }
 
 .download:hover{
     background:#0874e8;
+
+    transform:translateY(-1px);
 }
 
 
-/* MADHU MUSIC */
+/* =========================
+   OFFICE BUTTON
+========================= */
 
-.madhu-web{
+.office-btn{
     background:
     linear-gradient(
         135deg,
-        #f59e0b,
-        #ef4444,
-        #ec4899
-    );
-}
-
-.madhu-web:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #d97706,
-        #dc2626,
-        #db2777
-    );
-}
-
-.madhu-apk{
-    background:
-    linear-gradient(
-        135deg,
-        #16a34a,
-        #059669
-    );
-}
-
-.madhu-apk:hover{
-    background:
-    linear-gradient(
-        135deg,
-        #15803d,
-        #047857
+        #2563eb,
+        #1685ff
     );
 }
 
 
-/* PHOTO BUTTONS */
+/* =========================
+   PHOTO BUTTONS
+========================= */
 
 .photo-web{
     background:
@@ -504,7 +502,9 @@ section h2{
 }
 
 
-/* ID BUTTONS */
+/* =========================
+   ID BUTTONS
+========================= */
 
 .id-web{
     background:
@@ -543,7 +543,9 @@ section h2{
 }
 
 
-/* SIGNATURE BUTTON */
+/* =========================
+   SIGNATURE BUTTONS
+========================= */
 
 .signature-web{
     background:
@@ -584,7 +586,55 @@ section h2{
 }
 
 
-/* TOOLS */
+/* =========================
+   MADHU MUSIC BUTTON
+========================= */
+
+.madhu-apk{
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #ef4444
+    );
+}
+
+.madhu-apk:hover{
+    background:
+    linear-gradient(
+        135deg,
+        #d97706,
+        #dc2626
+    );
+}
+
+
+/* =========================
+   GENERAL APK BUTTON
+========================= */
+
+.apk-btn{
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #059669
+    );
+}
+
+.apk-btn:hover{
+    background:
+    linear-gradient(
+        135deg,
+        #15803d,
+        #047857
+    );
+}
+
+
+/* =========================
+   TOOLS
+========================= */
 
 .simple{
     border-top:1px solid #17263a;
@@ -595,21 +645,30 @@ section h2{
 }
 
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about{
     background:#091523;
+
     border:1px solid #1b2c42;
+
     border-radius:18px;
+
     padding:40px;
+
     display:flex;
+
     align-items:center;
+
     gap:30px;
 }
 
 .avatar{
     width:105px;
     height:105px;
+
     border-radius:50%;
 
     background:
@@ -620,11 +679,14 @@ section h2{
     );
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     font-size:45px;
+
     font-weight:bold;
+
     flex-shrink:0;
 }
 
@@ -633,7 +695,9 @@ section h2{
 }
 
 
-/* CONTACT */
+/* =========================
+   CONTACT
+========================= */
 
 .contact{
     text-align:center;
@@ -641,16 +705,22 @@ section h2{
 
 .contact p{
     color:#9eacbf;
+
     margin-bottom:25px;
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     text-align:center;
+
     padding:35px;
+
     border-top:1px solid #17263a;
+
     color:#718096;
 }
 
@@ -659,7 +729,9 @@ footer span{
 }
 
 
-/* TABLET */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:1100px){
 
@@ -670,8 +742,6 @@ footer span{
 }
 
 
-/* MOBILE */
-
 @media(max-width:900px){
 
     nav{
@@ -680,8 +750,11 @@ footer span{
 
     .hero{
         min-height:auto;
+
         flex-direction:column;
+
         text-align:center;
+
         padding:55px 6% 75px;
     }
 
@@ -699,28 +772,30 @@ footer span{
 
     .buttons{
         justify-content:center;
+
         flex-wrap:wrap;
     }
 
     .phone-area{
         width:100%;
+
         margin-top:60px;
     }
 
     .phone{
         width:195px;
+
         height:375px;
     }
 
     .about{
         flex-direction:column;
+
         text-align:center;
     }
 
 }
 
-
-/* SMALL MOBILE */
 
 @media(max-width:550px){
 
@@ -746,11 +821,13 @@ footer span{
 
     .buttons{
         flex-direction:column;
+
         align-items:center;
     }
 
     .btn{
         width:230px;
+
         text-align:center;
     }
 
@@ -764,9 +841,7 @@ footer span{
 
     .app-icon,
     .office-icon,
-    .photo-icon,
-    .id-icon,
-    .signature-icon{
+    .id-icon{
         height:230px;
     }
 
@@ -784,6 +859,27 @@ footer span{
 
 }
 
+
+/* =========================
+   VERY SMALL SCREEN
+========================= */
+
+@media(max-width:360px){
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .app{
+        padding:16px;
+    }
+
+}
+
 </style>
 
 </head>
@@ -792,7 +888,9 @@ footer span{
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -802,17 +900,28 @@ footer span{
 
 </div>
 
+
 <nav>
 
-<a href="#home">Home</a>
+<a href="#home">
+Home
+</a>
 
-<a href="#apps">My Apps</a>
+<a href="#apps">
+My Apps
+</a>
 
-<a href="#tools">Tools</a>
+<a href="#tools">
+Tools
+</a>
 
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 
 </nav>
 
@@ -820,25 +929,38 @@ footer span{
 
 
 
-<!-- HERO -->
+<!-- =========================
+     HOME
+========================= -->
 
 <div
 class="hero"
 id="home">
 
+
 <div class="hero-text">
 
+
 <div class="welcome">
+
 WELCOME TO
+
 </div>
+
 
 <h1>
+
 ASIM <span>TECH</span>
+
 </h1>
 
+
 <div class="tagline">
+
 Apps • Tools • Innovation
+
 </div>
+
 
 <p class="description">
 
@@ -847,7 +969,9 @@ to make everyday tasks easier.
 
 </p>
 
+
 <div class="buttons">
+
 
 <a
 href="#apps"
@@ -857,6 +981,7 @@ Explore Apps
 
 </a>
 
+
 <a
 href="#about"
 class="btn secondary">
@@ -865,7 +990,9 @@ About Asim
 
 </a>
 
+
 </div>
+
 
 </div>
 
@@ -875,17 +1002,26 @@ About Asim
 
 <div class="phone-area">
 
+
 <div class="phone">
+
 
 <div class="phone-screen">
 
+
 <div class="phone-brand">
+
 ▲ ASIM TECH
+
 </div>
 
+
 <h2>
+
 Hello, Asim 👋
+
 </h2>
+
 
 <p>
 
@@ -897,26 +1033,45 @@ a better tomorrow
 
 </p>
 
+
 <div class="phone-grid">
 
+
 <div class="phone-box">
+
 📻<br>
 Radio
+
 </div>
 
+
 <div class="phone-box">
+
 🎵<br>
 Music
+
 </div>
 
+
 <div class="phone-box">
+
 🎧<br>
 Audio
+
 </div>
+
 
 <div class="phone-box">
+
 📱<br>
 Apps
+
+</div>
+
+
+</div>
+
+
 </div>
 
 </div>
@@ -925,39 +1080,54 @@ Apps
 
 </div>
 
-</div>
-
-</div>
 
 
+<!-- =========================
+     MY APPS
+========================= -->
 
-<!-- MY APPS -->
+<section
+id="apps">
 
-<section id="apps">
 
 <div class="section-label">
+
 MY APPLICATIONS
+
 </div>
 
+
 <h2>
+
 My Apps
+
 </h2>
+
 
 <div class="apps">
 
 
 
-<!-- OFFICE -->
+<!-- =========================
+     OFFICE SUITE
+========================= -->
 
 <div class="app">
 
+
 <div class="office-icon">
+
 📄
+
 </div>
 
+
 <h3>
+
 Asim Office Suite V5
+
 </h3>
+
 
 <p>
 
@@ -967,34 +1137,47 @@ scan documents.
 
 </p>
 
+
 <span class="version">
+
 Office • Document • Spreadsheet • PDF • Scanner
+
 </span>
 
+
 <a
-class="download"
+class="download office-btn"
 href="office/">
 
 🚀 Open Office Suite
 
 </a>
 
+
 </div>
 
 
 
-<!-- DEVOTIONAL RADIO -->
+<!-- =========================
+     DEVOTIONAL RADIO
+========================= -->
 
 <div class="app">
+
 
 <img
 class="app-icon"
 src="devotional-radio.png"
-alt="Devotional Radio">
+alt="Devotional Radio"
+>
+
 
 <h3>
+
 Devotional Radio
+
 </h3>
+
 
 <p>
 
@@ -1003,12 +1186,16 @@ and spiritual music.
 
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
 
+
 <a
-class="download"
+class="download apk-btn"
 href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
 download>
 
@@ -1016,22 +1203,31 @@ download>
 
 </a>
 
+
 </div>
 
 
 
-<!-- OLD IS GOLD -->
+<!-- =========================
+     OLD IS GOLD
+========================= -->
 
 <div class="app">
+
 
 <img
 class="app-icon"
 src="old_gold_logo.png"
-alt="80s 90s Old Is Gold">
+alt="80s 90s Old Is Gold"
+>
+
 
 <h3>
+
 80s & 90s Old Is Gold
+
 </h3>
+
 
 <p>
 
@@ -1041,12 +1237,16 @@ the golden era.
 
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
 
+
 <a
-class="download"
+class="download apk-btn"
 href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
 download>
 
@@ -1054,22 +1254,31 @@ download>
 
 </a>
 
+
 </div>
 
 
 
-<!-- MADHU MUSIC WORLD -->
+<!-- =========================
+     MADHU MUSIC WORLD
+========================= -->
 
 <div class="app">
+
 
 <img
 class="app-icon"
 src="madhu-music-world.png"
-alt="Madhu Music World">
+alt="Madhu Music World"
+>
+
 
 <h3>
+
 Madhu Music World
+
 </h3>
+
 
 <p>
 
@@ -1079,17 +1288,13 @@ Music World.
 
 </p>
 
+
 <span class="version">
-Android App • 24×7 Live Radio
+
+Android App • Music • Radio
+
 </span>
 
-<a
-class="download madhu-web"
-href="https://asim75772.github.io/my-music-app/">
-
-🌐 Open Madhu Music World
-
-</a>
 
 <a
 class="download madhu-apk"
@@ -1100,22 +1305,31 @@ download>
 
 </a>
 
+
 </div>
 
 
 
-<!-- SANGIT -->
+<!-- =========================
+     SANGIT
+========================= -->
 
 <div class="app">
+
 
 <img
 class="app-icon"
 src="sangit.png"
-alt="Sangit">
+alt="Sangit"
+>
+
 
 <h3>
+
 Sangit
+
 </h3>
+
 
 <p>
 
@@ -1124,12 +1338,16 @@ by Asim for music lovers.
 
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
 
+
 <a
-class="download"
+class="download apk-btn"
 href="Sangit.apk"
 download>
 
@@ -1137,22 +1355,31 @@ download>
 
 </a>
 
+
 </div>
 
 
 
-<!-- PHOTO RESIZER -->
+<!-- =========================
+     PHOTO RESIZER
+========================= -->
 
 <div class="app">
 
+
 <img
-class="photo-icon"
+class="app-icon"
 src="photo-resizer-icon.png"
-alt="Asim Tech Photo Resizer">
+alt="Asim Tech Photo Resizer"
+>
+
 
 <h3>
+
 Asim Tech Photo Resizer
+
 </h3>
+
 
 <p>
 
@@ -1162,9 +1389,13 @@ stamp and custom-size photos.
 
 </p>
 
+
 <span class="version">
+
 Photo Tool • Passport • Stamp • Crop • Filter
+
 </span>
+
 
 <a
 class="download photo-web"
@@ -1173,6 +1404,7 @@ href="photo-resizer/">
 🌐 Open Photo Resizer
 
 </a>
+
 
 <a
 class="download photo-apk"
@@ -1183,21 +1415,31 @@ download>
 
 </a>
 
+
 </div>
 
 
 
-<!-- ID PHOTO MAKER -->
+<!-- =========================
+     ID PHOTO MAKER
+========================= -->
 
 <div class="app">
 
+
 <div class="id-icon">
+
 🪪
+
 </div>
 
+
 <h3>
+
 Asim Tech ID Photo Maker
+
 </h3>
+
 
 <p>
 
@@ -1207,9 +1449,13 @@ filters and printable sheets.
 
 </p>
 
+
 <span class="version">
+
 ID Photo • Passport • Stamp • 2×2 • 4×6
+
 </span>
+
 
 <a
 class="download id-web"
@@ -1218,6 +1464,7 @@ href="id-photo-maker/">
 🌐 Open ID Photo Maker
 
 </a>
+
 
 <a
 class="download id-apk"
@@ -1228,21 +1475,31 @@ download>
 
 </a>
 
+
 </div>
 
 
 
-<!-- SIGNATURE MAKER -->
+<!-- =========================
+     SIGNATURE MAKER
+========================= -->
 
 <div class="app">
 
-<div class="signature-icon">
-✍️
-</div>
+
+<img
+class="app-icon"
+src="icon.png"
+alt="Asim Tech Signature Maker"
+>
+
 
 <h3>
+
 Asim Tech Signature Maker
+
 </h3>
+
 
 <p>
 
@@ -1252,9 +1509,13 @@ uploading an existing signature.
 
 </p>
 
+
 <span class="version">
+
 Signature • Draw • Upload • PNG • JPG
+
 </span>
+
 
 <a
 class="download signature-web"
@@ -1264,7 +1525,19 @@ href="signature-maker/">
 
 </a>
 
+
+<a
+class="download signature-apk"
+href="signature-maker.apk"
+download>
+
+⬇ Download APK
+
+</a>
+
+
 </div>
+
 
 
 </div>
@@ -1273,19 +1546,28 @@ href="signature-maker/">
 
 
 
-<!-- TOOLS -->
+<!-- =========================
+     TOOLS
+========================= -->
 
 <section
 id="tools"
 class="simple">
 
+
 <div class="section-label">
+
 MY PROJECTS
+
 </div>
 
+
 <h2>
+
 My Tools
+
 </h2>
+
 
 <p>
 
@@ -1308,48 +1590,51 @@ Current tools:
 
 ✍️ Signature Maker
 
-<br>
-
-🎵 Madhu Music World
-
-<br>
-
-📻 Devotional Radio
-
-<br>
-
-🎶 Sangit
-
 <br><br>
 
 More projects will be added soon.
 
 </p>
 
+
 </section>
 
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section
 id="about">
 
+
 <div class="about">
 
+
 <div class="avatar">
+
 A
+
 </div>
+
 
 <div>
 
+
 <div class="section-label">
+
 ABOUT ME
+
 </div>
 
+
 <h2>
+
 Hi, I'm Asim 👋
+
 </h2>
+
 
 <p>
 
@@ -1363,27 +1648,39 @@ place for sharing my apps and projects.
 
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
 
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section
 id="contact"
 class="contact">
 
+
 <div class="section-label">
+
 GET IN TOUCH
+
 </div>
 
+
 <h2>
+
 Contact Asim
+
 </h2>
+
 
 <p>
 
@@ -1391,6 +1688,7 @@ For suggestions, feedback or
 app related queries.
 
 </p>
+
 
 <a
 href="mailto:your-email@example.com"
@@ -1400,22 +1698,31 @@ class="btn primary">
 
 </a>
 
+
 </section>
 
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
+
 <b>
+
 ▲ ASIM <span>TECH</span>
+
 </b>
+
 
 <br><br>
 
+
 © 2026 Asim Tech.
 All Rights Reserved.
+
 
 </footer>
 
