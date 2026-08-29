@@ -1,1 +1,1144 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4f46e5">
+
+<title>Asim Tech Signature Maker</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  background:linear-gradient(135deg,#eef2ff,#fdf2f8);
+  color:#172033;
+}
+
+header{
+  background:linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);
+  color:white;
+  text-align:center;
+  padding:24px 15px;
+  box-shadow:0 5px 25px #0003;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#fde047;
+}
+
+header p{
+  margin-top:7px;
+  font-size:14px;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:15px;
+}
+
+.card{
+  background:white;
+  border-radius:22px;
+  padding:20px;
+  margin-top:18px;
+  box-shadow:0 10px 35px #00000015;
+}
+
+.title{
+  color:#5b21b6;
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.upload{
+  display:block;
+  text-align:center;
+  padding:28px 15px;
+  border:3px dashed #8b5cf6;
+  border-radius:18px;
+  background:linear-gradient(135deg,#f5f3ff,#fdf2f8);
+  cursor:pointer;
+}
+
+.upload-icon{
+  font-size:50px;
+}
+
+.upload h2{
+  margin:8px 0;
+  color:#5b21b6;
+}
+
+.upload p{
+  color:#64748b;
+  font-size:13px;
+}
+
+#photoInput{
+  display:none;
+}
+
+.workspace{
+  display:none;
+  margin-top:20px;
+}
+
+.canvas-wrap{
+  background:#111827;
+  padding:12px;
+  border-radius:18px;
+}
+
+#signatureCanvas{
+  width:100%;
+  height:320px;
+  display:block;
+  background:white;
+  border-radius:12px;
+  touch-action:none;
+  cursor:crosshair;
+}
+
+.help{
+  text-align:center;
+  color:#cbd5e1;
+  font-size:12px;
+  padding:10px 5px 2px;
+}
+
+.controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:18px;
+}
+
+.control{
+  background:#f8fafc;
+  padding:14px;
+  border-radius:13px;
+}
+
+.control label{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+input[type="range"]{
+  width:100%;
+  accent-color:#7c3aed;
+}
+
+select{
+  width:100%;
+  padding:12px;
+  border:2px solid #e5e7eb;
+  border-radius:10px;
+  background:white;
+  font-size:16px;
+}
+
+.color-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+#penColor{
+  width:55px;
+  height:42px;
+  border:0;
+  padding:0;
+  background:none;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:15px;
+}
+
+.btn{
+  border:0;
+  border-radius:13px;
+  padding:14px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.clear{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.undo{
+  background:#e0e7ff;
+  color:#3730a3;
+}
+
+.download{
+  background:linear-gradient(135deg,#16a34a,#059669);
+  color:white;
+}
+
+.download-jpg{
+  background:linear-gradient(135deg,#2563eb,#4f46e5);
+  color:white;
+}
+
+.save{
+  background:linear-gradient(135deg,#f97316,#ea580c);
+  color:white;
+}
+
+.result{
+  display:none;
+  margin-top:20px;
+  padding:15px;
+  background:#f8fafc;
+  border-radius:16px;
+  text-align:center;
+}
+
+.result h3{
+  color:#16a34a;
+  margin-bottom:10px;
+}
+
+#resultImage{
+  max-width:100%;
+  max-height:300px;
+  border:1px solid #ddd;
+  background:white;
+}
+
+.info{
+  margin-top:10px;
+  color:#64748b;
+  font-size:13px;
+}
+
+.success{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translate(-50%,-100px);
+  background:#16a34a;
+  color:white;
+  padding:14px 20px;
+  border-radius:13px;
+  font-weight:bold;
+  z-index:999;
+  opacity:0;
+  transition:.3s;
+}
+
+.success.show{
+  transform:translate(-50%,0);
+  opacity:1;
+}
+
+footer{
+  margin-top:25px;
+  background:#111827;
+  color:#cbd5e1;
+  text-align:center;
+  padding:25px;
+  font-size:13px;
+}
+
+footer b{
+  color:#60a5fa;
+}
+
+@media(max-width:600px){
+
+  .container{
+    padding:10px;
+  }
+
+  .card{
+    padding:16px;
+  }
+
+  .controls,
+  .buttons{
+    grid-template-columns:1fr;
+  }
+
+  #signatureCanvas{
+    height:280px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    ▲ ASIM <span>TECH</span>
+  </div>
+
+  <p>
+    Digital Signature Maker • Draw • Upload • Download
+  </p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<div class="title">
+✍️ Create Your Signature
+</div>
+
+<label class="upload" for="photoInput">
+
+<div class="upload-icon">✍️</div>
+
+<h2>Draw Your Signature</h2>
+
+<p>
+Use your finger or mouse to write your signature
+</p>
+
+</label>
+
+<input
+  type="file"
+  id="photoInput"
+  accept="image/*"
+>
+
+<div class="workspace" id="workspace">
+
+<div class="canvas-wrap">
+
+<canvas id="signatureCanvas"></canvas>
+
+<div class="help">
+👆 Draw with finger • Mouse also supported
+</div>
+
+</div>
+
+<div class="title" style="margin-top:20px;">
+🎨 Signature Settings
+</div>
+
+<div class="controls">
+
+<div class="control">
+
+<label>
+Pen Size
+<span id="sizeValue">4 px</span>
+</label>
+
+<input
+  type="range"
+  id="penSize"
+  min="1"
+  max="20"
+  value="4"
+>
+
+</div>
+
+<div class="control">
+
+<label>
+Background
+</label>
+
+<select id="background">
+<option value="white">White</option>
+<option value="transparent">Transparent</option>
+</select>
+
+</div>
+
+</div>
+
+<div class="control" style="margin-top:12px;">
+
+<label>
+Pen Colour
+</label>
+
+<div class="color-row">
+
+<input
+  type="color"
+  id="penColor"
+  value="#111111"
+>
+
+<span>
+Choose signature colour
+</span>
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button
+  class="btn undo"
+  onclick="undoSignature()">
+↩️ UNDO
+</button>
+
+<button
+  class="btn clear"
+  onclick="clearSignature()">
+🗑️ CLEAR
+</button>
+
+</div>
+
+<div class="buttons">
+
+<button
+  class="btn download"
+  onclick="downloadPNG()">
+⬇️ DOWNLOAD PNG
+</button>
+
+<button
+  class="btn download-jpg"
+  onclick="downloadJPG()">
+⬇️ DOWNLOAD JPG
+</button>
+
+</div>
+
+<div class="buttons">
+
+<button
+  class="btn save"
+  onclick="saveSignature()">
+💾 SAVE SIGNATURE
+</button>
+
+<button
+  class="btn clear"
+  onclick="startAgain()">
+♻️ START AGAIN
+</button>
+
+</div>
+
+<div class="result" id="result">
+
+<h3>✅ Signature Ready</h3>
+
+<img id="resultImage">
+
+<div class="info" id="resultInfo"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+📌 How To Use
+</div>
+
+<p style="line-height:1.7;color:#64748b;font-size:14px;">
+1. Open the Signature Maker.<br>
+2. Draw your signature with your finger.<br>
+3. Adjust pen size and colour.<br>
+4. Choose white or transparent background.<br>
+5. Download your signature as PNG or JPG.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+<b>▲ ASIM TECH</b>
+
+<br><br>
+
+Digital Signature Maker
+
+<br><br>
+
+© 2026 Asim Tech
+
+</footer>
+
+<div class="success" id="success"></div>
+
+<script>
+
+const canvas =
+document.getElementById("signatureCanvas");
+
+const ctx =
+canvas.getContext("2d");
+
+const workspace =
+document.getElementById("workspace");
+
+const penSize =
+document.getElementById("penSize");
+
+const penColor =
+document.getElementById("penColor");
+
+const background =
+document.getElementById("background");
+
+let drawing = false;
+
+let history = [];
+
+let lastX = 0;
+let lastY = 0;
+
+
+/* CANVAS SIZE */
+
+function setupCanvas(){
+
+const rect =
+canvas.getBoundingClientRect();
+
+const ratio =
+window.devicePixelRatio || 1;
+
+canvas.width =
+rect.width * ratio;
+
+canvas.height =
+rect.height * ratio;
+
+ctx.setTransform(
+ratio,
+0,
+0,
+ratio,
+0,
+0
+);
+
+ctx.lineCap = "round";
+ctx.lineJoin = "round";
+
+clearCanvas(false);
+
+}
+
+
+/* CLEAR CANVAS */
+
+function clearCanvas(saveHistory=true){
+
+if(saveHistory){
+saveState();
+}
+
+const rect =
+canvas.getBoundingClientRect();
+
+ctx.clearRect(
+0,
+0,
+rect.width,
+rect.height
+);
+
+if(background.value === "white"){
+
+ctx.fillStyle = "#ffffff";
+
+ctx.fillRect(
+0,
+0,
+rect.width,
+rect.height
+);
+
+}
+
+}
+
+
+/* SAVE STATE */
+
+function saveState(){
+
+try{
+
+history.push(
+canvas.toDataURL("image/png")
+);
+
+if(history.length > 20){
+history.shift();
+}
+
+}catch(e){}
+
+}
+
+
+/* RESTORE STATE */
+
+function restoreState(data){
+
+const img = new Image();
+
+img.onload=function(){
+
+const rect =
+canvas.getBoundingClientRect();
+
+ctx.clearRect(
+0,
+0,
+rect.width,
+rect.height
+);
+
+ctx.drawImage(
+img,
+0,
+0,
+rect.width,
+rect.height
+);
+
+};
+
+img.src=data;
+
+}
+
+
+/* POINTER POSITION */
+
+function getPosition(e){
+
+const rect =
+canvas.getBoundingClientRect();
+
+return {
+
+x:e.clientX-rect.left,
+
+y:e.clientY-rect.top
+
+};
+
+}
+
+
+/* START DRAW */
+
+canvas.addEventListener(
+"pointerdown",
+function(e){
+
+drawing=true;
+
+const p =
+getPosition(e);
+
+lastX=p.x;
+lastY=p.y;
+
+saveState();
+
+canvas.setPointerCapture(
+e.pointerId
+);
+
+ctx.beginPath();
+
+ctx.moveTo(
+lastX,
+lastY
+);
+
+}
+);
+
+
+/* DRAW */
+
+canvas.addEventListener(
+"pointermove",
+function(e){
+
+if(!drawing)return;
+
+const p =
+getPosition(e);
+
+ctx.strokeStyle =
+penColor.value;
+
+ctx.lineWidth =
+parseInt(penSize.value);
+
+ctx.lineTo(
+p.x,
+p.y
+);
+
+ctx.stroke();
+
+ctx.beginPath();
+
+ctx.moveTo(
+p.x,
+p.y
+);
+
+lastX=p.x;
+lastY=p.y;
+
+}
+);
+
+
+/* END DRAW */
+
+canvas.addEventListener(
+"pointerup",
+stopDrawing
+);
+
+canvas.addEventListener(
+"pointercancel",
+stopDrawing
+);
+
+canvas.addEventListener(
+"pointerleave",
+function(e){
+
+if(e.buttons===0){
+drawing=false;
+}
+
+}
+);
+
+
+function stopDrawing(){
+
+drawing=false;
+
+ctx.beginPath();
+
+}
+
+
+/* PEN SIZE */
+
+penSize.addEventListener(
+"input",
+function(){
+
+document.getElementById(
+"sizeValue"
+).innerText =
+this.value+" px";
+
+}
+);
+
+
+/* BACKGROUND */
+
+background.addEventListener(
+"change",
+function(){
+
+saveState();
+
+if(this.value==="white"){
+
+const rect =
+canvas.getBoundingClientRect();
+
+const old =
+canvas.toDataURL();
+
+const img =
+new Image();
+
+img.onload=function(){
+
+ctx.fillStyle="white";
+
+ctx.fillRect(
+0,
+0,
+rect.width,
+rect.height
+);
+
+ctx.drawImage(
+img,
+0,
+0,
+rect.width,
+rect.height
+);
+
+};
+
+img.src=old;
+
+}
+
+}
+);
+
+
+/* UNDO */
+
+function undoSignature(){
+
+if(history.length===0){
+
+showMessage(
+"Nothing to undo"
+);
+
+return;
+
+}
+
+const previous =
+history.pop();
+
+restoreState(previous);
+
+}
+
+
+/* CLEAR */
+
+function clearSignature(){
+
+saveState();
+
+clearCanvas(false);
+
+showMessage(
+"Signature cleared"
+);
+
+}
+
+
+/* GET PNG DATA */
+
+function getPNG(){
+
+const temp =
+document.createElement("canvas");
+
+const rect =
+canvas.getBoundingClientRect();
+
+temp.width =
+Math.round(rect.width);
+
+temp.height =
+Math.round(rect.height);
+
+const t =
+temp.getContext("2d");
+
+if(background.value==="white"){
+
+t.fillStyle="white";
+
+t.fillRect(
+0,
+0,
+temp.width,
+temp.height
+);
+
+}
+
+t.drawImage(
+canvas,
+0,
+0,
+canvas.width,
+canvas.height,
+0,
+0,
+temp.width,
+temp.height
+);
+
+return temp;
+
+}
+
+
+/* DOWNLOAD PNG */
+
+function downloadPNG(){
+
+const temp =
+getPNG();
+
+temp.toBlob(
+function(blob){
+
+const url =
+URL.createObjectURL(blob);
+
+const a =
+document.createElement("a");
+
+a.href=url;
+
+a.download =
+"AsimTech-Signature.png";
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+URL.revokeObjectURL(url);
+
+showMessage(
+"✅ PNG Downloaded"
+);
+
+},
+"image/png"
+);
+
+}
+
+
+/* DOWNLOAD JPG */
+
+function downloadJPG(){
+
+const temp =
+getPNG();
+
+const jpg =
+document.createElement("canvas");
+
+jpg.width =
+temp.width;
+
+jpg.height =
+temp.height;
+
+const j =
+jpg.getContext("2d");
+
+j.fillStyle="white";
+
+j.fillRect(
+0,
+0,
+jpg.width,
+jpg.height
+);
+
+j.drawImage(
+temp,
+0,
+0
+);
+
+jpg.toBlob(
+function(blob){
+
+const url =
+URL.createObjectURL(blob);
+
+const a =
+document.createElement("a");
+
+a.href=url;
+
+a.download =
+"AsimTech-Signature.jpg";
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+URL.revokeObjectURL(url);
+
+showMessage(
+"✅ JPG Downloaded"
+);
+
+},
+"image/jpeg",
+0.95
+);
+
+}
+
+
+/* SAVE SIGNATURE */
+
+function saveSignature(){
+
+const temp =
+getPNG();
+
+const img =
+document.getElementById(
+"resultImage"
+);
+
+img.src =
+temp.toDataURL(
+"image/png"
+);
+
+document.getElementById(
+"result"
+).style.display =
+"block";
+
+document.getElementById(
+"resultInfo"
+).innerText =
+"Signature created successfully.";
+
+showMessage(
+"✅ Signature Ready"
+);
+
+}
+
+
+/* START AGAIN */
+
+function startAgain(){
+
+history=[];
+
+clearCanvas(false);
+
+document.getElementById(
+"result"
+).style.display =
+"none";
+
+showMessage(
+"Ready for a new signature"
+);
+
+}
+
+
+/* MESSAGE */
+
+function showMessage(message){
+
+const box =
+document.getElementById(
+"success"
+);
+
+box.innerHTML =
+message;
+
+box.classList.add("show");
+
+setTimeout(
+function(){
+
+box.classList.remove("show");
+
+},
+2500
+);
+
+}
+
+
+/* OPEN WORKSPACE */
+
+document
+.getElementById("photoInput")
+.addEventListener(
+"change",
+function(){
+
+workspace.style.display =
+"block";
+
+setTimeout(
+setupCanvas,
+50
+);
+
+}
+);
+
+
+/* INITIAL */
+
+window.addEventListener(
+"resize",
+function(){
+
+if(workspace.style.display==="block"){
+setupCanvas();
+}
+
+}
+);
+
+</script>
+
+</body>
+</html>
