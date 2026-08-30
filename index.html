@@ -8,13 +8,13 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
+<meta name="description"
+content="Asim Tech - Apps, Tools & Innovation">
+
 <meta name="theme-color"
 content="#020b18">
 
-<meta name="description"
-content="Asim Tech - Useful Apps, Tools and Innovation">
-
-<title>Asim Tech - Apps • Tools • Innovation</title>
+<title>Asim Tech | Apps • Tools • Innovation</title>
 
 
 <style>
@@ -41,9 +41,16 @@ body{
 
     background:#020b18;
 
-    color:#ffffff;
+    color:#f5f7fb;
+
+    line-height:1.6;
 
     overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 
@@ -52,28 +59,27 @@ body{
 ===================================================== */
 
 body::before{
-
     content:"";
 
     position:fixed;
 
-    width:550px;
-    height:550px;
+    width:600px;
+    height:600px;
 
-    left:-230px;
-    top:200px;
+    left:-250px;
+    top:150px;
 
     background:
     radial-gradient(
         circle,
-        rgba(0,140,255,.20),
-        transparent 70%
+        rgba(0,140,255,.18),
+        transparent 68%
     );
 
     filter:blur(35px);
 
     animation:
-    floatBlue 9s ease-in-out infinite;
+    glowLeft 9s ease-in-out infinite;
 
     pointer-events:none;
 
@@ -82,28 +88,27 @@ body::before{
 
 
 body::after{
-
     content:"";
 
     position:fixed;
 
-    width:550px;
-    height:550px;
+    width:600px;
+    height:600px;
 
-    right:-230px;
-    bottom:-50px;
+    right:-250px;
+    bottom:-100px;
 
     background:
     radial-gradient(
         circle,
-        rgba(110,0,255,.22),
-        transparent 70%
+        rgba(100,0,255,.20),
+        transparent 68%
     );
 
-    filter:blur(35px);
+    filter:blur(40px);
 
     animation:
-    floatPurple 11s ease-in-out infinite;
+    glowRight 11s ease-in-out infinite;
 
     pointer-events:none;
 
@@ -111,7 +116,7 @@ body::after{
 }
 
 
-@keyframes floatBlue{
+@keyframes glowLeft{
 
     0%,100%{
         transform:
@@ -127,7 +132,7 @@ body::after{
 }
 
 
-@keyframes floatPurple{
+@keyframes glowRight{
 
     0%,100%{
         transform:
@@ -138,7 +143,7 @@ body::after{
     50%{
         transform:
         translate(-90px,-60px)
-        scale(1.25);
+        scale(1.2);
     }
 }
 
@@ -147,7 +152,7 @@ body::after{
    HEADER
 ===================================================== */
 
-header{
+.navbar{
 
     position:sticky;
 
@@ -155,81 +160,121 @@ header{
 
     z-index:9999;
 
-    width:100%;
+    height:68px;
 
     padding:
-    18px 5%;
-
-    background:
-    rgba(2,9,20,.95);
-
-    backdrop-filter:
-    blur(15px);
-
-    border-bottom:
-    1px solid #12304a;
-
-    display:flex;
-
-    justify-content:
-    space-between;
-
-    align-items:center;
-}
-
-
-.logo{
-
-    font-size:23px;
-
-    font-weight:bold;
-
-    white-space:nowrap;
-}
-
-
-.logo-icon{
-
-    color:#008cff;
-
-    margin-right:5px;
-}
-
-
-.logo-blue{
-
-    color:#008cff;
-}
-
-
-nav{
+    0 5%;
 
     display:flex;
 
     align-items:center;
 
     gap:25px;
+
+    background:
+    rgba(2,9,20,.90);
+
+    backdrop-filter:
+    blur(15px);
+
+    -webkit-backdrop-filter:
+    blur(15px);
+
+    border-bottom:
+    1px solid #12304a;
 }
 
 
-nav a{
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    white-space:nowrap;
+
+    font-size:21px;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    margin-right:auto;
+}
+
+
+.brand b{
+
+    color:#008cff;
+}
+
+
+.logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#008cff;
+
+    font-size:25px;
+
+    margin-right:7px;
+}
+
+
+.navbar nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:23px;
+
+}
+
+
+.navbar nav a{
 
     color:#dce8f2;
 
-    text-decoration:none;
+    font-size:13px;
 
-    font-size:14px;
+    padding:
+    23px 0;
+
+    border-bottom:
+    2px solid transparent;
 
     transition:.3s;
 }
 
 
-nav a:hover{
+.navbar nav a:hover,
+.navbar nav a.active{
 
     color:#008cff;
 
-    transform:
-    translateY(-2px);
+    border-bottom-color:
+    #008cff;
+}
+
+
+.icon-btn{
+
+    border:0;
+
+    background:none;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    padding:8px;
 }
 
 
@@ -239,18 +284,49 @@ nav a:hover{
 
 .hero{
 
-    width:92%;
+    min-height:650px;
 
-    max-width:1100px;
+    padding:
+    75px 8%;
 
-    margin:
-    75px auto 55px;
+    display:flex;
 
-    text-align:center;
+    align-items:center;
+
+    justify-content:
+    space-between;
+
+    gap:50px;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 75% 55%,
+        rgba(0,100,255,.15),
+        transparent 32%
+    ),
+
+    radial-gradient(
+        circle at 15% 45%,
+        rgba(0,100,255,.10),
+        transparent 30%
+    );
 }
 
 
-.welcome{
+.hero-text{
+
+    max-width:650px;
+
+    animation:
+    fadeUp .9s ease;
+}
+
+
+.eyebrow{
+
+    margin-bottom:9px;
 
     color:#008cff;
 
@@ -258,26 +334,23 @@ nav a:hover{
 
     font-weight:bold;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
-    margin-bottom:18px;
-
-    animation:
-    fadeUp .8s ease;
+    text-transform:uppercase;
 }
 
 
 .hero h1{
 
     font-size:
-    clamp(42px,7vw,70px);
+    clamp(48px,7vw,78px);
 
-    line-height:1.1;
+    line-height:1;
 
-    margin-bottom:22px;
+    letter-spacing:-3px;
 
-    animation:
-    fadeUp 1s ease;
+    margin:
+    10px 0 18px;
 }
 
 
@@ -287,371 +360,422 @@ nav a:hover{
 
     text-shadow:
     0 0 30px
-    rgba(0,140,255,.40);
+    rgba(0,140,255,.35);
 }
 
 
-.hero-subtitle{
+.hero h2{
 
-    color:#d5e3ef;
+    color:#d5dce7;
 
     font-size:
-    clamp(20px,3vw,29px);
+    clamp(23px,3vw,30px);
 
-    margin-bottom:25px;
+    font-weight:500;
 
-    animation:
-    fadeUp 1.15s ease;
+    margin-bottom:22px;
 }
 
 
-.hero-description{
+.lead{
 
-    color:#91a9bc;
+    max-width:600px;
 
-    font-size:
-    clamp(15px,2vw,19px);
+    color:#aebed0;
+
+    font-size:18px;
 
     line-height:1.7;
-
-    max-width:760px;
-
-    margin:auto;
-
-    animation:
-    fadeUp 1.3s ease;
-}
-
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(25px);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0);
-    }
 }
 
 
 /* =====================================================
-   EXPLORE BUTTON
+   HERO BUTTONS
 ===================================================== */
 
-.hero-buttons{
+.actions{
 
-    width:92%;
+    display:flex;
 
-    max-width:420px;
+    gap:16px;
 
-    margin:
-    35px auto 0;
+    margin-top:30px;
 }
 
 
-.explore-button{
+.btn{
 
-    display:block;
+    display:inline-flex;
 
-    width:100%;
+    align-items:center;
 
-    padding:17px;
+    justify-content:center;
 
-    border-radius:13px;
+    min-width:155px;
 
-    background:#087ff5;
+    padding:
+    14px 23px;
 
-    color:white;
+    border-radius:10px;
 
-    text-decoration:none;
-
-    font-size:18px;
+    border:
+    1px solid #3e5770;
 
     font-weight:bold;
-
-    box-shadow:
-    0 8px 30px
-    rgba(0,127,255,.28);
 
     transition:.3s;
 }
 
 
-.explore-button:hover{
+.btn.primary{
+
+    background:#087ff5;
+
+    border-color:#087ff5;
+
+    box-shadow:
+    0 7px 25px
+    rgba(0,127,255,.20);
+}
+
+
+.btn.primary:hover{
 
     transform:
-    translateY(-4px);
+    translateY(-3px);
 
-    filter:
-    brightness(1.1);
+    background:#006fe6;
+}
+
+
+.btn.secondary{
+
+    background:
+    rgba(3,20,35,.60);
+}
+
+
+.btn.secondary:hover{
+
+    border-color:#008cff;
+
+    color:#008cff;
+
+    transform:
+    translateY(-3px);
 }
 
 
 /* =====================================================
-   PHONE / HERO VISUAL
+   PHONE
 ===================================================== */
 
-.phone-section{
+.hero-phone{
 
-    width:100%;
-
-    min-height:610px;
+    min-width:320px;
 
     display:flex;
 
+    align-items:center;
+
     justify-content:center;
 
-    align-items:flex-start;
+    padding:20px 50px;
 
-    position:relative;
-
-    margin-top:30px;
-
-    overflow:hidden;
-}
-
-
-.phone-glow{
-
-    position:absolute;
-
-    width:480px;
-
-    height:480px;
-
-    top:70px;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(0,140,255,.32),
-        transparent 68%
-    );
-
-    filter:blur(30px);
+    animation:
+    phoneAppear 1.1s ease;
 }
 
 
 .phone{
 
-    position:relative;
+    width:255px;
 
-    z-index:2;
+    height:485px;
 
-    width:330px;
-
-    height:600px;
-
-    margin-top:15px;
+    padding:11px;
 
     border:
-    7px solid #66839a;
+    3px solid #58748c;
 
-    border-radius:55px;
+    border-radius:42px;
 
-    background:
-    linear-gradient(
-        145deg,
-        #031827,
-        #04111d
-    );
-
-    box-shadow:
-    0 0 40px
-    rgba(0,140,255,.30),
-
-    0 30px 80px
-    rgba(0,0,0,.65);
+    background:#010812;
 
     transform:
-    rotate(8deg);
+    rotate(7deg);
+
+    box-shadow:
+    0 0 25px
+    rgba(0,140,255,.28),
+
+    0 0 80px
+    rgba(0,100,255,.20),
+
+    0 25px 70px
+    rgba(0,0,0,.75);
+
+    animation:
+    phoneFloat 4.5s ease-in-out infinite;
+}
+
+
+.phone::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:7px;
+
+    transform:
+    translateX(-50%);
+
+    width:85px;
+
+    height:18px;
+
+    border-radius:0 0 14px 14px;
+
+    background:#010812;
+
+    z-index:5;
+}
+
+
+.phone-screen{
+
+    height:100%;
 
     overflow:hidden;
 
-    animation:
-    phoneFloat 5s ease-in-out infinite;
+    border-radius:31px;
+
+    padding:
+    38px 20px 20px;
+
+    background:
+    linear-gradient(
+        160deg,
+        #071a35,
+        #061322 55%,
+        #020914
+    );
+
+    border:
+    1px solid #123b5c;
+}
+
+
+.mini-brand{
+
+    color:#008cff;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:.3px;
+}
+
+
+.phone-screen h3{
+
+    margin-top:52px;
+
+    margin-bottom:8px;
+
+    font-size:25px;
+
+    line-height:1.2;
+}
+
+
+.phone-screen p{
+
+    color:#9db1c5;
+
+    font-size:13px;
+}
+
+
+.phone-screen p b{
+
+    color:#008cff;
+}
+
+
+.mini-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:11px;
+
+    margin-top:28px;
+}
+
+
+.mini-grid div{
+
+    min-height:82px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    border:
+    1px solid #174463;
+
+    border-radius:13px;
+
+    background:
+    rgba(7,39,63,.65);
+
+    font-size:27px;
+
+    transition:.3s;
+}
+
+
+.mini-grid div:hover{
+
+    transform:
+    translateY(-4px);
+
+    border-color:#008cff;
+
+    box-shadow:
+    0 0 20px
+    rgba(0,140,255,.18);
+}
+
+
+.mini-grid small{
+
+    color:#b9c9d8;
+
+    font-size:10px;
+
+    margin-top:4px;
 }
 
 
 @keyframes phoneFloat{
 
     0%,100%{
-
         transform:
-        rotate(8deg)
-        translateY(0);
-    }
-
-    50%{
-
-        transform:
-        rotate(8deg)
-        translateY(-15px);
-    }
-}
-
-
-.phone-header{
-
-    padding:
-    28px 20px 15px;
-
-    text-align:center;
-
-    color:#008cff;
-
-    font-weight:bold;
-
-    font-size:16px;
-}
-
-
-.phone-content{
-
-    padding:
-    20px 25px;
-}
-
-
-.phone-content h2{
-
-    font-size:33px;
-
-    margin-bottom:12px;
-}
-
-
-.phone-content p{
-
-    color:#9ab0c2;
-
-    line-height:1.6;
-
-    font-size:15px;
-}
-
-
-.phone-grid{
-
-    margin-top:35px;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:15px;
-}
-
-
-.phone-item{
-
-    height:100px;
-
-    border-radius:18px;
-
-    background:
-    linear-gradient(
-        145deg,
-        #082940,
-        #031521
-    );
-
-    border:
-    1px solid #19455f;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:40px;
-
-    box-shadow:
-    inset 0 0 20px
-    rgba(0,140,255,.07);
-
-    animation:
-    itemFloat 4s ease-in-out infinite;
-}
-
-
-.phone-item:nth-child(2){
-    animation-delay:.5s;
-}
-
-.phone-item:nth-child(3){
-    animation-delay:1s;
-}
-
-.phone-item:nth-child(4){
-    animation-delay:1.5s;
-}
-
-
-@keyframes itemFloat{
-
-    0%,100%{
-        transform:
+        rotate(7deg)
         translateY(0);
     }
 
     50%{
         transform:
-        translateY(-6px);
+        rotate(7deg)
+        translateY(-12px);
+    }
+}
+
+
+@keyframes phoneAppear{
+
+    from{
+        opacity:0;
+        transform:
+        translateX(70px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+        translateX(0);
+    }
+}
+
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:
+        translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+        translateY(0);
     }
 }
 
 
 /* =====================================================
-   APPS SECTION
+   COMMON SECTION
 ===================================================== */
 
-.apps-section{
+.section{
 
     width:92%;
 
     max-width:1200px;
 
     margin:
-    10px auto 80px;
+    0 auto;
+
+    padding:
+    80px 0;
 }
 
 
-.section-title{
+.section-head{
 
-    text-align:center;
+    display:flex;
 
-    margin-bottom:30px;
+    align-items:end;
+
+    justify-content:space-between;
+
+    margin-bottom:35px;
 }
 
 
-.section-title small{
+.section h2{
+
+    font-size:38px;
+
+    line-height:1.2;
+}
+
+
+.section h2 span{
 
     color:#008cff;
-
-    letter-spacing:3px;
-
-    font-size:12px;
 }
 
 
-.section-title h2{
+.section-description{
 
-    font-size:
-    clamp(30px,5vw,45px);
+    color:#8fa7ba;
+
+    max-width:650px;
 
     margin-top:10px;
+}
+
+
+.hint{
+
+    color:#6e8294;
+
+    font-size:13px;
 }
 
 
@@ -659,14 +783,14 @@ nav a:hover{
    APP GRID
 ===================================================== */
 
-.apps-grid{
+.app-grid{
 
     display:grid;
 
     grid-template-columns:
-    repeat(2,1fr);
+    repeat(3,1fr);
 
-    gap:22px;
+    gap:20px;
 }
 
 
@@ -676,25 +800,33 @@ nav a:hover{
 
 .app-card{
 
-    background:
-    linear-gradient(
-        145deg,
-        #031827,
-        #04131f
-    );
+    position:relative;
+
+    min-height:390px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:14px;
 
     border:
     1px solid #16405d;
 
-    border-radius:20px;
+    border-radius:19px;
 
-    padding:12px;
+    background:
+    linear-gradient(
+        145deg,
+        #031827,
+        #04121f
+    );
 
     overflow:hidden;
 
     box-shadow:
     0 10px 35px
-    rgba(0,0,0,.25);
+    rgba(0,0,0,.20);
 
     transition:
     transform .35s ease,
@@ -715,24 +847,20 @@ nav a:hover{
 
     box-shadow:
     0 15px 45px
-    rgba(0,140,255,.18);
+    rgba(0,140,255,.17);
 }
 
 
 @keyframes cardIn{
 
     from{
-
         opacity:0;
-
         transform:
-        translateY(30px);
+        translateY(25px);
     }
 
     to{
-
         opacity:1;
-
         transform:
         translateY(0);
     }
@@ -740,14 +868,12 @@ nav a:hover{
 
 
 /* =====================================================
-   IMAGE
+   APP IMAGE
 ===================================================== */
 
 .app-image{
 
-    width:100%;
-
-    height:235px;
+    height:190px;
 
     border-radius:14px;
 
@@ -760,6 +886,40 @@ nav a:hover{
     align-items:center;
 
     justify-content:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #06345c,
+        #10152c,
+        #331060
+    );
+}
+
+
+.app-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,174,255,.25);
+
+    filter:blur(45px);
+
+    left:0;
+
+    top:0;
+
+    animation:
+    imageGlow 5s ease-in-out infinite;
 }
 
 
@@ -769,20 +929,49 @@ nav a:hover{
 
     position:absolute;
 
-    inset:0;
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
 
     background:
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,.05),
-        transparent
-    );
+    rgba(160,0,255,.20);
 
-    pointer-events:none;
+    filter:blur(45px);
+
+    right:0;
+
+    bottom:0;
+
+    animation:
+    imageGlow 6s ease-in-out infinite reverse;
 }
 
 
+@keyframes imageGlow{
+
+    0%,100%{
+        transform:scale(.8);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+}
+
+
+/* =====================================================
+   REAL APP IMAGES
+===================================================== */
+
 .app-image img{
+
+    position:relative;
+
+    z-index:2;
 
     width:100%;
 
@@ -790,17 +979,14 @@ nav a:hover{
 
     object-fit:cover;
 
-    position:relative;
-
-    z-index:2;
+    border-radius:12px;
 
     transition:
-    transform .5s ease;
+    transform .4s ease;
 }
 
 
-.app-card:hover
-.app-image img{
+.app-card:hover .app-image img{
 
     transform:
     scale(1.04);
@@ -809,24 +995,15 @@ nav a:hover{
 
 /* fallback icon */
 
-.fallback-icon{
+.app-icon{
 
-    position:absolute;
+    position:relative;
 
-    z-index:1;
+    z-index:3;
 
-    width:115px;
+    width:90px;
 
-    height:115px;
-
-    border-radius:28px;
-
-    background:
-    rgba(255,255,255,.08);
-
-    border:
-    1px solid
-    rgba(255,255,255,.15);
+    height:90px;
 
     display:flex;
 
@@ -834,100 +1011,20 @@ nav a:hover{
 
     justify-content:center;
 
-    font-size:60px;
-}
+    border-radius:23px;
 
-
-/* =====================================================
-   CARD BACKGROUNDS
-===================================================== */
-
-.barcode-image{
+    font-size:48px;
 
     background:
-    linear-gradient(
-        135deg,
-        #063a66,
-        #071b2d,
-        #321060
-    );
-}
+    rgba(255,255,255,.08);
 
+    border:
+    1px solid
+    rgba(255,255,255,.18);
 
-.office-image{
-
-    background:
-    linear-gradient(
-        135deg,
-        #007be8,
-        #087ff5
-    );
-}
-
-
-.pdf-image{
-
-    background:
-    linear-gradient(
-        135deg,
-        #510006,
-        #ff1b2c
-    );
-}
-
-
-.devotional-image{
-
-    background:
-    linear-gradient(
-        135deg,
-        #5b0000,
-        #c00000
-    );
-}
-
-
-.oldies-image{
-
-    background:
-    linear-gradient(
-        135deg,
-        #542900,
-        #b55c00
-    );
-}
-
-
-.madhu-image{
-
-    background:
-    linear-gradient(
-        135deg,
-        #32105c,
-        #7c12c9
-    );
-}
-
-
-.sangit-image{
-
-    background:
-    linear-gradient(
-        135deg,
-        #402000,
-        #9a3900
-    );
-}
-
-
-.photo-image{
-
-    background:
-    linear-gradient(
-        135deg,
-        #40005c,
-        #aa00cc
-    );
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.35);
 }
 
 
@@ -937,8 +1034,14 @@ nav a:hover{
 
 .app-content{
 
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
     padding:
-    17px 10px 10px;
+    17px 8px 7px;
 }
 
 
@@ -956,83 +1059,73 @@ nav a:hover{
 
     font-size:13px;
 
-    line-height:1.6;
+    line-height:1.55;
 
-    min-height:42px;
+    margin-bottom:12px;
 }
 
 
-.tags{
-
-    margin-top:13px;
+.meta{
 
     color:#71889c;
 
-    font-size:10px;
+    font-size:11px;
 
-    min-height:18px;
+    margin-top:auto;
+
+    margin-bottom:12px;
 }
 
 
 /* =====================================================
-   BUTTONS
+   APP BUTTON
 ===================================================== */
 
-.app-button{
+.download{
 
     display:block;
 
     width:100%;
 
-    margin-top:14px;
+    padding:12px;
 
-    padding:14px;
-
-    border-radius:11px;
+    border-radius:10px;
 
     text-align:center;
 
-    text-decoration:none;
-
-    color:white;
-
-    font-size:14px;
+    font-size:13px;
 
     font-weight:bold;
+
+    background:#087ff5;
 
     transition:.3s;
 }
 
 
-.app-button:hover{
+.download:hover{
 
     transform:
     translateY(-2px);
 
     filter:
-    brightness(1.1);
+    brightness(1.12);
 }
 
 
-.blue-button{
-
-    background:#087ff5;
-}
-
-
-.red-button{
-
-    background:#ff3040;
-}
-
-
-.green-button{
+.download.green{
 
     background:#00b956;
 }
 
 
-.orange-button{
+.download.red{
+
+    background:#ff3040;
+}
+
+
+.download.orange{
 
     background:
     linear-gradient(
@@ -1043,7 +1136,7 @@ nav a:hover{
 }
 
 
-.purple-button{
+.download.purple{
 
     background:
     linear-gradient(
@@ -1055,45 +1148,72 @@ nav a:hover{
 
 
 /* =====================================================
-   FEATURES
+   TWO BUTTONS
 ===================================================== */
 
-.features{
-
-    width:92%;
-
-    max-width:1200px;
-
-    margin:
-    0 auto 70px;
+.button-row{
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+    1fr 1fr;
 
-    gap:20px;
+    gap:8px;
 }
 
 
-.feature{
+/* =====================================================
+   TOOLS
+===================================================== */
 
-    background:#031827;
+.compact{
+
+    border-top:
+    1px solid #102b40;
+}
+
+
+.tools-box{
+
+    margin-top:25px;
+
+    padding:30px;
 
     border:
     1px solid #16405d;
 
     border-radius:18px;
 
-    padding:30px 20px;
+    background:
+    rgba(3,24,39,.75);
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+
+.tool{
+
+    padding:20px;
 
     text-align:center;
+
+    border:
+    1px solid #153d57;
+
+    border-radius:14px;
+
+    background:#041726;
 
     transition:.3s;
 }
 
 
-.feature:hover{
+.tool:hover{
 
     transform:
     translateY(-5px);
@@ -1102,77 +1222,169 @@ nav a:hover{
 }
 
 
-.feature-icon{
+.tool-icon{
 
-    font-size:40px;
-
-    margin-bottom:15px;
-}
-
-
-.feature h3{
+    font-size:35px;
 
     margin-bottom:10px;
-
-    font-size:20px;
 }
 
 
-.feature p{
+.tool h3{
 
-    color:#8fa7ba;
+    font-size:15px;
 
-    font-size:14px;
+    margin-bottom:5px;
+}
 
-    line-height:1.6;
+
+.tool p{
+
+    color:#8299ac;
+
+    font-size:12px;
 }
 
 
 /* =====================================================
-   ABOUT / CONTACT
+   ABOUT
 ===================================================== */
 
-.info-box{
+.about{
 
-    width:92%;
+    display:grid;
 
-    max-width:1200px;
+    grid-template-columns:
+    130px 1fr 1fr;
 
-    margin:
-    0 auto 25px;
+    gap:30px;
 
-    padding:35px 25px;
+    align-items:center;
 
-    text-align:center;
-
-    background:#031827;
+    padding:40px;
 
     border:
     1px solid #16405d;
 
     border-radius:20px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #031827,
+        #051522
+    );
 }
 
 
-.info-box h2{
+.avatar{
 
-    font-size:30px;
+    width:110px;
 
-    margin-bottom:15px;
+    height:110px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:45px;
+
+    font-weight:900;
+
+    background:
+    linear-gradient(
+        135deg,
+        #087ff5,
+        #6d25ff
+    );
+
+    border:
+    4px solid #07131f;
+
+    box-shadow:
+    0 0 35px
+    rgba(0,120,255,.25);
 }
 
 
-.info-box p{
+.about h2{
 
-    color:#91a8ba;
+    margin-bottom:10px;
 
-    line-height:1.8;
+    font-size:28px;
+}
 
-    font-size:15px;
 
-    max-width:800px;
+.about p{
 
-    margin:auto;
+    color:#8fa7ba;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+.stats{
+
+    display:flex;
+
+    justify-content:
+    space-around;
+
+    text-align:center;
+
+    border-left:
+    1px solid #234055;
+
+    padding-left:20px;
+}
+
+
+.stats strong{
+
+    display:block;
+
+    color:#008cff;
+
+    font-size:29px;
+}
+
+
+.stats span{
+
+    display:block;
+
+    color:#71889c;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact{
+
+    text-align:center;
+
+    padding-bottom:80px;
+}
+
+
+.contact p{
+
+    max-width:650px;
+
+    margin:
+    10px auto 25px;
+
+    color:#8fa7ba;
 }
 
 
@@ -1182,17 +1394,15 @@ nav a:hover{
 
 footer{
 
-    margin-top:70px;
-
     padding:
-    35px 20px;
-
-    text-align:center;
-
-    background:#020914;
+    35px 5%;
 
     border-top:
     1px solid #102b40;
+
+    background:#020914;
+
+    text-align:center;
 
     color:#71889c;
 
@@ -1200,31 +1410,21 @@ footer{
 }
 
 
-footer strong{
+footer .brand{
 
-    color:#008cff;
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:18px;
+
+    color:white;
 }
 
 
-/* =====================================================
-   TABLET
-===================================================== */
+footer .brand b{
 
-@media(max-width:800px){
-
-    .apps-grid{
-
-        grid-template-columns:
-        1fr;
-    }
-
-
-    .features{
-
-        grid-template-columns:
-        1fr;
-    }
-
+    color:#008cff;
 }
 
 
@@ -1232,216 +1432,231 @@ footer strong{
    MOBILE
 ===================================================== */
 
-@media(max-width:600px){
+@media(max-width:950px){
 
-    header{
+    .navbar nav{
 
-        padding:
-        15px 4%;
+        gap:14px;
     }
 
+    .navbar nav a{
 
-    .logo{
+        font-size:11px;
+    }
+
+    .hero{
+
+        padding:
+        65px 6%;
+    }
+
+    .hero-phone{
+
+        padding:
+        20px;
+    }
+
+    .app-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .tools-box{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .about{
+
+        grid-template-columns:
+        110px 1fr;
+    }
+
+    .stats{
+
+        grid-column:
+        1 / -1;
+
+        border-left:0;
+
+        border-top:
+        1px solid #234055;
+
+        padding:
+        25px 0 0;
+    }
+}
+
+
+@media(max-width:700px){
+
+    .navbar{
+
+        height:auto;
+
+        min-height:65px;
+
+        padding:
+        13px 4%;
+    }
+
+    .navbar nav{
+
+        display:none;
+    }
+
+    .hero{
+
+        min-height:auto;
+
+        padding:
+        60px 6% 40px;
+
+        flex-direction:
+        column;
+
+        text-align:center;
+    }
+
+    .hero-text{
+
+        max-width:100%;
+    }
+
+    .hero h1{
+
+        font-size:
+        clamp(43px,12vw,60px);
+    }
+
+    .hero h2{
+
+        font-size:22px;
+    }
+
+    .lead{
+
+        font-size:15px;
+    }
+
+    .actions{
+
+        flex-direction:
+        column;
+
+        width:100%;
+    }
+
+    .btn{
+
+        width:100%;
+    }
+
+    .hero-phone{
+
+        min-width:0;
+
+        padding:
+        45px 0 20px;
+    }
+
+    .phone{
+
+        width:220px;
+
+        height:420px;
+    }
+
+    .section{
+
+        width:94%;
+
+        padding:
+        60px 0;
+    }
+
+    .section-head{
+
+        display:block;
+    }
+
+    .hint{
+
+        display:block;
+
+        margin-top:8px;
+    }
+
+    .app-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .app-card{
+
+        min-height:380px;
+    }
+
+    .tools-box{
+
+        grid-template-columns:
+        1fr 1fr;
+    }
+
+    .about{
+
+        grid-template-columns:
+        1fr;
+
+        text-align:center;
+
+        padding:30px 20px;
+    }
+
+    .avatar{
+
+        margin:auto;
+    }
+
+    .stats{
+
+        gap:10px;
+    }
+}
+
+
+@media(max-width:430px){
+
+    .brand{
 
         font-size:18px;
     }
 
-
-    nav{
-
-        gap:11px;
-    }
-
-
-    nav a{
-
-        font-size:9px;
-    }
-
-
-    .hero{
-
-        margin-top:55px;
-    }
-
-
     .hero h1{
 
-        font-size:45px;
+        font-size:43px;
     }
-
-
-    .hero-subtitle{
-
-        font-size:21px;
-    }
-
-
-    .hero-description{
-
-        font-size:16px;
-    }
-
-
-    .phone-section{
-
-        min-height:570px;
-
-        margin-top:45px;
-    }
-
 
     .phone{
 
-        width:300px;
+        width:210px;
 
-        height:555px;
+        height:400px;
     }
-
-
-    .phone-content h2{
-
-        font-size:30px;
-    }
-
-
-    .phone-item{
-
-        height:85px;
-
-        font-size:34px;
-    }
-
-
-    .apps-section{
-
-        width:94%;
-    }
-
 
     .app-image{
 
-        height:220px;
+        height:185px;
     }
 
-}
+    .tools-box{
 
-
-/* =====================================================
-   SMALL PHONE
-===================================================== */
-
-@media(max-width:430px){
-
-    header{
-
-        padding:
-        13px 3%;
+        grid-template-columns:
+        1fr;
     }
-
-
-    .logo{
-
-        font-size:16px;
-    }
-
-
-    nav{
-
-        gap:8px;
-    }
-
-
-    nav a{
-
-        font-size:8px;
-    }
-
-
-    .hero{
-
-        margin-top:48px;
-    }
-
-
-    .welcome{
-
-        font-size:10px;
-
-        letter-spacing:3px;
-    }
-
-
-    .hero h1{
-
-        font-size:42px;
-    }
-
-
-    .hero-subtitle{
-
-        font-size:20px;
-    }
-
-
-    .hero-description{
-
-        font-size:15px;
-
-        padding:0 8px;
-    }
-
-
-    .phone{
-
-        width:280px;
-
-        height:530px;
-
-        border-radius:48px;
-    }
-
-
-    .phone-content{
-
-        padding:
-        25px 21px;
-    }
-
-
-    .phone-content h2{
-
-        font-size:28px;
-    }
-
-
-    .phone-grid{
-
-        margin-top:25px;
-
-        gap:12px;
-    }
-
-
-    .phone-item{
-
-        height:78px;
-
-        font-size:30px;
-    }
-
-
-    .app-image{
-
-        height:205px;
-    }
-
-
-    .app-content h3{
-
-        font-size:17px;
-    }
-
 }
 
 </style>
@@ -1456,41 +1671,59 @@ footer strong{
      HEADER
 ===================================================== -->
 
-<header>
+<header class="navbar">
 
-    <div class="logo">
+<a
+class="brand"
+href="#home"
+>
 
-        <span class="logo-icon">▲</span>
+<span class="logo">▲</span>
 
-        ASIM
-        <span class="logo-blue">TECH</span>
+ASIM <b>TECH</b>
 
-    </div>
+</a>
 
 
-    <nav>
+<nav>
 
-        <a href="/">
-            Home
-        </a>
+<a
+class="active"
+href="#home">
+Home
+</a>
 
-        <a href="/my-apps/">
-            My Apps
-        </a>
+<a href="#apps">
+My Apps
+</a>
 
-        <a href="#apps">
-            Tools
-        </a>
+<a href="#tools">
+Tools
+</a>
 
-        <a href="#about">
-            About
-        </a>
+<a href="#updates">
+Updates
+</a>
 
-        <a href="#contact">
-            Contact
-        </a>
+<a href="#about">
+About
+</a>
 
-    </nav>
+<a href="#contact">
+Contact
+</a>
+
+</nav>
+
+
+<button
+class="icon-btn"
+id="themeBtn"
+aria-label="Toggle theme">
+
+☾
+
+</button>
 
 </header>
 
@@ -1500,610 +1733,911 @@ footer strong{
      HERO
 ===================================================== -->
 
+<main id="home">
+
+
 <section class="hero">
 
-    <div class="welcome">
-        WELCOME TO
-    </div>
+
+<div class="hero-text">
+
+<p class="eyebrow">
+Welcome to
+</p>
 
 
-    <h1>
-
-        ASIM
-        <span>TECH</span>
-
-    </h1>
+<h1>
+ASIM <span>TECH</span>
+</h1>
 
 
-    <div class="hero-subtitle">
-
-        Apps • Tools • Innovation
-
-    </div>
+<h2>
+Apps • Tools • Innovation
+</h2>
 
 
-    <p class="hero-description">
+<p class="lead">
 
-        I create simple, useful and powerful apps
-        to make everyday tasks easier.
+I create simple, useful and powerful apps
+to make everyday tasks easier.
 
-    </p>
+</p>
 
 
-    <div class="hero-buttons">
+<div class="actions">
 
-        <a
-            href="#apps"
-            class="explore-button"
-        >
-            Explore Apps
-        </a>
+<a
+class="btn primary"
+href="#apps">
 
-    </div>
+🚀 Explore Apps
+
+</a>
+
+
+<a
+class="btn secondary"
+href="#about">
+
+👤 About Asim
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- PHONE -->
+
+<div class="hero-phone">
+
+<div class="phone">
+
+<div class="phone-screen">
+
+<div class="mini-brand">
+▲ ASIM TECH
+</div>
+
+
+<h3>
+Hello, Asim 👋
+</h3>
+
+
+<p>
+Building apps for<br>
+<b>a better tomorrow</b>
+</p>
+
+
+<div class="mini-grid">
+
+<div>
+📱
+<small>My Apps</small>
+</div>
+
+
+<div>
+🛠️
+<small>My Tools</small>
+</div>
+
+
+<div>
+🔄
+<small>Updates</small>
+</div>
+
+
+<div>
+👤
+<small>About Me</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 
 <!-- =====================================================
-     PHONE VISUAL
-===================================================== -->
-
-<section class="phone-section">
-
-    <div class="phone-glow"></div>
-
-
-    <div class="phone">
-
-        <div class="phone-header">
-
-            ▲ ASIM TECH
-
-        </div>
-
-
-        <div class="phone-content">
-
-            <h2>
-                Hello Asim
-            </h2>
-
-
-            <p>
-                Building apps for a better tomorrow.
-            </p>
-
-
-            <div class="phone-grid">
-
-                <div class="phone-item">
-                    📱
-                </div>
-
-                <div class="phone-item">
-                    &lt;/&gt;
-                </div>
-
-                <div class="phone-item">
-                    ⚙️
-                </div>
-
-                <div class="phone-item">
-                    🚀
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     APPS
+     MY APPS
 ===================================================== -->
 
 <section
-    id="apps"
-    class="apps-section"
->
+id="apps"
+class="section">
 
 
-    <div class="section-title">
+<div class="section-head">
 
-        <small>
-            MY APPLICATIONS
-        </small>
+<div>
 
-        <h2>
-            My Apps
-        </h2>
+<p class="eyebrow">
+My Applications
+</p>
 
-    </div>
+<h2>
+My <span>Apps</span>
+</h2>
 
+<p class="section-description">
 
-    <div class="apps-grid">
+Explore my useful applications and tools.
+Simple, useful and powerful apps for everyday needs.
 
+</p>
 
-        <!-- ================= BARCODE ================= -->
+</div>
 
-        <div class="app-card">
 
-            <div
-                class="app-image barcode-image"
-            >
+<span class="hint">
+Apps • Tools • Entertainment
+</span>
 
-                <img
-                    src="/barcode-scanner/icon.png"
-                    alt="Asim Barcode QR Scanner"
-                    onerror="this.style.display='none'"
-                >
+</div>
 
-                <div class="fallback-icon">
-                    ▥
-                </div>
 
-            </div>
 
+<div class="app-grid">
 
-            <div class="app-content">
 
-                <h3>
-                    Asim Barcode & QR Scanner
-                </h3>
 
-                <p>
-                    Scan, create, save and download
-                    barcodes and QR codes easily.
-                </p>
+<!-- OFFICE -->
 
-                <div class="tags">
-                    Scanner • Barcode Maker • QR Maker • History
-                </div>
+<article class="app-card">
 
+<div class="app-image">
 
-                <a
-                    href="/barcode-scanner/"
-                    class="app-button blue-button"
-                >
-                    📷 Open Barcode Scanner
-                </a>
+<img
+src="icon.png"
+alt="Asim Office Suite"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
 
-            </div>
+<div
+class="app-icon"
+style="display:none;">
+📄
+</div>
 
-        </div>
+</div>
 
 
+<div class="app-content">
 
-        <!-- ================= OFFICE ================= -->
+<h3>
+Asim Office Suite V5
+</h3>
 
-        <div class="app-card">
 
-            <div
-                class="app-image office-image"
-            >
+<p>
+Create and edit documents,
+spreadsheets, PDF files and
+scan documents.
+</p>
 
-                <img
-                    src="/office/icon.png"
-                    alt="Asim Office Suite"
-                    onerror="this.style.display='none'"
-                >
 
-                <div class="fallback-icon">
-                    📄
-                </div>
+<div class="meta">
+Office • Document • Spreadsheet • PDF • Scanner
+</div>
 
-            </div>
 
+<a
+href="/office/"
+class="download">
 
-            <div class="app-content">
+🚀 Open Office Suite
 
-                <h3>
-                    Asim Office Suite V5
-                </h3>
+</a>
 
-                <p>
-                    Create and edit documents,
-                    spreadsheets, PDF files and
-                    scan documents.
-                </p>
+</div>
 
-                <div class="tags">
-                    Office • Document • Spreadsheet • PDF • Scanner
-                </div>
+</article>
 
 
-                <a
-                    href="/office/"
-                    class="app-button blue-button"
-                >
-                    📄 Open Office Suite
-                </a>
 
-            </div>
+<!-- PDF -->
 
-        </div>
+<article class="app-card">
 
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#510006,#ff1b2c);
+">
 
+<img
+src="pdf-icon.png"
+alt="Asim PDF Tools"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
 
-        <!-- ================= PDF ================= -->
+<div
+class="app-icon"
+style="display:none;">
+📕
+</div>
 
-        <div class="app-card">
+</div>
 
-            <div
-                class="app-image pdf-image"
-            >
 
-                <img
-                    src="/pdf-tools/pdf-icon.png"
-                    alt="Asim PDF Tools"
-                    onerror="this.style.display='none'"
-                >
+<div class="app-content">
 
-                <div class="fallback-icon">
-                    📕
-                </div>
+<h3>
+Asim PDF Tools
+</h3>
 
-            </div>
 
+<p>
+Create PDF from images,
+merge PDF files and extract
+selected pages easily.
+</p>
 
-            <div class="app-content">
 
-                <h3>
-                    Asim PDF Tools
-                </h3>
+<div class="meta">
+PDF • JPG to PDF • Merge • Split
+</div>
 
-                <p>
-                    Create PDF from images,
-                    merge PDF files and extract
-                    selected pages easily.
-                </p>
 
-                <div class="tags">
-                    PDF • JPG to PDF • Merge • Split
-                </div>
+<a
+href="/pdf-tools/"
+class="download red">
 
+📕 Open PDF Tools
 
-                <a
-                    href="/pdf-tools/"
-                    class="app-button red-button"
-                >
-                    📕 Open PDF Tools
-                </a>
+</a>
 
-            </div>
+</div>
 
-        </div>
+</article>
 
 
 
-        <!-- ================= DEVOTIONAL ================= -->
+<!-- BARCODE -->
 
-        <div class="app-card">
+<article class="app-card">
 
-            <div
-                class="app-image devotional-image"
-            >
+<div
+class="app-image">
 
-                <img
-                    src="/devotional-radio.png"
-                    alt="Devotional Radio"
-                    onerror="this.style.display='none'"
-                >
+<img
+src="barcode-scanner.png"
+alt="Barcode Scanner"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
 
-                <div class="fallback-icon">
-                    🕉️
-                </div>
+<div
+class="app-icon"
+style="display:none;">
+▥
+</div>
 
-            </div>
+</div>
 
 
-            <div class="app-content">
+<div class="app-content">
 
-                <h3>
-                    Devotional Radio
-                </h3>
+<h3>
+Asim Barcode & QR Scanner
+</h3>
 
-                <p>
-                    Listen to devotional radio
-                    and spiritual music.
-                </p>
 
-                <div class="tags">
-                    Android App
-                </div>
+<p>
+Scan, create, save and download
+barcodes and QR codes easily.
+</p>
 
 
-                <a
-                    href="#"
-                    class="app-button green-button"
-                >
-                    ↓ Download APK
-                </a>
+<div class="meta">
+Scanner • Barcode Maker • QR Maker • History
+</div>
 
-            </div>
 
-        </div>
+<a
+href="/barcode-scanner/"
+class="download">
 
+📷 Open Barcode Scanner
 
+</a>
 
-        <!-- ================= OLD GOLD ================= -->
+</div>
 
-        <div class="app-card">
+</article>
 
-            <div
-                class="app-image oldies-image"
-            >
 
-                <img
-                    src="/old_gold_logo.png"
-                    alt="80s and 90s Old Is Gold"
-                    onerror="this.style.display='none'"
-                >
 
-                <div class="fallback-icon">
-                    🎵
-                </div>
+<!-- DEVOTIONAL -->
 
-            </div>
+<article class="app-card">
 
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#5b0000,#c00000);
+">
 
-            <div class="app-content">
+<img
+src="devotional-radio.png"
+alt="Devotional Radio"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
 
-                <h3>
-                    80s & 90s Old Is Gold
-                </h3>
+<div
+class="app-icon"
+style="display:none;">
+🕉️
+</div>
 
-                <p>
-                    Enjoy classic songs and timeless
-                    memories from the golden era.
-                </p>
+</div>
 
-                <div class="tags">
-                    Android App
-                </div>
 
+<div class="app-content">
 
-                <a
-                    href="#"
-                    class="app-button green-button"
-                >
-                    ↓ Download APK
-                </a>
+<h3>
+Devotional Radio
+</h3>
 
-            </div>
 
-        </div>
+<p>
+Listen to devotional radio
+and spiritual music.
+</p>
 
 
+<div class="meta">
+Android App
+</div>
 
-        <!-- ================= MADHU ================= -->
 
-        <div class="app-card">
+<a
+href="Devotional_Radio_com_asim75772.apk"
+class="download green"
+download>
 
-            <div
-                class="app-image madhu-image"
-            >
+⬇ Download APK
 
-                <img
-                    src="/madhu-music-world.png"
-                    alt="Madhu Music World"
-                    onerror="this.style.display='none'"
-                >
+</a>
 
-                <div class="fallback-icon">
-                    🎙️
-                </div>
+</div>
 
-            </div>
+</article>
 
 
-            <div class="app-content">
 
-                <h3>
-                    Madhu Music World
-                </h3>
+<!-- OLD IS GOLD -->
 
-                <p>
-                    Enjoy music, radio and entertainment
-                    from Madhu Music World.
-                </p>
+<article class="app-card">
 
-                <div class="tags">
-                    Android App • Music • Radio
-                </div>
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#542900,#b55c00);
+">
 
+<img
+src="old_gold_logo.png"
+alt="80s 90s Old Is Gold"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
 
-                <a
-                    href="#"
-                    class="app-button orange-button"
-                >
-                    ↓ Download APK
-                </a>
+<div
+class="app-icon"
+style="display:none;">
+🎵
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<div class="app-content">
 
+<h3>
+80s & 90s Old Is Gold
+</h3>
 
-        <!-- ================= SANGIT ================= -->
 
-        <div class="app-card">
+<p>
+Enjoy classic songs and timeless
+memories from the golden era.
+</p>
 
-            <div
-                class="app-image sangit-image"
-            >
 
-                <img
-                    src="/sangit.png"
-                    alt="Sangit"
-                    onerror="this.style.display='none'"
-                >
+<div class="meta">
+Android App
+</div>
 
-                <div class="fallback-icon">
-                    🎧
-                </div>
 
-            </div>
+<a
+href="80s___90s_Old_Is_Gold_com_old_is_gold.apk"
+class="download green"
+download>
 
+⬇ Download APK
 
-            <div class="app-content">
+</a>
 
-                <h3>
-                    Sangit
-                </h3>
+</div>
 
-                <p>
-                    A music application created
-                    by Asim for music lovers.
-                </p>
+</article>
 
-                <div class="tags">
-                    Android App
-                </div>
 
 
-                <a
-                    href="#"
-                    class="app-button green-button"
-                >
-                    ↓ Download APK
-                </a>
+<!-- MADHU -->
 
-            </div>
+<article class="app-card">
 
-        </div>
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#32105c,#7c12c9);
+">
 
+<img
+src="madhu-music-world.png"
+alt="Madhu Music World"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
 
+<div
+class="app-icon"
+style="display:none;">
+🎙️
+</div>
 
-        <!-- ================= PHOTO RESIZER ================= -->
+</div>
 
-        <div class="app-card">
 
-            <div
-                class="app-image photo-image"
-            >
+<div class="app-content">
 
-                <img
-                    src="/photo-resizer-icon.png"
-                    alt="Asim Tech Photo Resizer"
-                    onerror="this.style.display='none'"
-                >
+<h3>
+Madhu Music World
+</h3>
 
-                <div class="fallback-icon">
-                    📸
-                </div>
 
-            </div>
+<p>
+Enjoy music, radio and
+entertainment from Madhu
+Music World.
+</p>
 
 
-            <div class="app-content">
+<div class="meta">
+Android App • Music • Radio
+</div>
 
-                <h3>
-                    Asim Tech Photo Resizer
-                </h3>
 
-                <p>
-                    Resize, crop, filter and compress
-                    photos. Create passport and stamp photos.
-                </p>
+<a
+href="Madhu_Music_World_com_asimt75772.apk"
+class="download orange"
+download>
 
-                <div class="tags">
-                    Photo Tool • Passport • Stamp • Crop • Filter
-                </div>
+⬇ Download APK
 
+</a>
 
-                <a
-                    href="/photo-resizer/"
-                    class="app-button purple-button"
-                >
-                    📸 Open Photo Resizer
-                </a>
+</div>
 
+</article>
 
-                <a
-                    href="#"
-                    class="app-button green-button"
-                >
-                    ↓ Download APK
-                </a>
 
-            </div>
 
-        </div>
+<!-- SANGIT -->
 
+<article class="app-card">
 
-    </div>
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#402000,#9a3900);
+">
+
+<img
+src="sangit.png"
+alt="Sangit"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div
+class="app-icon"
+style="display:none;">
+🎧
+</div>
+
+</div>
+
+
+<div class="app-content">
+
+<h3>
+Sangit
+</h3>
+
+
+<p>
+A music application created
+by Asim for music lovers.
+</p>
+
+
+<div class="meta">
+Android App
+</div>
+
+
+<a
+href="Sangit.apk"
+class="download green"
+download>
+
+⬇ Download APK
+
+</a>
+
+</div>
+
+</article>
+
+
+
+<!-- PHOTO RESIZER -->
+
+<article class="app-card">
+
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#063a66,#7c12c9);
+">
+
+<img
+src="photo-resizer-icon.png"
+alt="Asim Tech Photo Resizer"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div
+class="app-icon"
+style="display:none;">
+📸
+</div>
+
+</div>
+
+
+<div class="app-content">
+
+<h3>
+Asim Tech Photo Resizer
+</h3>
+
+
+<p>
+Resize, crop, filter and compress
+photos. Create passport, stamp
+and custom-size photos.
+</p>
+
+
+<div class="meta">
+Photo • Resize • Crop • Filter
+</div>
+
+
+<div class="button-row">
+
+<a
+href="/photo-resizer/"
+class="download purple">
+
+📸 Open Web
+
+</a>
+
+
+<a
+href="Asim_Photo_Resizer.apk"
+class="download green"
+download>
+
+⬇ APK
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- ID PHOTO -->
+
+<article class="app-card">
+
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#26005c,#7b20cc);
+">
+
+<img
+src="id-photo-maker-icon.png"
+alt="ID Photo Maker"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div
+class="app-icon"
+style="display:none;">
+🪪
+</div>
+
+</div>
+
+
+<div class="app-content">
+
+<h3>
+Asim Tech ID Photo Maker
+</h3>
+
+
+<p>
+Create passport, stamp and
+2×2 ID photos with smart crop,
+filters and printable sheets.
+</p>
+
+
+<div class="meta">
+ID Photo • Passport • 2x2 • 4x6
+</div>
+
+
+<div class="button-row">
+
+<a
+href="/id-photo-maker/"
+class="download">
+
+🌐 Open Web
+
+</a>
+
+
+<a
+href="DOC-20260824-WA0000.apk"
+class="download green"
+download>
+
+⬇ APK
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- SIGNATURE -->
+
+<article class="app-card">
+
+<div
+class="app-image"
+style="
+background:
+linear-gradient(135deg,#003b54,#087ff5);
+">
+
+<img
+src="signature-maker-icon.png"
+alt="Signature Maker"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div
+class="app-icon"
+style="display:none;">
+✍️
+</div>
+
+</div>
+
+
+<div class="app-content">
+
+<h3>
+Asim Tech Signature Maker
+</h3>
+
+
+<p>
+Create digital signatures by
+drawing with your finger or
+uploading an existing sign.
+</p>
+
+
+<div class="meta">
+Signature • Draw • Upload
+</div>
+
+
+<div class="button-row">
+
+<a
+href="/signature-maker/"
+class="download">
+
+🌐 Open Web
+
+</a>
+
+
+<a
+href="#"
+class="download green">
+
+⬇ APK
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
 
 </section>
 
 
 
 <!-- =====================================================
-     FEATURES
+     TOOLS
 ===================================================== -->
 
-<section class="features">
+<section
+id="tools"
+class="section compact">
 
 
-    <div class="feature">
-
-        <div class="feature-icon">
-            ⚡
-        </div>
-
-        <h3>
-            Fast & Simple
-        </h3>
-
-        <p>
-            Simple applications designed
-            for everyday use.
-        </p>
-
-    </div>
+<p class="eyebrow">
+My Projects
+</p>
 
 
-    <div class="feature">
-
-        <div class="feature-icon">
-            🔒
-        </div>
-
-        <h3>
-            Privacy First
-        </h3>
-
-        <p>
-            Your personal data stays on your
-            device whenever possible.
-        </p>
-
-    </div>
+<h2>
+My <span>Tools</span>
+</h2>
 
 
-    <div class="feature">
+<p class="section-description">
 
-        <div class="feature-icon">
-            📱
-        </div>
+Useful utilities and new projects created by Asim.
 
-        <h3>
-            Mobile Friendly
-        </h3>
+</p>
 
-        <p>
-            Designed to work smoothly on
-            mobile phones and computers.
-        </p>
 
-    </div>
+<div class="tools-box">
 
+
+<div class="tool">
+
+<div class="tool-icon">
+📸
+</div>
+
+<h3>
+Photo Resizer
+</h3>
+
+<p>
+Resize and edit photos
+</p>
+
+</div>
+
+
+<div class="tool">
+
+<div class="tool-icon">
+🪪
+</div>
+
+<h3>
+ID Photo Maker
+</h3>
+
+<p>
+Passport and ID photos
+</p>
+
+</div>
+
+
+<div class="tool">
+
+<div class="tool-icon">
+✍️
+</div>
+
+<h3>
+Signature Maker
+</h3>
+
+<p>
+Create digital signatures
+</p>
+
+</div>
+
+
+<div class="tool">
+
+<div class="tool-icon">
+📕
+</div>
+
+<h3>
+PDF Tools
+</h3>
+
+<p>
+Create and manage PDF files
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     UPDATES
+===================================================== -->
+
+<section
+id="updates"
+class="section compact">
+
+
+<p class="eyebrow">
+Latest
+</p>
+
+
+<h2>
+Updates
+</h2>
+
+
+<p class="section-description">
+
+New applications, tools and updated versions
+will appear here.
+
+</p>
 
 </section>
 
@@ -2114,21 +2648,100 @@ footer strong{
 ===================================================== -->
 
 <section
-    id="about"
-    class="info-box"
->
+id="about"
+class="section">
 
-    <h2>
-        About Asim
-    </h2>
 
-    <p>
-        Welcome to Asim Tech.
-        I create useful Android applications,
-        web applications and digital tools
-        designed to make everyday tasks
-        simple and easier.
-    </p>
+<div class="about">
+
+
+<div class="avatar">
+A
+</div>
+
+
+<div>
+
+<p class="eyebrow">
+About Me
+</p>
+
+
+<h2>
+Hi, I'm Asim 👋
+</h2>
+
+
+<p>
+
+I create useful Android applications,
+web applications and technology projects.
+
+Welcome to Asim Tech — my personal place
+for sharing my apps and projects.
+
+</p>
+
+
+<br>
+
+
+<a
+href="#contact"
+class="btn secondary">
+
+✉️ Contact Me
+
+</a>
+
+</div>
+
+
+<div class="stats">
+
+
+<div>
+
+<strong>
+10+
+</strong>
+
+<span>
+Projects
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+∞
+</strong>
+
+<span>
+Ideas
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+24/7
+</strong>
+
+<span>
+Innovation
+</span>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
@@ -2139,21 +2752,40 @@ footer strong{
 ===================================================== -->
 
 <section
-    id="contact"
-    class="info-box"
->
+id="contact"
+class="section contact">
 
-    <h2>
-        Contact
-    </h2>
 
-    <p>
-        For application information,
-        support and other enquiries,
-        please contact Asim Tech.
-    </p>
+<p class="eyebrow">
+Get In Touch
+</p>
+
+
+<h2>
+Contact <span>Asim</span>
+</h2>
+
+
+<p>
+
+For application information, suggestions,
+feedback and support, please contact Asim Tech.
+
+</p>
+
+
+<a
+class="btn primary"
+href="mailto:your-email@example.com">
+
+✉️ Email Me
+
+</a>
 
 </section>
+
+
+</main>
 
 
 
@@ -2163,14 +2795,149 @@ footer strong{
 
 <footer>
 
-    © 2026
-    <strong>Asim Tech</strong>
 
-    <br><br>
+<div class="brand">
 
-    Apps • Tools • Innovation
+<span class="logo">▲</span>
+ASIM <b>TECH</b>
+
+</div>
+
+
+<p>
+
+© <span id="year"></span>
+Asim Tech.
+All Rights Reserved.
+
+</p>
+
+
+<p style="margin-top:7px;">
+
+Apps • Tools • Innovation
+
+</p>
 
 </footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* THEME BUTTON */
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+themeBtn.addEventListener(
+"click",
+function(){
+
+document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+
+themeBtn.textContent="☀";
+
+}else{
+
+themeBtn.textContent="☾";
+
+}
+
+}
+);
+
+
+/* ACTIVE NAVIGATION */
+
+const navLinks =
+document.querySelectorAll(".navbar nav a");
+
+
+window.addEventListener(
+"scroll",
+function(){
+
+let current="home";
+
+document
+.querySelectorAll("main section[id]")
+.forEach(
+section=>{
+
+const top =
+section.offsetTop - 100;
+
+if(window.scrollY >= top){
+
+current =
+section.getAttribute("id");
+
+}
+
+});
+
+
+navLinks.forEach(
+link=>{
+
+link.classList.remove("active");
+
+if(
+link.getAttribute("href")
+===
+"#"+current
+){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+
+/* IMAGE ERROR FALLBACK */
+
+document
+.querySelectorAll(".app-image img")
+.forEach(
+img=>{
+
+img.addEventListener(
+"error",
+function(){
+
+this.style.display="none";
+
+const fallback =
+this.nextElementSibling;
+
+if(fallback){
+
+fallback.style.display="flex";
+
+}
+
+});
+
+});
+
+
+</script>
 
 
 </body>
