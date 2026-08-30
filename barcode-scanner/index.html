@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#030914">
+<title>Asim Barcode & QR Scanner</title>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<style>
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ font-family:Arial,Helvetica,sans-serif;
+ background:#030914;
+ color:#fff;
+ min-height:100vh;
+ overflow-x:hidden;
+}
+
+body::before{
+ content:"";
+ position:fixed;
+ width:500px;
+ height:500px;
+ left:-250px;
+ top:120px;
+ background:#0077ff18;
+ filter:blur(80px);
+ border-radius:50%;
+ pointer-events:none;
+}
+
+body::after{
+ content:"";
+ position:fixed;
+ width:450px;
+ height:450px;
+ right:-250px;
+ bottom:50px;
+ background:#7c3aed18;
+ filter:blur(90px);
+ border-radius:50%;
+ pointer-events:none;
+}
+
+header{
+ height:70px;
+ padding:0 6%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ position:sticky;
+ top:0;
+ z-index:1000;
+ background:#030914ee;
+ backdrop-filter:blur(18px);
+ border-bottom:1px solid #17283d;
+}
+
+.logo{
+ font-size:23px;
+ font-weight:900;
+ letter-spacing:.3px;
+}
+
+.logo b{
+ color:#1685ff;
+}
+
+.back{
+ color:#b8c5d5;
+ text-decoration:none;
+ border:1px solid #24405c;
+ padding:8px 15px;
+ border-radius:9px;
+ font-size:13px;
+ font-weight:bold;
+ transition:.2s;
+}
+
+.back:hover{
+ color:#1685ff;
+ border-color:#1685ff;
+ transform:translateY(-2px);
+}
+
+.hero{
+ text-align:center;
+ padding:45px 18px 25px;
+ animation:hero .5s ease both;
+}
+
+@keyframes hero{
+ from{
+  opacity:0;
+  transform:translateY(20px);
+ }
+ to{
+  opacity:1;
+  transform:translateY(0);
+ }
+}
+
+.badge{
+ color:#1685ff;
+ font-size:12px;
+ letter-spacing:4px;
+ font-weight:bold;
+ margin-bottom:10px;
+}
+
+.hero h1{
+ font-size:42px;
+ line-height:1.05;
+ margin-bottom:12px;
+}
+
+.hero h1 span{
+ color:#1685ff;
+}
+
+.hero p{
+ color:#9eafc2;
+ max-width:650px;
+ margin:auto;
+ font-size:15px;
+}
+
+.tabs{
+ max-width:950px;
+ margin:20px auto 0;
+ padding:0 15px;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:10px;
+}
+
+.tab{
+ border:1px solid #1c3b58;
+ background:#071522;
+ color:#a9b9cb;
+ padding:13px 8px;
+ border-radius:12px;
+ font-weight:bold;
+ cursor:pointer;
+ transition:.2s;
+}
+
+.tab:hover{
+ transform:translateY(-3px);
+ border-color:#1685ff;
+}
+
+.tab.active{
+ background:linear-gradient(135deg,#0874e8,#1685ff);
+ color:white;
+ border-color:#1685ff;
+ box-shadow:0 8px 25px #1685ff25;
+}
+
+.container{
+ max-width:950px;
+ margin:20px auto 80px;
+ padding:0 15px;
+}
+
+.panel{
+ display:none;
+ background:linear-gradient(145deg,#081b2b,#061421);
+ border:1px solid #183047;
+ border-radius:20px;
+ padding:22px;
+ box-shadow:0 15px 50px #0004;
+ animation:panelIn .35s ease both;
+}
+
+.panel.active{
+ display:block;
+}
+
+@keyframes panelIn{
+ from{
+  opacity:0;
+  transform:translateY(15px) scale(.985);
+ }
+ to{
+  opacity:1;
+  transform:translateY(0) scale(1);
+ }
+}
+
+.panel-title{
+ font-size:23px;
+ margin-bottom:6px;
+}
+
+.panel-sub{
+ color:#8498ad;
+ font-size:13px;
+ margin-bottom:20px;
+}
+
+.input{
+ width:100%;
+ background:#04101c;
+ color:#fff;
+ border:1px solid #25445f;
+ border-radius:11px;
+ padding:14px;
+ outline:none;
+ font-size:15px;
+ transition:.2s;
+}
+
+.input:focus{
+ border-color:#1685ff;
+ box-shadow:0 0 0 3px #1685ff18;
+}
+
+textarea.input{
+ min-height:100px;
+ resize:vertical;
+}
+
+select.input{
+ appearance:auto;
+}
+
+.label{
+ display:block;
+ color:#aebdcd;
+ font-size:13px;
+ font-weight:bold;
+ margin:15px 0 7px;
+}
+
+.row{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+
+.btns{
+ display:flex;
+ flex-wrap:wrap;
+ gap:10px;
+ margin-top:18px;
+}
+
+.btn{
+ border:0;
+ color:white;
+ padding:12px 18px;
+ border-radius:10px;
+ font-size:14px;
+ font-weight:bold;
+ cursor:pointer;
+ transition:.2s;
+}
+
+.btn:hover{
+ transform:translateY(-3px);
+ filter:brightness(1.08);
+}
+
+.blue{
+ background:linear-gradient(135deg,#2563eb,#1685ff);
+}
+
+.green{
+ background:linear-gradient(135deg,#16a34a,#059669);
+}
+
+.red{
+ background:linear-gradient(135deg,#ef4444,#dc2626);
+}
+
+.purple{
+ background:linear-gradient(135deg,#7c3aed,#ec4899);
+}
+
+.orange{
+ background:linear-gradient(135deg,#f59e0b,#ef4444);
+}
+
+.cyan{
+ background:linear-gradient(135deg,#06b6d4,#2563eb);
+}
+
+.dark{
+ background:#0b1c2d;
+ border:1px solid #29435d;
+}
+
+.result{
+ margin-top:20px;
+ background:#030b14;
+ border:1px solid #1d3c57;
+ border-radius:15px;
+ padding:18px;
+ min-height:80px;
+}
+
+.result-title{
+ color:#1685ff;
+ font-size:12px;
+ letter-spacing:2px;
+ font-weight:bold;
+ margin-bottom:8px;
+}
+
+.result-text{
+ color:#dbe7f3;
+ word-break:break-word;
+ white-space:pre-wrap;
+}
+
+.scanner-box{
+ max-width:600px;
+ margin:15px auto;
+}
+
+#reader{
+ width:100%;
+ overflow:hidden;
+ border-radius:16px;
+ border:1px solid #254967;
+ background:#000;
+}
+
+#reader video{
+ border-radius:14px;
+}
+
+.scan-status{
+ text-align:center;
+ color:#91a6ba;
+ margin-top:12px;
+ font-size:13px;
+}
+
+.preview{
+ margin:20px auto 0;
+ background:white;
+ border-radius:15px;
+ padding:20px;
+ min-height:150px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ overflow:auto;
+}
+
+#barcodeSvg{
+ max-width:100%;
+ height:auto;
+}
+
+#qrcode{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ min-height:220px;
+}
+
+#qrcode img,
+#qrcode canvas{
+ max-width:100%;
+ height:auto;
+}
+
+.empty{
+ color:#70859a;
+ text-align:center;
+ padding:30px 10px;
+}
+
+.history-item{
+ background:#071522;
+ border:1px solid #1a334a;
+ border-radius:12px;
+ padding:13px;
+ margin-bottom:10px;
+ animation:historyIn .25s ease both;
+}
+
+@keyframes historyIn{
+ from{
+  opacity:0;
+  transform:translateX(-10px);
+ }
+ to{
+  opacity:1;
+  transform:translateX(0);
+ }
+}
+
+.history-type{
+ color:#1685ff;
+ font-size:11px;
+ font-weight:bold;
+ letter-spacing:1px;
+}
+
+.history-value{
+ margin-top:5px;
+ color:#dbe5ef;
+ word-break:break-word;
+}
+
+.history-time{
+ color:#65798d;
+ font-size:10px;
+ margin-top:6px;
+}
+
+.notice{
+ background:#0b1d2d;
+ border:1px solid #21425e;
+ color:#9eb2c5;
+ border-radius:12px;
+ padding:13px;
+ margin-top:15px;
+ font-size:12px;
+}
+
+footer{
+ text-align:center;
+ border-top:1px solid #17283d;
+ color:#63778d;
+ padding:30px 15px;
+ font-size:12px;
+}
+
+footer span{
+ color:#1685ff;
+}
+
+@media(max-width:650px){
+
+ header{
+  height:62px;
+  padding:0 5%;
+ }
+
+ .logo{
+  font-size:20px;
+ }
+
+ .back{
+  padding:7px 10px;
+  font-size:11px;
+ }
+
+ .hero{
+  padding:35px 15px 20px;
+ }
+
+ .hero h1{
+  font-size:34px;
+ }
+
+ .tabs{
+  grid-template-columns:1fr 1fr;
+ }
+
+ .panel{
+  padding:17px;
+ }
+
+ .row{
+  grid-template-columns:1fr;
+ }
+
+ .btn{
+  flex:1 1 140px;
+ }
+
+ .preview{
+  min-height:180px;
+ }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+ *{
+  animation-duration:.01ms!important;
+  transition-duration:.01ms!important;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">
+  <b>▲</b> ASIM <b>TECH</b>
+ </div>
+
+ <a href="../" class="back">← Asim Tech</a>
+</header>
+
+<div class="hero">
+
+ <div class="badge">ASIM TECH APPLICATION</div>
+
+ <h1>
+  Asim <span>Barcode & QR</span><br>
+  Scanner
+ </h1>
+
+ <p>
+  Scan, create, save and download barcodes and QR codes easily.
+ </p>
+
+</div>
+
+<div class="tabs">
+
+ <button class="tab active" onclick="openTab('scanner',this)">
+  📷 Scanner
+ </button>
+
+ <button class="tab" onclick="openTab('barcode',this)">
+  🏷️ Barcode Maker
+ </button>
+
+ <button class="tab" onclick="openTab('qr',this)">
+  🔲 QR Maker
+ </button>
+
+ <button class="tab" onclick="openTab('history',this)">
+  🕘 History
+ </button>
+
+</div>
+
+<div class="container">
+
+<!-- ================= SCANNER ================= -->
+
+<div id="scanner" class="panel active">
+
+ <div class="panel-title">
+  📷 Barcode & QR Scanner
+ </div>
+
+ <div class="panel-sub">
+  Point your camera at a barcode or QR code.
+ </div>
+
+ <div class="scanner-box">
+
+  <div id="reader"></div>
+
+  <div class="scan-status" id="scanStatus">
+   Camera is ready. Tap Start Scanner.
+  </div>
+
+ </div>
+
+ <div class="btns">
+
+  <button class="btn blue" onclick="startScanner()">
+   ▶ Start Scanner
+  </button>
+
+  <button class="btn red" onclick="stopScanner()">
+   ■ Stop
+  </button>
+
+  <button class="btn dark" onclick="clearScan()">
+   ✕ Clear
+  </button>
+
+ </div>
+
+ <div class="result">
+
+  <div class="result-title">
+   SCAN RESULT
+  </div>
+
+  <div id="scanResult" class="result-text">
+   No result yet.
+  </div>
+
+  <div class="btns">
+
+   <button class="btn green" onclick="copyScan()">
+    📋 Copy
+   </button>
+
+  </div>
+
+ </div>
+
+ <div class="notice">
+  🔐 Camera access is required for scanning.
+  Your scan result is processed in this browser.
+ </div>
+
+</div>
+
+
+<!-- ================= BARCODE ================= -->
+
+<div id="barcode" class="panel">
+
+ <div class="panel-title">
+  🏷️ Barcode Maker
+ </div>
+
+ <div class="panel-sub">
+  Create a professional barcode and download it as an image.
+ </div>
+
+ <label class="label">
+  Barcode Text / Number
+ </label>
+
+ <input
+  id="barcodeText"
+  class="input"
+  type="text"
+  placeholder="Example: 9547222144"
+ >
+
+ <div class="row">
+
+  <div>
+   <label class="label">
+    Barcode Format
+   </label>
+
+   <select id="barcodeFormat" class="input">
+
+    <option value="CODE128">
+     CODE 128
+    </option>
+
+    <option value="CODE39">
+     CODE 39
+    </option>
+
+    <option value="EAN13">
+     EAN-13
+    </option>
+
+    <option value="EAN8">
+     EAN-8
+    </option>
+
+    <option value="UPC">
+     UPC
+    </option>
+
+   </select>
+
+  </div>
+
+  <div>
+
+   <label class="label">
+    Show Text
+   </label>
+
+   <select id="showText" class="input">
+
+    <option value="true">
+     Yes
+    </option>
+
+    <option value="false">
+     No
+    </option>
+
+   </select>
+
+  </div>
+
+ </div>
+
+ <div class="btns">
+
+  <button class="btn blue" onclick="generateBarcode()">
+   ✨ Generate Barcode
+  </button>
+
+  <button class="btn green" onclick="downloadBarcode()">
+   ⬇ Download PNG
+  </button>
+
+ </div>
+
+ <div class="preview">
+
+  <svg id="barcodeSvg"></svg>
+
+ </div>
+
+ <div id="barcodeMessage" class="scan-status">
+  Enter text and generate a barcode.
+ </div>
+
+</div>
+
+
+<!-- ================= QR ================= -->
+
+<div id="qr" class="panel">
+
+ <div class="panel-title">
+  🔲 QR Code Maker
+ </div>
+
+ <div class="panel-sub">
+  Create a QR code for text, links, phone numbers or any information.
+ </div>
+
+ <label class="label">
+  QR Content
+ </label>
+
+ <textarea
+  id="qrText"
+  class="input"
+  placeholder="https://example.com"
+ ></textarea>
+
+ <div class="row">
+
+  <div>
+
+   <label class="label">
+    Size
+   </label>
+
+   <select id="qrSize" class="input">
+
+    <option value="180">180 × 180</option>
+    <option value="220" selected>220 × 220</option>
+    <option value="300">300 × 300</option>
+    <option value="400">400 × 400</option>
+
+   </select>
+
+  </div>
+
+  <div>
+
+   <label class="label">
+    Error Correction
+   </label>
+
+   <select id="qrLevel" class="input">
+
+    <option value="L">
+     Low
+    </option>
+
+    <option value="M" selected>
+     Medium
+    </option>
+
+    <option value="Q">
+     Quartile
+    </option>
+
+    <option value="H">
+     High
+    </option>
+
+   </select>
+
+  </div>
+
+ </div>
+
+ <div class="btns">
+
+  <button class="btn purple" onclick="generateQR()">
+   ✨ Generate QR
+  </button>
+
+  <button class="btn green" onclick="downloadQR()">
+   ⬇ Download PNG
+  </button>
+
+ </div>
+
+ <div class="preview">
+
+  <div id="qrcode"></div>
+
+ </div>
+
+ <div id="qrMessage" class="scan-status">
+  Enter content and generate a QR code.
+ </div>
+
+</div>
+
+
+<!-- ================= HISTORY ================= -->
+
+<div id="history" class="panel">
+
+ <div class="panel-title">
+  🕘 History
+ </div>
+
+ <div class="panel-sub">
+  Your recent scans and generated codes.
+ </div>
+
+ <div class="btns">
+
+  <button class="btn red" onclick="clearHistory()">
+   🗑 Clear History
+  </button>
+
+ </div>
+
+ <div id="historyList" style="margin-top:18px;"></div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+ <b>
+  <span>▲</span> ASIM <span>TECH</span>
+ </b>
+
+ <br><br>
+
+ © 2026 Asim Tech. All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   GLOBALS
+===================================================== */
+
+let scanner = null;
+let scannerRunning = false;
+
+let lastBarcodeValue = "";
+
+let barcodeGenerated = false;
+let qrGenerated = false;
+
+
+/* =====================================================
+   TAB SYSTEM
+===================================================== */
+
+function openTab(id,button){
+
+ document.querySelectorAll(".panel").forEach(function(panel){
+  panel.classList.remove("active");
+ });
+
+ document.querySelectorAll(".tab").forEach(function(tab){
+  tab.classList.remove("active");
+ });
+
+ document.getElementById(id).classList.add("active");
+
+ button.classList.add("active");
+
+ window.scrollTo({
+  top:180,
+  behavior:"smooth"
+ });
+
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+function getHistory(){
+
+ try{
+
+  return JSON.parse(
+   localStorage.getItem("asimBarcodeHistory") || "[]"
+  );
+
+ }catch(e){
+
+  return [];
+
+ }
+
+}
+
+
+function saveHistory(type,value){
+
+ if(!value) return;
+
+ let history = getHistory();
+
+ history.unshift({
+
+  type:type,
+
+  value:value,
+
+  time:new Date().toLocaleString()
+
+ });
+
+ history = history.slice(0,50);
+
+ localStorage.setItem(
+  "asimBarcodeHistory",
+  JSON.stringify(history)
+ );
+
+ renderHistory();
+
+}
+
+
+function renderHistory(){
+
+ const list = document.getElementById("historyList");
+
+ const history = getHistory();
+
+ if(!history.length){
+
+  list.innerHTML =
+  '<div class="empty">No history yet.</div>';
+
+  return;
+
+ }
+
+ list.innerHTML = history.map(function(item){
+
+  return `
+   <div class="history-item">
+
+    <div class="history-type">
+     ${escapeHTML(item.type)}
+    </div>
+
+    <div class="history-value">
+     ${escapeHTML(item.value)}
+    </div>
+
+    <div class="history-time">
+     ${escapeHTML(item.time)}
+    </div>
+
+   </div>
+  `;
+
+ }).join("");
+
+}
+
+
+function clearHistory(){
+
+ if(confirm("Clear all history?")){
+
+  localStorage.removeItem("asimBarcodeHistory");
+
+  renderHistory();
+
+ }
+
+}
+
+
+function escapeHTML(text){
+
+ return String(text)
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   SCANNER
+===================================================== */
+
+function startScanner(){
+
+ if(scannerRunning){
+
+  document.getElementById("scanStatus").textContent =
+   "Scanner is already running.";
+
+  return;
+
+ }
+
+ if(typeof Html5Qrcode === "undefined"){
+
+  document.getElementById("scanStatus").textContent =
+   "Scanner library could not be loaded.";
+
+  return;
+
+ }
+
+ scanner = new Html5Qrcode("reader");
+
+ const config = {
+
+  fps:15,
+
+  qrbox:function(width,height){
+
+   const size = Math.floor(
+    Math.min(width,height) * .70
+   );
+
+   return {
+    width:size,
+    height:size
+   };
+
+  },
+
+  aspectRatio:1.0
+
+ };
+
+
+ scanner.start(
+
+  {
+   facingMode:"environment"
+  },
+
+  config,
+
+  function(decodedText,decodedResult){
+
+   if(decodedText === lastBarcodeValue){
+
+    return;
+
+   }
+
+   lastBarcodeValue = decodedText;
+
+   document.getElementById("scanResult").textContent =
+    decodedText;
+
+   document.getElementById("scanStatus").textContent =
+    "✅ Code detected successfully.";
+
+   saveHistory("SCAN",decodedText);
+
+   if(navigator.vibrate){
+
+    navigator.vibrate(120);
+
+   }
+
+  },
+
+  function(errorMessage){
+
+   /* Normal scanning errors are ignored. */
+
+  }
+
+ ).then(function(){
+
+  scannerRunning = true;
+
+  document.getElementById("scanStatus").textContent =
+   "📷 Scanner running — point camera at a code.";
+
+ }).catch(function(error){
+
+  scannerRunning = false;
+
+  document.getElementById("scanStatus").textContent =
+   "❌ Camera could not start. Please allow camera permission.";
+
+ });
+
+}
+
+
+function stopScanner(){
+
+ if(scanner && scannerRunning){
+
+  scanner.stop().then(function(){
+
+   scannerRunning = false;
+
+   document.getElementById("scanStatus").textContent =
+    "Scanner stopped.";
+
+  }).catch(function(){
+
+   scannerRunning = false;
+
+  });
+
+ }
+
+}
+
+
+function clearScan(){
+
+ lastBarcodeValue = "";
+
+ document.getElementById("scanResult").textContent =
+  "No result yet.";
+
+ document.getElementById("scanStatus").textContent =
+  "Camera is ready. Tap Start Scanner.";
+
+}
+
+
+function copyScan(){
+
+ const text =
+  document.getElementById("scanResult").textContent;
+
+ if(!text || text === "No result yet."){
+
+  alert("There is no scan result to copy.");
+
+  return;
+
+ }
+
+ navigator.clipboard.writeText(text).then(function(){
+
+  alert("Scan result copied.");
+
+ }).catch(function(){
+
+  alert("Copy failed.");
+
+ });
+
+}
+
+
+/* =====================================================
+   BARCODE MAKER
+===================================================== */
+
+function generateBarcode(){
+
+ const text =
+  document.getElementById("barcodeText").value.trim();
+
+ const format =
+  document.getElementById("barcodeFormat").value;
+
+ const show =
+  document.getElementById("showText").value === "true";
+
+ const message =
+  document.getElementById("barcodeMessage");
+
+ if(!text){
+
+  message.textContent =
+   "⚠ Please enter barcode text first.";
+
+  return;
+
+ }
+
+ try{
+
+  JsBarcode("#barcodeSvg",text,{
+
+   format:format,
+
+   lineColor:"#111111",
+
+   background:"#ffffff",
+
+   width:2,
+
+   height:90,
+
+   displayValue:show,
+
+   fontSize:18,
+
+   margin:15,
+
+   textMargin:8
+
+  });
+
+  barcodeGenerated = true;
+
+  message.textContent =
+   "✅ Barcode generated successfully.";
+
+  saveHistory("BARCODE",text);
+
+ }catch(error){
+
+  barcodeGenerated = false;
+
+  message.textContent =
+   "❌ Invalid value for " + format + ".";
+
+ }
+
+}
+
+
+function downloadBarcode(){
+
+ if(!barcodeGenerated){
+
+  alert("Please generate a barcode first.");
+
+  return;
+
+ }
+
+ const svg =
+  document.getElementById("barcodeSvg");
+
+ const serializer =
+  new XMLSerializer();
+
+ let source =
+  serializer.serializeToString(svg);
+
+ if(!source.match(/^<svg[^>]+xmlns=/)){
+
+  source =
+   source.replace(
+    /^<svg/,
+    '<svg xmlns="http://www.w3.org/2000/svg"'
+   );
+
+ }
+
+ const blob =
+  new Blob([source],{
+   type:"image/svg+xml;charset=utf-8"
+  });
+
+ const url =
+  URL.createObjectURL(blob);
+
+ const image =
+  new Image();
+
+ image.onload=function(){
+
+  const canvas =
+   document.createElement("canvas");
+
+  canvas.width =
+   image.width || 600;
+
+  canvas.height =
+   image.height || 250;
+
+  const ctx =
+   canvas.getContext("2d");
+
+  ctx.fillStyle="#ffffff";
+
+  ctx.fillRect(
+   0,
+   0,
+   canvas.width,
+   canvas.height
+  );
+
+  ctx.drawImage(
+   image,
+   0,
+   0
+  );
+
+  URL.revokeObjectURL(url);
+
+  const link =
+   document.createElement("a");
+
+  link.download =
+   "Asim_Barcode.png";
+
+  link.href =
+   canvas.toDataURL("image/png");
+
+  link.click();
+
+ };
+
+ image.src=url;
+
+}
+
+
+/* =====================================================
+   QR MAKER
+===================================================== */
+
+function generateQR(){
+
+ const text =
+  document.getElementById("qrText").value.trim();
+
+ const size =
+  parseInt(
+   document.getElementById("qrSize").value
+  );
+
+ const level =
+  document.getElementById("qrLevel").value;
+
+ const box =
+  document.getElementById("qrcode");
+
+ const message =
+  document.getElementById("qrMessage");
+
+ if(!text){
+
+  message.textContent =
+   "⚠ Please enter QR content first.";
+
+  return;
+
+ }
+
+ box.innerHTML="";
+
+ let correctLevel =
+  QRCode.CorrectLevel.M;
+
+ if(level==="L")
+  correctLevel=QRCode.CorrectLevel.L;
+
+ if(level==="M")
+  correctLevel=QRCode.CorrectLevel.M;
+
+ if(level==="Q")
+  correctLevel=QRCode.CorrectLevel.Q;
+
+ if(level==="H")
+  correctLevel=QRCode.CorrectLevel.H;
+
+ new QRCode(box,{
+
+  text:text,
+
+  width:size,
+
+  height:size,
+
+  colorDark:"#000000",
+
+  colorLight:"#ffffff",
+
+  correctLevel:correctLevel
+
+ });
+
+ qrGenerated = true;
+
+ message.textContent =
+  "✅ QR code generated successfully.";
+
+ saveHistory("QR",text);
+
+}
+
+
+function downloadQR(){
+
+ if(!qrGenerated){
+
+  alert("Please generate a QR code first.");
+
+  return;
+
+ }
+
+ const box =
+  document.getElementById("qrcode");
+
+ const canvas =
+  box.querySelector("canvas");
+
+ const img =
+  box.querySelector("img");
+
+ if(canvas){
+
+  const link =
+   document.createElement("a");
+
+  link.download =
+   "Asim_QR_Code.png";
+
+  link.href =
+   canvas.toDataURL("image/png");
+
+  link.click();
+
+  return;
+
+ }
+
+ if(img){
+
+  const link =
+   document.createElement("a");
+
+  link.download =
+   "Asim_QR_Code.png";
+
+  link.href =
+   img.src;
+
+  link.click();
+
+ }
+
+}
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+ .getElementById("barcodeText")
+ .addEventListener("keydown",function(e){
+
+  if(e.key==="Enter"){
+
+   generateBarcode();
+
+  }
+
+ });
+
+
+/* =====================================================
+   INITIAL
+===================================================== */
+
+renderHistory();
+
+
+/* =====================================================
+   STOP CAMERA WHEN LEAVING PAGE
+===================================================== */
+
+window.addEventListener(
+ "beforeunload",
+ function(){
+
+  if(scanner && scannerRunning){
+
+   scanner.stop().catch(function(){});
+
+  }
+
+ }
+);
+
+</script>
+
+</body>
+</html>
