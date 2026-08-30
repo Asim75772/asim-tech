@@ -22,34 +22,26 @@ content="Asim Tech">
 <style>
 
 /* =====================================================
-   ASIM TECH - MODERN HOME PAGE
+   ASIM TECH
+   MODERN RESPONSIVE HOME PAGE
 ===================================================== */
 
 :root{
 
     --bg:#020914;
-    --bg2:#061423;
-
-    --card:rgba(7,24,40,.82);
-
-    --line:rgba(76,155,207,.24);
+    --card:#061827;
+    --line:rgba(76,155,207,.25);
 
     --text:#f5f9fc;
-
     --muted:#8fa8ba;
 
     --blue:#0795ff;
-
     --blue2:#006fe6;
-
     --cyan:#24d7ff;
 
     --green:#08c875;
-
     --red:#ff3b4d;
-
     --orange:#ff8a00;
-
     --purple:#8b4dff;
 
     --shadow:
@@ -109,7 +101,7 @@ body{
 
 
 /* =====================================================
-   BACKGROUND GLOW
+   BACKGROUND LIGHT
 ===================================================== */
 
 body::before,
@@ -166,13 +158,10 @@ body::after{
 @keyframes floatA{
 
     0%,100%{
-
-        transform:
-        translate(0,0);
+        transform:translate(0,0);
     }
 
     50%{
-
         transform:
         translate(80px,35px)
         scale(1.12);
@@ -183,13 +172,10 @@ body::after{
 @keyframes floatB{
 
     0%,100%{
-
-        transform:
-        translate(0,0);
+        transform:translate(0,0);
     }
 
     50%{
-
         transform:
         translate(-70px,-40px)
         scale(1.12);
@@ -221,7 +207,7 @@ header{
     gap:20px;
 
     background:
-    rgba(2,9,20,.84);
+    rgba(2,9,20,.88);
 
     border-bottom:
     1px solid var(--line);
@@ -243,8 +229,6 @@ header{
     font-size:23px;
 
     font-weight:800;
-
-    letter-spacing:.5px;
 
     white-space:nowrap;
 }
@@ -270,7 +254,7 @@ nav{
 
     align-items:center;
 
-    gap:7px;
+    gap:5px;
 }
 
 
@@ -282,7 +266,8 @@ nav a{
 
     font-size:13px;
 
-    padding:9px 11px;
+    padding:
+    9px 11px;
 
     border-radius:9px;
 
@@ -366,9 +351,6 @@ nav a:hover{
     font-weight:800;
 
     letter-spacing:2.5px;
-
-    animation:
-    fadeUp .7s ease both;
 }
 
 
@@ -402,9 +384,6 @@ nav a:hover{
     line-height:1.04;
 
     letter-spacing:-2.5px;
-
-    animation:
-    fadeUp .9s ease both;
 }
 
 
@@ -429,9 +408,6 @@ nav a:hover{
     clamp(16px,2vw,19px);
 
     line-height:1.65;
-
-    animation:
-    fadeUp 1.1s ease both;
 }
 
 
@@ -518,7 +494,7 @@ nav a:hover{
 
 
 /* =====================================================
-   HERO PHONE
+   PHONE
 ===================================================== */
 
 .hero-phone-area{
@@ -531,31 +507,6 @@ nav a:hover{
     55px auto 85px;
 
     perspective:1200px;
-
-    animation:
-    phoneIn 1s ease .15s both;
-}
-
-
-@keyframes phoneIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(40px)
-        scale(.94);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-    }
 }
 
 
@@ -677,8 +628,6 @@ nav a:hover{
 
     font-size:28px;
 
-    line-height:1.15;
-
     margin-bottom:11px;
 }
 
@@ -797,7 +746,7 @@ nav a:hover{
 
 
 /* =====================================================
-   APPS
+   APPS GRID
 ===================================================== */
 
 .apps{
@@ -839,44 +788,13 @@ nav a:hover{
 
     linear-gradient(
         145deg,
-        rgba(8,31,49,.92),
-        rgba(3,16,28,.94)
+        rgba(8,31,49,.94),
+        rgba(3,16,28,.96)
     );
 
     box-shadow:var(--shadow);
 
     transition:.35s ease;
-}
-
-
-.app-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:-30%;
-
-    top:-70%;
-
-    width:80%;
-
-    height:180%;
-
-    transform:
-    rotate(20deg);
-
-    background:
-    linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.035),
-        transparent
-    );
-
-    transition:.6s ease;
-
-    pointer-events:none;
 }
 
 
@@ -894,14 +812,8 @@ nav a:hover{
 }
 
 
-.app-card:hover::before{
-
-    left:120%;
-}
-
-
 /* =====================================================
-   IMAGE AREA
+   IMAGE
 ===================================================== */
 
 .app-image{
@@ -921,7 +833,6 @@ nav a:hover{
     border-radius:15px;
 
     background:
-
     linear-gradient(
         135deg,
         #06345c,
@@ -931,44 +842,49 @@ nav a:hover{
 }
 
 
-.app-image::before,
+.app-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    left:3%;
+
+    top:5%;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,174,255,.25);
+
+    filter:blur(45px);
+}
+
+
 .app-image::after{
 
     content:"";
 
     position:absolute;
 
-    width:170px;
+    width:180px;
 
-    height:170px;
-
-    border-radius:50%;
-
-    filter:blur(45px);
-
-    pointer-events:none;
-}
-
-
-.app-image::before{
-
-    left:3%;
-
-    top:5%;
-
-    background:
-    rgba(0,174,255,.27);
-}
-
-
-.app-image::after{
+    height:180px;
 
     right:0;
 
     bottom:-20px;
 
+    border-radius:50%;
+
     background:
     rgba(160,0,255,.23);
+
+    filter:blur(45px);
 }
 
 
@@ -989,10 +905,6 @@ nav a:hover{
     display:block;
 }
 
-
-/* =====================================================
-   FALLBACK ICON
-===================================================== */
 
 .fallback-icon{
 
@@ -1028,7 +940,7 @@ nav a:hover{
 
 
 /* =====================================================
-   APP BACKGROUNDS
+   APP COLOURS
 ===================================================== */
 
 .barcode .app-image{
@@ -1132,6 +1044,18 @@ nav a:hover{
 }
 
 
+.idphoto .app-image{
+
+    background:
+    linear-gradient(
+        135deg,
+        #003b5c,
+        #007c9e,
+        #0046a8
+    );
+}
+
+
 /* =====================================================
    CARD CONTENT
 ===================================================== */
@@ -1178,7 +1102,7 @@ nav a:hover{
 
 
 /* =====================================================
-   APP BUTTONS
+   BUTTON
 ===================================================== */
 
 .app-btn{
@@ -1340,7 +1264,7 @@ nav a:hover{
 
 
 /* =====================================================
-   INFO BOX
+   INFO
 ===================================================== */
 
 .info-box{
@@ -1442,31 +1366,7 @@ footer strong{
 
 
 /* =====================================================
-   ANIMATION
-===================================================== */
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(22px);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0);
-    }
-}
-
-
-/* =====================================================
-   TABLET
+   MOBILE
 ===================================================== */
 
 @media(max-width:900px){
@@ -1491,12 +1391,9 @@ footer strong{
         grid-template-columns:
         repeat(2,minmax(0,1fr));
     }
+
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media(max-width:700px){
 
@@ -1537,15 +1434,13 @@ footer strong{
 
         align-items:stretch;
 
-        gap:2px;
-
         border:
         1px solid var(--line);
 
         border-radius:14px;
 
         background:
-        rgba(2,12,23,.97);
+        rgba(2,12,23,.98);
 
         box-shadow:var(--shadow);
     }
@@ -1653,12 +1548,9 @@ footer strong{
 
         width:94%;
     }
+
 }
 
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
 
 @media(max-width:430px){
 
@@ -1700,6 +1592,7 @@ footer strong{
 
         height:210px;
     }
+
 }
 
 
@@ -1738,6 +1631,7 @@ button:focus-visible{
         transition-duration:
         .01ms !important;
     }
+
 }
 
 </style>
@@ -1877,7 +1771,7 @@ About Asim Tech
 
 
 <!-- =====================================================
-     HERO PHONE
+     PHONE
 ===================================================== -->
 
 <div
@@ -1927,9 +1821,7 @@ everyday life
 
 <div class="phone-box">
 
-<span>
-📻
-</span>
+<span>📻</span>
 
 Radio
 
@@ -1938,9 +1830,7 @@ Radio
 
 <div class="phone-box">
 
-<span>
-🎵
-</span>
+<span>🎵</span>
 
 Music
 
@@ -1949,9 +1839,7 @@ Music
 
 <div class="phone-box">
 
-<span>
-🛠️
-</span>
+<span>🛠️</span>
 
 Tools
 
@@ -1960,9 +1848,7 @@ Tools
 
 <div class="phone-box">
 
-<span>
-📱
-</span>
+<span>📱</span>
 
 Apps
 
@@ -1980,7 +1866,7 @@ Apps
 
 
 <!-- =====================================================
-     MY APPS
+     APPS
 ===================================================== -->
 
 <section id="apps">
@@ -2005,8 +1891,8 @@ Explore Asim Tech Apps
 
 <p>
 
-Choose an application below to open the web tool
-or download the Android app.
+Useful Android applications and web tools
+for everyday digital work.
 
 </p>
 
@@ -2550,8 +2436,8 @@ Asim Tech Photo Resizer
 
 <p>
 
-Resize, crop, filter and compress
-photos. Create passport and stamp photos.
+Resize, crop, filter and compress photos.
+Create passport and stamp photos.
 
 </p>
 
@@ -2640,6 +2526,68 @@ href="signature-maker/"
 class="app-btn purple-btn">
 
 ✍️ Open Signature Maker
+
+</a>
+
+
+</div>
+
+</article>
+
+
+
+<!-- =====================================================
+     10 ID PHOTO MAKER
+===================================================== -->
+
+<article class="app-card idphoto">
+
+
+<div class="app-image">
+
+
+<div
+class="fallback-icon"
+aria-hidden="true">
+
+🪪
+
+</div>
+
+
+</div>
+
+
+<div class="app-content">
+
+
+<h3>
+
+Asim ID Photo Maker
+
+</h3>
+
+
+<p>
+
+Create ID, passport and official
+size photos easily with the web tool.
+
+</p>
+
+
+<div class="tags">
+
+ID Photo • Passport • Photo Maker • Print
+
+</div>
+
+
+<a
+href="id-photo-maker/"
+class="app-btn blue-btn">
+
+🪪 Open ID Photo Maker
 
 </a>
 
@@ -2741,8 +2689,8 @@ Privacy Minded
 
 <p>
 
-Applications are designed with sensible privacy
-and local processing in mind where practical.
+Applications are designed with sensible
+privacy and local processing in mind where practical.
 
 </p>
 
@@ -2907,7 +2855,7 @@ class="back-top">
 
 
 <!-- =====================================================
-     MOBILE MENU JAVASCRIPT
+     MOBILE MENU
 ===================================================== -->
 
 <script>
@@ -2915,10 +2863,10 @@ class="back-top">
 (function(){
 
     const menuBtn =
-        document.getElementById("menuBtn");
+    document.getElementById("menuBtn");
 
     const nav =
-        document.getElementById("mainNav");
+    document.getElementById("mainNav");
 
 
     if(!menuBtn || !nav){
@@ -2933,7 +2881,7 @@ class="back-top">
         function(){
 
             const isOpen =
-                nav.classList.toggle("open");
+            nav.classList.toggle("open");
 
 
             menuBtn.setAttribute(
@@ -2951,41 +2899,41 @@ class="back-top">
 
 
             menuBtn.textContent =
-                isOpen ? "✕" : "☰";
+            isOpen ? "✕" : "☰";
 
         }
     );
 
 
     nav.querySelectorAll("a")
-        .forEach(function(link){
+    .forEach(function(link){
 
-            link.addEventListener(
-                "click",
-                function(){
+        link.addEventListener(
+            "click",
+            function(){
 
-                    nav.classList.remove("open");
-
-
-                    menuBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+                nav.classList.remove("open");
 
 
-                    menuBtn.setAttribute(
-                        "aria-label",
-                        "Open menu"
-                    );
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
 
-                    menuBtn.textContent =
-                        "☰";
+                menuBtn.setAttribute(
+                    "aria-label",
+                    "Open menu"
+                );
 
-                }
-            );
 
-        });
+                menuBtn.textContent =
+                "☰";
+
+            }
+        );
+
+    });
 
 })();
 
