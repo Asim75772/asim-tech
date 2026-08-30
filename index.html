@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -13,6 +14,7 @@ content="width=device-width, initial-scale=1.0">
 content="Asim Tech - Apps, Tools, PDF, Barcode & QR Scanner, Photo Resizer and more.">
 
 <title>Asim Tech | Apps • Tools • Innovation</title>
+
 
 <style>
 
@@ -32,9 +34,13 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
+
     background:#030914;
-    color:#fff;
+
+    color:#ffffff;
+
     line-height:1.6;
+
     overflow-x:hidden;
 }
 
@@ -44,52 +50,80 @@ body{
 ===================================================== */
 
 header{
+
     height:70px;
+
     padding:0 6%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     position:sticky;
+
     top:0;
+
     z-index:9999;
 
     background:rgba(3,9,20,.94);
+
     backdrop-filter:blur(16px);
 
     border-bottom:1px solid #17283d;
+
 }
 
 .logo{
+
     font-size:25px;
+
     font-weight:900;
+
     white-space:nowrap;
+
 }
 
 .logo .mark{
+
     color:#1685ff;
+
 }
 
 .logo span{
+
     color:#1685ff;
+
 }
 
+
 nav{
+
     display:flex;
+
     gap:24px;
+
 }
 
 nav a{
+
     color:#d5dfeb;
+
     text-decoration:none;
+
     font-size:13px;
+
     font-weight:bold;
+
     transition:.25s;
+
 }
 
 nav a:hover{
+
     color:#1685ff;
+
 }
 
 
@@ -98,112 +132,187 @@ nav a:hover{
 ===================================================== */
 
 .hero{
+
     min-height:calc(100vh - 70px);
 
     padding:75px 8%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     background:
+
     radial-gradient(
         circle at 80% 50%,
         #0759a855,
         transparent 35%
     ),
+
     radial-gradient(
         circle at 20% 20%,
         #1685ff18,
         transparent 30%
     );
+
 }
 
+
 .hero-text{
+
     max-width:650px;
 
     animation:
     heroIn .8s ease both;
+
 }
+
 
 @keyframes heroIn{
 
     from{
+
         opacity:0;
-        transform:translateY(25px);
+
+        transform:
+        translateY(30px);
+
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+        translateY(0);
+
     }
 
 }
 
+
 .welcome{
+
     color:#1685ff;
+
     font-weight:bold;
+
     letter-spacing:4px;
+
     margin-bottom:12px;
+
 }
+
 
 .hero h1{
+
     font-size:70px;
+
     line-height:1;
+
     margin-bottom:18px;
+
 }
+
 
 .hero h1 span{
+
     color:#1685ff;
+
 }
+
 
 .tagline{
+
     font-size:27px;
+
     color:#dce5f0;
+
     margin-bottom:20px;
+
 }
+
 
 .description{
+
     font-size:18px;
+
     color:#aab8ca;
+
 }
 
+
 .buttons{
+
     margin-top:30px;
 
     display:flex;
+
     gap:15px;
+
 }
+
 
 .btn{
+
     padding:13px 24px;
+
     border-radius:9px;
+
     text-decoration:none;
+
     font-weight:bold;
+
     display:inline-block;
+
     transition:.25s;
+
 }
+
 
 .primary{
+
     background:#1685ff;
+
     color:white;
-    box-shadow:0 8px 25px #1685ff25;
+
+    box-shadow:
+
+    0 8px 25px #1685ff25;
+
 }
+
 
 .primary:hover{
+
     background:#0874e8;
-    transform:translateY(-3px);
+
+    transform:
+    translateY(-3px);
+
 }
+
 
 .secondary{
+
     border:1px solid #53657b;
+
     color:white;
+
 }
 
+
 .secondary:hover{
+
     border-color:#1685ff;
+
     color:#1685ff;
-    transform:translateY(-3px);
+
+    transform:
+    translateY(-3px);
+
 }
 
 
@@ -212,36 +321,54 @@ nav a:hover{
 ===================================================== */
 
 .phone-area{
+
     width:38%;
 
     display:flex;
+
     justify-content:center;
 
     animation:
     phoneIn 1s ease .2s both;
+
 }
+
 
 @keyframes phoneIn{
 
     from{
+
         opacity:0;
-        transform:translateY(50px) scale(.9);
+
+        transform:
+        translateY(50px)
+        scale(.9);
+
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0) scale(1);
+
+        transform:
+        translateY(0)
+        scale(1);
+
     }
 
 }
 
+
 .phone{
+
     width:220px;
+
     height:420px;
 
     padding:10px;
 
     border:4px solid #65768b;
+
     border-radius:36px;
 
     transform:rotate(4deg);
@@ -251,21 +378,33 @@ nav a:hover{
 
     animation:
     phoneFloat 4s ease-in-out infinite;
+
 }
+
 
 @keyframes phoneFloat{
 
     0%,100%{
-        transform:rotate(4deg) translateY(0);
+
+        transform:
+        rotate(4deg)
+        translateY(0);
+
     }
 
     50%{
-        transform:rotate(4deg) translateY(-12px);
+
+        transform:
+        rotate(4deg)
+        translateY(-12px);
+
     }
 
 }
 
+
 .phone-screen{
+
     height:100%;
 
     border-radius:27px;
@@ -278,36 +417,63 @@ nav a:hover{
         #082442,
         #040c18
     );
+
 }
+
 
 .phone-brand{
+
     color:#1685ff;
+
     font-weight:bold;
+
 }
+
 
 .phone-screen h2{
+
     margin-top:55px;
+
     font-size:22px;
+
 }
+
 
 .phone-screen p{
+
     color:#a9b7c9;
+
     margin-top:8px;
+
 }
+
 
 .phone-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
+
     gap:9px;
+
     margin-top:25px;
+
 }
 
+
 .phone-box{
+
     background:#0b2947;
+
     border:1px solid #1c4c76;
+
     border-radius:10px;
+
     padding:13px 4px;
+
     text-align:center;
+
 }
 
 
@@ -316,21 +482,36 @@ nav a:hover{
 ===================================================== */
 
 section{
+
     max-width:1250px;
+
     margin:auto;
+
     padding:75px 7%;
+
 }
+
 
 .section-label{
+
     color:#1685ff;
+
     font-size:13px;
+
     font-weight:bold;
+
     letter-spacing:2px;
+
 }
 
+
 section h2{
+
     font-size:36px;
-    margin:7px 0 30px;
+
+    margin:
+    7px 0 30px;
+
 }
 
 
@@ -339,9 +520,14 @@ section h2{
 ===================================================== */
 
 .apps{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:22px;
+
 }
 
 
@@ -381,10 +567,13 @@ section h2{
     transform .35s ease,
     border-color .35s ease,
     box-shadow .35s ease;
+
 }
 
 
-/* stagger animation */
+/* =====================================================
+   CARD ANIMATION DELAY
+===================================================== */
 
 .app:nth-child(1){
     animation-delay:.05s;
@@ -430,17 +619,21 @@ section h2{
 @keyframes cardIn{
 
     to{
+
         opacity:1;
 
         transform:
         translateY(0)
         scale(1);
+
     }
 
 }
 
 
-/* card hover */
+/* =====================================================
+   CARD HOVER
+===================================================== */
 
 .app:hover{
 
@@ -451,13 +644,16 @@ section h2{
     border-color:#1685ff;
 
     box-shadow:
+
     0 18px 45px #006dff20,
+
     0 0 25px #1685ff10;
+
 }
 
 
 /* =====================================================
-   CARD LIGHT EFFECT
+   CARD GLOW
 ===================================================== */
 
 .app::before{
@@ -467,9 +663,11 @@ section h2{
     position:absolute;
 
     width:180px;
+
     height:180px;
 
     top:-100px;
+
     right:-100px;
 
     background:#1685ff22;
@@ -479,37 +677,52 @@ section h2{
     filter:blur(25px);
 
     transition:.5s;
+
 }
+
 
 .app:hover::before{
 
     width:260px;
+
     height:260px;
 
 }
 
 
 /* =====================================================
-   APP ICON IMAGE
+   IMPORTANT:
+   ALL REAL APP IMAGES
 ===================================================== */
 
 .app-icon{
 
     width:100%;
+
     height:180px;
 
-    object-fit:cover;
+    object-fit:contain;
+
+    object-position:center;
+
+    display:block;
 
     border-radius:13px;
 
     margin-bottom:16px;
 
-    background:#102039;
+    padding:6px;
+
+    background:#071522;
 
     transition:
+
     transform .45s ease,
+
     filter .45s ease;
+
 }
+
 
 .app:hover .app-icon{
 
@@ -518,6 +731,7 @@ section h2{
 
     filter:
     brightness(1.08);
+
 }
 
 
@@ -528,6 +742,7 @@ section h2{
 .generated-icon{
 
     width:100%;
+
     height:180px;
 
     border-radius:13px;
@@ -535,7 +750,9 @@ section h2{
     margin-bottom:16px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     position:relative;
@@ -543,9 +760,13 @@ section h2{
     overflow:hidden;
 
     transition:
+
     transform .45s ease,
+
     filter .45s ease;
+
 }
+
 
 .app:hover .generated-icon{
 
@@ -553,7 +774,8 @@ section h2{
     scale(1.035);
 
     filter:
-    brightness(1.1);
+    brightness(1.08);
+
 }
 
 
@@ -564,11 +786,13 @@ section h2{
 .office-icon{
 
     background:
+
     radial-gradient(
         circle at 30% 25%,
         #5bb4ff,
         transparent 30%
     ),
+
     linear-gradient(
         135deg,
         #0750b8,
@@ -577,9 +801,11 @@ section h2{
 
 }
 
+
 .office-paper{
 
     width:76px;
+
     height:92px;
 
     background:white;
@@ -593,6 +819,7 @@ section h2{
 
 }
 
+
 .office-paper::before{
 
     content:"";
@@ -600,12 +827,17 @@ section h2{
     position:absolute;
 
     right:0;
+
     top:0;
 
-    border-left:22px solid transparent;
-    border-bottom:22px solid #cbd5e1;
+    border-left:
+    22px solid transparent;
+
+    border-bottom:
+    22px solid #cbd5e1;
 
 }
+
 
 .office-paper::after{
 
@@ -614,7 +846,9 @@ section h2{
     position:absolute;
 
     left:15px;
+
     right:15px;
+
     top:38px;
 
     height:5px;
@@ -622,90 +856,10 @@ section h2{
     background:#1685ff;
 
     box-shadow:
+
     0 13px 0 #94a3b8,
+
     0 26px 0 #94a3b8;
-
-}
-
-
-/* =====================================================
-   ID PHOTO ICON
-===================================================== */
-
-.id-icon{
-
-    background:
-    radial-gradient(
-        circle at 20% 20%,
-        #00d9ff,
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 80% 80%,
-        #ff4ecd,
-        transparent 35%
-    ),
-    linear-gradient(
-        135deg,
-        #4f46e5,
-        #7c3aed,
-        #ec4899
-    );
-
-}
-
-.id-card{
-
-    width:125px;
-    height:90px;
-
-    background:#fff;
-
-    border-radius:10px;
-
-    display:flex;
-    align-items:center;
-
-    padding:12px;
-
-    gap:12px;
-
-    box-shadow:
-    0 12px 30px #0007;
-
-}
-
-.id-person{
-
-    width:48px;
-    height:60px;
-
-    border-radius:8px;
-
-    background:
-    radial-gradient(
-        circle at 50% 30%,
-        #f2c29b 0 15px,
-        transparent 16px
-    ),
-    linear-gradient(
-        #334155 0 38%,
-        #64748b 39%
-    );
-
-}
-
-.id-lines{
-
-    flex:1;
-
-    height:7px;
-
-    background:#cbd5e1;
-
-    box-shadow:
-    0 14px 0 #cbd5e1,
-    0 28px 0 #e2e8f0;
 
 }
 
@@ -717,16 +871,19 @@ section h2{
 .barcode-icon{
 
     background:
+
     radial-gradient(
         circle at 30% 25%,
         #00d9ff,
         transparent 28%
     ),
+
     radial-gradient(
         circle at 75% 75%,
         #713cff,
         transparent 35%
     ),
+
     linear-gradient(
         135deg,
         #062b55,
@@ -735,28 +892,136 @@ section h2{
 
 }
 
+
 .barcode-symbol{
 
     width:145px;
+
     height:75px;
 
     background:
+
     repeating-linear-gradient(
+
         90deg,
+
         #fff 0px,
+
         #fff 4px,
+
         transparent 4px,
+
         transparent 8px,
+
         #fff 8px,
+
         #fff 10px,
+
         transparent 10px,
+
         transparent 14px
+
     );
 
     border:7px solid #fff;
 
     box-shadow:
     0 0 25px #00c8ff88;
+
+}
+
+
+/* =====================================================
+   ID PHOTO ICON
+===================================================== */
+
+.id-icon{
+
+    background:
+
+    radial-gradient(
+        circle at 20% 20%,
+        #00d9ff,
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 80% 80%,
+        #ff4ecd,
+        transparent 35%
+    ),
+
+    linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed,
+        #ec4899
+    );
+
+}
+
+
+.id-card{
+
+    width:125px;
+
+    height:90px;
+
+    background:#fff;
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:12px;
+
+    gap:12px;
+
+    box-shadow:
+    0 12px 30px #0007;
+
+}
+
+
+.id-person{
+
+    width:48px;
+
+    height:60px;
+
+    border-radius:8px;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 30%,
+        #f2c29b 0 15px,
+        transparent 16px
+    ),
+
+    linear-gradient(
+        #334155 0 38%,
+        #64748b 39%
+    );
+
+}
+
+
+.id-lines{
+
+    flex:1;
+
+    height:7px;
+
+    background:#cbd5e1;
+
+    box-shadow:
+
+    0 14px 0 #cbd5e1,
+
+    0 28px 0 #e2e8f0;
 
 }
 
@@ -773,6 +1038,7 @@ section h2{
 
 }
 
+
 .app p{
 
     font-size:13px;
@@ -782,6 +1048,7 @@ section h2{
     min-height:62px;
 
 }
+
 
 .version{
 
@@ -821,10 +1088,13 @@ section h2{
     margin-top:16px;
 
     transition:
+
     transform .25s ease,
+
     filter .25s ease;
 
 }
+
 
 .download:hover{
 
@@ -852,6 +1122,7 @@ section h2{
 
 }
 
+
 .green-btn{
 
     background:
@@ -862,6 +1133,7 @@ section h2{
     );
 
 }
+
 
 .red-btn{
 
@@ -874,6 +1146,7 @@ section h2{
 
 }
 
+
 .orange-btn{
 
     background:
@@ -885,6 +1158,7 @@ section h2{
 
 }
 
+
 .purple-btn{
 
     background:
@@ -895,6 +1169,7 @@ section h2{
     );
 
 }
+
 
 .cyan-btn{
 
@@ -918,6 +1193,7 @@ section h2{
     1px solid #17263a;
 
 }
+
 
 .simple p{
 
@@ -948,9 +1224,11 @@ section h2{
 
 }
 
+
 .avatar{
 
     width:105px;
+
     height:105px;
 
     border-radius:50%;
@@ -965,6 +1243,7 @@ section h2{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     font-size:45px;
@@ -974,6 +1253,7 @@ section h2{
     flex-shrink:0;
 
 }
+
 
 .about p{
 
@@ -991,6 +1271,7 @@ section h2{
     text-align:center;
 
 }
+
 
 .contact p{
 
@@ -1017,6 +1298,7 @@ footer{
 
 }
 
+
 footer span{
 
     color:#1685ff;
@@ -1025,14 +1307,17 @@ footer span{
 
 
 /* =====================================================
-   MOBILE
+   TABLET
 ===================================================== */
 
 @media(max-width:900px){
 
     nav{
+
         display:none;
+
     }
+
 
     .hero{
 
@@ -1045,17 +1330,27 @@ footer span{
 
     }
 
+
     .hero h1{
+
         font-size:52px;
+
     }
+
 
     .tagline{
+
         font-size:23px;
+
     }
 
+
     .description{
+
         font-size:16px;
+
     }
+
 
     .buttons{
 
@@ -1065,6 +1360,7 @@ footer span{
 
     }
 
+
     .phone-area{
 
         width:100%;
@@ -1072,6 +1368,7 @@ footer span{
         margin-top:60px;
 
     }
+
 
     .apps{
 
@@ -1083,6 +1380,10 @@ footer span{
 }
 
 
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media(max-width:600px){
 
     header{
@@ -1091,11 +1392,13 @@ footer span{
 
     }
 
+
     .logo{
 
         font-size:21px;
 
     }
+
 
     .hero{
 
@@ -1104,17 +1407,20 @@ footer span{
 
     }
 
+
     .hero h1{
 
         font-size:43px;
 
     }
 
+
     .tagline{
 
         font-size:21px;
 
     }
+
 
     .buttons{
 
@@ -1124,6 +1430,7 @@ footer span{
 
     }
 
+
     .btn{
 
         width:230px;
@@ -1131,6 +1438,7 @@ footer span{
         text-align:center;
 
     }
+
 
     .phone{
 
@@ -1140,18 +1448,39 @@ footer span{
 
     }
 
+
     .apps{
 
         grid-template-columns:1fr;
 
     }
 
-    .app-icon,
+
+    /* IMPORTANT MOBILE IMAGE FIX */
+
+    .app-icon{
+
+        height:230px;
+
+        width:100%;
+
+        object-fit:contain;
+
+        object-position:center;
+
+        padding:6px;
+
+        background:#071522;
+
+    }
+
+
     .generated-icon{
 
         height:230px;
 
     }
+
 
     section{
 
@@ -1160,11 +1489,13 @@ footer span{
 
     }
 
+
     section h2{
 
         font-size:32px;
 
     }
+
 
     .about{
 
@@ -1180,14 +1511,55 @@ footer span{
 
 
 /* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:360px){
+
+    .hero h1{
+
+        font-size:38px;
+
+    }
+
+
+    .logo{
+
+        font-size:19px;
+
+    }
+
+
+    .app{
+
+        padding:13px;
+
+    }
+
+
+    .app-icon{
+
+        height:210px;
+
+    }
+
+
+    .generated-icon{
+
+        height:210px;
+
+    }
+
+}
+
+
+/* =====================================================
    REDUCE MOTION
 ===================================================== */
 
 @media(prefers-reduced-motion:reduce){
 
-    *,
-    *::before,
-    *::after{
+    *{
 
         animation-duration:.01ms !important;
 
@@ -1213,10 +1585,13 @@ footer span{
 
 <header>
 
+
 <div class="logo">
 
 <span class="mark">▲</span>
+
 ASIM
+
 <span>TECH</span>
 
 </div>
@@ -1224,17 +1599,28 @@ ASIM
 
 <nav>
 
-<a href="#home">Home</a>
+<a href="#home">
+Home
+</a>
 
-<a href="#apps">My Apps</a>
+<a href="#apps">
+My Apps
+</a>
 
-<a href="#tools">Tools</a>
+<a href="#tools">
+Tools
+</a>
 
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 
 </nav>
+
 
 </header>
 
@@ -1244,23 +1630,32 @@ ASIM
      HERO
 ===================================================== -->
 
-<div class="hero" id="home">
+<div
+class="hero"
+id="home">
 
 
 <div class="hero-text">
 
+
 <div class="welcome">
+
 WELCOME TO
+
 </div>
 
 
 <h1>
+
 ASIM <span>TECH</span>
+
 </h1>
 
 
 <div class="tagline">
+
 Apps • Tools • Innovation
+
 </div>
 
 
@@ -1273,6 +1668,7 @@ to make everyday tasks easier.
 
 
 <div class="buttons">
+
 
 <a
 href="#apps"
@@ -1291,19 +1687,26 @@ About Asim
 
 </a>
 
-</div>
 
 </div>
 
 
+</div>
 
-<!-- PHONE -->
+
+
+<!-- =====================================================
+     PHONE
+===================================================== -->
 
 <div class="phone-area">
 
+
 <div class="phone">
 
+
 <div class="phone-screen">
+
 
 <div class="phone-brand">
 
@@ -1313,35 +1716,64 @@ About Asim
 
 
 <h2>
+
 Hello, Asim 👋
+
 </h2>
 
 
 <p>
+
 Building apps for<br>
-<b>a better tomorrow</b>
+
+<b>
+a better tomorrow
+</b>
+
 </p>
 
 
 <div class="phone-grid">
 
-<div class="phone-box">
-📻<br>Radio
-</div>
 
 <div class="phone-box">
-🎵<br>Music
+
+📻<br>
+
+Radio
+
 </div>
+
 
 <div class="phone-box">
-🎧<br>Audio
+
+🎵<br>
+
+Music
+
 </div>
+
 
 <div class="phone-box">
-📱<br>Apps
-</div>
+
+🎧<br>
+
+Audio
 
 </div>
+
+
+<div class="phone-box">
+
+📱<br>
+
+Apps
+
+</div>
+
+
+</div>
+
 
 </div>
 
@@ -1357,16 +1789,21 @@ Building apps for<br>
      MY APPS
 ===================================================== -->
 
-<section id="apps">
+<section
+id="apps">
 
 
 <div class="section-label">
+
 MY APPLICATIONS
+
 </div>
 
 
 <h2>
+
 My Apps
+
 </h2>
 
 
@@ -1375,32 +1812,43 @@ My Apps
 
 
 <!-- =====================================================
-     OFFICE
+     1. OFFICE
 ===================================================== -->
 
 <div class="app">
 
-<div class="generated-icon office-icon">
 
-<div class="office-paper"></div>
+<div
+class="generated-icon office-icon">
+
+
+<div class="office-paper">
+</div>
+
 
 </div>
 
 
 <h3>
+
 Asim Office Suite V5
+
 </h3>
 
 
 <p>
+
 Create and edit documents,
 spreadsheets, PDF files and
 scan documents.
+
 </p>
 
 
 <span class="version">
+
 Office • Document • Spreadsheet • PDF • Scanner
+
 </span>
 
 
@@ -1412,37 +1860,51 @@ href="office/">
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     PDF TOOLS
+     2. PDF TOOLS
 ===================================================== -->
 
 <div class="app">
 
+
 <img
+
 class="app-icon"
+
 src="pdf-icon.png"
+
 alt="Asim PDF Tools"
+
+loading="lazy"
+
 >
 
 
 <h3>
+
 Asim PDF Tools
+
 </h3>
 
 
 <p>
+
 Create PDF from images,
 merge PDF files and extract
 selected pages easily.
+
 </p>
 
 
 <span class="version">
+
 PDF • JPG to PDF • Merge • Split
+
 </span>
 
 
@@ -1454,44 +1916,50 @@ href="pdf-tools/">
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     BARCODE SCANNER
+     3. BARCODE & QR
 ===================================================== -->
 
 <div class="app">
 
-<div class="generated-icon barcode-icon">
 
-<div class="barcode-symbol"></div>
+<div
+class="generated-icon barcode-icon">
+
+
+<div class="barcode-symbol">
+</div>
+
 
 </div>
 
 
 <h3>
+
 Asim Barcode & QR Scanner
+
 </h3>
 
 
 <p>
+
 Scan, create, save and download
 barcodes and QR codes easily.
+
 </p>
 
 
 <span class="version">
+
 Scanner • Barcode Maker • QR Maker • History
+
 </span>
 
-
-<!--
-IMPORTANT:
-নিচের APK filename আপনার GitHub repository-তে
-যে exact filename আছে সেটি দিন।
--->
 
 <a
 class="download green-btn"
@@ -1502,36 +1970,50 @@ download>
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     DEVOTIONAL RADIO
+     4. DEVOTIONAL RADIO
 ===================================================== -->
 
 <div class="app">
 
+
 <img
+
 class="app-icon"
+
 src="devotional-radio.png"
+
 alt="Devotional Radio"
+
+loading="lazy"
+
 >
 
 
 <h3>
+
 Devotional Radio
+
 </h3>
 
 
 <p>
+
 Listen to devotional radio
 and spiritual music.
+
 </p>
 
 
 <span class="version">
+
 Android App
+
 </span>
 
 
@@ -1544,36 +2026,50 @@ download>
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     OLD IS GOLD
+     5. OLD IS GOLD
 ===================================================== -->
 
 <div class="app">
 
+
 <img
+
 class="app-icon"
+
 src="old_gold_logo.png"
+
 alt="80s 90s Old Is Gold"
+
+loading="lazy"
+
 >
 
 
 <h3>
+
 80s & 90s Old Is Gold
+
 </h3>
 
 
 <p>
+
 Enjoy classic songs and timeless
 memories from the golden era.
+
 </p>
 
 
 <span class="version">
+
 Android App
+
 </span>
 
 
@@ -1586,37 +2082,51 @@ download>
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     MADHU MUSIC
+     6. MADHU MUSIC WORLD
 ===================================================== -->
 
 <div class="app">
 
+
 <img
+
 class="app-icon"
+
 src="madhu-music-world.png"
+
 alt="Madhu Music World"
+
+loading="lazy"
+
 >
 
 
 <h3>
+
 Madhu Music World
+
 </h3>
 
 
 <p>
+
 Enjoy music, radio and
 entertainment from Madhu
 Music World.
+
 </p>
 
 
 <span class="version">
+
 Android App • Music • Radio
+
 </span>
 
 
@@ -1629,36 +2139,50 @@ download>
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     SANGIT
+     7. SANGIT
 ===================================================== -->
 
 <div class="app">
 
+
 <img
+
 class="app-icon"
+
 src="sangit.png"
+
 alt="Sangit"
+
+loading="lazy"
+
 >
 
 
 <h3>
+
 Sangit
+
 </h3>
 
 
 <p>
+
 A music application created
 by Asim for music lovers.
+
 </p>
 
 
 <span class="version">
+
 Android App
+
 </span>
 
 
@@ -1671,37 +2195,51 @@ download>
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     PHOTO RESIZER
+     8. PHOTO RESIZER
 ===================================================== -->
 
 <div class="app">
 
+
 <img
+
 class="app-icon"
+
 src="photo-resizer-icon.png"
+
 alt="Asim Tech Photo Resizer"
+
+loading="lazy"
+
 >
 
 
 <h3>
+
 Asim Tech Photo Resizer
+
 </h3>
 
 
 <p>
+
 Resize, crop, filter and compress
 photos. Create passport,
 stamp and custom-size photos.
+
 </p>
 
 
 <span class="version">
+
 Photo Tool • Passport • Stamp • Crop • Filter
+
 </span>
 
 
@@ -1723,43 +2261,59 @@ download>
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     ID PHOTO MAKER
+     9. ID PHOTO MAKER
 ===================================================== -->
 
 <div class="app">
 
-<div class="generated-icon id-icon">
+
+<div
+class="generated-icon id-icon">
+
 
 <div class="id-card">
 
-<div class="id-person"></div>
 
-<div class="id-lines"></div>
+<div class="id-person">
+</div>
+
+
+<div class="id-lines">
+</div>
+
 
 </div>
+
 
 </div>
 
 
 <h3>
+
 Asim Tech ID Photo Maker
+
 </h3>
 
 
 <p>
+
 Create passport, stamp and 2×2
 ID photos with smart crop,
 filters and printable sheets.
+
 </p>
 
 
 <span class="version">
+
 ID Photo • Passport • Stamp • 2×2 • 4×6
+
 </span>
 
 
@@ -1781,37 +2335,51 @@ download>
 
 </a>
 
+
 </div>
 
 
 
 <!-- =====================================================
-     SIGNATURE MAKER
+     10. SIGNATURE MAKER
 ===================================================== -->
 
 <div class="app">
 
+
 <img
+
 class="app-icon"
+
 src="icon.png"
+
 alt="Asim Tech Signature Maker"
+
+loading="lazy"
+
 >
 
 
 <h3>
+
 Asim Tech Signature Maker
+
 </h3>
 
 
 <p>
+
 Create digital signatures by
 drawing with your finger or
 uploading an existing signature.
+
 </p>
 
 
 <span class="version">
+
 Signature • Draw • Upload • PNG • JPG
+
 </span>
 
 
@@ -1833,6 +2401,7 @@ download>
 
 </a>
 
+
 </div>
 
 
@@ -1853,12 +2422,16 @@ class="simple">
 
 
 <div class="section-label">
+
 MY PROJECTS
+
 </div>
 
 
 <h2>
+
 My Tools
+
 </h2>
 
 
@@ -1897,6 +2470,7 @@ More projects will be added soon.
 
 </p>
 
+
 </section>
 
 
@@ -1905,24 +2479,34 @@ More projects will be added soon.
      ABOUT
 ===================================================== -->
 
-<section id="about">
+<section
+id="about">
+
 
 <div class="about">
 
+
 <div class="avatar">
+
 A
+
 </div>
 
 
 <div>
 
+
 <div class="section-label">
+
 ABOUT ME
+
 </div>
 
 
 <h2>
+
 Hi, I'm Asim 👋
+
 </h2>
 
 
@@ -1938,9 +2522,12 @@ place for sharing my apps and projects.
 
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
@@ -1956,18 +2543,24 @@ class="contact">
 
 
 <div class="section-label">
+
 GET IN TOUCH
+
 </div>
 
 
 <h2>
+
 Contact Asim
+
 </h2>
 
 
 <p>
+
 For suggestions, feedback or
 app related queries.
+
 </p>
 
 
@@ -1979,6 +2572,7 @@ class="btn primary">
 
 </a>
 
+
 </section>
 
 
@@ -1989,10 +2583,13 @@ class="btn primary">
 
 <footer>
 
+
 <b>
 
 <span>▲</span>
+
 ASIM
+
 <span>TECH</span>
 
 </b>
@@ -2009,4 +2606,5 @@ All Rights Reserved.
 
 
 </body>
+
 </html>
