@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#07111f">
+
+<meta name="description"
+content="Asim PDF Tools - Convert images to PDF, merge PDF files and create documents online.">
+
+<title>Asim PDF Tools | ASIM TECH</title>
+
+
+<!-- PDF LIBRARY -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js">
+</script>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+
+    --bg:#030914;
+    --card:#081522;
+    --card2:#0d1d2e;
+
+    --border:#1b344d;
+
+    --text:#ffffff;
+    --muted:#91a5bb;
+
+    --blue:#1685ff;
+    --blue2:#006dff;
+
+    --green:#16a34a;
+    --red:#ef4444;
+
+}
+
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:
+
+    radial-gradient(
+        circle at 10% 10%,
+        #1685ff14,
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 90% 20%,
+        #713cff12,
+        transparent 28%
+    ),
+
+    var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    height:70px;
+
+    padding:0 6%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:
+    rgba(3,9,20,.90);
+
+    backdrop-filter:
+    blur(15px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,.07);
+
+}
+
+
+.logo{
+
+    font-size:22px;
+
+    font-weight:900;
+
+}
+
+
+.logo .mark{
+
+    color:var(--blue);
+
+}
+
+
+.logo .blue{
+
+    color:var(--blue);
+
+}
+
+
+.home{
+
+    color:#d6e2ef;
+
+    border:
+    1px solid var(--border);
+
+    padding:9px 15px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+.home:hover{
+
+    color:white;
+
+    border-color:var(--blue);
+
+    background:#1685ff12;
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:
+    60px 6% 90px;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+
+.label{
+
+    color:var(--blue);
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+
+.hero h1{
+
+    font-size:
+    clamp(38px,6vw,62px);
+
+    line-height:1;
+
+    margin-bottom:15px;
+
+}
+
+
+.hero h1 span{
+
+    color:var(--blue);
+
+}
+
+
+.hero p{
+
+    color:var(--muted);
+
+    max-width:650px;
+
+    margin:auto;
+
+    font-size:16px;
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.tabs{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin:30px 0;
+
+}
+
+
+.tab{
+
+    border:
+    1px solid var(--border);
+
+    background:var(--card);
+
+    color:#9eb0c4;
+
+    padding:
+    11px 17px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:13px;
+
+}
+
+
+.tab.active,
+.tab:hover{
+
+    background:var(--blue);
+
+    border-color:var(--blue);
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   TOOL BOX
+===================================================== */
+
+.tool{
+
+    background:
+    linear-gradient(
+        145deg,
+        #0b1b2b,
+        #071522
+    );
+
+    border:
+    1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    box-shadow:
+    0 20px 70px rgba(0,0,0,.25);
+
+}
+
+
+/* =====================================================
+   TAB CONTENT
+===================================================== */
+
+.tool-content{
+
+    display:none;
+
+}
+
+
+.tool-content.active{
+
+    display:block;
+
+}
+
+
+.tool-title{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.tool-title h2{
+
+    font-size:27px;
+
+    margin-bottom:6px;
+
+}
+
+
+.tool-title p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   UPLOAD
+===================================================== */
+
+.upload{
+
+    border:
+    2px dashed #285274;
+
+    border-radius:17px;
+
+    padding:45px 20px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    background:#ffffff03;
+
+}
+
+
+.upload:hover{
+
+    border-color:var(--blue);
+
+    background:#1685ff08;
+
+}
+
+
+.upload-icon{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+
+.upload h3{
+
+    margin-bottom:5px;
+
+}
+
+
+.upload p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+}
+
+
+input[type=file]{
+
+    display:none;
+
+}
+
+
+/* =====================================================
+   IMAGE LIST
+===================================================== */
+
+.file-list{
+
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+
+.file-item{
+
+    position:relative;
+
+    background:#071522;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:13px;
+
+    overflow:hidden;
+
+}
+
+
+.file-item img{
+
+    width:100%;
+
+    height:150px;
+
+    object-fit:cover;
+
+}
+
+
+.file-name{
+
+    padding:9px;
+
+    font-size:11px;
+
+    color:#a9b9ca;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+
+.remove{
+
+    position:absolute;
+
+    right:7px;
+
+    top:7px;
+
+    width:28px;
+
+    height:28px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+/* =====================================================
+   OPTIONS
+===================================================== */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+.option{
+
+    background:#071522;
+
+    border:
+    1px solid var(--border);
+
+    padding:15px;
+
+    border-radius:12px;
+
+}
+
+
+.option label{
+
+    display:block;
+
+    color:#91a5bb;
+
+    font-size:12px;
+
+    margin-bottom:6px;
+
+}
+
+
+.option select,
+.option input{
+
+    width:100%;
+
+    padding:10px;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:8px;
+
+    background:#0b1b2c;
+
+    color:white;
+
+    outline:none;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+
+}
+
+
+.btn{
+
+    border:0;
+
+    border-radius:10px;
+
+    padding:
+    13px 20px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:800;
+
+    font-size:13px;
+
+}
+
+
+.btn-blue{
+
+    background:
+    linear-gradient(
+        135deg,
+        #1685ff,
+        #006dff
+    );
+
+}
+
+
+.btn-green{
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #059669
+    );
+
+}
+
+
+.btn-red{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+}
+
+
+.btn-gray{
+
+    background:#25384d;
+
+}
+
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.1);
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    min-height:25px;
+
+    color:#8fa5ba;
+
+    font-size:13px;
+
+}
+
+
+.progress{
+
+    width:100%;
+
+    height:7px;
+
+    background:#142638;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:15px;
+
+    display:none;
+
+}
+
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:var(--blue);
+
+    transition:.2s;
+
+}
+
+
+/* =====================================================
+   PDF FILE LIST
+===================================================== */
+
+.pdf-files{
+
+    display:grid;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+
+.pdf-file{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    background:#071522;
+
+    border:
+    1px solid var(--border);
+
+    padding:13px;
+
+    border-radius:10px;
+
+}
+
+
+.pdf-file span{
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+    color:#b3c2d2;
+
+    font-size:13px;
+
+}
+
+
+.pdf-file button{
+
+    flex-shrink:0;
+
+    border:0;
+
+    background:#ef4444;
+
+    color:white;
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+
+.feature{
+
+    text-align:center;
+
+    padding:22px;
+
+    background:#071522;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:15px;
+
+}
+
+
+.feature-icon{
+
+    font-size:30px;
+
+    margin-bottom:8px;
+
+}
+
+
+.feature h3{
+
+    font-size:15px;
+
+}
+
+
+.feature p{
+
+    color:#8297ac;
+
+    font-size:12px;
+
+    margin-top:5px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    border-top:
+    1px solid #17263a;
+
+    color:#718096;
+
+    font-size:12px;
+
+}
+
+
+footer b{
+
+    font-size:17px;
+
+}
+
+
+footer span{
+
+    color:var(--blue);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .file-list{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .options{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:550px){
+
+    header{
+
+        padding:0 5%;
+
+    }
+
+    .logo{
+
+        font-size:19px;
+
+    }
+
+    main{
+
+        padding:
+        45px 5% 70px;
+
+    }
+
+    .tool{
+
+        padding:18px;
+
+    }
+
+    .file-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .file-item img{
+
+        height:200px;
+
+    }
+
+    .upload{
+
+        padding:35px 15px;
+
+    }
+
+}
+
+
+/* =====================================================
+   LIGHT MODE
+===================================================== */
+
+body.light{
+
+    --bg:#f3f7fb;
+
+    --card:#ffffff;
+
+    --card2:#ffffff;
+
+    --border:#d6e1ec;
+
+    --text:#0b1725;
+
+    --muted:#536579;
+
+    background:#f3f7fb;
+
+    color:#0b1725;
+
+}
+
+
+body.light header{
+
+    background:
+    rgba(255,255,255,.9);
+
+}
+
+
+body.light .tool,
+body.light .upload,
+body.light .file-item,
+body.light .option,
+body.light .feature,
+body.light .pdf-file{
+
+    background:#ffffff;
+
+}
+
+
+body.light .option select,
+body.light .option input{
+
+    background:#f5f8fb;
+
+    color:#0b1725;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+
+<div class="logo">
+
+<span class="mark">▲</span>
+ASIM
+<span class="blue">TECH</span>
+
+</div>
+
+
+<div>
+
+<a
+class="home"
+href="../">
+
+← Back to Asim Tech
+
+</a>
+
+</div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="label">
+
+ASIM TECH TOOL
+
+</div>
+
+
+<h1>
+
+Asim <span>PDF Tools</span>
+
+</h1>
+
+
+<p>
+
+Simple and powerful PDF tools.
+Create PDFs from images and
+manage your PDF files directly
+in your browser.
+
+</p>
+
+</div>
+
+
+
+<!-- TABS -->
+
+<div class="tabs">
+
+
+<button
+class="tab active"
+onclick="showTool('imagePdf',this)">
+
+📸 Images → PDF
+
+</button>
+
+
+<button
+class="tab"
+onclick="showTool('merge',this)">
+
+🔀 Merge PDF
+
+</button>
+
+
+<button
+class="tab"
+onclick="showTool('split',this)">
+
+✂️ Split PDF
+
+</button>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     TOOL BOX
+===================================================== -->
+
+<div class="tool">
+
+
+
+<!-- ===================================================
+     IMAGE TO PDF
+=================================================== -->
+
+<div
+id="imagePdf"
+class="tool-content active">
+
+
+<div class="tool-title">
+
+<h2>
+📸 Images to PDF
+</h2>
+
+<p>
+Select multiple JPG or PNG images
+and create one PDF.
+</p>
+
+</div>
+
+
+<label
+class="upload"
+for="imageInput">
+
+
+<div class="upload-icon">
+📷
+</div>
+
+
+<h3>
+Select Images
+</h3>
+
+
+<p>
+JPG, JPEG or PNG • Multiple files supported
+</p>
+
+
+</label>
+
+
+<input
+type="file"
+id="imageInput"
+accept="image/jpeg,image/png"
+multiple>
+
+
+<div
+class="file-list"
+id="imageList">
+</div>
+
+
+<div class="options">
+
+
+<div class="option">
+
+<label>
+Page Size
+</label>
+
+
+<select id="pageSize">
+
+<option value="a4">
+A4
+</option>
+
+<option value="letter">
+Letter
+</option>
+
+<option value="original">
+Original Image Size
+</option>
+
+</select>
+
+</div>
+
+
+<div class="option">
+
+<label>
+Orientation
+</label>
+
+
+<select id="orientation">
+
+<option value="auto">
+Auto
+</option>
+
+<option value="portrait">
+Portrait
+</option>
+
+<option value="landscape">
+Landscape
+</option>
+
+</select>
+
+</div>
+
+
+<div class="option">
+
+<label>
+Margin
+</label>
+
+
+<select id="margin">
+
+<option value="20">
+20 px
+</option>
+
+<option value="10">
+10 px
+</option>
+
+<option value="0">
+No Margin
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+
+<button
+class="btn btn-blue"
+onclick="createPDF()">
+
+📄 Create PDF
+
+</button>
+
+
+<button
+class="btn btn-gray"
+onclick="clearImages()">
+
+Clear
+
+</button>
+
+
+</div>
+
+
+<div class="progress"
+id="progress">
+
+<div
+class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+
+<div
+class="status"
+id="imageStatus">
+
+</div>
+
+
+</div>
+
+
+
+<!-- ===================================================
+     MERGE PDF
+=================================================== -->
+
+<div
+id="merge"
+class="tool-content">
+
+
+<div class="tool-title">
+
+<h2>
+🔀 Merge PDF
+</h2>
+
+<p>
+Combine multiple PDF files into one PDF.
+</p>
+
+</div>
+
+
+<label
+class="upload"
+for="mergeInput">
+
+
+<div class="upload-icon">
+📄
+</div>
+
+
+<h3>
+Select PDF Files
+</h3>
+
+
+<p>
+Select two or more PDF files
+</p>
+
+
+</label>
+
+
+<input
+type="file"
+id="mergeInput"
+accept="application/pdf"
+multiple>
+
+
+<div
+class="pdf-files"
+id="mergeList">
+</div>
+
+
+<div class="buttons">
+
+
+<button
+class="btn btn-green"
+onclick="mergePDFs()">
+
+🔀 Merge PDFs
+
+</button>
+
+
+<button
+class="btn btn-gray"
+onclick="clearMerge()">
+
+Clear
+
+</button>
+
+
+</div>
+
+
+<div
+class="status"
+id="mergeStatus">
+
+</div>
+
+
+</div>
+
+
+
+<!-- ===================================================
+     SPLIT PDF
+=================================================== -->
+
+<div
+id="split"
+class="tool-content">
+
+
+<div class="tool-title">
+
+<h2>
+✂️ Split PDF
+</h2>
+
+<p>
+Extract selected pages from a PDF.
+</p>
+
+</div>
+
+
+<label
+class="upload"
+for="splitInput">
+
+
+<div class="upload-icon">
+✂️
+</div>
+
+
+<h3>
+Select PDF
+</h3>
+
+
+<p>
+Choose one PDF file
+</p>
+
+
+</label>
+
+
+<input
+type="file"
+id="splitInput"
+accept="application/pdf">
+
+
+<div
+class="status"
+id="splitInfo">
+
+</div>
+
+
+<div
+class="option"
+style="margin-top:20px;">
+
+
+<label>
+Pages to extract
+</label>
+
+
+<input
+type="text"
+id="pageNumbers"
+placeholder="Example: 1,3,5 or 1-4">
+
+
+</div>
+
+
+<div class="buttons">
+
+
+<button
+class="btn btn-blue"
+onclick="splitPDF()">
+
+✂️ Create New PDF
+
+</button>
+
+
+<button
+class="btn btn-gray"
+onclick="clearSplit()">
+
+Clear
+
+</button>
+
+
+</div>
+
+
+<div
+class="status"
+id="splitStatus">
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔒
+</div>
+
+<h3>
+Private
+</h3>
+
+<p>
+Files are processed in your browser.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<h3>
+Fast
+</h3>
+
+<p>
+No server upload required.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+📱
+</div>
+
+<h3>
+Mobile Friendly
+</h3>
+
+<p>
+Works on phone, tablet and computer.
+</p>
+
+</div>
+
+
+</div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+<b>
+
+<span>▲</span>
+ASIM
+<span>TECH</span>
+
+</b>
+
+
+<br><br>
+
+
+Asim PDF Tools © 2026
+
+
+<br>
+
+Made with ❤️ by Asim
+
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+let imageFiles = [];
+
+let mergeFiles = [];
+
+let splitFile = null;
+
+
+
+/* =====================================================
+   TAB SWITCH
+===================================================== */
+
+function showTool(id,button){
+
+    document
+    .querySelectorAll(".tool-content")
+    .forEach(function(item){
+
+        item.classList.remove("active");
+
+    });
+
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+
+
+    document
+    .querySelectorAll(".tab")
+    .forEach(function(tab){
+
+        tab.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+}
+
+
+
+/* =====================================================
+   IMAGE INPUT
+===================================================== */
+
+document
+.getElementById("imageInput")
+.addEventListener(
+    "change",
+    function(e){
+
+        imageFiles =
+        Array.from(e.target.files);
+
+        displayImages();
+
+    }
+);
+
+
+
+/* =====================================================
+   DISPLAY IMAGES
+===================================================== */
+
+function displayImages(){
+
+    const list =
+    document.getElementById("imageList");
+
+    list.innerHTML="";
+
+
+    imageFiles.forEach(
+        function(file,index){
+
+            const item =
+            document.createElement("div");
+
+            item.className="file-item";
+
+
+            const img =
+            document.createElement("img");
+
+
+            img.src =
+            URL.createObjectURL(file);
+
+
+            const name =
+            document.createElement("div");
+
+            name.className="file-name";
+
+            name.textContent =
+            file.name;
+
+
+            const remove =
+            document.createElement("button");
+
+            remove.className="remove";
+
+            remove.textContent="×";
+
+
+            remove.onclick=function(){
+
+                imageFiles.splice(index,1);
+
+                displayImages();
+
+            };
+
+
+            item.appendChild(img);
+
+            item.appendChild(remove);
+
+            item.appendChild(name);
+
+            list.appendChild(item);
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   CLEAR IMAGES
+===================================================== */
+
+function clearImages(){
+
+    imageFiles=[];
+
+    document
+    .getElementById("imageInput")
+    .value="";
+
+
+    document
+    .getElementById("imageList")
+    .innerHTML="";
+
+
+    document
+    .getElementById("imageStatus")
+    .textContent="";
+
+}
+
+
+
+/* =====================================================
+   IMAGE → PDF
+===================================================== */
+
+async function createPDF(){
+
+    if(imageFiles.length===0){
+
+        alert(
+        "Please select at least one image."
+        );
+
+        return;
+
+    }
+
+
+    const status =
+    document
+    .getElementById("imageStatus");
+
+
+    const progress =
+    document
+    .getElementById("progress");
+
+
+    const progressBar =
+    document
+    .getElementById("progressBar");
+
+
+    status.textContent=
+    "Creating PDF...";
+
+
+    progress.style.display="block";
+
+
+    try{
+
+        const {
+            PDFDocument,
+            rgb
+        } = PDFLib;
+
+
+        const pdf =
+        await PDFDocument.create();
+
+
+        const size =
+        document
+        .getElementById("pageSize")
+        .value;
+
+
+        const orientation =
+        document
+        .getElementById("orientation")
+        .value;
+
+
+        const margin =
+        Number(
+            document
+            .getElementById("margin")
+            .value
+        );
+
+
+        for(
+            let i=0;
+            i<imageFiles.length;
+            i++
+        ){
+
+            const file =
+            imageFiles[i];
+
+
+            const bytes =
+            await file.arrayBuffer();
+
+
+            let image;
+
+
+            if(
+                file.type===
+                "image/png"
+            ){
+
+                image =
+                await pdf
+                .embedPng(bytes);
+
+            }
+
+            else{
+
+                image =
+                await pdf
+                .embedJpg(bytes);
+
+            }
+
+
+            let pageWidth;
+            let pageHeight;
+
+
+            /* A4 */
+
+            if(size==="a4"){
+
+                pageWidth=595.28;
+                pageHeight=841.89;
+
+            }
+
+
+            /* Letter */
+
+            else if(size==="letter"){
+
+                pageWidth=612;
+                pageHeight=792;
+
+            }
+
+
+            /* Original */
+
+            else{
+
+                pageWidth=
+                image.width;
+
+                pageHeight=
+                image.height;
+
+            }
+
+
+            /* Orientation */
+
+            if(
+                orientation==="landscape"
+                &&
+                pageWidth<pageHeight
+            ){
+
+                [
+                    pageWidth,
+                    pageHeight
+                ]=
+                [
+                    pageHeight,
+                    pageWidth
+                ];
+
+            }
+
+
+            if(
+                orientation==="portrait"
+                &&
+                pageWidth>pageHeight
+            ){
+
+                [
+                    pageWidth,
+                    pageHeight
+                ]=
+                [
+                    pageHeight,
+                    pageWidth
+                ];
+
+            }
+
+
+            /* Auto */
+
+            if(
+                orientation==="auto"
+                &&
+                image.width>image.height
+                &&
+                size!=="original"
+            ){
+
+                [
+                    pageWidth,
+                    pageHeight
+                ]=
+                [
+                    pageHeight,
+                    pageWidth
+                ];
+
+            }
+
+
+            const page =
+            pdf.addPage(
+                [
+                    pageWidth,
+                    pageHeight
+                ]
+            );
+
+
+            const maxWidth =
+                pageWidth -
+                margin*2;
+
+
+            const maxHeight =
+                pageHeight -
+                margin*2;
+
+
+            const scale =
+                Math.min(
+                    maxWidth/image.width,
+                    maxHeight/image.height
+                );
+
+
+            const width =
+                image.width*scale;
+
+
+            const height =
+                image.height*scale;
+
+
+            const x =
+                (pageWidth-width)/2;
+
+
+            const y =
+                (pageHeight-height)/2;
+
+
+            page.drawImage(
+                image,
+                {
+                    x:x,
+                    y:y,
+                    width:width,
+                    height:height
+                }
+            );
+
+
+            progressBar.style.width =
+            (
+                (i+1)/
+                imageFiles.length
+                *100
+            )+"%";
+
+        }
+
+
+        const pdfBytes =
+        await pdf.save();
+
+
+        downloadFile(
+            pdfBytes,
+            "Asim_Tech_Images.pdf",
+            "application/pdf"
+        );
+
+
+        status.textContent=
+        "✅ PDF created successfully!";
+
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        status.textContent=
+        "❌ Could not create PDF.";
+
+    }
+
+
+    setTimeout(
+        function(){
+
+            progress.style.display="none";
+
+        },
+        1000
+    );
+
+}
+
+
+
+/* =====================================================
+   DOWNLOAD FILE
+===================================================== */
+
+function downloadFile(
+    data,
+    filename,
+    type
+){
+
+    const blob =
+    new Blob(
+        [data],
+        {
+            type:type
+        }
+    );
+
+
+    const url =
+    URL.createObjectURL(blob);
+
+
+    const a =
+    document.createElement("a");
+
+
+    a.href=url;
+
+    a.download=filename;
+
+    document
+    .body
+    .appendChild(a);
+
+
+    a.click();
+
+
+    a.remove();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+
+/* =====================================================
+   MERGE INPUT
+===================================================== */
+
+document
+.getElementById("mergeInput")
+.addEventListener(
+    "change",
+    function(e){
+
+        mergeFiles =
+        Array.from(e.target.files);
+
+        displayMergeFiles();
+
+    }
+);
+
+
+
+/* =====================================================
+   DISPLAY MERGE FILES
+===================================================== */
+
+function displayMergeFiles(){
+
+    const list =
+    document
+    .getElementById("mergeList");
+
+
+    list.innerHTML="";
+
+
+    mergeFiles.forEach(
+        function(file,index){
+
+            const item =
+            document.createElement("div");
+
+            item.className="pdf-file";
+
+
+            const name =
+            document.createElement("span");
+
+            name.textContent=
+            "📄 "+file.name;
+
+
+            const remove =
+            document.createElement("button");
+
+            remove.textContent="×";
+
+
+            remove.onclick=function(){
+
+                mergeFiles.splice(index,1);
+
+                displayMergeFiles();
+
+            };
+
+
+            item.appendChild(name);
+
+            item.appendChild(remove);
+
+            list.appendChild(item);
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   CLEAR MERGE
+===================================================== */
+
+function clearMerge(){
+
+    mergeFiles=[];
+
+
+    document
+    .getElementById("mergeInput")
+    .value="";
+
+
+    document
+    .getElementById("mergeList")
+    .innerHTML="";
+
+
+    document
+    .getElementById("mergeStatus")
+    .textContent="";
+
+}
+
+
+
+/* =====================================================
+   MERGE PDFs
+===================================================== */
+
+async function mergePDFs(){
+
+    if(mergeFiles.length<2){
+
+        alert(
+        "Please select at least two PDF files."
+        );
+
+        return;
+
+    }
+
+
+    const status =
+    document
+    .getElementById("mergeStatus");
+
+
+    status.textContent=
+    "Merging PDFs...";
+
+
+    try{
+
+        const {
+            PDFDocument
+        }=PDFLib;
+
+
+        const merged =
+        await PDFDocument.create();
+
+
+        for(
+            const file of mergeFiles
+        ){
+
+            const bytes =
+            await file.arrayBuffer();
+
+
+            const source =
+            await PDFDocument
+            .load(bytes);
+
+
+            const pages =
+            await merged
+            .copyPages(
+                source,
+                source
+                .getPageIndices()
+            );
+
+
+            pages.forEach(
+                function(page){
+
+                    merged.addPage(page);
+
+                }
+            );
+
+        }
+
+
+        const bytes =
+        await merged.save();
+
+
+        downloadFile(
+            bytes,
+            "Asim_Tech_Merged.pdf",
+            "application/pdf"
+        );
+
+
+        status.textContent=
+        "✅ PDFs merged successfully!";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        status.textContent=
+        "❌ Unable to merge PDFs.";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SPLIT INPUT
+===================================================== */
+
+document
+.getElementById("splitInput")
+.addEventListener(
+    "change",
+    async function(e){
+
+        splitFile =
+        e.target.files[0];
+
+
+        if(!splitFile){
+
+            return;
+
+        }
+
+
+        try{
+
+            const bytes =
+            await splitFile
+            .arrayBuffer();
+
+
+            const pdf =
+            await PDFLib
+            .PDFDocument
+            .load(bytes);
+
+
+            document
+            .getElementById("splitInfo")
+            .textContent=
+            "PDF contains "
+            +
+            pdf.getPageCount()
+            +
+            " page(s).";
+
+        }
+
+        catch(error){
+
+            document
+            .getElementById("splitInfo")
+            .textContent=
+            "Invalid PDF file.";
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   SPLIT PDF
+===================================================== */
+
+async function splitPDF(){
+
+    if(!splitFile){
+
+        alert(
+        "Please select a PDF file."
+        );
+
+        return;
+
+    }
+
+
+    const input =
+    document
+    .getElementById("pageNumbers")
+    .value
+    .trim();
+
+
+    if(!input){
+
+        alert(
+        "Please enter page numbers."
+        );
+
+        return;
+
+    }
+
+
+    const status =
+    document
+    .getElementById("splitStatus");
+
+
+    status.textContent=
+    "Creating new PDF...";
+
+
+    try{
+
+        const {
+            PDFDocument
+        }=PDFLib;
+
+
+        const bytes =
+        await splitFile
+        .arrayBuffer();
+
+
+        const source =
+        await PDFDocument
+        .load(bytes);
+
+
+        const total =
+        source.getPageCount();
+
+
+        const pages =
+        parsePages(
+            input,
+            total
+        );
+
+
+        if(pages.length===0){
+
+            throw new Error(
+                "No valid pages."
+            );
+
+        }
+
+
+        const output =
+        await PDFDocument
+        .create();
+
+
+        const copied =
+        await output
+        .copyPages(
+            source,
+            pages
+        );
+
+
+        copied.forEach(
+            function(page){
+
+                output.addPage(page);
+
+            }
+        );
+
+
+        const outputBytes =
+        await output.save();
+
+
+        downloadFile(
+            outputBytes,
+            "Asim_Tech_Split.pdf",
+            "application/pdf"
+        );
+
+
+        status.textContent=
+        "✅ New PDF created successfully!";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        status.textContent=
+        "❌ Invalid page numbers.";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PAGE PARSER
+===================================================== */
+
+function parsePages(
+    input,
+    total
+){
+
+    const result=[];
+
+
+    const parts =
+    input.split(",");
+
+
+    parts.forEach(
+        function(part){
+
+            part=part.trim();
+
+
+            /* Range */
+
+            if(part.includes("-")){
+
+                const range =
+                part.split("-");
+
+
+                let start =
+                parseInt(range[0]);
+
+
+                let end =
+                parseInt(range[1]);
+
+
+                if(
+                    isNaN(start)
+                    ||
+                    isNaN(end)
+                ){
+
+                    return;
+
+                }
+
+
+                if(start>end){
+
+                    [
+                        start,
+                        end
+                    ]=
+                    [
+                        end,
+                        start
+                    ];
+
+                }
+
+
+                for(
+                    let i=start;
+                    i<=end;
+                    i++
+                ){
+
+                    if(
+                        i>=1
+                        &&
+                        i<=total
+                        &&
+                        !result.includes(i-1)
+                    ){
+
+                        result.push(i-1);
+
+                    }
+
+                }
+
+            }
+
+
+            /* Single page */
+
+            else{
+
+                const page =
+                parseInt(part);
+
+
+                if(
+                    !isNaN(page)
+                    &&
+                    page>=1
+                    &&
+                    page<=total
+                    &&
+                    !result.includes(page-1)
+                ){
+
+                    result.push(page-1);
+
+                }
+
+            }
+
+        }
+    );
+
+
+    return result;
+
+}
+
+
+
+/* =====================================================
+   CLEAR SPLIT
+===================================================== */
+
+function clearSplit(){
+
+    splitFile=null;
+
+
+    document
+    .getElementById("splitInput")
+    .value="";
+
+
+    document
+    .getElementById("pageNumbers")
+    .value="";
+
+
+    document
+    .getElementById("splitInfo")
+    .textContent="";
+
+
+    document
+    .getElementById("splitStatus")
+    .textContent="";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
