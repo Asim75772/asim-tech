@@ -11,21 +11,21 @@ content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#030914">
 
 <meta name="description"
-content="Asim Tech - Apps, Photo Resizer, ID Photo Maker, Signature Maker, PDF Tools, Office Tools and Innovation">
+content="Asim Tech - Apps, Tools, PDF Tools, Barcode Scanner, Photo Resizer, ID Photo Maker, Signature Maker and more.">
 
 <title>Asim Tech | Apps • Tools • Innovation</title>
 
 
 <style>
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -33,106 +33,94 @@ html{
 }
 
 body{
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     background:#030914;
-
     color:#ffffff;
-
     line-height:1.6;
-
     overflow-x:hidden;
-
 }
 
 
-/* =====================================================
-   PAGE ANIMATION
-===================================================== */
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-body{
-    animation:pageFade .7s ease both;
-}
-
-@keyframes pageFade{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-
+:root{
+    --bg:#030914;
+    --card:#071522;
+    --card2:#091a2b;
+    --border:#183047;
+    --blue:#1685ff;
+    --blue2:#006dff;
+    --muted:#9eacbf;
+    --green:#16a34a;
+    --purple:#7c3aed;
+    --red:#ef4444;
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 header{
-
     height:70px;
 
     padding:0 6%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     position:sticky;
-
     top:0;
-
     z-index:1000;
 
-    background:
-    rgba(3,9,20,.94);
+    background:rgba(3,9,20,.92);
 
-    backdrop-filter:
-    blur(15px);
+    backdrop-filter:blur(15px);
 
-    border-bottom:
-    1px solid #17283d;
+    border-bottom:1px solid #17283d;
+
+    animation:headerDown .5s ease;
+}
+
+@keyframes headerDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 
 }
 
 
 .logo{
-
     font-size:25px;
-
-    font-weight:bold;
-
+    font-weight:900;
     white-space:nowrap;
-
 }
 
-.logo span{
+.logo .mark{
+    color:var(--blue);
+}
 
-    color:#1685ff;
-
+.logo .blue{
+    color:var(--blue);
 }
 
 
 nav{
-
     display:flex;
-
     gap:25px;
-
 }
 
-
 nav a{
-
     color:#d8e1ed;
 
     text-decoration:none;
@@ -141,27 +129,21 @@ nav a{
 
     font-weight:bold;
 
-    transition:
-    color .3s ease;
-
+    transition:.2s;
 }
-
 
 nav a:hover{
-
-    color:#1685ff;
-
+    color:var(--blue);
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
 
-    min-height:
-    calc(100vh - 70px);
+    min-height:calc(100vh - 70px);
 
     display:flex;
 
@@ -169,8 +151,11 @@ nav a:hover{
 
     justify-content:space-between;
 
-    padding:
-    70px 8%;
+    padding:70px 8%;
+
+    position:relative;
+
+    overflow:hidden;
 
     background:
 
@@ -189,34 +174,90 @@ nav a:hover{
 }
 
 
-.hero-text{
+/* animated background */
 
-    max-width:620px;
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    border:1px solid #1685ff22;
+
+    right:8%;
+    top:25%;
 
     animation:
-    heroText .9s ease both;
+    floatCircle 5s ease-in-out infinite;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:#1685ff08;
+
+    left:8%;
+    bottom:10%;
+
+    animation:
+    floatCircle 4s ease-in-out infinite reverse;
+
+}
+
+@keyframes floatCircle{
+
+    0%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-18px) scale(1.04);
+    }
+
+    100%{
+        transform:translateY(0) scale(1);
+    }
 
 }
 
 
+.hero-text{
+
+    max-width:620px;
+
+    position:relative;
+
+    z-index:2;
+
+    animation:
+    heroText .7s ease both;
+
+}
+
 @keyframes heroText{
 
     from{
-
         opacity:0;
-
-        transform:
-        translateY(30px);
-
+        transform:translateX(-35px);
     }
 
     to{
-
         opacity:1;
-
-        transform:
-        translateY(0);
-
+        transform:translateX(0);
     }
 
 }
@@ -224,13 +265,16 @@ nav a:hover{
 
 .welcome{
 
-    color:#1685ff;
+    color:var(--blue);
 
     font-weight:bold;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     margin-bottom:12px;
+
+    animation:
+    fadeUp .55s ease both;
 
 }
 
@@ -243,13 +287,13 @@ nav a:hover{
 
     margin-bottom:18px;
 
+    animation:
+    fadeUp .65s ease both;
+
 }
 
-
 .hero h1 span{
-
-    color:#1685ff;
-
+    color:var(--blue);
 }
 
 
@@ -261,6 +305,9 @@ nav a:hover{
 
     margin-bottom:20px;
 
+    animation:
+    fadeUp .75s ease both;
+
 }
 
 
@@ -270,8 +317,30 @@ nav a:hover{
 
     color:#aab8ca;
 
+    animation:
+    fadeUp .85s ease both;
+
 }
 
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
 .buttons{
 
@@ -283,11 +352,9 @@ nav a:hover{
 
 }
 
-
 .btn{
 
-    padding:
-    13px 24px;
+    padding:13px 24px;
 
     border-radius:8px;
 
@@ -298,19 +365,19 @@ nav a:hover{
     display:inline-block;
 
     transition:
-    all .3s ease;
+    transform .2s ease,
+    background .2s ease,
+    border .2s ease;
 
 }
 
-
 .primary{
 
-    background:#1685ff;
+    background:var(--blue);
 
     color:#ffffff;
 
 }
-
 
 .primary:hover{
 
@@ -319,27 +386,21 @@ nav a:hover{
     transform:
     translateY(-3px);
 
-    box-shadow:
-    0 10px 30px #1685ff30;
-
 }
-
 
 .secondary{
 
-    border:
-    1px solid #53657b;
+    border:1px solid #53657b;
 
     color:#ffffff;
 
 }
 
-
 .secondary:hover{
 
-    border-color:#1685ff;
+    border-color:var(--blue);
 
-    color:#1685ff;
+    color:var(--blue);
 
     transform:
     translateY(-3px);
@@ -347,9 +408,9 @@ nav a:hover{
 }
 
 
-/* =====================================================
+/* =========================================================
    PHONE
-===================================================== */
+========================================================= */
 
 .phone-area{
 
@@ -359,32 +420,29 @@ nav a:hover{
 
     justify-content:center;
 
+    position:relative;
+
+    z-index:2;
+
     animation:
-    phoneIn 1s ease .2s both;
+    phoneEnter .8s ease both;
 
 }
 
-
-@keyframes phoneIn{
+@keyframes phoneEnter{
 
     from{
-
         opacity:0;
-
         transform:
         translateX(40px)
-        rotate(4deg);
-
+        scale(.9);
     }
 
     to{
-
         opacity:1;
-
         transform:
         translateX(0)
-        rotate(4deg);
-
+        scale(1);
     }
 
 }
@@ -393,45 +451,42 @@ nav a:hover{
 .phone{
 
     width:220px;
-
     height:420px;
 
     padding:10px;
 
-    border:
-    4px solid #65768b;
+    border:4px solid #65768b;
 
     border-radius:36px;
 
-    transform:
-    rotate(4deg);
+    transform:rotate(4deg);
 
     box-shadow:
     0 0 70px #006dff55;
 
     animation:
-    phoneFloat 4s ease-in-out infinite;
+    phoneFloat 3.5s ease-in-out infinite;
 
 }
 
-
 @keyframes phoneFloat{
 
-    0%,
-    100%{
-
+    0%{
         transform:
         rotate(4deg)
         translateY(0);
-
     }
 
     50%{
-
         transform:
         rotate(4deg)
-        translateY(-10px);
+        translateY(-14px);
+    }
 
+    100%{
+        transform:
+        rotate(4deg)
+        translateY(0);
     }
 
 }
@@ -443,8 +498,7 @@ nav a:hover{
 
     border-radius:27px;
 
-    padding:
-    28px 18px;
+    padding:28px 18px;
 
     background:
     linear-gradient(
@@ -458,7 +512,7 @@ nav a:hover{
 
 .phone-brand{
 
-    color:#1685ff;
+    color:var(--blue);
 
     font-weight:bold;
 
@@ -487,8 +541,7 @@ nav a:hover{
 
     display:grid;
 
-    grid-template-columns:
-    1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:9px;
 
@@ -501,8 +554,7 @@ nav a:hover{
 
     background:#0b2947;
 
-    border:
-    1px solid #1c4c76;
+    border:1px solid #1c4c76;
 
     border-radius:10px;
 
@@ -510,25 +562,23 @@ nav a:hover{
 
     text-align:center;
 
-    transition:
-    all .3s ease;
+    transition:.2s;
 
 }
-
 
 .phone-box:hover{
 
     transform:
     translateY(-4px);
 
-    border-color:#1685ff;
+    border-color:var(--blue);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SECTIONS
-===================================================== */
+========================================================= */
 
 section{
 
@@ -536,15 +586,13 @@ section{
 
     margin:auto;
 
-    padding:
-    75px 7%;
+    padding:75px 7%;
 
 }
 
-
 .section-label{
 
-    color:#1685ff;
+    color:var(--blue);
 
     font-size:13px;
 
@@ -554,20 +602,18 @@ section{
 
 }
 
-
 section h2{
 
     font-size:36px;
 
-    margin:
-    7px 0 30px;
+    margin:7px 0 30px;
 
 }
 
 
-/* =====================================================
+/* =========================================================
    APPS GRID
-===================================================== */
+========================================================= */
 
 .apps{
 
@@ -581,52 +627,49 @@ section h2{
 }
 
 
-/* =====================================================
+/* =========================================================
    APP CARD
-===================================================== */
+========================================================= */
 
 .app{
 
-    background:#071522;
+    background:
+    linear-gradient(
+        145deg,
+        #081927,
+        #071522
+    );
 
-    border:
-    1px solid #183047;
+    border:1px solid var(--border);
 
     border-radius:18px;
 
     padding:20px;
 
     transition:
-    transform .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease;
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
 
     overflow:hidden;
 
     animation:
-    cardAppear .7s ease both;
+    cardAppear .6s ease both;
 
 }
-
 
 @keyframes cardAppear{
 
     from{
-
         opacity:0;
-
         transform:
         translateY(20px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:
         translateY(0);
-
     }
 
 }
@@ -637,17 +680,17 @@ section h2{
     transform:
     translateY(-7px);
 
-    border-color:#1685ff;
+    border-color:var(--blue);
 
     box-shadow:
-    0 10px 35px #006dff20;
+    0 15px 40px #006dff25;
 
 }
 
 
-/* =====================================================
-   ALL APP IMAGES
-===================================================== */
+/* =========================================================
+   APP IMAGES
+========================================================= */
 
 .app-icon{
 
@@ -664,22 +707,21 @@ section h2{
     background:#102039;
 
     transition:
-    transform .45s ease;
+    transform .35s ease;
 
 }
-
 
 .app:hover .app-icon{
 
     transform:
-    scale(1.035);
+    scale(1.03);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    OFFICE ICON
-===================================================== */
+========================================================= */
 
 .office-icon{
 
@@ -707,73 +749,21 @@ section h2{
     font-size:70px;
 
     transition:
-    transform .4s ease;
+    transform .3s ease;
 
 }
-
 
 .app:hover .office-icon{
 
     transform:
-    scale(1.035);
+    scale(1.03);
 
 }
 
 
-/* =====================================================
-   PDF ICON
-===================================================== */
-
-.pdf-icon-box{
-
-    width:100%;
-
-    height:170px;
-
-    border-radius:13px;
-
-    margin-bottom:17px;
-
-    background:#102039;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-
-.pdf-icon-box img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:
-    transform .45s ease;
-
-}
-
-
-.app:hover .pdf-icon-box img{
-
-    transform:
-    scale(1.035);
-
-}
-
-
-/* =====================================================
-   ID PHOTO ICON
-===================================================== */
+/* =========================================================
+   ID ICON
+========================================================= */
 
 .id-icon{
 
@@ -814,23 +804,149 @@ section h2{
 
     font-size:70px;
 
-    transition:
-    transform .4s ease;
+}
+
+
+/* =========================================================
+   BARCODE ICON
+========================================================= */
+
+.barcode-icon{
+
+    width:100%;
+
+    height:170px;
+
+    border-radius:13px;
+
+    margin-bottom:17px;
+
+    background:
+
+    radial-gradient(
+        circle at 25% 25%,
+        #00d9ff,
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 75% 75%,
+        #713cff,
+        transparent 35%
+    ),
+
+    linear-gradient(
+        135deg,
+        #071b36,
+        #063b78,
+        #1685ff
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:70px;
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
 
-.app:hover .id-icon{
+.barcode-icon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:80%;
+
+    height:3px;
+
+    background:#ffffff;
+
+    box-shadow:
+    0 10px 0 #ffffff,
+    0 20px 0 #ffffff;
+
+    opacity:.9;
+
+    animation:
+    scanLine 1.8s linear infinite;
+
+}
+
+
+@keyframes scanLine{
+
+    0%{
+        transform:
+        translateY(-55px);
+    }
+
+    50%{
+        transform:
+        translateY(55px);
+    }
+
+    100%{
+        transform:
+        translateY(-55px);
+    }
+
+}
+
+
+/* =========================================================
+   PDF ICON
+========================================================= */
+
+.pdf-icon-box{
+
+    width:100%;
+
+    height:170px;
+
+    border-radius:13px;
+
+    margin-bottom:17px;
+
+    overflow:hidden;
+
+    background:#102039;
+
+}
+
+
+.pdf-icon-box img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+    transform .35s ease;
+
+}
+
+
+.app:hover .pdf-icon-box img{
 
     transform:
-    scale(1.035);
+    scale(1.04);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    TEXT
-===================================================== */
+========================================================= */
 
 .app h3{
 
@@ -839,7 +955,6 @@ section h2{
     font-size:20px;
 
 }
-
 
 .app p{
 
@@ -850,7 +965,6 @@ section h2{
     min-height:65px;
 
 }
-
 
 .version{
 
@@ -865,15 +979,15 @@ section h2{
 }
 
 
-/* =====================================================
+/* =========================================================
    DOWNLOAD BUTTON
-===================================================== */
+========================================================= */
 
 .download{
 
     display:block;
 
-    background:#1685ff;
+    background:var(--blue);
 
     color:white;
 
@@ -890,27 +1004,24 @@ section h2{
     margin-top:17px;
 
     transition:
-    all .3s ease;
+    transform .2s ease,
+    filter .2s ease;
 
 }
-
 
 .download:hover{
 
-    background:#0874e8;
+    filter:brightness(1.1);
 
     transform:
-    translateY(-2px);
-
-    box-shadow:
-    0 8px 25px #1685ff25;
+    translateY(-3px);
 
 }
 
 
-/* =====================================================
-   OFFICE BUTTON
-===================================================== */
+/* =========================================================
+   BUTTON COLORS
+========================================================= */
 
 .office-btn{
 
@@ -924,9 +1035,29 @@ section h2{
 }
 
 
-/* =====================================================
-   PHOTO BUTTONS
-===================================================== */
+.apk-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #059669
+    );
+
+}
+
+
+.pdf-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+}
+
 
 .photo-web{
 
@@ -935,18 +1066,6 @@ section h2{
         135deg,
         #7c3aed,
         #ec4899
-    );
-
-}
-
-
-.photo-web:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #6d28d9,
-        #db2777
     );
 
 }
@@ -964,22 +1083,6 @@ section h2{
 }
 
 
-.photo-apk:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #15803d,
-        #047857
-    );
-
-}
-
-
-/* =====================================================
-   ID BUTTONS
-===================================================== */
-
 .id-web{
 
     background:
@@ -987,18 +1090,6 @@ section h2{
         135deg,
         #2563eb,
         #7c3aed
-    );
-
-}
-
-
-.id-web:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #1d4ed8,
-        #6d28d9
     );
 
 }
@@ -1016,22 +1107,6 @@ section h2{
 }
 
 
-.id-apk:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #ea580c,
-        #c2410c
-    );
-
-}
-
-
-/* =====================================================
-   SIGNATURE BUTTONS
-===================================================== */
-
 .signature-web{
 
     background:
@@ -1040,19 +1115,6 @@ section h2{
         #06b6d4,
         #4f46e5,
         #9333ea
-    );
-
-}
-
-
-.signature-web:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #0891b2,
-        #4338ca,
-        #7e22ce
     );
 
 }
@@ -1070,50 +1132,6 @@ section h2{
 }
 
 
-.signature-apk:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #15803d,
-        #047857
-    );
-
-}
-
-
-/* =====================================================
-   PDF BUTTON
-===================================================== */
-
-.pdf-btn{
-
-    background:
-    linear-gradient(
-        135deg,
-        #ef4444,
-        #dc2626
-    );
-
-}
-
-
-.pdf-btn:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #dc2626,
-        #b91c1c
-    );
-
-}
-
-
-/* =====================================================
-   MADHU MUSIC
-===================================================== */
-
 .madhu-apk{
 
     background:
@@ -1126,49 +1144,9 @@ section h2{
 }
 
 
-.madhu-apk:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #d97706,
-        #dc2626
-    );
-
-}
-
-
-/* =====================================================
-   GENERAL APK
-===================================================== */
-
-.apk-btn{
-
-    background:
-    linear-gradient(
-        135deg,
-        #16a34a,
-        #059669
-    );
-
-}
-
-
-.apk-btn:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #15803d,
-        #047857
-    );
-
-}
-
-
-/* =====================================================
+/* =========================================================
    TOOLS
-===================================================== */
+========================================================= */
 
 .simple{
 
@@ -1177,7 +1155,6 @@ section h2{
 
 }
 
-
 .simple p{
 
     color:#9eacbf;
@@ -1185,16 +1162,15 @@ section h2{
 }
 
 
-/* =====================================================
+/* =========================================================
    ABOUT
-===================================================== */
+========================================================= */
 
 .about{
 
     background:#091523;
 
-    border:
-    1px solid #1b2c42;
+    border:1px solid #1b2c42;
 
     border-radius:18px;
 
@@ -1205,6 +1181,20 @@ section h2{
     align-items:center;
 
     gap:30px;
+
+    transition:
+    transform .3s ease,
+    border-color .3s ease;
+
+}
+
+.about:hover{
+
+    transform:
+    translateY(-5px);
+
+    border-color:
+    #1685ff66;
 
 }
 
@@ -1241,16 +1231,18 @@ section h2{
 
 }
 
-
 @keyframes avatarFloat{
 
-    0%,
-    100%{
+    0%{
         transform:translateY(0);
     }
 
     50%{
-        transform:translateY(-6px);
+        transform:translateY(-7px);
+    }
+
+    100%{
+        transform:translateY(0);
     }
 
 }
@@ -1263,16 +1255,15 @@ section h2{
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTACT
-===================================================== */
+========================================================= */
 
 .contact{
 
     text-align:center;
 
 }
-
 
 .contact p{
 
@@ -1283,9 +1274,9 @@ section h2{
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer{
 
@@ -1300,17 +1291,16 @@ footer{
 
 }
 
-
 footer span{
 
-    color:#1685ff;
+    color:var(--blue);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media(max-width:1100px){
 
@@ -1480,6 +1470,7 @@ footer span{
     .app-icon,
     .office-icon,
     .id-icon,
+    .barcode-icon,
     .pdf-icon-box{
 
         height:230px;
@@ -1537,6 +1528,24 @@ footer span{
 }
 
 
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+    }
+
+}
+
 </style>
 
 </head>
@@ -1553,32 +1562,24 @@ footer span{
 
 <div class="logo">
 
-▲ ASIM <span>TECH</span>
+<span class="mark">▲</span>
+ASIM
+<span class="blue">TECH</span>
 
 </div>
 
 
 <nav>
 
-<a href="#home">
-Home
-</a>
+<a href="#home">Home</a>
 
-<a href="#apps">
-My Apps
-</a>
+<a href="#apps">My Apps</a>
 
-<a href="#tools">
-Tools
-</a>
+<a href="#tools">Tools</a>
 
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
@@ -1655,9 +1656,7 @@ About Asim
 
 
 
-<!-- ===================================================
-     PHONE
-=================================================== -->
+<!-- PHONE -->
 
 <div class="phone-area">
 
@@ -1714,8 +1713,8 @@ Music
 
 <div class="phone-box">
 
-🎧<br>
-Audio
+📄<br>
+PDF
 
 </div>
 
@@ -1767,9 +1766,9 @@ My Apps
 
 
 
-<!-- ===================================================
-     OFFICE
-=================================================== -->
+<!-- =====================================================
+     OFFICE SUITE
+===================================================== -->
 
 <div class="app">
 
@@ -1817,9 +1816,114 @@ href="office/">
 
 
 
-<!-- ===================================================
+<!-- =====================================================
+     PDF TOOLS
+===================================================== -->
+
+<div class="app">
+
+
+<div class="pdf-icon-box">
+
+<img
+src="pdf-icon.png"
+alt="Asim PDF Tools"
+loading="lazy">
+
+</div>
+
+
+<h3>
+
+Asim PDF Tools
+
+</h3>
+
+
+<p>
+
+Create PDF from images,
+merge PDF files and extract
+selected pages easily.
+
+</p>
+
+
+<span class="version">
+
+PDF • JPG to PDF • Merge • Split
+
+</span>
+
+
+<a
+class="download pdf-btn"
+href="pdf-tools/">
+
+📄 Open PDF Tools
+
+</a>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     BARCODE & QR SCANNER
+===================================================== -->
+
+<div class="app">
+
+
+<div class="barcode-icon">
+
+📷
+📱
+
+</div>
+
+
+<h3>
+
+Asim Barcode & QR Scanner
+
+</h3>
+
+
+<p>
+
+Scan, create, save and
+download barcodes and QR
+codes easily.
+
+</p>
+
+
+<span class="version">
+
+Scanner • Barcode Maker • QR Maker • History
+
+</span>
+
+
+<a
+class="download apk-btn"
+href="Asim_Barcode_QR_Scanner.apk"
+download>
+
+📱 Download APK
+
+</a>
+
+
+</div>
+
+
+
+<!-- =====================================================
      DEVOTIONAL RADIO
-=================================================== -->
+===================================================== -->
 
 <div class="app">
 
@@ -1828,6 +1932,7 @@ href="office/">
 class="app-icon"
 src="devotional-radio.png"
 alt="Devotional Radio"
+loading="lazy"
 >
 
 
@@ -1867,9 +1972,9 @@ download>
 
 
 
-<!-- ===================================================
+<!-- =====================================================
      OLD IS GOLD
-=================================================== -->
+===================================================== -->
 
 <div class="app">
 
@@ -1878,6 +1983,7 @@ download>
 class="app-icon"
 src="old_gold_logo.png"
 alt="80s 90s Old Is Gold"
+loading="lazy"
 >
 
 
@@ -1918,9 +2024,9 @@ download>
 
 
 
-<!-- ===================================================
+<!-- =====================================================
      MADHU MUSIC WORLD
-=================================================== -->
+===================================================== -->
 
 <div class="app">
 
@@ -1929,6 +2035,7 @@ download>
 class="app-icon"
 src="madhu-music-world.png"
 alt="Madhu Music World"
+loading="lazy"
 >
 
 
@@ -1969,9 +2076,9 @@ download>
 
 
 
-<!-- ===================================================
+<!-- =====================================================
      SANGIT
-=================================================== -->
+===================================================== -->
 
 <div class="app">
 
@@ -1980,6 +2087,7 @@ download>
 class="app-icon"
 src="sangit.png"
 alt="Sangit"
+loading="lazy"
 >
 
 
@@ -2019,9 +2127,9 @@ download>
 
 
 
-<!-- ===================================================
+<!-- =====================================================
      PHOTO RESIZER
-=================================================== -->
+===================================================== -->
 
 <div class="app">
 
@@ -2030,6 +2138,7 @@ download>
 class="app-icon"
 src="photo-resizer-icon.png"
 alt="Asim Tech Photo Resizer"
+loading="lazy"
 >
 
 
@@ -2079,9 +2188,9 @@ download>
 
 
 
-<!-- ===================================================
+<!-- =====================================================
      ID PHOTO MAKER
-=================================================== -->
+===================================================== -->
 
 <div class="app">
 
@@ -2139,9 +2248,9 @@ download>
 
 
 
-<!-- ===================================================
+<!-- =====================================================
      SIGNATURE MAKER
-=================================================== -->
+===================================================== -->
 
 <div class="app">
 
@@ -2150,6 +2259,7 @@ download>
 class="app-icon"
 src="icon.png"
 alt="Asim Tech Signature Maker"
+loading="lazy"
 >
 
 
@@ -2191,61 +2301,6 @@ href="signature-maker.apk"
 download>
 
 ⬇ Download APK
-
-</a>
-
-
-</div>
-
-
-
-<!-- ===================================================
-     PDF TOOLS
-=================================================== -->
-
-<div class="app">
-
-
-<div class="pdf-icon-box">
-
-
-<img
-src="pdf-icon.png"
-alt="Asim PDF Tools"
->
-
-
-</div>
-
-
-<h3>
-
-Asim PDF Tools
-
-</h3>
-
-
-<p>
-
-Create PDF from images,
-merge PDF files and
-extract selected pages easily.
-
-</p>
-
-
-<span class="version">
-
-PDF • JPG to PDF • Merge • Split
-
-</span>
-
-
-<a
-class="download pdf-btn"
-href="pdf-tools/">
-
-📄 Open PDF Tools
 
 </a>
 
@@ -2310,7 +2365,7 @@ Current tools:
 
 <br>
 
-🏢 Office Suite
+📱 Barcode & QR Scanner
 
 <br><br>
 
@@ -2434,7 +2489,9 @@ class="btn primary">
 
 <b>
 
-▲ ASIM <span>TECH</span>
+<span>▲</span>
+ASIM
+<span>TECH</span>
 
 </b>
 
