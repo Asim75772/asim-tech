@@ -9,183 +9,189 @@
 content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-content="#020b18">
+content="#030712">
 
 <meta name="description"
-content="Asim Tech - Useful Android apps, web tools, music and productivity applications.">
+content="Asim Tech - Premium collection of useful apps, web tools, productivity tools and entertainment applications.">
 
-<meta name="author"
-content="Asim Tech">
-
-<title>Asim Tech | Apps, Tools & Innovation</title>
+<title>Asim Tech | Apps • Tools • Innovation</title>
 
 <style>
 
-/* =====================================================
-   ASIM TECH
-   MODERN RESPONSIVE HOME PAGE
-===================================================== */
+/* =========================================================
+   ASIM TECH PREMIUM
+========================================================= */
 
 :root{
 
-    --bg:#020914;
-    --card:#061827;
-    --line:rgba(76,155,207,.25);
+    --bg:#02050b;
+    --bg2:#07111d;
+    --panel:rgba(8,19,32,.72);
+    --panel2:rgba(10,25,41,.88);
 
-    --text:#f5f9fc;
-    --muted:#8fa8ba;
+    --border:rgba(105,190,255,.18);
+    --border-hover:rgba(40,177,255,.60);
 
-    --blue:#0795ff;
-    --blue2:#006fe6;
-    --cyan:#24d7ff;
+    --text:#f7fbff;
+    --muted:#8ea5b8;
 
-    --green:#08c875;
+    --blue:#00a2ff;
+    --blue2:#006dff;
+    --cyan:#35dcff;
+
+    --green:#00c878;
     --red:#ff3b4d;
     --orange:#ff8a00;
-    --purple:#8b4dff;
+    --purple:#8b45ff;
+
+    --radius:22px;
 
     --shadow:
-    0 18px 55px rgba(0,0,0,.30);
+    0 25px 80px rgba(0,0,0,.42);
 }
 
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 *{
-
     box-sizing:border-box;
-
     margin:0;
-
     padding:0;
 }
 
-
 html{
-
     scroll-behavior:smooth;
-
     scroll-padding-top:90px;
 }
 
-
 body{
+
+    min-height:100vh;
 
     font-family:
     Arial,
     Helvetica,
     sans-serif;
 
+    color:var(--text);
+
     background:
 
     radial-gradient(
-        circle at 10% 10%,
-        rgba(0,149,255,.08),
+        circle at 15% 5%,
+        rgba(0,150,255,.13),
         transparent 30%
     ),
 
     radial-gradient(
-        circle at 90% 80%,
-        rgba(139,77,255,.08),
-        transparent 30%
+        circle at 85% 30%,
+        rgba(110,45,255,.10),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 50% 100%,
+        rgba(0,180,255,.07),
+        transparent 35%
     ),
 
     var(--bg);
-
-    color:var(--text);
 
     overflow-x:hidden;
 }
 
 
-/* =====================================================
-   BACKGROUND LIGHT
-===================================================== */
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
 
-body::before,
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-3;
+
+    opacity:.16;
+
+    background-image:
+
+    linear-gradient(
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    );
+
+    background-size:
+    55px 55px;
+}
+
+
+/* =========================================================
+   FLOATING LIGHTS
+========================================================= */
+
 body::after{
 
     content:"";
 
     position:fixed;
 
-    width:420px;
+    width:500px;
 
-    height:420px;
+    height:500px;
+
+    left:-300px;
+
+    top:250px;
 
     border-radius:50%;
 
+    background:
+    rgba(0,145,255,.12);
+
+    filter:blur(90px);
+
     pointer-events:none;
 
-    filter:blur(65px);
-
-    z-index:-1;
-
-    opacity:.45;
-}
-
-
-body::before{
-
-    left:-260px;
-
-    top:180px;
-
-    background:
-    rgba(0,149,255,.18);
+    z-index:-2;
 
     animation:
-    floatA 10s ease-in-out infinite;
+    lightMove 12s ease-in-out infinite;
 }
 
 
-body::after{
-
-    right:-260px;
-
-    bottom:80px;
-
-    background:
-    rgba(139,77,255,.16);
-
-    animation:
-    floatB 12s ease-in-out infinite;
-}
-
-
-@keyframes floatA{
+@keyframes lightMove{
 
     0%,100%{
-        transform:translate(0,0);
+        transform:
+        translate(0,0)
+        scale(1);
     }
 
     50%{
         transform:
-        translate(80px,35px)
-        scale(1.12);
+        translate(170px,-60px)
+        scale(1.25);
     }
 }
 
 
-@keyframes floatB{
-
-    0%,100%{
-        transform:translate(0,0);
-    }
-
-    50%{
-        transform:
-        translate(-70px,-40px)
-        scale(1.12);
-    }
-}
-
-
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 header{
 
@@ -193,10 +199,7 @@ header{
 
     top:0;
 
-    z-index:1000;
-
-    padding:
-    14px 5%;
+    z-index:9999;
 
     display:flex;
 
@@ -206,44 +209,78 @@ header{
 
     gap:20px;
 
+    padding:
+    14px 5%;
+
     background:
-    rgba(2,9,20,.88);
+    rgba(2,7,14,.78);
 
     border-bottom:
-    1px solid var(--line);
+    1px solid var(--border);
 
     backdrop-filter:
-    blur(18px);
+    blur(22px);
 
     -webkit-backdrop-filter:
-    blur(18px);
+    blur(22px);
 }
 
 
 .logo{
 
+    display:flex;
+
+    align-items:center;
+
     color:#fff;
 
     text-decoration:none;
 
-    font-size:23px;
+    font-size:22px;
 
-    font-weight:800;
+    font-weight:900;
+
+    letter-spacing:.7px;
 
     white-space:nowrap;
 }
 
 
-.logo-icon{
+.logo-mark{
 
-    color:var(--blue);
+    width:35px;
 
-    margin-right:5px;
+    height:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-right:8px;
+
+    border:
+    1px solid rgba(0,170,255,.45);
+
+    border-radius:10px;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #009dff,
+        #005de5
+    );
+
+    box-shadow:
+    0 0 25px
+    rgba(0,157,255,.25);
 }
 
 
 .logo-blue{
-
     color:var(--blue);
 }
 
@@ -254,22 +291,24 @@ nav{
 
     align-items:center;
 
-    gap:5px;
+    gap:4px;
 }
 
 
 nav a{
 
-    color:#dbe8f2;
+    color:#cbd9e4;
 
     text-decoration:none;
 
     font-size:13px;
 
-    padding:
-    9px 11px;
+    font-weight:600;
 
-    border-radius:9px;
+    padding:
+    9px 12px;
+
+    border-radius:10px;
 
     transition:.25s ease;
 }
@@ -280,7 +319,7 @@ nav a:hover{
     color:#fff;
 
     background:
-    rgba(0,149,255,.10);
+    rgba(0,157,255,.10);
 }
 
 
@@ -293,9 +332,9 @@ nav a:hover{
     height:40px;
 
     border:
-    1px solid var(--line);
+    1px solid var(--border);
 
-    border-radius:10px;
+    border-radius:11px;
 
     background:
     rgba(255,255,255,.04);
@@ -308,9 +347,9 @@ nav a:hover{
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
 
@@ -319,44 +358,46 @@ nav a:hover{
     max-width:1120px;
 
     margin:
-    72px auto 0;
+    80px auto 0;
 
     text-align:center;
 }
 
 
-.eyebrow{
+.badge{
 
     display:inline-flex;
 
     align-items:center;
 
-    gap:8px;
+    gap:9px;
 
     padding:
-    8px 13px;
+    8px 14px;
 
     border:
-    1px solid rgba(0,149,255,.25);
+    1px solid rgba(0,164,255,.25);
 
     border-radius:999px;
 
     background:
-    rgba(0,149,255,.07);
+    rgba(0,164,255,.07);
 
-    color:#6fcaff;
+    color:#70d1ff;
 
-    font-size:11px;
+    font-size:10px;
 
-    font-weight:800;
+    font-weight:900;
 
-    letter-spacing:2.5px;
+    letter-spacing:2.7px;
+
+    box-shadow:
+    inset 0 0 20px
+    rgba(0,164,255,.03);
 }
 
 
-.eyebrow::before{
-
-    content:"";
+.badge-dot{
 
     width:7px;
 
@@ -367,23 +408,26 @@ nav a:hover{
     background:var(--cyan);
 
     box-shadow:
-    0 0 12px var(--cyan);
+    0 0 13px
+    var(--cyan);
 }
 
 
 .hero h1{
 
     margin:
-    23px auto 17px;
+    25px auto 18px;
 
     max-width:900px;
 
     font-size:
-    clamp(42px,7vw,76px);
+    clamp(44px,8vw,82px);
 
-    line-height:1.04;
+    line-height:1.02;
 
-    letter-spacing:-2.5px;
+    letter-spacing:-3.5px;
+
+    font-weight:900;
 }
 
 
@@ -392,28 +436,25 @@ nav a:hover{
     color:var(--blue);
 
     text-shadow:
-    0 0 28px rgba(0,149,255,.30);
+    0 0 35px
+    rgba(0,162,255,.32);
 }
 
 
-.hero p{
+.hero-description{
 
-    max-width:680px;
+    max-width:700px;
 
     margin:auto;
 
     color:var(--muted);
 
     font-size:
-    clamp(16px,2vw,19px);
+    clamp(15px,2vw,19px);
 
-    line-height:1.65;
+    line-height:1.75;
 }
 
-
-/* =====================================================
-   HERO BUTTONS
-===================================================== */
 
 .hero-buttons{
 
@@ -421,11 +462,11 @@ nav a:hover{
 
     justify-content:center;
 
-    gap:12px;
-
     flex-wrap:wrap;
 
-    margin-top:27px;
+    gap:12px;
+
+    margin-top:30px;
 }
 
 
@@ -433,16 +474,16 @@ nav a:hover{
 
     display:inline-flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    min-width:155px;
+    justify-content:center;
+
+    min-width:160px;
 
     padding:
-    13px 21px;
+    14px 22px;
 
-    border-radius:11px;
+    border-radius:12px;
 
     text-decoration:none;
 
@@ -452,14 +493,11 @@ nav a:hover{
 
     font-weight:800;
 
-    border:
-    1px solid transparent;
-
-    transition:.25s ease;
+    transition:.3s ease;
 }
 
 
-.hero-primary{
+.primary-btn{
 
     background:
     linear-gradient(
@@ -469,14 +507,15 @@ nav a:hover{
     );
 
     box-shadow:
-    0 10px 30px
-    rgba(0,149,255,.18);
+    0 12px 35px
+    rgba(0,145,255,.20);
 }
 
 
-.hero-secondary{
+.secondary-btn{
 
-    border-color:#294861;
+    border:
+    1px solid #29465e;
 
     background:
     rgba(255,255,255,.035);
@@ -486,16 +525,80 @@ nav a:hover{
 .hero-btn:hover{
 
     transform:
-    translateY(-3px);
+    translateY(-4px);
 
     filter:
     brightness(1.1);
 }
 
 
-/* =====================================================
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    width:92%;
+
+    max-width:750px;
+
+    margin:
+    48px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:12px;
+}
+
+
+.stat{
+
+    padding:
+    17px 10px;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:15px;
+
+    background:
+    rgba(255,255,255,.025);
+
+    backdrop-filter:
+    blur(10px);
+}
+
+
+.stat strong{
+
+    display:block;
+
+    font-size:22px;
+
+    color:#fff;
+
+    margin-bottom:4px;
+}
+
+
+.stat span{
+
+    color:#71899c;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.3px;
+}
+
+
+/* =========================================================
    PHONE
-===================================================== */
+========================================================= */
 
 .hero-phone-area{
 
@@ -504,9 +607,9 @@ nav a:hover{
     justify-content:center;
 
     margin:
-    55px auto 85px;
+    60px auto 90px;
 
-    perspective:1200px;
+    perspective:1400px;
 }
 
 
@@ -516,47 +619,45 @@ nav a:hover{
 
     width:285px;
 
-    height:520px;
+    height:525px;
 
     padding:10px;
 
     border:
-    5px solid #59798e;
+    5px solid #526f83;
 
-    border-radius:45px;
+    border-radius:47px;
 
-    background:#01060d;
+    background:#01050a;
 
     transform:
     rotate(6deg);
 
     box-shadow:
 
-    0 0 45px
-    rgba(0,149,255,.18),
+    0 0 50px
+    rgba(0,157,255,.19),
 
-    0 28px 70px
-    rgba(0,0,0,.55);
+    0 35px 90px
+    rgba(0,0,0,.65);
 
     animation:
-    phoneFloat 4s ease-in-out infinite;
+    phoneFloat 4.5s ease-in-out infinite;
 }
 
 
 @keyframes phoneFloat{
 
     0%,100%{
-
         transform:
         rotate(6deg)
         translateY(0);
     }
 
     50%{
-
         transform:
         rotate(6deg)
-        translateY(-10px);
+        translateY(-12px);
     }
 }
 
@@ -580,7 +681,7 @@ nav a:hover{
 
     border-radius:20px;
 
-    background:#010309;
+    background:#010207;
 }
 
 
@@ -589,24 +690,30 @@ nav a:hover{
     height:100%;
 
     padding:
-    48px 19px 24px;
+    50px 19px 24px;
 
     overflow:hidden;
 
-    border-radius:35px;
+    border-radius:36px;
 
     background:
 
     radial-gradient(
-        circle at 15% 10%,
-        rgba(0,174,255,.22),
+        circle at 15% 5%,
+        rgba(0,178,255,.25),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 90% 80%,
+        rgba(100,50,255,.18),
         transparent 35%
     ),
 
     linear-gradient(
-        160deg,
-        #062844,
-        #03131f,
+        155deg,
+        #062a45,
+        #03131f 55%,
         #020912
     );
 }
@@ -616,7 +723,7 @@ nav a:hover{
 
     color:var(--blue);
 
-    font-weight:800;
+    font-weight:900;
 
     font-size:15px;
 
@@ -624,11 +731,17 @@ nav a:hover{
 }
 
 
+.phone-brand span{
+
+    color:#fff;
+}
+
+
 .phone-screen h2{
 
-    font-size:28px;
+    font-size:29px;
 
-    margin-bottom:11px;
+    margin-bottom:10px;
 }
 
 
@@ -638,7 +751,7 @@ nav a:hover{
 
     font-size:13px;
 
-    line-height:1.65;
+    line-height:1.7;
 }
 
 
@@ -657,7 +770,7 @@ nav a:hover{
 
     gap:10px;
 
-    margin-top:28px;
+    margin-top:29px;
 }
 
 
@@ -676,12 +789,12 @@ nav a:hover{
     gap:5px;
 
     border:
-    1px solid #16405d;
+    1px solid rgba(66,175,230,.22);
 
-    border-radius:15px;
+    border-radius:16px;
 
     background:
-    rgba(0,149,255,.08);
+    rgba(0,157,255,.08);
 
     color:#dce8f2;
 
@@ -695,9 +808,9 @@ nav a:hover{
 }
 
 
-/* =====================================================
+/* =========================================================
    SECTION HEADER
-===================================================== */
+========================================================= */
 
 .section-head{
 
@@ -706,21 +819,21 @@ nav a:hover{
     max-width:1200px;
 
     margin:
-    0 auto 24px;
+    0 auto 28px;
 
     text-align:center;
 }
 
 
-.section-kicker{
+.section-label{
 
-    color:#4dbaff;
+    color:#52c2ff;
 
-    font-size:11px;
+    font-size:10px;
 
-    font-weight:800;
+    font-weight:900;
 
-    letter-spacing:2.5px;
+    letter-spacing:2.8px;
 
     margin-bottom:9px;
 }
@@ -729,25 +842,31 @@ nav a:hover{
 .section-head h2{
 
     font-size:
-    clamp(28px,4vw,40px);
+    clamp(29px,5vw,43px);
 
-    margin-bottom:9px;
+    letter-spacing:-1px;
+
+    margin-bottom:10px;
 }
 
 
 .section-head p{
 
+    max-width:650px;
+
+    margin:auto;
+
     color:var(--muted);
 
     font-size:14px;
 
-    line-height:1.6;
+    line-height:1.65;
 }
 
 
-/* =====================================================
-   APPS GRID
-===================================================== */
+/* =========================================================
+   APPS
+========================================================= */
 
 .apps{
 
@@ -756,20 +875,20 @@ nav a:hover{
     max-width:1200px;
 
     margin:
-    0 auto 88px;
+    0 auto 90px;
 
     display:grid;
 
     grid-template-columns:
     repeat(2,minmax(0,1fr));
 
-    gap:22px;
+    gap:23px;
 }
 
 
-/* =====================================================
+/* =========================================================
    APP CARD
-===================================================== */
+========================================================= */
 
 .app-card{
 
@@ -777,44 +896,74 @@ nav a:hover{
 
     overflow:hidden;
 
+    padding:11px;
+
     border:
-    1px solid var(--line);
+    1px solid var(--border);
 
-    border-radius:21px;
-
-    padding:12px;
+    border-radius:
+    var(--radius);
 
     background:
-
     linear-gradient(
         145deg,
-        rgba(8,31,49,.94),
-        rgba(3,16,28,.96)
+        rgba(10,28,45,.82),
+        rgba(4,13,23,.94)
     );
 
-    box-shadow:var(--shadow);
+    box-shadow:
+    0 15px 55px
+    rgba(0,0,0,.25);
 
-    transition:.35s ease;
+    transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
 }
 
 
 .app-card:hover{
 
     transform:
-    translateY(-7px);
+    translateY(-8px);
 
     border-color:
-    rgba(0,149,255,.65);
+    var(--border-hover);
 
     box-shadow:
-    0 20px 60px
-    rgba(0,100,180,.16);
+    0 25px 75px
+    rgba(0,100,180,.20);
 }
 
 
-/* =====================================================
-   IMAGE
-===================================================== */
+.app-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    right:-100px;
+
+    top:-100px;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,162,255,.08);
+
+    filter:blur(40px);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   APP IMAGE
+========================================================= */
 
 .app-image{
 
@@ -830,7 +979,7 @@ nav a:hover{
 
     overflow:hidden;
 
-    border-radius:15px;
+    border-radius:17px;
 
     background:
     linear-gradient(
@@ -848,20 +997,20 @@ nav a:hover{
 
     position:absolute;
 
-    width:180px;
+    width:190px;
 
-    height:180px;
+    height:190px;
 
-    left:3%;
+    left:-30px;
 
-    top:5%;
+    top:-30px;
 
     border-radius:50%;
 
     background:
-    rgba(0,174,255,.25);
+    rgba(0,180,255,.23);
 
-    filter:blur(45px);
+    filter:blur(50px);
 }
 
 
@@ -871,20 +1020,20 @@ nav a:hover{
 
     position:absolute;
 
-    width:180px;
+    width:190px;
 
-    height:180px;
+    height:190px;
 
-    right:0;
+    right:-30px;
 
-    bottom:-20px;
+    bottom:-50px;
 
     border-radius:50%;
 
     background:
-    rgba(160,0,255,.23);
+    rgba(150,50,255,.20);
 
-    filter:blur(45px);
+    filter:blur(50px);
 }
 
 
@@ -900,7 +1049,7 @@ nav a:hover{
 
     object-fit:contain;
 
-    border-radius:12px;
+    border-radius:14px;
 
     display:block;
 }
@@ -912,9 +1061,9 @@ nav a:hover{
 
     z-index:2;
 
-    width:118px;
+    width:120px;
 
-    height:118px;
+    height:120px;
 
     display:flex;
 
@@ -923,142 +1072,79 @@ nav a:hover{
     justify-content:center;
 
     border:
-    1px solid
-    rgba(255,255,255,.18);
+    1px solid rgba(255,255,255,.20);
 
-    border-radius:28px;
+    border-radius:30px;
 
     background:
     rgba(255,255,255,.08);
 
     box-shadow:
-    0 16px 38px
-    rgba(0,0,0,.35);
+    0 20px 50px
+    rgba(0,0,0,.4);
 
-    font-size:61px;
+    font-size:62px;
 }
 
 
-/* =====================================================
-   APP COLOURS
-===================================================== */
+/* =========================================================
+   CARD BACKGROUNDS
+========================================================= */
 
 .barcode .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #063a66,
-        #071b2d,
-        #321060
-    );
+    linear-gradient(135deg,#063a66,#071b2d,#321060);
 }
-
 
 .office .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #006fd3,
-        #087ff5
-    );
+    linear-gradient(135deg,#006fd3,#087ff5);
 }
-
 
 .pdf .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #510006,
-        #e9162a
-    );
+    linear-gradient(135deg,#510006,#e9162a);
 }
-
 
 .devotional .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #5b0000,
-        #c00000
-    );
+    linear-gradient(135deg,#5b0000,#c00000);
 }
-
 
 .oldies .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #542900,
-        #b55c00
-    );
+    linear-gradient(135deg,#542900,#b55c00);
 }
-
 
 .madhu .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #32105c,
-        #7c12c9
-    );
+    linear-gradient(135deg,#32105c,#7c12c9);
 }
-
 
 .sangit .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #402000,
-        #9a3900
-    );
+    linear-gradient(135deg,#402000,#9a3900);
 }
-
 
 .photo .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #40005c,
-        #aa00cc
-    );
+    linear-gradient(135deg,#40005c,#aa00cc);
 }
-
 
 .signature .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #180044,
-        #5100a8,
-        #001f55
-    );
+    linear-gradient(135deg,#180044,#5100a8,#001f55);
 }
-
 
 .idphoto .app-image{
-
     background:
-    linear-gradient(
-        135deg,
-        #003b5c,
-        #007c9e,
-        #0046a8
-    );
+    linear-gradient(135deg,#003b5c,#007c9e,#0046a8);
 }
 
 
-/* =====================================================
-   CARD CONTENT
-===================================================== */
+/* =========================================================
+   APP CONTENT
+========================================================= */
 
 .app-content{
 
@@ -1067,19 +1153,56 @@ nav a:hover{
 }
 
 
-.app-content h3{
+.app-title-row{
 
-    font-size:19px;
+    display:flex;
 
-    line-height:1.3;
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
 
     margin-bottom:8px;
 }
 
 
+.app-content h3{
+
+    font-size:19px;
+
+    line-height:1.3;
+}
+
+
+.app-type{
+
+    flex-shrink:0;
+
+    padding:
+    5px 8px;
+
+    border-radius:7px;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+    color:#6fd0ff;
+
+    background:
+    rgba(0,157,255,.08);
+
+    border:
+    1px solid rgba(0,157,255,.18);
+}
+
+
 .app-content p{
 
-    min-height:45px;
+    min-height:44px;
 
     color:var(--muted);
 
@@ -1101,9 +1224,9 @@ nav a:hover{
 }
 
 
-/* =====================================================
-   BUTTON
-===================================================== */
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .app-btn{
 
@@ -1155,13 +1278,11 @@ nav a:hover{
 
 
 .red-btn{
-
     background:#ef3041;
 }
 
 
 .green-btn{
-
     background:#00b956;
 }
 
@@ -1188,9 +1309,9 @@ nav a:hover{
 }
 
 
-/* =====================================================
+/* =========================================================
    FEATURES
-===================================================== */
+========================================================= */
 
 .features{
 
@@ -1199,7 +1320,7 @@ nav a:hover{
     max-width:1200px;
 
     margin:
-    0 auto 75px;
+    0 auto 85px;
 
     display:grid;
 
@@ -1212,18 +1333,24 @@ nav a:hover{
 
 .feature{
 
+    position:relative;
+
     padding:
-    29px 20px;
+    32px 22px;
 
     text-align:center;
 
     border:
-    1px solid var(--line);
+    1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:20px;
 
     background:
-    rgba(3,24,39,.82);
+    linear-gradient(
+        145deg,
+        rgba(7,25,41,.75),
+        rgba(3,14,24,.90)
+    );
 
     transition:.3s ease;
 }
@@ -1232,24 +1359,45 @@ nav a:hover{
 .feature:hover{
 
     transform:
-    translateY(-5px);
+    translateY(-6px);
 
     border-color:
-    rgba(0,149,255,.65);
+    var(--border-hover);
 }
 
 
 .feature-icon{
 
-    font-size:37px;
+    width:62px;
 
-    margin-bottom:13px;
+    height:62px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:
+    0 auto 17px;
+
+    border-radius:18px;
+
+    background:
+    rgba(0,157,255,.08);
+
+    border:
+    1px solid rgba(0,157,255,.18);
+
+    font-size:29px;
 }
 
 
 .feature h3{
 
     margin-bottom:9px;
+
+    font-size:18px;
 }
 
 
@@ -1259,13 +1407,13 @@ nav a:hover{
 
     font-size:13px;
 
-    line-height:1.65;
+    line-height:1.7;
 }
 
 
-/* =====================================================
-   INFO
-===================================================== */
+/* =========================================================
+   INFO SECTIONS
+========================================================= */
 
 .info-box{
 
@@ -1277,25 +1425,33 @@ nav a:hover{
     0 auto 24px;
 
     padding:
-    31px 22px;
+    36px 24px;
 
     text-align:center;
 
     border:
-    1px solid var(--line);
+    1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:20px;
 
     background:
-    rgba(3,24,39,.82);
+    linear-gradient(
+        145deg,
+        rgba(7,25,41,.72),
+        rgba(3,14,24,.88)
+    );
+
+    box-shadow:
+    0 12px 45px
+    rgba(0,0,0,.18);
 }
 
 
 .info-box h2{
 
-    margin-bottom:12px;
+    font-size:26px;
 
-    font-size:25px;
+    margin-bottom:13px;
 }
 
 
@@ -1309,39 +1465,83 @@ nav a:hover{
 
     font-size:14px;
 
-    line-height:1.75;
+    line-height:1.8;
 }
 
 
-/* =====================================================
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.contact-button{
+
+    display:inline-flex;
+
+    margin-top:20px;
+
+    padding:
+    12px 20px;
+
+    border-radius:10px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    font-size:13px;
+
+    background:
+    rgba(0,157,255,.10);
+
+    border:
+    1px solid rgba(0,157,255,.25);
+}
+
+
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer{
 
-    margin-top:70px;
+    margin-top:75px;
 
     padding:
-    36px 20px;
+    40px 20px;
 
     text-align:center;
 
     border-top:
-    1px solid #102b40;
+    1px solid var(--border);
 
-    background:#020914;
+    background:
+    rgba(1,6,12,.92);
 
-    color:#71889c;
+    color:#6f8799;
 
     font-size:13px;
 
-    line-height:1.7;
+    line-height:1.8;
 }
 
 
 footer strong{
 
     color:var(--blue);
+}
+
+
+.footer-brand{
+
+    font-size:18px;
+
+    font-weight:900;
+
+    color:#fff;
+
+    margin-bottom:5px;
 }
 
 
@@ -1352,22 +1552,22 @@ footer strong{
     margin-top:14px;
 
     padding:
-    8px 13px;
+    8px 14px;
 
     border:
-    1px solid var(--line);
+    1px solid var(--border);
 
     border-radius:9px;
 
-    color:#a9c3d5;
+    color:#a7bdcc;
 
     text-decoration:none;
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media(max-width:900px){
 
@@ -1379,7 +1579,7 @@ footer strong{
 
     nav a{
 
-        font-size:12px;
+        font-size:11px;
 
         padding:
         8px 7px;
@@ -1428,21 +1628,25 @@ footer strong{
 
         top:67px;
 
-        padding:8px;
-
         flex-direction:column;
 
         align-items:stretch;
 
-        border:
-        1px solid var(--line);
+        gap:3px;
 
-        border-radius:14px;
+        padding:8px;
+
+        border:
+        1px solid var(--border);
+
+        border-radius:15px;
 
         background:
-        rgba(2,12,23,.98);
+        rgba(2,9,18,.98);
 
-        box-shadow:var(--shadow);
+        box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.5);
     }
 
 
@@ -1464,20 +1668,48 @@ footer strong{
 
     .hero{
 
-        margin-top:52px;
+        margin-top:55px;
     }
 
 
     .hero h1{
 
-        letter-spacing:-1.5px;
+        letter-spacing:-2px;
+    }
+
+
+    .stats{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:7px;
+    }
+
+
+    .stat{
+
+        padding:
+        13px 5px;
+    }
+
+
+    .stat strong{
+
+        font-size:18px;
+    }
+
+
+    .stat span{
+
+        font-size:8px;
     }
 
 
     .hero-phone-area{
 
         margin:
-        40px auto 65px;
+        45px auto 70px;
     }
 
 
@@ -1549,6 +1781,18 @@ footer strong{
         width:94%;
     }
 
+
+    .app-title-row{
+
+        align-items:flex-start;
+    }
+
+
+    .app-type{
+
+        margin-top:2px;
+    }
+
 }
 
 
@@ -1556,7 +1800,7 @@ footer strong{
 
     .hero h1{
 
-        font-size:37px;
+        font-size:38px;
     }
 
 
@@ -1571,6 +1815,12 @@ footer strong{
     .hero-btn{
 
         width:230px;
+    }
+
+
+    .stats{
+
+        width:94%;
     }
 
 
@@ -1596,24 +1846,13 @@ footer strong{
 }
 
 
-/* =====================================================
-   ACCESSIBILITY
-===================================================== */
-
-a:focus-visible,
-button:focus-visible{
-
-    outline:
-    2px solid var(--cyan);
-
-    outline-offset:3px;
-}
-
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
     html{
-
         scroll-behavior:auto;
     }
 
@@ -1654,7 +1893,7 @@ href="./"
 class="logo"
 aria-label="Asim Tech Home">
 
-<span class="logo-icon">
+<span class="logo-mark">
 ▲
 </span>
 
@@ -1685,7 +1924,7 @@ Home
 </a>
 
 <a href="#apps">
-My Apps
+Apps
 </a>
 
 <a href="#features">
@@ -1717,7 +1956,9 @@ Contact
 <section class="hero">
 
 
-<div class="eyebrow">
+<div class="badge">
+
+<span class="badge-dot"></span>
 
 WELCOME TO ASIM TECH
 
@@ -1726,19 +1967,20 @@ WELCOME TO ASIM TECH
 
 <h1>
 
-Useful Apps by
+Useful Apps.
 
-<span>
-Asim Tech
-</span>
+<br>
+
+<span>Smart Solutions.</span>
 
 </h1>
 
 
-<p>
+<p class="hero-description">
 
-Useful applications, web tools and entertainment apps
-designed to make everyday digital tasks simpler.
+Explore useful Android applications, web tools,
+productivity utilities and entertainment apps
+created by Asim Tech.
 
 </p>
 
@@ -1748,23 +1990,74 @@ designed to make everyday digital tasks simpler.
 
 <a
 href="#apps"
-class="hero-btn hero-primary">
+class="hero-btn primary-btn">
 
-Explore Apps
+🚀 Explore Apps
 
 </a>
 
 
 <a
 href="#about"
-class="hero-btn hero-secondary">
+class="hero-btn secondary-btn">
 
-About Asim Tech
+✦ About Asim Tech
 
 </a>
 
 
 </div>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<div class="stats">
+
+
+<div class="stat">
+
+<strong>
+10+
+</strong>
+
+<span>
+Apps &amp; Tools
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+Web
+</strong>
+
+<span>
+Browser Tools
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+Android
+</strong>
+
+<span>
+Applications
+</span>
+
+</div>
+
+
+</div>
+
 
 </section>
 
@@ -1821,7 +2114,9 @@ everyday life
 
 <div class="phone-box">
 
-<span>📻</span>
+<span>
+📻
+</span>
 
 Radio
 
@@ -1830,7 +2125,9 @@ Radio
 
 <div class="phone-box">
 
-<span>🎵</span>
+<span>
+🎵
+</span>
 
 Music
 
@@ -1839,7 +2136,9 @@ Music
 
 <div class="phone-box">
 
-<span>🛠️</span>
+<span>
+🛠️
+</span>
 
 Tools
 
@@ -1848,7 +2147,9 @@ Tools
 
 <div class="phone-box">
 
-<span>📱</span>
+<span>
+📱
+</span>
 
 Apps
 
@@ -1866,7 +2167,7 @@ Apps
 
 
 <!-- =====================================================
-     APPS
+     APPS SECTION
 ===================================================== -->
 
 <section id="apps">
@@ -1875,7 +2176,7 @@ Apps
 <div class="section-head">
 
 
-<div class="section-kicker">
+<div class="section-label">
 
 MY APPLICATIONS
 
@@ -1884,15 +2185,15 @@ MY APPLICATIONS
 
 <h2>
 
-Explore Asim Tech Apps
+Explore Asim Tech
 
 </h2>
 
 
 <p>
 
-Useful Android applications and web tools
-for everyday digital work.
+Useful applications and digital tools
+for everyday work, creativity and entertainment.
 
 </p>
 
@@ -1905,7 +2206,7 @@ for everyday digital work.
 
 
 <!-- =====================================================
-     1 BARCODE
+     BARCODE
 ===================================================== -->
 
 <article class="app-card barcode">
@@ -1929,11 +2230,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Asim Barcode &amp; QR Scanner
-
 </h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
+</div>
 
 
 <p>
@@ -1967,7 +2274,7 @@ class="app-btn blue-btn">
 
 
 <!-- =====================================================
-     2 OFFICE
+     OFFICE
 ===================================================== -->
 
 <article class="app-card office">
@@ -1991,11 +2298,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Asim Office Suite V5
-
 </h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
+</div>
 
 
 <p>
@@ -2029,7 +2342,7 @@ class="app-btn blue-btn">
 
 
 <!-- =====================================================
-     3 PDF
+     PDF
 ===================================================== -->
 
 <article class="app-card pdf">
@@ -2063,11 +2376,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Asim PDF Tools
-
 </h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
+</div>
 
 
 <p>
@@ -2101,7 +2420,7 @@ class="app-btn red-btn">
 
 
 <!-- =====================================================
-     4 DEVOTIONAL RADIO
+     DEVOTIONAL RADIO
 ===================================================== -->
 
 <article class="app-card devotional">
@@ -2135,11 +2454,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Devotional Radio
-
 </h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
 
 
 <p>
@@ -2152,7 +2477,7 @@ and spiritual music.
 
 <div class="tags">
 
-Android App • Radio • Music
+Radio • Spiritual • Music
 
 </div>
 
@@ -2174,7 +2499,7 @@ class="app-btn green-btn">
 
 
 <!-- =====================================================
-     5 OLD IS GOLD
+     OLD IS GOLD
 ===================================================== -->
 
 <article class="app-card oldies">
@@ -2208,11 +2533,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 80s &amp; 90s Old Is Gold
-
 </h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
 
 
 <p>
@@ -2225,7 +2556,7 @@ memories from the golden era.
 
 <div class="tags">
 
-Android App • Classic Music
+Classic Music • 80s • 90s • Radio
 
 </div>
 
@@ -2247,7 +2578,7 @@ class="app-btn green-btn">
 
 
 <!-- =====================================================
-     6 MADHU MUSIC WORLD
+     MADHU MUSIC WORLD
 ===================================================== -->
 
 <article class="app-card madhu">
@@ -2281,11 +2612,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Madhu Music World
-
 </h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
 
 
 <p>
@@ -2298,7 +2635,7 @@ from Madhu Music World.
 
 <div class="tags">
 
-Android App • Music • Radio
+Music • Radio • Entertainment
 
 </div>
 
@@ -2320,7 +2657,7 @@ class="app-btn orange-btn">
 
 
 <!-- =====================================================
-     7 SANGIT
+     SANGIT
 ===================================================== -->
 
 <article class="app-card sangit">
@@ -2354,11 +2691,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Sangit
-
 </h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
 
 
 <p>
@@ -2371,7 +2714,7 @@ by Asim for music lovers.
 
 <div class="tags">
 
-Android App • Music
+Music • Audio • Entertainment
 
 </div>
 
@@ -2393,7 +2736,7 @@ class="app-btn green-btn">
 
 
 <!-- =====================================================
-     8 PHOTO RESIZER
+     PHOTO RESIZER
 ===================================================== -->
 
 <article class="app-card photo">
@@ -2427,11 +2770,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Asim Tech Photo Resizer
-
 </h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
+</div>
 
 
 <p>
@@ -2444,7 +2793,7 @@ Create passport and stamp photos.
 
 <div class="tags">
 
-Photo Tool • Passport • Stamp • Crop • Filter
+Photo • Passport • Stamp • Crop • Filter
 
 </div>
 
@@ -2465,7 +2814,7 @@ class="app-btn purple-btn">
 
 
 <!-- =====================================================
-     9 SIGNATURE MAKER
+     SIGNATURE MAKER
 ===================================================== -->
 
 <article class="app-card signature">
@@ -2499,11 +2848,17 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Asim Tech Signature Maker
-
 </h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
+</div>
 
 
 <p>
@@ -2537,7 +2892,7 @@ class="app-btn purple-btn">
 
 
 <!-- =====================================================
-     10 ID PHOTO MAKER
+     ID PHOTO MAKER
 ===================================================== -->
 
 <article class="app-card idphoto">
@@ -2561,24 +2916,30 @@ aria-hidden="true">
 <div class="app-content">
 
 
+<div class="app-title-row">
+
 <h3>
-
 Asim ID Photo Maker
-
 </h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
+</div>
 
 
 <p>
 
-Create ID, passport and official
-size photos easily with the web tool.
+Create ID, passport and official-size
+photos easily with the web tool.
 
 </p>
 
 
 <div class="tags">
 
-ID Photo • Passport • Photo Maker • Print
+ID Photo • Passport • Print • Official Photo
 
 </div>
 
@@ -2613,7 +2974,7 @@ class="app-btn blue-btn">
 <div class="section-head">
 
 
-<div class="section-kicker">
+<div class="section-label">
 
 WHY ASIM TECH
 
@@ -2622,14 +2983,14 @@ WHY ASIM TECH
 
 <h2>
 
-Simple. Useful. Practical.
+Built For Everyday Use
 
 </h2>
 
 
 <p>
 
-Built around everyday digital needs.
+Simple ideas, useful tools and practical applications.
 
 </p>
 
@@ -2661,7 +3022,7 @@ Fast &amp; Simple
 <p>
 
 Clean and straightforward applications
-designed for everyday use.
+designed to be easy to use.
 
 </p>
 
@@ -2718,8 +3079,8 @@ Mobile Friendly
 
 <p>
 
-Responsive experiences that work smoothly
-on phones, tablets and computers.
+Responsive experiences designed for
+phones, tablets and computers.
 
 </p>
 
@@ -2744,7 +3105,7 @@ class="info-box">
 
 <h2>
 
-Latest Updates
+🆕 Latest Updates
 
 </h2>
 
@@ -2802,7 +3163,7 @@ class="info-box">
 
 <h2>
 
-Contact
+Contact Asim Tech
 
 </h2>
 
@@ -2826,16 +3187,20 @@ other enquiries, please contact Asim Tech.
 <footer>
 
 
-© 2026
+<div class="footer-brand">
 
-<strong>
-Asim Tech
-</strong>
+▲ ASIM <strong>TECH</strong>
+
+</div>
+
+
+Apps • Tools • Innovation
 
 
 <br>
 
-Apps • Tools • Innovation
+
+© 2026 Asim Tech. All rights reserved.
 
 
 <br>
@@ -2855,7 +3220,7 @@ class="back-top">
 
 
 <!-- =====================================================
-     MOBILE MENU
+     MOBILE MENU SCRIPT
 ===================================================== -->
 
 <script>
