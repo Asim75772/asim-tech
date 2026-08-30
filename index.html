@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color" content="#07111f">
+
 <meta name="description"
 content="Asim Tech - Apps, Tools, Photo Resizer, ID Photo Maker, Signature Maker, Music and Office Suite.">
 
 <title>Asim Tech | Apps • Tools • Innovation</title>
+
 
 <style>
 
@@ -27,35 +31,57 @@ html{
 }
 
 :root{
+
     --bg:#030914;
     --bg2:#071522;
     --card:#091827;
     --card2:#0d1e31;
+
     --border:#1a344e;
+
     --text:#ffffff;
     --muted:#9eafc2;
+
     --blue:#1685ff;
     --blue2:#006dff;
+
     --green:#16a34a;
+
     --shadow:0 20px 60px rgba(0,0,0,.30);
 }
 
+
 body{
+
     font-family:
-        Inter,
-        Arial,
-        Helvetica,
-        sans-serif;
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
 
     background:
-        radial-gradient(circle at 10% 10%,#1685ff12,transparent 25%),
-        radial-gradient(circle at 90% 20%,#713cff12,transparent 25%),
-        var(--bg);
+
+    radial-gradient(
+        circle at 10% 10%,
+        #1685ff12,
+        transparent 25%
+    ),
+
+    radial-gradient(
+        circle at 90% 20%,
+        #713cff12,
+        transparent 25%
+    ),
+
+    var(--bg);
 
     color:var(--text);
+
     line-height:1.6;
+
     overflow-x:hidden;
 }
+
 
 a{
     text-decoration:none;
@@ -63,7 +89,7 @@ a{
 
 
 /* =========================================================
-   SCROLL BAR
+   SCROLLBAR
 ========================================================= */
 
 ::-webkit-scrollbar{
@@ -89,50 +115,76 @@ a{
 ========================================================= */
 
 header{
+
     height:72px;
+
     padding:0 6%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     position:sticky;
+
     top:0;
+
     z-index:9999;
 
-    background:rgba(3,9,20,.88);
+    background:
+    rgba(3,9,20,.88);
+
     backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,255,255,.07);
+    border-bottom:
+    1px solid rgba(255,255,255,.07);
 }
 
+
 .logo{
+
     font-size:23px;
+
     font-weight:900;
+
     letter-spacing:.5px;
+
     white-space:nowrap;
 }
+
 
 .logo span{
     color:var(--blue);
 }
 
+
 .logo-mark{
     color:var(--blue);
 }
 
+
 nav{
+
     display:flex;
+
     align-items:center;
+
     gap:26px;
 }
 
+
 nav a{
+
     color:#d5e0ec;
+
     font-size:14px;
+
     font-weight:700;
+
     transition:.2s;
 }
+
 
 nav a:hover{
     color:var(--blue);
@@ -140,29 +192,40 @@ nav a:hover{
 
 
 /* =========================================================
-   HEADER BUTTONS
+   HEADER ACTIONS
 ========================================================= */
 
 .header-actions{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 }
 
+
 .theme-btn,
 .menu-btn{
+
     width:40px;
+
     height:40px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     border-radius:10px;
 
     background:#081524;
+
     color:white;
 
     cursor:pointer;
+
     font-size:17px;
 }
+
 
 .menu-btn{
     display:none;
@@ -174,10 +237,14 @@ nav a:hover{
 ========================================================= */
 
 .hero{
-    min-height:calc(100vh - 72px);
+
+    min-height:
+    calc(100vh - 72px);
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     padding:80px 8%;
@@ -185,65 +252,102 @@ nav a:hover{
     position:relative;
 
     background:
-        radial-gradient(
-            circle at 80% 45%,
-            #0759a855,
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 20% 10%,
-            #1685ff16,
-            transparent 30%
-        );
+
+    radial-gradient(
+        circle at 80% 45%,
+        #0759a855,
+        transparent 32%
+    ),
+
+    radial-gradient(
+        circle at 20% 10%,
+        #1685ff16,
+        transparent 30%
+    );
 }
 
+
 .hero-text{
+
     max-width:650px;
+
     z-index:2;
 }
 
+
 .welcome{
+
     color:var(--blue);
+
     font-size:13px;
+
     font-weight:900;
+
     letter-spacing:4px;
+
     margin-bottom:15px;
 }
 
+
 .hero h1{
-    font-size:clamp(48px,7vw,82px);
+
+    font-size:
+    clamp(48px,7vw,82px);
+
     line-height:.95;
+
     letter-spacing:-3px;
+
     margin-bottom:20px;
 }
+
 
 .hero h1 span{
     color:var(--blue);
 }
 
+
 .tagline{
-    font-size:clamp(22px,3vw,30px);
+
+    font-size:
+    clamp(22px,3vw,30px);
+
     font-weight:700;
+
     color:#dce7f4;
+
     margin-bottom:18px;
 }
 
+
 .description{
+
     max-width:560px;
+
     color:var(--muted);
+
     font-size:18px;
 }
 
+
 .buttons{
+
     display:flex;
+
     gap:14px;
+
     margin-top:32px;
+
     flex-wrap:wrap;
 }
 
+
 .btn{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
 
     padding:13px 24px;
@@ -251,29 +355,51 @@ nav a:hover{
     border-radius:11px;
 
     font-weight:800;
+
     transition:.25s;
 }
 
+
 .primary{
-    background:linear-gradient(135deg,#1685ff,#006dff);
+
+    background:
+    linear-gradient(
+        135deg,
+        #1685ff,
+        #006dff
+    );
+
     color:white;
 
-    box-shadow:0 10px 30px #006dff30;
+    box-shadow:
+    0 10px 30px #006dff30;
 }
+
 
 .primary:hover{
+
     transform:translateY(-3px);
-    box-shadow:0 15px 40px #006dff45;
+
+    box-shadow:
+    0 15px 40px #006dff45;
 }
 
+
 .secondary{
-    border:1px solid #53657b;
+
+    border:
+    1px solid #53657b;
+
     color:white;
+
     background:#ffffff05;
 }
 
+
 .secondary:hover{
+
     border-color:var(--blue);
+
     color:var(--blue);
 }
 
@@ -283,19 +409,32 @@ nav a:hover{
 ========================================================= */
 
 .hero-badges{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:10px;
+
     margin-top:28px;
 }
 
+
 .badge{
+
     padding:7px 12px;
-    border:1px solid var(--border);
+
+    border:
+    1px solid var(--border);
+
     border-radius:50px;
+
     color:#b8c9db;
+
     background:#ffffff04;
+
     font-size:12px;
+
     font-weight:700;
 }
 
@@ -305,19 +444,28 @@ nav a:hover{
 ========================================================= */
 
 .phone-area{
+
     width:38%;
+
     display:flex;
+
     justify-content:center;
+
     perspective:1000px;
 }
 
+
 .phone{
+
     width:230px;
+
     height:445px;
 
     padding:9px;
 
-    border:4px solid #62758a;
+    border:
+    4px solid #62758a;
+
     border-radius:38px;
 
     transform:rotate(5deg);
@@ -325,61 +473,108 @@ nav a:hover{
     background:#02060c;
 
     box-shadow:
-        0 0 0 2px #0b1624,
-        0 30px 90px #006dff35,
-        0 0 80px #1685ff22;
 
-    animation:floatPhone 5s ease-in-out infinite;
+    0 0 0 2px #0b1624,
+
+    0 30px 90px #006dff35,
+
+    0 0 80px #1685ff22;
+
+    animation:
+    floatPhone 5s ease-in-out infinite;
 }
 
+
 @keyframes floatPhone{
+
     0%,100%{
-        transform:rotate(5deg) translateY(0);
+        transform:
+        rotate(5deg)
+        translateY(0);
     }
 
     50%{
-        transform:rotate(5deg) translateY(-12px);
+        transform:
+        rotate(5deg)
+        translateY(-12px);
     }
 }
 
+
 .phone-screen{
+
     height:100%;
+
     border-radius:29px;
+
     padding:28px 18px;
 
     background:
-        radial-gradient(circle at 50% 20%,#1685ff30,transparent 35%),
-        linear-gradient(160deg,#082442,#040c18);
+
+    radial-gradient(
+        circle at 50% 20%,
+        #1685ff30,
+        transparent 35%
+    ),
+
+    linear-gradient(
+        160deg,
+        #082442,
+        #040c18
+    );
 }
 
+
 .phone-brand{
+
     color:var(--blue);
+
     font-weight:900;
 }
 
+
 .phone-screen h2{
+
     margin-top:60px;
+
     font-size:22px;
 }
 
+
 .phone-screen p{
+
     color:#a9b7c9;
+
     margin-top:8px;
 }
 
+
 .phone-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
+
     gap:9px;
+
     margin-top:27px;
 }
 
+
 .phone-box{
+
     background:#0b2947;
-    border:1px solid #1c4c76;
+
+    border:
+    1px solid #1c4c76;
+
     border-radius:10px;
+
     padding:13px 4px;
+
     text-align:center;
+
     font-size:13px;
 }
 
@@ -389,38 +584,58 @@ nav a:hover{
 ========================================================= */
 
 section{
+
     max-width:1300px;
+
     margin:auto;
+
     padding:90px 7%;
 }
 
+
 .section-label{
+
     color:var(--blue);
+
     font-size:12px;
+
     font-weight:900;
+
     letter-spacing:3px;
 }
 
+
 section h2{
-    font-size:clamp(30px,4vw,42px);
+
+    font-size:
+    clamp(30px,4vw,42px);
+
     line-height:1.1;
+
     margin:8px 0 32px;
 }
 
 
 /* =========================================================
-   APP SECTION HEADER
+   APPS HEADING
 ========================================================= */
 
 .apps-heading{
+
     display:flex;
+
     align-items:end;
+
     justify-content:space-between;
+
     gap:20px;
 }
 
+
 .apps-count{
+
     color:#70859d;
+
     font-size:13px;
 }
 
@@ -430,62 +645,94 @@ section h2{
 ========================================================= */
 
 .search-area{
+
     margin:0 0 30px;
 
     display:flex;
+
     gap:12px;
+
     flex-wrap:wrap;
 }
 
+
 .search-box{
+
     flex:1;
+
     min-width:240px;
 
     position:relative;
 }
 
+
 .search-box input{
+
     width:100%;
 
-    padding:14px 18px 14px 45px;
+    padding:
+    14px
+    18px
+    14px
+    45px;
 
     border-radius:12px;
-    border:1px solid var(--border);
+
+    border:
+    1px solid var(--border);
 
     outline:none;
 
     background:#071522;
+
     color:white;
 
     font-size:14px;
 }
 
+
 .search-box input:focus{
+
     border-color:var(--blue);
-    box-shadow:0 0 0 3px #1685ff12;
+
+    box-shadow:
+    0 0 0 3px #1685ff12;
 }
 
+
 .search-icon{
+
     position:absolute;
+
     left:17px;
+
     top:12px;
+
     color:#7890a8;
 }
 
 
 /* =========================================================
-   FILTER
+   FILTERS
 ========================================================= */
 
 .filters{
+
     display:flex;
+
     gap:8px;
+
     flex-wrap:wrap;
 }
 
+
 .filter{
-    border:1px solid var(--border);
+
+    border:
+    1px solid var(--border);
+
     background:#071522;
+
     color:#9eb0c4;
 
     padding:10px 15px;
@@ -495,13 +742,18 @@ section h2{
     cursor:pointer;
 
     font-size:12px;
+
     font-weight:800;
 }
 
+
 .filter.active,
 .filter:hover{
+
     background:#1685ff;
+
     color:white;
+
     border-color:#1685ff;
 }
 
@@ -511,20 +763,28 @@ section h2{
 ========================================================= */
 
 .apps{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:20px;
 }
 
-.app{
-    background:
-        linear-gradient(
-            145deg,
-            #0b1a2b,
-            #071522
-        );
 
-    border:1px solid var(--border);
+.app{
+
+    background:
+    linear-gradient(
+        145deg,
+        #0b1a2b,
+        #071522
+    );
+
+    border:
+    1px solid var(--border);
+
     border-radius:20px;
 
     padding:18px;
@@ -536,15 +796,19 @@ section h2{
     position:relative;
 }
 
+
 .app::before{
+
     content:"";
 
     position:absolute;
 
     width:120px;
+
     height:120px;
 
     right:-60px;
+
     top:-60px;
 
     border-radius:50%;
@@ -554,19 +818,28 @@ section h2{
     pointer-events:none;
 }
 
+
 .app:hover{
+
     transform:translateY(-7px);
 
     border-color:#1685ff;
 
     box-shadow:
-        0 20px 50px #006dff1c;
+    0 20px 50px #006dff1c;
 }
+
+
+/* =========================================================
+   APP IMAGES
+========================================================= */
 
 .app-icon,
 .office-icon,
 .id-icon{
+
     width:100%;
+
     height:175px;
 
     border-radius:14px;
@@ -582,15 +855,28 @@ section h2{
 ========================================================= */
 
 .office-icon{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-size:68px;
 
     background:
-        radial-gradient(circle at 30% 20%,#60a5fa,transparent 30%),
-        linear-gradient(135deg,#0750b8,#1685ff);
+
+    radial-gradient(
+        circle at 30% 20%,
+        #60a5fa,
+        transparent 30%
+    ),
+
+    linear-gradient(
+        135deg,
+        #0750b8,
+        #1685ff
+    );
 }
 
 
@@ -599,16 +885,35 @@ section h2{
 ========================================================= */
 
 .id-icon{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-size:68px;
 
     background:
-        radial-gradient(circle at 25% 25%,#00d9ff,transparent 30%),
-        radial-gradient(circle at 75% 75%,#ff4ecd,transparent 35%),
-        linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);
+
+    radial-gradient(
+        circle at 25% 25%,
+        #00d9ff,
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 75% 75%,
+        #ff4ecd,
+        transparent 35%
+    ),
+
+    linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed,
+        #ec4899
+    );
 }
 
 
@@ -617,32 +922,45 @@ section h2{
 ========================================================= */
 
 .app h3{
+
     font-size:19px;
+
     margin-bottom:8px;
 }
 
+
 .app p{
+
     color:#9eacbf;
+
     font-size:13px;
+
     min-height:66px;
 }
 
+
 .version{
+
     display:block;
+
     margin-top:10px;
 
     color:#718198;
+
     font-size:11px;
 }
 
 
 /* =========================================================
-   BUTTONS
+   DOWNLOAD BUTTON
 ========================================================= */
 
 .download{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     width:100%;
@@ -654,51 +972,120 @@ section h2{
     border-radius:10px;
 
     color:white;
+
     font-size:13px;
+
     font-weight:800;
 
     transition:.2s;
 }
 
+
 .download:hover{
+
     transform:translateY(-2px);
+
     filter:brightness(1.1);
 }
 
+
 .office-btn{
-    background:linear-gradient(135deg,#2563eb,#1685ff);
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1685ff
+    );
 }
+
 
 .apk-btn{
-    background:linear-gradient(135deg,#16a34a,#059669);
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #059669
+    );
 }
+
 
 .madhu-apk{
-    background:linear-gradient(135deg,#f59e0b,#ef4444);
+
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #ef4444
+    );
 }
+
 
 .photo-web{
-    background:linear-gradient(135deg,#7c3aed,#ec4899);
+
+    background:
+    linear-gradient(
+        135deg,
+        #7c3aed,
+        #ec4899
+    );
 }
+
 
 .photo-apk{
-    background:linear-gradient(135deg,#16a34a,#059669);
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #059669
+    );
 }
+
 
 .id-web{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
 }
+
 
 .id-apk{
-    background:linear-gradient(135deg,#f97316,#ea580c);
+
+    background:
+    linear-gradient(
+        135deg,
+        #f97316,
+        #ea580c
+    );
 }
+
 
 .signature-web{
-    background:linear-gradient(135deg,#06b6d4,#4f46e5,#9333ea);
+
+    background:
+    linear-gradient(
+        135deg,
+        #06b6d4,
+        #4f46e5,
+        #9333ea
+    );
 }
 
+
 .signature-apk{
-    background:linear-gradient(135deg,#16a34a,#059669);
+
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #059669
+    );
 }
 
 
@@ -707,13 +1094,19 @@ section h2{
 ========================================================= */
 
 .stats{
+
     max-width:1100px;
+
     margin:0 auto;
 
     display:grid;
-    grid-template-columns:repeat(4,1fr);
 
-    border:1px solid var(--border);
+    grid-template-columns:
+    repeat(4,1fr);
+
+    border:
+    1px solid var(--border);
+
     border-radius:20px;
 
     overflow:hidden;
@@ -721,25 +1114,39 @@ section h2{
     background:#071522;
 }
 
+
 .stat{
+
     padding:25px;
+
     text-align:center;
-    border-right:1px solid var(--border);
+
+    border-right:
+    1px solid var(--border);
 }
+
 
 .stat:last-child{
     border-right:0;
 }
 
+
 .stat-number{
+
     font-size:28px;
+
     font-weight:900;
+
     color:var(--blue);
 }
 
+
 .stat-label{
+
     color:#8094aa;
+
     font-size:12px;
+
     margin-top:3px;
 }
 
@@ -749,20 +1156,32 @@ section h2{
 ========================================================= */
 
 .simple{
-    border-top:1px solid #17263a;
+
+    border-top:
+    1px solid #17263a;
 }
 
+
 .tool-list{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:16px;
+
     margin-top:30px;
 }
 
+
 .tool{
+
     padding:22px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     background:#071522;
 
     border-radius:16px;
@@ -770,23 +1189,35 @@ section h2{
     transition:.25s;
 }
 
+
 .tool:hover{
+
     border-color:var(--blue);
+
     transform:translateY(-4px);
 }
 
+
 .tool-icon{
+
     font-size:30px;
+
     margin-bottom:10px;
 }
 
+
 .tool h3{
+
     font-size:17px;
 }
 
+
 .tool p{
+
     color:#899cb1;
+
     font-size:13px;
+
     margin-top:5px;
 }
 
@@ -796,45 +1227,70 @@ section h2{
 ========================================================= */
 
 .about{
-    background:
-        radial-gradient(circle at 90% 10%,#1685ff15,transparent 35%),
-        #091523;
 
-    border:1px solid #1b2c42;
+    background:
+
+    radial-gradient(
+        circle at 90% 10%,
+        #1685ff15,
+        transparent 35%
+    ),
+
+    #091523;
+
+    border:
+    1px solid #1b2c42;
+
     border-radius:22px;
 
     padding:45px;
 
     display:flex;
+
     align-items:center;
+
     gap:30px;
 
     box-shadow:var(--shadow);
 }
 
+
 .avatar{
+
     width:110px;
+
     height:110px;
 
     border-radius:50%;
 
     background:
-        linear-gradient(135deg,#1685ff,#713cff);
+    linear-gradient(
+        135deg,
+        #1685ff,
+        #713cff
+    );
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-size:45px;
+
     font-weight:900;
 
     flex-shrink:0;
 
-    box-shadow:0 15px 40px #1685ff30;
+    box-shadow:
+    0 15px 40px #1685ff30;
 }
 
+
 .about p{
+
     color:#aab8ca;
+
     max-width:760px;
 }
 
@@ -844,22 +1300,32 @@ section h2{
 ========================================================= */
 
 .contact{
+
     text-align:center;
 }
 
+
 .contact p{
+
     color:#9eacbf;
+
     margin-bottom:25px;
 }
 
+
 .contact-box{
+
     max-width:650px;
+
     margin:auto;
 
     padding:35px;
 
     background:#071522;
-    border:1px solid var(--border);
+
+    border:
+    1px solid var(--border);
+
     border-radius:20px;
 }
 
@@ -869,35 +1335,46 @@ section h2{
 ========================================================= */
 
 footer{
+
     text-align:center;
 
     padding:40px 20px;
 
-    border-top:1px solid #17263a;
+    border-top:
+    1px solid #17263a;
 
     color:#718096;
 
     font-size:13px;
 }
 
+
 footer b{
     font-size:17px;
 }
+
 
 footer span{
     color:var(--blue);
 }
 
+
 .footer-links{
+
     display:flex;
+
     justify-content:center;
+
     gap:20px;
+
     margin:15px 0;
 }
+
 
 .footer-links a{
     color:#8295aa;
 }
+
 
 .footer-links a:hover{
     color:var(--blue);
@@ -909,18 +1386,24 @@ footer span{
 ========================================================= */
 
 .top-btn{
+
     position:fixed;
 
     right:20px;
+
     bottom:20px;
 
     width:44px;
+
     height:44px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     border-radius:12px;
 
     background:#0b1b2d;
+
     color:white;
 
     cursor:pointer;
@@ -929,6 +1412,7 @@ footer span{
 
     z-index:1000;
 }
+
 
 .top-btn.show{
     display:block;
@@ -949,28 +1433,45 @@ footer span{
 ========================================================= */
 
 body.light{
+
     --bg:#f3f7fb;
+
     --bg2:#ffffff;
+
     --card:#ffffff;
+
     --card2:#eef5fc;
+
     --border:#d6e1ec;
+
     --text:#0a1725;
+
     --muted:#526579;
 
     background:
-        radial-gradient(circle at 10% 10%,#1685ff15,transparent 25%),
-        #f3f7fb;
+
+    radial-gradient(
+        circle at 10% 10%,
+        #1685ff15,
+        transparent 25%
+    ),
+
+    #f3f7fb;
 
     color:#0a1725;
 }
 
+
 body.light header{
-    background:rgba(255,255,255,.88);
+    background:
+    rgba(255,255,255,.88);
 }
+
 
 body.light nav a{
     color:#34485d;
 }
+
 
 body.light .theme-btn,
 body.light .menu-btn,
@@ -980,23 +1481,35 @@ body.light .app,
 body.light .tool,
 body.light .contact-box,
 body.light .stats{
+
     background:#ffffff;
+
     color:#0a1725;
 }
+
 
 body.light .app p,
 body.light .tool p,
 body.light .about p,
 body.light .description{
+
     color:#526579;
 }
+
 
 body.light .phone{
     background:#dbe7f2;
 }
 
+
 body.light .phone-screen{
-    background:linear-gradient(160deg,#d8ecff,#ffffff);
+
+    background:
+    linear-gradient(
+        160deg,
+        #d8ecff,
+        #ffffff
+    );
 }
 
 
@@ -1007,104 +1520,149 @@ body.light .phone-screen{
 @media(max-width:1100px){
 
     .apps{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
+
 
     .phone-area{
         width:40%;
     }
 
+
     .stats{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
+
 
     .stat:nth-child(2){
         border-right:0;
     }
 
+
     .stat:nth-child(-n+2){
-        border-bottom:1px solid var(--border);
+
+        border-bottom:
+        1px solid var(--border);
     }
 
+
     .tool-list{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
+
 }
 
 
 @media(max-width:850px){
 
     nav{
+
         display:none;
 
         position:absolute;
 
         left:5%;
+
         right:5%;
+
         top:68px;
 
         padding:15px;
 
         flex-direction:column;
+
         align-items:stretch;
+
         gap:5px;
 
         background:#071522;
 
-        border:1px solid var(--border);
+        border:
+        1px solid var(--border);
+
         border-radius:14px;
 
         box-shadow:var(--shadow);
     }
 
+
     nav.open{
         display:flex;
     }
 
+
     nav a{
+
         padding:12px;
+
         border-radius:8px;
     }
+
 
     nav a:hover{
         background:#1685ff12;
     }
 
+
     .menu-btn{
         display:block;
     }
 
+
     .hero{
+
         flex-direction:column;
+
         text-align:center;
-        padding:65px 6% 80px;
+
+        padding:
+        65px
+        6%
+        80px;
     }
+
 
     .hero-text{
         max-width:700px;
     }
 
+
     .description{
         margin:auto;
     }
+
 
     .buttons{
         justify-content:center;
     }
 
+
     .hero-badges{
         justify-content:center;
     }
 
+
     .phone-area{
+
         width:100%;
+
         margin-top:65px;
     }
 
+
     .about{
+
         text-align:center;
+
         flex-direction:column;
     }
+
 }
 
 
@@ -1114,78 +1672,111 @@ body.light .phone-screen{
         padding:0 5%;
     }
 
+
     .logo{
         font-size:20px;
     }
 
+
     .hero{
-        padding:55px 6% 70px;
+
+        padding:
+        55px
+        6%
+        70px;
     }
 
+
     .hero h1{
+
         font-size:48px;
+
         letter-spacing:-2px;
     }
+
 
     .tagline{
         font-size:21px;
     }
 
+
     .description{
         font-size:15px;
     }
 
+
     .buttons{
+
         flex-direction:column;
+
         align-items:center;
     }
+
 
     .btn{
         width:230px;
     }
 
+
     .phone{
+
         width:195px;
+
         height:375px;
     }
 
+
     section{
-        padding:65px 6%;
+
+        padding:
+        65px 6%;
     }
+
 
     .apps{
         grid-template-columns:1fr;
     }
 
+
     .app-icon,
     .office-icon,
     .id-icon{
+
         height:220px;
     }
+
 
     .tool-list{
         grid-template-columns:1fr;
     }
 
+
     .stats{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+        1fr 1fr;
     }
+
 
     .stat{
         padding:20px 10px;
     }
 
+
     .stat-number{
         font-size:23px;
     }
+
 
     .about{
         padding:32px 20px;
     }
 
+
     .contact-box{
         padding:28px 18px;
     }
+
 }
 
 
@@ -1195,25 +1786,34 @@ body.light .phone-screen{
         font-size:40px;
     }
 
+
     .logo{
         font-size:18px;
     }
+
 
     .stats{
         grid-template-columns:1fr;
     }
 
+
     .stat{
+
         border-right:0;
-        border-bottom:1px solid var(--border);
+
+        border-bottom:
+        1px solid var(--border);
     }
+
 
     .stat:last-child{
         border-bottom:0;
     }
+
 }
 
 </style>
+
 </head>
 
 
@@ -1226,17 +1826,26 @@ body.light .phone-screen{
 
 <header>
 
+
 <div class="logo">
-<span class="logo-mark">▲</span> ASIM <span>TECH</span>
+
+<span class="logo-mark">▲</span>
+ASIM
+<span>TECH</span>
+
 </div>
 
 
 <nav id="nav">
 
 <a href="#home">Home</a>
+
 <a href="#apps">My Apps</a>
+
 <a href="#tools">Tools</a>
+
 <a href="#about">About</a>
+
 <a href="#contact">Contact</a>
 
 </nav>
@@ -1244,19 +1853,26 @@ body.light .phone-screen{
 
 <div class="header-actions">
 
+
 <button
 class="theme-btn"
 onclick="toggleTheme()"
 title="Toggle theme">
+
 🌙
+
 </button>
+
 
 <button
 class="menu-btn"
 onclick="toggleMenu()"
 title="Menu">
+
 ☰
+
 </button>
+
 
 </div>
 
@@ -1268,23 +1884,32 @@ title="Menu">
      HERO
 ========================================================= -->
 
-<div class="hero" id="home">
+<div
+class="hero"
+id="home">
 
 
 <div class="hero-text">
 
+
 <div class="welcome">
+
 WELCOME TO
+
 </div>
 
 
 <h1>
+
 ASIM <span>TECH</span>
+
 </h1>
 
 
 <div class="tagline">
+
 Apps • Tools • Innovation
+
 </div>
 
 
@@ -1298,25 +1923,48 @@ to make everyday tasks easier.
 
 <div class="buttons">
 
-<a href="#apps" class="btn primary">
+
+<a
+href="#apps"
+class="btn primary">
+
 🚀 Explore Apps
+
 </a>
 
-<a href="#about" class="btn secondary">
+
+<a
+href="#about"
+class="btn secondary">
+
 👋 About Asim
+
 </a>
+
 
 </div>
 
 
 <div class="hero-badges">
 
-<div class="badge">📱 Android Apps</div>
-<div class="badge">🛠️ Useful Tools</div>
-<div class="badge">🎵 Music Apps</div>
-<div class="badge">💡 Innovation</div>
+<div class="badge">
+📱 Android Apps
+</div>
+
+<div class="badge">
+🛠️ Useful Tools
+</div>
+
+<div class="badge">
+🎵 Music Apps
+</div>
+
+<div class="badge">
+💡 Innovation
+</div>
 
 </div>
+
 
 </div>
 
@@ -1326,46 +1974,80 @@ to make everyday tasks easier.
 
 <div class="phone-area">
 
+
 <div class="phone">
+
 
 <div class="phone-screen">
 
+
 <div class="phone-brand">
+
 ▲ ASIM TECH
+
 </div>
 
+
 <h2>
+
 Hello, Asim 👋
+
 </h2>
 
+
 <p>
+
 Building apps for<br>
-<b>a better tomorrow</b>
+
+<b>
+a better tomorrow
+</b>
+
 </p>
 
 
 <div class="phone-grid">
 
-<div class="phone-box">
-📻<br>Radio
-</div>
 
 <div class="phone-box">
-🎵<br>Music
+
+📻<br>
+Radio
+
 </div>
+
 
 <div class="phone-box">
-🛠️<br>Tools
+
+🎵<br>
+Music
+
 </div>
+
 
 <div class="phone-box">
-📱<br>Apps
+
+🛠️<br>
+Tools
+
 </div>
+
+
+<div class="phone-box">
+
+📱<br>
+Apps
+
+</div>
+
+
+</div>
+
 
 </div>
 
 </div>
-</div>
+
 
 </div>
 
@@ -1379,27 +2061,61 @@ Building apps for<br>
 
 <section>
 
+
 <div class="stats">
 
-<div class="stat">
-<div class="stat-number">8+</div>
-<div class="stat-label">Projects & Apps</div>
-</div>
 
 <div class="stat">
-<div class="stat-number">3</div>
-<div class="stat-label">Creative Tools</div>
+
+<div class="stat-number">
+8+
 </div>
 
-<div class="stat">
-<div class="stat-number">100%</div>
-<div class="stat-label">Made With Passion</div>
+<div class="stat-label">
+Projects & Apps
 </div>
 
-<div class="stat">
-<div class="stat-number">2026</div>
-<div class="stat-label">Asim Tech</div>
 </div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+3
+</div>
+
+<div class="stat-label">
+Creative Tools
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+100%
+</div>
+
+<div class="stat-label">
+Made With Passion
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+2026
+</div>
+
+<div class="stat-label">
+Asim Tech
+</div>
+
+</div>
+
 
 </div>
 
@@ -1413,34 +2129,55 @@ Building apps for<br>
 
 <section id="apps">
 
+
 <div class="apps-heading">
+
 
 <div>
 
+
 <div class="section-label">
+
 MY APPLICATIONS
+
 </div>
+
 
 <h2>
+
 My Apps
+
 </h2>
 
+
 </div>
+
 
 <div class="apps-count">
+
 Explore my latest projects
-</div>
 
 </div>
+
+
+</div>
+
 
 
 <!-- SEARCH -->
 
 <div class="search-area">
 
+
 <div class="search-box">
 
-<span class="search-icon">🔍</span>
+
+<span class="search-icon">
+
+🔍
+
+</span>
+
 
 <input
 type="search"
@@ -1448,85 +2185,130 @@ id="appSearch"
 placeholder="Search apps and tools..."
 onkeyup="filterApps()">
 
+
 </div>
 
 
 <div class="filters">
 
+
 <button
 class="filter active"
 onclick="setFilter('all',this)">
+
 All
+
 </button>
+
 
 <button
 class="filter"
 onclick="setFilter('office',this)">
+
 Office
+
 </button>
+
 
 <button
 class="filter"
 onclick="setFilter('music',this)">
+
 Music
+
 </button>
+
 
 <button
 class="filter"
 onclick="setFilter('photo',this)">
+
 Photo
+
 </button>
+
 
 <button
 class="filter"
 onclick="setFilter('utility',this)">
+
 Utility
+
 </button>
 
-</div>
 
 </div>
 
-
-<div class="apps" id="appsGrid">
-
+</div>
 
 
-<!-- OFFICE -->
 
-<div class="app" data-category="office">
+<div
+class="apps"
+id="appsGrid">
+
+
+
+<!-- =====================================================
+     OFFICE SUITE
+===================================================== -->
+
+<div
+class="app"
+data-category="office">
+
 
 <div class="office-icon">
+
 📄
+
 </div>
 
+
 <h3>
+
 Asim Office Suite V5
+
 </h3>
 
+
 <p>
+
 Create and edit documents,
 spreadsheets, PDF files and
 scan documents.
+
 </p>
 
+
 <span class="version">
+
 Office • Document • Spreadsheet • PDF • Scanner
+
 </span>
+
 
 <a
 class="download office-btn"
 href="office/">
+
 🚀 Open Office Suite
+
 </a>
+
 
 </div>
 
 
 
-<!-- DEVOTIONAL RADIO -->
+<!-- =====================================================
+     DEVOTIONAL RADIO
+===================================================== -->
 
-<div class="app" data-category="music">
+<div
+class="app"
+data-category="music">
+
 
 <img
 class="app-icon"
@@ -1534,33 +2316,51 @@ src="devotional-radio.png"
 alt="Devotional Radio"
 loading="lazy">
 
+
 <h3>
+
 Devotional Radio
+
 </h3>
 
+
 <p>
+
 Listen to devotional radio
 and spiritual music.
+
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
+
 
 <a
 class="download apk-btn"
 href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
 
 
-<!-- OLD IS GOLD -->
+<!-- =====================================================
+     OLD IS GOLD
+===================================================== -->
 
-<div class="app" data-category="music">
+<div
+class="app"
+data-category="music">
+
 
 <img
 class="app-icon"
@@ -1568,34 +2368,52 @@ src="old_gold_logo.png"
 alt="80s 90s Old Is Gold"
 loading="lazy">
 
+
 <h3>
+
 80s & 90s Old Is Gold
+
 </h3>
 
+
 <p>
+
 Enjoy classic songs and
 timeless memories from
 the golden era.
+
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
+
 
 <a
 class="download apk-btn"
 href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
 
 
-<!-- MADHU MUSIC -->
+<!-- =====================================================
+     MADHU MUSIC WORLD
+===================================================== -->
 
-<div class="app" data-category="music">
+<div
+class="app"
+data-category="music">
+
 
 <img
 class="app-icon"
@@ -1603,34 +2421,52 @@ src="madhu-music-world.png"
 alt="Madhu Music World"
 loading="lazy">
 
+
 <h3>
+
 Madhu Music World
+
 </h3>
 
+
 <p>
+
 Enjoy music, radio and
 entertainment from Madhu
 Music World.
+
 </p>
 
+
 <span class="version">
+
 Android App • Music • Radio
+
 </span>
+
 
 <a
 class="download madhu-apk"
 href="Madhu_Music_World_com_asimtech_madhumusicworld_PlayStore.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
 
 
-<!-- SANGIT -->
+<!-- =====================================================
+     SANGIT
+===================================================== -->
 
-<div class="app" data-category="music">
+<div
+class="app"
+data-category="music">
+
 
 <img
 class="app-icon"
@@ -1638,33 +2474,51 @@ src="sangit.png"
 alt="Sangit"
 loading="lazy">
 
+
 <h3>
+
 Sangit
+
 </h3>
 
+
 <p>
+
 A music application created
 by Asim for music lovers.
+
 </p>
 
+
 <span class="version">
+
 Android App
+
 </span>
+
 
 <a
 class="download apk-btn"
 href="Sangit.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
 
 
-<!-- PHOTO RESIZER -->
+<!-- =====================================================
+     PHOTO RESIZER
+===================================================== -->
 
-<div class="app" data-category="photo">
+<div
+class="app"
+data-category="photo">
+
 
 <img
 class="app-icon"
@@ -1672,79 +2526,123 @@ src="photo-resizer-icon.png"
 alt="Asim Tech Photo Resizer"
 loading="lazy">
 
+
 <h3>
+
 Asim Tech Photo Resizer
+
 </h3>
 
+
 <p>
+
 Resize, crop, filter and compress
 photos. Create passport,
 stamp and custom-size photos.
+
 </p>
 
+
 <span class="version">
+
 Photo • Passport • Stamp • Crop • Filter
+
 </span>
+
 
 <a
 class="download photo-web"
 href="photo-resizer/">
+
 🌐 Open Photo Resizer
+
 </a>
+
 
 <a
 class="download photo-apk"
 href="photo-resizer.apk"
 download>
+
 ⬇ Download APK
+
 </a>
 
+
 </div>
 
 
 
-<!-- ID PHOTO -->
+<!-- =====================================================
+     ID PHOTO MAKER
+===================================================== -->
 
-<div class="app" data-category="photo utility">
+<div
+class="app"
+data-category="photo utility">
+
 
 <div class="id-icon">
+
 🪪
+
 </div>
 
+
 <h3>
+
 Asim Tech ID Photo Maker
+
 </h3>
 
+
 <p>
+
 Create passport, stamp and
 2×2 ID photos with smart crop,
 filters and printable sheets.
+
 </p>
 
+
 <span class="version">
+
 ID Photo • Passport • Stamp • 2×2 • 4×6
+
 </span>
+
 
 <a
 class="download id-web"
 href="id-photo-maker/">
+
 🌐 Open ID Photo Maker
+
 </a>
+
 
 <a
 class="download id-apk"
 href="id-photo-maker.apk"
 download>
+
 ⬇ Download APK
+
 </a>
+
 
 </div>
 
 
 
-<!-- SIGNATURE -->
+<!-- =====================================================
+     SIGNATURE MAKER
+===================================================== -->
 
-<div class="app" data-category="utility">
+<div
+class="app"
+data-category="utility">
+
 
 <img
 class="app-icon"
@@ -1752,37 +2650,54 @@ src="icon.png"
 alt="Asim Tech Signature Maker"
 loading="lazy">
 
+
 <h3>
+
 Asim Tech Signature Maker
+
 </h3>
 
+
 <p>
+
 Create digital signatures by
 drawing with your finger or
 uploading an existing signature.
+
 </p>
 
+
 <span class="version">
+
 Signature • Draw • Upload • PNG • JPG
+
 </span>
+
 
 <a
 class="download signature-web"
 href="signature-maker/">
+
 🌐 Open Signature Maker
+
 </a>
+
 
 <a
 class="download signature-apk"
 href="signature-maker.apk"
 download>
+
 ⬇ Download APK
+
 </a>
 
+
 </div>
 
 
 </div>
+
 
 
 <!-- NO RESULT -->
@@ -1795,7 +2710,10 @@ text-align:center;
 padding:40px;
 color:#8295aa;
 ">
-😔 No app found. Try another search.
+
+😔 No app found.
+Try another search.
+
 </p>
 
 
@@ -1807,77 +2725,125 @@ color:#8295aa;
      TOOLS
 ========================================================= -->
 
-<section id="tools" class="simple">
+<section
+id="tools"
+class="simple">
+
 
 <div class="section-label">
+
 MY PROJECTS
+
 </div>
 
+
 <h2>
+
 My Tools
+
 </h2>
 
-<p style="color:#9eacbf;">
-Useful tools and new projects created by Asim.
+
+<p
+style="color:#9eacbf;">
+
+Useful tools and new projects
+created by Asim.
+
 </p>
 
 
 <div class="tool-list">
 
+
 <div class="tool">
 
+
 <div class="tool-icon">
+
 📸
+
 </div>
 
+
 <h3>
+
 Photo Resizer
+
 </h3>
 
+
 <p>
+
 Resize, crop and prepare
 photos for different purposes.
+
 </p>
 
+
 </div>
+
 
 
 <div class="tool">
 
+
 <div class="tool-icon">
+
 🪪
+
 </div>
 
+
 <h3>
+
 ID Photo Maker
+
 </h3>
 
+
 <p>
+
 Create passport, stamp and
 2×2 ID photographs.
+
 </p>
 
+
 </div>
+
 
 
 <div class="tool">
 
+
 <div class="tool-icon">
+
 ✍️
+
 </div>
+
 
 <h3>
+
 Signature Maker
+
 </h3>
 
+
 <p>
+
 Create clean digital signatures
 for documents and applications.
+
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
@@ -1887,23 +2853,36 @@ for documents and applications.
      ABOUT
 ========================================================= -->
 
-<section id="about">
+<section
+id="about">
+
 
 <div class="about">
 
+
 <div class="avatar">
+
 A
+
 </div>
+
 
 <div>
 
+
 <div class="section-label">
+
 ABOUT ME
+
 </div>
 
+
 <h2>
+
 Hi, I'm Asim 👋
+
 </h2>
+
 
 <p>
 
@@ -1918,9 +2897,12 @@ apps, tools and creative projects.
 
 </p>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </section>
 
@@ -1930,35 +2912,47 @@ apps, tools and creative projects.
      CONTACT
 ========================================================= -->
 
-<section id="contact" class="contact">
+<section
+id="contact"
+class="contact">
+
 
 <div class="contact-box">
 
+
 <div class="section-label">
+
 GET IN TOUCH
+
 </div>
+
 
 <h2>
+
 Contact Asim
+
 </h2>
 
+
 <p>
+
 For suggestions, feedback or
 app related queries.
+
 </p>
 
-<!-- IMPORTANT:
-     Replace your-email@example.com
-     with your real email address.
--->
 
 <a
-href="mailto:your-email@example.com"
+href="mailto:asimkanjilal@gmail.com"
 class="btn primary">
+
 📧 Email Me
+
 </a>
 
+
 </div>
+
 
 </section>
 
@@ -1970,18 +2964,43 @@ class="btn primary">
 
 <footer>
 
+
 <b>
-<span>▲</span> ASIM <span>TECH</span>
+
+<span>▲</span>
+ASIM
+<span>TECH</span>
+
 </b>
 
 
 <div class="footer-links">
 
-<a href="#home">Home</a>
-<a href="#apps">Apps</a>
-<a href="#tools">Tools</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+
+<a href="#home">
+Home
+</a>
+
+
+<a href="#apps">
+Apps
+</a>
+
+
+<a href="#tools">
+Tools
+</a>
+
+
+<a href="#about">
+About
+</a>
+
+
+<a href="#contact">
+Contact
+</a>
+
 
 </div>
 
@@ -1989,21 +3008,28 @@ class="btn primary">
 © 2026 Asim Tech.
 All Rights Reserved.
 
+
 <br>
 
+
 Made with ❤️ by Asim
+
 
 </footer>
 
 
 
-<!-- BACK TO TOP -->
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
 
 <button
 class="top-btn"
 id="topBtn"
 onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
 ↑
+
 </button>
 
 
@@ -2013,8 +3039,6 @@ onclick="window.scrollTo({top:0,behavior:'smooth'})">
 ========================================================= -->
 
 <script>
-
-let currentFilter = "all";
 
 
 /* =========================================================
@@ -2031,22 +3055,26 @@ function toggleMenu(){
 }
 
 
-/* Close menu after clicking link */
+/* Close mobile menu */
 
 document
 .querySelectorAll("nav a")
 .forEach(function(link){
 
-    link.addEventListener("click",function(){
+    link.addEventListener(
+        "click",
+        function(){
 
-        document
-        .getElementById("nav")
-        .classList
-        .remove("open");
+            document
+            .getElementById("nav")
+            .classList
+            .remove("open");
 
-    });
+        }
+    );
 
 });
+
 
 
 /* =========================================================
@@ -2060,23 +3088,33 @@ function toggleTheme(){
     .classList
     .toggle("light");
 
+
     const button =
-        document.querySelector(".theme-btn");
+        document
+        .querySelector(".theme-btn");
+
 
     if(
-        document.body.classList.contains("light")
+        document
+        .body
+        .classList
+        .contains("light")
     ){
 
-        button.textContent = "☀️";
+        button.textContent="☀️";
+
 
         localStorage.setItem(
             "asimTheme",
             "light"
         );
 
-    }else{
+    }
 
-        button.textContent = "🌙";
+    else{
+
+        button.textContent="🌙";
+
 
         localStorage.setItem(
             "asimTheme",
@@ -2092,39 +3130,59 @@ function toggleTheme(){
 
 if(
     localStorage.getItem("asimTheme")
-    === "light"
+    ===
+    "light"
 ){
 
-    document.body.classList.add("light");
+    document
+    .body
+    .classList
+    .add("light");
+
 
     document
     .querySelector(".theme-btn")
-    .textContent = "☀️";
+    .textContent="☀️";
 
 }
+
 
 
 /* =========================================================
    FILTER
 ========================================================= */
 
-function setFilter(category,button){
+let currentFilter="all";
 
-    currentFilter = category;
+
+function setFilter(
+    category,
+    button
+){
+
+    currentFilter=category;
+
 
     document
     .querySelectorAll(".filter")
     .forEach(function(btn){
 
-        btn.classList.remove("active");
+        btn
+        .classList
+        .remove("active");
 
     });
 
-    button.classList.add("active");
+
+    button
+    .classList
+    .add("active");
+
 
     filterApps();
 
 }
+
 
 
 /* =========================================================
@@ -2140,29 +3198,40 @@ function filterApps(){
         .toLowerCase()
         .trim();
 
+
     const apps =
         document
         .querySelectorAll(".app");
 
-    let visible = 0;
+
+    let visible=0;
+
 
     apps.forEach(function(app){
 
         const text =
-            app.innerText.toLowerCase();
+            app.innerText
+            .toLowerCase();
+
 
         const category =
             app.dataset.category || "";
 
+
         const searchMatch =
             text.includes(search);
 
+
         const categoryMatch =
-            currentFilter === "all"
+
+            currentFilter==="all"
+
             ||
+
             category
             .split(" ")
             .includes(currentFilter);
+
 
         if(
             searchMatch
@@ -2170,13 +3239,20 @@ function filterApps(){
             categoryMatch
         ){
 
-            app.classList.remove("hidden");
+            app
+            .classList
+            .remove("hidden");
+
 
             visible++;
 
-        }else{
+        }
 
-            app.classList.add("hidden");
+        else{
+
+            app
+            .classList
+            .add("hidden");
 
         }
 
@@ -2186,77 +3262,124 @@ function filterApps(){
     document
     .getElementById("noResult")
     .style.display =
-        visible === 0
+
+        visible===0
         ? "block"
         : "none";
 
 }
 
 
+
 /* =========================================================
    BACK TO TOP
 ========================================================= */
 
-window.addEventListener("scroll",function(){
+window.addEventListener(
+    "scroll",
+    function(){
 
-    const btn =
-        document.getElementById("topBtn");
+        const button =
+            document
+            .getElementById("topBtn");
 
-    if(window.scrollY > 500){
 
-        btn.classList.add("show");
+        if(
+            window.scrollY > 500
+        ){
 
-    }else{
+            button
+            .classList
+            .add("show");
 
-        btn.classList.remove("show");
+        }
+
+        else{
+
+            button
+            .classList
+            .remove("show");
+
+        }
 
     }
+);
 
-});
 
 
 /* =========================================================
-   SIMPLE CARD ANIMATION
+   CARD ANIMATION
 ========================================================= */
 
 const observer =
+
 new IntersectionObserver(
+
     function(entries){
 
-        entries.forEach(function(entry){
+        entries
+        .forEach(function(entry){
 
-            if(entry.isIntersecting){
+            if(
+                entry.isIntersecting
+            ){
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform =
-                    "translateY(0)";
+                entry
+                .target
+                .style
+                .opacity="1";
+
+
+                entry
+                .target
+                .style
+                .transform=
+                "translateY(0)";
 
             }
 
         });
 
     },
+
     {
         threshold:.08
     }
+
 );
 
 
 document
-.querySelectorAll(".app,.tool,.stat")
+.querySelectorAll(
+    ".app,.tool,.stat"
+)
 .forEach(function(element){
 
-    element.style.opacity = "0";
-    element.style.transform = "translateY(18px)";
-    element.style.transition =
-        "opacity .6s ease, transform .6s ease";
+    element
+    .style
+    .opacity="0";
+
+
+    element
+    .style
+    .transform=
+    "translateY(18px)";
+
+
+    element
+    .style
+    .transition=
+    "opacity .6s ease, transform .6s ease";
+
 
     observer.observe(element);
 
 });
 
+
 </script>
 
 
 </body>
+
 </html>
