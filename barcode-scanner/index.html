@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <meta name="theme-color" content="#030914">
 
 <title>Asim Barcode & QR Scanner</title>
 
-<!-- QR Generator -->
+<!-- QR GENERATOR -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<!-- Barcode Generator -->
+<!-- BARCODE GENERATOR -->
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 
-<!-- QR / Barcode Scanner -->
-<script src="https://unpkg.com/@zxing/browser@0.1.5/umd/index.min.js"></script>
+<!-- QR/BARCODE SCANNER -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+
 
 <style>
 
@@ -31,9 +36,8 @@ html{
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#030914;
-    color:#fff;
-    line-height:1.6;
-    overflow-x:hidden;
+    color:white;
+    line-height:1.5;
 }
 
 header{
@@ -42,12 +46,11 @@ header{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    background:rgba(3,9,20,.97);
+    border-bottom:1px solid #17283d;
     position:sticky;
     top:0;
-    z-index:9999;
-    background:rgba(3,9,20,.96);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid #17283d;
+    z-index:1000;
 }
 
 .logo{
@@ -55,17 +58,16 @@ header{
     font-weight:900;
 }
 
-.logo .blue{
+.logo span{
     color:#1685ff;
 }
 
 .back{
-    color:#d9e4ef;
+    color:#dce5f0;
     text-decoration:none;
-    border:1px solid #21405e;
-    padding:9px 16px;
-    border-radius:9px;
-    font-size:13px;
+    border:1px solid #193653;
+    padding:10px 16px;
+    border-radius:10px;
     font-weight:bold;
 }
 
@@ -76,14 +78,11 @@ header{
 
 .hero{
     text-align:center;
-    padding:45px 6% 30px;
-    background:
-    radial-gradient(circle at 50% 0%,#0875ff25,transparent 40%);
+    padding:38px 20px 25px;
 }
 
 .hero h1{
-    font-size:40px;
-    margin-bottom:8px;
+    font-size:32px;
 }
 
 .hero h1 span{
@@ -91,102 +90,75 @@ header{
 }
 
 .hero p{
-    color:#9eafc2;
-    font-size:16px;
+    color:#91a4b9;
+    margin-top:8px;
 }
 
 .container{
-    width:min(900px,92%);
+    max-width:900px;
     margin:auto;
-    padding-bottom:70px;
+    padding:0 15px 60px;
 }
 
 .card{
-    background:
-    linear-gradient(145deg,#081b2b,#061421);
-    border:1px solid #19364f;
+    background:linear-gradient(145deg,#071c2b,#04121e);
+    border:1px solid #173650;
     border-radius:20px;
-    padding:22px;
-    margin:22px 0;
-    box-shadow:0 15px 40px #0004;
-    animation:cardIn .6s ease both;
-}
-
-@keyframes cardIn{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    padding:18px;
+    margin-bottom:22px;
+    box-shadow:0 12px 35px #0005;
 }
 
 .card h2{
-    font-size:22px;
-    margin-bottom:18px;
+    font-size:19px;
+    margin-bottom:15px;
 }
 
-.label{
+label{
     display:block;
-    color:#9eafc2;
-    margin-bottom:8px;
-    font-size:14px;
+    color:#9aacc0;
+    font-size:13px;
+    margin-bottom:7px;
 }
 
 textarea,
 input,
 select{
     width:100%;
-    background:#071522;
-    color:#fff;
-    border:1px solid #29445e;
-    border-radius:11px;
     padding:14px;
-    font-size:16px;
+    border-radius:10px;
+    border:1px solid #193c59;
+    background:#061522;
+    color:white;
     outline:none;
+    font-size:15px;
 }
 
 textarea{
-    min-height:110px;
+    min-height:100px;
     resize:vertical;
 }
 
-textarea:focus,
 input:focus,
+textarea:focus,
 select:focus{
     border-color:#1685ff;
-    box-shadow:0 0 15px #1685ff18;
-}
-
-.row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
 }
 
 button,
-.btn{
-    border:0;
-    cursor:pointer;
-    display:block;
+.download{
     width:100%;
+    border:0;
     padding:14px;
-    margin-top:14px;
     border-radius:10px;
-    color:#fff;
-    font-size:15px;
+    margin-top:12px;
+    color:white;
     font-weight:bold;
+    font-size:15px;
     text-align:center;
     text-decoration:none;
-    transition:.25s;
-}
-
-button:hover,
-.btn:hover{
-    transform:translateY(-3px);
-    filter:brightness(1.1);
+    display:block;
+    cursor:pointer;
 }
 
 .blue{
@@ -209,191 +181,94 @@ button:hover,
     background:linear-gradient(135deg,#7c3aed,#ec4899);
 }
 
-.cyan{
-    background:linear-gradient(135deg,#06b6d4,#4f46e5);
+button:hover,
+.download:hover{
+    filter:brightness(1.1);
+    transform:translateY(-2px);
 }
 
-/* ===============================
-   CAMERA
-================================ */
+#qrResult{
+    min-height:220px;
+    background:white;
+    border-radius:14px;
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+#qrResult img{
+    max-width:100%;
+}
+
+#barcodeResult{
+    min-height:220px;
+    background:white;
+    border-radius:14px;
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    overflow:auto;
+}
+
+#barcodeResult svg{
+    max-width:100%;
+    height:auto;
+}
 
 .camera-box{
-    width:100%;
-    max-width:650px;
-    margin:15px auto;
     background:#000;
-    border:2px solid #21435f;
-    border-radius:17px;
+    border:1px solid #34516b;
+    border-radius:15px;
     overflow:hidden;
-    position:relative;
+    min-height:260px;
 }
 
-#video{
-    display:block;
+#reader{
     width:100%;
-    min-height:280px;
-    max-height:480px;
-    object-fit:cover;
-    background:#000;
-}
-
-.camera-line{
-    position:absolute;
-    left:8%;
-    right:8%;
-    top:50%;
-    height:2px;
-    background:#1685ff;
-    box-shadow:0 0 15px #1685ff;
-    animation:scanLine 2s linear infinite;
-}
-
-@keyframes scanLine{
-    0%{
-        transform:translateY(-100px);
-    }
-    50%{
-        transform:translateY(100px);
-    }
-    100%{
-        transform:translateY(-100px);
-    }
-}
-
-.camera-corners{
-    position:absolute;
-    inset:25px;
-    border:2px solid #ffffff55;
-    border-radius:12px;
-    pointer-events:none;
 }
 
 .status{
-    padding:13px;
+    margin-top:12px;
+    padding:14px;
+    border:1px solid #173650;
+    background:#061522;
     border-radius:10px;
-    margin-top:14px;
-    background:#071522;
-    border:1px solid #1b344c;
-    color:#9fb0c4;
+    color:#9eb0c3;
     text-align:center;
 }
 
 .success{
-    color:#38e28b;
+    color:#25d366;
 }
 
 .error{
-    color:#ff7272;
+    color:#ff5b5b;
 }
 
-/* ===============================
-   RESULT
-================================ */
-
-.result{
-    display:none;
-    margin-top:18px;
-    padding:18px;
-    background:#061421;
-    border:1px solid #1e405c;
-    border-radius:13px;
-}
-
-.result-title{
-    color:#1685ff;
-    font-weight:bold;
-    margin-bottom:8px;
-}
-
-.result-text{
-    word-break:break-word;
-    color:#dce7f2;
-}
-
-/* ===============================
-   QR
-================================ */
-
-.qr-area{
-    background:white;
-    min-height:260px;
-    border-radius:15px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    margin-top:18px;
-}
-
-#qrcode img{
-    margin:auto;
-}
-
-#barcodeCanvas{
-    width:100%;
-    max-width:600px;
-    background:white;
-    border-radius:12px;
-    padding:20px;
-    margin:20px auto;
-    display:block;
-}
-
-/* ===============================
-   HISTORY
-================================ */
-
-.history-item{
-    background:#071522;
-    border:1px solid #18354d;
-    padding:13px;
-    border-radius:10px;
-    margin-top:10px;
-}
-
-.history-time{
-    color:#71849a;
-    font-size:11px;
-}
-
-.history-value{
-    color:#dce7f2;
-    word-break:break-word;
-    margin-top:4px;
-}
-
-.empty{
-    color:#71849a;
-    text-align:center;
+.result-box{
+    margin-top:12px;
     padding:15px;
+    background:#071b2b;
+    border:1px solid #1c4260;
+    border-radius:10px;
+    word-break:break-word;
+    display:none;
 }
 
-.private{
-    text-align:center;
-    padding:28px;
+.small{
+    color:#71859a;
+    font-size:12px;
+    margin-top:8px;
 }
-
-.private-icon{
-    font-size:48px;
-    margin-bottom:8px;
-}
-
-.private h2{
-    margin-bottom:5px;
-}
-
-.private p{
-    color:#8fa1b5;
-}
-
-/* ===============================
-   FOOTER
-================================ */
 
 footer{
     text-align:center;
-    border-top:1px solid #17283d;
     padding:30px;
+    border-top:1px solid #17283d;
     color:#718096;
 }
 
@@ -401,60 +276,46 @@ footer span{
     color:#1685ff;
 }
 
-/* ===============================
-   MOBILE
-================================ */
-
 @media(max-width:600px){
 
+    .hero h1{
+        font-size:27px;
+    }
+
+    .card{
+        padding:15px;
+    }
+
     header{
-        height:64px;
-        padding:0 5%;
+        padding:0 4%;
     }
 
     .logo{
         font-size:20px;
     }
 
-    .hero{
-        padding:35px 6% 20px;
-    }
-
-    .hero h1{
-        font-size:31px;
-    }
-
-    .container{
-        width:94%;
-    }
-
-    .card{
-        padding:17px;
-        border-radius:17px;
-    }
-
-    .row{
-        grid-template-columns:1fr;
-    }
-
-    #video{
-        min-height:250px;
+    .back{
+        font-size:12px;
+        padding:8px 12px;
     }
 
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
 <div class="logo">
-<span class="blue">▲</span> ASIM <span class="blue">TECH</span>
+▲ ASIM <span>TECH</span>
 </div>
 
-<a class="back" href="../">
+<a href="../" class="back">
 ← Asim Tech
 </a>
 
@@ -477,104 +338,85 @@ Scan • Create • Save • Download
 <div class="container">
 
 
-<!-- =========================================
-     CAMERA SCANNER
-========================================= -->
+<!-- CAMERA SCANNER -->
 
 <div class="card">
 
-<h2>📷 Camera Scanner</h2>
+<h2>
+📷 Camera Scanner
+</h2>
 
 <div class="camera-box">
 
-<video id="video" playsinline></video>
-
-<div class="camera-corners"></div>
-
-<div class="camera-line"></div>
+<div id="reader"></div>
 
 </div>
 
-<div id="scanStatus" class="status">
-Camera is not started.
+<div id="cameraStatus" class="status">
+Camera is stopped.
 </div>
 
-<div class="row">
-
-<button class="blue" onclick="startScanner()">
+<button
+class="blue"
+onclick="startCamera()">
 📷 Start Camera
 </button>
 
-<button class="red" onclick="stopScanner()">
+<button
+class="red"
+onclick="stopCamera()">
 ⛔ Stop Camera
 </button>
 
-</div>
-
-<div id="scanResult" class="result">
-
-<div class="result-title">
-✅ Scan Result
-</div>
-
-<div id="scanText" class="result-text"></div>
-
-<button class="green" onclick="copyResult()">
-📋 Copy Result
-</button>
-
-</div>
+<div id="scanResult" class="result-box"></div>
 
 </div>
 
 
-<!-- =========================================
-     QR GENERATOR
-========================================= -->
+<!-- QR GENERATOR -->
 
 <div class="card">
 
-<h2>🔳 QR Code Generator</h2>
+<h2>
+▣ QR Code Generator
+</h2>
 
-<label class="label">
+<label>
 Enter text or URL
 </label>
 
 <textarea
 id="qrText"
-placeholder="Enter text, website URL, phone number, Wi-Fi information etc."
-></textarea>
+placeholder="Enter text, website URL, phone number, Wi-Fi information etc."></textarea>
 
 <button
 class="blue"
 onclick="generateQR()">
-🔳 Generate QR
+▣ Generate QR
 </button>
 
-<div class="qr-area">
+<div id="qrResult"></div>
 
-<div id="qrcode"></div>
+<a
+href="#"
+id="downloadQR"
+class="download green"
+onclick="downloadQRImage(event)">
+↓ Download PNG
+</a>
 
 </div>
 
-<button
-class="green"
-onclick="downloadQR()">
-⬇ Download PNG
-</button>
 
-</div>
-
-
-<!-- =========================================
-     BARCODE GENERATOR
-========================================= -->
+<!-- BARCODE GENERATOR -->
 
 <div class="card">
 
-<h2>🏷️ Barcode Generator</h2>
+<h2>
+🏷️ Barcode Generator
+</h2>
 
-<label class="label">
+<label>
 Barcode Format
 </label>
 
@@ -582,10 +424,6 @@ Barcode Format
 
 <option value="CODE128">
 CODE 128
-</option>
-
-<option value="CODE39">
-CODE 39
 </option>
 
 <option value="EAN13">
@@ -596,24 +434,26 @@ EAN-13
 EAN-8
 </option>
 
-<option value="ITF14">
-ITF-14
+<option value="UPC">
+UPC
+</option>
+
+<option value="CODE39">
+CODE 39
 </option>
 
 </select>
 
-<br>
 
-<label class="label">
+<label style="margin-top:14px;">
 Barcode Text
 </label>
 
 <input
 id="barcodeText"
-type="text"
-placeholder="Enter barcode number"
 value="9547222144"
->
+placeholder="Enter barcode number">
+
 
 <button
 class="blue"
@@ -621,54 +461,30 @@ onclick="generateBarcode()">
 🏷️ Generate Barcode
 </button>
 
-<div
-style="
-background:white;
-border-radius:15px;
-padding:20px;
-margin-top:18px;
-overflow:hidden;
-">
+
+<div id="barcodeResult">
 
 <svg id="barcode"></svg>
 
 </div>
 
-<button
-class="green"
-onclick="downloadBarcode()">
-⬇ Download Barcode PNG
-</button>
+
+<a
+href="#"
+id="downloadBarcode"
+class="download green"
+onclick="downloadBarcodeImage(event)">
+↓ Download PNG
+</a>
 
 </div>
 
 
-<!-- =========================================
-     HISTORY
-========================================= -->
+<!-- PRIVACY -->
 
-<div class="card">
+<div class="card" style="text-align:center;">
 
-<h2>📜 Scan History</h2>
-
-<div id="history"></div>
-
-<button
-class="red"
-onclick="clearHistory()">
-🗑 Clear History
-</button>
-
-</div>
-
-
-<!-- =========================================
-     PRIVATE
-========================================= -->
-
-<div class="card private">
-
-<div class="private-icon">
+<div style="font-size:48px;">
 🔒
 </div>
 
@@ -676,12 +492,12 @@ onclick="clearHistory()">
 Private
 </h2>
 
-<p>
+<p style="color:#8fa3b8;">
 Your scanned data stays on your device.
-Nothing is uploaded to a server.
 </p>
 
 </div>
+
 
 </div>
 
@@ -701,256 +517,180 @@ Nothing is uploaded to a server.
 
 <script>
 
-/* =================================================
-   GLOBAL VARIABLES
-================================================= */
-
-let codeReader = null;
-let currentControls = null;
-let lastResult = "";
-
-
-/* =================================================
+/* =====================================================
    CAMERA SCANNER
-================================================= */
+===================================================== */
 
-async function startScanner(){
+let html5QrCode = null;
+let cameraRunning = false;
 
-    const video = document.getElementById("video");
-    const status = document.getElementById("scanStatus");
+
+async function startCamera(){
+
+    const status =
+        document.getElementById("cameraStatus");
+
+    const result =
+        document.getElementById("scanResult");
+
+
+    result.style.display = "none";
+
 
     try{
 
-        status.className = "status";
-        status.innerHTML = "📷 Requesting camera permission...";
+        if(cameraRunning){
+            return;
+        }
 
-        if(!window.ZXing){
+
+        if(!navigator.mediaDevices ||
+           !navigator.mediaDevices.getUserMedia){
 
             throw new Error(
-                "Scanner library could not be loaded."
+                "Camera API is not supported."
             );
 
         }
 
-        codeReader =
-            new ZXingBrowser.BrowserMultiFormatReader();
 
-        const devices =
-            await ZXingBrowser.BrowserCodeReader
-            .listVideoInputDevices();
+        /* Ask browser/WebView for camera */
 
-        if(!devices || devices.length === 0){
+        await navigator.mediaDevices.getUserMedia({
+            video:true
+        });
 
-            throw new Error(
-                "No camera found on this device."
-            );
 
-        }
+        html5QrCode =
+            new Html5Qrcode("reader");
 
-        /*
-         * Prefer the back camera
-         */
 
-        let selectedDeviceId =
-            devices[devices.length - 1].deviceId;
+        const config = {
 
-        for(const device of devices){
+            fps:10,
 
-            const name =
-                (device.label || "").toLowerCase();
+            qrbox:{
+                width:250,
+                height:180
+            }
 
-            if(
-                name.includes("back") ||
-                name.includes("rear") ||
-                name.includes("environment")
-            ){
+        };
 
-                selectedDeviceId =
-                    device.deviceId;
 
-                break;
+        await html5QrCode.start(
+
+            {
+                facingMode:"environment"
+            },
+
+            config,
+
+            function(decodedText){
+
+                result.style.display =
+                    "block";
+
+                result.innerHTML =
+                    "<b>✅ Scanned Result</b><br><br>"
+                    +
+                    escapeHTML(decodedText);
+
+                status.innerHTML =
+                    "✅ Code scanned successfully.";
+
+                status.className =
+                    "status success";
+
+            },
+
+            function(errorMessage){
+
+                /* Normal scanning errors ignored */
 
             }
 
-        }
+        );
+
+
+        cameraRunning = true;
 
         status.innerHTML =
-            "📷 Camera started. Point camera at QR or barcode.";
-
-        currentControls =
-            await codeReader.decodeFromVideoDevice(
-                selectedDeviceId,
-                video,
-                (result,error,controls)=>{
-
-                    if(result){
-
-                        const text =
-                            result.getText();
-
-                        handleScan(text);
-
-                        stopScanner();
-
-                    }
-
-                }
-            );
-
-    }
-    catch(error){
-
-        console.error(error);
+            "🟢 Camera is running. Point camera at QR or barcode.";
 
         status.className =
-            "status error";
+            "status success";
+
+
+    }catch(error){
+
+        console.error(error);
 
         status.innerHTML =
             "❌ Camera could not be opened.<br><br>" +
             "Please allow Camera permission and try again.";
 
+        status.className =
+            "status error";
+
     }
 
 }
 
 
-/* =================================================
-   STOP CAMERA
-================================================= */
+/* STOP CAMERA */
 
-function stopScanner(){
+async function stopCamera(){
+
+    const status =
+        document.getElementById("cameraStatus");
 
     try{
 
-        if(currentControls){
+        if(
+            html5QrCode &&
+            cameraRunning
+        ){
 
-            currentControls.stop();
+            await html5QrCode.stop();
 
-            currentControls = null;
-
-        }
-
-        if(codeReader){
-
-            try{
-                codeReader.reset();
-            }
-            catch(e){}
+            html5QrCode.clear();
 
         }
 
-        const video =
-            document.getElementById("video");
-
-        if(video.srcObject){
-
-            video.srcObject
-            .getTracks()
-            .forEach(track=>track.stop());
-
-            video.srcObject = null;
-
-        }
-
-        document.getElementById("scanStatus")
-        .innerHTML =
-        "Camera stopped.";
-
-    }
-    catch(error){
+    }catch(error){
 
         console.log(error);
 
     }
 
-}
+    cameraRunning = false;
 
+    status.innerHTML =
+        "Camera is stopped.";
 
-/* =================================================
-   HANDLE SCAN
-================================================= */
-
-function handleScan(text){
-
-    lastResult = text;
-
-    const resultBox =
-        document.getElementById("scanResult");
-
-    const scanText =
-        document.getElementById("scanText");
-
-    scanText.textContent = text;
-
-    resultBox.style.display = "block";
-
-    document.getElementById("scanStatus")
-    .className = "status success";
-
-    document.getElementById("scanStatus")
-    .innerHTML =
-        "✅ Code scanned successfully.";
-
-    saveHistory(text);
+    status.className =
+        "status";
 
 }
 
 
-/* =================================================
-   COPY RESULT
-================================================= */
-
-async function copyResult(){
-
-    if(!lastResult){
-        return;
-    }
-
-    try{
-
-        await navigator.clipboard.writeText(
-            lastResult
-        );
-
-        alert("Result copied.");
-
-    }
-    catch(error){
-
-        const temp =
-            document.createElement("textarea");
-
-        temp.value = lastResult;
-
-        document.body.appendChild(temp);
-
-        temp.select();
-
-        document.execCommand("copy");
-
-        temp.remove();
-
-        alert("Result copied.");
-
-    }
-
-}
-
-
-/* =================================================
+/* =====================================================
    QR GENERATOR
-================================================= */
+===================================================== */
+
+let qrCanvas = null;
+
 
 function generateQR(){
 
     const text =
         document.getElementById("qrText")
-        .value.trim();
+        .value
+        .trim();
 
     const box =
-        document.getElementById("qrcode");
+        document.getElementById("qrResult");
 
-    box.innerHTML = "";
 
     if(!text){
 
@@ -962,131 +702,184 @@ function generateQR(){
 
     }
 
-    new QRCode(box,{
 
-        text:text,
+    box.innerHTML = "";
 
-        width:230,
 
-        height:230,
+    new QRCode(
 
-        colorDark:"#000000",
+        box,
 
-        colorLight:"#ffffff",
+        {
 
-        correctLevel:
-            QRCode.CorrectLevel.H
+            text:text,
 
-    });
+            width:220,
+
+            height:220,
+
+            colorDark:"#000000",
+
+            colorLight:"#ffffff",
+
+            correctLevel:
+                QRCode.CorrectLevel.H
+
+        }
+
+    );
+
+
+    setTimeout(function(){
+
+        const img =
+            box.querySelector("img");
+
+        const canvas =
+            box.querySelector("canvas");
+
+
+        if(canvas){
+
+            qrCanvas = canvas;
+
+        }else if(img){
+
+            qrCanvas = img;
+
+        }
+
+    },500);
 
 }
 
 
-/* =================================================
-   DOWNLOAD QR PNG
-================================================= */
+/* =====================================================
+   QR DOWNLOAD
+===================================================== */
 
-function downloadQR(){
+async function downloadQRImage(event){
+
+    event.preventDefault();
+
 
     const box =
-        document.getElementById("qrcode");
+        document.getElementById("qrResult");
+
+
+    const canvas =
+        box.querySelector("canvas");
+
 
     const img =
         box.querySelector("img");
 
-    if(!img){
 
-        alert(
-            "Please generate a QR code first."
+    if(canvas){
+
+        downloadCanvas(
+            canvas,
+            "asim-tech-qr.png"
         );
 
         return;
 
     }
 
-    /*
-     * QRCode library normally creates an image.
-     */
 
-    const canvas =
-        document.createElement("canvas");
+    if(img){
 
-    canvas.width = 270;
+        try{
 
-    canvas.height = 270;
+            const image =
+                new Image();
 
-    const ctx =
-        canvas.getContext("2d");
+            image.crossOrigin =
+                "anonymous";
 
-    ctx.fillStyle = "#ffffff";
+            image.onload =
+                function(){
 
-    ctx.fillRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
+                    const canvas =
+                        document.createElement(
+                            "canvas"
+                        );
+
+                    canvas.width =
+                        image.width;
+
+                    canvas.height =
+                        image.height;
+
+                    const ctx =
+                        canvas.getContext("2d");
+
+                    ctx.drawImage(
+                        image,
+                        0,
+                        0
+                    );
+
+                    downloadCanvas(
+                        canvas,
+                        "asim-tech-qr.png"
+                    );
+
+                };
+
+            image.src =
+                img.src;
+
+        }catch(error){
+
+            alert(
+                "Please generate QR again."
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    alert(
+        "Please generate a QR code first."
     );
-
-    const qrImage =
-        new Image();
-
-    qrImage.crossOrigin = "anonymous";
-
-    qrImage.onload = function(){
-
-        ctx.drawImage(
-            qrImage,
-            20,
-            20,
-            230,
-            230
-        );
-
-        const link =
-            document.createElement("a");
-
-        link.download =
-            "asim-tech-qr.png";
-
-        link.href =
-            canvas.toDataURL("image/png");
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        link.remove();
-
-    };
-
-    qrImage.src = img.src;
 
 }
 
 
-/* =================================================
-   BARCODE GENERATOR
-================================================= */
+/* =====================================================
+   BARCODE
+===================================================== */
 
 function generateBarcode(){
 
     const text =
-        document.getElementById("barcodeText")
-        .value.trim();
+        document.getElementById(
+            "barcodeText"
+        )
+        .value
+        .trim();
 
     const format =
-        document.getElementById("barcodeFormat")
+        document.getElementById(
+            "barcodeFormat"
+        )
         .value;
+
 
     if(!text){
 
         alert(
-            "Please enter barcode text."
+            "Please enter barcode text first."
         );
 
         return;
 
     }
+
 
     try{
 
@@ -1101,24 +894,22 @@ function generateBarcode(){
 
                 background:"#ffffff",
 
-                width:3,
+                width:2,
 
                 height:100,
 
                 displayValue:true,
-
-                fontSize:18,
 
                 margin:15
 
             }
         );
 
-    }
-    catch(error){
+
+    }catch(error){
 
         alert(
-            "Invalid value for selected barcode format."
+            "Invalid data for selected barcode format."
         );
 
     }
@@ -1126,18 +917,24 @@ function generateBarcode(){
 }
 
 
-/* =================================================
-   DOWNLOAD BARCODE PNG
-================================================= */
+/* =====================================================
+   BARCODE DOWNLOAD
+===================================================== */
 
-function downloadBarcode(){
+function downloadBarcodeImage(event){
+
+    event.preventDefault();
+
 
     const svg =
-        document.getElementById("barcode");
+        document.getElementById(
+            "barcode"
+        );
+
 
     if(
         !svg ||
-        !svg.getAttribute("width")
+        !svg.innerHTML
     ){
 
         alert(
@@ -1148,220 +945,175 @@ function downloadBarcode(){
 
     }
 
+
     const serializer =
         new XMLSerializer();
 
+
     const source =
-        serializer.serializeToString(svg);
+        serializer.serializeToString(
+            svg
+        );
+
 
     const svgBlob =
         new Blob(
             [source],
             {
-                type:"image/svg+xml;charset=utf-8"
+                type:
+                "image/svg+xml;charset=utf-8"
             }
         );
 
-    const url =
-        URL.createObjectURL(svgBlob);
 
-    const img =
+    const url =
+        URL.createObjectURL(
+            svgBlob
+        );
+
+
+    const image =
         new Image();
 
-    img.onload = function(){
 
-        const canvas =
-            document.createElement("canvas");
+    image.onload =
+        function(){
 
-        canvas.width =
-            img.width + 40;
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
 
-        canvas.height =
-            img.height + 40;
 
-        const ctx =
-            canvas.getContext("2d");
+            canvas.width =
+                image.width || 500;
 
-        ctx.fillStyle = "#ffffff";
+            canvas.height =
+                image.height || 180;
 
-        ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
 
-        ctx.drawImage(
-            img,
-            20,
-            20
-        );
+            const ctx =
+                canvas.getContext("2d");
 
-        URL.revokeObjectURL(url);
 
-        const link =
-            document.createElement("a");
+            ctx.fillStyle =
+                "#ffffff";
 
-        link.download =
-            "asim-tech-barcode.png";
 
-        link.href =
-            canvas.toDataURL("image/png");
+            ctx.fillRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
 
-        document.body.appendChild(link);
 
-        link.click();
+            ctx.drawImage(
+                image,
+                0,
+                0
+            );
 
-        link.remove();
 
-    };
+            URL.revokeObjectURL(
+                url
+            );
 
-    img.src = url;
+
+            downloadCanvas(
+                canvas,
+                "asim-tech-barcode.png"
+            );
+
+        };
+
+
+    image.src = url;
 
 }
 
 
-/* =================================================
-   HISTORY
-================================================= */
+/* =====================================================
+   GENERIC DOWNLOAD
+===================================================== */
 
-function saveHistory(text){
+function downloadCanvas(
+    canvas,
+    filename
+){
 
-    let history =
-        JSON.parse(
-            localStorage.getItem(
-                "asimScanHistory"
-            ) || "[]"
-        );
+    canvas.toBlob(
+        function(blob){
 
-    history.unshift({
+            const url =
+                URL.createObjectURL(
+                    blob
+                );
 
-        text:text,
 
-        time:
-            new Date().toLocaleString()
+            const a =
+                document.createElement(
+                    "a"
+                );
 
-    });
 
-    /*
-     * Keep latest 30 scans
-     */
+            a.href = url;
 
-    history =
-        history.slice(0,30);
+            a.download =
+                filename;
 
-    localStorage.setItem(
-        "asimScanHistory",
-        JSON.stringify(history)
+            document.body.appendChild(a);
+
+            a.click();
+
+            document.body.removeChild(a);
+
+            setTimeout(
+                function(){
+
+                    URL.revokeObjectURL(
+                        url
+                    );
+
+                },
+                1000
+            );
+
+        },
+        "image/png"
     );
 
-    showHistory();
-
 }
 
 
-function showHistory(){
+/* =====================================================
+   SECURITY
+===================================================== */
 
-    const box =
-        document.getElementById("history");
+function escapeHTML(text){
 
-    const history =
-        JSON.parse(
-            localStorage.getItem(
-                "asimScanHistory"
-            ) || "[]"
+    const div =
+        document.createElement(
+            "div"
         );
 
-    if(history.length === 0){
+    div.textContent =
+        text;
 
-        box.innerHTML =
-            '<div class="empty">No scan history yet.</div>';
-
-        return;
-
-    }
-
-    box.innerHTML = "";
-
-    history.forEach(item=>{
-
-        const div =
-            document.createElement("div");
-
-        div.className =
-            "history-item";
-
-        div.innerHTML =
-
-            '<div class="history-time">' +
-            escapeHTML(item.time) +
-            '</div>' +
-
-            '<div class="history-value">' +
-            escapeHTML(item.text) +
-            '</div>';
-
-        box.appendChild(div);
-
-    });
+    return div.innerHTML;
 
 }
 
 
-/* =================================================
-   CLEAR HISTORY
-================================================= */
-
-function clearHistory(){
-
-    if(
-        confirm(
-            "Clear all scan history?"
-        )
-    ){
-
-        localStorage.removeItem(
-            "asimScanHistory"
-        );
-
-        showHistory();
-
-    }
-
-}
-
-
-/* =================================================
-   SECURITY ESCAPE
-================================================= */
-
-function escapeHTML(value){
-
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =================================================
-   AUTO LOAD
-================================================= */
+/* =====================================================
+   PAGE LOAD
+===================================================== */
 
 window.addEventListener(
-    "load",
+    "beforeunload",
     function(){
 
-        showHistory();
-
-        /*
-         * Generate sample barcode
-         */
-
-        generateBarcode();
+        stopCamera();
 
     }
 );
