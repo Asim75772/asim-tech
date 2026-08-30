@@ -1,1403 +1,958 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6200ee">
 
-<meta name="theme-color" content="#030914">
-<meta name="description"
-content="Asim Tech - Apps, Tools, PDF, Barcode & QR Scanner, Photo Resizer and more.">
+<title>Asim Barcode & QR Scanner</title>
 
-<title>Asim Tech | Apps • Tools • Innovation</title>
+<!-- QR Scanner -->
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+<!-- QR Generator -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- Barcode Generator -->
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
 
 <style>
-
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
+    margin:0;
     font-family:Arial,Helvetica,sans-serif;
-    background:#030914;
-    color:#fff;
-    line-height:1.6;
-    overflow-x:hidden;
+    background:#020b18;
+    color:white;
 }
-
-/* HEADER */
 
 header{
-    height:70px;
-    padding:0 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
     position:sticky;
     top:0;
-    z-index:9999;
-    background:rgba(3,9,20,.96);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid #17283d;
+    z-index:1000;
+    background:#020914;
+    border-bottom:1px solid #12304a;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-    font-size:25px;
-    font-weight:900;
-    white-space:nowrap;
-}
-
-.logo .mark,
-.logo span{
-    color:#1685ff;
-}
-
-nav{
-    display:flex;
-    gap:24px;
-}
-
-nav a{
-    color:#d5dfeb;
-    text-decoration:none;
-    font-size:13px;
+    font-size:22px;
     font-weight:bold;
-    transition:.25s;
 }
 
-nav a:hover{
-    color:#1685ff;
+.logo span{
+    color:#008cff;
 }
 
-/* HERO */
+.home-btn{
+    text-decoration:none;
+    color:white;
+    border:1px solid #24425d;
+    border-radius:12px;
+    padding:10px 18px;
+}
+
+.container{
+    width:94%;
+    max-width:850px;
+    margin:auto;
+    padding:35px 0 70px;
+}
 
 .hero{
-    min-height:calc(100vh - 70px);
-    padding:75px 8%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    background:
-    radial-gradient(
-        circle at 80% 50%,
-        #0759a855,
-        transparent 35%
-    ),
-    radial-gradient(
-        circle at 20% 20%,
-        #1685ff18,
-        transparent 30%
-    );
-}
-
-.hero-text{
-    max-width:650px;
-    animation:heroIn .8s ease both;
-}
-
-@keyframes heroIn{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.welcome{
-    color:#1685ff;
-    font-weight:bold;
-    letter-spacing:4px;
-    margin-bottom:12px;
+    text-align:center;
+    margin-bottom:35px;
 }
 
 .hero h1{
-    font-size:70px;
-    line-height:1;
-    margin-bottom:18px;
+    font-size:38px;
+    margin:10px 0;
 }
 
 .hero h1 span{
-    color:#1685ff;
+    color:#008cff;
 }
 
-.tagline{
-    font-size:27px;
-    color:#dce5f0;
-    margin-bottom:20px;
+.hero p{
+    color:#8ea5bc;
+    font-size:17px;
 }
 
-.description{
-    font-size:18px;
-    color:#aab8ca;
-}
-
-.buttons{
-    margin-top:30px;
-    display:flex;
-    gap:15px;
-}
-
-.btn{
-    padding:13px 24px;
-    border-radius:9px;
-    text-decoration:none;
-    font-weight:bold;
-    display:inline-block;
-    transition:.25s;
-}
-
-.primary{
-    background:#1685ff;
-    color:#fff;
-    box-shadow:0 8px 25px #1685ff25;
-}
-
-.primary:hover{
-    background:#0874e8;
-    transform:translateY(-3px);
-}
-
-.secondary{
-    border:1px solid #53657b;
-    color:#fff;
-}
-
-.secondary:hover{
-    border-color:#1685ff;
-    color:#1685ff;
-    transform:translateY(-3px);
-}
-
-/* PHONE */
-
-.phone-area{
-    width:38%;
-    display:flex;
-    justify-content:center;
-    animation:phoneIn 1s ease .2s both;
-}
-
-@keyframes phoneIn{
-    from{
-        opacity:0;
-        transform:translateY(50px) scale(.9);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-}
-
-.phone{
-    width:220px;
-    height:420px;
-    padding:10px;
-    border:4px solid #65768b;
-    border-radius:36px;
-    transform:rotate(4deg);
-    box-shadow:0 0 70px #006dff55;
-    animation:phoneFloat 4s ease-in-out infinite;
-}
-
-@keyframes phoneFloat{
-    0%,100%{
-        transform:rotate(4deg) translateY(0);
-    }
-    50%{
-        transform:rotate(4deg) translateY(-12px);
-    }
-}
-
-.phone-screen{
-    height:100%;
-    border-radius:27px;
-    padding:28px 18px;
-    background:linear-gradient(160deg,#082442,#040c18);
-}
-
-.phone-brand{
-    color:#1685ff;
-    font-weight:bold;
-}
-
-.phone-screen h2{
-    margin-top:55px;
-    font-size:22px;
-}
-
-.phone-screen p{
-    color:#a9b7c9;
-    margin-top:8px;
-}
-
-.phone-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-    margin-top:25px;
-}
-
-.phone-box{
-    background:#0b2947;
-    border:1px solid #1c4c76;
-    border-radius:10px;
-    padding:13px 4px;
-    text-align:center;
-}
-
-/* SECTIONS */
-
-section{
-    max-width:1250px;
-    margin:auto;
-    padding:75px 7%;
-}
-
-.section-label{
-    color:#1685ff;
-    font-size:13px;
-    font-weight:bold;
-    letter-spacing:2px;
-}
-
-section h2{
-    font-size:36px;
-    margin:7px 0 30px;
-}
-
-/* APPS */
-
-.apps{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
-}
-
-.app{
-    position:relative;
-
-    background:
-    linear-gradient(
-        145deg,
-        #081b2b,
-        #061421
-    );
-
-    border:1px solid #183047;
-    border-radius:19px;
-    padding:15px;
-    overflow:hidden;
-
-    transition:
-    transform .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease;
-}
-
-.app:hover{
-    transform:translateY(-9px) scale(1.015);
-    border-color:#1685ff;
-
-    box-shadow:
-    0 18px 45px #006dff20,
-    0 0 25px #1685ff10;
-}
-
-.app::before{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-    top:-100px;
-    right:-100px;
-    background:#1685ff22;
-    border-radius:50%;
-    filter:blur(25px);
-    transition:.5s;
-}
-
-.app:hover::before{
-    width:260px;
-    height:260px;
-}
-
-/* IMAGES */
-
-.app-icon{
-    width:100%;
-    height:180px;
-    object-fit:contain;
-    object-position:center;
-    display:block;
-    border-radius:13px;
-    margin-bottom:16px;
-    padding:6px;
-    background:#071522;
-    transition:.45s ease;
-}
-
-.app:hover .app-icon{
-    transform:scale(1.035);
-    filter:brightness(1.08);
-}
-
-/* GENERATED ICONS */
-
-.generated-icon{
-    width:100%;
-    height:180px;
-    border-radius:13px;
-    margin-bottom:16px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    overflow:hidden;
-    transition:.45s ease;
-}
-
-.app:hover .generated-icon{
-    transform:scale(1.035);
-    filter:brightness(1.08);
-}
-
-/* OFFICE */
-
-.office-icon{
-    background:
-    radial-gradient(circle at 30% 25%,#5bb4ff,transparent 30%),
-    linear-gradient(135deg,#0750b8,#1685ff);
-}
-
-.office-paper{
-    width:76px;
-    height:92px;
-    background:#fff;
-    border-radius:7px;
-    position:relative;
-    box-shadow:0 12px 30px #0007;
-}
-
-.office-paper::before{
-    content:"";
-    position:absolute;
-    right:0;
-    top:0;
-    border-left:22px solid transparent;
-    border-bottom:22px solid #cbd5e1;
-}
-
-.office-paper::after{
-    content:"";
-    position:absolute;
-    left:15px;
-    right:15px;
-    top:38px;
-    height:5px;
-    background:#1685ff;
-    box-shadow:
-    0 13px 0 #94a3b8,
-    0 26px 0 #94a3b8;
-}
-
-/* BARCODE */
-
-.barcode-icon{
-    background:
-    radial-gradient(circle at 30% 25%,#00d9ff,transparent 28%),
-    radial-gradient(circle at 75% 75%,#713cff,transparent 35%),
-    linear-gradient(135deg,#062b55,#071522);
-}
-
-.barcode-symbol{
-    width:145px;
-    height:75px;
-
-    background:
-    repeating-linear-gradient(
-        90deg,
-        #fff 0px,
-        #fff 4px,
-        transparent 4px,
-        transparent 8px,
-        #fff 8px,
-        #fff 10px,
-        transparent 10px,
-        transparent 14px
-    );
-
-    border:7px solid #fff;
-    box-shadow:0 0 25px #00c8ff88;
-}
-
-/* ID */
-
-.id-icon{
-    background:
-    radial-gradient(circle at 20% 20%,#00d9ff,transparent 30%),
-    radial-gradient(circle at 80% 80%,#ff4ecd,transparent 35%),
-    linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);
-}
-
-.id-card{
-    width:125px;
-    height:90px;
-    background:#fff;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    padding:12px;
-    gap:12px;
-    box-shadow:0 12px 30px #0007;
-}
-
-.id-person{
-    width:48px;
-    height:60px;
-    border-radius:8px;
-
-    background:
-    radial-gradient(
-        circle at 50% 30%,
-        #f2c29b 0 15px,
-        transparent 16px
-    ),
-    linear-gradient(
-        #334155 0 38%,
-        #64748b 39%
-    );
-}
-
-.id-lines{
-    flex:1;
-    height:7px;
-    background:#cbd5e1;
-
-    box-shadow:
-    0 14px 0 #cbd5e1,
-    0 28px 0 #e2e8f0;
-}
-
-/* TEXT */
-
-.app h3{
-    margin-bottom:8px;
-    font-size:19px;
-}
-
-.app p{
-    font-size:13px;
-    color:#9eacbf;
-    min-height:62px;
-}
-
-.version{
-    display:block;
-    font-size:11px;
-    color:#718198;
-    margin-top:9px;
-}
-
-/* DOWNLOAD / OPEN BUTTON */
-
-.download{
-    display:block;
-    color:#fff;
-    text-align:center;
-    padding:12px;
-    border-radius:9px;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:13px;
-    margin-top:16px;
-
-    transition:
-    transform .25s ease,
-    filter .25s ease;
-}
-
-.download:hover{
-    transform:translateY(-3px);
-    filter:brightness(1.12);
-}
-
-.blue-btn{
-    background:linear-gradient(135deg,#2563eb,#1685ff);
-}
-
-.green-btn{
-    background:linear-gradient(135deg,#16a34a,#059669);
-}
-
-.red-btn{
-    background:linear-gradient(135deg,#ef4444,#dc2626);
-}
-
-.orange-btn{
-    background:linear-gradient(135deg,#f59e0b,#ef4444);
-}
-
-.purple-btn{
-    background:linear-gradient(135deg,#7c3aed,#ec4899);
-}
-
-.cyan-btn{
-    background:linear-gradient(135deg,#06b6d4,#4f46e5);
-}
-
-/* TOOLS */
-
-.simple{
-    border-top:1px solid #17263a;
-}
-
-.simple p{
-    color:#9eacbf;
-}
-
-/* ABOUT */
-
-.about{
-    background:#091523;
-    border:1px solid #1b2c42;
-    border-radius:18px;
-    padding:40px;
-    display:flex;
-    align-items:center;
-    gap:30px;
-}
-
-.avatar{
-    width:105px;
-    height:105px;
-    border-radius:50%;
-
-    background:
-    linear-gradient(
-        135deg,
-        #1685ff,
-        #713cff
-    );
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:45px;
-    font-weight:bold;
-    flex-shrink:0;
-}
-
-.about p{
-    color:#aab8ca;
-}
-
-/* CONTACT */
-
-.contact{
-    text-align:center;
-}
-
-.contact p{
-    color:#9eacbf;
+.card{
+    background:#031827;
+    border:1px solid #16405d;
+    border-radius:20px;
+    padding:22px;
     margin-bottom:25px;
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
 }
 
-/* FOOTER */
+.card h2{
+    margin-top:0;
+    font-size:21px;
+}
+
+#reader{
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    border-radius:15px;
+    overflow:hidden;
+    background:#000;
+}
+
+.status{
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    background:#061f31;
+    color:#8fa8bd;
+}
+
+.success{
+    color:#00e676;
+}
+
+.error{
+    color:#ff5b68;
+}
+
+button{
+    width:100%;
+    border:0;
+    border-radius:12px;
+    padding:15px;
+    margin-top:12px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
+    cursor:pointer;
+}
+
+.blue{
+    background:#087ff5;
+}
+
+.green{
+    background:#00b956;
+}
+
+.red{
+    background:#ff3040;
+}
+
+.orange{
+    background:#ff8a00;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+textarea,
+input,
+select{
+    width:100%;
+    background:#061d2c;
+    border:1px solid #1c425b;
+    color:white;
+    border-radius:12px;
+    padding:15px;
+    font-size:16px;
+    outline:none;
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#008cff;
+}
+
+.label{
+    display:block;
+    color:#91a9bd;
+    margin:12px 0 7px;
+}
+
+.result{
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    background:#061d2c;
+    word-break:break-word;
+    display:none;
+}
+
+#qrcode{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    width:max-content;
+    max-width:100%;
+    margin:20px auto;
+    min-height:40px;
+}
+
+#barcodeBox{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-top:20px;
+    text-align:center;
+    overflow:auto;
+}
+
+#barcode{
+    max-width:100%;
+    height:auto;
+}
+
+.tip{
+    color:#7892a8;
+    font-size:14px;
+    line-height:1.6;
+}
 
 footer{
     text-align:center;
-    padding:35px;
-    border-top:1px solid #17263a;
-    color:#718096;
+    padding:25px;
+    color:#71889c;
+    border-top:1px solid #102b40;
 }
-
-footer span{
-    color:#1685ff;
-}
-
-/* TABLET */
-
-@media(max-width:900px){
-
-    nav{
-        display:none;
-    }
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-        padding:60px 6% 80px;
-    }
-
-    .hero h1{
-        font-size:52px;
-    }
-
-    .tagline{
-        font-size:23px;
-    }
-
-    .description{
-        font-size:16px;
-    }
-
-    .buttons{
-        justify-content:center;
-        flex-wrap:wrap;
-    }
-
-    .phone-area{
-        width:100%;
-        margin-top:60px;
-    }
-
-    .apps{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-/* MOBILE */
 
 @media(max-width:600px){
+    .hero h1{
+        font-size:30px;
+    }
+
+    .container{
+        width:92%;
+    }
 
     header{
-        padding:0 5%;
+        padding:15px 4%;
     }
 
     .logo{
-        font-size:21px;
+        font-size:18px;
     }
 
-    .hero{
-        padding:45px 6% 70px;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-
-    .tagline{
-        font-size:21px;
-    }
-
-    .buttons{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .btn{
-        width:230px;
-        text-align:center;
-    }
-
-    .phone{
-        width:195px;
-        height:375px;
-    }
-
-    .apps{
-        grid-template-columns:1fr;
-    }
-
-    .app-icon{
-        height:230px;
-        width:100%;
-        object-fit:contain;
-        object-position:center;
-        padding:6px;
-        background:#071522;
-    }
-
-    .generated-icon{
-        height:230px;
-    }
-
-    section{
-        padding:60px 6%;
-    }
-
-    section h2{
-        font-size:32px;
-    }
-
-    .about{
-        padding:30px 20px;
-        flex-direction:column;
-        text-align:center;
+    .home-btn{
+        font-size:13px;
+        padding:9px 12px;
     }
 }
-
-/* VERY SMALL */
-
-@media(max-width:360px){
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .logo{
-        font-size:19px;
-    }
-
-    .app{
-        padding:13px;
-    }
-
-    .app-icon{
-        height:210px;
-    }
-
-    .generated-icon{
-        height:210px;
-    }
-}
-
-/* REDUCE MOTION */
-
-@media(prefers-reduced-motion:reduce){
-
-    *{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        transition-duration:.01ms !important;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
-
-<div class="logo">
-<span class="mark">▲</span>
-ASIM
-<span>TECH</span>
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#apps">My Apps</a>
-<a href="#tools">Tools</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-
+    <div class="logo">▲ ASIM <span>TECH</span></div>
+    <a class="home-btn" href="https://asim75772.github.io/">← Asim Tech</a>
 </header>
 
+<main class="container">
 
-<!-- HERO -->
+<section class="hero">
+    <h1>ASIM <span>Barcode & QR</span> Scanner</h1>
+    <p>Scan • Create • Save • Download</p>
+</section>
 
-<div class="hero" id="home">
+<!-- CAMERA SCANNER -->
+<section class="card">
 
-<div class="hero-text">
+<h2>📷 Camera Scanner</h2>
 
-<div class="welcome">
-WELCOME TO
+<div id="reader"></div>
+
+<div id="cameraStatus" class="status">
+    Camera is stopped.
 </div>
 
-<h1>
-ASIM <span>TECH</span>
-</h1>
-
-<div class="tagline">
-Apps • Tools • Innovation
-</div>
-
-<p class="description">
-I create simple, useful and powerful apps
-to make everyday tasks easier.
-</p>
-
-<div class="buttons">
-
-<a href="#apps" class="btn primary">
-Explore Apps
-</a>
-
-<a href="#about" class="btn secondary">
-About Asim
-</a>
-
-</div>
-
-</div>
-
-
-<div class="phone-area">
-
-<div class="phone">
-
-<div class="phone-screen">
-
-<div class="phone-brand">
-▲ ASIM TECH
-</div>
-
-<h2>
-Hello, Asim 👋
-</h2>
-
-<p>
-Building apps for<br>
-<b>a better tomorrow</b>
-</p>
-
-<div class="phone-grid">
-
-<div class="phone-box">
-📻<br>
-Radio
-</div>
-
-<div class="phone-box">
-🎵<br>
-Music
-</div>
-
-<div class="phone-box">
-🎧<br>
-Audio
-</div>
-
-<div class="phone-box">
-📱<br>
-Apps
-</div>
-
-</div>
-
-</div>
-</div>
-</div>
-
-</div>
-
-
-<!-- MY APPS -->
-
-<section id="apps">
-
-<div class="section-label">
-MY APPLICATIONS
-</div>
-
-<h2>
-My Apps
-</h2>
-
-<div class="apps">
-
-
-<!-- OFFICE -->
-
-<div class="app">
-
-<div class="generated-icon office-icon">
-
-<div class="office-paper"></div>
-
-</div>
-
-<h3>
-Asim Office Suite V5
-</h3>
-
-<p>
-Create and edit documents,
-spreadsheets, PDF files and
-scan documents.
-</p>
-
-<span class="version">
-Office • Document • Spreadsheet • PDF • Scanner
-</span>
-
-<a
-href="office/"
-class="download blue-btn">
-🚀 Open Office Suite
-</a>
-
-</div>
-
-
-<!-- PDF -->
-
-<div class="app">
-
-<img
-class="app-icon"
-src="pdf-icon.png"
-alt="Asim PDF Tools"
-loading="lazy">
-
-<h3>
-Asim PDF Tools
-</h3>
-
-<p>
-Create PDF from images,
-merge PDF files and extract
-selected pages easily.
-</p>
-
-<span class="version">
-PDF • JPG to PDF • Merge • Split
-</span>
-
-<a
-class="download red-btn"
-href="pdf-tools/">
-📄 Open PDF Tools
-</a>
-
-</div>
-
-
-<!-- BARCODE -->
-
-<div class="app">
-
-<div class="generated-icon barcode-icon">
-
-<div class="barcode-symbol"></div>
-
-</div>
-
-<h3>
-Asim Barcode & QR Scanner
-</h3>
-
-<p>
-Scan, create, save and download
-barcodes and QR codes easily.
-</p>
-
-<span class="version">
-Scanner • Barcode Maker • QR Maker • History
-</span>
-
-<!-- IMPORTANT BUTTON -->
-
-<a
-class="download blue-btn"
-href="barcode-scanner/">
-📷 Open Barcode & QR Scanner
-</a>
-
-</div>
-
-
-<!-- DEVOTIONAL RADIO -->
-
-<div class="app">
-
-<img
-class="app-icon"
-src="devotional-radio.png"
-alt="Devotional Radio"
-loading="lazy">
-
-<h3>
-Devotional Radio
-</h3>
-
-<p>
-Listen to devotional radio
-and spiritual music.
-</p>
-
-<span class="version">
-Android App
-</span>
-
-<a
-class="download green-btn"
-href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
-download>
-⬇ Download APK
-</a>
-
-</div>
-
-
-<!-- OLD IS GOLD -->
-
-<div class="app">
-
-<img
-class="app-icon"
-src="old_gold_logo.png"
-alt="80s 90s Old Is Gold"
-loading="lazy">
-
-<h3>
-80s & 90s Old Is Gold
-</h3>
-
-<p>
-Enjoy classic songs and timeless
-memories from the golden era.
-</p>
-
-<span class="version">
-Android App
-</span>
-
-<a
-class="download green-btn"
-href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
-download>
-⬇ Download APK
-</a>
-
-</div>
-
-
-<!-- MADHU MUSIC -->
-
-<div class="app">
-
-<img
-class="app-icon"
-src="madhu-music-world.png"
-alt="Madhu Music World"
-loading="lazy">
-
-<h3>
-Madhu Music World
-</h3>
-
-<p>
-Enjoy music, radio and
-entertainment from Madhu
-Music World.
-</p>
-
-<span class="version">
-Android App • Music • Radio
-</span>
-
-<a
-class="download orange-btn"
-href="Madhu_Music_World_com_asimtech_madhumusicworld_PlayStore.apk"
-download>
-⬇ Download APK
-</a>
-
-</div>
-
-
-<!-- SANGIT -->
-
-<div class="app">
-
-<img
-class="app-icon"
-src="sangit.png"
-alt="Sangit"
-loading="lazy">
-
-<h3>
-Sangit
-</h3>
-
-<p>
-A music application created
-by Asim for music lovers.
-</p>
-
-<span class="version">
-Android App
-</span>
-
-<a
-class="download green-btn"
-href="Sangit.apk"
-download>
-⬇ Download APK
-</a>
-
-</div>
-
-
-<!-- PHOTO RESIZER -->
-
-<div class="app">
-
-<img
-class="app-icon"
-src="photo-resizer-icon.png"
-alt="Asim Tech Photo Resizer"
-loading="lazy">
-
-<h3>
-Asim Tech Photo Resizer
-</h3>
-
-<p>
-Resize, crop, filter and compress
-photos. Create passport,
-stamp and custom-size photos.
-</p>
-
-<span class="version">
-Photo Tool • Passport • Stamp • Crop • Filter
-</span>
-
-<a
-class="download purple-btn"
-href="photo-resizer/">
-🌐 Open Photo Resizer
-</a>
-
-<a
-class="download green-btn"
-href="photo-resizer.apk"
-download>
-⬇ Download APK
-</a>
-
-</div>
-
-
-<!-- ID PHOTO -->
-
-<div class="app">
-
-<div class="generated-icon id-icon">
-
-<div class="id-card">
-
-<div class="id-person"></div>
-
-<div class="id-lines"></div>
-
-</div>
-
-</div>
-
-<h3>
-Asim Tech ID Photo Maker
-</h3>
-
-<p>
-Create passport, stamp and 2×2
-ID photos with smart crop,
-filters and printable sheets.
-</p>
-
-<span class="version">
-ID Photo • Passport • Stamp • 2×2 • 4×6
-</span>
-
-<a
-class="download purple-btn"
-href="id-photo-maker/">
-🌐 Open ID Photo Maker
-</a>
-
-<a
-class="download orange-btn"
-href="id-photo-maker.apk"
-download>
-⬇ Download APK
-</a>
-
-</div>
-
-
-<!-- SIGNATURE -->
-
-<div class="app">
-
-<img
-class="app-icon"
-src="icon.png"
-alt="Asim Tech Signature Maker"
-loading="lazy">
-
-<h3>
-Asim Tech Signature Maker
-</h3>
-
-<p>
-Create digital signatures by
-drawing with your finger or
-uploading an existing signature.
-</p>
-
-<span class="version">
-Signature • Draw • Upload • PNG • JPG
-</span>
-
-<a
-class="download cyan-btn"
-href="signature-maker/">
-🌐 Open Signature Maker
-</a>
-
-<a
-class="download green-btn"
-href="signature-maker.apk"
-download>
-⬇ Download APK
-</a>
-
-</div>
-
-
-</div>
+<button class="blue" id="startCamera">
+    📷 Start Camera
+</button>
+
+<button class="red" id="stopCamera">
+    ⏹ Stop Camera
+</button>
+
+<button class="orange" id="switchCamera">
+    🔄 Switch Camera
+</button>
+
+<div id="scanResult" class="result"></div>
 
 </section>
 
 
-<!-- TOOLS -->
+<!-- QR GENERATOR -->
+<section class="card">
 
-<section id="tools" class="simple">
+<h2>▣ QR Code Generator</h2>
 
-<div class="section-label">
-MY PROJECTS
-</div>
+<label class="label">Enter text or URL</label>
 
-<h2>
-My Tools
-</h2>
+<textarea id="qrText"
+placeholder="Enter text, website URL, phone number, Wi-Fi information etc."></textarea>
 
-<p>
+<button class="blue" id="generateQR">
+    ▣ Generate QR
+</button>
 
-Useful tools and new projects
-created by Asim.
+<div id="qrcode"></div>
 
-<br><br>
-
-Current tools:
-
-<br><br>
-
-📸 Photo Resizer
-
-<br>
-
-🪪 ID Photo Maker
-
-<br>
-
-✍️ Signature Maker
-
-<br>
-
-📄 PDF Tools
-
-<br>
-
-📱 Barcode & QR Scanner
-
-<br><br>
-
-More projects will be added soon.
-
-</p>
+<button class="green" id="downloadQR">
+    ↓ Download PNG
+</button>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- BARCODE GENERATOR -->
+<section class="card">
 
-<section id="about">
+<h2>🏷️ Barcode Generator</h2>
 
-<div class="about">
+<label class="label">Barcode Format</label>
 
-<div class="avatar">
-A
+<select id="barcodeFormat">
+    <option value="CODE128">CODE 128</option>
+    <option value="CODE39">CODE 39</option>
+    <option value="EAN13">EAN-13</option>
+    <option value="EAN8">EAN-8</option>
+    <option value="UPC">UPC</option>
+</select>
+
+<label class="label">Barcode Text</label>
+
+<input
+    id="barcodeText"
+    type="text"
+    placeholder="Enter barcode number"
+    value="9547222144"
+>
+
+<button class="blue" id="generateBarcode">
+    🏷️ Generate Barcode
+</button>
+
+<div id="barcodeBox">
+    <svg id="barcode"></svg>
 </div>
 
-<div>
-
-<div class="section-label">
-ABOUT ME
-</div>
-
-<h2>
-Hi, I'm Asim 👋
-</h2>
-
-<p>
-
-I create useful Android applications
-and technology projects.
-
-<br><br>
-
-Welcome to Asim Tech — my personal
-place for sharing my apps and projects.
-
-</p>
-
-</div>
-
-</div>
+<button class="green" id="downloadBarcode">
+    ↓ Download Barcode PNG
+</button>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- PRIVACY -->
+<section class="card" style="text-align:center">
 
-<section id="contact" class="contact">
+<h2>🔒 Private</h2>
 
-<div class="section-label">
-GET IN TOUCH
-</div>
-
-<h2>
-Contact Asim
-</h2>
-
-<p>
-For suggestions, feedback or
-app related queries.
+<p class="tip">
+Your scanned data stays on your device.
+No scanned information is uploaded to our server.
 </p>
-
-<a
-href="mailto:asimkanjilal@gmail.com"
-class="btn primary">
-📧 Email Me
-</a>
 
 </section>
 
-
-<!-- FOOTER -->
+</main>
 
 <footer>
-
-<b>
-<span>▲</span>
-ASIM
-<span>TECH</span>
-</b>
-
-<br><br>
-
-© 2026 Asim Tech.
-All Rights Reserved.
-
+    © 2026 Asim Tech • Barcode & QR Scanner
 </footer>
+
+
+<script>
+
+/* =====================================================
+   CAMERA / QR SCANNER
+===================================================== */
+
+let scanner = null;
+let cameras = [];
+let currentCameraIndex = 0;
+let cameraRunning = false;
+
+const statusBox = document.getElementById("cameraStatus");
+const resultBox = document.getElementById("scanResult");
+
+function setStatus(message, type=""){
+    statusBox.className = "status " + type;
+    statusBox.innerHTML = message;
+}
+
+async function getCameras(){
+
+    try{
+
+        if(!window.isSecureContext){
+            throw new Error(
+                "Camera requires HTTPS. Please open the GitHub Pages HTTPS address."
+            );
+        }
+
+        cameras = await Html5Qrcode.getCameras();
+
+        if(!cameras || cameras.length === 0){
+            throw new Error("No camera found on this device.");
+        }
+
+        return cameras;
+
+    }catch(error){
+
+        console.error(error);
+
+        setStatus(
+            "❌ Camera access failed.<br><br>" +
+            "Please allow Camera permission and try again.",
+            "error"
+        );
+
+        return [];
+    }
+}
+
+
+async function startCamera(){
+
+    if(cameraRunning){
+        return;
+    }
+
+    setStatus("⏳ Opening camera...");
+
+    cameras = await getCameras();
+
+    if(cameras.length === 0){
+        return;
+    }
+
+    if(currentCameraIndex >= cameras.length){
+        currentCameraIndex = 0;
+    }
+
+    scanner = new Html5Qrcode("reader");
+
+    try{
+
+        await scanner.start(
+            cameras[currentCameraIndex].id,
+
+            {
+                fps:10,
+                qrbox:function(viewfinderWidth, viewfinderHeight){
+
+                    const size = Math.floor(
+                        Math.min(viewfinderWidth, viewfinderHeight) * 0.70
+                    );
+
+                    return {
+                        width:size,
+                        height:size
+                    };
+                }
+            },
+
+            function(decodedText, decodedResult){
+
+                console.log("QR detected:", decodedText);
+
+                resultBox.style.display = "block";
+
+                resultBox.innerHTML =
+                    "<strong>✅ Scanned Result:</strong><br><br>" +
+                    escapeHtml(decodedText);
+
+                setStatus(
+                    "✅ QR / Barcode detected successfully.",
+                    "success"
+                );
+
+                // Try opening URLs automatically
+                if(/^https?:\/\//i.test(decodedText)){
+
+                    const open = confirm(
+                        "QR code contains a website:\n\n" +
+                        decodedText +
+                        "\n\nOpen this website?"
+                    );
+
+                    if(open){
+                        window.open(decodedText,"_blank");
+                    }
+                }
+
+            },
+
+            function(errorMessage){
+                // Ignore continuous scanning errors
+            }
+        );
+
+        cameraRunning = true;
+
+        setStatus(
+            "🟢 Camera is running. Point the camera at a QR code or barcode.",
+            "success"
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        cameraRunning = false;
+
+        setStatus(
+            "❌ Camera could not be opened.<br><br>" +
+            "Please allow Camera permission and try again.",
+            "error"
+        );
+
+        if(scanner){
+            try{
+                await scanner.clear();
+            }catch(e){}
+        }
+
+        scanner = null;
+    }
+}
+
+
+async function stopCamera(){
+
+    try{
+
+        if(scanner && cameraRunning){
+
+            await scanner.stop();
+            await scanner.clear();
+
+        }
+
+    }catch(error){
+
+        console.log(error);
+
+    }finally{
+
+        scanner = null;
+        cameraRunning = false;
+
+        setStatus("Camera is stopped.");
+    }
+}
+
+
+async function switchCamera(){
+
+    if(cameras.length < 2){
+
+        cameras = await getCameras();
+
+        if(cameras.length < 2){
+
+            setStatus(
+                "Only one camera is available on this phone.",
+                "error"
+            );
+
+            return;
+        }
+    }
+
+    const wasRunning = cameraRunning;
+
+    if(wasRunning){
+        await stopCamera();
+    }
+
+    currentCameraIndex++;
+
+    if(currentCameraIndex >= cameras.length){
+        currentCameraIndex = 0;
+    }
+
+    if(wasRunning){
+        await startCamera();
+    }else{
+
+        setStatus(
+            "Camera selected. Tap Start Camera."
+        );
+    }
+}
+
+
+document
+.getElementById("startCamera")
+.addEventListener("click",startCamera);
+
+document
+.getElementById("stopCamera")
+.addEventListener("click",stopCamera);
+
+document
+.getElementById("switchCamera")
+.addEventListener("click",switchCamera);
+
+
+/* =====================================================
+   QR GENERATOR
+===================================================== */
+
+let qrObject = null;
+
+document
+.getElementById("generateQR")
+.addEventListener("click",function(){
+
+    const text =
+        document.getElementById("qrText").value.trim();
+
+    if(!text){
+
+        alert("Please enter text or URL first.");
+
+        return;
+    }
+
+    const qrContainer =
+        document.getElementById("qrcode");
+
+    qrContainer.innerHTML = "";
+
+    qrObject = new QRCode(qrContainer,{
+
+        text:text,
+
+        width:300,
+
+        height:300,
+
+        colorDark:"#000000",
+
+        colorLight:"#ffffff",
+
+        correctLevel:QRCode.CorrectLevel.H
+    });
+
+});
+
+
+/* =====================================================
+   QR PNG DOWNLOAD
+===================================================== */
+
+document
+.getElementById("downloadQR")
+.addEventListener("click",function(){
+
+    const container =
+        document.getElementById("qrcode");
+
+    const canvas =
+        container.querySelector("canvas");
+
+    const image =
+        container.querySelector("img");
+
+    if(canvas){
+
+        downloadCanvas(
+            canvas,
+            "asim-qr-code.png"
+        );
+
+        return;
+    }
+
+    if(image){
+
+        const link =
+            document.createElement("a");
+
+        link.href = image.src;
+
+        link.download =
+            "asim-qr-code.png";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+        return;
+    }
+
+    alert("Please generate a QR code first.");
+});
+
+
+/* =====================================================
+   BARCODE GENERATOR
+===================================================== */
+
+document
+.getElementById("generateBarcode")
+.addEventListener("click",function(){
+
+    const text =
+        document
+        .getElementById("barcodeText")
+        .value.trim();
+
+    const format =
+        document
+        .getElementById("barcodeFormat")
+        .value;
+
+    if(!text){
+
+        alert("Please enter barcode text.");
+
+        return;
+    }
+
+    try{
+
+        JsBarcode(
+            "#barcode",
+            text,
+            {
+                format:format,
+
+                lineColor:"#000000",
+
+                background:"#ffffff",
+
+                width:2,
+
+                height:100,
+
+                displayValue:true,
+
+                fontSize:18,
+
+                margin:15
+            }
+        );
+
+    }catch(error){
+
+        alert(
+            "Invalid value for " +
+            format +
+            ". Please check the barcode number."
+        );
+    }
+
+});
+
+
+/* =====================================================
+   BARCODE DOWNLOAD
+===================================================== */
+
+document
+.getElementById("downloadBarcode")
+.addEventListener("click",function(){
+
+    const svg =
+        document.getElementById("barcode");
+
+    if(!svg || !svg.innerHTML.trim()){
+
+        alert("Please generate a barcode first.");
+
+        return;
+    }
+
+    const serializer =
+        new XMLSerializer();
+
+    const source =
+        serializer.serializeToString(svg);
+
+    const svgBlob =
+        new Blob(
+            [source],
+            {
+                type:"image/svg+xml;charset=utf-8"
+            }
+        );
+
+    const url =
+        URL.createObjectURL(svgBlob);
+
+    const img =
+        new Image();
+
+    img.onload = function(){
+
+        const canvas =
+            document.createElement("canvas");
+
+        canvas.width =
+            img.width || 600;
+
+        canvas.height =
+            img.height || 150;
+
+        const ctx =
+            canvas.getContext("2d");
+
+        ctx.fillStyle =
+            "#ffffff";
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        ctx.drawImage(
+            img,
+            0,
+            0
+        );
+
+        URL.revokeObjectURL(url);
+
+        downloadCanvas(
+            canvas,
+            "asim-barcode.png"
+        );
+    };
+
+    img.src = url;
+});
+
+
+/* =====================================================
+   DOWNLOAD HELPER
+===================================================== */
+
+function downloadCanvas(canvas,filename){
+
+    try{
+
+        canvas.toBlob(function(blob){
+
+            if(!blob){
+
+                alert("Download failed.");
+
+                return;
+            }
+
+            const url =
+                URL.createObjectURL(blob);
+
+            const link =
+                document.createElement("a");
+
+            link.href = url;
+
+            link.download = filename;
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+
+            setTimeout(function(){
+
+                URL.revokeObjectURL(url);
+
+            },1000);
+
+        },"image/png");
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("Download failed. Please try again.");
+    }
+}
+
+
+/* =====================================================
+   HTML ESCAPE
+===================================================== */
+
+function escapeHtml(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
+/* =====================================================
+   DEFAULT BARCODE
+===================================================== */
+
+window.addEventListener("load",function(){
+
+    try{
+
+        JsBarcode(
+            "#barcode",
+            "9547222144",
+            {
+                format:"CODE128",
+
+                lineColor:"#000000",
+
+                background:"#ffffff",
+
+                width:2,
+
+                height:100,
+
+                displayValue:true,
+
+                fontSize:18,
+
+                margin:15
+            }
+        );
+
+    }catch(e){
+
+        console.log(e);
+    }
+
+});
+
+</script>
 
 </body>
 </html>
