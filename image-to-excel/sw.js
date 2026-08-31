@@ -1,131 +1,63 @@
+const CACHE_NAME = "asim-image-to-excel-v2";
 
-/* =====================================================
-   FETCH
-===================================================== */
+const APP_FILES = [
+  "./",
+  "./index.html",
+  "./manifest.json",
+  "./icon-192.png",
+  "./icon-512.png"
+];
 
-self.addEventListener(
-    "fetch",
-    function(event){
+// INSTALL
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(APP_FILES))
+      .then(() => self.skipWaiting())
+  );
+});
 
-        const request =
-            event.request;
+// ACTIVATE
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      );
+    }).then(() => self.clients.claim())
+  );
+});
 
+// FETCH
+self.addEventListener("fetch", (event) => {
+  const request = event.request;
 
-        /*
-           Only handle GET requests.
-        */
+  // শুধু GET request handle করবে
+  if (request.method !== "GET") {
+    return;
+  }
 
-        if(
-            request.method !==
-            "GET"
-        ){
+  event.respondWith(
+    fetch(request)
+      .then((response) => {
+        // নতুন response cache করে রাখবে
+        if (response && response.status === 200) {
+          const responseClone = response.clone();
 
-            return;
-
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseClone);
+          });
         }
 
-
-        /*
-           For app files:
-           Cache first.
-        */
-
-        if(
-            new URL(
-                request.url
-            ).origin ===
-            self.location.origin
-        ){
-
-            event.respondWith(
-
-                caches
-                .match(
-                    request
-                )
-                .then(
-                    function(cached){
-
-                        if(cached){
-
-                            return cached;
-
-                        }
-
-
-                        return fetch(
-                            request
-                        )
-                        .then(
-                            function(response){
-
-                                if(
-                                    response &&
-                                    response.status === 200
-                                ){
-
-                                    const copy =
-                                        response.clone();
-
-
-                                    caches
-                                    .open(
-                                        CACHE_NAME
-                                    )
-                                    .then(
-                                        function(cache){
-
-                                            cache.put(
-                                                request,
-                                                copy
-                                            );
-
-                                        }
-                                    );
-
-                                }
-
-
-                                return response;
-
-                            }
-                        );
-
-                    }
-                )
-
-            );
-
-
-            return;
-
-        }
-
-
-        /*
-           External libraries:
-           Network first.
-
-           This allows the latest CDN
-           library to load normally.
-        */
-
-        event.respondWith(
-
-            fetch(
-                request
-            )
-            .catch(
-                function(){
-
-                    return caches.match(
-                        request
-                    );
-
-                }
-            )
-
-        );
-
-    }
-);
+        return response;
+      })
+      .catch(() => {
+        // Internet না থাকলে cache থেকে নেবে
+        return caches.match(request).then((cachedResponse) => {
+          return cachedResponse || caches.match("./index.html");
+        });
+      })
+  );
+});
