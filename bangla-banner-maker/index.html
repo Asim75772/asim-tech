@@ -1,208 +1,327 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Asim Tech বাংলা Banner Maker</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#050914">
+
+<title>ASIM TECH বাংলা Banner Maker</title>
 
 <meta name="description"
-content="Create beautiful Bengali banners with stylish fonts and text designs.">
+content="ASIM TECH Bengali Banner Maker">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- =====================================================
+     GOOGLE BENGALI FONTS
+===================================================== -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Atma:wght@400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Tiro+Bangla:ital@0;1&display=swap"
 rel="stylesheet">
 
+<!-- =====================================================
+     HTML2CANVAS
+===================================================== -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 
 <style>
 
-/* =========================================================
+/* =====================================================
    ROOT
-========================================================= */
+===================================================== */
 
 :root{
+
     --bg:#050914;
-    --panel:#081525;
-    --panel2:#0d1b2d;
-    --border:rgba(80,180,255,.20);
+
+    --panel:#091625;
+
+    --panel2:#0d1d30;
+
+    --border:rgba(70,180,255,.20);
+
     --text:#ffffff;
-    --muted:#91a8bb;
-    --blue:#129cff;
+
+    --muted:#91a8ba;
+
+    --blue:#159cff;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 *{
+
     box-sizing:border-box;
+
     margin:0;
+
     padding:0;
+
 }
+
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
+
 body{
+
     min-height:100vh;
-    font-family:Arial,Helvetica,sans-serif;
+
     color:var(--text);
 
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
     background:
+
     radial-gradient(
-        circle at 15% 5%,
-        rgba(0,150,255,.15),
+        circle at 10% 5%,
+        rgba(0,160,255,.15),
         transparent 30%
     ),
+
     radial-gradient(
         circle at 90% 30%,
-        rgba(120,50,255,.12),
-        transparent 30%
+        rgba(120,40,255,.14),
+        transparent 32%
     ),
+
     #050914;
 
     overflow-x:hidden;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 header{
+
     position:sticky;
+
     top:0;
-    z-index:1000;
+
+    z-index:9999;
 
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
 
-    padding:13px 5%;
+    justify-content:space-between;
 
-    background:rgba(5,9,20,.94);
+    padding:14px 5%;
 
-    border-bottom:1px solid var(--border);
+    background:
+    rgba(4,9,18,.94);
+
+    border-bottom:
+    1px solid var(--border);
 
     backdrop-filter:blur(18px);
+
 }
+
 
 .logo{
-    color:white;
+
+    color:#fff;
+
     text-decoration:none;
-    font-size:21px;
+
+    font-size:22px;
+
     font-weight:900;
+
 }
+
 
 .logo span{
+
     color:var(--blue);
+
 }
 
-.header-badge{
-    padding:7px 12px;
 
-    border:1px solid rgba(0,170,255,.25);
+.header-badge{
+
+    padding:7px 13px;
+
+    border:
+    1px solid rgba(0,160,255,.28);
+
     border-radius:999px;
 
     color:#73d5ff;
 
-    background:rgba(0,150,255,.07);
+    background:
+    rgba(0,150,255,.08);
 
     font-size:10px;
+
     font-weight:800;
+
 }
 
 
-/* =========================================================
-   CONTAINER
-========================================================= */
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container{
+
     width:94%;
-    max-width:1200px;
-    margin:35px auto 70px;
+
+    max-width:1250px;
+
+    margin:
+    35px auto 70px;
+
 }
+
 
 .hero{
+
     text-align:center;
+
     margin-bottom:30px;
+
 }
+
 
 .hero h1{
-    font-size:clamp(30px,6vw,52px);
-    line-height:1.1;
-    margin-bottom:10px;
+
+    font-size:
+    clamp(32px,6vw,55px);
+
     font-weight:900;
+
+    line-height:1.15;
+
+    margin-bottom:10px;
+
 }
+
 
 .hero h1 span{
+
     color:var(--blue);
+
 }
+
 
 .hero p{
+
     color:var(--muted);
+
     font-size:14px;
-    line-height:1.7;
+
+    line-height:1.8;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    DESIGNER
-========================================================= */
+===================================================== */
 
 .designer{
+
     display:grid;
-    grid-template-columns:370px 1fr;
+
+    grid-template-columns:
+    380px 1fr;
+
     gap:25px;
+
     align-items:start;
+
 }
 
 
-/* =========================================================
-   CONTROLS
-========================================================= */
+/* =====================================================
+   CONTROL PANEL
+===================================================== */
 
 .controls{
+
     padding:20px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     border-radius:22px;
 
     background:
+
     linear-gradient(
         145deg,
-        rgba(13,28,48,.96),
-        rgba(6,13,25,.98)
+        rgba(13,30,48,.96),
+        rgba(5,13,24,.98)
     );
 
-    box-shadow:0 20px 60px rgba(0,0,0,.28);
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.30);
+
 }
+
 
 .control-title{
-    font-size:19px;
-    font-weight:800;
+
+    font-size:20px;
+
+    font-weight:900;
+
     margin-bottom:20px;
+
 }
+
 
 .control-group{
-    margin-bottom:17px;
+
+    margin-bottom:18px;
+
 }
 
-.control-group > label{
+
+.control-group label{
+
     display:block;
+
     margin-bottom:8px;
 
     color:#cbd9e5;
 
-    font-size:12px;
+    font-size:13px;
+
     font-weight:800;
+
 }
+
 
 textarea,
 select,
@@ -211,373 +330,481 @@ input[type="number"]{
 
     width:100%;
 
-    border:1px solid #29445d;
+    height:44px;
+
+    padding:
+    0 12px;
+
+    color:#fff;
+
+    background:#071523;
+
+    border:
+    1px solid #29445d;
+
     border-radius:11px;
 
     outline:none;
 
-    color:#fff;
-
-    background:#071321;
-
     font-family:inherit;
 
-    transition:.2s ease;
+    transition:.2s;
+
 }
 
+
 textarea{
-    min-height:105px;
+
+    height:115px;
+
     padding:12px;
+
     resize:vertical;
 
     font-size:16px;
+
     line-height:1.6;
+
 }
 
-select,
-input[type="text"],
-input[type="number"]{
-    height:43px;
-    padding:0 11px;
-    font-size:13px;
-}
 
 textarea:focus,
 select:focus,
 input:focus{
+
     border-color:var(--blue);
 
     box-shadow:
-    0 0 0 3px rgba(0,160,255,.08);
+    0 0 0 3px
+    rgba(0,160,255,.08);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    ROW
-========================================================= */
+===================================================== */
 
 .row{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
+
     gap:10px;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    RANGE
-========================================================= */
+===================================================== */
 
 .range-line{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
 }
+
 
 input[type="range"]{
+
     width:100%;
+
     accent-color:var(--blue);
+
 }
+
 
 .range-value{
+
     min-width:48px;
+
     text-align:right;
 
-    color:#75d2ff;
+    color:#70d1ff;
 
     font-size:12px;
-    font-weight:800;
+
+    font-weight:900;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    COLOR
-========================================================= */
+===================================================== */
 
 .color-box{
+
     display:flex;
-    align-items:center;
+
     gap:10px;
+
+    align-items:center;
+
 }
 
+
 input[type="color"]{
-    width:48px;
-    height:40px;
+
+    width:52px;
+
+    height:42px;
 
     padding:2px;
 
-    border:1px solid #29445d;
+    border:
+    1px solid #29445d;
+
     border-radius:9px;
 
-    background:#071321;
-
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   DESIGN BUTTONS
-========================================================= */
-
-.design-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-}
-
-.design-btn{
-    min-height:46px;
-
-    padding:8px;
-
-    border:1px solid #29445d;
-    border-radius:11px;
-
-    background:rgba(255,255,255,.035);
-
-    color:#bcd0dd;
-
-    font-size:12px;
-    font-weight:800;
+    background:#071523;
 
     cursor:pointer;
 
-    transition:.2s ease;
-}
-
-.design-btn:hover{
-    border-color:var(--blue);
-    color:white;
-}
-
-.design-btn.active{
-    border-color:#009dff;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(0,150,255,.25),
-        rgba(0,90,180,.18)
-    );
-
-    color:#fff;
-
-    box-shadow:
-    0 0 0 1px rgba(0,160,255,.18);
 }
 
 
-/* =========================================================
-   POSITION
-========================================================= */
+/* =====================================================
+   POSITION GRID
+===================================================== */
 
 .position-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:7px;
+
 }
 
+
 .position-btn{
-    min-height:40px;
 
-    border:1px solid #29445d;
-    border-radius:9px;
+    min-height:42px;
 
-    background:rgba(255,255,255,.035);
+    border:
+    1px solid #29445d;
+
+    border-radius:10px;
+
+    background:
+    rgba(255,255,255,.035);
 
     color:#bcd0dd;
 
     font-size:11px;
+
     font-weight:800;
 
     cursor:pointer;
+
 }
+
 
 .position-btn.active{
-    border-color:#00a5ff;
-    background:rgba(0,150,255,.18);
+
+    border-color:
+    var(--blue);
+
+    background:
+    rgba(0,150,255,.15);
+
     color:#fff;
+
 }
 
 
-/* =========================================================
-   IMAGE UPLOAD
-========================================================= */
+/* =====================================================
+   TEXT DESIGN
+===================================================== */
+
+.design-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:8px;
+
+}
+
+
+.design-btn{
+
+    min-height:46px;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:11px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:#c5d4df;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.design-btn:hover{
+
+    border-color:var(--blue);
+
+}
+
+
+.design-btn.active{
+
+    border-color:var(--blue);
+
+    background:
+    rgba(0,150,255,.16);
+
+    color:#fff;
+
+}
+
+
+/* =====================================================
+   PRESETS
+===================================================== */
+
+.presets{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+}
+
+
+.preset{
+
+    padding:
+    9px 11px;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:9px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:#c4d4df;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.preset:hover{
+
+    border-color:var(--blue);
+
+}
+
+
+/* =====================================================
+   CHECK
+===================================================== */
+
+.check-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:#bfd0dc;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+.check-row input{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:var(--blue);
+
+}
+
+
+/* =====================================================
+   FILE INPUT
+===================================================== */
 
 .file-input{
+
     width:100%;
 
     padding:10px;
 
-    border:1px dashed #31516c;
+    border:
+    1px dashed #31516c;
+
     border-radius:11px;
 
-    background:rgba(255,255,255,.025);
+    background:
+    rgba(255,255,255,.025);
 
-    color:#9db4c5;
-
-    font-size:11px;
-}
-
-.image-actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-    margin-top:8px;
-}
-
-.small-btn{
-    min-height:38px;
-
-    border:1px solid #29445d;
-    border-radius:9px;
-
-    background:#0b1b2c;
-    color:#c5d8e5;
+    color:#b9cad6;
 
     font-size:11px;
-    font-weight:800;
 
-    cursor:pointer;
 }
 
 
-/* =========================================================
-   CHECKBOX
-========================================================= */
-
-.check-row{
-    display:flex;
-    align-items:center;
-    gap:9px;
-
-    color:#b9cbd8;
-
-    font-size:12px;
-    cursor:pointer;
-}
-
-.check-row input{
-    width:17px;
-    height:17px;
-    accent-color:var(--blue);
-}
-
-
-/* =========================================================
-   PRESETS
-========================================================= */
-
-.presets{
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
-}
-
-.preset{
-    padding:8px 10px;
-
-    border:1px solid #29445d;
-    border-radius:9px;
-
-    background:rgba(255,255,255,.035);
-
-    color:#bcd0dd;
-
-    font-size:10px;
-    font-weight:800;
-
-    cursor:pointer;
-}
-
-.preset:hover{
-    border-color:var(--blue);
-    color:#fff;
-}
-
-
-/* =========================================================
-   ACTIONS
-========================================================= */
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
 
 .actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
 
-    gap:9px;
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:10px;
 
     margin-top:20px;
+
 }
 
+
 .action-btn{
-    min-height:47px;
+
+    min-height:48px;
 
     border:0;
-    border-radius:11px;
+
+    border-radius:12px;
 
     color:#fff;
 
     font-size:13px;
-    font-weight:800;
+
+    font-weight:900;
 
     cursor:pointer;
+
 }
+
 
 .download-btn{
+
     background:
     linear-gradient(
         135deg,
-        #00bd72,
-        #009b58
+        #00c878,
+        #009b59
     );
+
 }
+
 
 .reset-btn{
+
     background:
     linear-gradient(
         135deg,
-        #24364c,
-        #17263a
+        #263d55,
+        #17273b
     );
 
-    border:1px solid #35506a;
+    border:
+    1px solid #38536d;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    PREVIEW
-========================================================= */
+===================================================== */
 
 .preview-area{
+
     min-width:0;
 
     padding:20px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     border-radius:22px;
 
-    background:rgba(7,15,28,.72);
+    background:
+    rgba(7,16,29,.75);
 
-    box-shadow:0 20px 60px rgba(0,0,0,.22);
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.25);
+
 }
 
+
 .preview-title{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     margin-bottom:15px;
+
 }
+
 
 .preview-title strong{
-    font-size:16px;
+
+    font-size:17px;
+
 }
+
 
 .preview-title span{
-    color:#6d879b;
+
+    color:#6e899d;
+
     font-size:10px;
+
 }
 
+
 .preview-scroll{
+
     width:100%;
 
     overflow:auto;
@@ -587,19 +814,23 @@ input[type="color"]{
     border-radius:15px;
 
     background:#02050a;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    BANNER
-========================================================= */
+===================================================== */
 
 #banner{
 
     position:relative;
 
-    width:800px;
-    height:450px;
+    width:1600px;
+
+    height:900px;
+
+    margin:auto;
 
     overflow:hidden;
 
@@ -607,128 +838,148 @@ input[type="color"]{
 
     justify-content:center;
 
+    align-items:center;
+
     text-align:center;
 
-    margin:auto;
-
-    border:0 !important;
-
-    outline:none !important;
-
-    border-radius:0;
-
     background:
+
     radial-gradient(
-        circle at 20% 20%,
-        rgba(0,170,255,.30),
-        transparent 32%
+        circle at 15% 15%,
+        rgba(0,180,255,.38),
+        transparent 35%
     ),
 
     radial-gradient(
-        circle at 80% 80%,
-        rgba(145,40,255,.28),
-        transparent 32%
+        circle at 85% 85%,
+        rgba(80,50,255,.30),
+        transparent 35%
     ),
 
     linear-gradient(
         135deg,
-        #071c32,
-        #10102a 55%,
-        #250d43
+        #062a49,
+        #07172b 55%,
+        #24105a
     );
 
-    box-shadow:none;
 }
 
 
-/* =========================================================
+/* =====================================================
    BACKGROUND IMAGE
-========================================================= */
+===================================================== */
 
 #bannerImage{
+
     position:absolute;
+
     inset:0;
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
 
-    z-index:0;
-
     display:none;
-}
-
-#bannerOverlay{
-    position:absolute;
-    inset:0;
 
     z-index:1;
 
-    background:rgba(0,0,0,.35);
-
-    display:none;
 }
 
 
-/* =========================================================
-   DECORATION
-========================================================= */
+#bannerOverlay{
 
-.banner-circle{
     position:absolute;
 
-    width:240px;
-    height:240px;
+    inset:0;
+
+    background:
+    rgba(0,0,0,.28);
+
+    z-index:2;
+
+}
+
+
+/* =====================================================
+   DECORATION
+===================================================== */
+
+.banner-circle{
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
 
     border-radius:50%;
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+    1px solid rgba(255,255,255,.13);
 
-    background:rgba(255,255,255,.025);
+    background:
+    rgba(255,255,255,.025);
 
-    top:-90px;
-    left:-70px;
+    top:-110px;
 
-    z-index:2;
+    left:-90px;
+
+    z-index:3;
+
 }
+
 
 .banner-circle.two{
-    width:300px;
-    height:300px;
+
+    width:380px;
+
+    height:380px;
 
     top:auto;
+
     left:auto;
 
-    right:-130px;
-    bottom:-150px;
+    right:-170px;
 
-    border-color:rgba(0,190,255,.17);
+    bottom:-200px;
+
+    border-color:
+    rgba(0,190,255,.18);
+
 }
 
+
 .banner-line{
+
     position:absolute;
 
     width:75%;
+
     height:1px;
+
+    bottom:90px;
+
+    left:12.5%;
 
     background:
     linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,.22),
+        rgba(255,255,255,.25),
         transparent
     );
 
-    bottom:65px;
+    z-index:3;
 
-    z-index:2;
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+/* =====================================================
+   BANNER CONTENT
+===================================================== */
 
 .banner-content{
 
@@ -740,44 +991,46 @@ input[type="color"]{
 
     left:6%;
 
-    top:50%;
+    transition:.25s ease;
 
-    transform:translateY(-50%);
-
-    padding:20px;
 }
 
 
-/* =========================================================
-   SMALL TITLE
-========================================================= */
+/* =====================================================
+   SMALL HEADING
+===================================================== */
 
 .banner-small{
+
     display:inline-block;
 
-    margin-bottom:14px;
+    margin-bottom:24px;
 
-    padding:6px 14px;
+    padding:
+    9px 20px;
 
-    border:1px solid rgba(255,255,255,.20);
+    border:
+    1px solid rgba(255,255,255,.22);
 
     border-radius:999px;
 
     color:#8bdcff;
 
-    background:rgba(0,150,255,.09);
+    background:
+    rgba(0,100,180,.10);
 
     font-family:Arial,sans-serif;
 
-    font-size:13px;
+    font-size:22px;
 
     font-weight:800;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    MAIN TEXT
-========================================================= */
+===================================================== */
 
 #bannerText{
 
@@ -785,7 +1038,7 @@ input[type="color"]{
 
     word-break:break-word;
 
-    font-size:52px;
+    font-size:90px;
 
     line-height:1.25;
 
@@ -794,237 +1047,478 @@ input[type="color"]{
     color:#fff;
 
     text-shadow:
-    0 4px 18px rgba(0,0,0,.45);
+    0 5px 20px rgba(0,0,0,.55);
 
     transition:.2s ease;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    SUBTITLE
-========================================================= */
+===================================================== */
 
 .banner-sub{
-    margin-top:16px;
 
-    color:rgba(255,255,255,.72);
+    margin-top:28px;
 
-    font-family:"Hind Siliguri",sans-serif;
+    color:
+    rgba(255,255,255,.78);
 
-    font-size:14px;
+    font-family:
+    Arial,
+    "Hind Siliguri",
+    sans-serif;
+
+    font-size:24px;
+
 }
 
 
-/* =========================================================
-   FONTS
-========================================================= */
+/* =====================================================
+   FONT CLASSES
+===================================================== */
 
 .font-hind{
-    font-family:"Hind Siliguri",sans-serif;
+
+    font-family:
+    "Hind Siliguri",
+    sans-serif;
+
 }
+
 
 .font-anek{
-    font-family:"Anek Bangla",sans-serif;
+
+    font-family:
+    "Anek Bangla",
+    sans-serif;
+
 }
+
 
 .font-baloo{
-    font-family:"Baloo Da 2",sans-serif;
+
+    font-family:
+    "Baloo Da 2",
+    sans-serif;
+
 }
+
 
 .font-atma{
-    font-family:"Atma",sans-serif;
+
+    font-family:
+    "Atma",
+    sans-serif;
+
 }
+
 
 .font-galada{
-    font-family:"Galada",cursive;
+
+    font-family:
+    "Galada",
+    cursive;
+
 }
+
 
 .font-noto{
-    font-family:"Noto Serif Bengali",serif;
+
+    font-family:
+    "Noto Serif Bengali",
+    serif;
+
 }
+
 
 .font-tiro{
-    font-family:"Tiro Bangla",serif;
+
+    font-family:
+    "Tiro Bangla",
+    serif;
+
 }
 
 
-/* =========================================================
+/* =====================================================
+   TEXT DESIGNS
+===================================================== */
+
+.design-normal{
+
+    text-shadow:
+    0 5px 20px rgba(0,0,0,.45);
+
+}
+
+
+.design-neon{
+
+    text-shadow:
+    0 0 8px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+
+}
+
+
+.design-golden{
+
+    background:
+    linear-gradient(
+        180deg,
+        #fff7a8,
+        #ffd23f,
+        #c78900
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent !important;
+
+    text-shadow:
+    0 3px 15px rgba(255,190,0,.35);
+
+}
+
+
+.design-gradient{
+
+    background:
+    linear-gradient(
+        90deg,
+        #00eaff,
+        #ffffff,
+        #ff38d1
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent !important;
+
+    text-shadow:
+    0 5px 25px rgba(0,220,255,.22);
+
+}
+
+
+.design-outline{
+
+    color:transparent !important;
+
+    -webkit-text-stroke:
+    3px currentColor;
+
+    text-shadow:
+    0 5px 15px rgba(0,0,0,.55);
+
+}
+
+
+.design-shadow{
+
+    text-shadow:
+    8px 10px 0 rgba(0,0,0,.55);
+
+}
+
+
+.design-cyan{
+
+    text-shadow:
+    0 0 5px #00eaff,
+    0 0 15px #00eaff,
+    0 5px 20px rgba(0,0,0,.5);
+
+}
+
+
+.design-premium{
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ffffff 45%,
+        #b7d7ff 55%,
+        #ffffff 100%
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent !important;
+
+    -webkit-text-stroke:
+    1px rgba(0,0,0,.35);
+
+    text-shadow:
+    0 4px 8px rgba(0,0,0,.55),
+    0 0 18px rgba(255,255,255,.20);
+
+}
+
+
+/* =====================================================
    INFO
-========================================================= */
+===================================================== */
 
 .info{
+
     margin-top:25px;
 
-    padding:24px;
+    padding:25px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     border-radius:20px;
 
-    background:rgba(8,20,35,.70);
+    background:
+    rgba(8,20,35,.72);
 
     text-align:center;
+
 }
+
 
 .info h2{
-    margin-bottom:9px;
-    font-size:22px;
+
+    font-size:24px;
+
+    margin-bottom:12px;
+
 }
 
+
 .info p{
+
     max-width:850px;
 
     margin:auto;
 
     color:var(--muted);
 
-    font-size:13px;
-    line-height:1.8;
+    font-size:14px;
+
+    line-height:1.9;
+
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 footer{
+
     padding:35px 20px;
 
     text-align:center;
 
-    border-top:1px solid var(--border);
+    border-top:
+    1px solid var(--border);
 
-    color:#70889a;
+    color:#71899c;
 
     font-size:12px;
+
 }
+
 
 footer strong{
+
     color:var(--blue);
+
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
     .designer{
+
         grid-template-columns:1fr;
+
     }
 
-    .controls{
-        order:1;
-    }
-
-    .preview-area{
-        order:2;
-    }
 }
 
 
 @media(max-width:600px){
 
     header{
-        padding:12px 4%;
+
+        padding:
+        12px 4%;
+
     }
+
 
     .logo{
+
         font-size:18px;
+
     }
+
 
     .header-badge{
+
         font-size:8px;
-        padding:6px 8px;
+
+        padding:
+        6px 9px;
+
     }
+
 
     .container{
+
         width:95%;
+
         margin-top:25px;
+
     }
 
+
     .hero h1{
-        font-size:31px;
+
+        font-size:32px;
+
     }
+
 
     .controls,
     .preview-area{
+
         padding:14px;
+
         border-radius:17px;
+
     }
+
 
     .row{
+
         grid-template-columns:1fr;
+
     }
+
 
     #banner{
-        width:700px;
-        height:394px;
+
+        width:800px;
+
+        height:450px;
+
     }
+
 
     #bannerText{
-        font-size:43px;
+
+        font-size:55px;
+
     }
 
-    .preview-scroll{
-        padding:5px;
+
+    .banner-small{
+
+        font-size:14px;
+
+        padding:
+        6px 13px;
+
     }
+
+
+    .banner-sub{
+
+        font-size:14px;
+
+    }
+
+
+    .preview-scroll{
+
+        padding:5px;
+
+    }
+
+
+    .actions{
+
+        grid-template-columns:1fr;
+
+    }
+
 }
 
 
 @media(max-width:430px){
 
-    .hero p{
-        font-size:12px;
+    #banner{
+
+        width:700px;
+
+        height:394px;
+
     }
 
-    #banner{
-        width:600px;
-        height:338px;
-    }
 
     #bannerText{
-        font-size:36px;
-    }
 
-    .banner-small{
-        font-size:10px;
-    }
+        font-size:48px;
 
-    .banner-sub{
-        font-size:11px;
-    }
-
-    .actions{
-        grid-template-columns:1fr;
     }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    PRINT
-========================================================= */
+===================================================== */
 
 @media print{
 
     body *{
+
         visibility:hidden;
+
     }
+
 
     #banner,
     #banner *{
+
         visibility:visible;
+
     }
 
+
     #banner{
+
         position:absolute;
+
         left:0;
+
         top:0;
+
     }
+
 }
 
 </style>
+
 </head>
 
 
@@ -1038,11 +1532,15 @@ footer strong{
 <header>
 
 <a href="../" class="logo">
+
 ▲ ASIM <span>TECH</span>
+
 </a>
 
 <div class="header-badge">
+
 বাংলা BANNER MAKER
+
 </div>
 
 </header>
@@ -1058,11 +1556,15 @@ footer strong{
 <section class="hero">
 
 <h1>
+
 বাংলা <span>Banner Maker</span>
+
 </h1>
 
 <p>
-স্টাইলিশ বাংলা Font ও Text Design ব্যবহার করে নিজের পছন্দের Banner তৈরি করুন
+
+স্টাইলিশ বাংলা Font ব্যবহার করে নিজের পছন্দের Banner তৈরি করুন
+
 </p>
 
 </section>
@@ -1072,39 +1574,50 @@ footer strong{
 
 
 <!-- =====================================================
-     CONTROL PANEL
+     CONTROLS
 ===================================================== -->
 
 <section class="controls">
 
+
 <div class="control-title">
+
 🎨 Design Controls
+
 </div>
 
 
-<!-- TEXT -->
+<!-- =====================================================
+     TEXT
+===================================================== -->
 
 <div class="control-group">
 
 <label>
+
 বাংলা লেখা
+
 </label>
 
 <textarea
 id="textInput"
-placeholder="এখানে আপনার বাংলা লেখা লিখুন..."
+placeholder="এখানে বাংলা লেখা লিখুন..."
 >আপনার স্বপ্নকে
 বাস্তবে রূপ দিন</textarea>
 
 </div>
 
 
-<!-- FONT -->
+<!-- =====================================================
+     FONT
+===================================================== -->
 
 <div class="control-group">
 
 <label>
+
 বাংলা Font নির্বাচন করুন
+
 </label>
 
 <select id="fontSelect">
@@ -1142,89 +1655,100 @@ Tiro Bangla — Elegant
 </div>
 
 
-<!-- TEXT DESIGN -->
+<!-- =====================================================
+     TEXT DESIGN
+===================================================== -->
 
 <div class="control-group">
 
 <label>
+
 ✨ লেখার Design
+
 </label>
 
 <div class="design-grid">
 
-<button class="design-btn active" data-design="normal">
+
+<button class="design-btn active"
+data-design="design-normal">
+
 ⚪ Normal
+
 </button>
 
-<button class="design-btn" data-design="neon">
+
+<button class="design-btn"
+data-design="design-neon">
+
 💠 Neon
+
 </button>
 
-<button class="design-btn" data-design="golden">
+
+<button class="design-btn"
+data-design="design-golden">
+
 🟡 Golden
+
 </button>
 
-<button class="design-btn" data-design="gradient">
+
+<button class="design-btn"
+data-design="design-gradient">
+
 🌈 Gradient
+
 </button>
 
-<button class="design-btn" data-design="outline">
+
+<button class="design-btn"
+data-design="design-outline">
+
 ⬜ Outline
+
 </button>
 
-<button class="design-btn" data-design="shadow">
+
+<button class="design-btn"
+data-design="design-shadow">
+
 🌑 Shadow
+
 </button>
 
-<button class="design-btn" data-design="cyan">
+
+<button class="design-btn"
+data-design="design-cyan">
+
 🔵 Cyan Glow
+
 </button>
 
-<button class="design-btn" data-design="premium">
+
+<button class="design-btn"
+data-design="design-premium">
+
 💎 Premium
+
 </button>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- TEXT POSITION -->
+
+<!-- =====================================================
+     FONT SIZE
+===================================================== -->
 
 <div class="control-group">
 
 <label>
-📍 লেখার Position
-</label>
 
-<div class="position-grid">
-
-<button class="position-btn"
-data-position="top">
-⬆ উপরে
-</button>
-
-<button class="position-btn active"
-data-position="center">
-⏺ মাঝে
-</button>
-
-<button class="position-btn"
-data-position="bottom">
-⬇ নিচে
-</button>
-
-</div>
-
-</div>
-
-
-<!-- FONT SIZE -->
-
-<div class="control-group">
-
-<label>
 Font Size
+
 </label>
 
 <div class="range-line">
@@ -1232,14 +1756,16 @@ Font Size
 <input
 type="range"
 id="fontSize"
-min="20"
-max="100"
-value="52">
+min="30"
+max="180"
+value="90">
 
 <span
 class="range-value"
 id="fontSizeValue">
-52px
+
+90px
+
 </span>
 
 </div>
@@ -1247,12 +1773,16 @@ id="fontSizeValue">
 </div>
 
 
-<!-- FONT THICKNESS -->
+<!-- =====================================================
+     THICKNESS
+===================================================== -->
 
 <div class="control-group">
 
 <label>
+
 লেখার Thickness
+
 </label>
 
 <div class="range-line">
@@ -1268,7 +1798,9 @@ value="700">
 <span
 class="range-value"
 id="fontWeightValue">
+
 700
+
 </span>
 
 </div>
@@ -1276,12 +1808,16 @@ id="fontWeightValue">
 </div>
 
 
-<!-- LETTER SPACING -->
+<!-- =====================================================
+     LETTER SPACING
+===================================================== -->
 
 <div class="control-group">
 
 <label>
+
 Letter Spacing
+
 </label>
 
 <div class="range-line">
@@ -1289,15 +1825,16 @@ Letter Spacing
 <input
 type="range"
 id="letterSpacing"
-min="-2"
-max="10"
-step="1"
+min="-3"
+max="12"
 value="0">
 
 <span
 class="range-value"
 id="letterSpacingValue">
+
 0px
+
 </span>
 
 </div>
@@ -1305,12 +1842,16 @@ id="letterSpacingValue">
 </div>
 
 
-<!-- TEXT COLOR -->
+<!-- =====================================================
+     TEXT COLOR
+===================================================== -->
 
 <div class="control-group">
 
 <label>
-🎨 Text Color
+
+🎨 লেখার Colour
+
 </label>
 
 <div class="color-box">
@@ -1330,12 +1871,110 @@ value="#ffffff">
 </div>
 
 
-<!-- BACKGROUND -->
+<!-- =====================================================
+     POSITION
+===================================================== -->
 
 <div class="control-group">
 
 <label>
-🌈 Background Style
+
+📍 লেখার Position
+
+</label>
+
+<div class="position-grid">
+
+
+<button
+class="position-btn"
+data-position="top">
+
+⬆ উপরে
+
+</button>
+
+
+<button
+class="position-btn active"
+data-position="middle">
+
+⏺ মাঝে
+
+</button>
+
+
+<button
+class="position-btn"
+data-position="bottom">
+
+⬇ নিচে
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ALIGNMENT
+===================================================== -->
+
+<div class="control-group">
+
+<label>
+
+↔ লেখার Alignment
+
+</label>
+
+<div class="position-grid">
+
+
+<button
+class="position-btn"
+data-align="left">
+
+⬅ Left
+
+</button>
+
+
+<button
+class="position-btn active"
+data-align="center">
+
+⏺ Center
+
+</button>
+
+
+<button
+class="position-btn"
+data-align="right">
+
+➡ Right
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="control-group">
+
+<label>
+
+🌄 Background Style
+
 </label>
 
 <select id="backgroundSelect">
@@ -1364,6 +2003,10 @@ Sunset Orange
 Dark Premium
 </option>
 
+<option value="cyan">
+Cyan Dream
+</option>
+
 <option value="white">
 Clean White
 </option>
@@ -1373,63 +2016,54 @@ Clean White
 </div>
 
 
-<!-- BACKGROUND IMAGE -->
+<!-- =====================================================
+     BACKGROUND IMAGE
+===================================================== -->
 
 <div class="control-group">
 
 <label>
-🖼️ Background Image
+
+🖼 Background Image
+
 </label>
 
 <input
-class="file-input"
 type="file"
 id="imageInput"
+class="file-input"
 accept="image/*">
 
-<div class="image-actions">
-
-<button
-class="small-btn"
-id="removeImage">
-✕ Remove Image
-</button>
-
-<button
-class="small-btn"
-id="toggleOverlay">
-◐ Overlay
-</button>
-
-</div>
-
 </div>
 
 
-<!-- IMAGE OPACITY -->
+<!-- =====================================================
+     IMAGE OVERLAY
+===================================================== -->
 
-<div
-class="control-group"
-id="imageOpacityGroup"
-style="display:none;">
+<div class="control-group">
 
 <label>
-Image Opacity
+
+Background Image Dark/Light
+
 </label>
 
 <div class="range-line">
 
 <input
 type="range"
-id="imageOpacity"
-min="20"
-max="100"
-value="100">
+id="overlayOpacity"
+min="0"
+max="80"
+value="28">
 
 <span
 class="range-value"
-id="imageOpacityValue">
-100%
+id="overlayValue">
+
+28%
+
 </span>
 
 </div>
@@ -1437,41 +2071,52 @@ id="imageOpacityValue">
 </div>
 
 
-<!-- WIDTH HEIGHT -->
+<!-- =====================================================
+     BANNER SIZE
+===================================================== -->
 
 <div class="control-group">
 
 <label>
-Banner Size
+
+📐 Banner Size
+
 </label>
 
 <div class="row">
 
+
 <input
 type="number"
 id="bannerWidth"
-value="800"
+value="1600"
 min="300"
-max="2000">
+max="3000">
+
 
 <input
 type="number"
 id="bannerHeight"
-value="450"
+value="900"
 min="200"
-max="1500">
+max="3000">
+
 
 </div>
 
 </div>
 
 
-<!-- SMALL HEADING -->
+<!-- =====================================================
+     SMALL HEADING
+===================================================== -->
 
 <div class="control-group">
 
 <label>
+
 ছোট Heading
+
 </label>
 
 <input
@@ -1482,12 +2127,16 @@ value="ASIM TECH">
 </div>
 
 
-<!-- SUBTITLE -->
+<!-- =====================================================
+     SUBTITLE
+===================================================== -->
 
 <div class="control-group">
 
 <label>
+
 নিচের ছোট লেখা
+
 </label>
 
 <input
@@ -1498,58 +2147,83 @@ value="আপনার জন্য সহজ ও সুন্দর ডিজ�
 </div>
 
 
-<!-- QUICK STYLES -->
+<!-- =====================================================
+     QUICK BACKGROUND
+===================================================== -->
 
 <div class="control-group">
 
 <label>
-Quick Styles
+
+Quick Background
+
 </label>
 
 <div class="presets">
 
+
 <button
 class="preset"
-data-style="blue">
+data-bg="blue">
+
 🔵 Blue
+
 </button>
+
 
 <button
 class="preset"
-data-style="purple">
+data-bg="purple">
+
 🟣 Purple
+
 </button>
+
 
 <button
 class="preset"
-data-style="red">
+data-bg="red">
+
 🔴 Red
+
 </button>
+
 
 <button
 class="preset"
-data-style="green">
+data-bg="green">
+
 🟢 Green
+
 </button>
+
 
 <button
 class="preset"
-data-style="orange">
+data-bg="orange">
+
 🟠 Sunset
+
 </button>
+
 
 <button
 class="preset"
-data-style="dark">
-⚫ Dark
+data-bg="cyan">
+
+💎 Cyan
+
 </button>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- DECORATION -->
+
+<!-- =====================================================
+     DECORATION
+===================================================== -->
 
 <div class="control-group">
 
@@ -1567,9 +2241,12 @@ Show decorative design
 </div>
 
 
-<!-- ACTIONS -->
+<!-- =====================================================
+     ACTIONS
+===================================================== -->
 
 <div class="actions">
+
 
 <button
 class="action-btn download-btn"
@@ -1579,6 +2256,7 @@ id="downloadBtn">
 
 </button>
 
+
 <button
 class="action-btn reset-btn"
 id="resetBtn">
@@ -1586,6 +2264,7 @@ id="resetBtn">
 ↻ Reset
 
 </button>
+
 
 </div>
 
@@ -1599,14 +2278,19 @@ id="resetBtn">
 
 <section class="preview-area">
 
+
 <div class="preview-title">
 
 <strong>
+
 👁 Live Preview
+
 </strong>
 
 <span>
-Banner automatically updates
+
+1600 × 900 Banner
+
 </span>
 
 </div>
@@ -1614,14 +2298,13 @@ Banner automatically updates
 
 <div class="preview-scroll">
 
+
 <div id="banner">
 
 
-<!-- IMAGE -->
-
 <img
 id="bannerImage"
-alt="Background">
+alt="">
 
 
 <div
@@ -1629,25 +2312,23 @@ id="bannerOverlay">
 </div>
 
 
-<!-- DECORATION -->
-
 <div
 class="banner-circle"
 id="circleOne">
 </div>
+
 
 <div
 class="banner-circle two"
 id="circleTwo">
 </div>
 
+
 <div
 class="banner-line"
 id="bannerLine">
 </div>
 
-
-<!-- CONTENT -->
 
 <div
 class="banner-content"
@@ -1657,33 +2338,41 @@ id="bannerContent">
 <div
 class="banner-small"
 id="smallPreview">
+
 ASIM TECH
+
 </div>
 
 
 <div
 id="bannerText"
-class="font-hind">
+class="font-hind design-normal">
+
 আপনার স্বপ্নকে
 বাস্তবে রূপ দিন
+
 </div>
 
 
 <div
 class="banner-sub"
 id="subPreview">
+
 আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান
-</div>
-
 
 </div>
 
 
 </div>
 
+
 </div>
+
+</div>
+
 
 </section>
+
 
 </div>
 
@@ -1695,15 +2384,17 @@ id="subPreview">
 <section class="info">
 
 <h2>
+
 ✨ ৭টি Stylish বাংলা Font + ৮টি Text Design
+
 </h2>
 
 <p>
 
-Hind Siliguri, Anek Bangla, Baloo Da 2, Atma, Galada,
-Noto Serif Bengali এবং Tiro Bangla-এর সঙ্গে Normal,
-Neon, Golden, Gradient, Outline, Shadow, Cyan Glow
-ও Premium Design ব্যবহার করে নিজের পছন্দের Banner তৈরি করুন।
+Hind Siliguri, Anek Bangla, Baloo Da 2, Atma,
+Galada, Noto Serif Bengali এবং Tiro Bangla।
+এর সঙ্গে Normal, Neon, Golden, Gradient, Outline,
+Shadow, Cyan Glow এবং Premium Text Design ব্যবহার করুন।
 
 </p>
 
@@ -1732,12 +2423,11 @@ Neon, Golden, Gradient, Outline, Shadow, Cyan Glow
 </footer>
 
 
-
 <script>
 
-/* =========================================================
+/* =====================================================
    ASIM TECH BANNER MAKER
-========================================================= */
+===================================================== */
 
 (function(){
 
@@ -1818,12 +2508,6 @@ document.getElementById("circleTwo");
 const bannerLine =
 document.getElementById("bannerLine");
 
-const downloadBtn =
-document.getElementById("downloadBtn");
-
-const resetBtn =
-document.getElementById("resetBtn");
-
 const imageInput =
 document.getElementById("imageInput");
 
@@ -1833,20 +2517,17 @@ document.getElementById("bannerImage");
 const bannerOverlay =
 document.getElementById("bannerOverlay");
 
-const removeImage =
-document.getElementById("removeImage");
+const overlayOpacity =
+document.getElementById("overlayOpacity");
 
-const toggleOverlay =
-document.getElementById("toggleOverlay");
+const overlayValue =
+document.getElementById("overlayValue");
 
-const imageOpacity =
-document.getElementById("imageOpacity");
+const downloadBtn =
+document.getElementById("downloadBtn");
 
-const imageOpacityValue =
-document.getElementById("imageOpacityValue");
-
-const imageOpacityGroup =
-document.getElementById("imageOpacityGroup");
+const resetBtn =
+document.getElementById("resetBtn");
 
 
 /* =====================================================
@@ -1855,123 +2536,226 @@ document.getElementById("imageOpacityGroup");
 
 const backgrounds = {
 
-blue:`
-radial-gradient(
-circle at 15% 15%,
-rgba(0,180,255,.38),
-transparent 35%
-),
-radial-gradient(
-circle at 85% 85%,
-rgba(80,50,255,.28),
-transparent 35%
-),
-linear-gradient(
-135deg,
-#062a49,
-#07172b 55%,
-#24105a
-)
-`,
+    blue: `
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0,180,255,.38),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(80,50,255,.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #062a49,
+            #07172b 55%,
+            #24105a
+        )
+    `,
 
-purple:`
-radial-gradient(
-circle at 15% 20%,
-rgba(200,60,255,.35),
-transparent 34%
-),
-radial-gradient(
-circle at 85% 80%,
-rgba(80,80,255,.35),
-transparent 35%
-),
-linear-gradient(
-135deg,
-#250640,
-#160d35 55%,
-#351064
-)
-`,
+    purple: `
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(200,60,255,.35),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(80,80,255,.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #250640,
+            #160d35 55%,
+            #351064
+        )
+    `,
 
-red:`
-radial-gradient(
-circle at 20% 20%,
-rgba(255,40,70,.35),
-transparent 34%
-),
-radial-gradient(
-circle at 85% 80%,
-rgba(255,120,0,.30),
-transparent 35%
-),
-linear-gradient(
-135deg,
-#45050c,
-#22070c 55%,
-#570011
-)
-`,
+    red: `
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,40,70,.35),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255,120,0,.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #45050c,
+            #22070c 55%,
+            #570011
+        )
+    `,
 
-green:`
-radial-gradient(
-circle at 20% 15%,
-rgba(0,255,160,.30),
-transparent 35%
-),
-radial-gradient(
-circle at 85% 85%,
-rgba(0,150,255,.25),
-transparent 35%
-),
-linear-gradient(
-135deg,
-#04352b,
-#061d1e 55%,
-#063f45
-)
-`,
+    green: `
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(0,255,160,.30),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(0,150,255,.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #04352b,
+            #061d1e 55%,
+            #063f45
+        )
+    `,
 
-orange:`
-radial-gradient(
-circle at 20% 20%,
-rgba(255,180,0,.35),
-transparent 34%
-),
-radial-gradient(
-circle at 85% 85%,
-rgba(255,50,50,.32),
-transparent 35%
-),
-linear-gradient(
-135deg,
-#542000,
-#31100a 55%,
-#5d0711
-)
-`,
+    orange: `
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,180,0,.35),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(255,50,50,.32),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #542000,
+            #31100a 55%,
+            #5d0711
+        )
+    `,
 
-dark:`
-radial-gradient(
-circle at 20% 20%,
-rgba(255,255,255,.07),
-transparent 30%
-),
-linear-gradient(
-135deg,
-#10151e,
-#05070c
-)
-`,
+    dark: `
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.07),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #10151e,
+            #05070c
+        )
+    `,
 
-white:`
-linear-gradient(
-135deg,
-#ffffff,
-#edf5ff
-)
-`
+    cyan: `
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0,255,255,.40),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0,100,255,.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #003b50,
+            #006b83 50%,
+            #002b55
+        )
+    `,
+
+    white: `
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #edf5ff
+        )
+    `
 
 };
+
+
+/* =====================================================
+   CURRENT SETTINGS
+===================================================== */
+
+let currentPosition =
+"middle";
+
+let currentAlign =
+"center";
+
+let currentDesign =
+"design-normal";
+
+
+/* =====================================================
+   UPDATE POSITION
+===================================================== */
+
+function updatePosition(){
+
+    if(currentPosition === "top"){
+
+        bannerContent.style.top =
+        "10%";
+
+        bannerContent.style.bottom =
+        "auto";
+
+        bannerContent.style.transform =
+        "none";
+
+    }
+
+    else if(currentPosition === "bottom"){
+
+        bannerContent.style.top =
+        "auto";
+
+        bannerContent.style.bottom =
+        "10%";
+
+        bannerContent.style.transform =
+        "none";
+
+    }
+
+    else{
+
+        bannerContent.style.top =
+        "50%";
+
+        bannerContent.style.bottom =
+        "auto";
+
+        bannerContent.style.transform =
+        "translateY(-50%)";
+
+    }
+
+
+    if(currentAlign === "left"){
+
+        bannerContent.style.textAlign =
+        "left";
+
+    }
+
+    else if(currentAlign === "right"){
+
+        bannerContent.style.textAlign =
+        "right";
+
+    }
+
+    else{
+
+        bannerContent.style.textAlign =
+        "center";
+
+    }
+
+}
 
 
 /* =====================================================
@@ -1979,6 +2763,7 @@ linear-gradient(
 ===================================================== */
 
 function updateBanner(){
+
 
     /* TEXT */
 
@@ -1990,10 +2775,12 @@ function updateBanner(){
     /* FONT */
 
     bannerText.className =
-    fontSelect.value;
+    fontSelect.value +
+    " " +
+    currentDesign;
 
 
-    /* SIZE */
+    /* FONT SIZE */
 
     const size =
     Number(fontSize.value);
@@ -2005,7 +2792,7 @@ function updateBanner(){
     size + "px";
 
 
-    /* WEIGHT */
+    /* FONT WEIGHT */
 
     const weight =
     Number(fontWeight.value);
@@ -2050,10 +2837,10 @@ function updateBanner(){
     /* SIZE */
 
     const width =
-    Number(bannerWidth.value) || 800;
+    Number(bannerWidth.value) || 1600;
 
     const height =
-    Number(bannerHeight.value) || 450;
+    Number(bannerHeight.value) || 900;
 
     banner.style.width =
     width + "px";
@@ -2074,6 +2861,11 @@ function updateBanner(){
     subText.value;
 
 
+    /* POSITION */
+
+    updatePosition();
+
+
     /* DECORATION */
 
     const visible =
@@ -2091,6 +2883,20 @@ function updateBanner(){
     visible;
 
 
+    /* OVERLAY */
+
+    const opacity =
+    Number(overlayOpacity.value) / 100;
+
+    bannerOverlay.style.background =
+    "rgba(0,0,0," +
+    opacity +
+    ")";
+
+    overlayValue.textContent =
+    overlayOpacity.value + "%";
+
+
     /* WHITE BACKGROUND */
 
     if(bg === "white"){
@@ -2102,9 +2908,11 @@ function updateBanner(){
         "rgba(0,100,200,.20)";
 
         subPreview.style.color =
-        "rgba(0,0,0,.60)";
+        "rgba(0,0,0,.65)";
 
-    }else{
+    }
+
+    else{
 
         smallPreview.style.color =
         "#8bdcff";
@@ -2113,7 +2921,7 @@ function updateBanner(){
         "rgba(255,255,255,.20)";
 
         subPreview.style.color =
-        "rgba(255,255,255,.72)";
+        "rgba(255,255,255,.78)";
 
     }
 
@@ -2121,201 +2929,264 @@ function updateBanner(){
 
 
 /* =====================================================
-   TEXT DESIGN
+   TEXT INPUT
 ===================================================== */
 
-function applyDesign(design){
-
-    bannerText.style.background = "none";
-
-    bannerText.style.webkitBackgroundClip = "initial";
-
-    bannerText.style.backgroundClip = "initial";
-
-    bannerText.style.webkitTextFillColor = textColor.value;
-
-    bannerText.style.color = textColor.value;
-
-    bannerText.style.textShadow =
-    "none";
-
-    bannerText.style.webkitTextStroke =
-    "0px transparent";
-
-
-    if(design === "normal"){
-
-        bannerText.style.color =
-        textColor.value;
-
-        bannerText.style.textShadow =
-        "0 4px 18px rgba(0,0,0,.45)";
-
-    }
-
-
-    if(design === "neon"){
-
-        bannerText.style.color =
-        textColor.value;
-
-        bannerText.style.textShadow =
-        `
-        0 0 5px ${textColor.value},
-        0 0 12px ${textColor.value},
-        0 0 25px ${textColor.value},
-        0 0 45px ${textColor.value}
-        `;
-
-    }
-
-
-    if(design === "golden"){
-
-        bannerText.style.background =
-        "linear-gradient(180deg,#fff6a0,#ffd700,#b77900)";
-
-        bannerText.style.webkitBackgroundClip =
-        "text";
-
-        bannerText.style.backgroundClip =
-        "text";
-
-        bannerText.style.webkitTextFillColor =
-        "transparent";
-
-        bannerText.style.textShadow =
-        "0 4px 8px rgba(0,0,0,.55)";
-
-    }
-
-
-    if(design === "gradient"){
-
-        bannerText.style.background =
-        "linear-gradient(90deg,#00eaff,#7b5cff,#ff36d1)";
-
-        bannerText.style.webkitBackgroundClip =
-        "text";
-
-        bannerText.style.backgroundClip =
-        "text";
-
-        bannerText.style.webkitTextFillColor =
-        "transparent";
-
-        bannerText.style.textShadow =
-        "0 4px 15px rgba(0,0,0,.30)";
-
-    }
-
-
-    if(design === "outline"){
-
-        bannerText.style.color =
-        "transparent";
-
-        bannerText.style.webkitTextFillColor =
-        "transparent";
-
-        bannerText.style.webkitTextStroke =
-        "2px " + textColor.value;
-
-        bannerText.style.textShadow =
-        "0 3px 8px rgba(0,0,0,.5)";
-
-    }
-
-
-    if(design === "shadow"){
-
-        bannerText.style.color =
-        textColor.value;
-
-        bannerText.style.textShadow =
-        `
-        5px 5px 0 rgba(0,0,0,.55),
-        0 8px 18px rgba(0,0,0,.5)
-        `;
-
-    }
-
-
-    if(design === "cyan"){
-
-        bannerText.style.color =
-        "#00eaff";
-
-        bannerText.style.textShadow =
-        `
-        0 0 5px #00eaff,
-        0 0 15px #00eaff,
-        0 0 30px #008cff
-        `;
-
-    }
-
-
-    if(design === "premium"){
-
-        bannerText.style.background =
-        "linear-gradient(180deg,#ffffff,#dce9ff,#ffffff)";
-
-        bannerText.style.webkitBackgroundClip =
-        "text";
-
-        bannerText.style.backgroundClip =
-        "text";
-
-        bannerText.style.webkitTextFillColor =
-        "transparent";
-
-        bannerText.style.webkitTextStroke =
-        "1px rgba(255,255,255,.45)";
-
-        bannerText.style.textShadow =
-        `
-        0 3px 0 rgba(0,0,0,.4),
-        0 8px 20px rgba(0,0,0,.55)
-        `;
-
-    }
-
-}
+textInput.addEventListener(
+    "input",
+    updateBanner
+);
 
 
 /* =====================================================
-   CURRENT DESIGN
+   FONT
 ===================================================== */
 
-let currentDesign =
-"normal";
+fontSelect.addEventListener(
+    "change",
+    updateBanner
+);
+
+
+/* =====================================================
+   FONT SIZE
+===================================================== */
+
+fontSize.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+/* =====================================================
+   FONT WEIGHT
+===================================================== */
+
+fontWeight.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+/* =====================================================
+   LETTER SPACING
+===================================================== */
+
+letterSpacing.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+/* =====================================================
+   TEXT COLOR
+===================================================== */
+
+textColor.addEventListener(
+    "input",
+    function(){
+
+        textColorCode.value =
+        textColor.value;
+
+        updateBanner();
+
+    }
+);
+
+
+textColorCode.addEventListener(
+    "input",
+    function(){
+
+        const value =
+        textColorCode.value;
+
+        if(
+            /^#[0-9A-Fa-f]{6}$/.test(value)
+        ){
+
+            textColor.value =
+            value;
+
+            updateBanner();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+backgroundSelect.addEventListener(
+    "change",
+    updateBanner
+);
+
+
+/* =====================================================
+   SIZE
+===================================================== */
+
+bannerWidth.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+bannerHeight.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+/* =====================================================
+   SMALL TEXT
+===================================================== */
+
+smallText.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+/* =====================================================
+   SUB TEXT
+===================================================== */
+
+subText.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+/* =====================================================
+   DECORATION
+===================================================== */
+
+showDecoration.addEventListener(
+    "change",
+    updateBanner
+);
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+overlayOpacity.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+/* =====================================================
+   POSITION BUTTONS
+===================================================== */
+
+document.querySelectorAll(
+    "[data-position]"
+).forEach(function(button){
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            document.querySelectorAll(
+                "[data-position]"
+            ).forEach(function(btn){
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
+
+            button.classList.add(
+                "active"
+            );
+
+            currentPosition =
+            button.dataset.position;
+
+            updateBanner();
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   ALIGNMENT BUTTONS
+===================================================== */
+
+document.querySelectorAll(
+    "[data-align]"
+).forEach(function(button){
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            document.querySelectorAll(
+                "[data-align]"
+            ).forEach(function(btn){
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
+
+            button.classList.add(
+                "active"
+            );
+
+            currentAlign =
+            button.dataset.align;
+
+            updateBanner();
+
+        }
+    );
+
+});
 
 
 /* =====================================================
    DESIGN BUTTONS
 ===================================================== */
 
-document
-.querySelectorAll(".design-btn")
-.forEach(function(button){
+document.querySelectorAll(
+    "[data-design]"
+).forEach(function(button){
 
     button.addEventListener(
         "click",
         function(){
 
-            document
-            .querySelectorAll(".design-btn")
-            .forEach(function(btn){
-                btn.classList.remove("active");
+            document.querySelectorAll(
+                "[data-design]"
+            ).forEach(function(btn){
+
+                btn.classList.remove(
+                    "active"
+                );
+
             });
 
-            button.classList.add("active");
+            button.classList.add(
+                "active"
+            );
 
             currentDesign =
             button.dataset.design;
 
-            applyDesign(currentDesign);
+            updateBanner();
 
         }
     );
@@ -2324,197 +3195,19 @@ document
 
 
 /* =====================================================
-   POSITION
+   QUICK BACKGROUND
 ===================================================== */
 
-document
-.querySelectorAll(".position-btn")
-.forEach(function(button){
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            document
-            .querySelectorAll(".position-btn")
-            .forEach(function(btn){
-                btn.classList.remove("active");
-            });
-
-            button.classList.add("active");
-
-            const position =
-            button.dataset.position;
-
-
-            if(position === "top"){
-
-                bannerContent.style.top =
-                "20%";
-
-                bannerContent.style.transform =
-                "translateY(0)";
-
-            }
-
-
-            if(position === "center"){
-
-                bannerContent.style.top =
-                "50%";
-
-                bannerContent.style.transform =
-                "translateY(-50%)";
-
-            }
-
-
-            if(position === "bottom"){
-
-                bannerContent.style.top =
-                "78%";
-
-                bannerContent.style.transform =
-                "translateY(-100%)";
-
-            }
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   INPUT EVENTS
-===================================================== */
-
-textInput.addEventListener(
-"input",
-function(){
-    updateBanner();
-    applyDesign(currentDesign);
-});
-
-
-fontSelect.addEventListener(
-"change",
-function(){
-    updateBanner();
-    applyDesign(currentDesign);
-});
-
-
-fontSize.addEventListener(
-"input",
-function(){
-    updateBanner();
-    applyDesign(currentDesign);
-});
-
-
-fontWeight.addEventListener(
-"input",
-function(){
-    updateBanner();
-    applyDesign(currentDesign);
-});
-
-
-letterSpacing.addEventListener(
-"input",
-function(){
-    updateBanner();
-    applyDesign(currentDesign);
-});
-
-
-textColor.addEventListener(
-"input",
-function(){
-
-    textColorCode.value =
-    textColor.value;
-
-    updateBanner();
-    applyDesign(currentDesign);
-
-});
-
-
-textColorCode.addEventListener(
-"input",
-function(){
-
-    const value =
-    textColorCode.value;
-
-    if(
-        /^#[0-9A-Fa-f]{6}$/.test(value)
-    ){
-
-        textColor.value =
-        value;
-
-        updateBanner();
-
-        applyDesign(currentDesign);
-
-    }
-
-});
-
-
-backgroundSelect.addEventListener(
-"change",
-updateBanner
-);
-
-
-bannerWidth.addEventListener(
-"input",
-updateBanner
-);
-
-
-bannerHeight.addEventListener(
-"input",
-updateBanner
-);
-
-
-smallText.addEventListener(
-"input",
-updateBanner
-);
-
-
-subText.addEventListener(
-"input",
-updateBanner
-);
-
-
-showDecoration.addEventListener(
-"change",
-updateBanner
-);
-
-
-/* =====================================================
-   QUICK PRESETS
-===================================================== */
-
-document
-.querySelectorAll(".preset")
-.forEach(function(button){
+document.querySelectorAll(
+    "[data-bg]"
+).forEach(function(button){
 
     button.addEventListener(
         "click",
         function(){
 
             backgroundSelect.value =
-            button.dataset.style;
+            button.dataset.bg;
 
             updateBanner();
 
@@ -2529,104 +3222,57 @@ document
 ===================================================== */
 
 imageInput.addEventListener(
-"change",
-function(event){
+    "change",
+    function(event){
 
-    const file =
-    event.target.files[0];
+        const file =
+        event.target.files[0];
 
-    if(!file){
-        return;
+        if(!file){
+
+            bannerImage.style.display =
+            "none";
+
+            bannerImage.removeAttribute(
+                "src"
+            );
+
+            return;
+
+        }
+
+
+        if(!file.type.startsWith("image/")){
+
+            alert(
+                "শুধু Image File নির্বাচন করুন।"
+            );
+
+            return;
+
+        }
+
+
+        const reader =
+        new FileReader();
+
+
+        reader.onload =
+        function(e){
+
+            bannerImage.src =
+            e.target.result;
+
+            bannerImage.style.display =
+            "block";
+
+        };
+
+
+        reader.readAsDataURL(file);
+
     }
-
-    const reader =
-    new FileReader();
-
-    reader.onload =
-    function(e){
-
-        bannerImage.src =
-        e.target.result;
-
-        bannerImage.style.display =
-        "block";
-
-        imageOpacityGroup.style.display =
-        "block";
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
-
-
-/* =====================================================
-   REMOVE IMAGE
-===================================================== */
-
-removeImage.addEventListener(
-"click",
-function(){
-
-    bannerImage.src = "";
-
-    bannerImage.style.display =
-    "none";
-
-    imageInput.value = "";
-
-    imageOpacityGroup.style.display =
-    "none";
-
-});
-
-
-/* =====================================================
-   IMAGE OPACITY
-===================================================== */
-
-imageOpacity.addEventListener(
-"input",
-function(){
-
-    const opacity =
-    Number(imageOpacity.value);
-
-    bannerImage.style.opacity =
-    opacity / 100;
-
-    imageOpacityValue.textContent =
-    opacity + "%";
-
-});
-
-
-/* =====================================================
-   OVERLAY
-===================================================== */
-
-let overlayVisible =
-false;
-
-toggleOverlay.addEventListener(
-"click",
-function(){
-
-    overlayVisible =
-    !overlayVisible;
-
-    bannerOverlay.style.display =
-    overlayVisible
-    ? "block"
-    : "none";
-
-    toggleOverlay.textContent =
-    overlayVisible
-    ? "◐ Overlay ON"
-    : "◐ Overlay";
-
-});
+);
 
 
 /* =====================================================
@@ -2634,113 +3280,148 @@ function(){
 ===================================================== */
 
 resetBtn.addEventListener(
-"click",
-function(){
+    "click",
+    function(){
 
-    textInput.value =
-    "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
-
-    fontSelect.value =
-    "font-hind";
-
-    fontSize.value =
-    52;
-
-    fontWeight.value =
-    700;
-
-    letterSpacing.value =
-    0;
-
-    textColor.value =
-    "#ffffff";
-
-    textColorCode.value =
-    "#ffffff";
-
-    backgroundSelect.value =
-    "blue";
-
-    bannerWidth.value =
-    800;
-
-    bannerHeight.value =
-    450;
-
-    smallText.value =
-    "ASIM TECH";
-
-    subText.value =
-    "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
-
-    showDecoration.checked =
-    true;
+        textInput.value =
+        "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
 
 
-    document
-    .querySelectorAll(".design-btn")
-    .forEach(function(btn){
-        btn.classList.remove("active");
-    });
-
-    document
-    .querySelector('[data-design="normal"]')
-    .classList.add("active");
-
-    currentDesign =
-    "normal";
+        fontSelect.value =
+        "font-hind";
 
 
-    document
-    .querySelectorAll(".position-btn")
-    .forEach(function(btn){
-        btn.classList.remove("active");
-    });
-
-    document
-    .querySelector('[data-position="center"]')
-    .classList.add("active");
+        fontSize.value =
+        90;
 
 
-    bannerContent.style.top =
-    "50%";
-
-    bannerContent.style.transform =
-    "translateY(-50%)";
+        fontWeight.value =
+        700;
 
 
-    bannerImage.src = "";
-
-    bannerImage.style.display =
-    "none";
-
-    imageInput.value = "";
-
-    imageOpacityGroup.style.display =
-    "none";
-
-    bannerOverlay.style.display =
-    "none";
-
-    overlayVisible =
-    false;
-
-    toggleOverlay.textContent =
-    "◐ Overlay";
+        letterSpacing.value =
+        0;
 
 
-    imageOpacity.value =
-    100;
-
-    imageOpacityValue.textContent =
-    "100%";
+        textColor.value =
+        "#ffffff";
 
 
-    updateBanner();
+        textColorCode.value =
+        "#ffffff";
 
-    applyDesign(currentDesign);
 
-});
+        backgroundSelect.value =
+        "blue";
+
+
+        bannerWidth.value =
+        1600;
+
+
+        bannerHeight.value =
+        900;
+
+
+        smallText.value =
+        "ASIM TECH";
+
+
+        subText.value =
+        "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
+
+
+        overlayOpacity.value =
+        28;
+
+
+        showDecoration.checked =
+        true;
+
+
+        imageInput.value =
+        "";
+
+
+        bannerImage.style.display =
+        "none";
+
+
+        bannerImage.removeAttribute(
+            "src"
+        );
+
+
+        currentPosition =
+        "middle";
+
+
+        currentAlign =
+        "center";
+
+
+        currentDesign =
+        "design-normal";
+
+
+        document.querySelectorAll(
+            "[data-position]"
+        ).forEach(function(btn){
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        document.querySelector(
+            '[data-position="middle"]'
+        ).classList.add(
+            "active"
+        );
+
+
+        document.querySelectorAll(
+            "[data-align]"
+        ).forEach(function(btn){
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        document.querySelector(
+            '[data-align="center"]'
+        ).classList.add(
+            "active"
+        );
+
+
+        document.querySelectorAll(
+            "[data-design]"
+        ).forEach(function(btn){
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        document.querySelector(
+            '[data-design="design-normal"]'
+        ).classList.add(
+            "active"
+        );
+
+
+        updateBanner();
+
+    }
+);
 
 
 /* =====================================================
@@ -2748,90 +3429,165 @@ function(){
 ===================================================== */
 
 downloadBtn.addEventListener(
-"click",
-async function(){
+    "click",
+    async function(){
 
-    const oldText =
-    downloadBtn.textContent;
-
-    downloadBtn.textContent =
-    "⏳ তৈরি হচ্ছে...";
-
-    downloadBtn.disabled =
-    true;
+        const oldText =
+        downloadBtn.textContent;
 
 
-    try{
+        downloadBtn.textContent =
+        "⏳ তৈরি হচ্ছে...";
 
-        if(document.fonts){
 
-            await document.fonts.ready;
+        downloadBtn.disabled =
+        true;
+
+
+        try{
+
+
+            /* WAIT FOR FONTS */
+
+            if(document.fonts){
+
+                await document.fonts.ready;
+
+            }
+
+
+            /*
+             * Give browser time to render
+             */
+
+            await new Promise(
+                function(resolve){
+
+                    setTimeout(
+                        resolve,
+                        300
+                    );
+
+                }
+            );
+
+
+            /*
+             * CAPTURE EXACT BANNER
+             */
+
+            const canvas =
+            await html2canvas(
+                banner,
+                {
+
+                    scale:2,
+
+                    useCORS:true,
+
+                    allowTaint:false,
+
+                    backgroundColor:null,
+
+                    logging:false,
+
+                    width:
+                    banner.offsetWidth,
+
+                    height:
+                    banner.offsetHeight,
+
+                    scrollX:0,
+
+                    scrollY:0
+
+                }
+            );
+
+
+            /*
+             * DOWNLOAD
+             */
+
+            canvas.toBlob(
+                function(blob){
+
+                    if(!blob){
+
+                        throw new Error(
+                            "PNG creation failed"
+                        );
+
+                    }
+
+
+                    const url =
+                    URL.createObjectURL(
+                        blob
+                    );
+
+
+                    const link =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                    link.download =
+                    "asim-tech-bangla-banner.png";
+
+
+                    link.href =
+                    url;
+
+
+                    document.body.appendChild(
+                        link
+                    );
+
+
+                    link.click();
+
+
+                    link.remove();
+
+
+                    setTimeout(
+                        function(){
+
+                            URL.revokeObjectURL(
+                                url
+                            );
+
+                        },
+                        1000
+                    );
+
+                },
+                "image/png"
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            alert(
+                "Banner download করা যায়নি। আবার চেষ্টা করুন।"
+            );
 
         }
 
 
-        await new Promise(
-            function(resolve){
-                setTimeout(resolve,300);
-            }
-        );
+        downloadBtn.textContent =
+        oldText;
 
 
-        const canvas =
-        await html2canvas(
-            banner,
-            {
-                scale:2,
-
-                useCORS:true,
-
-                allowTaint:true,
-
-                backgroundColor:null,
-
-                logging:false,
-
-                imageTimeout:0
-            }
-        );
-
-
-        const link =
-        document.createElement("a");
-
-        link.download =
-        "asim-tech-bangla-banner.png";
-
-        link.href =
-        canvas.toDataURL(
-            "image/png"
-        );
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        document.body.removeChild(link);
-
-
-    }catch(error){
-
-        console.error(error);
-
-        alert(
-            "Banner download করা যায়নি। আবার চেষ্টা করুন।"
-        );
+        downloadBtn.disabled =
+        false;
 
     }
-
-
-    downloadBtn.textContent =
-    oldText;
-
-    downloadBtn.disabled =
-    false;
-
-});
+);
 
 
 /* =====================================================
@@ -2840,12 +3596,12 @@ async function(){
 
 updateBanner();
 
-applyDesign(currentDesign);
-
 
 })();
 
 </script>
 
+
 </body>
+
 </html>
