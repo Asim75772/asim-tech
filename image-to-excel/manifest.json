@@ -1,0 +1,17 @@
+{
+  "name": "Asim Tech Image to Excel",
+  "short_name": "Image to Excel",
+  "description": "Convert image lists and tables into editable Excel files.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#020b18",
+  "theme_color": "#020b18",
+  "lang": "en",
+  "categories": [
+    "productivity",
+    "utilities",
+    "business"
+  ]
+}
