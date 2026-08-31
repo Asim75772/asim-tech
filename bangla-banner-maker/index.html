@@ -8,17 +8,14 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color"
-content="#050914">
+<meta name="theme-color" content="#050914">
 
-<title>ASIM TECH বাংলা Banner Maker</title>
+<title>Asim Tech বাংলা Banner Maker</title>
 
 <meta name="description"
-content="ASIM TECH Bengali Banner Maker">
+content="Create beautiful Bengali banners with stylish Bengali fonts.">
 
-<!-- =====================================================
-     GOOGLE BENGALI FONTS
-===================================================== -->
+<!-- Bengali Fonts -->
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -30,9 +27,7 @@ crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Atma:wght@400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Tiro+Bangla:ital@0;1&display=swap"
 rel="stylesheet">
 
-<!-- =====================================================
-     HTML2CANVAS
-===================================================== -->
+<!-- html2canvas -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -47,15 +42,13 @@ rel="stylesheet">
 
     --bg:#050914;
 
-    --panel:#091625;
+    --panel:#0b1220;
 
-    --panel2:#0d1d30;
-
-    --border:rgba(70,180,255,.20);
+    --border:rgba(100,180,255,.20);
 
     --text:#ffffff;
 
-    --muted:#91a8ba;
+    --muted:#8fa4b8;
 
     --blue:#159cff;
 
@@ -88,25 +81,25 @@ body{
 
     min-height:100vh;
 
-    color:var(--text);
-
     font-family:
     Arial,
     Helvetica,
     sans-serif;
 
+    color:#fff;
+
     background:
 
     radial-gradient(
-        circle at 10% 5%,
-        rgba(0,160,255,.15),
+        circle at 15% 5%,
+        rgba(0,150,255,.16),
         transparent 30%
     ),
 
     radial-gradient(
         circle at 90% 30%,
-        rgba(120,40,255,.14),
-        transparent 32%
+        rgba(120,50,255,.13),
+        transparent 30%
     ),
 
     #050914;
@@ -126,18 +119,18 @@ header{
 
     top:0;
 
-    z-index:9999;
+    z-index:1000;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
 
-    padding:14px 5%;
+    align-items:center;
+
+    padding:13px 5%;
 
     background:
-    rgba(4,9,18,.94);
+    rgba(5,9,20,.90);
 
     border-bottom:
     1px solid var(--border);
@@ -153,7 +146,7 @@ header{
 
     text-decoration:none;
 
-    font-size:22px;
+    font-size:21px;
 
     font-weight:900;
 
@@ -169,17 +162,17 @@ header{
 
 .header-badge{
 
-    padding:7px 13px;
+    padding:7px 12px;
 
     border:
-    1px solid rgba(0,160,255,.28);
+    1px solid rgba(0,170,255,.25);
 
     border-radius:999px;
 
     color:#73d5ff;
 
     background:
-    rgba(0,150,255,.08);
+    rgba(0,150,255,.07);
 
     font-size:10px;
 
@@ -216,13 +209,13 @@ header{
 .hero h1{
 
     font-size:
-    clamp(32px,6vw,55px);
+    clamp(30px,6vw,52px);
 
-    font-weight:900;
-
-    line-height:1.15;
+    line-height:1.1;
 
     margin-bottom:10px;
+
+    font-weight:900;
 
 }
 
@@ -240,7 +233,7 @@ header{
 
     font-size:14px;
 
-    line-height:1.8;
+    line-height:1.7;
 
 }
 
@@ -254,7 +247,7 @@ header{
     display:grid;
 
     grid-template-columns:
-    380px 1fr;
+    370px 1fr;
 
     gap:25px;
 
@@ -277,33 +270,32 @@ header{
     border-radius:22px;
 
     background:
-
     linear-gradient(
         145deg,
-        rgba(13,30,48,.96),
-        rgba(5,13,24,.98)
+        rgba(13,28,48,.95),
+        rgba(6,13,25,.97)
     );
 
     box-shadow:
-    0 20px 60px rgba(0,0,0,.30);
+    0 20px 60px rgba(0,0,0,.28);
 
 }
 
 
 .control-title{
 
-    font-size:20px;
+    font-size:18px;
 
-    font-weight:900;
+    font-weight:800;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
 }
 
 
 .control-group{
 
-    margin-bottom:18px;
+    margin-bottom:17px;
 
 }
 
@@ -312,16 +304,20 @@ header{
 
     display:block;
 
-    margin-bottom:8px;
+    margin-bottom:7px;
 
-    color:#cbd9e5;
+    color:#c9d8e5;
 
-    font-size:13px;
+    font-size:12px;
 
-    font-weight:800;
+    font-weight:700;
 
 }
 
+
+/* =====================================================
+   INPUTS
+===================================================== */
 
 textarea,
 select,
@@ -330,15 +326,6 @@ input[type="number"]{
 
     width:100%;
 
-    height:44px;
-
-    padding:
-    0 12px;
-
-    color:#fff;
-
-    background:#071523;
-
     border:
     1px solid #29445d;
 
@@ -346,16 +333,20 @@ input[type="number"]{
 
     outline:none;
 
+    color:#fff;
+
+    background:#081322;
+
     font-family:inherit;
 
-    transition:.2s;
+    transition:.2s ease;
 
 }
 
 
 textarea{
 
-    height:115px;
+    min-height:105px;
 
     padding:12px;
 
@@ -364,6 +355,19 @@ textarea{
     font-size:16px;
 
     line-height:1.6;
+
+}
+
+
+select,
+input[type="text"],
+input[type="number"]{
+
+    height:43px;
+
+    padding:0 11px;
+
+    font-size:13px;
 
 }
 
@@ -382,7 +386,7 @@ input:focus{
 
 
 /* =====================================================
-   ROW
+   TWO COLUMN
 ===================================================== */
 
 .row{
@@ -423,15 +427,15 @@ input[type="range"]{
 
 .range-value{
 
-    min-width:48px;
+    min-width:45px;
 
     text-align:right;
 
-    color:#70d1ff;
+    color:#75d2ff;
 
     font-size:12px;
 
-    font-weight:900;
+    font-weight:800;
 
 }
 
@@ -444,18 +448,18 @@ input[type="range"]{
 
     display:flex;
 
-    gap:10px;
-
     align-items:center;
+
+    gap:10px;
 
 }
 
 
 input[type="color"]{
 
-    width:52px;
+    width:48px;
 
-    height:42px;
+    height:40px;
 
     padding:2px;
 
@@ -464,7 +468,7 @@ input[type="color"]{
 
     border-radius:9px;
 
-    background:#071523;
+    background:#081322;
 
     cursor:pointer;
 
@@ -472,113 +476,33 @@ input[type="color"]{
 
 
 /* =====================================================
-   POSITION GRID
+   CHECKBOX
 ===================================================== */
 
-.position-grid{
+.check-row{
 
-    display:grid;
+    display:flex !important;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    align-items:center;
 
-    gap:7px;
+    gap:9px;
 
-}
+    color:#b9cbd8 !important;
 
-
-.position-btn{
-
-    min-height:42px;
-
-    border:
-    1px solid #29445d;
-
-    border-radius:10px;
-
-    background:
-    rgba(255,255,255,.035);
-
-    color:#bcd0dd;
-
-    font-size:11px;
-
-    font-weight:800;
+    font-size:12px !important;
 
     cursor:pointer;
 
 }
 
 
-.position-btn.active{
+.check-row input{
 
-    border-color:
-    var(--blue);
+    width:17px;
 
-    background:
-    rgba(0,150,255,.15);
+    height:17px;
 
-    color:#fff;
-
-}
-
-
-/* =====================================================
-   TEXT DESIGN
-===================================================== */
-
-.design-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr;
-
-    gap:8px;
-
-}
-
-
-.design-btn{
-
-    min-height:46px;
-
-    border:
-    1px solid #29445d;
-
-    border-radius:11px;
-
-    background:
-    rgba(255,255,255,.035);
-
-    color:#c5d4df;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    transition:.2s;
-
-}
-
-
-.design-btn:hover{
-
-    border-color:var(--blue);
-
-}
-
-
-.design-btn.active{
-
-    border-color:var(--blue);
-
-    background:
-    rgba(0,150,255,.16);
-
-    color:#fff;
+    accent-color:var(--blue);
 
 }
 
@@ -601,7 +525,7 @@ input[type="color"]{
 .preset{
 
     padding:
-    9px 11px;
+    8px 10px;
 
     border:
     1px solid #29445d;
@@ -611,13 +535,15 @@ input[type="color"]{
     background:
     rgba(255,255,255,.035);
 
-    color:#c4d4df;
+    color:#bcd0dd;
 
     font-size:10px;
 
-    font-weight:800;
+    font-weight:700;
 
     cursor:pointer;
+
+    transition:.2s ease;
 
 }
 
@@ -626,68 +552,15 @@ input[type="color"]{
 
     border-color:var(--blue);
 
-}
+    color:#fff;
 
-
-/* =====================================================
-   CHECK
-===================================================== */
-
-.check-row{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    color:#bfd0dc;
-
-    font-size:12px;
-
-    font-weight:700;
-
-}
-
-
-.check-row input{
-
-    width:18px;
-
-    height:18px;
-
-    accent-color:var(--blue);
+    transform:translateY(-1px);
 
 }
 
 
 /* =====================================================
-   FILE INPUT
-===================================================== */
-
-.file-input{
-
-    width:100%;
-
-    padding:10px;
-
-    border:
-    1px dashed #31516c;
-
-    border-radius:11px;
-
-    background:
-    rgba(255,255,255,.025);
-
-    color:#b9cad6;
-
-    font-size:11px;
-
-}
-
-
-/* =====================================================
-   ACTION BUTTONS
+   ACTIONS
 ===================================================== */
 
 .actions{
@@ -697,7 +570,7 @@ input[type="color"]{
     grid-template-columns:
     1fr 1fr;
 
-    gap:10px;
+    gap:9px;
 
     margin-top:20px;
 
@@ -706,19 +579,30 @@ input[type="color"]{
 
 .action-btn{
 
-    min-height:48px;
+    min-height:46px;
 
     border:0;
 
-    border-radius:12px;
+    border-radius:11px;
 
     color:#fff;
 
     font-size:13px;
 
-    font-weight:900;
+    font-weight:800;
 
     cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+
+.action-btn:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.1);
 
 }
 
@@ -728,8 +612,8 @@ input[type="color"]{
     background:
     linear-gradient(
         135deg,
-        #00c878,
-        #009b59
+        #00bd72,
+        #009b58
     );
 
 }
@@ -740,12 +624,12 @@ input[type="color"]{
     background:
     linear-gradient(
         135deg,
-        #263d55,
-        #17273b
+        #24364c,
+        #17263a
     );
 
     border:
-    1px solid #38536d;
+    1px solid #35506a;
 
 }
 
@@ -766,10 +650,10 @@ input[type="color"]{
     border-radius:22px;
 
     background:
-    rgba(7,16,29,.75);
+    rgba(7,15,28,.72);
 
     box-shadow:
-    0 20px 60px rgba(0,0,0,.25);
+    0 20px 60px rgba(0,0,0,.22);
 
 }
 
@@ -789,14 +673,14 @@ input[type="color"]{
 
 .preview-title strong{
 
-    font-size:17px;
+    font-size:16px;
 
 }
 
 
 .preview-title span{
 
-    color:#6e899d;
+    color:#6d879b;
 
     font-size:10px;
 
@@ -826,79 +710,47 @@ input[type="color"]{
 
     position:relative;
 
-    width:1600px;
+    width:800px;
 
-    height:900px;
-
-    margin:auto;
+    height:450px;
 
     overflow:hidden;
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
 
+    justify-content:center;
+
     text-align:center;
+
+    margin:auto;
+
+    border-radius:0;
 
     background:
 
     radial-gradient(
-        circle at 15% 15%,
-        rgba(0,180,255,.38),
-        transparent 35%
+        circle at 20% 20%,
+        rgba(0,170,255,.30),
+        transparent 32%
     ),
 
     radial-gradient(
-        circle at 85% 85%,
-        rgba(80,50,255,.30),
-        transparent 35%
+        circle at 80% 80%,
+        rgba(145,40,255,.28),
+        transparent 32%
     ),
 
     linear-gradient(
         135deg,
-        #062a49,
-        #07172b 55%,
-        #24105a
+        #071c32,
+        #10102a 55%,
+        #250d43
     );
 
-}
-
-
-/* =====================================================
-   BACKGROUND IMAGE
-===================================================== */
-
-#bannerImage{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:none;
-
-    z-index:1;
-
-}
-
-
-#bannerOverlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    rgba(0,0,0,.28);
-
-    z-index:2;
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
 
 }
 
@@ -911,43 +763,41 @@ input[type="color"]{
 
     position:absolute;
 
-    width:300px;
+    width:240px;
 
-    height:300px;
+    height:240px;
 
     border-radius:50%;
 
     border:
-    1px solid rgba(255,255,255,.13);
+    1px solid rgba(255,255,255,.12);
 
     background:
     rgba(255,255,255,.025);
 
-    top:-110px;
+    top:-90px;
 
-    left:-90px;
-
-    z-index:3;
+    left:-70px;
 
 }
 
 
 .banner-circle.two{
 
-    width:380px;
+    width:300px;
 
-    height:380px;
+    height:300px;
 
     top:auto;
 
     left:auto;
 
-    right:-170px;
+    right:-130px;
 
-    bottom:-200px;
+    bottom:-150px;
 
     border-color:
-    rgba(0,190,255,.18);
+    rgba(0,190,255,.17);
 
 }
 
@@ -960,19 +810,15 @@ input[type="color"]{
 
     height:1px;
 
-    bottom:90px;
-
-    left:12.5%;
-
     background:
     linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,.25),
+        rgba(255,255,255,.22),
         transparent
     );
 
-    z-index:3;
+    bottom:65px;
 
 }
 
@@ -983,54 +829,43 @@ input[type="color"]{
 
 .banner-content{
 
-    position:absolute;
+    position:relative;
 
     z-index:5;
 
     width:88%;
 
-    left:6%;
-
-    transition:.25s ease;
+    padding:20px;
 
 }
 
-
-/* =====================================================
-   SMALL HEADING
-===================================================== */
 
 .banner-small{
 
     display:inline-block;
 
-    margin-bottom:24px;
+    margin-bottom:14px;
 
-    padding:
-    9px 20px;
+    padding:6px 14px;
 
     border:
-    1px solid rgba(255,255,255,.22);
+    1px solid rgba(255,255,255,.20);
 
     border-radius:999px;
 
     color:#8bdcff;
 
     background:
-    rgba(0,100,180,.10);
+    rgba(0,150,255,.09);
 
     font-family:Arial,sans-serif;
 
-    font-size:22px;
+    font-size:13px;
 
-    font-weight:800;
+    font-weight:700;
 
 }
 
-
-/* =====================================================
-   MAIN TEXT
-===================================================== */
 
 #bannerText{
 
@@ -1038,16 +873,11 @@ input[type="color"]{
 
     word-break:break-word;
 
-    font-size:90px;
+    font-size:52px;
 
     line-height:1.25;
 
     font-weight:700;
-
-    color:#fff;
-
-    text-shadow:
-    0 5px 20px rgba(0,0,0,.55);
 
     transition:.2s ease;
 
@@ -1060,208 +890,346 @@ input[type="color"]{
 
 .banner-sub{
 
-    margin-top:28px;
+    margin-top:16px;
 
-    color:
-    rgba(255,255,255,.78);
+    color:rgba(255,255,255,.72);
 
-    font-family:
-    Arial,
-    "Hind Siliguri",
-    sans-serif;
+    font-family:Arial,sans-serif;
 
-    font-size:24px;
+    font-size:14px;
 
 }
 
 
 /* =====================================================
-   FONT CLASSES
+   BENGALI FONTS
 ===================================================== */
 
 .font-hind{
 
-    font-family:
-    "Hind Siliguri",
-    sans-serif;
+    font-family:"Hind Siliguri",sans-serif;
 
 }
 
 
 .font-anek{
 
-    font-family:
-    "Anek Bangla",
-    sans-serif;
+    font-family:"Anek Bangla",sans-serif;
 
 }
 
 
 .font-baloo{
 
-    font-family:
-    "Baloo Da 2",
-    sans-serif;
+    font-family:"Baloo Da 2",sans-serif;
 
 }
 
 
 .font-atma{
 
-    font-family:
-    "Atma",
-    sans-serif;
+    font-family:"Atma",sans-serif;
 
 }
 
 
 .font-galada{
 
-    font-family:
-    "Galada",
-    cursive;
+    font-family:"Galada",cursive;
 
 }
 
 
 .font-noto{
 
-    font-family:
-    "Noto Serif Bengali",
-    serif;
+    font-family:"Noto Serif Bengali",serif;
 
 }
 
 
 .font-tiro{
 
-    font-family:
-    "Tiro Bangla",
-    serif;
+    font-family:"Tiro Bangla",serif;
 
 }
 
 
 /* =====================================================
-   TEXT DESIGNS
+   TEXT DESIGN - IMPORTANT
+   NO BORDER / NO TEXT STROKE
 ===================================================== */
 
-.design-normal{
+
+/* Normal */
+
+.text-normal{
+
+    color:#ffffff;
+
+    background:none;
+
+    -webkit-background-clip:initial;
+
+    background-clip:initial;
+
+    -webkit-text-fill-color:initial;
 
     text-shadow:
-    0 5px 20px rgba(0,0,0,.45);
+    0 4px 18px rgba(0,0,0,.45);
+
+    -webkit-text-stroke:0 !important;
 
 }
 
 
-.design-neon{
+/* Strong Shadow */
+
+.text-shadow{
+
+    color:#fff;
+
+    background:none;
+
+    -webkit-background-clip:initial;
+
+    background-clip:initial;
+
+    -webkit-text-fill-color:initial;
+
+    -webkit-text-stroke:0 !important;
 
     text-shadow:
-    0 0 8px currentColor,
-    0 0 20px currentColor,
-    0 0 40px currentColor;
+
+    3px 3px 0 #000,
+
+    6px 6px 15px rgba(0,0,0,.65);
 
 }
 
 
-.design-golden{
+/* Soft Glow */
+
+.text-glow{
+
+    color:#ffffff;
+
+    background:none;
+
+    -webkit-background-clip:initial;
+
+    background-clip:initial;
+
+    -webkit-text-fill-color:initial;
+
+    -webkit-text-stroke:0 !important;
+
+    text-shadow:
+
+    0 0 8px rgba(255,255,255,.9),
+
+    0 0 20px rgba(0,190,255,.8),
+
+    0 0 35px rgba(0,100,255,.5);
+
+}
+
+
+/* Cyan Neon */
+
+.text-neon{
+
+    color:#00eaff;
+
+    background:none;
+
+    -webkit-background-clip:initial;
+
+    background-clip:initial;
+
+    -webkit-text-fill-color:initial;
+
+    -webkit-text-stroke:0 !important;
+
+    text-shadow:
+
+    0 0 5px #00eaff,
+
+    0 0 15px #00eaff,
+
+    0 0 30px rgba(0,234,255,.75);
+
+}
+
+
+/* Gold */
+
+.text-gold{
 
     background:
     linear-gradient(
         180deg,
-        #fff7a8,
-        #ffd23f,
-        #c78900
+        #fff5a3,
+        #ffd700 35%,
+        #ff9d00 70%,
+        #fff1a8
     );
 
     -webkit-background-clip:text;
 
     background-clip:text;
 
-    color:transparent !important;
+    color:transparent;
+
+    -webkit-text-fill-color:transparent;
+
+    -webkit-text-stroke:0 !important;
 
     text-shadow:
-    0 3px 15px rgba(255,190,0,.35);
+    0 3px 12px rgba(0,0,0,.35);
 
 }
 
 
-.design-gradient{
+/* Fire */
+
+.text-fire{
+
+    background:
+    linear-gradient(
+        180deg,
+        #fff700,
+        #ff9d00 35%,
+        #ff3b00 70%,
+        #b40000
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    -webkit-text-fill-color:transparent;
+
+    -webkit-text-stroke:0 !important;
+
+    text-shadow:
+    0 4px 15px rgba(255,60,0,.35);
+
+}
+
+
+/* Ocean */
+
+.text-ocean{
 
     background:
     linear-gradient(
         90deg,
         #00eaff,
-        #ffffff,
-        #ff38d1
+        #ffffff 45%,
+        #4c7dff
     );
 
     -webkit-background-clip:text;
 
     background-clip:text;
 
-    color:transparent !important;
+    color:transparent;
+
+    -webkit-text-fill-color:transparent;
+
+    -webkit-text-stroke:0 !important;
 
     text-shadow:
-    0 5px 25px rgba(0,220,255,.22);
+    0 4px 15px rgba(0,150,255,.35);
 
 }
 
 
-.design-outline{
+/* Royal */
 
-    color:transparent !important;
-
-    -webkit-text-stroke:
-    3px currentColor;
-
-    text-shadow:
-    0 5px 15px rgba(0,0,0,.55);
-
-}
-
-
-.design-shadow{
-
-    text-shadow:
-    8px 10px 0 rgba(0,0,0,.55);
-
-}
-
-
-.design-cyan{
-
-    text-shadow:
-    0 0 5px #00eaff,
-    0 0 15px #00eaff,
-    0 5px 20px rgba(0,0,0,.5);
-
-}
-
-
-.design-premium{
+.text-royal{
 
     background:
     linear-gradient(
-        180deg,
-        #ffffff 0%,
+        90deg,
+        #ff70f0,
         #ffffff 45%,
-        #b7d7ff 55%,
-        #ffffff 100%
+        #8d6cff
     );
 
     -webkit-background-clip:text;
 
     background-clip:text;
 
-    color:transparent !important;
+    color:transparent;
 
-    -webkit-text-stroke:
-    1px rgba(0,0,0,.35);
+    -webkit-text-fill-color:transparent;
+
+    -webkit-text-stroke:0 !important;
 
     text-shadow:
-    0 4px 8px rgba(0,0,0,.55),
-    0 0 18px rgba(255,255,255,.20);
+    0 4px 15px rgba(150,50,255,.35);
+
+}
+
+
+/* Rainbow */
+
+.text-rainbow{
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff2d55,
+        #ff9500,
+        #ffe600,
+        #00e676,
+        #00c8ff,
+        #8c52ff
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    -webkit-text-fill-color:transparent;
+
+    -webkit-text-stroke:0 !important;
+
+    text-shadow:
+    0 4px 15px rgba(0,0,0,.25);
+
+}
+
+
+/* Pink */
+
+.text-pink{
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff1493,
+        #ff69b4,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    -webkit-text-fill-color:transparent;
+
+    -webkit-text-stroke:0 !important;
+
+    text-shadow:
+    0 4px 15px rgba(255,20,147,.35);
 
 }
 
@@ -1274,7 +1242,7 @@ input[type="color"]{
 
     margin-top:25px;
 
-    padding:25px;
+    padding:24px;
 
     border:
     1px solid var(--border);
@@ -1282,7 +1250,7 @@ input[type="color"]{
     border-radius:20px;
 
     background:
-    rgba(8,20,35,.72);
+    rgba(8,20,35,.70);
 
     text-align:center;
 
@@ -1291,9 +1259,9 @@ input[type="color"]{
 
 .info h2{
 
-    font-size:24px;
+    margin-bottom:9px;
 
-    margin-bottom:12px;
+    font-size:22px;
 
 }
 
@@ -1306,9 +1274,9 @@ input[type="color"]{
 
     color:var(--muted);
 
-    font-size:14px;
+    font-size:13px;
 
-    line-height:1.9;
+    line-height:1.8;
 
 }
 
@@ -1326,7 +1294,7 @@ footer{
     border-top:
     1px solid var(--border);
 
-    color:#71899c;
+    color:#70889a;
 
     font-size:12px;
 
@@ -1344,11 +1312,23 @@ footer strong{
    MOBILE
 ===================================================== */
 
-@media(max-width:950px){
+@media(max-width:900px){
 
     .designer{
 
         grid-template-columns:1fr;
+
+    }
+
+    .controls{
+
+        order:1;
+
+    }
+
+    .preview-area{
+
+        order:2;
 
     }
 
@@ -1359,11 +1339,9 @@ footer strong{
 
     header{
 
-        padding:
-        12px 4%;
+        padding:12px 4%;
 
     }
-
 
     .logo{
 
@@ -1371,16 +1349,13 @@ footer strong{
 
     }
 
-
     .header-badge{
 
         font-size:8px;
 
-        padding:
-        6px 9px;
+        padding:6px 8px;
 
     }
-
 
     .container{
 
@@ -1390,13 +1365,11 @@ footer strong{
 
     }
 
-
     .hero h1{
 
-        font-size:32px;
+        font-size:31px;
 
     }
-
 
     .controls,
     .preview-area{
@@ -1407,64 +1380,11 @@ footer strong{
 
     }
 
-
     .row{
 
         grid-template-columns:1fr;
 
     }
-
-
-    #banner{
-
-        width:800px;
-
-        height:450px;
-
-    }
-
-
-    #bannerText{
-
-        font-size:55px;
-
-    }
-
-
-    .banner-small{
-
-        font-size:14px;
-
-        padding:
-        6px 13px;
-
-    }
-
-
-    .banner-sub{
-
-        font-size:14px;
-
-    }
-
-
-    .preview-scroll{
-
-        padding:5px;
-
-    }
-
-
-    .actions{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-
-@media(max-width:430px){
 
     #banner{
 
@@ -1474,10 +1394,58 @@ footer strong{
 
     }
 
+    #bannerText{
+
+        font-size:43px;
+
+    }
+
+    .preview-scroll{
+
+        padding:5px;
+
+    }
+
+}
+
+
+@media(max-width:430px){
+
+    .hero p{
+
+        font-size:12px;
+
+    }
+
+    #banner{
+
+        width:600px;
+
+        height:338px;
+
+    }
 
     #bannerText{
 
-        font-size:48px;
+        font-size:36px;
+
+    }
+
+    .banner-small{
+
+        font-size:10px;
+
+    }
+
+    .banner-sub{
+
+        font-size:11px;
+
+    }
+
+    .actions{
+
+        grid-template-columns:1fr;
 
     }
 
@@ -1496,14 +1464,12 @@ footer strong{
 
     }
 
-
     #banner,
     #banner *{
 
         visibility:visible;
 
     }
-
 
     #banner{
 
@@ -1563,7 +1529,7 @@ footer strong{
 
 <p>
 
-স্টাইলিশ বাংলা Font ব্যবহার করে নিজের পছন্দের Banner তৈরি করুন
+স্টাইলিশ বাংলা Font ও Text Design ব্যবহার করে নিজের Banner তৈরি করুন
 
 </p>
 
@@ -1574,7 +1540,7 @@ footer strong{
 
 
 <!-- =====================================================
-     CONTROLS
+     CONTROL PANEL
 ===================================================== -->
 
 <section class="controls">
@@ -1587,9 +1553,7 @@ footer strong{
 </div>
 
 
-<!-- =====================================================
-     TEXT
-===================================================== -->
+<!-- TEXT -->
 
 <div class="control-group">
 
@@ -1601,16 +1565,13 @@ footer strong{
 
 <textarea
 id="textInput"
-placeholder="এখানে বাংলা লেখা লিখুন..."
->আপনার স্বপ্নকে
+placeholder="এখানে আপনার বাংলা লেখা লিখুন...">আপনার স্বপ্নকে
 বাস্তবে রূপ দিন</textarea>
 
 </div>
 
 
-<!-- =====================================================
-     FONT
-===================================================== -->
+<!-- FONT -->
 
 <div class="control-group">
 
@@ -1623,31 +1584,45 @@ placeholder="এখানে বাংলা লেখা লিখুন..."
 <select id="fontSelect">
 
 <option value="font-hind">
+
 Hind Siliguri — পরিষ্কার
+
 </option>
 
 <option value="font-anek">
+
 Anek Bangla — Modern
+
 </option>
 
 <option value="font-baloo">
+
 Baloo Da 2 — Stylish
+
 </option>
 
 <option value="font-atma">
+
 Atma — Creative
+
 </option>
 
 <option value="font-galada">
+
 Galada — Artistic
+
 </option>
 
 <option value="font-noto">
+
 Noto Serif Bengali — Classic
+
 </option>
 
 <option value="font-tiro">
+
 Tiro Bangla — Elegant
+
 </option>
 
 </select>
@@ -1655,9 +1630,7 @@ Tiro Bangla — Elegant
 </div>
 
 
-<!-- =====================================================
-     TEXT DESIGN
-===================================================== -->
+<!-- TEXT DESIGN -->
 
 <div class="control-group">
 
@@ -1667,81 +1640,109 @@ Tiro Bangla — Elegant
 
 </label>
 
-<div class="design-grid">
+<select id="textDesign">
 
+<option value="text-normal">
 
-<button class="design-btn active"
-data-design="design-normal">
+Normal — সাধারণ
 
-⚪ Normal
+</option>
 
-</button>
+<option value="text-shadow">
 
+3D Shadow — ছায়া
 
-<button class="design-btn"
-data-design="design-neon">
+</option>
 
-💠 Neon
+<option value="text-glow">
 
-</button>
+Soft Glow — উজ্জ্বল
 
+</option>
 
-<button class="design-btn"
-data-design="design-golden">
+<option value="text-neon">
 
-🟡 Golden
+Neon Cyan — Neon
 
-</button>
+</option>
 
+<option value="text-gold">
 
-<button class="design-btn"
-data-design="design-gradient">
+Gold — সোনালী
 
-🌈 Gradient
+</option>
 
-</button>
+<option value="text-fire">
 
+Fire — আগুন
 
-<button class="design-btn"
-data-design="design-outline">
+</option>
 
-⬜ Outline
+<option value="text-ocean">
 
-</button>
+Ocean Gradient — নীল Gradient
 
+</option>
 
-<button class="design-btn"
-data-design="design-shadow">
+<option value="text-royal">
 
-🌑 Shadow
+Royal Gradient — Purple
 
-</button>
+</option>
 
+<option value="text-rainbow">
 
-<button class="design-btn"
-data-design="design-cyan">
+Rainbow Gradient — রংধনু
 
-🔵 Cyan Glow
+</option>
 
-</button>
+<option value="text-pink">
 
+Pink Gradient — Pink
 
-<button class="design-btn"
-data-design="design-premium">
+</option>
 
-💎 Premium
-
-</button>
-
-
-</div>
+</select>
 
 </div>
 
 
-<!-- =====================================================
-     FONT SIZE
-===================================================== -->
+<!-- POSITION -->
+
+<div class="control-group">
+
+<label>
+
+↕ লেখার Position
+
+</label>
+
+<select id="textPosition">
+
+<option value="center">
+
+মাঝখানে
+
+</option>
+
+<option value="top">
+
+উপরে
+
+</option>
+
+<option value="bottom">
+
+নিচে
+
+</option>
+
+</select>
+
+</div>
+
+
+<!-- FONT SIZE -->
 
 <div class="control-group">
 
@@ -1756,15 +1757,15 @@ Font Size
 <input
 type="range"
 id="fontSize"
-min="30"
-max="180"
-value="90">
+min="25"
+max="120"
+value="52">
 
 <span
 class="range-value"
 id="fontSizeValue">
 
-90px
+52px
 
 </span>
 
@@ -1773,84 +1774,13 @@ id="fontSizeValue">
 </div>
 
 
-<!-- =====================================================
-     THICKNESS
-===================================================== -->
+<!-- TEXT COLOR -->
 
 <div class="control-group">
 
 <label>
 
-লেখার Thickness
-
-</label>
-
-<div class="range-line">
-
-<input
-type="range"
-id="fontWeight"
-min="400"
-max="900"
-step="100"
-value="700">
-
-<span
-class="range-value"
-id="fontWeightValue">
-
-700
-
-</span>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     LETTER SPACING
-===================================================== -->
-
-<div class="control-group">
-
-<label>
-
-Letter Spacing
-
-</label>
-
-<div class="range-line">
-
-<input
-type="range"
-id="letterSpacing"
-min="-3"
-max="12"
-value="0">
-
-<span
-class="range-value"
-id="letterSpacingValue">
-
-0px
-
-</span>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     TEXT COLOR
-===================================================== -->
-
-<div class="control-group">
-
-<label>
-
-🎨 লেখার Colour
+🎨 Text Color
 
 </label>
 
@@ -1871,144 +1801,58 @@ value="#ffffff">
 </div>
 
 
-<!-- =====================================================
-     POSITION
-===================================================== -->
+<!-- BACKGROUND -->
 
 <div class="control-group">
 
 <label>
 
-📍 লেখার Position
-
-</label>
-
-<div class="position-grid">
-
-
-<button
-class="position-btn"
-data-position="top">
-
-⬆ উপরে
-
-</button>
-
-
-<button
-class="position-btn active"
-data-position="middle">
-
-⏺ মাঝে
-
-</button>
-
-
-<button
-class="position-btn"
-data-position="bottom">
-
-⬇ নিচে
-
-</button>
-
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     ALIGNMENT
-===================================================== -->
-
-<div class="control-group">
-
-<label>
-
-↔ লেখার Alignment
-
-</label>
-
-<div class="position-grid">
-
-
-<button
-class="position-btn"
-data-align="left">
-
-⬅ Left
-
-</button>
-
-
-<button
-class="position-btn active"
-data-align="center">
-
-⏺ Center
-
-</button>
-
-
-<button
-class="position-btn"
-data-align="right">
-
-➡ Right
-
-</button>
-
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
-<div class="control-group">
-
-<label>
-
-🌄 Background Style
+Background Style
 
 </label>
 
 <select id="backgroundSelect">
 
 <option value="blue">
+
 Ocean Blue
+
 </option>
 
 <option value="purple">
+
 Royal Purple
+
 </option>
 
 <option value="red">
+
 Red Glow
+
 </option>
 
 <option value="green">
+
 Emerald
+
 </option>
 
 <option value="orange">
+
 Sunset Orange
+
 </option>
 
 <option value="dark">
-Dark Premium
-</option>
 
-<option value="cyan">
-Cyan Dream
+Dark Premium
+
 </option>
 
 <option value="white">
+
 Clean White
+
 </option>
 
 </select>
@@ -2016,100 +1860,38 @@ Clean White
 </div>
 
 
-<!-- =====================================================
-     BACKGROUND IMAGE
-===================================================== -->
+<!-- BANNER SIZE -->
 
 <div class="control-group">
 
 <label>
 
-🖼 Background Image
-
-</label>
-
-<input
-type="file"
-id="imageInput"
-class="file-input"
-accept="image/*">
-
-</div>
-
-
-<!-- =====================================================
-     IMAGE OVERLAY
-===================================================== -->
-
-<div class="control-group">
-
-<label>
-
-Background Image Dark/Light
-
-</label>
-
-<div class="range-line">
-
-<input
-type="range"
-id="overlayOpacity"
-min="0"
-max="80"
-value="28">
-
-<span
-class="range-value"
-id="overlayValue">
-
-28%
-
-</span>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     BANNER SIZE
-===================================================== -->
-
-<div class="control-group">
-
-<label>
-
-📐 Banner Size
+Banner Size
 
 </label>
 
 <div class="row">
 
-
 <input
 type="number"
 id="bannerWidth"
-value="1600"
+value="800"
 min="300"
-max="3000">
-
+max="1600">
 
 <input
 type="number"
 id="bannerHeight"
-value="900"
+value="450"
 min="200"
-max="3000">
-
-
-</div>
+max="1200">
 
 </div>
 
+</div>
 
-<!-- =====================================================
-     SMALL HEADING
-===================================================== -->
+
+<!-- SMALL HEADING -->
 
 <div class="control-group">
 
@@ -2127,9 +1909,7 @@ value="ASIM TECH">
 </div>
 
 
-<!-- =====================================================
-     SUBTITLE
-===================================================== -->
+<!-- SUBTITLE -->
 
 <div class="control-group">
 
@@ -2147,9 +1927,7 @@ value="আপনার জন্য সহজ ও সুন্দর ডিজ�
 </div>
 
 
-<!-- =====================================================
-     QUICK BACKGROUND
-===================================================== -->
+<!-- QUICK STYLES -->
 
 <div class="control-group">
 
@@ -2161,69 +1939,57 @@ Quick Background
 
 <div class="presets">
 
-
 <button
+type="button"
 class="preset"
-data-bg="blue">
+data-style="blue">
 
 🔵 Blue
 
 </button>
 
-
 <button
+type="button"
 class="preset"
-data-bg="purple">
+data-style="purple">
 
 🟣 Purple
 
 </button>
 
-
 <button
+type="button"
 class="preset"
-data-bg="red">
+data-style="red">
 
 🔴 Red
 
 </button>
 
-
 <button
+type="button"
 class="preset"
-data-bg="green">
+data-style="green">
 
 🟢 Green
 
 </button>
 
-
 <button
+type="button"
 class="preset"
-data-bg="orange">
+data-style="orange">
 
 🟠 Sunset
 
 </button>
 
-
-<button
-class="preset"
-data-bg="cyan">
-
-💎 Cyan
-
-</button>
-
-
 </div>
 
 </div>
 
 
-<!-- =====================================================
-     DECORATION
-===================================================== -->
+<!-- DECORATION -->
 
 <div class="control-group">
 
@@ -2241,14 +2007,12 @@ Show decorative design
 </div>
 
 
-<!-- =====================================================
-     ACTIONS
-===================================================== -->
+<!-- ACTIONS -->
 
 <div class="actions">
 
-
 <button
+type="button"
 class="action-btn download-btn"
 id="downloadBtn">
 
@@ -2256,15 +2020,14 @@ id="downloadBtn">
 
 </button>
 
-
 <button
+type="button"
 class="action-btn reset-btn"
 id="resetBtn">
 
 ↻ Reset
 
 </button>
-
 
 </div>
 
@@ -2289,7 +2052,7 @@ id="resetBtn">
 
 <span>
 
-1600 × 900 Banner
+Banner automatically updates
 
 </span>
 
@@ -2300,16 +2063,6 @@ id="resetBtn">
 
 
 <div id="banner">
-
-
-<img
-id="bannerImage"
-alt="">
-
-
-<div
-id="bannerOverlay">
-</div>
 
 
 <div
@@ -2346,7 +2099,7 @@ ASIM TECH
 
 <div
 id="bannerText"
-class="font-hind design-normal">
+class="font-hind text-normal">
 
 আপনার স্বপ্নকে
 বাস্তবে রূপ দিন
@@ -2385,16 +2138,16 @@ id="subPreview">
 
 <h2>
 
-✨ ৭টি Stylish বাংলা Font + ৮টি Text Design
+✨ ১০টি Stylish Text Design
 
 </h2>
 
 <p>
 
-Hind Siliguri, Anek Bangla, Baloo Da 2, Atma,
-Galada, Noto Serif Bengali এবং Tiro Bangla।
-এর সঙ্গে Normal, Neon, Golden, Gradient, Outline,
-Shadow, Cyan Glow এবং Premium Text Design ব্যবহার করুন।
+Normal, 3D Shadow, Soft Glow, Neon, Gold,
+Fire, Ocean Gradient, Royal Gradient,
+Rainbow Gradient এবং Pink Gradient —
+নিজের পছন্দমতো লেখার Design নির্বাচন করুন।
 
 </p>
 
@@ -2425,10 +2178,6 @@ Shadow, Cyan Glow এবং Premium Text Design ব্যবহার করু�
 
 <script>
 
-/* =====================================================
-   ASIM TECH BANNER MAKER
-===================================================== */
-
 (function(){
 
 
@@ -2442,23 +2191,17 @@ document.getElementById("textInput");
 const fontSelect =
 document.getElementById("fontSelect");
 
+const textDesign =
+document.getElementById("textDesign");
+
+const textPosition =
+document.getElementById("textPosition");
+
 const fontSize =
 document.getElementById("fontSize");
 
 const fontSizeValue =
 document.getElementById("fontSizeValue");
-
-const fontWeight =
-document.getElementById("fontWeight");
-
-const fontWeightValue =
-document.getElementById("fontWeightValue");
-
-const letterSpacing =
-document.getElementById("letterSpacing");
-
-const letterSpacingValue =
-document.getElementById("letterSpacingValue");
 
 const textColor =
 document.getElementById("textColor");
@@ -2487,11 +2230,11 @@ document.getElementById("showDecoration");
 const banner =
 document.getElementById("banner");
 
-const bannerText =
-document.getElementById("bannerText");
-
 const bannerContent =
 document.getElementById("bannerContent");
+
+const bannerText =
+document.getElementById("bannerText");
 
 const smallPreview =
 document.getElementById("smallPreview");
@@ -2508,21 +2251,6 @@ document.getElementById("circleTwo");
 const bannerLine =
 document.getElementById("bannerLine");
 
-const imageInput =
-document.getElementById("imageInput");
-
-const bannerImage =
-document.getElementById("bannerImage");
-
-const bannerOverlay =
-document.getElementById("bannerOverlay");
-
-const overlayOpacity =
-document.getElementById("overlayOpacity");
-
-const overlayValue =
-document.getElementById("overlayValue");
-
 const downloadBtn =
 document.getElementById("downloadBtn");
 
@@ -2536,226 +2264,155 @@ document.getElementById("resetBtn");
 
 const backgrounds = {
 
-    blue: `
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(0,180,255,.38),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 85% 85%,
-            rgba(80,50,255,.30),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #062a49,
-            #07172b 55%,
-            #24105a
-        )
-    `,
 
-    purple: `
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(200,60,255,.35),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(80,80,255,.35),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #250640,
-            #160d35 55%,
-            #351064
-        )
-    `,
+blue:`
 
-    red: `
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,40,70,.35),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(255,120,0,.30),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #45050c,
-            #22070c 55%,
-            #570011
-        )
-    `,
+radial-gradient(
+circle at 15% 15%,
+rgba(0,180,255,.38),
+transparent 35%
+),
 
-    green: `
-        radial-gradient(
-            circle at 20% 15%,
-            rgba(0,255,160,.30),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 85% 85%,
-            rgba(0,150,255,.25),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #04352b,
-            #061d1e 55%,
-            #063f45
-        )
-    `,
+radial-gradient(
+circle at 85% 85%,
+rgba(80,50,255,.28),
+transparent 35%
+),
 
-    orange: `
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,180,0,.35),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 85% 85%,
-            rgba(255,50,50,.32),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #542000,
-            #31100a 55%,
-            #5d0711
-        )
-    `,
+linear-gradient(
+135deg,
+#062a49,
+#07172b 55%,
+#24105a
+)
 
-    dark: `
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,.07),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #10151e,
-            #05070c
-        )
-    `,
+`,
 
-    cyan: `
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(0,255,255,.40),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(0,100,255,.35),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #003b50,
-            #006b83 50%,
-            #002b55
-        )
-    `,
 
-    white: `
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #edf5ff
-        )
-    `
+purple:`
+
+radial-gradient(
+circle at 15% 20%,
+rgba(200,60,255,.35),
+transparent 34%
+),
+
+radial-gradient(
+circle at 85% 80%,
+rgba(80,80,255,.35),
+transparent 35%
+),
+
+linear-gradient(
+135deg,
+#250640,
+#160d35 55%,
+#351064
+)
+
+`,
+
+
+red:`
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,40,70,.35),
+transparent 34%
+),
+
+radial-gradient(
+circle at 85% 80%,
+rgba(255,120,0,.30),
+transparent 35%
+),
+
+linear-gradient(
+135deg,
+#45050c,
+#22070c 55%,
+#570011
+)
+
+`,
+
+
+green:`
+
+radial-gradient(
+circle at 20% 15%,
+rgba(0,255,160,.30),
+transparent 35%
+),
+
+radial-gradient(
+circle at 85% 85%,
+rgba(0,150,255,.25),
+transparent 35%
+),
+
+linear-gradient(
+135deg,
+#04352b,
+#061d1e 55%,
+#063f45
+)
+
+`,
+
+
+orange:`
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,180,0,.35),
+transparent 34%
+),
+
+radial-gradient(
+circle at 85% 85%,
+rgba(255,50,50,.32),
+transparent 35%
+),
+
+linear-gradient(
+135deg,
+#542000,
+#31100a 55%,
+#5d0711
+)
+
+`,
+
+
+dark:`
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.07),
+transparent 30%
+),
+
+linear-gradient(
+135deg,
+#10151e,
+#05070c
+)
+
+`,
+
+
+white:`
+
+linear-gradient(
+135deg,
+#ffffff,
+#edf5ff
+)
+
+`
 
 };
-
-
-/* =====================================================
-   CURRENT SETTINGS
-===================================================== */
-
-let currentPosition =
-"middle";
-
-let currentAlign =
-"center";
-
-let currentDesign =
-"design-normal";
-
-
-/* =====================================================
-   UPDATE POSITION
-===================================================== */
-
-function updatePosition(){
-
-    if(currentPosition === "top"){
-
-        bannerContent.style.top =
-        "10%";
-
-        bannerContent.style.bottom =
-        "auto";
-
-        bannerContent.style.transform =
-        "none";
-
-    }
-
-    else if(currentPosition === "bottom"){
-
-        bannerContent.style.top =
-        "auto";
-
-        bannerContent.style.bottom =
-        "10%";
-
-        bannerContent.style.transform =
-        "none";
-
-    }
-
-    else{
-
-        bannerContent.style.top =
-        "50%";
-
-        bannerContent.style.bottom =
-        "auto";
-
-        bannerContent.style.transform =
-        "translateY(-50%)";
-
-    }
-
-
-    if(currentAlign === "left"){
-
-        bannerContent.style.textAlign =
-        "left";
-
-    }
-
-    else if(currentAlign === "right"){
-
-        bannerContent.style.textAlign =
-        "right";
-
-    }
-
-    else{
-
-        bannerContent.style.textAlign =
-        "center";
-
-    }
-
-}
 
 
 /* =====================================================
@@ -2765,514 +2422,292 @@ function updatePosition(){
 function updateBanner(){
 
 
-    /* TEXT */
+/* TEXT */
 
-    bannerText.textContent =
-    textInput.value ||
-    "বাংলা লেখা এখানে লিখুন";
-
-
-    /* FONT */
-
-    bannerText.className =
-    fontSelect.value +
-    " " +
-    currentDesign;
+bannerText.textContent =
+textInput.value ||
+"বাংলা লেখা এখানে লিখুন";
 
 
-    /* FONT SIZE */
+/* FONT */
 
-    const size =
-    Number(fontSize.value);
-
-    bannerText.style.fontSize =
-    size + "px";
-
-    fontSizeValue.textContent =
-    size + "px";
+bannerText.className =
+fontSelect.value +
+" " +
+textDesign.value;
 
 
-    /* FONT WEIGHT */
+/* FONT SIZE */
 
-    const weight =
-    Number(fontWeight.value);
+const size =
+Number(fontSize.value) || 52;
 
-    bannerText.style.fontWeight =
-    weight;
+bannerText.style.fontSize =
+size + "px";
 
-    fontWeightValue.textContent =
-    weight;
-
-
-    /* LETTER SPACING */
-
-    const spacing =
-    Number(letterSpacing.value);
-
-    bannerText.style.letterSpacing =
-    spacing + "px";
-
-    letterSpacingValue.textContent =
-    spacing + "px";
+fontSizeValue.textContent =
+size + "px";
 
 
-    /* COLOR */
+/* TEXT COLOR */
+
+if(
+textDesign.value === "text-normal" ||
+textDesign.value === "text-shadow" ||
+textDesign.value === "text-glow" ||
+textDesign.value === "text-neon"
+){
 
     bannerText.style.color =
     textColor.value;
 
-    textColorCode.value =
-    textColor.value;
-
-
-    /* BACKGROUND */
-
-    const bg =
-    backgroundSelect.value;
-
-    banner.style.background =
-    backgrounds[bg];
-
-
-    /* SIZE */
-
-    const width =
-    Number(bannerWidth.value) || 1600;
-
-    const height =
-    Number(bannerHeight.value) || 900;
-
-    banner.style.width =
-    width + "px";
-
-    banner.style.height =
-    height + "px";
-
-
-    /* SMALL TEXT */
-
-    smallPreview.textContent =
-    smallText.value;
-
-
-    /* SUB TEXT */
-
-    subPreview.textContent =
-    subText.value;
-
-
-    /* POSITION */
-
-    updatePosition();
-
-
-    /* DECORATION */
-
-    const visible =
-    showDecoration.checked
-    ? "block"
-    : "none";
-
-    circleOne.style.display =
-    visible;
-
-    circleTwo.style.display =
-    visible;
-
-    bannerLine.style.display =
-    visible;
-
-
-    /* OVERLAY */
-
-    const opacity =
-    Number(overlayOpacity.value) / 100;
-
-    bannerOverlay.style.background =
-    "rgba(0,0,0," +
-    opacity +
-    ")";
-
-    overlayValue.textContent =
-    overlayOpacity.value + "%";
-
-
-    /* WHITE BACKGROUND */
-
-    if(bg === "white"){
-
-        smallPreview.style.color =
-        "#006dff";
-
-        smallPreview.style.borderColor =
-        "rgba(0,100,200,.20)";
-
-        subPreview.style.color =
-        "rgba(0,0,0,.65)";
-
-    }
-
-    else{
-
-        smallPreview.style.color =
-        "#8bdcff";
-
-        smallPreview.style.borderColor =
-        "rgba(255,255,255,.20)";
-
-        subPreview.style.color =
-        "rgba(255,255,255,.78)";
-
-    }
-
 }
 
 
-/* =====================================================
-   TEXT INPUT
-===================================================== */
+/* BACKGROUND */
 
-textInput.addEventListener(
-    "input",
-    updateBanner
-);
+const bg =
+backgroundSelect.value;
 
-
-/* =====================================================
-   FONT
-===================================================== */
-
-fontSelect.addEventListener(
-    "change",
-    updateBanner
-);
+banner.style.background =
+backgrounds[bg];
 
 
-/* =====================================================
-   FONT SIZE
-===================================================== */
+/* SIZE */
 
-fontSize.addEventListener(
-    "input",
-    updateBanner
-);
+const width =
+Number(bannerWidth.value) || 800;
+
+const height =
+Number(bannerHeight.value) || 450;
+
+banner.style.width =
+width + "px";
+
+banner.style.height =
+height + "px";
 
 
-/* =====================================================
-   FONT WEIGHT
-===================================================== */
+/* HEADING */
 
-fontWeight.addEventListener(
-    "input",
-    updateBanner
-);
+smallPreview.textContent =
+smallText.value;
+
+
+/* SUBTITLE */
+
+subPreview.textContent =
+subText.value;
 
 
 /* =====================================================
-   LETTER SPACING
+   POSITION
 ===================================================== */
 
-letterSpacing.addEventListener(
-    "input",
-    updateBanner
-);
+if(textPosition.value === "top"){
 
+    bannerContent.style.justifyContent =
+    "flex-start";
 
-/* =====================================================
-   TEXT COLOR
-===================================================== */
+    bannerContent.style.paddingTop =
+    "35px";
 
-textColor.addEventListener(
-    "input",
-    function(){
+}else if(textPosition.value === "bottom"){
 
-        textColorCode.value =
-        textColor.value;
+    bannerContent.style.justifyContent =
+    "flex-end";
 
-        updateBanner();
+    bannerContent.style.paddingBottom =
+    "35px";
 
-    }
-);
+}else{
 
+    bannerContent.style.justifyContent =
+    "center";
 
-textColorCode.addEventListener(
-    "input",
-    function(){
+    bannerContent.style.paddingTop =
+    "20px";
 
-        const value =
-        textColorCode.value;
+    bannerContent.style.paddingBottom =
+    "20px";
 
-        if(
-            /^#[0-9A-Fa-f]{6}$/.test(value)
-        ){
-
-            textColor.value =
-            value;
-
-            updateBanner();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   BACKGROUND
-===================================================== */
-
-backgroundSelect.addEventListener(
-    "change",
-    updateBanner
-);
-
-
-/* =====================================================
-   SIZE
-===================================================== */
-
-bannerWidth.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-bannerHeight.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-/* =====================================================
-   SMALL TEXT
-===================================================== */
-
-smallText.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-/* =====================================================
-   SUB TEXT
-===================================================== */
-
-subText.addEventListener(
-    "input",
-    updateBanner
-);
+}
 
 
 /* =====================================================
    DECORATION
 ===================================================== */
 
+const visible =
+showDecoration.checked
+? "block"
+: "none";
+
+circleOne.style.display =
+visible;
+
+circleTwo.style.display =
+visible;
+
+bannerLine.style.display =
+visible;
+
+
+/* =====================================================
+   WHITE BACKGROUND
+===================================================== */
+
+if(bg === "white"){
+
+    smallPreview.style.color =
+    "#006dff";
+
+    smallPreview.style.borderColor =
+    "rgba(0,100,200,.20)";
+
+    subPreview.style.color =
+    "rgba(0,0,0,.60)";
+
+}else{
+
+    smallPreview.style.color =
+    "#8bdcff";
+
+    smallPreview.style.borderColor =
+    "rgba(255,255,255,.20)";
+
+    subPreview.style.color =
+    "rgba(255,255,255,.72)";
+
+}
+
+}
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+textInput.addEventListener(
+"input",
+updateBanner
+);
+
+
+fontSelect.addEventListener(
+"change",
+updateBanner
+);
+
+
+textDesign.addEventListener(
+"change",
+updateBanner
+);
+
+
+textPosition.addEventListener(
+"change",
+updateBanner
+);
+
+
+fontSize.addEventListener(
+"input",
+updateBanner
+);
+
+
+textColor.addEventListener(
+"input",
+function(){
+
+    textColorCode.value =
+    textColor.value;
+
+    updateBanner();
+
+}
+);
+
+
+textColorCode.addEventListener(
+"input",
+function(){
+
+    const value =
+    textColorCode.value;
+
+    if(
+    /^#[0-9A-Fa-f]{6}$/.test(value)
+    ){
+
+        textColor.value =
+        value;
+
+        updateBanner();
+
+    }
+
+}
+);
+
+
+backgroundSelect.addEventListener(
+"change",
+updateBanner
+);
+
+
+bannerWidth.addEventListener(
+"input",
+updateBanner
+);
+
+
+bannerHeight.addEventListener(
+"input",
+updateBanner
+);
+
+
+smallText.addEventListener(
+"input",
+updateBanner
+);
+
+
+subText.addEventListener(
+"input",
+updateBanner
+);
+
+
 showDecoration.addEventListener(
-    "change",
-    updateBanner
+"change",
+updateBanner
 );
-
-
-/* =====================================================
-   OVERLAY
-===================================================== */
-
-overlayOpacity.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-/* =====================================================
-   POSITION BUTTONS
-===================================================== */
-
-document.querySelectorAll(
-    "[data-position]"
-).forEach(function(button){
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            document.querySelectorAll(
-                "[data-position]"
-            ).forEach(function(btn){
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            });
-
-            button.classList.add(
-                "active"
-            );
-
-            currentPosition =
-            button.dataset.position;
-
-            updateBanner();
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   ALIGNMENT BUTTONS
-===================================================== */
-
-document.querySelectorAll(
-    "[data-align]"
-).forEach(function(button){
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            document.querySelectorAll(
-                "[data-align]"
-            ).forEach(function(btn){
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            });
-
-            button.classList.add(
-                "active"
-            );
-
-            currentAlign =
-            button.dataset.align;
-
-            updateBanner();
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   DESIGN BUTTONS
-===================================================== */
-
-document.querySelectorAll(
-    "[data-design]"
-).forEach(function(button){
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            document.querySelectorAll(
-                "[data-design]"
-            ).forEach(function(btn){
-
-                btn.classList.remove(
-                    "active"
-                );
-
-            });
-
-            button.classList.add(
-                "active"
-            );
-
-            currentDesign =
-            button.dataset.design;
-
-            updateBanner();
-
-        }
-    );
-
-});
 
 
 /* =====================================================
    QUICK BACKGROUND
 ===================================================== */
 
-document.querySelectorAll(
-    "[data-bg]"
-).forEach(function(button){
+document.querySelectorAll(".preset")
+.forEach(function(button){
 
     button.addEventListener(
-        "click",
-        function(){
+    "click",
+    function(){
 
-            backgroundSelect.value =
-            button.dataset.bg;
+        backgroundSelect.value =
+        button.dataset.style;
 
-            updateBanner();
+        updateBanner();
 
-        }
-    );
+    });
 
 });
-
-
-/* =====================================================
-   IMAGE UPLOAD
-===================================================== */
-
-imageInput.addEventListener(
-    "change",
-    function(event){
-
-        const file =
-        event.target.files[0];
-
-        if(!file){
-
-            bannerImage.style.display =
-            "none";
-
-            bannerImage.removeAttribute(
-                "src"
-            );
-
-            return;
-
-        }
-
-
-        if(!file.type.startsWith("image/")){
-
-            alert(
-                "শুধু Image File নির্বাচন করুন।"
-            );
-
-            return;
-
-        }
-
-
-        const reader =
-        new FileReader();
-
-
-        reader.onload =
-        function(e){
-
-            bannerImage.src =
-            e.target.result;
-
-            bannerImage.style.display =
-            "block";
-
-        };
-
-
-        reader.readAsDataURL(file);
-
-    }
-);
 
 
 /* =====================================================
@@ -3280,148 +2715,51 @@ imageInput.addEventListener(
 ===================================================== */
 
 resetBtn.addEventListener(
-    "click",
-    function(){
+"click",
+function(){
 
-        textInput.value =
-        "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
+    textInput.value =
+    "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
 
+    fontSelect.value =
+    "font-hind";
 
-        fontSelect.value =
-        "font-hind";
+    textDesign.value =
+    "text-normal";
 
+    textPosition.value =
+    "center";
 
-        fontSize.value =
-        90;
+    fontSize.value =
+    52;
 
+    textColor.value =
+    "#ffffff";
 
-        fontWeight.value =
-        700;
+    textColorCode.value =
+    "#ffffff";
 
+    backgroundSelect.value =
+    "blue";
 
-        letterSpacing.value =
-        0;
+    bannerWidth.value =
+    800;
 
+    bannerHeight.value =
+    450;
 
-        textColor.value =
-        "#ffffff";
+    smallText.value =
+    "ASIM TECH";
 
+    subText.value =
+    "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
 
-        textColorCode.value =
-        "#ffffff";
+    showDecoration.checked =
+    true;
 
+    updateBanner();
 
-        backgroundSelect.value =
-        "blue";
-
-
-        bannerWidth.value =
-        1600;
-
-
-        bannerHeight.value =
-        900;
-
-
-        smallText.value =
-        "ASIM TECH";
-
-
-        subText.value =
-        "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
-
-
-        overlayOpacity.value =
-        28;
-
-
-        showDecoration.checked =
-        true;
-
-
-        imageInput.value =
-        "";
-
-
-        bannerImage.style.display =
-        "none";
-
-
-        bannerImage.removeAttribute(
-            "src"
-        );
-
-
-        currentPosition =
-        "middle";
-
-
-        currentAlign =
-        "center";
-
-
-        currentDesign =
-        "design-normal";
-
-
-        document.querySelectorAll(
-            "[data-position]"
-        ).forEach(function(btn){
-
-            btn.classList.remove(
-                "active"
-            );
-
-        });
-
-
-        document.querySelector(
-            '[data-position="middle"]'
-        ).classList.add(
-            "active"
-        );
-
-
-        document.querySelectorAll(
-            "[data-align]"
-        ).forEach(function(btn){
-
-            btn.classList.remove(
-                "active"
-            );
-
-        });
-
-
-        document.querySelector(
-            '[data-align="center"]'
-        ).classList.add(
-            "active"
-        );
-
-
-        document.querySelectorAll(
-            "[data-design]"
-        ).forEach(function(btn){
-
-            btn.classList.remove(
-                "active"
-            );
-
-        });
-
-
-        document.querySelector(
-            '[data-design="design-normal"]'
-        ).classList.add(
-            "active"
-        );
-
-
-        updateBanner();
-
-    }
-);
+});
 
 
 /* =====================================================
@@ -3429,165 +2767,93 @@ resetBtn.addEventListener(
 ===================================================== */
 
 downloadBtn.addEventListener(
-    "click",
-    async function(){
+"click",
+async function(){
 
-        const oldText =
-        downloadBtn.textContent;
+    const oldText =
+    downloadBtn.textContent;
 
+    downloadBtn.textContent =
+    "⏳ তৈরি হচ্ছে...";
 
-        downloadBtn.textContent =
-        "⏳ তৈরি হচ্ছে...";
-
-
-        downloadBtn.disabled =
-        true;
+    downloadBtn.disabled =
+    true;
 
 
-        try{
+    try{
 
 
-            /* WAIT FOR FONTS */
+        /* Wait for fonts */
 
-            if(document.fonts){
+        if(document.fonts){
 
-                await document.fonts.ready;
-
-            }
-
-
-            /*
-             * Give browser time to render
-             */
-
-            await new Promise(
-                function(resolve){
-
-                    setTimeout(
-                        resolve,
-                        300
-                    );
-
-                }
-            );
-
-
-            /*
-             * CAPTURE EXACT BANNER
-             */
-
-            const canvas =
-            await html2canvas(
-                banner,
-                {
-
-                    scale:2,
-
-                    useCORS:true,
-
-                    allowTaint:false,
-
-                    backgroundColor:null,
-
-                    logging:false,
-
-                    width:
-                    banner.offsetWidth,
-
-                    height:
-                    banner.offsetHeight,
-
-                    scrollX:0,
-
-                    scrollY:0
-
-                }
-            );
-
-
-            /*
-             * DOWNLOAD
-             */
-
-            canvas.toBlob(
-                function(blob){
-
-                    if(!blob){
-
-                        throw new Error(
-                            "PNG creation failed"
-                        );
-
-                    }
-
-
-                    const url =
-                    URL.createObjectURL(
-                        blob
-                    );
-
-
-                    const link =
-                    document.createElement(
-                        "a"
-                    );
-
-
-                    link.download =
-                    "asim-tech-bangla-banner.png";
-
-
-                    link.href =
-                    url;
-
-
-                    document.body.appendChild(
-                        link
-                    );
-
-
-                    link.click();
-
-
-                    link.remove();
-
-
-                    setTimeout(
-                        function(){
-
-                            URL.revokeObjectURL(
-                                url
-                            );
-
-                        },
-                        1000
-                    );
-
-                },
-                "image/png"
-            );
-
-
-        }catch(error){
-
-            console.error(error);
-
-            alert(
-                "Banner download করা যায়নি। আবার চেষ্টা করুন।"
-            );
+            await document.fonts.ready;
 
         }
 
 
-        downloadBtn.textContent =
-        oldText;
+        /*
+         * Important:
+         * Temporarily remove shadow from banner
+         * only if necessary for clean PNG.
+         */
+
+        const canvas =
+        await html2canvas(
+            banner,
+            {
+
+                scale:2,
+
+                useCORS:true,
+
+                allowTaint:false,
+
+                backgroundColor:null,
+
+                logging:false,
+
+                imageTimeout:0
+
+            }
+        );
 
 
-        downloadBtn.disabled =
-        false;
+        const link =
+        document.createElement("a");
+
+
+        link.download =
+        "asim-tech-bangla-banner.png";
+
+
+        link.href =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+
+        link.click();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+        "Banner download করা যায়নি। আবার চেষ্টা করুন।"
+        );
 
     }
-);
+
+
+    downloadBtn.textContent =
+    oldText;
+
+    downloadBtn.disabled =
+    false;
+
+});
 
 
 /* =====================================================
