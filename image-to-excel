@@ -1,1 +1,2888 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#020b18">
+
+<meta name="description"
+content="Asim Tech Image to Excel - Convert table images into editable Excel files.">
+
+<meta name="mobile-web-app-capable"
+content="yes">
+
+<meta name="apple-mobile-web-app-capable"
+content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+content="black-translucent">
+
+<meta name="apple-mobile-web-app-title"
+content="Image to Excel">
+
+<link rel="manifest"
+href="./manifest.json">
+
+<title>Asim Tech - Image to Excel</title>
+
+
+<!-- =====================================================
+     LIBRARIES
+===================================================== -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
+</script>
+
+<script
+src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
+</script>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:
+
+    radial-gradient(
+        circle at 15% 10%,
+        rgba(0,140,255,.13),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 85% 75%,
+        rgba(120,0,255,.10),
+        transparent 32%
+    ),
+
+    #020b18;
+
+    color:#fff;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:9999;
+
+    padding:
+    14px 5%;
+
+    display:flex;
+
+    justify-content:
+    space-between;
+
+    align-items:center;
+
+    background:
+    rgba(2,9,20,.92);
+
+    border-bottom:
+    1px solid #12304a;
+
+    backdrop-filter:
+    blur(18px);
+
+    -webkit-backdrop-filter:
+    blur(18px);
+}
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+
+.logo-icon{
+
+    width:34px;
+
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-right:8px;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #009dff,
+        #0065e5
+    );
+
+    box-shadow:
+    0 0 25px
+    rgba(0,157,255,.25);
+}
+
+
+.logo-blue{
+
+    color:#008cff;
+}
+
+
+.home{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    border:
+    1px solid #29465e;
+
+    background:
+    rgba(255,255,255,.04);
+
+    padding:
+    9px 14px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:92%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:
+    38px 0 70px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+
+.badge{
+
+    display:inline-block;
+
+    padding:
+    8px 15px;
+
+    border:
+    1px solid
+    rgba(0,157,255,.25);
+
+    border-radius:999px;
+
+    color:#62caff;
+
+    background:
+    rgba(0,157,255,.07);
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+
+.hero h1{
+
+    margin:
+    17px 0 10px;
+
+    font-size:
+    clamp(32px,7vw,50px);
+
+    line-height:1.08;
+
+    letter-spacing:-1.5px;
+}
+
+
+.hero h1 span{
+
+    color:#008cff;
+
+    text-shadow:
+    0 0 25px
+    rgba(0,140,255,.30);
+}
+
+
+.hero p{
+
+    margin:0;
+
+    color:#8fa7ba;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card{
+
+    margin-bottom:20px;
+
+    padding:20px;
+
+    border:
+    1px solid
+    rgba(105,190,255,.18);
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(8,27,43,.84),
+        rgba(3,14,24,.95)
+    );
+
+    box-shadow:
+    0 18px 55px
+    rgba(0,0,0,.25);
+}
+
+
+.card h2{
+
+    margin:
+    0 0 15px;
+
+    font-size:20px;
+}
+
+
+/* =====================================================
+   UPLOAD AREA
+===================================================== */
+
+.upload-box{
+
+    border:
+    2px dashed #1d5275;
+
+    border-radius:18px;
+
+    padding:30px 18px;
+
+    text-align:center;
+
+    background:
+    rgba(0,140,255,.035);
+
+    transition:.3s;
+}
+
+
+.upload-box:hover{
+
+    border-color:#008cff;
+
+    background:
+    rgba(0,140,255,.07);
+}
+
+
+.upload-icon{
+
+    font-size:52px;
+
+    margin-bottom:10px;
+}
+
+
+.upload-box h3{
+
+    margin:
+    0 0 8px;
+
+    font-size:20px;
+}
+
+
+.upload-box p{
+
+    margin:
+    0 auto 18px;
+
+    max-width:600px;
+
+    color:#8fa7ba;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+input[type="file"]{
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+    1px solid #1c425b;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    background:#061d2c;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+
+.preview{
+
+    display:none;
+
+    margin-top:20px;
+
+    text-align:center;
+}
+
+
+.preview.show{
+
+    display:block;
+}
+
+
+.preview img{
+
+    max-width:100%;
+
+    max-height:500px;
+
+    border-radius:14px;
+
+    border:
+    1px solid #244b65;
+
+    background:#fff;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-row{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:10px;
+
+    margin-top:14px;
+}
+
+
+button{
+
+    width:100%;
+
+    border:0;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+
+button:hover{
+
+    transform:
+    translateY(-2px);
+
+    filter:
+    brightness(1.08);
+}
+
+
+button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+
+.blue{
+
+    background:
+    linear-gradient(
+        135deg,
+        #087ff5,
+        #006de5
+    );
+}
+
+
+.green{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00b956,
+        #009b4a
+    );
+}
+
+
+.red{
+
+    background:#ef3041;
+}
+
+
+.orange{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff8a00,
+        #ff5c00
+    );
+}
+
+
+.purple{
+
+    background:
+    linear-gradient(
+        135deg,
+        #7b3ff2,
+        #a52cff
+    );
+}
+
+
+.dark{
+
+    background:#132b3d;
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.label{
+
+    display:block;
+
+    margin:
+    13px 0 7px;
+
+    color:#91a9bd;
+
+    font-size:13px;
+}
+
+
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:
+    1px solid #1c425b;
+
+    border-radius:12px;
+
+    outline:none;
+
+    color:#fff;
+
+    background:#061d2c;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-box{
+
+    display:none;
+
+    margin-top:18px;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    background:#061d2c;
+}
+
+
+.progress-box.show{
+
+    display:block;
+}
+
+
+.progress-text{
+
+    text-align:center;
+
+    color:#9db4c5;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+}
+
+
+.progress{
+
+    width:100%;
+
+    height:10px;
+
+    overflow:hidden;
+
+    border-radius:999px;
+
+    background:#142f43;
+}
+
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #008cff,
+        #00d4ff
+    );
+
+    transition:.2s;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    background:#061f31;
+
+    color:#9bb0c0;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+
+.status.show{
+
+    display:block;
+}
+
+
+.status.success{
+
+    color:#00e676;
+}
+
+
+.status.error{
+
+    color:#ff5968;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrapper{
+
+    display:none;
+
+    margin-top:18px;
+
+    overflow:auto;
+
+    max-height:600px;
+
+    border:
+    1px solid #1d4058;
+
+    border-radius:14px;
+
+    background:#fff;
+}
+
+
+.table-wrapper.show{
+
+    display:block;
+}
+
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    color:#111;
+
+    font-size:13px;
+}
+
+
+th{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:2;
+
+    background:#dcefff;
+
+    color:#08233a;
+
+    font-weight:bold;
+}
+
+
+td,
+th{
+
+    border:
+    1px solid #b9c8d3;
+
+    padding:9px;
+
+    min-width:100px;
+}
+
+
+td{
+
+    background:#fff;
+}
+
+
+td:focus{
+
+    outline:
+    2px solid #008cff;
+
+    outline-offset:-2px;
+}
+
+
+/* =====================================================
+   RESULT CONTROLS
+===================================================== */
+
+.result-controls{
+
+    display:none;
+
+    margin-top:15px;
+}
+
+
+.result-controls.show{
+
+    display:block;
+}
+
+
+.info{
+
+    color:#8fa7ba;
+
+    font-size:12px;
+
+    text-align:center;
+
+    line-height:1.6;
+
+    margin-top:10px;
+}
+
+
+/* =====================================================
+   INSTALL
+===================================================== */
+
+.install-box{
+
+    text-align:center;
+
+    padding:5px 0;
+}
+
+
+.install-icon{
+
+    font-size:48px;
+
+    margin-bottom:8px;
+}
+
+
+.install-box h3{
+
+    margin:
+    0 0 8px;
+
+    font-size:20px;
+}
+
+
+.install-box p{
+
+    margin:
+    0 auto 15px;
+
+    color:#8fa7ba;
+
+    max-width:600px;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+#installButton{
+
+    display:none;
+}
+
+
+/* =====================================================
+   PRIVACY
+===================================================== */
+
+.private{
+
+    text-align:center;
+}
+
+
+.private-icon{
+
+    font-size:38px;
+
+    margin-bottom:8px;
+}
+
+
+.private p{
+
+    margin:0;
+
+    color:#8fa7ba;
+
+    line-height:1.7;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:
+    30px 20px;
+
+    text-align:center;
+
+    border-top:
+    1px solid #102b40;
+
+    background:#020914;
+
+    color:#71889c;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+footer strong{
+
+    color:#008cff;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    header{
+
+        padding:
+        12px 4%;
+    }
+
+
+    .logo{
+
+        font-size:17px;
+    }
+
+
+    .logo-icon{
+
+        width:29px;
+
+        height:29px;
+    }
+
+
+    .home{
+
+        padding:
+        8px 10px;
+
+        font-size:11px;
+    }
+
+
+    .container{
+
+        width:94%;
+
+        padding-top:30px;
+    }
+
+
+    .card{
+
+        padding:15px;
+
+        border-radius:18px;
+    }
+
+
+    .button-row{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .upload-box{
+
+        padding:
+        25px 12px;
+    }
+
+
+    td,
+    th{
+
+        min-width:90px;
+
+        padding:8px;
+    }
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="logo">
+
+<span class="logo-icon">
+▲
+</span>
+
+ASIM
+
+<span class="logo-blue">
+TECH
+</span>
+
+</div>
+
+
+<a
+class="home"
+href="../">
+
+← Asim Tech
+
+</a>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+<section class="hero">
+
+<div class="badge">
+ASIM TECH TOOL
+</div>
+
+<h1>
+Image <span>→ Excel</span>
+</h1>
+
+<p>
+Upload a list/table image and convert it into an editable Excel file.
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     UPLOAD
+===================================================== -->
+
+<section class="card">
+
+<h2>
+📷 Image to Excel
+</h2>
+
+
+<div class="upload-box">
+
+<div class="upload-icon">
+📄
+</div>
+
+
+<h3>
+Upload List / Table Image
+</h3>
+
+
+<p>
+Select a photo or screenshot containing a table, list,
+names, numbers or other text.
+</p>
+
+
+<input
+type="file"
+id="imageInput"
+accept="image/*">
+
+
+</div>
+
+
+<div
+id="preview"
+class="preview">
+
+<img
+id="previewImage"
+alt="Image preview">
+
+</div>
+
+
+<label
+class="label"
+for="language">
+
+OCR Language
+
+</label>
+
+
+<select
+id="language">
+
+<option value="eng">
+English
+</option>
+
+<option value="ben">
+বাংলা / Bengali
+</option>
+
+</select>
+
+
+<div class="button-row">
+
+<button
+id="extractButton"
+class="blue"
+disabled>
+
+🔍 Extract Table
+
+</button>
+
+
+<button
+id="clearButton"
+class="red">
+
+✕ Clear
+
+</button>
+
+</div>
+
+
+<div
+id="progressBox"
+class="progress-box">
+
+<div
+id="progressText"
+class="progress-text">
+
+Preparing OCR...
+
+</div>
+
+
+<div class="progress">
+
+<div
+id="progressBar"
+class="progress-bar">
+</div>
+
+</div>
+
+</div>
+
+
+<div
+id="status"
+class="status">
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<section
+id="resultSection"
+class="card"
+style="display:none;">
+
+<h2>
+📊 Extracted Excel Data
+</h2>
+
+
+<p class="info">
+
+The extracted data is editable.
+Tap any cell and correct the text before downloading.
+
+</p>
+
+
+<div
+id="tableWrapper"
+class="table-wrapper">
+
+<table id="dataTable">
+
+<thead>
+</thead>
+
+<tbody>
+</tbody>
+
+</table>
+
+</div>
+
+
+<div
+id="resultControls"
+class="result-controls">
+
+<div class="button-row">
+
+<button
+id="downloadExcel"
+class="green">
+
+📥 Download Excel
+
+</button>
+
+
+<button
+id="downloadCSV"
+class="blue">
+
+📄 Download CSV
+
+</button>
+
+</div>
+
+
+<div class="button-row">
+
+<button
+id="addRow"
+class="purple">
+
+＋ Add Row
+
+</button>
+
+
+<button
+id="addColumn"
+class="orange">
+
+＋ Add Column
+
+</button>
+
+</div>
+
+
+<div class="button-row">
+
+<button
+id="copyTable"
+class="dark">
+
+📋 Copy Table
+
+</button>
+
+
+<button
+id="clearTable"
+class="red">
+
+🗑 Clear Table
+
+</button>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PWA INSTALL
+===================================================== -->
+
+<section class="card">
+
+<div class="install-box">
+
+<div class="install-icon">
+📱
+</div>
+
+
+<h3>
+Install Asim Image to Excel
+</h3>
+
+
+<p>
+
+Install this tool on your Android phone like an app.
+After installation you can open it directly without typing
+the website address every time.
+
+</p>
+
+
+<button
+id="installButton"
+class="green">
+
+📲 Install App
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRIVACY
+===================================================== -->
+
+<section class="card private">
+
+<div class="private-icon">
+🔒
+</div>
+
+
+<h2>
+Privacy First
+</h2>
+
+
+<p>
+
+Your image is processed in your browser.
+The image is not uploaded to an Asim Tech server.
+Internet may be required for the OCR library on first use.
+
+</p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<strong>
+▲ ASIM TECH
+</strong>
+
+<br>
+
+Image to Excel
+
+<br><br>
+
+© 2026 Asim Tech • Apps • Tools • Innovation
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let selectedFile = null;
+
+let extractedRows = [];
+
+let deferredInstallPrompt = null;
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const imageInput =
+document.getElementById(
+    "imageInput"
+);
+
+
+const preview =
+document.getElementById(
+    "preview"
+);
+
+
+const previewImage =
+document.getElementById(
+    "previewImage"
+);
+
+
+const extractButton =
+document.getElementById(
+    "extractButton"
+);
+
+
+const clearButton =
+document.getElementById(
+    "clearButton"
+);
+
+
+const language =
+document.getElementById(
+    "language"
+);
+
+
+const progressBox =
+document.getElementById(
+    "progressBox"
+);
+
+
+const progressText =
+document.getElementById(
+    "progressText"
+);
+
+
+const progressBar =
+document.getElementById(
+    "progressBar"
+);
+
+
+const statusBox =
+document.getElementById(
+    "status"
+);
+
+
+const resultSection =
+document.getElementById(
+    "resultSection"
+);
+
+
+const tableWrapper =
+document.getElementById(
+    "tableWrapper"
+);
+
+
+const dataTable =
+document.getElementById(
+    "dataTable"
+);
+
+
+const resultControls =
+document.getElementById(
+    "resultControls"
+);
+
+
+const installButton =
+document.getElementById(
+    "installButton"
+);
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function setStatus(
+    message,
+    type=""
+){
+
+    statusBox.className =
+        "status show " + type;
+
+    statusBox.innerHTML =
+        message;
+}
+
+
+/* =====================================================
+   IMAGE SELECT
+===================================================== */
+
+imageInput.addEventListener(
+    "change",
+    function(event){
+
+        const file =
+            event.target.files[0];
+
+
+        if(!file){
+
+            return;
+        }
+
+
+        if(!file.type.startsWith("image/")){
+
+            setStatus(
+                "❌ Please select an image file.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        selectedFile =
+            file;
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function(e){
+
+                previewImage.src =
+                    e.target.result;
+
+                preview.classList.add(
+                    "show"
+                );
+
+            };
+
+
+        reader.readAsDataURL(
+            file
+        );
+
+
+        extractButton.disabled =
+            false;
+
+
+        setStatus(
+            "✅ Image selected. Tap Extract Table.",
+            "success"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   OCR
+===================================================== */
+
+extractButton.addEventListener(
+    "click",
+    extractTable
+);
+
+
+async function extractTable(){
+
+    if(!selectedFile){
+
+        setStatus(
+            "❌ Please select an image first.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(
+        typeof Tesseract ===
+        "undefined"
+    ){
+
+        setStatus(
+            "❌ OCR library could not be loaded. Please check your internet connection.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    extractButton.disabled =
+        true;
+
+
+    progressBox.classList.add(
+        "show"
+    );
+
+
+    progressBar.style.width =
+        "0%";
+
+
+    progressText.textContent =
+        "Starting OCR...";
+
+
+    setStatus(
+        "⏳ Reading text from image..."
+    );
+
+
+    try{
+
+        const lang =
+            language.value;
+
+
+        const worker =
+            await Tesseract.createWorker(
+                lang,
+                1,
+                {
+
+                    logger:function(info){
+
+                        if(
+                            typeof info.progress ===
+                            "number"
+                        ){
+
+                            const percent =
+                                Math.round(
+                                    info.progress *
+                                    100
+                                );
+
+
+                            progressBar.style.width =
+                                percent + "%";
+
+
+                            if(info.status){
+
+                                progressText.textContent =
+                                    info.status +
+                                    " " +
+                                    percent +
+                                    "%";
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+        const result =
+            await worker.recognize(
+                selectedFile
+            );
+
+
+        await worker.terminate();
+
+
+        progressBar.style.width =
+            "100%";
+
+
+        progressText.textContent =
+            "OCR completed";
+
+
+        const text =
+            result.data.text || "";
+
+
+        if(!text.trim()){
+
+            throw new Error(
+                "No readable text was found."
+            );
+
+        }
+
+
+        extractedRows =
+            convertTextToRows(
+                text
+            );
+
+
+        if(
+            !extractedRows.length
+        ){
+
+            throw new Error(
+                "Could not create table data."
+            );
+
+        }
+
+
+        renderTable(
+            extractedRows
+        );
+
+
+        resultSection.style.display =
+            "block";
+
+
+        tableWrapper.classList.add(
+            "show"
+        );
+
+
+        resultControls.classList.add(
+            "show"
+        );
+
+
+        setStatus(
+
+            "✅ Text extracted successfully. " +
+            "You can edit the table before downloading.",
+
+            "success"
+
+        );
+
+
+        resultSection.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        setStatus(
+
+            "❌ OCR failed.<br><br>" +
+            escapeHtml(
+                error.message ||
+                "Please try a clearer image."
+            ),
+
+            "error"
+
+        );
+
+    }
+
+
+    extractButton.disabled =
+        false;
+
+}
+
+
+/* =====================================================
+   CONVERT OCR TEXT TO ROWS
+===================================================== */
+
+function convertTextToRows(
+    text
+){
+
+    const lines =
+        text
+        .split(/\r?\n/)
+        .map(
+            line =>
+            line.trim()
+        )
+        .filter(
+            line =>
+            line.length > 0
+        );
+
+
+    if(!lines.length){
+
+        return [];
+    }
+
+
+    const rows =
+        [];
+
+
+    lines.forEach(
+        function(line){
+
+            /*
+               Try to identify columns
+               using tabs first.
+            */
+
+            let parts =
+                line.split(/\t+/);
+
+
+            /*
+               If there are no tabs,
+               try multiple spaces.
+            */
+
+            if(parts.length === 1){
+
+                parts =
+                    line
+                    .split(/\s{2,}/)
+                    .map(
+                        x => x.trim()
+                    )
+                    .filter(Boolean);
+
+            }
+
+
+            /*
+               If still one part,
+               keep complete line in
+               one cell.
+            */
+
+            if(parts.length === 0){
+
+                parts = [line];
+
+            }
+
+
+            rows.push(
+                parts
+            );
+
+        }
+    );
+
+
+    /*
+       Make all rows equal length.
+    */
+
+    const maxColumns =
+        Math.max(
+            ...rows.map(
+                row => row.length
+            )
+        );
+
+
+    return rows.map(
+        function(row){
+
+            while(
+                row.length <
+                maxColumns
+            ){
+
+                row.push("");
+
+            }
+
+
+            return row;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   RENDER TABLE
+===================================================== */
+
+function renderTable(
+    rows
+){
+
+    dataTable.innerHTML =
+        "";
+
+
+    if(
+        !rows ||
+        !rows.length
+    ){
+
+        return;
+    }
+
+
+    const columnCount =
+        Math.max(
+            ...rows.map(
+                row => row.length
+            )
+        );
+
+
+    /*
+       HEADER
+    */
+
+    const thead =
+        document.createElement(
+            "thead"
+        );
+
+
+    const headerRow =
+        document.createElement(
+            "tr"
+        );
+
+
+    for(
+        let c = 0;
+        c < columnCount;
+        c++
+    ){
+
+        const th =
+            document.createElement(
+                "th"
+            );
+
+
+        th.contentEditable =
+            "true";
+
+
+        th.textContent =
+            "Column " +
+            (c + 1);
+
+
+        headerRow.appendChild(
+            th
+        );
+
+    }
+
+
+    thead.appendChild(
+        headerRow
+    );
+
+
+    dataTable.appendChild(
+        thead
+    );
+
+
+    /*
+       BODY
+    */
+
+    const tbody =
+        document.createElement(
+            "tbody"
+        );
+
+
+    rows.forEach(
+        function(row){
+
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            for(
+                let c = 0;
+                c < columnCount;
+                c++
+            ){
+
+                const td =
+                    document.createElement(
+                        "td"
+                    );
+
+
+                td.contentEditable =
+                    "true";
+
+
+                td.textContent =
+                    row[c] || "";
+
+
+                tr.appendChild(
+                    td
+                );
+
+            }
+
+
+            tbody.appendChild(
+                tr
+            );
+
+        }
+    );
+
+
+    dataTable.appendChild(
+        tbody
+    );
+
+}
+
+
+/* =====================================================
+   READ TABLE
+===================================================== */
+
+function readTable(){
+
+    const rows =
+        [];
+
+
+    const tableRows =
+        dataTable.querySelectorAll(
+            "tr"
+        );
+
+
+    tableRows.forEach(
+        function(tr){
+
+            const cells =
+                tr.querySelectorAll(
+                    "th,td"
+                );
+
+
+            const row =
+                [];
+
+
+            cells.forEach(
+                function(cell){
+
+                    row.push(
+                        cell.innerText.trim()
+                    );
+
+                }
+            );
+
+
+            rows.push(
+                row
+            );
+
+        }
+    );
+
+
+    return rows;
+
+}
+
+
+/* =====================================================
+   DOWNLOAD EXCEL
+===================================================== */
+
+document
+.getElementById(
+    "downloadExcel"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        const rows =
+            readTable();
+
+
+        if(!rows.length){
+
+            alert(
+                "No table data available."
+            );
+
+            return;
+        }
+
+
+        if(
+            typeof XLSX ===
+            "undefined"
+        ){
+
+            alert(
+                "Excel library could not be loaded."
+            );
+
+            return;
+        }
+
+
+        const worksheet =
+            XLSX.utils.aoa_to_sheet(
+                rows
+            );
+
+
+        const workbook =
+            XLSX.utils.book_new();
+
+
+        XLSX.utils.book_append_sheet(
+            workbook,
+            worksheet,
+            "Sheet1"
+        );
+
+
+        /*
+           Auto width.
+        */
+
+        const widths =
+            [];
+
+
+        rows.forEach(
+            function(row){
+
+                row.forEach(
+                    function(value,index){
+
+                        const length =
+                            String(
+                                value || ""
+                            ).length;
+
+
+                        widths[index] =
+                            Math.max(
+                                widths[index] || 10,
+                                Math.min(
+                                    length + 2,
+                                    40
+                                )
+                            );
+
+                    }
+                );
+
+            }
+        );
+
+
+        worksheet["!cols"] =
+            widths.map(
+                function(width){
+
+                    return {
+                        wch:width
+                    };
+
+                }
+            );
+
+
+        XLSX.writeFile(
+            workbook,
+            "asim-image-to-excel.xlsx"
+        );
+
+
+        setStatus(
+            "✅ Excel file downloaded successfully.",
+            "success"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   DOWNLOAD CSV
+===================================================== */
+
+document
+.getElementById(
+    "downloadCSV"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        const rows =
+            readTable();
+
+
+        if(!rows.length){
+
+            alert(
+                "No table data available."
+            );
+
+            return;
+        }
+
+
+        const csv =
+            rows
+            .map(
+                function(row){
+
+                    return row.map(
+                        function(cell){
+
+                            const value =
+                                String(
+                                    cell || ""
+                                ).replace(
+                                    /"/g,
+                                    '""'
+                                );
+
+
+                            return '"' +
+                                value +
+                                '"';
+
+                        }
+                    ).join(",");
+
+                }
+            )
+            .join("\n");
+
+
+        const blob =
+            new Blob(
+                ["\ufeff" + csv],
+                {
+                    type:
+                    "text/csv;charset=utf-8"
+                }
+            );
+
+
+        downloadBlob(
+            blob,
+            "asim-image-to-excel.csv"
+        );
+
+
+        setStatus(
+            "✅ CSV file downloaded.",
+            "success"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ADD ROW
+===================================================== */
+
+document
+.getElementById(
+    "addRow"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        const table =
+            dataTable;
+
+
+        const tbody =
+            table.querySelector(
+                "tbody"
+            );
+
+
+        const columnCount =
+            table
+            .querySelectorAll(
+                "thead th"
+            ).length;
+
+
+        const tr =
+            document.createElement(
+                "tr"
+            );
+
+
+        for(
+            let i = 0;
+            i < columnCount;
+            i++
+        ){
+
+            const td =
+                document.createElement(
+                    "td"
+                );
+
+
+            td.contentEditable =
+                "true";
+
+
+            td.textContent =
+                "";
+
+
+            tr.appendChild(
+                td
+            );
+
+        }
+
+
+        tbody.appendChild(
+            tr
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ADD COLUMN
+===================================================== */
+
+document
+.getElementById(
+    "addColumn"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        const headRow =
+            dataTable.querySelector(
+                "thead tr"
+            );
+
+
+        const bodyRows =
+            dataTable.querySelectorAll(
+                "tbody tr"
+            );
+
+
+        const columnNumber =
+            headRow.children.length + 1;
+
+
+        const th =
+            document.createElement(
+                "th"
+            );
+
+
+        th.contentEditable =
+            "true";
+
+
+        th.textContent =
+            "Column " +
+            columnNumber;
+
+
+        headRow.appendChild(
+            th
+        );
+
+
+        bodyRows.forEach(
+            function(row){
+
+                const td =
+                    document.createElement(
+                        "td"
+                    );
+
+
+                td.contentEditable =
+                    "true";
+
+
+                td.textContent =
+                    "";
+
+
+                row.appendChild(
+                    td
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   COPY TABLE
+===================================================== */
+
+document
+.getElementById(
+    "copyTable"
+)
+.addEventListener(
+    "click",
+    async function(){
+
+        const rows =
+            readTable();
+
+
+        const text =
+            rows
+            .map(
+                row =>
+                row.join("\t")
+            )
+            .join("\n");
+
+
+        try{
+
+            await navigator.clipboard.writeText(
+                text
+            );
+
+
+            setStatus(
+                "✅ Table copied to clipboard.",
+                "success"
+            );
+
+        }catch(error){
+
+            alert(
+                "Copy failed."
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CLEAR TABLE
+===================================================== */
+
+document
+.getElementById(
+    "clearTable"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        if(
+            !confirm(
+                "Clear the extracted table?"
+            )
+        ){
+
+            return;
+        }
+
+
+        dataTable.innerHTML =
+            "";
+
+
+        resultSection.style.display =
+            "none";
+
+
+        tableWrapper.classList.remove(
+            "show"
+        );
+
+
+        resultControls.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLEAR EVERYTHING
+===================================================== */
+
+clearButton.addEventListener(
+    "click",
+    function(){
+
+        selectedFile =
+            null;
+
+
+        imageInput.value =
+            "";
+
+
+        previewImage.src =
+            "";
+
+
+        preview.classList.remove(
+            "show"
+        );
+
+
+        extractButton.disabled =
+            true;
+
+
+        progressBox.classList.remove(
+            "show"
+        );
+
+
+        resultSection.style.display =
+            "none";
+
+
+        tableWrapper.classList.remove(
+            "show"
+        );
+
+
+        resultControls.classList.remove(
+            "show"
+        );
+
+
+        dataTable.innerHTML =
+            "";
+
+
+        statusBox.className =
+            "status";
+
+
+        statusBox.innerHTML =
+            "";
+
+    }
+);
+
+
+/* =====================================================
+   DOWNLOAD BLOB
+===================================================== */
+
+function downloadBlob(
+    blob,
+    filename
+){
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        filename;
+
+
+    link.style.display =
+        "none";
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    document.body.removeChild(
+        link
+    );
+
+
+    setTimeout(
+        function(){
+
+            URL.revokeObjectURL(
+                url
+            );
+
+        },
+        1500
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(
+    text
+){
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   PWA INSTALL PROMPT
+===================================================== */
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event){
+
+        event.preventDefault();
+
+        deferredInstallPrompt =
+            event;
+
+        installButton.style.display =
+            "block";
+
+    }
+);
+
+
+/* =====================================================
+   INSTALL BUTTON
+===================================================== */
+
+installButton.addEventListener(
+    "click",
+    async function(){
+
+        if(!deferredInstallPrompt){
+
+            alert(
+                "If Install App is not available, open Chrome menu ⋮ and choose 'Install app' or 'Add to Home screen'."
+            );
+
+            return;
+        }
+
+
+        deferredInstallPrompt.prompt();
+
+
+        const result =
+            await deferredInstallPrompt.userChoice;
+
+
+        console.log(
+            "Install result:",
+            result.outcome
+        );
+
+
+        deferredInstallPrompt =
+            null;
+
+
+        installButton.style.display =
+            "none";
+
+    }
+);
+
+
+/* =====================================================
+   INSTALLED EVENT
+===================================================== */
+
+window.addEventListener(
+    "appinstalled",
+    function(){
+
+        installButton.style.display =
+            "none";
+
+
+        setStatus(
+            "✅ Asim Image to Excel has been installed.",
+            "success"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SERVICE WORKER REGISTER
+===================================================== */
+
+if(
+    "serviceWorker" in navigator
+){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator.serviceWorker
+            .register(
+                "./sw.js"
+            )
+            .then(
+                function(){
+
+                    console.log(
+                        "Service Worker registered."
+                    );
+
+                }
+            )
+            .catch(
+                function(error){
+
+                    console.log(
+                        "Service Worker error:",
+                        error
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ONLINE / OFFLINE
+===================================================== */
+
+window.addEventListener(
+    "online",
+    function(){
+
+        console.log(
+            "Online"
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "offline",
+    function(){
+
+        setStatus(
+            "⚠️ You are offline. Previously loaded app files may still work, but OCR library may require internet on first use.",
+            "error"
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
