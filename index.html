@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -22,34 +21,26 @@ content="Asim Tech">
 <style>
 
 /* =========================================================
-   ASIM TECH PREMIUM + SEARCH + FILTER
+   ASIM TECH PREMIUM APP INDEX
 ========================================================= */
 
 :root{
-
     --bg:#02050b;
-    --panel:rgba(8,19,32,.76);
-
+    --panel:rgba(8,19,32,.82);
     --border:rgba(105,190,255,.18);
-    --border-hover:rgba(40,177,255,.65);
-
+    --border-hover:rgba(40,177,255,.75);
     --text:#f7fbff;
     --muted:#8ea5b8;
-
     --blue:#00a2ff;
     --blue2:#006dff;
     --cyan:#35dcff;
-
     --green:#00c878;
-    --red:#ff3b4d;
-    --orange:#ff8a00;
     --purple:#8b45ff;
+    --orange:#ff8a00;
+    --red:#ff3045;
 }
 
-
-/* =========================================================
-   RESET
-========================================================= */
+/* RESET */
 
 *{
     box-sizing:border-box;
@@ -59,65 +50,43 @@ content="Asim Tech">
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top:90px;
+    scroll-padding-top:80px;
 }
 
 body{
-
     min-height:100vh;
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     color:var(--text);
-
     background:
-
     radial-gradient(
         circle at 15% 5%,
-        rgba(0,150,255,.13),
+        rgba(0,150,255,.14),
         transparent 30%
     ),
-
     radial-gradient(
         circle at 85% 30%,
-        rgba(110,45,255,.10),
+        rgba(110,45,255,.11),
         transparent 28%
     ),
-
     #02050b;
-
     overflow-x:hidden;
 }
 
-
-/* =========================================================
-   BACKGROUND GRID
-========================================================= */
+/* BACKGROUND GRID */
 
 body::before{
-
     content:"";
-
     position:fixed;
-
     inset:0;
-
     pointer-events:none;
-
     z-index:-3;
-
-    opacity:.15;
+    opacity:.14;
 
     background-image:
-
     linear-gradient(
         rgba(255,255,255,.025) 1px,
         transparent 1px
     ),
-
     linear-gradient(
         90deg,
         rgba(255,255,255,.025) 1px,
@@ -127,40 +96,22 @@ body::before{
     background-size:55px 55px;
 }
 
-
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
+/* ANIMATED LIGHT */
 
 body::after{
-
     content:"";
-
     position:fixed;
-
-    width:500px;
-
-    height:500px;
-
+    width:450px;
+    height:450px;
     left:-300px;
-
     top:250px;
-
     border-radius:50%;
-
-    background:
-    rgba(0,145,255,.12);
-
+    background:rgba(0,145,255,.12);
     filter:blur(90px);
-
     pointer-events:none;
-
     z-index:-2;
-
-    animation:
-    lightMove 12s ease-in-out infinite;
+    animation:lightMove 12s ease-in-out infinite;
 }
-
 
 @keyframes lightMove{
 
@@ -170,84 +121,57 @@ body::after{
 
     50%{
         transform:
-        translate(170px,-60px)
+        translate(180px,-70px)
         scale(1.25);
     }
 }
-
 
 /* =========================================================
    HEADER
 ========================================================= */
 
 header{
-
     position:sticky;
-
     top:0;
-
     z-index:9999;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
-    gap:20px;
-
-    padding:14px 5%;
+    padding:12px 5%;
 
     background:
-    rgba(2,7,14,.78);
+    rgba(2,7,14,.88);
 
     border-bottom:
     1px solid var(--border);
 
-    backdrop-filter:blur(22px);
-
-    -webkit-backdrop-filter:blur(22px);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 }
-
 
 .logo{
-
     display:flex;
-
     align-items:center;
-
     color:#fff;
-
     text-decoration:none;
-
-    font-size:22px;
-
+    font-size:21px;
     font-weight:900;
-
-    white-space:nowrap;
 }
 
-
 .logo-mark{
-
-    width:35px;
-
-    height:35px;
+    width:34px;
+    height:34px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     margin-right:8px;
 
-    border:
-    1px solid rgba(0,170,255,.45);
-
+    border:1px solid rgba(0,170,255,.45);
     border-radius:10px;
-
-    color:#fff;
 
     background:
     linear-gradient(
@@ -260,96 +184,57 @@ header{
     0 0 25px rgba(0,157,255,.25);
 }
 
-
 .logo-blue{
     color:var(--blue);
 }
 
-
 nav{
-
     display:flex;
-
     align-items:center;
-
     gap:4px;
 }
 
-
 nav a{
-
     color:#cbd9e4;
-
     text-decoration:none;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    padding:9px 12px;
-
-    border-radius:10px;
-
-    transition:.25s ease;
+    font-size:12px;
+    font-weight:700;
+    padding:8px 11px;
+    border-radius:9px;
+    transition:.25s;
 }
-
 
 nav a:hover{
-
     color:#fff;
-
-    background:
-    rgba(0,157,255,.10);
+    background:rgba(0,157,255,.10);
 }
-
 
 .menu-btn{
-
     display:none;
-
-    width:42px;
-
-    height:40px;
-
-    border:
-    1px solid var(--border);
-
-    border-radius:11px;
-
-    background:
-    rgba(255,255,255,.04);
-
+    width:40px;
+    height:38px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:rgba(255,255,255,.04);
     color:#fff;
-
-    font-size:21px;
-
-    cursor:pointer;
+    font-size:20px;
 }
-
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero{
-
     width:92%;
-
-    max-width:1120px;
-
-    margin:80px auto 0;
-
+    max-width:1100px;
+    margin:65px auto 0;
     text-align:center;
 }
 
-
 .badge{
-
     display:inline-flex;
-
     align-items:center;
-
-    gap:9px;
+    gap:8px;
 
     padding:8px 14px;
 
@@ -364,111 +249,91 @@ nav a:hover{
     color:#70d1ff;
 
     font-size:10px;
-
     font-weight:900;
-
-    letter-spacing:2.7px;
+    letter-spacing:2px;
 }
-
 
 .badge-dot{
-
     width:7px;
-
     height:7px;
-
     border-radius:50%;
-
     background:var(--cyan);
-
-    box-shadow:
-    0 0 13px var(--cyan);
+    box-shadow:0 0 13px var(--cyan);
+    animation:dotPulse 1.8s infinite;
 }
 
+@keyframes dotPulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.5;
+        transform:scale(.7);
+    }
+}
 
 .hero h1{
-
-    margin:25px auto 18px;
-
-    max-width:900px;
+    margin:22px auto 15px;
 
     font-size:
-    clamp(44px,8vw,82px);
+    clamp(42px,7vw,76px);
 
-    line-height:1.02;
-
-    letter-spacing:-3.5px;
-
+    line-height:1.03;
+    letter-spacing:-3px;
     font-weight:900;
 }
 
-
 .hero h1 span{
-
     color:var(--blue);
 
     text-shadow:
     0 0 35px rgba(0,162,255,.32);
 }
 
-
 .hero-description{
-
     max-width:700px;
-
     margin:auto;
 
     color:var(--muted);
 
     font-size:
-    clamp(15px,2vw,19px);
+    clamp(14px,2vw,18px);
 
-    line-height:1.75;
+    line-height:1.7;
 }
-
 
 .hero-buttons{
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:30px;
+    gap:11px;
+    margin-top:27px;
 }
-
 
 .hero-btn{
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
 
-    min-width:160px;
+    min-width:155px;
 
-    padding:14px 22px;
+    padding:12px 20px;
 
-    border-radius:12px;
+    border-radius:11px;
 
     text-decoration:none;
-
     color:#fff;
 
-    font-size:14px;
-
+    font-size:13px;
     font-weight:800;
 
-    transition:.3s ease;
+    transition:.3s;
 }
 
-
 .primary-btn{
-
     background:
     linear-gradient(
         135deg,
@@ -477,181 +342,128 @@ nav a:hover{
     );
 
     box-shadow:
-    0 12px 35px rgba(0,145,255,.20);
+    0 10px 30px rgba(0,145,255,.20);
 }
-
 
 .secondary-btn{
-
-    border:
-    1px solid #29465e;
-
-    background:
-    rgba(255,255,255,.035);
+    border:1px solid #29465e;
+    background:rgba(255,255,255,.035);
 }
-
 
 .hero-btn:hover{
-
     transform:translateY(-4px);
-
-    filter:brightness(1.1);
 }
-
 
 /* =========================================================
    STATS
 ========================================================= */
 
 .stats{
-
     width:92%;
+    max-width:700px;
 
-    max-width:750px;
-
-    margin:48px auto 0;
+    margin:40px auto 0;
 
     display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:12px;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
-
 
 .stat{
+    padding:15px 8px;
 
-    padding:17px 10px;
+    border:1px solid var(--border);
+    border-radius:14px;
 
-    border:
-    1px solid var(--border);
-
-    border-radius:15px;
-
-    background:
-    rgba(255,255,255,.025);
+    background:rgba(255,255,255,.025);
 }
-
 
 .stat strong{
-
     display:block;
-
-    font-size:22px;
-
-    margin-bottom:4px;
+    font-size:20px;
+    margin-bottom:3px;
 }
-
 
 .stat span{
-
     color:#71899c;
-
-    font-size:10px;
-
+    font-size:9px;
     text-transform:uppercase;
-
-    letter-spacing:1.3px;
+    letter-spacing:1px;
 }
-
 
 /* =========================================================
    PHONE
 ========================================================= */
 
 .hero-phone-area{
-
     display:flex;
-
     justify-content:center;
-
-    margin:60px auto 90px;
-
-    perspective:1400px;
+    margin:55px auto 75px;
+    perspective:1200px;
 }
 
-
 .phone{
-
     position:relative;
 
-    width:285px;
+    width:250px;
+    height:455px;
 
-    height:525px;
+    padding:9px;
 
-    padding:10px;
-
-    border:
-    5px solid #526f83;
-
-    border-radius:47px;
+    border:4px solid #526f83;
+    border-radius:40px;
 
     background:#01050a;
 
-    transform:rotate(6deg);
+    transform:rotate(5deg);
 
     box-shadow:
+    0 0 45px rgba(0,157,255,.18),
+    0 30px 70px rgba(0,0,0,.65);
 
-    0 0 50px rgba(0,157,255,.19),
-
-    0 35px 90px rgba(0,0,0,.65);
-
-    animation:
-    phoneFloat 4.5s ease-in-out infinite;
+    animation:phoneFloat 4.5s ease-in-out infinite;
 }
-
 
 @keyframes phoneFloat{
 
     0%,100%{
         transform:
-        rotate(6deg)
+        rotate(5deg)
         translateY(0);
     }
 
     50%{
         transform:
-        rotate(6deg)
-        translateY(-12px);
+        rotate(5deg)
+        translateY(-10px);
     }
 }
 
-
 .phone-camera{
-
     position:absolute;
-
     z-index:5;
 
-    top:8px;
-
+    top:7px;
     left:50%;
 
     transform:translateX(-50%);
 
-    width:82px;
-
-    height:18px;
+    width:70px;
+    height:16px;
 
     border-radius:20px;
-
     background:#010207;
 }
 
-
 .phone-screen{
-
     height:100%;
-
-    padding:50px 19px 24px;
+    padding:45px 17px 20px;
 
     overflow:hidden;
 
-    border-radius:36px;
+    border-radius:32px;
 
     background:
-
     radial-gradient(
         circle at 15% 5%,
         rgba(0,178,255,.25),
@@ -672,194 +484,137 @@ nav a:hover{
     );
 }
 
-
 .phone-brand{
-
     color:var(--blue);
-
     font-weight:900;
-
-    font-size:15px;
-
-    margin-bottom:43px;
+    font-size:14px;
+    margin-bottom:34px;
 }
-
 
 .phone-brand span{
     color:#fff;
 }
 
-
 .phone-screen h2{
-
-    font-size:29px;
-
-    margin-bottom:10px;
+    font-size:25px;
+    margin-bottom:8px;
 }
-
 
 .phone-screen p{
-
     color:#91aabd;
-
-    font-size:13px;
-
+    font-size:12px;
     line-height:1.7;
 }
-
 
 .phone-screen strong{
     color:#fff;
 }
 
-
 .phone-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:10px;
-
-    margin-top:29px;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+    margin-top:24px;
 }
 
-
 .phone-box{
-
-    height:78px;
+    height:68px;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
 
-    gap:5px;
+    gap:4px;
 
     border:
     1px solid rgba(66,175,230,.22);
 
-    border-radius:16px;
+    border-radius:14px;
 
     background:
     rgba(0,157,255,.08);
 
     color:#dce8f2;
 
-    font-size:12px;
+    font-size:11px;
 }
-
 
 .phone-box span{
-    font-size:27px;
+    font-size:24px;
 }
 
-
 /* =========================================================
-   SECTION HEADER
+   SECTION
 ========================================================= */
 
 .section-head{
-
     width:92%;
-
-    max-width:1200px;
-
-    margin:0 auto 25px;
-
+    max-width:1100px;
+    margin:0 auto 22px;
     text-align:center;
 }
 
-
 .section-label{
-
     color:#52c2ff;
-
-    font-size:10px;
-
+    font-size:9px;
     font-weight:900;
-
-    letter-spacing:2.8px;
-
-    margin-bottom:9px;
+    letter-spacing:2.5px;
+    margin-bottom:8px;
 }
-
 
 .section-head h2{
-
     font-size:
-    clamp(29px,5vw,43px);
+    clamp(27px,5vw,40px);
 
-    letter-spacing:-1px;
-
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
-
 .section-head p{
-
-    max-width:650px;
-
+    max-width:600px;
     margin:auto;
 
     color:var(--muted);
 
-    font-size:14px;
-
-    line-height:1.65;
+    font-size:13px;
+    line-height:1.6;
 }
 
-
 /* =========================================================
-   SEARCH + FILTER
+   SEARCH
 ========================================================= */
 
 .app-tools{
-
     width:92%;
-
-    max-width:1200px;
+    max-width:1100px;
 
     margin:
-    0 auto 28px;
+    0 auto 25px;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 
-    gap:17px;
+    gap:14px;
 }
-
 
 .search-box{
-
     position:relative;
-
     width:100%;
-
-    max-width:650px;
+    max-width:600px;
 }
 
-
 .search-box input{
-
     width:100%;
-
-    height:52px;
+    height:48px;
 
     padding:
-    0 52px 0 19px;
+    0 48px 0 17px;
 
     border:
     1px solid var(--border);
 
-    border-radius:14px;
+    border-radius:13px;
 
     outline:none;
 
@@ -868,65 +623,43 @@ nav a:hover{
     background:
     rgba(8,22,36,.82);
 
-    font-size:14px;
-
-    box-shadow:
-    0 12px 35px rgba(0,0,0,.15);
-
-    transition:.25s ease;
+    font-size:13px;
 }
-
 
 .search-box input::placeholder{
     color:#71899c;
 }
 
-
 .search-box input:focus{
-
-    border-color:
-    var(--blue);
+    border-color:var(--blue);
 
     box-shadow:
     0 0 0 3px
     rgba(0,162,255,.08);
 }
 
-
 .search-icon{
-
     position:absolute;
 
-    right:17px;
-
+    right:16px;
     top:50%;
 
     transform:translateY(-50%);
 
     color:#69caff;
-
-    font-size:20px;
-
-    pointer-events:none;
+    font-size:19px;
 }
-
 
 .filters{
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
-    gap:8px;
+    gap:7px;
 }
 
-
 .filter-btn{
-
     padding:
-    9px 15px;
+    8px 13px;
 
     border:
     1px solid #26445b;
@@ -938,31 +671,22 @@ nav a:hover{
 
     color:#a9bdca;
 
-    font-size:11px;
-
+    font-size:10px;
     font-weight:800;
 
     cursor:pointer;
 
-    transition:.25s ease;
+    transition:.25s;
 }
-
 
 .filter-btn:hover{
-
     color:#fff;
-
-    border-color:
-    rgba(0,162,255,.55);
+    border-color:var(--blue);
 }
 
-
 .filter-btn.active{
-
     color:#fff;
-
-    border-color:
-    var(--blue);
+    border-color:var(--blue);
 
     background:
     linear-gradient(
@@ -970,61 +694,47 @@ nav a:hover{
         rgba(0,162,255,.20),
         rgba(0,109,255,.12)
     );
-
-    box-shadow:
-    0 0 20px
-    rgba(0,162,255,.08);
 }
-
 
 .search-status{
-
     color:#70899b;
-
-    font-size:11px;
-
-    min-height:15px;
+    font-size:10px;
+    min-height:14px;
 }
-
 
 /* =========================================================
    APPS GRID
 ========================================================= */
 
 .apps{
-
     width:92%;
-
-    max-width:1200px;
+    max-width:1100px;
 
     margin:
-    0 auto 90px;
+    0 auto 75px;
 
     display:grid;
 
     grid-template-columns:
-    repeat(2,minmax(0,1fr));
+    repeat(3,minmax(0,1fr));
 
-    gap:23px;
+    gap:15px;
 }
 
-
 /* =========================================================
-   APP CARD
+   CARD
 ========================================================= */
 
 .app-card{
-
     position:relative;
-
     overflow:hidden;
 
-    padding:11px;
+    padding:8px;
 
     border:
     1px solid var(--border);
 
-    border-radius:22px;
+    border-radius:18px;
 
     background:
     linear-gradient(
@@ -1034,48 +744,62 @@ nav a:hover{
     );
 
     box-shadow:
-    0 15px 55px rgba(0,0,0,.25);
+    0 10px 35px rgba(0,0,0,.22);
 
     transition:
     transform .35s ease,
     border-color .35s ease,
     box-shadow .35s ease;
+
+    animation:
+    cardAppear .6s ease both;
 }
 
+@keyframes cardAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
 .app-card:hover{
-
-    transform:translateY(-8px);
+    transform:
+    translateY(-7px)
+    scale(1.015);
 
     border-color:
     var(--border-hover);
 
     box-shadow:
-    0 25px 75px rgba(0,100,180,.20);
+    0 20px 55px rgba(0,100,180,.22);
 }
 
-
 .app-card.hidden{
-
     display:none;
 }
 
+/* =========================================================
+   IMAGE
+========================================================= */
 
 .app-image{
-
     position:relative;
 
-    height:235px;
+    height:170px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     overflow:hidden;
 
-    border-radius:17px;
+    border-radius:14px;
 
     background:
     linear-gradient(
@@ -1086,204 +810,239 @@ nav a:hover{
     );
 }
 
-
 .app-image::before{
-
     content:"";
 
     position:absolute;
 
-    width:190px;
-
-    height:190px;
+    width:130px;
+    height:130px;
 
     left:-30px;
-
     top:-30px;
 
     border-radius:50%;
 
     background:
-    rgba(0,180,255,.23);
+    rgba(0,180,255,.25);
 
-    filter:blur(50px);
+    filter:blur(35px);
+
+    animation:
+    glowMove 5s ease-in-out infinite;
 }
 
-
 .app-image::after{
-
     content:"";
 
     position:absolute;
 
-    width:190px;
-
-    height:190px;
+    width:130px;
+    height:130px;
 
     right:-30px;
-
-    bottom:-50px;
+    bottom:-40px;
 
     border-radius:50%;
 
     background:
-    rgba(150,50,255,.20);
+    rgba(150,50,255,.22);
 
-    filter:blur(50px);
+    filter:blur(35px);
+
+    animation:
+    glowMove2 6s ease-in-out infinite;
 }
 
+@keyframes glowMove{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(25px,20px);
+    }
+}
+
+@keyframes glowMove2{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(-25px,-20px);
+    }
+}
+
+/* REAL PNG */
 
 .app-image img{
-
     position:relative;
 
     z-index:2;
 
     width:100%;
-
     height:100%;
 
     object-fit:contain;
 
-    border-radius:14px;
+    border-radius:12px;
 
     display:block;
+
+    transition:
+    transform .4s ease,
+    filter .4s ease;
 }
 
+.app-card:hover .app-image img{
+    transform:scale(1.045);
+    filter:brightness(1.08);
+}
 
-.fallback-icon{
+/* individual backgrounds */
 
-    position:relative;
-
-    z-index:2;
-
-    width:120px;
-
-    height:120px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border:
-    1px solid rgba(255,255,255,.20);
-
-    border-radius:30px;
-
+.barcode{
     background:
-    rgba(255,255,255,.08);
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.4);
-
-    font-size:62px;
+    linear-gradient(
+        135deg,
+        #063a66,
+        #071b2d,
+        #321060
+    );
 }
 
+.office{
+    background:
+    linear-gradient(
+        135deg,
+        #006fd3,
+        #087ff5
+    );
+}
+
+.pdf{
+    background:
+    linear-gradient(
+        135deg,
+        #510006,
+        #e9162a
+    );
+}
+
+.photo{
+    background:
+    linear-gradient(
+        135deg,
+        #40005c,
+        #aa00cc
+    );
+}
+
+.signature{
+    background:
+    linear-gradient(
+        135deg,
+        #180044,
+        #5100a8,
+        #001f55
+    );
+}
+
+.idphoto{
+    background:
+    linear-gradient(
+        135deg,
+        #003b5c,
+        #007c9e,
+        #0046a8
+    );
+}
+
+.devotional{
+    background:
+    linear-gradient(
+        135deg,
+        #5b0000,
+        #c00000
+    );
+}
+
+.oldies{
+    background:
+    linear-gradient(
+        135deg,
+        #542900,
+        #b55c00
+    );
+}
+
+.madhu{
+    background:
+    linear-gradient(
+        135deg,
+        #32105c,
+        #7c12c9
+    );
+}
+
+.sangit{
+    background:
+    linear-gradient(
+        135deg,
+        #402000,
+        #9a3900
+    );
+}
+
+.banner{
+    background:
+    linear-gradient(
+        135deg,
+        #5b1a8e,
+        #0066cc,
+        #00a2ff
+    );
+}
 
 /* =========================================================
-   APP COLORS
-========================================================= */
-
-.barcode .app-image{
-    background:
-    linear-gradient(135deg,#063a66,#071b2d,#321060);
-}
-
-.office .app-image{
-    background:
-    linear-gradient(135deg,#006fd3,#087ff5);
-}
-
-.pdf .app-image{
-    background:
-    linear-gradient(135deg,#510006,#e9162a);
-}
-
-.devotional .app-image{
-    background:
-    linear-gradient(135deg,#5b0000,#c00000);
-}
-
-.oldies .app-image{
-    background:
-    linear-gradient(135deg,#542900,#b55c00);
-}
-
-.madhu .app-image{
-    background:
-    linear-gradient(135deg,#32105c,#7c12c9);
-}
-
-.sangit .app-image{
-    background:
-    linear-gradient(135deg,#402000,#9a3900);
-}
-
-.photo .app-image{
-    background:
-    linear-gradient(135deg,#40005c,#aa00cc);
-}
-
-.signature .app-image{
-    background:
-    linear-gradient(135deg,#180044,#5100a8,#001f55);
-}
-
-.idphoto .app-image{
-    background:
-    linear-gradient(135deg,#003b5c,#007c9e,#0046a8);
-}
-
-
-/* =========================================================
-   APP CONTENT
+   CARD CONTENT
 ========================================================= */
 
 .app-content{
-
     padding:
-    17px 9px 9px;
+    12px 5px 5px;
 }
-
 
 .app-title-row{
-
     display:flex;
-
     align-items:flex-start;
-
     justify-content:space-between;
 
-    gap:10px;
+    gap:7px;
 
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
 
-
 .app-content h3{
-
-    font-size:19px;
-
+    font-size:16px;
     line-height:1.3;
 }
 
-
 .app-type{
-
     flex-shrink:0;
 
     padding:
-    5px 8px;
+    4px 6px;
 
-    border-radius:7px;
+    border-radius:6px;
 
-    font-size:8px;
-
+    font-size:7px;
     font-weight:900;
 
-    letter-spacing:.7px;
+    letter-spacing:.5px;
 
     color:#6fd0ff;
 
@@ -1294,74 +1053,66 @@ nav a:hover{
     1px solid rgba(0,157,255,.18);
 }
 
-
 .app-content p{
-
-    min-height:44px;
+    min-height:40px;
 
     color:var(--muted);
 
-    font-size:13px;
+    font-size:11px;
 
-    line-height:1.65;
+    line-height:1.55;
 }
 
-
 .tags{
+    margin-top:8px;
 
-    margin-top:12px;
-
-    min-height:18px;
+    min-height:17px;
 
     color:#7891a4;
 
-    font-size:11px;
+    font-size:9px;
+
+    line-height:1.4;
 }
 
-
 /* =========================================================
-   APP BUTTON
+   BUTTON
 ========================================================= */
 
 .app-btn{
-
     width:100%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    margin-top:14px;
+    margin-top:10px;
 
-    padding:13px;
+    padding:10px;
 
-    border-radius:11px;
+    border-radius:9px;
 
     text-decoration:none;
-
     color:#fff;
 
-    font-size:14px;
-
+    font-size:11px;
     font-weight:800;
 
-    transition:.25s ease;
+    transition:.25s;
 }
 
-
 .app-btn:hover{
-
     transform:translateY(-2px);
-
     filter:brightness(1.1);
 }
 
-
 .blue-btn{
     background:
-    linear-gradient(135deg,#087ff5,#006fe6);
+    linear-gradient(
+        135deg,
+        #087ff5,
+        #006fe6
+    );
 }
 
 .red-btn{
@@ -1374,29 +1125,30 @@ nav a:hover{
 
 .orange-btn{
     background:
-    linear-gradient(90deg,#ff8a00,#ff3040);
+    linear-gradient(
+        90deg,
+        #ff8a00,
+        #ff3040
+    );
 }
 
 .purple-btn{
     background:
-    linear-gradient(90deg,#7b2cff,#ff2390);
+    linear-gradient(
+        90deg,
+        #7b2cff,
+        #ff2390
+    );
 }
-
 
 /* =========================================================
    NO RESULTS
 ========================================================= */
 
 .no-results{
-
     display:none;
 
-    width:92%;
-
-    max-width:700px;
-
-    margin:
-    20px auto 80px;
+    grid-column:1/-1;
 
     padding:30px 20px;
 
@@ -1405,7 +1157,7 @@ nav a:hover{
     border:
     1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:16px;
 
     background:
     rgba(8,22,36,.65);
@@ -1413,57 +1165,45 @@ nav a:hover{
     color:var(--muted);
 }
 
-
 .no-results.show{
     display:block;
 }
 
-
 .no-results strong{
-
     display:block;
-
     color:#fff;
-
-    font-size:18px;
-
-    margin-bottom:7px;
+    font-size:17px;
+    margin-bottom:6px;
 }
-
 
 /* =========================================================
    FEATURES
 ========================================================= */
 
 .features{
-
     width:92%;
-
-    max-width:1200px;
+    max-width:1100px;
 
     margin:
-    0 auto 85px;
+    0 auto 70px;
 
     display:grid;
 
     grid-template-columns:
     repeat(3,1fr);
 
-    gap:20px;
+    gap:15px;
 }
 
-
 .feature{
-
-    padding:
-    32px 22px;
+    padding:25px 18px;
 
     text-align:center;
 
     border:
     1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:17px;
 
     background:
     linear-gradient(
@@ -1472,35 +1212,26 @@ nav a:hover{
         rgba(3,14,24,.90)
     );
 
-    transition:.3s ease;
+    transition:.3s;
 }
-
 
 .feature:hover{
-
-    transform:translateY(-6px);
-
-    border-color:
-    var(--border-hover);
+    transform:translateY(-5px);
+    border-color:var(--border-hover);
 }
 
-
 .feature-icon{
-
-    width:62px;
-
-    height:62px;
+    width:55px;
+    height:55px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     margin:
-    0 auto 17px;
+    0 auto 14px;
 
-    border-radius:18px;
+    border-radius:16px;
 
     background:
     rgba(0,157,255,.08);
@@ -1508,50 +1239,40 @@ nav a:hover{
     border:
     1px solid rgba(0,157,255,.18);
 
-    font-size:29px;
+    font-size:25px;
 }
-
 
 .feature h3{
-
-    margin-bottom:9px;
-
-    font-size:18px;
+    margin-bottom:7px;
+    font-size:16px;
 }
-
 
 .feature p{
-
     color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.7;
+    font-size:11px;
+    line-height:1.6;
 }
 
-
 /* =========================================================
-   INFO BOX
+   INFO
 ========================================================= */
 
 .info-box{
-
     width:92%;
-
-    max-width:1200px;
+    max-width:1100px;
 
     margin:
-    0 auto 24px;
+    0 auto 18px;
 
     padding:
-    36px 24px;
+    28px 20px;
 
     text-align:center;
 
     border:
     1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:17px;
 
     background:
     linear-gradient(
@@ -1561,39 +1282,30 @@ nav a:hover{
     );
 }
 
-
 .info-box h2{
-
-    font-size:26px;
-
-    margin-bottom:13px;
+    font-size:23px;
+    margin-bottom:9px;
 }
 
-
 .info-box p{
-
-    max-width:850px;
-
+    max-width:800px;
     margin:auto;
 
     color:var(--muted);
 
-    font-size:14px;
-
-    line-height:1.8;
+    font-size:12px;
+    line-height:1.75;
 }
-
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
-
-    margin-top:75px;
+    margin-top:60px;
 
     padding:
-    40px 20px;
+    35px 20px;
 
     text-align:center;
 
@@ -1605,63 +1317,44 @@ footer{
 
     color:#6f8799;
 
-    font-size:13px;
+    font-size:11px;
 
     line-height:1.8;
 }
-
 
 footer strong{
     color:var(--blue);
 }
 
-
 .footer-brand{
-
-    font-size:18px;
-
+    font-size:17px;
     font-weight:900;
-
     color:#fff;
-
-    margin-bottom:5px;
 }
 
-
 .back-top{
-
     display:inline-flex;
 
-    margin-top:14px;
+    margin-top:12px;
 
     padding:
-    8px 14px;
+    7px 12px;
 
     border:
     1px solid var(--border);
 
-    border-radius:9px;
+    border-radius:8px;
 
     color:#a7bdcc;
 
     text-decoration:none;
 }
 
-
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
 @media(max-width:900px){
-
-    nav{
-        gap:2px;
-    }
-
-    nav a{
-        font-size:11px;
-        padding:8px 7px;
-    }
 
     .apps{
         grid-template-columns:
@@ -1670,48 +1363,44 @@ footer strong{
 
 }
 
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
     header{
-        padding:12px 4%;
+        padding:11px 4%;
     }
-
 
     .logo{
-        font-size:20px;
+        font-size:19px;
     }
-
 
     .menu-btn{
         display:block;
+        cursor:pointer;
     }
 
-
     nav{
-
         display:none;
 
         position:absolute;
 
         left:4%;
-
         right:4%;
-
-        top:67px;
+        top:62px;
 
         flex-direction:column;
 
-        align-items:stretch;
-
         gap:3px;
 
-        padding:8px;
+        padding:7px;
 
         border:
         1px solid var(--border);
 
-        border-radius:15px;
+        border-radius:14px;
 
         background:
         rgba(2,9,18,.98);
@@ -1720,222 +1409,106 @@ footer strong{
         0 25px 60px rgba(0,0,0,.5);
     }
 
-
     nav.open{
         display:flex;
     }
 
-
     nav a{
-
-        padding:12px;
-
+        padding:11px;
         text-align:center;
-
-        font-size:13px;
+        font-size:12px;
     }
-
 
     .hero{
-        margin-top:55px;
+        margin-top:50px;
     }
-
 
     .hero h1{
         letter-spacing:-2px;
     }
 
-
-    .stats{
-
-        grid-template-columns:
-        repeat(3,1fr);
-
-        gap:7px;
-    }
-
-
-    .stat{
-        padding:13px 5px;
-    }
-
-
-    .stat strong{
-        font-size:18px;
-    }
-
-
-    .stat span{
-        font-size:8px;
-    }
-
-
     .hero-phone-area{
-
         margin:
-        45px auto 70px;
+        45px auto 60px;
     }
-
-
-    .phone{
-
-        width:245px;
-
-        height:450px;
-
-        border-radius:42px;
-    }
-
-
-    .phone-screen{
-
-        border-radius:33px;
-
-        padding:
-        43px 16px 20px;
-    }
-
-
-    .phone-brand{
-
-        font-size:14px;
-
-        margin-bottom:36px;
-    }
-
-
-    .phone-screen h2{
-        font-size:25px;
-    }
-
-
-    .phone-grid{
-        margin-top:23px;
-    }
-
-
-    .phone-box{
-        height:67px;
-    }
-
 
     .apps{
-
         grid-template-columns:1fr;
-
         width:94%;
-
-        gap:18px;
+        gap:14px;
     }
-
 
     .app-image{
-        height:220px;
+        height:205px;
     }
 
-
     .features{
-
         grid-template-columns:1fr;
-
         width:94%;
     }
 
-
-    .app-title-row{
-        align-items:flex-start;
+    .app-content h3{
+        font-size:17px;
     }
 
 }
 
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:430px){
 
     .hero h1{
-        font-size:38px;
+        font-size:37px;
     }
 
-
     .hero-buttons{
-
         flex-direction:column;
-
         align-items:center;
     }
 
-
     .hero-btn{
-        width:230px;
+        width:220px;
     }
-
 
     .stats{
         width:94%;
     }
 
-
     .phone{
-
-        width:225px;
-
-        height:420px;
+        width:220px;
+        height:405px;
     }
-
 
     .phone-screen{
-        border-radius:31px;
+        border-radius:30px;
     }
-
 
     .app-image{
-        height:210px;
-    }
-
-
-    .filter-btn{
-        padding:
-        8px 11px;
-
-        font-size:10px;
+        height:200px;
     }
 
 }
 
-
-/* =========================================================
-   ACCESSIBILITY / REDUCED MOTION
-========================================================= */
+/* ACCESSIBILITY */
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible{
-
     outline:
     2px solid var(--cyan);
 
     outline-offset:3px;
 }
 
-
 @media(prefers-reduced-motion:reduce){
-
-    html{
-        scroll-behavior:auto;
-    }
-
 
     *,
     *::before,
     *::after{
-
-        animation-duration:
-        .01ms !important;
-
-        animation-iteration-count:
-        1 !important;
-
-        transition-duration:
-        .01ms !important;
+        animation:none !important;
+        transition:none !important;
     }
 
 }
@@ -1944,34 +1517,24 @@ input:focus-visible{
 
 </head>
 
-
 <body id="top">
 
 
 <!-- =====================================================
      HEADER
-========================================================= -->
+===================================================== -->
 
 <header>
 
+<a href="./" class="logo">
 
-<a
-href="./"
-class="logo"
-aria-label="Asim Tech Home">
-
-<span class="logo-mark">
-▲
-</span>
+<span class="logo-mark">▲</span>
 
 ASIM
 
-<span class="logo-blue">
-TECH
-</span>
+<span class="logo-blue">TECH</span>
 
 </a>
-
 
 <button
 class="menu-btn"
@@ -1983,45 +1546,30 @@ aria-expanded="false">
 
 </button>
 
-
 <nav id="mainNav">
 
-<a href="./">
-Home
-</a>
+<a href="./">Home</a>
 
-<a href="#apps">
-Apps
-</a>
+<a href="#apps">Apps</a>
 
-<a href="#features">
-Tools
-</a>
+<a href="#features">Tools</a>
 
-<a href="#updates">
-Updates
-</a>
+<a href="#updates">Updates</a>
 
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
 </header>
 
 
-
 <!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 
 <section class="hero">
-
 
 <div class="badge">
 
@@ -2030,7 +1578,6 @@ Contact
 WELCOME TO ASIM TECH
 
 </div>
-
 
 <h1>
 
@@ -2042,7 +1589,6 @@ Useful Apps.
 
 </h1>
 
-
 <p class="hero-description">
 
 Explore useful Android applications, web tools,
@@ -2051,9 +1597,7 @@ created by Asim Tech.
 
 </p>
 
-
 <div class="hero-buttons">
-
 
 <a
 href="#apps"
@@ -2063,7 +1607,6 @@ class="hero-btn primary-btn">
 
 </a>
 
-
 <a
 href="#about"
 class="hero-btn secondary-btn">
@@ -2072,81 +1615,53 @@ class="hero-btn secondary-btn">
 
 </a>
 
-
 </div>
 
 
-<!-- =====================================================
-     STATS
-========================================================= -->
+<!-- STATS -->
 
 <div class="stats">
 
+<div class="stat">
+
+<strong>11+</strong>
+
+<span>Apps & Tools</span>
+
+</div>
 
 <div class="stat">
 
-<strong>
-10+
-</strong>
+<strong>Web</strong>
 
-<span>
-Apps &amp; Tools
-</span>
+<span>Browser Tools</span>
 
 </div>
-
 
 <div class="stat">
 
-<strong>
-Web
-</strong>
+<strong>Android</strong>
 
-<span>
-Browser Tools
-</span>
+<span>Applications</span>
 
 </div>
 
-
-<div class="stat">
-
-<strong>
-Android
-</strong>
-
-<span>
-Applications
-</span>
-
 </div>
-
-
-</div>
-
 
 </section>
 
 
-
 <!-- =====================================================
      PHONE
-========================================================= -->
+===================================================== -->
 
-<div
-class="hero-phone-area"
-aria-hidden="true">
-
+<div class="hero-phone-area">
 
 <div class="phone">
 
-
-<div class="phone-camera">
-</div>
-
+<div class="phone-camera"></div>
 
 <div class="phone-screen">
-
 
 <div class="phone-brand">
 
@@ -2154,11 +1669,7 @@ aria-hidden="true">
 
 </div>
 
-
-<h2>
-Hello 👋
-</h2>
-
+<h2>Hello 👋</h2>
 
 <p>
 
@@ -2166,15 +1677,11 @@ Building useful digital experiences for
 
 <br>
 
-<strong>
-everyday life
-</strong>
+<strong>everyday life</strong>
 
 </p>
 
-
 <div class="phone-grid">
-
 
 <div class="phone-box">
 
@@ -2184,7 +1691,6 @@ Radio
 
 </div>
 
-
 <div class="phone-box">
 
 <span>🎵</span>
@@ -2192,7 +1698,6 @@ Radio
 Music
 
 </div>
-
 
 <div class="phone-box">
 
@@ -2202,7 +1707,6 @@ Tools
 
 </div>
 
-
 <div class="phone-box">
 
 <span>📱</span>
@@ -2211,7 +1715,6 @@ Apps
 
 </div>
 
-
 </div>
 
 </div>
@@ -2219,18 +1722,15 @@ Apps
 </div>
 
 </div>
-
 
 
 <!-- =====================================================
-     APPS SECTION
-========================================================= -->
+     APPS
+===================================================== -->
 
 <section id="apps">
 
-
 <div class="section-head">
-
 
 <div class="section-label">
 
@@ -2238,13 +1738,7 @@ MY APPLICATIONS
 
 </div>
 
-
-<h2>
-
-Explore Asim Tech
-
-</h2>
-
+<h2>Explore Asim Tech</h2>
 
 <p>
 
@@ -2253,17 +1747,12 @@ to quickly find what you need.
 
 </p>
 
-
 </div>
 
 
-
-<!-- =====================================================
-     SEARCH + FILTER
-========================================================= -->
+<!-- SEARCH -->
 
 <div class="app-tools">
-
 
 <div class="search-box">
 
@@ -2274,18 +1763,12 @@ placeholder="Search apps and tools..."
 aria-label="Search apps and tools"
 autocomplete="off">
 
-<span
-class="search-icon">
-
-⌕
-
-</span>
+<span class="search-icon">⌕</span>
 
 </div>
 
 
 <div class="filters">
-
 
 <button
 class="filter-btn active"
@@ -2295,7 +1778,6 @@ All
 
 </button>
 
-
 <button
 class="filter-btn"
 data-filter="web">
@@ -2303,7 +1785,6 @@ data-filter="web">
 🌐 Web Apps
 
 </button>
-
 
 <button
 class="filter-btn"
@@ -2313,15 +1794,13 @@ data-filter="android">
 
 </button>
 
-
 <button
 class="filter-btn"
 data-filter="music">
 
-🎵 Music &amp; Radio
+🎵 Music & Radio
 
 </button>
-
 
 <button
 class="filter-btn"
@@ -2331,9 +1810,7 @@ data-filter="tools">
 
 </button>
 
-
 </div>
-
 
 <div
 class="search-status"
@@ -2343,53 +1820,39 @@ Showing 11 applications
 
 </div>
 
-
 </div>
-
 
 
 <!-- =====================================================
      APP GRID
-========================================================= -->
+===================================================== -->
 
-<div
-class="apps"
-id="appsGrid">
-
+<div class="apps" id="appsGrid">
 
 
 <!-- =====================================================
      1 BARCODE
-========================================================= -->
+===================================================== -->
 
 <article
 class="app-card"
 data-category="web tools"
 data-name="Asim Barcode QR Scanner">
 
-
 <div class="app-image barcode">
 
-
-<div
-class="fallback-icon"
-aria-hidden="true">
-
-▥
+<img
+src="images/01-barcode-qr-scanner.png"
+alt="Asim Barcode QR Scanner">
 
 </div>
-
-
-</div>
-
 
 <div class="app-content">
-
 
 <div class="app-title-row">
 
 <h3>
-Asim Barcode &amp; QR Scanner
+Asim Barcode & QR Scanner
 </h3>
 
 <span class="app-type">
@@ -2398,21 +1861,14 @@ WEB APP
 
 </div>
 
-
 <p>
-
 Scan, create, save and download
 barcodes and QR codes easily.
-
 </p>
 
-
 <div class="tags">
-
-Scanner • Barcode Maker • QR Maker • History
-
+Scanner • Barcode • QR Maker
 </div>
-
 
 <a
 href="barcode-scanner/"
@@ -2422,40 +1878,29 @@ class="app-btn blue-btn">
 
 </a>
 
-
 </div>
 
 </article>
 
 
-
 <!-- =====================================================
      2 OFFICE
-========================================================= -->
+===================================================== -->
 
 <article
 class="app-card"
 data-category="web tools"
 data-name="Asim Office Suite V5">
 
-
 <div class="app-image office">
 
-
-<div
-class="fallback-icon"
-aria-hidden="true">
-
-📄
+<img
+src="images/02-office-suite.png"
+alt="Asim Office Suite">
 
 </div>
-
-
-</div>
-
 
 <div class="app-content">
-
 
 <div class="app-title-row">
 
@@ -2469,21 +1914,14 @@ WEB APP
 
 </div>
 
-
 <p>
-
 Create and edit documents,
-spreadsheets, PDF files and scan documents.
-
+spreadsheets and PDF files.
 </p>
 
-
 <div class="tags">
-
-Office • Document • Spreadsheet • PDF • Scanner
-
+Office • Document • Spreadsheet • PDF
 </div>
-
 
 <a
 href="office/"
@@ -2493,50 +1931,29 @@ class="app-btn blue-btn">
 
 </a>
 
-
 </div>
 
 </article>
 
 
-
 <!-- =====================================================
      3 PDF
-========================================================= -->
+===================================================== -->
 
 <article
 class="app-card"
 data-category="web tools"
 data-name="Asim PDF Tools">
 
-
 <div class="app-image pdf">
 
-
 <img
-src="pdf-icon.png"
-alt="Asim PDF Tools"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-">
-
-
-<div
-class="fallback-icon"
-style="display:none"
-aria-hidden="true">
-
-📕
+src="images/03-pdf-tools.png"
+alt="Asim PDF Tools">
 
 </div>
-
-
-</div>
-
 
 <div class="app-content">
-
 
 <div class="app-title-row">
 
@@ -2550,21 +1967,14 @@ WEB APP
 
 </div>
 
-
 <p>
-
 Create PDF from images,
-merge PDF files and extract selected pages easily.
-
+merge and split PDF files.
 </p>
 
-
 <div class="tags">
-
 PDF • JPG to PDF • Merge • Split
-
 </div>
-
 
 <a
 href="pdf-tools/"
@@ -2574,378 +1984,29 @@ class="app-btn red-btn">
 
 </a>
 
-
 </div>
 
 </article>
 
 
-
 <!-- =====================================================
-     4 DEVOTIONAL RADIO
-========================================================= -->
-
-<article
-class="app-card"
-data-category="android music"
-data-name="Devotional Radio">
-
-
-<div class="app-image devotional">
-
-
-<img
-src="devotional-radio.png"
-alt="Devotional Radio"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-">
-
-
-<div
-class="fallback-icon"
-style="display:none"
-aria-hidden="true">
-
-🕉️
-
-</div>
-
-
-</div>
-
-
-<div class="app-content">
-
-
-<div class="app-title-row">
-
-<h3>
-Devotional Radio
-</h3>
-
-<span class="app-type">
-ANDROID APP
-</span>
-
-</div>
-
-
-<p>
-
-Listen to devotional radio
-and spiritual music.
-
-</p>
-
-
-<div class="tags">
-
-Radio • Spiritual • Music
-
-</div>
-
-
-<a
-href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
-download
-class="app-btn green-btn">
-
-↓ Download APK
-
-</a>
-
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     5 OLD IS GOLD
-========================================================= -->
-
-<article
-class="app-card"
-data-category="android music"
-data-name="80s 90s Old Is Gold">
-
-
-<div class="app-image oldies">
-
-
-<img
-src="old_gold_logo.png"
-alt="80s and 90s Old Is Gold"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-">
-
-
-<div
-class="fallback-icon"
-style="display:none"
-aria-hidden="true">
-
-🎵
-
-</div>
-
-
-</div>
-
-
-<div class="app-content">
-
-
-<div class="app-title-row">
-
-<h3>
-80s &amp; 90s Old Is Gold
-</h3>
-
-<span class="app-type">
-ANDROID APP
-</span>
-
-</div>
-
-
-<p>
-
-Enjoy classic songs and timeless
-memories from the golden era.
-
-</p>
-
-
-<div class="tags">
-
-Classic Music • 80s • 90s • Radio
-
-</div>
-
-
-<a
-href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
-download
-class="app-btn green-btn">
-
-↓ Download APK
-
-</a>
-
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     6 MADHU MUSIC WORLD
-========================================================= -->
-
-<article
-class="app-card"
-data-category="android music"
-data-name="Madhu Music World">
-
-
-<div class="app-image madhu">
-
-
-<img
-src="madhu-music-world.png"
-alt="Madhu Music World"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-">
-
-
-<div
-class="fallback-icon"
-style="display:none"
-aria-hidden="true">
-
-🎙️
-
-</div>
-
-
-</div>
-
-
-<div class="app-content">
-
-
-<div class="app-title-row">
-
-<h3>
-Madhu Music World
-</h3>
-
-<span class="app-type">
-ANDROID APP
-</span>
-
-</div>
-
-
-<p>
-
-Enjoy music, radio and entertainment
-from Madhu Music World.
-
-</p>
-
-
-<div class="tags">
-
-Music • Radio • Entertainment
-
-</div>
-
-
-<a
-href="Madhu_Music_World_com_asimtech_madhumusicworld_PlayStore.apk"
-download
-class="app-btn orange-btn">
-
-↓ Download APK
-
-</a>
-
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     7 SANGIT
-========================================================= -->
-
-<article
-class="app-card"
-data-category="android music"
-data-name="Sangit">
-
-
-<div class="app-image sangit">
-
-
-<img
-src="sangit.png"
-alt="Sangit"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-">
-
-
-<div
-class="fallback-icon"
-style="display:none"
-aria-hidden="true">
-
-🎧
-
-</div>
-
-
-</div>
-
-
-<div class="app-content">
-
-
-<div class="app-title-row">
-
-<h3>
-Sangit
-</h3>
-
-<span class="app-type">
-ANDROID APP
-</span>
-
-</div>
-
-
-<p>
-
-A music application created
-by Asim for music lovers.
-
-</p>
-
-
-<div class="tags">
-
-Music • Audio • Entertainment
-
-</div>
-
-
-<a
-href="Sangit.apk"
-download
-class="app-btn green-btn">
-
-↓ Download APK
-
-</a>
-
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     8 PHOTO RESIZER
-========================================================= -->
+     4 PHOTO RESIZER
+===================================================== -->
 
 <article
 class="app-card"
 data-category="web tools"
 data-name="Asim Tech Photo Resizer">
 
-
 <div class="app-image photo">
 
-
 <img
-src="photo-resizer-icon.png"
-alt="Asim Tech Photo Resizer"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-">
-
-
-<div
-class="fallback-icon"
-style="display:none"
-aria-hidden="true">
-
-📸
+src="images/04-photo-resizer.png"
+alt="Asim Tech Photo Resizer">
 
 </div>
-
-
-</div>
-
 
 <div class="app-content">
-
 
 <div class="app-title-row">
 
@@ -2959,21 +2020,14 @@ WEB APP
 
 </div>
 
-
 <p>
-
-Resize, crop, filter and compress photos.
-Create passport and stamp photos.
-
+Resize, crop, filter and compress
+photos easily.
 </p>
 
-
 <div class="tags">
-
-Photo • Passport • Stamp • Crop • Filter
-
+Photo • Passport • Stamp • Crop
 </div>
-
 
 <a
 href="photo-resizer/"
@@ -2983,50 +2037,29 @@ class="app-btn purple-btn">
 
 </a>
 
-
 </div>
 
 </article>
 
 
-
 <!-- =====================================================
-     9 SIGNATURE MAKER
-========================================================= -->
+     5 SIGNATURE MAKER
+===================================================== -->
 
 <article
 class="app-card"
 data-category="web tools"
 data-name="Asim Tech Signature Maker">
 
-
 <div class="app-image signature">
 
-
 <img
-src="icon.png"
-alt="Asim Tech Signature Maker"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-">
-
-
-<div
-class="fallback-icon"
-style="display:none"
-aria-hidden="true">
-
-✍️
+src="images/05-signature-maker.png"
+alt="Asim Tech Signature Maker">
 
 </div>
-
-
-</div>
-
 
 <div class="app-content">
-
 
 <div class="app-title-row">
 
@@ -3040,21 +2073,14 @@ WEB APP
 
 </div>
 
-
 <p>
-
 Create digital signatures by drawing
-or uploading an existing signature.
-
+or uploading a signature.
 </p>
 
-
 <div class="tags">
-
-Signature • Draw • Upload • PNG • JPG
-
+Signature • Draw • Upload • PNG
 </div>
-
 
 <a
 href="signature-maker/"
@@ -3064,127 +2090,29 @@ class="app-btn purple-btn">
 
 </a>
 
-
 </div>
 
 </article>
 
 
-
 <!-- =====================================================
-     10 BANGLA BANNER MAKER
-========================================================= -->
-
-<article
-class="app-card"
-data-category="web tools"
-data-name="Asim Tech Bangla Banner Maker">
-
-
-<div
-class="app-image"
-style="
-background:
-linear-gradient(
-135deg,
-#5b1a8e,
-#0066cc,
-#00a2ff
-);
-">
-
-
-<div
-class="fallback-icon"
-aria-hidden="true"
-style="
-font-family:'Noto Serif Bengali',
-serif;
-font-size:36px;
-font-weight:700;
-">
-
-বাংলা
-
-</div>
-
-
-</div>
-
-
-<div class="app-content">
-
-
-<div class="app-title-row">
-
-<h3>
-Asim Tech Bangla Banner Maker
-</h3>
-
-<span class="app-type">
-WEB APP
-</span>
-
-</div>
-
-
-<p>
-
-স্টাইলিশ বাংলা লেখা দিয়ে সুন্দর
-Banner, Poster ও Social Media Design তৈরি করুন।
-
-</p>
-
-
-<div class="tags">
-
-বাংলা Font • Banner • Poster • Design • PNG
-
-</div>
-
-
-<a
-href="bangla-banner-maker/"
-class="app-btn purple-btn">
-
-🎨 Open Bangla Banner Maker
-
-</a>
-
-
-</div>
-
-</article>
-
-
-
-<!-- =====================================================
-     11 ID PHOTO MAKER
-========================================================= -->
+     6 ID PHOTO MAKER
+===================================================== -->
 
 <article
 class="app-card"
 data-category="web tools"
 data-name="Asim ID Photo Maker">
 
-
 <div class="app-image idphoto">
 
-
-<div
-class="fallback-icon"
-aria-hidden="true">
-
-🪪
+<img
+src="images/06-id-photo-maker.png"
+alt="Asim ID Photo Maker">
 
 </div>
-
-
-</div>
-
 
 <div class="app-content">
-
 
 <div class="app-title-row">
 
@@ -3198,21 +2126,14 @@ WEB APP
 
 </div>
 
-
 <p>
-
 Create ID, passport and official-size
-photos easily with the web tool.
-
+photos easily.
 </p>
 
-
 <div class="tags">
-
-ID Photo • Passport • Print • Official Photo
-
+ID Photo • Passport • Print
 </div>
-
 
 <a
 href="id-photo-maker/"
@@ -3222,16 +2143,281 @@ class="app-btn blue-btn">
 
 </a>
 
+</div>
+
+</article>
+
+
+<!-- =====================================================
+     7 DEVOTIONAL RADIO
+===================================================== -->
+
+<article
+class="app-card"
+data-category="android music"
+data-name="Devotional Radio">
+
+<div class="app-image devotional">
+
+<img
+src="images/07-devotional-radio.png"
+alt="Devotional Radio">
+
+</div>
+
+<div class="app-content">
+
+<div class="app-title-row">
+
+<h3>
+Devotional Radio
+</h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
+
+<p>
+Listen to devotional radio
+and spiritual music.
+</p>
+
+<div class="tags">
+Radio • Spiritual • Music
+</div>
+
+<a
+href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
+download
+class="app-btn green-btn">
+
+↓ Download APK
+
+</a>
 
 </div>
 
 </article>
 
 
+<!-- =====================================================
+     8 OLD IS GOLD
+===================================================== -->
+
+<article
+class="app-card"
+data-category="android music"
+data-name="80s 90s Old Is Gold">
+
+<div class="app-image oldies">
+
+<img
+src="images/08-80s-90s-old-is-gold.png"
+alt="80s 90s Old Is Gold">
+
+</div>
+
+<div class="app-content">
+
+<div class="app-title-row">
+
+<h3>
+80s & 90s Old Is Gold
+</h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
+
+<p>
+Enjoy classic songs and timeless
+memories from the golden era.
+</p>
+
+<div class="tags">
+Classic Music • 80s • 90s • Radio
+</div>
+
+<a
+href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
+download
+class="app-btn green-btn">
+
+↓ Download APK
+
+</a>
+
+</div>
+
+</article>
+
 
 <!-- =====================================================
-     NO RESULTS
-========================================================= -->
+     9 MADHU MUSIC WORLD
+===================================================== -->
+
+<article
+class="app-card"
+data-category="android music"
+data-name="Madhu Music World">
+
+<div class="app-image madhu">
+
+<img
+src="images/09-madhu-music-world.png"
+alt="Madhu Music World">
+
+</div>
+
+<div class="app-content">
+
+<div class="app-title-row">
+
+<h3>
+Madhu Music World
+</h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
+
+<p>
+Enjoy music, radio and entertainment
+from Madhu Music World.
+</p>
+
+<div class="tags">
+Music • Radio • Entertainment
+</div>
+
+<a
+href="Madhu_Music_World_com_asimtech_madhumusicworld_PlayStore.apk"
+download
+class="app-btn orange-btn">
+
+↓ Download APK
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+     10 SANGIT
+===================================================== -->
+
+<article
+class="app-card"
+data-category="android music"
+data-name="Sangit">
+
+<div class="app-image sangit">
+
+<img
+src="images/10-sangit-music.png"
+alt="Sangit">
+
+</div>
+
+<div class="app-content">
+
+<div class="app-title-row">
+
+<h3>
+Sangit
+</h3>
+
+<span class="app-type">
+ANDROID APP
+</span>
+
+</div>
+
+<p>
+A music application created
+by Asim for music lovers.
+</p>
+
+<div class="tags">
+Music • Audio • Entertainment
+</div>
+
+<a
+href="Sangit.apk"
+download
+class="app-btn green-btn">
+
+↓ Download APK
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================================
+     11 BANGLA BANNER MAKER
+===================================================== -->
+
+<article
+class="app-card"
+data-category="web tools"
+data-name="Asim Tech Bangla Banner Maker">
+
+<div class="app-image banner">
+
+<img
+src="images/11-bangla-banner-maker.png"
+alt="Asim Tech Bangla Banner Maker">
+
+</div>
+
+<div class="app-content">
+
+<div class="app-title-row">
+
+<h3>
+Asim Tech Bangla Banner Maker
+</h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
+</div>
+
+<p>
+স্টাইলিশ বাংলা লেখা দিয়ে সুন্দর
+Banner, Poster ও Social Media Design তৈরি করুন।
+</p>
+
+<div class="tags">
+বাংলা Font • Banner • Poster • PNG
+</div>
+
+<a
+href="bangla-banner-maker/"
+class="app-btn purple-btn">
+
+🎨 Open Bangla Banner Maker
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- NO RESULTS -->
 
 <div
 class="no-results"
@@ -3246,214 +2432,161 @@ Try another search term or select a different category.
 </div>
 
 
-</section>
+</div>
 
+</section>
 
 
 <!-- =====================================================
      FEATURES
-========================================================= -->
+===================================================== -->
 
 <section id="features">
 
-
 <div class="section-head">
 
-
 <div class="section-label">
-
 WHY ASIM TECH
-
 </div>
-
 
 <h2>
-
 Built For Everyday Use
-
 </h2>
 
-
 <p>
-
 Simple ideas, useful tools and practical applications.
-
 </p>
 
-
 </div>
-
 
 
 <div class="features">
 
-
 <div class="feature">
-
 
 <div class="feature-icon">
 ⚡
 </div>
 
-
 <h3>
-Fast &amp; Simple
+Fast & Simple
 </h3>
 
-
 <p>
-
 Clean and straightforward applications
 designed to be easy to use.
-
 </p>
-
 
 </div>
 
 
-
 <div class="feature">
-
 
 <div class="feature-icon">
 🔒
 </div>
 
-
 <h3>
 Privacy Minded
 </h3>
 
-
 <p>
-
 Applications are designed with sensible
 privacy and local processing in mind where practical.
-
 </p>
-
 
 </div>
 
 
-
 <div class="feature">
-
 
 <div class="feature-icon">
 📱
 </div>
 
-
 <h3>
 Mobile Friendly
 </h3>
 
-
 <p>
-
 Responsive experiences designed for
 phones, tablets and computers.
-
 </p>
 
-
 </div>
-
 
 </div>
 
 </section>
 
 
-
 <!-- =====================================================
      UPDATES
-========================================================= -->
+===================================================== -->
 
 <section
 id="updates"
 class="info-box">
 
-
 <h2>
 🆕 Latest Updates
 </h2>
 
-
 <p>
-
 New applications and useful digital tools
 are being added to Asim Tech regularly.
 Check back for new releases and improvements.
-
 </p>
-
 
 </section>
 
 
-
 <!-- =====================================================
      ABOUT
-========================================================= -->
+===================================================== -->
 
 <section
 id="about"
 class="info-box">
 
-
 <h2>
 About Asim Tech
 </h2>
 
-
 <p>
-
 Welcome to Asim Tech. I create useful Android
 applications, web applications and digital tools
 designed to make everyday tasks simpler and easier.
-
 </p>
-
 
 </section>
 
 
-
 <!-- =====================================================
      CONTACT
-========================================================= -->
+===================================================== -->
 
 <section
 id="contact"
 class="info-box">
 
-
 <h2>
 Contact Asim Tech
 </h2>
 
-
 <p>
-
 For application information, support and
 other enquiries, please contact Asim Tech.
-
 </p>
-
 
 </section>
 
 
-
 <!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
 <footer>
-
 
 <div class="footer-brand">
 
@@ -3461,18 +2594,13 @@ other enquiries, please contact Asim Tech.
 
 </div>
 
-
 Apps • Tools • Innovation
 
-
 <br>
-
 
 © 2026 Asim Tech. All rights reserved.
 
-
 <br>
-
 
 <a
 href="#top"
@@ -3482,629 +2610,419 @@ class="back-top">
 
 </a>
 
-
 </footer>
 
 
-
 <!-- =====================================================
-     JAVASCRIPT — PART 2 STARTS AFTER THIS
-========================================================= -->
-  <script>
+     JAVASCRIPT
+===================================================== -->
 
-/* =========================================================
-   ASIM TECH MAIN PAGE JAVASCRIPT
-========================================================= */
+<script>
 
 (function(){
 
-    "use strict";
+"use strict";
 
 
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
-    const menuBtn =
-        document.getElementById("menuBtn");
+const menuBtn =
+document.getElementById("menuBtn");
 
-    const nav =
-        document.getElementById("mainNav");
+const nav =
+document.getElementById("mainNav");
 
 
-    if(menuBtn && nav){
+if(menuBtn && nav){
 
-        menuBtn.addEventListener(
-            "click",
-            function(){
+menuBtn.addEventListener(
+"click",
+function(){
 
-                const isOpen =
-                    nav.classList.toggle("open");
+const isOpen =
+nav.classList.toggle("open");
 
+menuBtn.setAttribute(
+"aria-expanded",
+String(isOpen)
+);
 
-                menuBtn.setAttribute(
-                    "aria-expanded",
-                    String(isOpen)
-                );
+menuBtn.textContent =
+isOpen ? "✕" : "☰";
 
+}
+);
 
-                menuBtn.setAttribute(
-                    "aria-label",
-                    isOpen
-                    ? "Close menu"
-                    : "Open menu"
-                );
 
+nav.querySelectorAll("a")
+.forEach(function(link){
 
-                menuBtn.textContent =
-                    isOpen ? "✕" : "☰";
+link.addEventListener(
+"click",
+function(){
 
-            }
-        );
+nav.classList.remove("open");
 
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
 
-        nav.querySelectorAll("a")
-        .forEach(function(link){
+menuBtn.textContent =
+"☰";
 
-            link.addEventListener(
-                "click",
-                function(){
+}
+);
 
-                    nav.classList.remove("open");
+});
 
+}
 
-                    menuBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
 
+/* =====================================================
+   SEARCH
+===================================================== */
 
-                    menuBtn.setAttribute(
-                        "aria-label",
-                        "Open menu"
-                    );
+const searchInput =
+document.getElementById("appSearch");
 
+const filterButtons =
+document.querySelectorAll(".filter-btn");
 
-                    menuBtn.textContent =
-                        "☰";
+const appCards =
+document.querySelectorAll(".app-card");
 
-                }
-            );
+const status =
+document.getElementById("searchStatus");
 
-        });
+const noResults =
+document.getElementById("noResults");
 
-    }
+let currentFilter = "all";
 
 
+function filterApps(){
 
-    /* =====================================================
-       SEARCH + FILTER SYSTEM
-    ===================================================== */
+const searchTerm =
+searchInput.value
+.trim()
+.toLowerCase();
 
-    const searchInput =
-        document.getElementById("appSearch");
+let visibleCount = 0;
 
 
-    const filterButtons =
-        document.querySelectorAll(
-            ".filter-btn"
-        );
+appCards.forEach(function(card){
 
+const name =
+(
+card.dataset.name || ""
+).toLowerCase();
 
-    const appCards =
-        document.querySelectorAll(
-            ".app-card"
-        );
+const category =
+(
+card.dataset.category || ""
+).toLowerCase();
 
+const text =
+(
+card.innerText || ""
+).toLowerCase();
 
-    const status =
-        document.getElementById(
-            "searchStatus"
-        );
 
+const matchesSearch =
+searchTerm === "" ||
+name.includes(searchTerm) ||
+category.includes(searchTerm) ||
+text.includes(searchTerm);
 
-    const noResults =
-        document.getElementById(
-            "noResults"
-        );
 
+const matchesFilter =
+currentFilter === "all" ||
+category.includes(currentFilter);
 
-    let currentFilter = "all";
 
+if(
+matchesSearch &&
+matchesFilter
+){
 
-    function filterApps(){
+card.classList.remove("hidden");
 
-        const searchTerm =
-            searchInput
-            ? searchInput.value
-                .trim()
-                .toLowerCase()
-            : "";
+visibleCount++;
 
+}else{
 
-        let visibleCount = 0;
+card.classList.add("hidden");
 
+}
 
-        appCards.forEach(
-            function(card){
+});
 
-                const name =
-                    (
-                        card.dataset.name ||
-                        ""
-                    ).toLowerCase();
 
+if(noResults){
 
-                const category =
-                    (
-                        card.dataset.category ||
-                        ""
-                    ).toLowerCase();
+if(visibleCount === 0){
 
+noResults.classList.add("show");
 
-                const text =
-                    (
-                        card.innerText ||
-                        ""
-                    ).toLowerCase();
+}else{
 
+noResults.classList.remove("show");
 
-                const matchesSearch =
-                    searchTerm === "" ||
-                    name.includes(searchTerm) ||
-                    category.includes(searchTerm) ||
-                    text.includes(searchTerm);
+}
 
+}
 
-                const matchesFilter =
-                    currentFilter === "all" ||
-                    category.includes(
-                        currentFilter
-                    );
 
+if(status){
 
-                if(
-                    matchesSearch &&
-                    matchesFilter
-                ){
+if(searchTerm !== ""){
 
-                    card.classList.remove(
-                        "hidden"
-                    );
+status.textContent =
+"Found " +
+visibleCount +
+" application" +
+(
+visibleCount === 1
+? ""
+: "s"
+);
 
-                    visibleCount++;
+}
 
-                }else{
+else if(
+currentFilter === "all"
+){
 
-                    card.classList.add(
-                        "hidden"
-                    );
+status.textContent =
+"Showing " +
+visibleCount +
+" applications";
 
-                }
+}
 
-            }
-        );
+else{
 
+status.textContent =
+"Showing " +
+visibleCount +
+" matching applications";
 
-        if(noResults){
+}
 
-            if(visibleCount === 0){
+}
 
-                noResults.classList.add(
-                    "show"
-                );
+}
 
-            }else{
 
-                noResults.classList.remove(
-                    "show"
-                );
+/* SEARCH INPUT */
 
-            }
+if(searchInput){
 
-        }
+searchInput.addEventListener(
+"input",
+filterApps
+);
 
+}
 
-        if(status){
 
-            if(searchTerm !== ""){
+/* =====================================================
+   FILTER BUTTONS
+===================================================== */
 
-                status.textContent =
-                    "Found " +
-                    visibleCount +
-                    " application" +
-                    (
-                        visibleCount === 1
-                        ? ""
-                        : "s"
-                    );
+filterButtons.forEach(
+function(button){
 
-            }
+button.addEventListener(
+"click",
+function(){
 
-            else if(
-                currentFilter === "all"
-            ){
+filterButtons.forEach(
+function(btn){
 
-                status.textContent =
-                    "Showing " +
-                    visibleCount +
-                    " applications";
+btn.classList.remove(
+"active"
+);
 
-            }
+}
+);
 
-            else{
 
-                status.textContent =
-                    "Showing " +
-                    visibleCount +
-                    " matching applications";
+button.classList.add(
+"active"
+);
 
-            }
 
-        }
+currentFilter =
+button.dataset.filter ||
+"all";
 
-    }
 
+filterApps();
 
-    /* Search input */
+}
+);
 
-    if(searchInput){
+}
+);
 
-        searchInput.addEventListener(
-            "input",
-            filterApps
-        );
 
-    }
+/* =====================================================
+   KEYBOARD SEARCH
+===================================================== */
 
+document.addEventListener(
+"keydown",
+function(event){
 
-    /* Filter buttons */
+if(
+event.key === "/" &&
+document.activeElement !== searchInput
+){
 
-    filterButtons.forEach(
-        function(button){
+event.preventDefault();
 
-            button.addEventListener(
-                "click",
-                function(){
+if(searchInput){
 
-                    filterButtons.forEach(
-                        function(btn){
+searchInput.focus();
 
-                            btn.classList.remove(
-                                "active"
-                            );
+}
 
-                        }
-                    );
+}
 
+}
+);
 
-                    button.classList.add(
-                        "active"
-                    );
 
+/* =====================================================
+   CLOSE MENU OUTSIDE
+===================================================== */
 
-                    currentFilter =
-                        button.dataset.filter ||
-                        "all";
+document.addEventListener(
+"click",
+function(event){
 
+if(!nav || !menuBtn){
+return;
+}
 
-                    filterApps();
 
-                }
-            );
+const insideNav =
+nav.contains(event.target);
 
-        }
-    );
+const insideMenu =
+menuBtn.contains(event.target);
 
 
+if(
+!insideNav &&
+!insideMenu
+){
 
-    /* =====================================================
-       KEYBOARD SEARCH SHORTCUT
-       "/" = focus search
-    ===================================================== */
+nav.classList.remove(
+"open"
+);
 
-    document.addEventListener(
-        "keydown",
-        function(event){
+menuBtn.setAttribute(
+"aria-expanded",
+"false"
+);
 
-            if(
-                event.key === "/" &&
-                document.activeElement !==
-                searchInput
-            ){
+menuBtn.textContent =
+"☰";
 
-                event.preventDefault();
+}
 
-                if(searchInput){
+}
+);
 
-                    searchInput.focus();
 
-                }
+/* =====================================================
+   IMAGE ERROR HANDLER
+===================================================== */
 
-            }
+document.querySelectorAll(
+".app-image img"
+)
+.forEach(function(image){
 
-        }
-    );
+image.addEventListener(
+"error",
+function(){
 
+this.style.opacity = "0.25";
 
+console.log(
+"Image not found:",
+this.src
+);
 
-    /* =====================================================
-       CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
-    ===================================================== */
+}
+);
 
-    document.addEventListener(
-        "click",
-        function(event){
+});
 
-            if(
-                !nav ||
-                !menuBtn
-            ){
 
-                return;
+/* =====================================================
+   CARD CLICK
+===================================================== */
 
-            }
+appCards.forEach(
+function(card){
 
+card.addEventListener(
+"click",
+function(event){
 
-            const clickedInsideNav =
-                nav.contains(event.target);
+const link =
+card.querySelector(".app-btn");
 
 
-            const clickedMenu =
-                menuBtn.contains(event.target);
+if(
+link &&
+!event.target.closest("a")
+){
 
+link.click();
 
-            if(
-                !clickedInsideNav &&
-                !clickedMenu
-            ){
+}
 
-                nav.classList.remove(
-                    "open"
-                );
+}
+);
 
+}
+);
 
-                menuBtn.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
 
+/* =====================================================
+   INITIAL
+===================================================== */
 
-                menuBtn.setAttribute(
-                    "aria-label",
-                    "Open menu"
-                );
+filterApps();
 
 
-                menuBtn.textContent =
-                    "☰";
+/* =====================================================
+   YEAR
+===================================================== */
 
-            }
+const footer =
+document.querySelector("footer");
 
-        }
-    );
+if(footer){
 
+const year =
+new Date().getFullYear();
 
+footer.innerHTML =
+footer.innerHTML.replace(
+/©\s*2026/g,
+"© " + year
+);
 
-    /* =====================================================
-       SMOOTH SCROLL
-    ===================================================== */
-
-    document.querySelectorAll(
-        'a[href^="#"]'
-    )
-    .forEach(
-        function(link){
-
-            link.addEventListener(
-                "click",
-                function(event){
-
-                    const targetId =
-                        this.getAttribute(
-                            "href"
-                        );
-
-
-                    if(
-                        !targetId ||
-                        targetId === "#"
-                    ){
-
-                        return;
-
-                    }
-
-
-                    const target =
-                        document.querySelector(
-                            targetId
-                        );
-
-
-                    if(target){
-
-                        event.preventDefault();
-
-
-                        target.scrollIntoView({
-                            behavior:"smooth",
-                            block:"start"
-                        });
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-
-    /* =====================================================
-       APP CARD IMAGE FALLBACK
-    ===================================================== */
-
-    document.querySelectorAll(
-        ".app-image img"
-    )
-    .forEach(
-        function(image){
-
-            image.addEventListener(
-                "error",
-                function(){
-
-                    this.style.display =
-                        "none";
-
-
-                    const fallback =
-                        this.nextElementSibling;
-
-
-                    if(
-                        fallback &&
-                        fallback.classList.contains(
-                            "fallback-icon"
-                        )
-                    ){
-
-                        fallback.style.display =
-                            "flex";
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-
-    /* =====================================================
-       ADD PREMIUM CLICK EFFECT
-    ===================================================== */
-
-    appCards.forEach(
-        function(card){
-
-            card.addEventListener(
-                "click",
-                function(event){
-
-                    const link =
-                        card.querySelector(
-                            ".app-btn"
-                        );
-
-
-                    if(
-                        link &&
-                        !event.target.closest(
-                            "a"
-                        )
-                    ){
-
-                        link.click();
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-
-    /* =====================================================
-       BUTTON RIPPLE EFFECT
-    ===================================================== */
-
-    document.querySelectorAll(
-        ".app-btn, .hero-btn, .filter-btn"
-    )
-    .forEach(
-        function(button){
-
-            button.addEventListener(
-                "click",
-                function(){
-
-                    this.style.transform =
-                        "scale(.98)";
-
-
-                    setTimeout(
-                        () => {
-
-                            this.style.transform =
-                                "";
-
-                        },
-                        120
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-
-    /* =====================================================
-       INITIAL FILTER
-    ===================================================== */
-
-    filterApps();
-
-
-
-    /* =====================================================
-       CURRENT YEAR
-    ===================================================== */
-
-    const footer =
-        document.querySelector(
-            "footer"
-        );
-
-
-    if(footer){
-
-        const currentYear =
-            new Date().getFullYear();
-
-
-        footer.innerHTML =
-            footer.innerHTML.replace(
-                /©\s*2026/g,
-                "© " + currentYear
-            );
-
-    }
-
-
-
-    /* =====================================================
-       PAGE LOADED
-    ===================================================== */
-
-    window.addEventListener(
-        "load",
-        function(){
-
-            document.body.classList.add(
-                "page-loaded"
-            );
-
-        }
-    );
-
+}
 
 })();
 
@@ -4112,5 +3030,4 @@ class="back-top">
 
 
 </body>
-
-</html> 
+</html>
