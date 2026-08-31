@@ -12,7 +12,7 @@ content="width=device-width, initial-scale=1.0">
 content="#020b18">
 
 <meta name="description"
-content="Asim Tech Image to Excel - Convert list and table images into editable Excel files.">
+content="Asim Tech Image to Excel - Convert image or table photo into editable Excel.">
 
 <meta name="mobile-web-app-capable"
 content="yes">
@@ -29,21 +29,24 @@ content="Image to Excel">
 <link rel="manifest"
 href="./manifest.json">
 
+<link rel="icon"
+type="image/png"
+sizes="192x192"
+href="./icon-192.png">
+
+<link rel="apple-touch-icon"
+href="./icon-192.png">
+
 <title>Asim Tech - Image to Excel</title>
 
 
 <!-- =====================================================
-     SHEETJS
+     LIBRARIES
 ===================================================== -->
 
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
 </script>
-
-
-<!-- =====================================================
-     TESSERACT OCR
-===================================================== -->
 
 <script
 src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
@@ -73,23 +76,23 @@ body{
     Helvetica,
     sans-serif;
 
+    color:#ffffff;
+
     background:
 
     radial-gradient(
         circle at 15% 10%,
-        rgba(0,140,255,.14),
+        rgba(0,140,255,.13),
         transparent 30%
     ),
 
     radial-gradient(
-        circle at 85% 75%,
-        rgba(100,0,255,.10),
-        transparent 35%
+        circle at 85% 70%,
+        rgba(120,0,255,.10),
+        transparent 30%
     ),
 
     #020b18;
-
-    color:#ffffff;
 
     overflow-x:hidden;
 }
@@ -107,15 +110,11 @@ header{
 
     z-index:9999;
 
-    min-height:72px;
-
-    padding:
-    12px 4%;
+    padding:14px 5%;
 
     display:flex;
 
-    justify-content:
-    space-between;
+    justify-content:space-between;
 
     align-items:center;
 
@@ -125,11 +124,9 @@ header{
     border-bottom:
     1px solid #12304a;
 
-    backdrop-filter:
-    blur(18px);
+    backdrop-filter:blur(18px);
 
-    -webkit-backdrop-filter:
-    blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 }
 
 
@@ -139,9 +136,7 @@ header{
 
     align-items:center;
 
-    gap:7px;
-
-    font-size:23px;
+    font-size:21px;
 
     font-weight:900;
 
@@ -151,9 +146,9 @@ header{
 
 .logo-icon{
 
-    width:42px;
+    width:38px;
 
-    height:42px;
+    height:38px;
 
     display:flex;
 
@@ -161,40 +156,33 @@ header{
 
     justify-content:center;
 
-    border-radius:12px;
+    margin-right:9px;
+
+    border-radius:11px;
 
     background:
     linear-gradient(
         135deg,
-        #087ff5,
-        #006de5
+        #009dff,
+        #0065e5
     );
 
     box-shadow:
-    0 8px 25px
-    rgba(0,140,255,.30);
-
-    font-size:22px;
+    0 0 25px
+    rgba(0,157,255,.30);
 }
 
 
 .logo-blue{
-
     color:#008cff;
 }
 
 
 .home{
 
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
-
     text-decoration:none;
 
-    color:white;
+    color:#ffffff;
 
     border:
     1px solid #29465e;
@@ -202,10 +190,9 @@ header{
     background:
     rgba(255,255,255,.035);
 
-    padding:
-    10px 15px;
+    padding:10px 15px;
 
-    border-radius:12px;
+    border-radius:11px;
 
     font-size:13px;
 
@@ -228,14 +215,14 @@ header{
 
 .container{
 
-    width:94%;
+    width:92%;
 
     max-width:900px;
 
     margin:auto;
 
     padding:
-    38px 0 70px;
+    42px 0 70px;
 }
 
 
@@ -247,7 +234,7 @@ header{
 
     text-align:center;
 
-    margin-bottom:38px;
+    margin-bottom:35px;
 }
 
 
@@ -255,35 +242,33 @@ header{
 
     display:inline-block;
 
-    padding:
-    8px 17px;
+    padding:8px 16px;
 
     border:
     1px solid
-    rgba(0,157,255,.35);
+    rgba(0,157,255,.30);
 
     border-radius:999px;
 
-    color:#48c2ff;
+    color:#62caff;
 
     background:
     rgba(0,157,255,.07);
 
-    font-size:11px;
+    font-size:10px;
 
     font-weight:900;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 }
 
 
 .hero h1{
 
-    margin:
-    25px 0 14px;
+    margin:20px 0 12px;
 
     font-size:
-    clamp(38px,7vw,58px);
+    clamp(36px,7vw,58px);
 
     line-height:1.05;
 
@@ -296,22 +281,20 @@ header{
     color:#008cff;
 
     text-shadow:
-    0 0 28px
+    0 0 25px
     rgba(0,140,255,.30);
 }
 
 
 .hero p{
 
-    max-width:720px;
+    margin:0;
 
-    margin:auto;
-
-    color:#8fa7ba;
+    color:#91aec2;
 
     font-size:16px;
 
-    line-height:1.8;
+    line-height:1.7;
 }
 
 
@@ -321,136 +304,115 @@ header{
 
 .card{
 
-    margin-bottom:25px;
+    margin-bottom:24px;
 
-    padding:28px;
+    padding:22px;
 
     border:
     1px solid
     rgba(105,190,255,.18);
 
-    border-radius:22px;
+    border-radius:21px;
 
     background:
 
     linear-gradient(
         145deg,
-        rgba(8,31,49,.88),
-        rgba(3,15,26,.96)
+        rgba(8,27,43,.88),
+        rgba(3,14,24,.96)
     );
 
     box-shadow:
-    0 20px 65px
-    rgba(0,0,0,.28);
+    0 18px 55px
+    rgba(0,0,0,.25);
 }
 
 
 .card h2{
 
-    margin:
-    0 0 20px;
+    margin:0 0 18px;
 
-    font-size:23px;
+    font-size:22px;
 }
 
 
 /* =====================================================
-   UPLOAD AREA
+   UPLOAD BOX
 ===================================================== */
 
-.upload-area{
-
-    width:100%;
-
-    padding:
-    35px 22px;
-
-    border:
-    2px dashed
-    #075a82;
-
-    border-radius:20px;
+.upload-box{
 
     text-align:center;
 
-    background:
-    rgba(0,50,75,.16);
+    padding:28px 18px;
 
-    transition:.25s;
-}
+    border:
+    2px dashed #075d86;
 
-
-.upload-area:hover{
-
-    border-color:#008cff;
+    border-radius:20px;
 
     background:
-    rgba(0,100,150,.10);
+    rgba(4,30,45,.55);
 }
 
 
 .upload-icon{
 
-    width:80px;
+    font-size:65px;
 
-    height:80px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin:
-    0 auto 20px;
-
-    border-radius:20px;
-
-    background:
-    rgba(255,255,255,.96);
-
-    color:#008cff;
-
-    font-size:48px;
+    margin-bottom:12px;
 }
 
 
-.upload-area h3{
+.upload-box h3{
 
-    margin:
-    0 0 10px;
+    margin:8px 0 10px;
 
-    font-size:25px;
+    font-size:27px;
 }
 
 
-.upload-area p{
-
-    margin:
-    0 auto 22px;
+.upload-box p{
 
     max-width:650px;
 
-    color:#8fa7ba;
+    margin:
+    0 auto 24px;
 
-    line-height:1.8;
+    color:#8faec2;
 
     font-size:14px;
+
+    line-height:1.7;
 }
 
 
 /* =====================================================
-   UPLOAD BUTTONS
+   FILE INPUT
 ===================================================== */
 
-.upload-buttons{
+/*
+   IMPORTANT:
+   There is NO capture attribute here.
+
+   Therefore Android will show
+   Gallery / Files instead of forcing Camera.
+*/
+
+#imageInput{
+
+    display:none;
+}
+
+
+.file-buttons{
 
     display:grid;
 
     grid-template-columns:
-    1fr 1fr;
+    repeat(2,1fr);
 
-    gap:12px;
+    gap:10px;
 
     max-width:650px;
 
@@ -458,43 +420,15 @@ header{
 }
 
 
-.upload-btn{
+.choose-btn{
 
-    min-height:56px;
+    padding:16px;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+    border:0;
 
     border-radius:13px;
 
-    color:white;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    transition:.25s;
-}
-
-
-.upload-btn:hover{
-
-    transform:
-    translateY(-2px);
-
-    filter:
-    brightness(1.08);
-}
-
-
-.upload-btn.blue{
+    color:#ffffff;
 
     background:
     linear-gradient(
@@ -502,46 +436,83 @@ header{
         #087ff5,
         #006de5
     );
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
 }
 
 
-.upload-btn.orange{
+.camera-btn{
+
+    padding:16px;
+
+    border:0;
+
+    border-radius:13px;
+
+    color:#ffffff;
 
     background:
     linear-gradient(
         135deg,
-        #ff9800,
-        #ff5b00
+        #7b3ff2,
+        #a52cff
     );
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
 }
 
 
-.upload-btn input{
+.file-name{
 
-    display:none;
+    margin-top:15px;
+
+    color:#8faec2;
+
+    font-size:13px;
+
+    word-break:break-word;
 }
 
 
 /* =====================================================
-   PREVIEW
+   IMAGE PREVIEW
 ===================================================== */
 
 .preview-box{
 
     display:none;
 
-    margin-top:22px;
+    margin-top:20px;
 
-    padding:15px;
+    padding:10px;
 
-    border-radius:16px;
+    border-radius:15px;
 
-    background:#061d2c;
-
-    border:
-    1px solid #174661;
+    background:#ffffff;
 
     text-align:center;
+}
+
+
+.preview-box img{
+
+    display:block;
+
+    width:100%;
+
+    max-height:450px;
+
+    object-fit:contain;
+
+    border-radius:10px;
 }
 
 
@@ -551,32 +522,8 @@ header{
 }
 
 
-.preview-box img{
-
-    max-width:100%;
-
-    max-height:450px;
-
-    border-radius:12px;
-
-    object-fit:contain;
-}
-
-
-.file-name{
-
-    margin-top:10px;
-
-    color:#8fa7ba;
-
-    font-size:13px;
-
-    word-break:break-word;
-}
-
-
 /* =====================================================
-   LABEL
+   FORM
 ===================================================== */
 
 .label{
@@ -588,7 +535,7 @@ header{
 
     color:#91a9bd;
 
-    font-size:14px;
+    font-size:13px;
 
     font-weight:bold;
 }
@@ -607,7 +554,7 @@ select{
 
     outline:none;
 
-    color:white;
+    color:#ffffff;
 
     background:#061d2c;
 
@@ -618,58 +565,30 @@ select{
 select:focus{
 
     border-color:#008cff;
+
+    box-shadow:
+    0 0 0 3px
+    rgba(0,140,255,.08);
 }
 
 
 /* =====================================================
-   BUTTONS
+   MAIN BUTTON
 ===================================================== */
 
-button{
+.extract-btn{
 
     width:100%;
+
+    margin-top:20px;
+
+    padding:16px;
 
     border:0;
 
     border-radius:13px;
 
-    padding:15px;
-
-    margin-top:12px;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    color:white;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-
-button:hover{
-
-    transform:
-    translateY(-2px);
-
-    filter:
-    brightness(1.08);
-}
-
-
-button:disabled{
-
-    opacity:.45;
-
-    cursor:not-allowed;
-
-    transform:none;
-}
-
-
-.blue{
+    color:#ffffff;
 
     background:
     linear-gradient(
@@ -677,56 +596,20 @@ button:disabled{
         #087ff5,
         #006de5
     );
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
 }
 
 
-.green{
+.extract-btn:disabled{
 
-    background:
-    linear-gradient(
-        135deg,
-        #00c853,
-        #00a94f
-    );
-}
+    opacity:.45;
 
-
-.red{
-
-    background:
-    linear-gradient(
-        135deg,
-        #ff1744,
-        #ed102e
-    );
-}
-
-
-.orange{
-
-    background:
-    linear-gradient(
-        135deg,
-        #ff9800,
-        #ff5b00
-    );
-}
-
-
-.purple{
-
-    background:
-    linear-gradient(
-        135deg,
-        #8b3dff,
-        #a525ff
-    );
-}
-
-
-.dark{
-
-    background:#123044;
+    cursor:not-allowed;
 }
 
 
@@ -740,14 +623,11 @@ button:disabled{
 
     margin-top:20px;
 
-    padding:18px;
+    padding:16px;
 
-    border-radius:14px;
+    border-radius:13px;
 
     background:#061d2c;
-
-    border:
-    1px solid #174661;
 
     text-align:center;
 }
@@ -761,29 +641,29 @@ button:disabled{
 
 .progress-text{
 
-    color:#70caff;
+    color:#8fd3ff;
 
-    font-weight:bold;
+    font-size:14px;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 
-.progress-bar{
+.progress{
 
     width:100%;
 
-    height:10px;
+    height:9px;
 
     overflow:hidden;
 
     border-radius:999px;
 
-    background:#102f43;
+    background:#173346;
 }
 
 
-.progress-fill{
+.progress-bar{
 
     width:0%;
 
@@ -798,54 +678,40 @@ button:disabled{
         #00d4ff
     );
 
-    transition:
-    width .3s;
+    transition:.3s;
 }
 
 
 /* =====================================================
-   STATUS
+   RESULT
 ===================================================== */
 
-.status{
+.result-card{
 
     display:none;
-
-    margin-top:15px;
-
-    padding:14px;
-
-    border-radius:12px;
-
-    text-align:center;
-
-    font-size:13px;
-
-    line-height:1.7;
-
-    background:#061d2c;
-
-    color:#9bb0c0;
 }
 
 
-.status.show{
+.result-card.show{
 
     display:block;
 }
 
 
-.status.success{
+.result-info{
 
-    color:#00e676;
+    padding:12px 14px;
 
-}
+    margin-bottom:15px;
 
+    border-radius:11px;
 
-.status.error{
+    background:
+    rgba(0,185,86,.07);
 
-    color:#ff5968;
+    color:#9dd7b5;
 
+    font-size:13px;
 }
 
 
@@ -853,113 +719,78 @@ button:disabled{
    TABLE
 ===================================================== */
 
-.table-wrapper{
+.table-wrap{
 
-    display:none;
-
-    margin-top:25px;
+    width:100%;
 
     overflow-x:auto;
 
-    border-radius:16px;
-
-    border:
-    1px solid #174661;
+    border-radius:13px;
 
     background:#ffffff;
 }
 
 
-.table-wrapper.show{
-
-    display:block;
-}
-
-
-#dataTable{
+table{
 
     width:100%;
 
+    border-collapse:collapse;
+
     min-width:500px;
 
-    border-collapse:
-    collapse;
+    color:#111111;
 
-    color:#111;
-
-    background:white;
-
-    font-size:14px;
+    background:#ffffff;
 }
 
 
-#dataTable th{
+th{
 
     padding:13px;
 
-    background:
-    #d9f0ff;
+    border:1px solid #b9c9d4;
 
-    color:#092638;
+    background:#d9efff;
 
-    border:
-    1px solid #a9c4d3;
+    color:#071c2c;
 
     text-align:center;
 
-    font-weight:900;
+    font-weight:bold;
 }
 
 
-#dataTable td{
-
-    min-width:120px;
+td{
 
     padding:11px;
 
-    border:
-    1px solid #c5d0d6;
+    border:1px solid #c7d1d7;
 
-    color:#111;
+    background:#ffffff;
 
-    background:white;
+    color:#111111;
 
-    vertical-align:top;
+    min-width:110px;
 
     outline:none;
-
-    white-space:pre-wrap;
-
-    word-break:break-word;
 }
 
 
-#dataTable td:focus{
+td:focus{
 
-    background:#fffde7;
+    background:#fffde0;
 
     box-shadow:
     inset 0 0 0 2px #008cff;
 }
 
 
-#dataTable tr:nth-child(even) td{
-
-    background:#f7fbfd;
-}
-
-
-#dataTable tr:nth-child(even) td:focus{
-
-    background:#fffde7;
-}
-
-
 /* =====================================================
-   TABLE BUTTONS
+   RESULT BUTTONS
 ===================================================== */
 
-.table-actions{
+.action-grid{
 
     display:grid;
 
@@ -972,38 +803,142 @@ button:disabled{
 }
 
 
-.table-actions button{
+.action-btn{
 
-    margin:0;
+    width:100%;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:12px;
+
+    color:#ffffff;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+.excel{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00b956,
+        #009b4a
+    );
+}
+
+
+.csv{
+
+    background:
+    linear-gradient(
+        135deg,
+        #087ff5,
+        #006de5
+    );
+}
+
+
+.add-row{
+
+    background:
+    linear-gradient(
+        135deg,
+        #7b3ff2,
+        #a52cff
+    );
+}
+
+
+.add-column{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff8a00,
+        #ff5c00
+    );
+}
+
+
+.copy{
+
+    background:#12364b;
+}
+
+
+.clear{
+
+    background:#ef3041;
 }
 
 
 /* =====================================================
-   INFO
+   PWA INSTALL
 ===================================================== */
 
-.info{
+.install-card{
 
-    margin-top:18px;
+    display:none;
+
+    text-align:center;
+}
+
+
+.install-card.show{
+
+    display:block;
+}
+
+
+.install-icon{
+
+    font-size:50px;
+
+    margin-bottom:10px;
+}
+
+
+.install-card p{
+
+    color:#8fa7ba;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+.install-btn{
+
+    width:100%;
 
     padding:15px;
+
+    border:0;
 
     border-radius:12px;
 
     background:
-    rgba(0,140,255,.06);
+    linear-gradient(
+        135deg,
+        #00b956,
+        #009b4a
+    );
 
-    border:
-    1px solid
-    rgba(0,140,255,.14);
+    color:#ffffff;
 
-    color:#8fa7ba;
+    font-size:15px;
 
-    font-size:12px;
+    font-weight:bold;
 
-    line-height:1.7;
-
-    text-align:center;
+    cursor:pointer;
 }
 
 
@@ -1019,17 +954,15 @@ button:disabled{
 
 .private-icon{
 
-    font-size:42px;
+    font-size:40px;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 
 .private p{
 
-    max-width:650px;
-
-    margin:auto;
+    margin:0;
 
     color:#8fa7ba;
 
@@ -1045,8 +978,7 @@ button:disabled{
 
 footer{
 
-    padding:
-    35px 20px;
+    padding:32px 20px;
 
     text-align:center;
 
@@ -1077,33 +1009,29 @@ footer strong{
 
     header{
 
-        min-height:68px;
-
         padding:
-        10px 4%;
+        12px 4%;
     }
 
 
     .logo{
 
-        font-size:19px;
+        font-size:18px;
     }
 
 
     .logo-icon{
 
-        width:38px;
+        width:32px;
 
-        height:38px;
-
-        font-size:19px;
+        height:32px;
     }
 
 
     .home{
 
         padding:
-        9px 11px;
+        8px 11px;
 
         font-size:12px;
     }
@@ -1117,74 +1045,35 @@ footer strong{
     }
 
 
-    .hero{
+    .card{
 
-        margin-bottom:28px;
+        padding:16px;
+
+        border-radius:18px;
     }
 
 
     .hero h1{
 
-        font-size:39px;
-
-        letter-spacing:-1.5px;
+        font-size:34px;
     }
 
 
-    .hero p{
+    .upload-box h3{
 
-        font-size:14px;
+        font-size:24px;
     }
 
 
-    .card{
-
-        padding:17px;
-
-        border-radius:19px;
-    }
-
-
-    .card h2{
-
-        font-size:21px;
-    }
-
-
-    .upload-area{
-
-        padding:
-        27px 13px;
-    }
-
-
-    .upload-area h3{
-
-        font-size:22px;
-    }
-
-
-    .upload-buttons{
+    .file-buttons{
 
         grid-template-columns:1fr;
     }
 
 
-    .upload-btn{
-
-        min-height:54px;
-    }
-
-
-    .table-actions{
+    .action-grid{
 
         grid-template-columns:1fr;
-    }
-
-
-    #dataTable{
-
-        min-width:600px;
     }
 
 }
@@ -1198,14 +1087,9 @@ footer strong{
 
     *{
 
-        animation-duration:
-        .01ms !important;
+        animation:none !important;
 
-        animation-iteration-count:
-        1 !important;
-
-        transition-duration:
-        .01ms !important;
+        transition:none !important;
     }
 
 }
@@ -1230,18 +1114,14 @@ footer strong{
 ▲
 </span>
 
-<span>ASIM</span>
-
-<span class="logo-blue">
-TECH
-</span>
+ASIM<span class="logo-blue">TECH</span>
 
 </div>
 
 
 <a
-class="home"
-href="../">
+href="../"
+class="home">
 
 ← Asim Tech
 
@@ -1270,18 +1150,12 @@ ASIM TECH TOOL
 
 
 <h1>
-
-Image
-<span>→ Excel</span>
-
+Image <span>→ Excel</span>
 </h1>
 
 
 <p>
-
-Upload a list or table image and convert it
-into an editable Excel file.
-
+Upload a list/table image and convert it into an editable Excel file.
 </p>
 
 </section>
@@ -1289,19 +1163,17 @@ into an editable Excel file.
 
 
 <!-- =====================================================
-     UPLOAD CARD
+     UPLOAD
 ===================================================== -->
 
 <section class="card">
-
 
 <h2>
 📷 Image to Excel
 </h2>
 
 
-<div class="upload-area">
-
+<div class="upload-box">
 
 <div class="upload-icon">
 📄
@@ -1314,72 +1186,64 @@ Upload List / Table Image
 
 
 <p>
-
-Select a photo or screenshot containing
-a table, list, names, numbers or text.
-
+Select a photo or screenshot containing a table,
+list, names, numbers or text.
 </p>
 
-
-<!-- =====================================================
-     IMPORTANT:
-     CHOOSE IMAGE = GALLERY / FILES
-     TAKE PHOTO = CAMERA
-===================================================== -->
-
-<div class="upload-buttons">
-
-
-<label class="upload-btn blue">
-
-📁 Choose Image
 
 <input
 type="file"
 id="imageInput"
 accept="image/*">
 
-</label>
+
+<div class="file-buttons">
 
 
-<label class="upload-btn orange">
+<!-- Gallery / Files -->
+
+<button
+type="button"
+class="choose-btn"
+id="chooseImage">
+
+📁 Choose Image
+
+</button>
+
+
+<!-- Camera -->
+
+<button
+type="button"
+class="camera-btn"
+id="takePhoto">
 
 📷 Take Photo
 
-<input
-type="file"
-id="cameraInput"
-accept="image/*"
-capture="environment">
-
-</label>
-
+</button>
 
 </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     IMAGE PREVIEW
-===================================================== -->
-
-<div
-id="previewBox"
-class="preview-box">
-
-
-<img
-id="previewImage"
-alt="Selected image">
 
 
 <div
 id="fileName"
 class="file-name">
+
+No image selected
+
 </div>
 
+
+<div
+id="previewBox"
+class="preview-box">
+
+<img
+id="imagePreview"
+alt="Selected image">
+
+</div>
 
 </div>
 
@@ -1398,23 +1262,20 @@ OCR Language
 </label>
 
 
-<select id="ocrLanguage">
-
+<select
+id="ocrLanguage">
 
 <option value="eng">
 English
 </option>
 
-
 <option value="ben">
-বাংলা / Bengali
+বাংলা
 </option>
-
 
 <option value="eng+ben">
-English + Bengali
+English + বাংলা
 </option>
-
 
 </select>
 
@@ -1426,60 +1287,59 @@ English + Bengali
 
 <label
 class="label"
-for="columnCount">
+for="expectedColumns">
 
 Expected Columns
 
 </label>
 
 
-<select id="columnCount">
-
+<select
+id="expectedColumns">
 
 <option value="auto">
 Auto Detect
 </option>
 
-
 <option value="1">
 1 Column
 </option>
-
 
 <option value="2">
 2 Columns
 </option>
 
-
 <option value="3">
 3 Columns
 </option>
-
 
 <option value="4">
 4 Columns
 </option>
 
-
 <option value="5">
 5 Columns
 </option>
-
 
 <option value="6">
 6 Columns
 </option>
 
-
 <option value="7">
 7 Columns
 </option>
-
 
 <option value="8">
 8 Columns
 </option>
 
+<option value="9">
+9 Columns
+</option>
+
+<option value="10">
+10 Columns
+</option>
 
 </select>
 
@@ -1490,8 +1350,9 @@ Auto Detect
 ===================================================== -->
 
 <button
-id="extractButton"
-class="blue"
+type="button"
+id="extractBtn"
+class="extract-btn"
 disabled>
 
 🔍 Extract Table
@@ -1518,52 +1379,14 @@ Preparing OCR...
 </div>
 
 
-<div class="progress-bar">
+<div class="progress">
 
 <div
-id="progressFill"
-class="progress-fill">
+id="progressBar"
+class="progress-bar">
 </div>
 
 </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     STATUS
-===================================================== -->
-
-<div
-id="status"
-class="status">
-</div>
-
-
-
-<!-- =====================================================
-     CLEAR IMAGE
-===================================================== -->
-
-<button
-id="clearImageButton"
-class="red">
-
-✕ Clear
-
-</button>
-
-
-<div class="info">
-
-💡 <strong>Choose Image</strong> opens Gallery / Files.
-<br>
-
-📷 <strong>Take Photo</strong> opens your camera.
-<br>
-
-🔒 Image processing is performed in your browser.
 
 </div>
 
@@ -1573,13 +1396,12 @@ class="red">
 
 
 <!-- =====================================================
-     RESULT CARD
+     RESULT
 ===================================================== -->
 
 <section
 id="resultCard"
-class="card"
-style="display:none;">
+class="card result-card">
 
 
 <h2>
@@ -1587,37 +1409,23 @@ style="display:none;">
 </h2>
 
 
-<p
-style="
-color:#8fa7ba;
-font-size:13px;
-line-height:1.7;
-text-align:center;
-margin-top:-8px;
-">
+<div
+id="resultInfo"
+class="result-info">
 
 The extracted data is editable.
 Tap any cell and correct the text before downloading.
 
-</p>
+</div>
 
 
-<!-- =====================================================
-     TABLE
-===================================================== -->
+<div class="table-wrap">
 
-<div
-id="tableWrapper"
-class="table-wrapper">
+<table>
 
+<thead id="tableHead"></thead>
 
-<table id="dataTable">
-
-<thead id="tableHead">
-</thead>
-
-<tbody id="tableBody">
-</tbody>
+<tbody id="tableBody"></tbody>
 
 </table>
 
@@ -1625,16 +1433,14 @@ class="table-wrapper">
 
 
 
-<!-- =====================================================
-     DOWNLOAD
-===================================================== -->
+<!-- DOWNLOAD -->
 
-<div class="table-actions">
+<div class="action-grid">
 
 
 <button
 id="downloadExcel"
-class="green">
+class="action-btn excel">
 
 📥 Download Excel
 
@@ -1643,7 +1449,7 @@ class="green">
 
 <button
 id="downloadCSV"
-class="blue">
+class="action-btn csv">
 
 📄 Download CSV
 
@@ -1652,7 +1458,7 @@ class="blue">
 
 <button
 id="addRow"
-class="purple">
+class="action-btn add-row">
 
 ＋ Add Row
 
@@ -1661,7 +1467,7 @@ class="purple">
 
 <button
 id="addColumn"
-class="orange">
+class="action-btn add-column">
 
 ＋ Add Column
 
@@ -1670,7 +1476,7 @@ class="orange">
 
 <button
 id="copyTable"
-class="dark">
+class="action-btn copy">
 
 📋 Copy Table
 
@@ -1679,7 +1485,7 @@ class="dark">
 
 <button
 id="clearTable"
-class="red">
+class="action-btn clear">
 
 🗑️ Clear Table
 
@@ -1688,17 +1494,52 @@ class="red">
 
 </div>
 
+</section>
+
+
+
+<!-- =====================================================
+     PWA INSTALL
+===================================================== -->
+
+<section
+id="installCard"
+class="card install-card">
+
+
+<div class="install-icon">
+📱
+</div>
+
+
+<h2>
+Install Asim Tech App
+</h2>
+
+
+<p>
+Install this tool on your Android phone for quick access.
+It works like an app without needing to open the website every time.
+</p>
+
+
+<button
+id="installBtn"
+class="install-btn">
+
+📲 Install App
+
+</button>
 
 </section>
 
 
 
 <!-- =====================================================
-     PRIVACY CARD
+     PRIVACY
 ===================================================== -->
 
 <section class="card private">
-
 
 <div class="private-icon">
 🔒
@@ -1711,14 +1552,10 @@ Privacy First
 
 
 <p>
-
-Your image and extracted data are processed
-inside your browser. The tool does not require
-an account and does not upload your image
-to your own server.
-
+Your image is processed inside your browser.
+No account is required and the image is not uploaded
+to an Asim Tech server by this page.
 </p>
-
 
 </section>
 
@@ -1733,23 +1570,17 @@ to your own server.
 
 <footer>
 
-
 <strong>
 ▲ ASIM TECH
 </strong>
 
-
 <br>
-
 
 Image to Excel
 
-
 <br><br>
 
-
 © 2026 Asim Tech • Apps • Tools • Innovation
-
 
 </footer>
 
@@ -1758,640 +1589,314 @@ Image to Excel
 <script>
 
 /* =====================================================
-   ELEMENTS
+   VARIABLES
 ===================================================== */
-
-const imageInput =
-document.getElementById(
-    "imageInput"
-);
-
-
-const cameraInput =
-document.getElementById(
-    "cameraInput"
-);
-
-
-const previewBox =
-document.getElementById(
-    "previewBox"
-);
-
-
-const previewImage =
-document.getElementById(
-    "previewImage"
-);
-
-
-const fileName =
-document.getElementById(
-    "fileName"
-);
-
-
-const extractButton =
-document.getElementById(
-    "extractButton"
-);
-
-
-const clearImageButton =
-document.getElementById(
-    "clearImageButton"
-);
-
-
-const progressBox =
-document.getElementById(
-    "progressBox"
-);
-
-
-const progressText =
-document.getElementById(
-    "progressText"
-);
-
-
-const progressFill =
-document.getElementById(
-    "progressFill"
-);
-
-
-const statusBox =
-document.getElementById(
-    "status"
-);
-
-
-const resultCard =
-document.getElementById(
-    "resultCard"
-);
-
-
-const tableWrapper =
-document.getElementById(
-    "tableWrapper"
-);
-
-
-const tableHead =
-document.getElementById(
-    "tableHead"
-);
-
-
-const tableBody =
-document.getElementById(
-    "tableBody"
-);
-
-
-const ocrLanguage =
-document.getElementById(
-    "ocrLanguage"
-);
-
-
-const columnCount =
-document.getElementById(
-    "columnCount"
-);
-
 
 let selectedFile = null;
 
 let tableData = [];
 
+let deferredInstallPrompt = null;
 
-/* =====================================================
-   STATUS
-===================================================== */
-
-function showStatus(
-    message,
-    type = ""
-){
-
-    statusBox.innerHTML =
-        message;
-
-    statusBox.className =
-        "status show " + type;
-
-}
 
 
 /* =====================================================
-   IMAGE FILE HANDLER
+   ELEMENTS
 ===================================================== */
 
-function handleImageFile(file){
+const imageInput =
+document.getElementById("imageInput");
 
-    if(!file){
+const chooseImage =
+document.getElementById("chooseImage");
 
-        return;
-    }
+const takePhoto =
+document.getElementById("takePhoto");
 
+const fileName =
+document.getElementById("fileName");
 
-    if(
-        !file.type ||
-        !file.type.startsWith("image/")
-    ){
+const imagePreview =
+document.getElementById("imagePreview");
 
-        showStatus(
-            "❌ Please select an image file.",
-            "error"
-        );
+const previewBox =
+document.getElementById("previewBox");
 
-        return;
-    }
+const extractBtn =
+document.getElementById("extractBtn");
 
+const ocrLanguage =
+document.getElementById("ocrLanguage");
 
-    selectedFile =
-        file;
+const expectedColumns =
+document.getElementById("expectedColumns");
 
+const progressBox =
+document.getElementById("progressBox");
 
-    const url =
-        URL.createObjectURL(
-            file
-        );
+const progressText =
+document.getElementById("progressText");
 
+const progressBar =
+document.getElementById("progressBar");
 
-    previewImage.onload =
-        function(){
+const resultCard =
+document.getElementById("resultCard");
 
-            URL.revokeObjectURL(
-                url
-            );
+const tableHead =
+document.getElementById("tableHead");
 
-        };
+const tableBody =
+document.getElementById("tableBody");
 
+const resultInfo =
+document.getElementById("resultInfo");
 
-    previewImage.src =
-        url;
-
-
-    fileName.textContent =
-        "Selected: " +
-        file.name;
-
-
-    previewBox.classList.add(
-        "show"
-    );
-
-
-    extractButton.disabled =
-        false;
-
-
-    showStatus(
-        "✅ Image selected successfully. Tap Extract Table.",
-        "success"
-    );
-
-}
 
 
 /* =====================================================
    CHOOSE IMAGE
    IMPORTANT:
-   No capture attribute here.
+   No capture attribute is used.
 ===================================================== */
 
-imageInput.addEventListener(
-    "change",
+chooseImage.addEventListener(
+    "click",
     function(){
 
-        handleImageFile(
-            this.files &&
-            this.files[0]
-        );
+        imageInput.removeAttribute("capture");
+
+        imageInput.click();
 
     }
 );
+
 
 
 /* =====================================================
    TAKE PHOTO
 ===================================================== */
 
-cameraInput.addEventListener(
+takePhoto.addEventListener(
+    "click",
+    function(){
+
+        /*
+           Only the camera button gets capture.
+        */
+
+        imageInput.setAttribute(
+            "capture",
+            "environment"
+        );
+
+        imageInput.click();
+
+    }
+);
+
+
+
+/* =====================================================
+   FILE SELECTED
+===================================================== */
+
+imageInput.addEventListener(
     "change",
     function(){
 
-        handleImageFile(
-            this.files &&
-            this.files[0]
-        );
+        const file =
+        this.files && this.files[0];
 
-    }
-);
 
-
-/* =====================================================
-   CLEAR IMAGE
-===================================================== */
-
-clearImageButton.addEventListener(
-    "click",
-    function(){
-
-        selectedFile =
-            null;
-
-
-        imageInput.value =
-            "";
-
-
-        cameraInput.value =
-            "";
-
-
-        previewImage.src =
-            "";
-
-
-        fileName.textContent =
-            "";
-
-
-        previewBox.classList.remove(
-            "show"
-        );
-
-
-        extractButton.disabled =
-            true;
-
-
-        progressBox.classList.remove(
-            "show"
-        );
-
-
-        statusBox.classList.remove(
-            "show"
-        );
-
-    }
-);
-
-
-/* =====================================================
-   PREPROCESS IMAGE
-===================================================== */
-
-function preprocessImage(
-    file
-){
-
-    return new Promise(
-        function(resolve,reject){
-
-            const img =
-                new Image();
-
-
-            const url =
-                URL.createObjectURL(
-                    file
-                );
-
-
-            img.onload =
-                function(){
-
-                    URL.revokeObjectURL(
-                        url
-                    );
-
-
-                    let maxWidth =
-                        2200;
-
-
-                    let scale =
-                        Math.min(
-                            1,
-                            maxWidth /
-                            img.naturalWidth
-                        );
-
-
-                    let width =
-                        Math.round(
-                            img.naturalWidth *
-                            scale
-                        );
-
-
-                    let height =
-                        Math.round(
-                            img.naturalHeight *
-                            scale
-                        );
-
-
-                    const canvas =
-                        document.createElement(
-                            "canvas"
-                        );
-
-
-                    canvas.width =
-                        width;
-
-
-                    canvas.height =
-                        height;
-
-
-                    const ctx =
-                        canvas.getContext(
-                            "2d",
-                            {
-                                willReadFrequently:true
-                            }
-                        );
-
-
-                    /*
-                       White background helps
-                       OCR on screenshots.
-                    */
-
-                    ctx.fillStyle =
-                        "#ffffff";
-
-
-                    ctx.fillRect(
-                        0,
-                        0,
-                        width,
-                        height
-                    );
-
-
-                    ctx.drawImage(
-                        img,
-                        0,
-                        0,
-                        width,
-                        height
-                    );
-
-
-                    /*
-                       Mild contrast enhancement.
-                    */
-
-                    try{
-
-                        const imageData =
-                            ctx.getImageData(
-                                0,
-                                0,
-                                width,
-                                height
-                            );
-
-
-                        const data =
-                            imageData.data;
-
-
-                        for(
-                            let i=0;
-                            i<data.length;
-                            i+=4
-                        ){
-
-                            data[i] =
-                                Math.min(
-                                    255,
-                                    Math.max(
-                                        0,
-                                        (data[i]-128)
-                                        *1.12+128
-                                    )
-                                );
-
-
-                            data[i+1] =
-                                Math.min(
-                                    255,
-                                    Math.max(
-                                        0,
-                                        (data[i+1]-128)
-                                        *1.12+128
-                                    )
-                                );
-
-
-                            data[i+2] =
-                                Math.min(
-                                    255,
-                                    Math.max(
-                                        0,
-                                        (data[i+2]-128)
-                                        *1.12+128
-                                    )
-                                );
-
-                        }
-
-
-                        ctx.putImageData(
-                            imageData,
-                            0,
-                            0
-                        );
-
-                    }catch(e){
-
-                        console.log(
-                            "Image enhancement skipped",
-                            e
-                        );
-
-                    }
-
-
-                    resolve(
-                        canvas
-                    );
-
-                };
-
-
-            img.onerror =
-                function(){
-
-                    URL.revokeObjectURL(
-                        url
-                    );
-
-
-                    reject(
-                        new Error(
-                            "Could not read image."
-                        )
-                    );
-
-                };
-
-
-            img.src =
-                url;
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   OCR
-===================================================== */
-
-extractButton.addEventListener(
-    "click",
-    async function(){
-
-        if(!selectedFile){
-
-            showStatus(
-                "❌ Please choose an image first.",
-                "error"
-            );
+        if(!file){
 
             return;
         }
 
 
         if(
-            typeof Tesseract ===
-            "undefined"
+            !file.type ||
+            !file.type.startsWith("image/")
         ){
 
-            showStatus(
-                "❌ OCR library could not be loaded. Check your internet connection.",
-                "error"
+            alert(
+                "Please select an image file."
             );
 
             return;
         }
 
 
-        extractButton.disabled =
-            true;
+        selectedFile = file;
 
 
-        progressBox.classList.add(
+        fileName.textContent =
+            "✅ " + file.name;
+
+
+        extractBtn.disabled =
+            false;
+
+
+        const reader =
+        new FileReader();
+
+
+        reader.onload =
+        function(event){
+
+            imagePreview.src =
+                event.target.result;
+
+            previewBox.classList.add(
+                "show"
+            );
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+
+/* =====================================================
+   OCR PROGRESS
+===================================================== */
+
+function showProgress(
+    message,
+    percent
+){
+
+    progressBox.classList.add(
+        "show"
+    );
+
+
+    progressText.textContent =
+        message;
+
+
+    progressBar.style.width =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                percent || 0
+            )
+        ) + "%";
+
+}
+
+
+
+function hideProgress(){
+
+    progressBox.classList.remove(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
+   EXTRACT TABLE
+===================================================== */
+
+extractBtn.addEventListener(
+    "click",
+    async function(){
+
+        if(!selectedFile){
+
+            alert(
+                "Please select an image first."
+            );
+
+            return;
+        }
+
+
+        extractBtn.disabled = true;
+
+
+        resultCard.classList.remove(
             "show"
         );
 
 
-        progressFill.style.width =
-            "0%";
-
-
-        progressText.textContent =
-            "Preparing image...";
-
-
         try{
 
-            const canvas =
-                await preprocessImage(
-                    selectedFile
-                );
-
-
             const language =
-                ocrLanguage.value;
+            ocrLanguage.value;
 
 
-            showStatus(
-                "⏳ OCR is processing your image. Please wait..."
+            showProgress(
+                "⏳ Starting OCR...",
+                5
             );
 
 
-            progressText.textContent =
-                "Starting OCR...";
-
+            /*
+               Tesseract OCR
+            */
 
             const result =
-                await Tesseract.recognize(
+            await Tesseract.recognize(
 
-                    canvas,
+                selectedFile,
 
-                    language,
+                language,
 
-                    {
+                {
 
-                        logger:function(info){
+                    logger:function(info){
 
-                            if(
-                                info &&
-                                typeof info.progress ===
-                                "number"
-                            ){
+                        if(
+                            info.status ===
+                            "recognizing text"
+                        ){
 
-                                const percent =
-                                    Math.round(
-                                        info.progress *
-                                        100
-                                    );
+                            const percent =
+                            Math.round(
+                                (info.progress || 0) * 100
+                            );
 
 
-                                progressFill.style.width =
-                                    percent +
-                                    "%";
-
-
-                                if(
-                                    info.status
-                                ){
-
-                                    progressText.textContent =
-                                        info.status +
-                                        " " +
-                                        percent +
-                                        "%";
-
-                                }
-
-                            }
+                            showProgress(
+                                "🔍 Reading image... " +
+                                percent +
+                                "%",
+                                10 +
+                                percent * .75
+                            );
 
                         }
 
                     }
 
-                );
+                }
+
+            );
 
 
-            progressFill.style.width =
-                "100%";
-
-
-            progressText.textContent =
-                "OCR completed";
+            showProgress(
+                "📊 Building table...",
+                90
+            );
 
 
             const text =
-                result &&
-                result.data &&
-                result.data.text
-                ? result.data.text
-                : "";
+            result &&
+            result.data &&
+            result.data.text
+            ? result.data.text
+            : "";
 
 
             if(!text.trim()){
@@ -2404,9 +1909,12 @@ extractButton.addEventListener(
 
 
             tableData =
-                convertOCRToTable(
-                    text
-                );
+            buildTableFromText(
+                text,
+                Number(
+                    expectedColumns.value
+                )
+            );
 
 
             if(
@@ -2424,11 +1932,7 @@ extractButton.addEventListener(
             renderTable();
 
 
-            resultCard.style.display =
-                "block";
-
-
-            tableWrapper.classList.add(
+            resultCard.classList.add(
                 "show"
             );
 
@@ -2439,256 +1943,166 @@ extractButton.addEventListener(
             });
 
 
-            showStatus(
-                "✅ Table extracted successfully. You can edit any cell before downloading.",
-                "success"
+            showProgress(
+                "✅ Extraction complete.",
+                100
+            );
+
+
+            setTimeout(
+                hideProgress,
+                700
             );
 
 
         }catch(error){
 
             console.error(
-                "OCR error:",
+                "OCR Error:",
                 error
             );
 
 
-            showStatus(
-                "❌ " +
-                escapeHtml(
-                    error.message ||
-                    "Could not extract the table."
-                ),
-                "error"
-            );
-
-        }finally{
-
-            extractButton.disabled =
-                !selectedFile;
+            hideProgress();
 
 
-            setTimeout(
-                function(){
-
-                    progressBox.classList.remove(
-                        "show"
-                    );
-
-                },
-                1200
+            alert(
+                "❌ Extraction failed.\n\n" +
+                (
+                    error &&
+                    error.message
+                    ? error.message
+                    : "Please try a clearer image."
+                )
             );
 
         }
+
+
+        extractBtn.disabled = false;
 
     }
 );
 
 
+
 /* =====================================================
-   OCR TEXT → TABLE
+   BUILD TABLE FROM OCR TEXT
 ===================================================== */
 
-function convertOCRToTable(
-    text
+function buildTableFromText(
+    text,
+    requestedColumns
 ){
 
-    let rawLines =
-        text
-        .replace(/\r/g,"")
-        .split("\n")
-        .map(
-            function(line){
+    let lines =
+    text
+    .split(/\r?\n/)
+    .map(
+        function(line){
 
-                return line.trim();
+            return line
+            .replace(/\s+/g," ")
+            .trim();
 
-            }
-        )
-        .filter(
-            function(line){
+        }
+    )
+    .filter(
+        function(line){
 
-                return line.length > 0;
+            return line.length > 0;
 
-            }
-        );
+        }
+    );
 
 
-    if(
-        rawLines.length === 0
-    ){
+    if(lines.length === 0){
 
         return [];
-    }
-
-
-    /*
-       Remove obvious OCR noise.
-    */
-
-    rawLines =
-        rawLines.map(
-            function(line){
-
-                return line
-                    .replace(/[ \t]+/g," ")
-                    .trim();
-
-            }
-        );
-
-
-    const selectedColumns =
-        columnCount.value;
-
-
-    /*
-       If user selected one column,
-       each OCR line becomes a row.
-    */
-
-    if(
-        selectedColumns === "1"
-    ){
-
-        return rawLines.map(
-            function(line){
-
-                return [line];
-
-            }
-        );
 
     }
 
 
     /*
-       Detect columns from tabs first.
+       Determine columns.
     */
 
-    let rows =
-        rawLines.map(
-            function(line){
-
-                if(
-                    line.includes("\t")
-                ){
-
-                    return line
-                        .split("\t")
-                        .map(
-                            function(x){
-                                return x.trim();
-                            }
-                        );
-
-                }
+    let columns =
+    requestedColumns;
 
 
-                /*
-                   Two or more spaces often
-                   indicate columns in OCR.
-                */
+    if(
+        !columns ||
+        columns < 1
+    ){
 
-                const parts =
-                    line
-                    .split(/\s{2,}/)
-                    .map(
-                        function(x){
-                            return x.trim();
-                        }
-                    )
-                    .filter(
-                        function(x){
-                            return x.length > 0;
-                        }
-                    );
+        columns =
+        detectColumns(lines);
+
+    }
 
 
-                return parts.length > 1
-                    ? parts
-                    : [line];
+    columns =
+    Math.max(
+        1,
+        Math.min(
+            10,
+            columns
+        )
+    );
 
-            }
-        );
+
+    const rows = [];
 
 
     /*
-       User selected expected columns.
+       Try to detect tab-separated
+       OCR output first.
     */
 
-    if(
-        selectedColumns !== "auto"
+    for(
+        let i = 0;
+        i < lines.length;
+        i++
     ){
 
-        const count =
-            parseInt(
-                selectedColumns,
-                10
-            );
+        let line =
+        lines[i];
 
 
-        rows =
-            rows.map(
-                function(row){
+        let cells;
 
-                    return normalizeRow(
-                        row,
-                        count
-                    );
 
+        if(line.includes("\t")){
+
+            cells =
+            line
+            .split("\t")
+            .map(
+                function(x){
+                    return x.trim();
                 }
             );
 
-    }else{
+        }else{
 
-        /*
-           Auto detect maximum number
-           of columns.
-        */
+            cells =
+            splitIntoColumns(
+                line,
+                columns
+            );
 
-        let maxColumns = 1;
+        }
 
 
-        rows.forEach(
-            function(row){
-
-                if(
-                    row.length >
-                    maxColumns
-                ){
-
-                    maxColumns =
-                        row.length;
-
-                }
-
-            }
+        cells =
+        normalizeCells(
+            cells,
+            columns
         );
 
 
-        /*
-           Prevent accidental huge
-           column counts from OCR noise.
-        */
-
-        maxColumns =
-            Math.min(
-                maxColumns,
-                12
-            );
-
-
-        rows =
-            rows.map(
-                function(row){
-
-                    return normalizeRow(
-                        row,
-                        maxColumns
-                    );
-
-                }
-            );
+        rows.push(cells);
 
     }
 
@@ -2698,68 +2112,175 @@ function convertOCRToTable(
 }
 
 
+
 /* =====================================================
-   NORMALIZE ROW
+   DETECT COLUMNS
 ===================================================== */
 
-function normalizeRow(
-    row,
-    count
-){
+function detectColumns(lines){
 
-    const result =
-        new Array(
-            count
-        ).fill("");
-
-
-    if(
-        row.length === 1
-    ){
-
-        result[0] =
-            row[0] || "";
-
-
-        return result;
-
-    }
+    let maxParts = 1;
 
 
     for(
-        let i=0;
-        i<Math.min(
-            row.length,
-            count
-        );
+        let i = 0;
+        i < lines.length;
         i++
     ){
 
-        result[i] =
-            row[i] || "";
+        const line =
+        lines[i];
+
+
+        /*
+           Multiple spaces often indicate
+           column separation.
+        */
+
+        const parts =
+        line
+        .split(/\s{2,}/)
+        .filter(
+            function(x){
+                return x.trim();
+            }
+        );
+
+
+        if(parts.length > maxParts){
+
+            maxParts =
+            parts.length;
+
+        }
 
     }
 
 
     /*
-       If OCR returned more data than
-       selected columns, append it to
-       the last cell instead of losing it.
+       Avoid excessive columns.
     */
 
-    if(
-        row.length > count
+    return Math.max(
+        1,
+        Math.min(
+            maxParts,
+            10
+        )
+    );
+
+}
+
+
+
+/* =====================================================
+   SPLIT INTO COLUMNS
+===================================================== */
+
+function splitIntoColumns(
+    line,
+    columns
+){
+
+    if(columns === 1){
+
+        return [line];
+
+    }
+
+
+    /*
+       First try multiple spaces.
+    */
+
+    let parts =
+    line
+    .split(/\s{2,}/)
+    .map(
+        function(x){
+            return x.trim();
+        }
+    )
+    .filter(
+        function(x){
+            return x.length > 0;
+        }
+    );
+
+
+    if(parts.length === columns){
+
+        return parts;
+
+    }
+
+
+    /*
+       If OCR does not preserve spacing,
+       divide words approximately.
+    */
+
+    const words =
+    line
+    .split(/\s+/)
+    .filter(
+        function(x){
+            return x.length > 0;
+        }
+    );
+
+
+    if(words.length <= columns){
+
+        return words;
+
+    }
+
+
+    const result = [];
+
+    const base =
+    Math.floor(
+        words.length / columns
+    );
+
+
+    let remainder =
+    words.length % columns;
+
+
+    let index = 0;
+
+
+    for(
+        let c = 0;
+        c < columns;
+        c++
     ){
 
-        result[count-1] =
-            (
-                result[count-1]
-                ? result[count-1] + " "
-                : ""
-            ) +
-            row
-            .slice(count)
-            .join(" ");
+        let count =
+        base;
+
+
+        if(remainder > 0){
+
+            count++;
+            remainder--;
+
+        }
+
+
+        result.push(
+            words
+            .slice(
+                index,
+                index + count
+            )
+            .join(" ")
+        );
+
+
+        index += count;
 
     }
 
@@ -2769,18 +2290,66 @@ function normalizeRow(
 }
 
 
+
+/* =====================================================
+   NORMALIZE CELLS
+===================================================== */
+
+function normalizeCells(
+    cells,
+    columns
+){
+
+    const result =
+    new Array(columns)
+    .fill("");
+
+
+    for(
+        let i = 0;
+        i < Math.min(
+            cells.length,
+            columns
+        );
+        i++
+    ){
+
+        result[i] =
+        cells[i] || "";
+
+    }
+
+
+    /*
+       If there are more cells than columns,
+       join remaining text into last column.
+    */
+
+    if(cells.length > columns){
+
+        result[columns - 1] =
+        cells
+        .slice(columns - 1)
+        .join(" ");
+
+    }
+
+
+    return result;
+
+}
+
+
+
 /* =====================================================
    RENDER TABLE
 ===================================================== */
 
 function renderTable(){
 
-    tableHead.innerHTML =
-        "";
+    tableHead.innerHTML = "";
 
-
-    tableBody.innerHTML =
-        "";
+    tableBody.innerHTML = "";
 
 
     if(
@@ -2792,25 +2361,8 @@ function renderTable(){
     }
 
 
-    let columns =
-        1;
-
-
-    tableData.forEach(
-        function(row){
-
-            if(
-                row.length >
-                columns
-            ){
-
-                columns =
-                    row.length;
-
-            }
-
-        }
-    );
+    const columns =
+    tableData[0].length;
 
 
     /*
@@ -2818,26 +2370,22 @@ function renderTable(){
     */
 
     const headerRow =
-        document.createElement(
-            "tr"
-        );
+    document.createElement("tr");
 
 
     for(
-        let c=0;
-        c<columns;
+        let c = 0;
+        c < columns;
         c++
     ){
 
         const th =
-            document.createElement(
-                "th"
-            );
+        document.createElement("th");
 
 
         th.textContent =
-            "Column " +
-            (c+1);
+        "Column " +
+        (c + 1);
 
 
         headerRow.appendChild(
@@ -2853,61 +2401,118 @@ function renderTable(){
 
 
     /*
-       Body
+       Data rows
     */
 
-    tableData.forEach(
+    for(
+        let r = 0;
+        r < tableData.length;
+        r++
+    ){
+
+        const tr =
+        document.createElement("tr");
+
+
+        for(
+            let c = 0;
+            c < columns;
+            c++
+        ){
+
+            const td =
+            document.createElement("td");
+
+
+            td.contentEditable =
+            "true";
+
+
+            td.textContent =
+            tableData[r][c] || "";
+
+
+            td.dataset.row =
+            r;
+
+
+            td.dataset.col =
+            c;
+
+
+            td.addEventListener(
+                "input",
+                function(){
+
+                    tableData[r][c] =
+                    td.textContent;
+
+                }
+            );
+
+
+            tr.appendChild(
+                td
+            );
+
+        }
+
+
+        tableBody.appendChild(
+            tr
+        );
+
+    }
+
+
+    resultInfo.textContent =
+    "✅ " +
+    tableData.length +
+    " rows × " +
+    columns +
+    " columns. " +
+    "Tap any cell to edit the text.";
+
+}
+
+
+
+/* =====================================================
+   SYNC TABLE
+===================================================== */
+
+function syncTable(){
+
+    const rows =
+    tableBody.querySelectorAll("tr");
+
+
+    tableData = [];
+
+
+    rows.forEach(
         function(row){
 
-            const tr =
-                document.createElement(
-                    "tr"
-                );
+            const cells =
+            row.querySelectorAll("td");
 
 
-            for(
-                let c=0;
-                c<columns;
-                c++
-            ){
+            const data = [];
 
-                const td =
-                    document.createElement(
-                        "td"
+
+            cells.forEach(
+                function(cell){
+
+                    data.push(
+                        cell.textContent.trim()
                     );
 
-
-                td.contentEditable =
-                    "true";
-
-
-                td.spellcheck =
-                    false;
+                }
+            );
 
 
-                td.textContent =
-                    row[c] || "";
-
-
-                td.addEventListener(
-                    "input",
-                    function(){
-
-                        updateTableData();
-
-                    }
-                );
-
-
-                tr.appendChild(
-                    td
-                );
-
-            }
-
-
-            tableBody.appendChild(
-                tr
+            tableData.push(
+                data
             );
 
         }
@@ -2916,42 +2521,198 @@ function renderTable(){
 }
 
 
+
 /* =====================================================
-   UPDATE TABLE DATA FROM DOM
+   DOWNLOAD EXCEL
 ===================================================== */
 
-function updateTableData(){
+document
+.getElementById("downloadExcel")
+.addEventListener(
+    "click",
+    function(){
 
-    const rows =
-        Array.from(
-            tableBody.querySelectorAll(
-                "tr"
-            )
-        );
+        syncTable();
 
 
-    tableData =
-        rows.map(
-            function(row){
+        if(
+            !tableData.length
+        ){
 
-                return Array.from(
-                    row.querySelectorAll(
-                        "td"
-                    )
-                ).map(
-                    function(cell){
+            alert(
+                "No table data available."
+            );
 
-                        return cell
-                            .innerText
-                            .trim();
+            return;
+        }
 
-                    }
-                );
+
+        const headers =
+        tableData[0].map(
+            function(_, index){
+
+                return "Column " +
+                (index + 1);
 
             }
         );
 
-}
+
+        const excelData =
+        [headers]
+        .concat(
+            tableData
+        );
+
+
+        const worksheet =
+        XLSX.utils.aoa_to_sheet(
+            excelData
+        );
+
+
+        const workbook =
+        XLSX.utils.book_new();
+
+
+        XLSX.utils.book_append_sheet(
+            workbook,
+            worksheet,
+            "Image Data"
+        );
+
+
+        XLSX.writeFile(
+            workbook,
+            "asim-image-to-excel.xlsx"
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   DOWNLOAD CSV
+===================================================== */
+
+document
+.getElementById("downloadCSV")
+.addEventListener(
+    "click",
+    function(){
+
+        syncTable();
+
+
+        if(
+            !tableData.length
+        ){
+
+            alert(
+                "No table data available."
+            );
+
+            return;
+        }
+
+
+        const headers =
+        tableData[0].map(
+            function(_, index){
+
+                return "Column " +
+                (index + 1);
+
+            }
+        );
+
+
+        const rows =
+        [headers]
+        .concat(
+            tableData
+        );
+
+
+        const csv =
+        rows
+        .map(
+            function(row){
+
+                return row
+                .map(
+                    function(cell){
+
+                        const value =
+                        String(cell)
+                        .replace(
+                            /"/g,
+                            '""'
+                        );
+
+
+                        return '"' +
+                        value +
+                        '"';
+
+                    }
+                )
+                .join(",");
+
+            }
+        )
+        .join("\n");
+
+
+        const blob =
+        new Blob(
+            ["\uFEFF" + csv],
+            {
+                type:
+                "text/csv;charset=utf-8"
+            }
+        );
+
+
+        const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+        const link =
+        document.createElement("a");
+
+
+        link.href =
+        url;
+
+
+        link.download =
+        "asim-image-to-excel.csv";
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        document.body.removeChild(
+            link
+        );
+
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    }
+);
+
 
 
 /* =====================================================
@@ -2964,70 +2725,31 @@ document
     "click",
     function(){
 
-        updateTableData();
+        syncTable();
 
 
-        let columns =
-            tableData.length > 0
-            ? tableData[0].length
-            : 1;
+        if(!tableData.length){
 
+            tableData = [
+                [""]
+            ];
 
-        tableData.push(
-            new Array(
-                columns
-            ).fill("")
-        );
+        }else{
+
+            tableData.push(
+                new Array(
+                    tableData[0].length
+                ).fill("")
+            );
+
+        }
 
 
         renderTable();
 
-
-        focusLastCell();
-
     }
 );
 
-
-/* =====================================================
-   FOCUS LAST CELL
-===================================================== */
-
-function focusLastCell(){
-
-    const rows =
-        tableBody.querySelectorAll(
-            "tr"
-        );
-
-
-    if(
-        rows.length === 0
-    ){
-
-        return;
-    }
-
-
-    const cells =
-        rows[
-            rows.length-1
-        ].querySelectorAll(
-            "td"
-        );
-
-
-    if(
-        cells.length > 0
-    ){
-
-        cells[
-            cells.length-1
-        ].focus();
-
-    }
-
-}
 
 
 /* =====================================================
@@ -3040,29 +2762,25 @@ document
     "click",
     function(){
 
-        updateTableData();
+        syncTable();
 
 
-        if(
-            tableData.length === 0
-        ){
+        if(!tableData.length){
 
             tableData = [
                 [""]
             ];
 
-        }else{
+        }
 
-            tableData =
-                tableData.map(
-                    function(row){
 
-                        row.push("");
+        for(
+            let r = 0;
+            r < tableData.length;
+            r++
+        ){
 
-                        return row;
-
-                    }
-                );
+            tableData[r].push("");
 
         }
 
@@ -3071,6 +2789,77 @@ document
 
     }
 );
+
+
+
+/* =====================================================
+   COPY TABLE
+===================================================== */
+
+document
+.getElementById("copyTable")
+.addEventListener(
+    "click",
+    async function(){
+
+        syncTable();
+
+
+        if(!tableData.length){
+
+            return;
+        }
+
+
+        const text =
+        tableData
+        .map(
+            function(row){
+
+                return row.join("\t");
+
+            }
+        )
+        .join("\n");
+
+
+        try{
+
+            await navigator.clipboard.writeText(
+                text
+            );
+
+
+            this.textContent =
+            "✅ Copied";
+
+
+            const button =
+            this;
+
+
+            setTimeout(
+                function(){
+
+                    button.textContent =
+                    "📋 Copy Table";
+
+                },
+                1500
+            );
+
+
+        }catch(error){
+
+            alert(
+                "Copy failed."
+            );
+
+        }
+
+    }
+);
+
 
 
 /* =====================================================
@@ -3093,425 +2882,107 @@ document
         }
 
 
-        tableData =
-            [];
+        tableData = [];
 
 
-        tableHead.innerHTML =
-            "";
+        tableHead.innerHTML = "";
+
+        tableBody.innerHTML = "";
 
 
-        tableBody.innerHTML =
-            "";
-
-
-        tableWrapper.classList.remove(
+        resultCard.classList.remove(
             "show"
         );
 
+    }
+);
 
-        resultCard.style.display =
-            "none";
 
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
+/* =====================================================
+   PWA INSTALL
+===================================================== */
+
+const installCard =
+document.getElementById(
+    "installCard"
+);
+
+const installBtn =
+document.getElementById(
+    "installBtn"
+);
+
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event){
+
+        event.preventDefault();
+
+
+        deferredInstallPrompt =
+        event;
+
+
+        installCard.classList.add(
+            "show"
+        );
 
     }
 );
 
 
-/* =====================================================
-   COPY TABLE
-===================================================== */
 
-document
-.getElementById("copyTable")
-.addEventListener(
+installBtn.addEventListener(
     "click",
     async function(){
 
-        updateTableData();
-
-
-        if(
-            tableData.length === 0
-        ){
+        if(!deferredInstallPrompt){
 
             alert(
-                "No table data to copy."
+                "If Install App does not appear, open Chrome menu ⋮ and choose 'Add to Home screen' or 'Install app'."
             );
 
             return;
         }
 
 
-        const text =
-            tableData
-            .map(
-                function(row){
-
-                    return row.join("\t");
-
-                }
-            )
-            .join("\n");
+        deferredInstallPrompt.prompt();
 
 
-        try{
-
-            await navigator.clipboard.writeText(
-                text
-            );
+        const choice =
+        await deferredInstallPrompt.userChoice;
 
 
-            this.textContent =
-                "✅ Copied";
+        deferredInstallPrompt =
+        null;
 
 
-            const button =
-                this;
-
-
-            setTimeout(
-                function(){
-
-                    button.textContent =
-                        "📋 Copy Table";
-
-                },
-                1500
-            );
-
-
-        }catch(error){
-
-            /*
-               Fallback
-            */
-
-            const textarea =
-                document.createElement(
-                    "textarea"
-                );
-
-
-            textarea.value =
-                text;
-
-
-            document.body.appendChild(
-                textarea
-            );
-
-
-            textarea.select();
-
-
-            document.execCommand(
-                "copy"
-            );
-
-
-            document.body.removeChild(
-                textarea
-            );
-
-
-            this.textContent =
-                "✅ Copied";
-
-
-            const button =
-                this;
-
-
-            setTimeout(
-                function(){
-
-                    button.textContent =
-                        "📋 Copy Table";
-
-                },
-                1500
-            );
-
-        }
+        installCard.classList.remove(
+            "show"
+        );
 
     }
 );
 
 
-/* =====================================================
-   DOWNLOAD EXCEL
-===================================================== */
 
-document
-.getElementById("downloadExcel")
-.addEventListener(
-    "click",
+window.addEventListener(
+    "appinstalled",
     function(){
 
-        updateTableData();
-
-
-        if(
-            tableData.length === 0
-        ){
-
-            alert(
-                "No table data available."
-            );
-
-            return;
-        }
-
-
-        if(
-            typeof XLSX ===
-            "undefined"
-        ){
-
-            alert(
-                "Excel library could not be loaded. Please check your internet connection."
-            );
-
-            return;
-        }
-
-
-        try{
-
-            const worksheet =
-                XLSX.utils.aoa_to_sheet(
-                    tableData
-                );
-
-
-            /*
-               Make columns readable.
-            */
-
-            const maxColumns =
-                Math.max(
-                    ...tableData.map(
-                        function(row){
-                            return row.length;
-                        }
-                    )
-                );
-
-
-            worksheet["!cols"] =
-                new Array(
-                    maxColumns
-                ).fill(
-                    {
-                        wch:20
-                    }
-                );
-
-
-            const workbook =
-                XLSX.utils.book_new();
-
-
-            XLSX.utils.book_append_sheet(
-                workbook,
-                worksheet,
-                "Extracted Data"
-            );
-
-
-            XLSX.writeFile(
-                workbook,
-                "asim-tech-image-to-excel.xlsx"
-            );
-
-
-        }catch(error){
-
-            console.error(
-                error
-            );
-
-
-            alert(
-                "Excel download failed."
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   DOWNLOAD CSV
-===================================================== */
-
-document
-.getElementById("downloadCSV")
-.addEventListener(
-    "click",
-    function(){
-
-        updateTableData();
-
-
-        if(
-            tableData.length === 0
-        ){
-
-            alert(
-                "No table data available."
-            );
-
-            return;
-        }
-
-
-        const csv =
-            tableData
-            .map(
-                function(row){
-
-                    return row
-                    .map(
-                        function(value){
-
-                            const text =
-                                String(
-                                    value || ""
-                                )
-                                .replace(
-                                    /"/g,
-                                    '""'
-                                );
-
-
-                            return '"' +
-                                text +
-                                '"';
-
-                        }
-                    )
-                    .join(",");
-
-                }
-            )
-            .join("\n");
-
-
-        const blob =
-            new Blob(
-                [
-                    "\uFEFF" +
-                    csv
-                ],
-                {
-                    type:
-                    "text/csv;charset=utf-8;"
-                }
-            );
-
-
-        downloadBlob(
-            blob,
-            "asim-tech-image-to-excel.csv"
+        installCard.classList.remove(
+            "show"
         );
 
     }
 );
 
 
-/* =====================================================
-   DOWNLOAD BLOB
-===================================================== */
-
-function downloadBlob(
-    blob,
-    filename
-){
-
-    const url =
-        URL.createObjectURL(
-            blob
-        );
-
-
-    const link =
-        document.createElement(
-            "a"
-        );
-
-
-    link.href =
-        url;
-
-
-    link.download =
-        filename;
-
-
-    link.style.display =
-        "none";
-
-
-    document.body.appendChild(
-        link
-    );
-
-
-    link.click();
-
-
-    document.body.removeChild(
-        link
-    );
-
-
-    setTimeout(
-        function(){
-
-            URL.revokeObjectURL(
-                url
-            );
-
-        },
-        2000
-    );
-
-}
-
 
 /* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHtml(
-    text
-){
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-
-    div.textContent =
-        text;
-
-
-    return div.innerHTML;
-
-}
-
-
-/* =====================================================
-   PWA SERVICE WORKER
+   SERVICE WORKER
 ===================================================== */
 
 if(
@@ -3523,14 +2994,12 @@ if(
         function(){
 
             navigator.serviceWorker
-            .register(
-                "./sw.js"
-            )
+            .register("./sw.js")
             .then(
                 function(){
 
                     console.log(
-                        "Service Worker registered."
+                        "Asim Tech Service Worker registered."
                     );
 
                 }
@@ -3550,35 +3019,6 @@ if(
     );
 
 }
-
-
-/* =====================================================
-   BACK/FORWARD CACHE CLEANUP
-===================================================== */
-
-window.addEventListener(
-    "pageshow",
-    function(){
-
-        /*
-           Make sure file inputs are
-           reset after browser back/forward.
-        */
-
-        if(
-            !selectedFile
-        ){
-
-            imageInput.value =
-                "";
-
-            cameraInput.value =
-                "";
-
-        }
-
-    }
-);
 
 </script>
 
