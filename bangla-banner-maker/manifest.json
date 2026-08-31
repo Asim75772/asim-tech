@@ -1,0 +1,23 @@
+{
+  "name": "Asim Tech বাংলা Banner Maker",
+  "short_name": "Banner Maker",
+  "description": "Create beautiful Bengali banners easily.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050914",
+  "theme_color": "#050914",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "../icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "../icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
