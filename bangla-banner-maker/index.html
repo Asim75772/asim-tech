@@ -9,14 +9,17 @@
 content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-content="#070b16">
+content="#050914">
 
 <title>Asim Tech বাংলা Banner Maker</title>
 
 <meta name="description"
 content="Create beautiful Bengali banners online with stylish Bengali fonts.">
 
-<!-- Bengali Fonts -->
+<!-- =====================================================
+     BENGALI FONTS
+===================================================== -->
+
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
 
@@ -27,8 +30,13 @@ crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Atma:wght@400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Tiro+Bangla:ital@0;1&display=swap"
 rel="stylesheet">
 
-<!-- html2canvas -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<!-- =====================================================
+     HTML2CANVAS
+===================================================== -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+</script>
 
 
 <style>
@@ -123,12 +131,14 @@ header{
     padding:13px 5%;
 
     background:
-    rgba(5,9,20,.88);
+    rgba(5,9,20,.90);
 
     border-bottom:
     1px solid var(--border);
 
     backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
 }
 
 
@@ -310,8 +320,7 @@ input[type="number"]{
 
     color:#fff;
 
-    background:
-    #081322;
+    background:#081322;
 
     font-family:inherit;
 
@@ -359,7 +368,7 @@ input:focus{
 
 
 /* =========================================================
-   TWO COLUMN INPUT
+   TWO COLUMN
 ========================================================= */
 
 .row{
@@ -397,7 +406,7 @@ input[type="range"]{
 
 .range-value{
 
-    min-width:45px;
+    min-width:50px;
 
     text-align:right;
 
@@ -473,7 +482,7 @@ input[type="color"]{
 
 
 /* =========================================================
-   PRESET BUTTONS
+   PRESETS
 ========================================================= */
 
 .presets{
@@ -518,6 +527,74 @@ input[type="color"]{
     color:#fff;
 
     transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   TEXT DESIGN BUTTONS
+========================================================= */
+
+.text-designs{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:7px;
+}
+
+
+.design-btn{
+
+    min-height:38px;
+
+    padding:7px;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:9px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:#bcd0dd;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+
+.design-btn:hover{
+
+    border-color:
+    var(--blue);
+
+    color:#fff;
+
+    transform:translateY(-1px);
+}
+
+
+.design-btn.active{
+
+    border-color:
+    var(--blue);
+
+    background:
+    rgba(0,157,255,.13);
+
+    color:#fff;
+
+    box-shadow:
+    0 0 18px
+    rgba(0,157,255,.10);
 }
 
 
@@ -649,8 +726,7 @@ input[type="color"]{
 
     border-radius:15px;
 
-    background:
-    #02050a;
+    background:#02050a;
 }
 
 
@@ -815,6 +891,10 @@ input[type="color"]{
 }
 
 
+/* =========================================================
+   MAIN BANNER TEXT
+========================================================= */
+
 #bannerText{
 
     white-space:pre-line;
@@ -827,6 +907,12 @@ input[type="color"]{
 
     font-weight:700;
 
+    letter-spacing:0;
+
+    color:#fff;
+
+    transition:.2s ease;
+
     text-shadow:
     0 4px 18px rgba(0,0,0,.45);
 }
@@ -838,7 +924,9 @@ input[type="color"]{
 
     color:rgba(255,255,255,.72);
 
-    font-family:Arial,sans-serif;
+    font-family:
+    Arial,
+    sans-serif;
 
     font-size:14px;
 }
@@ -880,6 +968,161 @@ input[type="color"]{
 
 .font-tiro{
     font-family:"Tiro Bangla",serif;
+}
+
+
+/* =========================================================
+   TEXT STYLES
+========================================================= */
+
+
+/* DEFAULT */
+
+.text-normal{
+
+    color:#fff;
+
+    text-shadow:
+    0 4px 18px rgba(0,0,0,.45);
+}
+
+
+/* NEON */
+
+.text-neon{
+
+    color:#baf6ff !important;
+
+    text-shadow:
+    0 0 5px #fff,
+    0 0 12px #00d9ff,
+    0 0 28px #00aaff,
+    0 0 50px rgba(0,170,255,.85) !important;
+}
+
+
+/* GOLD */
+
+.text-gold{
+
+    background:
+    linear-gradient(
+        180deg,
+        #fff8b0,
+        #ffd54a,
+        #f39c12
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    color:#ffd54a !important;
+
+    text-shadow:
+    0 3px 14px rgba(255,180,0,.35) !important;
+}
+
+
+/* GRADIENT */
+
+.text-gradient{
+
+    background:
+    linear-gradient(
+        90deg,
+        #35dcff,
+        #ffffff,
+        #b56cff,
+        #ff65c8
+    );
+
+    background-size:
+    250% auto;
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    color:#fff !important;
+
+    animation:
+    gradientMove 5s linear infinite;
+
+    text-shadow:
+    0 4px 25px rgba(100,80,255,.25) !important;
+}
+
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0% center;
+    }
+
+    100%{
+        background-position:250% center;
+    }
+
+}
+
+
+/* OUTLINE */
+
+.text-outline{
+
+    color:transparent !important;
+
+    -webkit-text-stroke:
+    2px #ffffff;
+
+    text-shadow:
+    0 5px 20px rgba(0,0,0,.65) !important;
+}
+
+
+/* SHADOW */
+
+.text-shadow{
+
+    color:#fff !important;
+
+    text-shadow:
+    3px 3px 0 #000,
+    6px 6px 0 rgba(0,0,0,.35),
+    0 10px 25px rgba(0,0,0,.65) !important;
+}
+
+
+/* CYAN */
+
+.text-cyan{
+
+    color:#57eaff !important;
+
+    text-shadow:
+    0 0 8px rgba(0,220,255,.8),
+    0 5px 20px rgba(0,0,0,.5) !important;
+}
+
+
+/* WHITE PREMIUM */
+
+.text-premium{
+
+    color:#fff !important;
+
+    text-shadow:
+    0 1px 0 rgba(255,255,255,.5),
+    0 5px 15px rgba(0,0,0,.55),
+    0 12px 35px rgba(0,0,0,.35) !important;
+
+    -webkit-text-stroke:
+    .5px rgba(255,255,255,.25);
 }
 
 
@@ -965,16 +1208,12 @@ footer strong{
 
 
     .controls{
-
         order:1;
-
     }
 
 
     .preview-area{
-
         order:2;
-
     }
 
 }
@@ -996,8 +1235,12 @@ footer strong{
 
 
     .header-badge{
+
         font-size:8px;
-        padding:6px 8px;
+
+        padding:
+        6px 8px;
+
     }
 
 
@@ -1096,6 +1339,14 @@ footer strong{
 
     }
 
+
+    .text-designs{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
 }
 
 
@@ -1109,15 +1360,21 @@ footer strong{
         visibility:hidden;
     }
 
+
     #banner,
     #banner *{
         visibility:visible;
     }
 
+
     #banner{
+
         position:absolute;
+
         left:0;
+
         top:0;
+
     }
 
 }
@@ -1182,7 +1439,9 @@ footer strong{
 
 
 <div class="control-title">
+
 🎨 Design Controls
+
 </div>
 
 
@@ -1245,6 +1504,93 @@ Tiro Bangla — Elegant
 </div>
 
 
+<!-- TEXT DESIGN -->
+
+<div class="control-group">
+
+<label>
+✨ লেখার Design
+</label>
+
+<div class="text-designs">
+
+<button
+type="button"
+class="design-btn active"
+data-text-style="text-normal">
+
+⚪ Normal
+
+</button>
+
+<button
+type="button"
+class="design-btn"
+data-text-style="text-neon">
+
+💠 Neon
+
+</button>
+
+<button
+type="button"
+class="design-btn"
+data-text-style="text-gold">
+
+🟡 Golden
+
+</button>
+
+<button
+type="button"
+class="design-btn"
+data-text-style="text-gradient">
+
+🌈 Gradient
+
+</button>
+
+<button
+type="button"
+class="design-btn"
+data-text-style="text-outline">
+
+🔲 Outline
+
+</button>
+
+<button
+type="button"
+class="design-btn"
+data-text-style="text-shadow">
+
+🌑 Shadow
+
+</button>
+
+<button
+type="button"
+class="design-btn"
+data-text-style="text-cyan">
+
+🔵 Cyan Glow
+
+</button>
+
+<button
+type="button"
+class="design-btn"
+data-text-style="text-premium">
+
+💎 Premium
+
+</button>
+
+</div>
+
+</div>
+
+
 <!-- FONT SIZE -->
 
 <div class="control-group">
@@ -1265,10 +1611,136 @@ value="52">
 <span
 class="range-value"
 id="fontSizeValue">
+
 52px
+
 </span>
 
 </div>
+
+</div>
+
+
+<!-- FONT WEIGHT -->
+
+<div class="control-group">
+
+<label>
+লেখার Thickness
+</label>
+
+<select id="fontWeight">
+
+<option value="400">
+Regular
+</option>
+
+<option value="500">
+Medium
+</option>
+
+<option value="600">
+Semi Bold
+</option>
+
+<option value="700" selected>
+Bold
+</option>
+
+<option value="800">
+Extra Bold
+</option>
+
+</select>
+
+</div>
+
+
+<!-- LETTER SPACING -->
+
+<div class="control-group">
+
+<label>
+Letter Spacing
+</label>
+
+<div class="range-line">
+
+<input
+type="range"
+id="letterSpacing"
+min="-2"
+max="10"
+step="0.5"
+value="0">
+
+<span
+class="range-value"
+id="letterSpacingValue">
+
+0px
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- LINE HEIGHT -->
+
+<div class="control-group">
+
+<label>
+Line Height
+</label>
+
+<div class="range-line">
+
+<input
+type="range"
+id="lineHeight"
+min="0.9"
+max="2"
+step="0.05"
+value="1.25">
+
+<span
+class="range-value"
+id="lineHeightValue">
+
+1.25
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ALIGNMENT -->
+
+<div class="control-group">
+
+<label>
+লেখার অবস্থান
+</label>
+
+<select id="textAlign">
+
+<option value="left">
+⬅ Left
+</option>
+
+<option value="center" selected>
+↔ Center
+</option>
+
+<option value="right">
+➡ Right
+</option>
+
+</select>
 
 </div>
 
@@ -1341,7 +1813,7 @@ Clean White
 </div>
 
 
-<!-- WIDTH HEIGHT -->
+<!-- BANNER SIZE -->
 
 <div class="control-group">
 
@@ -1351,8 +1823,6 @@ Banner Size
 
 <div class="row">
 
-<div>
-
 <input
 type="number"
 id="bannerWidth"
@@ -1360,18 +1830,12 @@ value="800"
 min="300"
 max="1600">
 
-</div>
-
-<div>
-
 <input
 type="number"
 id="bannerHeight"
 value="450"
 min="200"
 max="1200">
-
-</div>
 
 </div>
 
@@ -1410,7 +1874,7 @@ value="আপনার জন্য সহজ ও সুন্দর ডিজ�
 </div>
 
 
-<!-- PRESETS -->
+<!-- QUICK STYLES -->
 
 <div class="control-group">
 
@@ -1421,33 +1885,48 @@ Quick Styles
 <div class="presets">
 
 <button
+type="button"
 class="preset"
 data-style="blue">
+
 🔵 Blue
+
 </button>
 
 <button
+type="button"
 class="preset"
 data-style="purple">
+
 🟣 Purple
+
 </button>
 
 <button
+type="button"
 class="preset"
 data-style="red">
+
 🔴 Red
+
 </button>
 
 <button
+type="button"
 class="preset"
 data-style="green">
+
 🟢 Green
+
 </button>
 
 <button
+type="button"
 class="preset"
 data-style="orange">
+
 🟠 Sunset
+
 </button>
 
 </div>
@@ -1455,7 +1934,7 @@ data-style="orange">
 </div>
 
 
-<!-- CHECKBOX -->
+<!-- DECORATION -->
 
 <div class="control-group">
 
@@ -1478,6 +1957,7 @@ Show decorative design
 <div class="actions">
 
 <button
+type="button"
 class="action-btn download-btn"
 id="downloadBtn">
 
@@ -1486,6 +1966,7 @@ id="downloadBtn">
 </button>
 
 <button
+type="button"
 class="action-btn reset-btn"
 id="resetBtn">
 
@@ -1558,7 +2039,7 @@ ASIM TECH
 
 <div
 id="bannerText"
-class="font-hind">
+class="font-hind text-normal">
 
 আপনার স্বপ্নকে
 বাস্তবে রূপ দিন
@@ -1596,14 +2077,15 @@ id="subPreview">
 <section class="info">
 
 <h2>
-✨ ৭টি Stylish বাংলা Font
+✨ ৭টি Stylish বাংলা Font + ৮টি Text Design
 </h2>
 
 <p>
 
 Hind Siliguri, Anek Bangla, Baloo Da 2, Atma,
-Galada, Noto Serif Bengali এবং Tiro Bangla —
-বিভিন্ন ধরনের ডিজাইনের জন্য ব্যবহার করতে পারবেন।
+Galada, Noto Serif Bengali এবং Tiro Bangla ব্যবহার করে
+Neon, Golden, Gradient, Outline, Shadow, Cyan Glow,
+Premium এবং Normal লেখার ডিজাইন তৈরি করতে পারবেন।
 
 </p>
 
@@ -1641,6 +2123,8 @@ Galada, Noto Serif Bengali এবং Tiro Bangla —
 
 (function(){
 
+"use strict";
+
 
 /* =====================================================
    ELEMENTS
@@ -1657,6 +2141,24 @@ document.getElementById("fontSize");
 
 const fontSizeValue =
 document.getElementById("fontSizeValue");
+
+const fontWeight =
+document.getElementById("fontWeight");
+
+const letterSpacing =
+document.getElementById("letterSpacing");
+
+const letterSpacingValue =
+document.getElementById("letterSpacingValue");
+
+const lineHeight =
+document.getElementById("lineHeight");
+
+const lineHeightValue =
+document.getElementById("lineHeightValue");
+
+const textAlign =
+document.getElementById("textAlign");
 
 const textColor =
 document.getElementById("textColor");
@@ -1716,122 +2218,131 @@ document.getElementById("resetBtn");
 
 const backgrounds = {
 
-    blue: `
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(0,180,255,.38),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 85% 85%,
-            rgba(80,50,255,.28),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #062a49,
-            #07172b 55%,
-            #24105a
-        )
-    `,
+blue: `
+radial-gradient(
+circle at 15% 15%,
+rgba(0,180,255,.38),
+transparent 35%
+),
+radial-gradient(
+circle at 85% 85%,
+rgba(80,50,255,.28),
+transparent 35%
+),
+linear-gradient(
+135deg,
+#062a49,
+#07172b 55%,
+#24105a
+)
+`,
 
-    purple: `
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(200,60,255,.35),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(80,80,255,.35),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #250640,
-            #160d35 55%,
-            #351064
-        )
-    `,
+purple: `
+radial-gradient(
+circle at 15% 20%,
+rgba(200,60,255,.35),
+transparent 34%
+),
+radial-gradient(
+circle at 85% 80%,
+rgba(80,80,255,.35),
+transparent 35%
+),
+linear-gradient(
+135deg,
+#250640,
+#160d35 55%,
+#351064
+)
+`,
 
-    red: `
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,40,70,.35),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(255,120,0,.30),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #45050c,
-            #22070c 55%,
-            #570011
-        )
-    `,
+red: `
+radial-gradient(
+circle at 20% 20%,
+rgba(255,40,70,.35),
+transparent 34%
+),
+radial-gradient(
+circle at 85% 80%,
+rgba(255,120,0,.30),
+transparent 35%
+),
+linear-gradient(
+135deg,
+#45050c,
+#22070c 55%,
+#570011
+)
+`,
 
-    green: `
-        radial-gradient(
-            circle at 20% 15%,
-            rgba(0,255,160,.30),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 85% 85%,
-            rgba(0,150,255,.25),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #04352b,
-            #061d1e 55%,
-            #063f45
-        )
-    `,
+green: `
+radial-gradient(
+circle at 20% 15%,
+rgba(0,255,160,.30),
+transparent 35%
+),
+radial-gradient(
+circle at 85% 85%,
+rgba(0,150,255,.25),
+transparent 35%
+),
+linear-gradient(
+135deg,
+#04352b,
+#061d1e 55%,
+#063f45
+)
+`,
 
-    orange: `
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,180,0,.35),
-            transparent 34%
-        ),
-        radial-gradient(
-            circle at 85% 85%,
-            rgba(255,50,50,.32),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #542000,
-            #31100a 55%,
-            #5d0711
-        )
-    `,
+orange: `
+radial-gradient(
+circle at 20% 20%,
+rgba(255,180,0,.35),
+transparent 34%
+),
+radial-gradient(
+circle at 85% 85%,
+rgba(255,50,50,.32),
+transparent 35%
+),
+linear-gradient(
+135deg,
+#542000,
+#31100a 55%,
+#5d0711
+)
+`,
 
-    dark: `
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,.07),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #10151e,
-            #05070c
-        )
-    `,
+dark: `
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.07),
+transparent 30%
+),
+linear-gradient(
+135deg,
+#10151e,
+#05070c
+)
+`,
 
-    white: `
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #edf5ff
-        )
-    `
+white: `
+linear-gradient(
+135deg,
+#ffffff,
+#edf5ff
+)
+`
+
 };
+
+
+/* =====================================================
+   CURRENT TEXT STYLE
+===================================================== */
+
+let currentTextStyle =
+"text-normal";
 
 
 /* =====================================================
@@ -1840,245 +2351,423 @@ const backgrounds = {
 
 function updateBanner(){
 
-    /* Text */
 
-    bannerText.textContent =
-    textInput.value ||
-    "বাংলা লেখা এখানে লিখুন";
+/* TEXT */
 
-
-    /* Font */
-
-    bannerText.className =
-    fontSelect.value;
+bannerText.textContent =
+textInput.value ||
+"বাংলা লেখা এখানে লিখুন";
 
 
-    /* Size */
+/* FONT */
 
-    const size =
-    Number(fontSize.value);
-
-    bannerText.style.fontSize =
-    size + "px";
-
-    fontSizeValue.textContent =
-    size + "px";
+bannerText.className =
+fontSelect.value +
+" " +
+currentTextStyle;
 
 
-    /* Color */
+/* FONT SIZE */
 
-    bannerText.style.color =
-    textColor.value;
+const size =
+Number(fontSize.value) || 52;
 
+bannerText.style.fontSize =
+size + "px";
 
-    textColorCode.value =
-    textColor.value;
-
-
-    /* Background */
-
-    const selectedBackground =
-    backgroundSelect.value;
-
-    banner.style.background =
-    backgrounds[selectedBackground];
+fontSizeValue.textContent =
+size + "px";
 
 
-    /* Width */
+/* FONT WEIGHT */
 
-    const width =
-    Number(bannerWidth.value) || 800;
-
-    const height =
-    Number(bannerHeight.value) || 450;
+bannerText.style.fontWeight =
+fontWeight.value;
 
 
-    banner.style.width =
-    width + "px";
+/* LETTER SPACING */
 
-    banner.style.height =
-    height + "px";
+const spacing =
+Number(letterSpacing.value) || 0;
 
+bannerText.style.letterSpacing =
+spacing + "px";
 
-    /* Small title */
-
-    smallPreview.textContent =
-    smallText.value;
-
-
-    /* Subtitle */
-
-    subPreview.textContent =
-    subText.value;
+letterSpacingValue.textContent =
+spacing + "px";
 
 
-    /* Decoration */
+/* LINE HEIGHT */
 
-    const visible =
-    showDecoration.checked
-    ? "block"
-    : "none";
+const line =
+Number(lineHeight.value) || 1.25;
 
+bannerText.style.lineHeight =
+line;
 
-    circleOne.style.display =
-    visible;
-
-    circleTwo.style.display =
-    visible;
-
-    bannerLine.style.display =
-    visible;
+lineHeightValue.textContent =
+line.toFixed(2);
 
 
-    /* White background adjustment */
+/* ALIGNMENT */
 
-    if(selectedBackground === "white"){
+bannerText.style.textAlign =
+textAlign.value;
 
-        smallPreview.style.color =
-        "#006dff";
 
-        smallPreview.style.borderColor =
-        "rgba(0,100,200,.20)";
+/* COLOR */
 
-        bannerText.style.textShadow =
-        "0 2px 10px rgba(0,0,0,.15)";
+if(
+currentTextStyle === "text-normal" ||
+currentTextStyle === "text-shadow" ||
+currentTextStyle === "text-cyan" ||
+currentTextStyle === "text-premium"
+){
 
-        subPreview.style.color =
-        "rgba(0,0,0,.60)";
+bannerText.style.color =
+textColor.value;
 
-    }else{
+}else{
 
-        smallPreview.style.color =
-        "#8bdcff";
+bannerText.style.color =
+"";
 
-        smallPreview.style.borderColor =
-        "rgba(255,255,255,.20)";
+}
 
-        bannerText.style.textShadow =
-        "0 4px 18px rgba(0,0,0,.45)";
+textColorCode.value =
+textColor.value;
 
-        subPreview.style.color =
-        "rgba(255,255,255,.72)";
 
-    }
+/* BACKGROUND */
+
+const selectedBackground =
+backgroundSelect.value;
+
+banner.style.background =
+backgrounds[selectedBackground];
+
+
+/* SIZE */
+
+const width =
+Number(bannerWidth.value) || 800;
+
+const height =
+Number(bannerHeight.value) || 450;
+
+banner.style.width =
+width + "px";
+
+banner.style.height =
+height + "px";
+
+
+/* SMALL TITLE */
+
+smallPreview.textContent =
+smallText.value;
+
+
+/* SUBTITLE */
+
+subPreview.textContent =
+subText.value;
+
+
+/* DECORATION */
+
+const visible =
+showDecoration.checked
+? "block"
+: "none";
+
+circleOne.style.display =
+visible;
+
+circleTwo.style.display =
+visible;
+
+bannerLine.style.display =
+visible;
+
+
+/* WHITE BACKGROUND */
+
+if(
+selectedBackground === "white"
+){
+
+smallPreview.style.color =
+"#006dff";
+
+smallPreview.style.borderColor =
+"rgba(0,100,200,.20)";
+
+subPreview.style.color =
+"rgba(0,0,0,.60)";
+
+if(
+currentTextStyle === "text-normal" ||
+currentTextStyle === "text-shadow" ||
+currentTextStyle === "text-cyan" ||
+currentTextStyle === "text-premium"
+){
+
+bannerText.style.textShadow =
+"0 2px 10px rgba(0,0,0,.18)";
+
+}
+
+}else{
+
+smallPreview.style.color =
+"#8bdcff";
+
+smallPreview.style.borderColor =
+"rgba(255,255,255,.20)";
+
+subPreview.style.color =
+"rgba(255,255,255,.72)";
+
+}
 
 }
 
 
 /* =====================================================
-   INPUT EVENTS
+   TEXT INPUT
 ===================================================== */
 
 textInput.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-fontSelect.addEventListener(
-    "change",
-    updateBanner
-);
-
-
-fontSize.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-textColor.addEventListener(
-    "input",
-    function(){
-
-        textColorCode.value =
-        textColor.value;
-
-        updateBanner();
-
-    }
-);
-
-
-textColorCode.addEventListener(
-    "input",
-    function(){
-
-        const value =
-        textColorCode.value;
-
-        if(
-            /^#[0-9A-Fa-f]{6}$/.test(value)
-        ){
-
-            textColor.value =
-            value;
-
-            updateBanner();
-
-        }
-
-    }
-);
-
-
-backgroundSelect.addEventListener(
-    "change",
-    updateBanner
-);
-
-
-bannerWidth.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-bannerHeight.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-smallText.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-subText.addEventListener(
-    "input",
-    updateBanner
-);
-
-
-showDecoration.addEventListener(
-    "change",
-    updateBanner
+"input",
+updateBanner
 );
 
 
 /* =====================================================
-   QUICK PRESETS
+   FONT
 ===================================================== */
 
-document.querySelectorAll(".preset")
+fontSelect.addEventListener(
+"change",
+updateBanner
+);
+
+
+/* =====================================================
+   FONT SIZE
+===================================================== */
+
+fontSize.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   FONT WEIGHT
+===================================================== */
+
+fontWeight.addEventListener(
+"change",
+updateBanner
+);
+
+
+/* =====================================================
+   LETTER SPACING
+===================================================== */
+
+letterSpacing.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   LINE HEIGHT
+===================================================== */
+
+lineHeight.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   ALIGNMENT
+===================================================== */
+
+textAlign.addEventListener(
+"change",
+updateBanner
+);
+
+
+/* =====================================================
+   TEXT COLOR
+===================================================== */
+
+textColor.addEventListener(
+"input",
+function(){
+
+textColorCode.value =
+textColor.value;
+
+updateBanner();
+
+}
+);
+
+
+/* =====================================================
+   COLOR CODE
+===================================================== */
+
+textColorCode.addEventListener(
+"input",
+function(){
+
+const value =
+textColorCode.value;
+
+if(
+/^#[0-9A-Fa-f]{6}$/.test(value)
+){
+
+textColor.value =
+value;
+
+updateBanner();
+
+}
+
+}
+);
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+backgroundSelect.addEventListener(
+"change",
+updateBanner
+);
+
+
+/* =====================================================
+   WIDTH
+===================================================== */
+
+bannerWidth.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   HEIGHT
+===================================================== */
+
+bannerHeight.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   SMALL TEXT
+===================================================== */
+
+smallText.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   SUB TEXT
+===================================================== */
+
+subText.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   DECORATION
+===================================================== */
+
+showDecoration.addEventListener(
+"change",
+updateBanner
+);
+
+
+/* =====================================================
+   TEXT DESIGN BUTTONS
+===================================================== */
+
+document
+.querySelectorAll(".design-btn")
 .forEach(function(button){
 
-    button.addEventListener(
-        "click",
-        function(){
+button.addEventListener(
+"click",
+function(){
 
-            const style =
-            button.dataset.style;
+document
+.querySelectorAll(".design-btn")
+.forEach(function(btn){
 
-            backgroundSelect.value =
-            style;
+btn.classList.remove("active");
 
-            updateBanner();
+});
 
-        }
-    );
+
+button.classList.add("active");
+
+
+currentTextStyle =
+button.dataset.textStyle ||
+"text-normal";
+
+
+updateBanner();
+
+}
+
+);
+
+});
+
+
+/* =====================================================
+   QUICK BACKGROUND PRESETS
+===================================================== */
+
+document
+.querySelectorAll(".preset")
+.forEach(function(button){
+
+button.addEventListener(
+"click",
+function(){
+
+const style =
+button.dataset.style;
+
+backgroundSelect.value =
+style;
+
+updateBanner();
+
+}
+
+);
 
 });
 
@@ -2088,45 +2777,101 @@ document.querySelectorAll(".preset")
 ===================================================== */
 
 resetBtn.addEventListener(
-    "click",
-    function(){
+"click",
+function(){
 
-        textInput.value =
-        "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
+textInput.value =
+"আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
 
-        fontSelect.value =
-        "font-hind";
 
-        fontSize.value =
-        52;
+fontSelect.value =
+"font-hind";
 
-        textColor.value =
-        "#ffffff";
 
-        textColorCode.value =
-        "#ffffff";
+fontSize.value =
+52;
 
-        backgroundSelect.value =
-        "blue";
 
-        bannerWidth.value =
-        800;
+fontWeight.value =
+700;
 
-        bannerHeight.value =
-        450;
 
-        smallText.value =
-        "ASIM TECH";
+letterSpacing.value =
+0;
 
-        subText.value =
-        "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
 
-        showDecoration.checked =
-        true;
+lineHeight.value =
+1.25;
 
-        updateBanner();
 
-    }
+textAlign.value =
+"center";
+
+
+textColor.value =
+"#ffffff";
+
+
+textColorCode.value =
+"#ffffff";
+
+
+backgroundSelect.value =
+"blue";
+
+
+bannerWidth.value =
+800;
+
+
+bannerHeight.value =
+450;
+
+
+smallText.value =
+"ASIM TECH";
+
+
+subText.value =
+"আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
+
+
+showDecoration.checked =
+true;
+
+
+/* RESET TEXT STYLE */
+
+currentTextStyle =
+"text-normal";
+
+
+document
+.querySelectorAll(".design-btn")
+.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+
+const normalButton =
+document.querySelector(
+'[data-text-style="text-normal"]'
+);
+
+
+if(normalButton){
+
+normalButton.classList.add("active");
+
+}
+
+
+updateBanner();
+
+}
+
 );
 
 
@@ -2135,92 +2880,113 @@ resetBtn.addEventListener(
 ===================================================== */
 
 downloadBtn.addEventListener(
-    "click",
-    async function(){
+"click",
+async function(){
 
-        const oldText =
-        downloadBtn.textContent;
-
-
-        downloadBtn.textContent =
-        "⏳ তৈরি হচ্ছে...";
+const oldText =
+downloadBtn.textContent;
 
 
-        downloadBtn.disabled =
-        true;
+downloadBtn.textContent =
+"⏳ তৈরি হচ্ছে...";
 
 
-        try{
-
-            /*
-             * Wait for Bengali fonts
-             */
-
-            if(document.fonts){
-
-                await document.fonts.ready;
-
-            }
+downloadBtn.disabled =
+true;
 
 
-            /*
-             * Create canvas
-             */
-
-            const canvas =
-            await html2canvas(
-                banner,
-                {
-                    scale:2,
-
-                    useCORS:true,
-
-                    backgroundColor:null,
-
-                    logging:false
-                }
-            );
+try{
 
 
-            /*
-             * Download
-             */
+/* WAIT FOR FONTS */
 
-            const link =
-            document.createElement("a");
+if(document.fonts){
 
+await document.fonts.ready;
 
-            link.download =
-            "asim-tech-bangla-banner.png";
+}
 
 
-            link.href =
-            canvas.toDataURL(
-                "image/png"
-            );
+/* SMALL DELAY */
+
+await new Promise(
+function(resolve){
+
+setTimeout(
+resolve,
+150
+);
+
+}
+);
 
 
-            link.click();
+/* CANVAS */
+
+const canvas =
+await html2canvas(
+banner,
+{
+
+scale:2,
+
+useCORS:true,
+
+allowTaint:false,
+
+backgroundColor:null,
+
+logging:false
+
+}
+);
 
 
-        }catch(error){
+/* DOWNLOAD */
 
-            console.error(error);
-
-            alert(
-                "Banner download করা যায়নি। আবার চেষ্টা করুন।"
-            );
-
-        }
+const link =
+document.createElement("a");
 
 
-        downloadBtn.textContent =
-        oldText;
+link.download =
+"asim-tech-bangla-banner.png";
 
-        downloadBtn.disabled =
-        false;
 
-    }
+link.href =
+canvas.toDataURL(
+"image/png"
+);
+
+
+document.body.appendChild(link);
+
+
+link.click();
+
+
+link.remove();
+
+
+}catch(error){
+
+console.error(error);
+
+alert(
+"Banner download করা যায়নি। আবার চেষ্টা করুন।"
+);
+
+}
+
+
+downloadBtn.textContent =
+oldText;
+
+
+downloadBtn.disabled =
+false;
+
+}
+
 );
 
 
@@ -2232,7 +2998,6 @@ updateBanner();
 
 
 })();
-
 </script>
 
 
