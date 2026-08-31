@@ -2,18 +2,12 @@
   "name": "Asim Barcode & QR Scanner",
   "short_name": "Asim Scanner",
   "description": "Scan, create and download QR codes and barcodes.",
-  "lang": "en",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#020b18",
   "theme_color": "#020b18",
-  "categories": [
-    "utilities",
-    "productivity",
-    "business"
-  ],
   "icons": [
     {
       "src": "icon-192.png",
