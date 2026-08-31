@@ -9,12 +9,16 @@
 content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-content="#050914">
+content="#070b16">
 
 <title>Asim Tech বাংলা Banner Maker</title>
 
 <meta name="description"
-content="Professional Bengali Banner Maker by Asim Tech.">
+content="Create beautiful Bengali banners online with stylish Bengali fonts.">
+
+<!-- =====================================================
+     BENGALI FONTS
+===================================================== -->
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -26,1188 +30,1627 @@ crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Atma:wght@400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Tiro+Bangla:ital@0;1&display=swap"
 rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<!-- =====================================================
+     HTML2CANVAS
+===================================================== -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+</script>
+
 
 <style>
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+/* =========================================================
+   ASIM TECH BANNER MAKER
+========================================================= */
 
 :root{
---bg:#050914;
---panel:#0b1525;
---border:rgba(100,190,255,.20);
---blue:#159cff;
---cyan:#3be3ff;
---text:#fff;
---muted:#8fa4b8;
+
+    --bg:#050914;
+
+    --panel:#0b1220;
+
+    --panel2:#101a2b;
+
+    --border:rgba(100,180,255,.20);
+
+    --text:#ffffff;
+
+    --muted:#8fa4b8;
+
+    --blue:#159cff;
+
+    --blue2:#006cff;
+
+    --cyan:#3be3ff;
+
 }
 
-html{
-scroll-behavior:smooth;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+
+    box-sizing:border-box;
+
+    margin:0;
+
+    padding:0;
+
 }
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 
 body{
 
-min-height:100vh;
+    min-height:100vh;
 
-font-family:
-Arial,
-Helvetica,
-sans-serif;
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-color:var(--text);
+    color:var(--text);
 
-background:
+    background:
 
-radial-gradient(
-circle at 15% 5%,
-rgba(0,150,255,.16),
-transparent 30%
-),
+    radial-gradient(
+        circle at 15% 5%,
+        rgba(0,150,255,.16),
+        transparent 30%
+    ),
 
-radial-gradient(
-circle at 90% 30%,
-rgba(130,50,255,.13),
-transparent 30%
-),
+    radial-gradient(
+        circle at 90% 30%,
+        rgba(120,50,255,.13),
+        transparent 30%
+    ),
 
-#050914;
+    #050914;
 
-overflow-x:hidden;
+    overflow-x:hidden;
+
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
 
-position:sticky;
+    position:sticky;
 
-top:0;
+    top:0;
 
-z-index:999;
+    z-index:1000;
 
-display:flex;
+    display:flex;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-align-items:center;
+    align-items:center;
 
-padding:13px 5%;
+    padding:13px 5%;
 
-background:
-rgba(5,9,20,.92);
+    background:
+    rgba(5,9,20,.90);
 
-border-bottom:
-1px solid var(--border);
+    border-bottom:
+    1px solid var(--border);
 
-backdrop-filter:blur(18px);
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
 }
+
 
 .logo{
 
-color:#fff;
+    color:#fff;
 
-text-decoration:none;
+    text-decoration:none;
 
-font-size:21px;
+    font-size:21px;
 
-font-weight:900;
+    font-weight:900;
+
+    letter-spacing:.5px;
+
 }
+
 
 .logo span{
-color:var(--blue);
-}
 
-.badge{
+    color:var(--blue);
 
-padding:7px 12px;
-
-border:
-1px solid rgba(0,170,255,.25);
-
-border-radius:999px;
-
-color:#73d5ff;
-
-background:
-rgba(0,150,255,.07);
-
-font-size:10px;
-
-font-weight:800;
 }
 
 
-/* CONTAINER */
+.header-badge{
+
+    padding:7px 12px;
+
+    border:
+    1px solid rgba(0,170,255,.25);
+
+    border-radius:999px;
+
+    color:#73d5ff;
+
+    background:
+    rgba(0,150,255,.07);
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 .container{
 
-width:94%;
+    width:94%;
 
-max-width:1250px;
+    max-width:1200px;
 
-margin:35px auto 70px;
+    margin:
+    35px auto 70px;
+
 }
+
 
 .hero{
 
-text-align:center;
+    text-align:center;
 
-margin-bottom:30px;
+    margin-bottom:30px;
+
 }
+
 
 .hero h1{
 
-font-size:
-clamp(30px,6vw,52px);
+    font-size:
+    clamp(30px,6vw,52px);
 
-margin-bottom:10px;
+    line-height:1.1;
 
-font-weight:900;
+    margin-bottom:10px;
+
+    font-weight:900;
+
 }
+
 
 .hero h1 span{
-color:var(--blue);
+
+    color:var(--blue);
+
 }
+
 
 .hero p{
 
-color:var(--muted);
+    color:var(--muted);
 
-font-size:14px;
+    font-size:14px;
 
-line-height:1.7;
+    line-height:1.7;
+
 }
 
 
-/* DESIGNER */
+/* =========================================================
+   DESIGNER
+========================================================= */
 
 .designer{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-380px 1fr;
+    grid-template-columns:
+    370px 1fr;
 
-gap:25px;
+    gap:25px;
 
-align-items:start;
+    align-items:start;
+
 }
 
 
-/* CONTROLS */
+/* =========================================================
+   CONTROL PANEL
+========================================================= */
 
 .controls{
 
-padding:20px;
+    padding:20px;
 
-border:
-1px solid var(--border);
+    border:
+    1px solid var(--border);
 
-border-radius:22px;
+    border-radius:22px;
 
-background:
-linear-gradient(
-145deg,
-rgba(13,28,48,.94),
-rgba(6,13,25,.98)
-);
+    background:
+    linear-gradient(
+        145deg,
+        rgba(13,28,48,.92),
+        rgba(6,13,25,.96)
+    );
 
-box-shadow:
-0 20px 60px rgba(0,0,0,.3);
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.28);
+
 }
+
 
 .control-title{
 
-font-size:19px;
+    font-size:18px;
 
-font-weight:900;
+    font-weight:800;
 
-margin-bottom:20px;
+    margin-bottom:18px;
+
 }
 
-.group{
 
-margin-bottom:17px;
+.control-group{
+
+    margin-bottom:18px;
+
 }
 
-.group label{
 
-display:block;
+.control-group label{
 
-margin-bottom:7px;
+    display:block;
 
-color:#c9d8e5;
+    margin-bottom:7px;
 
-font-size:12px;
+    color:#c9d8e5;
 
-font-weight:800;
+    font-size:12px;
+
+    font-weight:700;
+
 }
+
 
 textarea,
 select,
 input[type="text"],
 input[type="number"]{
 
-width:100%;
+    width:100%;
 
-border:
-1px solid #29445d;
+    border:
+    1px solid #29445d;
 
-border-radius:11px;
+    border-radius:11px;
 
-outline:none;
+    outline:none;
 
-color:#fff;
+    color:#fff;
 
-background:#081322;
+    background:#081322;
 
-font-family:inherit;
+    font-family:inherit;
 
-transition:.2s;
+    transition:.2s ease;
+
 }
+
 
 textarea{
 
-min-height:105px;
+    min-height:105px;
 
-padding:12px;
+    padding:12px;
 
-resize:vertical;
+    resize:vertical;
 
-font-size:16px;
+    font-size:16px;
 
-line-height:1.6;
+    line-height:1.6;
+
 }
+
 
 select,
 input[type="text"],
 input[type="number"]{
 
-height:43px;
+    height:43px;
 
-padding:
-0 11px;
+    padding:
+    0 11px;
 
-font-size:13px;
+    font-size:13px;
+
 }
+
 
 textarea:focus,
 select:focus,
 input:focus{
 
-border-color:var(--blue);
+    border-color:var(--blue);
 
-box-shadow:
-0 0 0 3px
-rgba(0,160,255,.08);
+    box-shadow:
+    0 0 0 3px
+    rgba(0,160,255,.08);
+
 }
 
 
-/* ROW */
+/* =========================================================
+   TWO COLUMN
+========================================================= */
 
 .row{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-1fr 1fr;
+    grid-template-columns:
+    1fr 1fr;
 
-gap:9px;
+    gap:10px;
+
 }
 
 
-/* RANGE */
+/* =========================================================
+   RANGE
+========================================================= */
 
-.range{
+.range-line{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:10px;
-}
+    gap:10px;
 
-.range input{
-
-width:100%;
-
-accent-color:var(--blue);
-}
-
-.value{
-
-min-width:50px;
-
-text-align:right;
-
-color:#73d5ff;
-
-font-size:11px;
-
-font-weight:800;
 }
 
 
-/* COLOR */
+input[type="range"]{
 
-.color-row{
+    width:100%;
 
-display:flex;
+    accent-color:var(--blue);
 
-gap:9px;
+    cursor:pointer;
 
-align-items:center;
 }
+
+
+.range-value{
+
+    min-width:48px;
+
+    text-align:right;
+
+    color:#75d2ff;
+
+    font-size:12px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   COLOR
+========================================================= */
+
+.color-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
 
 input[type="color"]{
 
-width:50px;
+    width:48px;
 
-height:41px;
+    height:40px;
 
-padding:2px;
+    padding:2px;
 
-border:
-1px solid #29445d;
+    border:
+    1px solid #29445d;
 
-border-radius:9px;
+    border-radius:9px;
 
-background:#081322;
+    background:#081322;
+
+    cursor:pointer;
+
 }
 
 
-/* TEXT STYLES */
+/* =========================================================
+   CHECKBOX
+========================================================= */
 
-.styles{
+.check-row{
 
-display:grid;
+    display:flex !important;
 
-grid-template-columns:
-repeat(2,1fr);
+    align-items:center;
 
-gap:7px;
-}
+    gap:9px;
 
-.style-btn{
+    color:#b9cbd8 !important;
 
-min-height:40px;
+    font-size:12px !important;
 
-border:
-1px solid #29445d;
+    cursor:pointer;
 
-border-radius:9px;
-
-background:
-rgba(255,255,255,.035);
-
-color:#c3d4df;
-
-font-size:10px;
-
-font-weight:800;
-
-cursor:pointer;
-}
-
-.style-btn.active{
-
-border-color:var(--blue);
-
-background:
-rgba(0,157,255,.15);
-
-color:#fff;
-
-box-shadow:
-0 0 18px
-rgba(0,157,255,.12);
 }
 
 
-/* ALIGN */
+.check-row input{
 
-.align{
+    width:17px;
 
-display:grid;
+    height:17px;
 
-grid-template-columns:
-repeat(3,1fr);
+    accent-color:var(--blue);
 
-gap:7px;
-}
-
-.align button{
-
-height:39px;
-
-border:
-1px solid #29445d;
-
-border-radius:9px;
-
-background:
-rgba(255,255,255,.035);
-
-color:#c3d4df;
-
-cursor:pointer;
-
-font-size:13px;
-}
-
-.align button.active{
-
-background:
-rgba(0,157,255,.15);
-
-border-color:var(--blue);
-
-color:#fff;
 }
 
 
-/* UPLOAD */
+/* =========================================================
+   DESIGN BUTTONS
+========================================================= */
 
-.upload{
+.design-grid{
 
-display:block;
+    display:grid;
 
-width:100%;
+    grid-template-columns:
+    1fr 1fr;
 
-padding:11px;
+    gap:8px;
 
-text-align:center;
-
-border:
-1px dashed #31526d;
-
-border-radius:10px;
-
-color:#9bb2c2;
-
-background:
-rgba(255,255,255,.025);
-
-font-size:11px;
-
-font-weight:800;
-
-cursor:pointer;
-}
-
-.upload:hover{
-
-border-color:var(--blue);
-
-color:#fff;
-}
-
-.upload input{
-display:none;
 }
 
 
-/* CHECK */
+.design-btn{
 
-.check{
+    min-height:43px;
 
-display:flex;
+    padding:8px;
 
-align-items:center;
+    border:
+    1px solid #29445d;
 
-gap:8px;
+    border-radius:11px;
 
-font-size:12px;
+    background:
+    rgba(255,255,255,.035);
 
-color:#b9cbd8;
+    color:#bcd0dd;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
 }
 
-.check input{
 
-width:17px;
+.design-btn:hover{
 
-height:17px;
+    transform:translateY(-2px);
 
-accent-color:var(--blue);
+    border-color:var(--blue);
+
+    color:#fff;
+
 }
 
 
-/* BUTTONS */
+.design-btn.active{
+
+    color:#fff;
+
+    border-color:var(--blue);
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,157,255,.25),
+        rgba(0,80,180,.18)
+    );
+
+    box-shadow:
+    0 0 20px
+    rgba(0,157,255,.10);
+
+}
+
+
+/* =========================================================
+   PRESET BUTTONS
+========================================================= */
+
+.presets{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+}
+
+
+.preset{
+
+    padding:
+    8px 10px;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:9px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:#bcd0dd;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+}
+
+
+.preset:hover{
+
+    border-color:var(--blue);
+
+    color:#fff;
+
+    transform:translateY(-1px);
+
+}
+
+
+/* =========================================================
+   POSITION BUTTONS
+========================================================= */
+
+.position-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:8px;
+
+    margin-bottom:9px;
+
+}
+
+
+.position-btn{
+
+    min-height:40px;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:10px;
+
+    background:#102237;
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+}
+
+
+.position-btn:hover{
+
+    border-color:var(--blue);
+
+    transform:translateY(-1px);
+
+}
+
+
+/* =========================================================
+   UPLOAD
+========================================================= */
+
+.upload-box{
+
+    padding:12px;
+
+    border:
+    1px dashed #31536f;
+
+    border-radius:12px;
+
+    background:
+    rgba(0,150,255,.035);
+
+}
+
+
+.upload-box input[type="file"]{
+
+    width:100%;
+
+    color:#a9c1d1;
+
+    font-size:11px;
+
+}
+
+
+.upload-box input[type="file"]::file-selector-button{
+
+    margin-right:8px;
+
+    padding:7px 10px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:#12304b;
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .actions{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-1fr 1fr;
+    grid-template-columns:
+    1fr 1fr;
 
-gap:9px;
+    gap:9px;
 
-margin-top:20px;
-}
+    margin-top:20px;
 
-.action{
-
-min-height:48px;
-
-border:0;
-
-border-radius:11px;
-
-color:#fff;
-
-font-weight:900;
-
-cursor:pointer;
-}
-
-.download{
-
-background:
-linear-gradient(
-135deg,
-#00bd72,
-#009b58
-);
-}
-
-.reset{
-
-background:
-linear-gradient(
-135deg,
-#24364c,
-#17263a
-);
-
-border:
-1px solid #35506a;
 }
 
 
-/* PREVIEW */
+.action-btn{
 
-.preview{
+    min-height:46px;
 
-min-width:0;
+    border:0;
 
-padding:20px;
+    border-radius:11px;
 
-border:
-1px solid var(--border);
+    color:#fff;
 
-border-radius:22px;
+    font-size:13px;
 
-background:
-rgba(7,15,28,.75);
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
 }
 
-.preview-head{
 
-display:flex;
+.action-btn:hover{
 
-justify-content:space-between;
+    transform:translateY(-2px);
 
-align-items:center;
+    filter:brightness(1.1);
 
-margin-bottom:15px;
 }
 
-.preview-head strong{
-font-size:16px;
+
+.download-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00bd72,
+        #009b58
+    );
+
 }
 
-.preview-head span{
 
-color:#6d879b;
+.reset-btn{
 
-font-size:10px;
+    background:
+    linear-gradient(
+        135deg,
+        #24364c,
+        #17263a
+    );
+
+    border:
+    1px solid #35506a;
+
 }
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.preview-area{
+
+    min-width:0;
+
+    padding:20px;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:22px;
+
+    background:
+    rgba(7,15,28,.72);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.22);
+
+}
+
+
+.preview-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+
+.preview-title strong{
+
+    font-size:16px;
+
+}
+
+
+.preview-title span{
+
+    color:#6d879b;
+
+    font-size:10px;
+
+}
+
 
 .preview-scroll{
 
-overflow:auto;
+    width:100%;
 
-padding:10px;
+    overflow:auto;
 
-border-radius:15px;
+    padding:10px;
 
-background:#02050a;
+    border-radius:15px;
+
+    background:#02050a;
+
 }
 
 
-/* BANNER */
+/* =========================================================
+   BANNER
+========================================================= */
 
 #banner{
 
-position:relative;
+    position:relative;
 
-width:800px;
+    width:800px;
 
-height:450px;
+    height:450px;
 
-overflow:hidden;
+    overflow:hidden;
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
+    justify-content:center;
 
-text-align:center;
+    text-align:center;
 
-margin:auto;
+    margin:auto;
 
-background:
+    border-radius:0;
 
-radial-gradient(
-circle at 15% 15%,
-rgba(0,180,255,.38),
-transparent 35%
-),
+    background:
 
-radial-gradient(
-circle at 85% 85%,
-rgba(80,50,255,.28),
-transparent 35%
-),
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(0,170,255,.30),
+        transparent 32%
+    ),
 
-linear-gradient(
-135deg,
-#062a49,
-#07172b 55%,
-#24105a
-);
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(145,40,255,.28),
+        transparent 32%
+    ),
 
-box-shadow:
-0 20px 60px rgba(0,0,0,.5);
+    linear-gradient(
+        135deg,
+        #071c32,
+        #10102a 55%,
+        #250d43
+    );
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
+
 }
 
 
-/* BACKGROUND IMAGE */
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
 
 #backgroundImage{
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-width:100%;
+    width:100%;
 
-height:100%;
+    height:100%;
 
-object-fit:cover;
+    object-fit:cover;
 
-display:none;
+    z-index:1;
 
-z-index:1;
-}
+    display:none;
 
-#backgroundOverlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-rgba(0,0,0,.20);
-
-z-index:2;
 }
 
 
-/* DECORATION */
+#imageOverlay{
 
-.circle{
+    position:absolute;
 
-position:absolute;
+    inset:0;
 
-border-radius:50%;
+    z-index:2;
 
-border:
-1px solid rgba(255,255,255,.13);
+    background:
+    rgba(0,0,0,.30);
 
-background:
-rgba(255,255,255,.025);
+    pointer-events:none;
 
-z-index:3;
-}
-
-.circle.one{
-
-width:250px;
-
-height:250px;
-
-top:-100px;
-
-left:-80px;
-}
-
-.circle.two{
-
-width:320px;
-
-height:320px;
-
-right:-150px;
-
-bottom:-170px;
-}
-
-.line{
-
-position:absolute;
-
-width:75%;
-
-height:1px;
-
-bottom:62px;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.25),
-transparent
-);
-
-z-index:3;
 }
 
 
-/* LOGO */
+/* =========================================================
+   DECORATION
+========================================================= */
 
-#logoPreview{
+.banner-circle{
 
-position:absolute;
+    position:absolute;
 
-top:28px;
+    width:240px;
 
-left:32px;
+    height:240px;
 
-max-width:120px;
+    border-radius:50%;
 
-max-height:70px;
+    border:
+    1px solid rgba(255,255,255,.12);
 
-object-fit:contain;
+    background:
+    rgba(255,255,255,.025);
 
-display:none;
+    top:-90px;
 
-z-index:6;
+    left:-70px;
+
+    z-index:3;
+
 }
 
 
-/* CONTENT */
+.banner-circle.two{
 
-.content{
+    width:300px;
 
-position:relative;
+    height:300px;
 
-z-index:7;
+    top:auto;
 
-width:88%;
+    left:auto;
 
-padding:20px;
-}
+    right:-130px;
 
-.small{
+    bottom:-150px;
 
-display:inline-block;
+    border-color:
+    rgba(0,190,255,.17);
 
-margin-bottom:15px;
-
-padding:6px 15px;
-
-border:
-1px solid rgba(255,255,255,.20);
-
-border-radius:999px;
-
-background:
-rgba(0,150,255,.09);
-
-color:#8bdcff;
-
-font-family:Arial,sans-serif;
-
-font-size:13px;
-
-font-weight:800;
 }
 
 
-/* MAIN TEXT */
+.banner-line{
+
+    position:absolute;
+
+    width:75%;
+
+    height:1px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+
+    bottom:65px;
+
+    z-index:3;
+
+}
+
+
+/* =========================================================
+   BANNER CONTENT
+========================================================= */
+
+.banner-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:88%;
+
+    padding:20px;
+
+    transition:
+    transform .25s ease;
+
+}
+
+
+.banner-small{
+
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    padding:6px 14px;
+
+    border:
+    1px solid rgba(255,255,255,.20);
+
+    border-radius:999px;
+
+    color:#8bdcff;
+
+    background:
+    rgba(0,150,255,.09);
+
+    font-family:
+    Arial,
+    sans-serif;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
 
 #bannerText{
 
-white-space:pre-line;
+    white-space:pre-line;
 
-word-break:break-word;
+    word-break:break-word;
 
-font-size:52px;
+    font-size:52px;
 
-font-weight:700;
+    line-height:1.25;
 
-line-height:1.25;
+    font-weight:700;
 
-letter-spacing:0;
+    color:#fff;
 
-color:#fff;
+    text-shadow:
+    0 4px 18px rgba(0,0,0,.45);
 
-transition:.15s;
 }
 
 
-/* SUB */
+.banner-sub{
 
-.sub{
+    margin-top:16px;
 
-margin-top:17px;
+    color:rgba(255,255,255,.72);
 
-color:
-rgba(255,255,255,.75);
+    font-family:Arial,sans-serif;
 
-font-family:Arial,sans-serif;
+    font-size:14px;
 
-font-size:14px;
 }
 
 
-/* FONTS */
+/* =========================================================
+   FONT CLASSES
+========================================================= */
 
 .font-hind{
-font-family:"Hind Siliguri",sans-serif;
+
+    font-family:
+    "Hind Siliguri",
+    sans-serif;
+
 }
+
 
 .font-anek{
-font-family:"Anek Bangla",sans-serif;
+
+    font-family:
+    "Anek Bangla",
+    sans-serif;
+
 }
+
 
 .font-baloo{
-font-family:"Baloo Da 2",sans-serif;
+
+    font-family:
+    "Baloo Da 2",
+    sans-serif;
+
 }
+
 
 .font-atma{
-font-family:"Atma",sans-serif;
+
+    font-family:
+    "Atma",
+    sans-serif;
+
 }
+
 
 .font-galada{
-font-family:"Galada",cursive;
+
+    font-family:
+    "Galada",
+    cursive;
+
 }
+
 
 .font-noto{
-font-family:"Noto Serif Bengali",serif;
+
+    font-family:
+    "Noto Serif Bengali",
+    serif;
+
 }
+
 
 .font-tiro{
-font-family:"Tiro Bangla",serif;
+
+    font-family:
+    "Tiro Bangla",
+    serif;
+
 }
 
 
-/* TEXT DESIGNS */
+/* =========================================================
+   TEXT DESIGNS
+========================================================= */
 
-.normal{
-text-shadow:
-0 4px 18px rgba(0,0,0,.45);
+/* NORMAL */
+
+.design-normal{
+
+    color:#ffffff;
+
 }
 
-.neon{
 
-color:#c8faff !important;
+/* NEON */
 
-text-shadow:
-0 0 5px #fff,
-0 0 12px #00ddff,
-0 0 30px #00aaff,
-0 0 55px #00aaff !important;
+.design-neon{
+
+    color:#ffffff;
+
+    text-shadow:
+    0 0 5px #00d9ff,
+    0 0 15px #00d9ff,
+    0 0 30px #008cff,
+    0 0 55px #0070ff;
+
 }
 
-.golden{
 
-background:
-linear-gradient(
-180deg,
-#fffbd0,
-#ffd84a,
-#f39c12
-);
+/* GOLDEN */
 
--webkit-background-clip:text;
+.design-golden{
 
-background-clip:text;
+    background:
+    linear-gradient(
+        180deg,
+        #fff5a8,
+        #ffd43b,
+        #ff9d00
+    );
 
--webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
 
-color:#ffd84a !important;
+    background-clip:text;
 
-text-shadow:
-0 3px 18px rgba(255,170,0,.45) !important;
+    color:transparent;
+
+    text-shadow:
+    0 3px 12px rgba(255,160,0,.45);
+
 }
 
-.gradient{
 
-background:
-linear-gradient(
-90deg,
-#30ddff,
-#fff,
-#b56cff,
-#ff62c9
-);
+/* GRADIENT */
 
-background-size:300% auto;
+.design-gradient{
 
--webkit-background-clip:text;
+    background:
+    linear-gradient(
+        90deg,
+        #00d9ff,
+        #ffffff,
+        #a84dff,
+        #ff4db8
+    );
 
-background-clip:text;
+    background-size:200% 100%;
 
--webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
 
-animation:
-gradientMove 5s linear infinite;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+    gradientMove 4s linear infinite;
+
 }
+
 
 @keyframes gradientMove{
 
-0%{
-background-position:0 center;
-}
+    0%{
+        background-position:0% 50%;
+    }
 
-100%{
-background-position:300% center;
-}
+    100%{
+        background-position:200% 50%;
+    }
 
-}
-
-.outline{
-
-color:transparent !important;
-
--webkit-text-stroke:
-2px #fff;
-
-text-shadow:
-0 5px 20px rgba(0,0,0,.7) !important;
-}
-
-.shadow{
-
-color:#fff !important;
-
-text-shadow:
-4px 4px 0 #000,
-8px 8px 0 rgba(0,0,0,.35),
-0 14px 30px rgba(0,0,0,.7) !important;
-}
-
-.cyan{
-
-color:#5deaff !important;
-
-text-shadow:
-0 0 8px #00dfff,
-0 0 22px rgba(0,210,255,.75),
-0 6px 20px rgba(0,0,0,.5) !important;
-}
-
-.premium{
-
-color:#fff !important;
-
--webkit-text-stroke:
-.5px rgba(255,255,255,.35);
-
-text-shadow:
-0 2px 0 rgba(255,255,255,.35),
-0 5px 15px rgba(0,0,0,.6),
-0 12px 35px rgba(0,0,0,.35) !important;
-}
-
-.threeD{
-
-color:#fff !important;
-
-text-shadow:
-1px 1px 0 #ccc,
-2px 2px 0 #aaa,
-3px 3px 0 #888,
-4px 4px 0 #666,
-5px 5px 0 #444,
-8px 12px 20px rgba(0,0,0,.65) !important;
 }
 
 
-/* INFO */
+/* OUTLINE */
+
+.design-outline{
+
+    color:#ffffff;
+
+    -webkit-text-stroke:
+    2px #07111c;
+
+    text-shadow:
+    0 3px 10px rgba(0,0,0,.7);
+
+}
+
+
+/* SHADOW */
+
+.design-shadow{
+
+    color:#ffffff;
+
+    text-shadow:
+    5px 7px 0 rgba(0,0,0,.75),
+    0 8px 20px rgba(0,0,0,.65);
+
+}
+
+
+/* CYAN GLOW */
+
+.design-cyan{
+
+    color:#e9fbff;
+
+    text-shadow:
+    0 0 5px #00eaff,
+    0 0 12px #00cfff,
+    0 0 25px #009fff;
+
+}
+
+
+/* PREMIUM */
+
+.design-premium{
+
+    color:#ffffff;
+
+    -webkit-text-stroke:
+    1px rgba(0,0,0,.85);
+
+    text-shadow:
+
+    0 2px 0 #d7d7d7,
+
+    0 4px 0 #777,
+
+    0 7px 12px rgba(0,0,0,.85),
+
+    0 0 20px rgba(255,255,255,.18);
+
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
 
 .info{
 
-margin-top:25px;
+    margin-top:25px;
 
-padding:25px;
+    padding:24px;
 
-border:
-1px solid var(--border);
+    border:
+    1px solid var(--border);
 
-border-radius:20px;
+    border-radius:20px;
 
-background:
-rgba(8,20,35,.70);
+    background:
+    rgba(8,20,35,.70);
 
-text-align:center;
+    text-align:center;
+
 }
+
 
 .info h2{
 
-font-size:22px;
+    margin-bottom:9px;
 
-margin-bottom:9px;
+    font-size:22px;
+
 }
+
 
 .info p{
 
-max-width:850px;
+    max-width:800px;
 
-margin:auto;
+    margin:auto;
 
-color:var(--muted);
+    color:var(--muted);
 
-font-size:13px;
+    font-size:13px;
 
-line-height:1.8;
+    line-height:1.8;
+
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
 
-padding:35px 20px;
+    padding:35px 20px;
 
-text-align:center;
+    text-align:center;
 
-border-top:
-1px solid var(--border);
+    border-top:
+    1px solid var(--border);
 
-color:#70889a;
+    color:#70889a;
 
-font-size:12px;
+    font-size:12px;
+
 }
+
 
 footer strong{
-color:var(--blue);
+
+    color:var(--blue);
+
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:900px){
 
-.designer{
-grid-template-columns:1fr;
-}
+    .designer{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .controls{
+
+        order:1;
+
+    }
+
+
+    .preview-area{
+
+        order:2;
+
+    }
 
 }
+
 
 @media(max-width:600px){
 
-header{
-padding:12px 4%;
+    header{
+
+        padding:
+        12px 4%;
+
+    }
+
+
+    .logo{
+
+        font-size:18px;
+
+    }
+
+
+    .header-badge{
+
+        font-size:8px;
+
+        padding:
+        6px 8px;
+
+    }
+
+
+    .container{
+
+        width:95%;
+
+        margin-top:25px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:31px;
+
+    }
+
+
+    .controls,
+    .preview-area{
+
+        padding:14px;
+
+        border-radius:17px;
+
+    }
+
+
+    .row{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    #banner{
+
+        width:700px;
+
+        height:394px;
+
+    }
+
+
+    #bannerText{
+
+        font-size:43px;
+
+    }
+
+
+    .preview-scroll{
+
+        padding:5px;
+
+    }
+
 }
 
-.logo{
-font-size:18px;
-}
-
-.badge{
-font-size:8px;
-padding:6px 8px;
-}
-
-.container{
-width:95%;
-margin-top:25px;
-}
-
-.controls,
-.preview{
-padding:14px;
-border-radius:17px;
-}
-
-.row{
-grid-template-columns:1fr;
-}
-
-#banner{
-width:700px;
-height:394px;
-}
-
-#bannerText{
-font-size:43px;
-}
-
-.preview-scroll{
-padding:5px;
-}
-
-}
 
 @media(max-width:430px){
 
-.hero h1{
-font-size:30px;
+    .hero p{
+
+        font-size:12px;
+
+    }
+
+
+    #banner{
+
+        width:600px;
+
+        height:338px;
+
+    }
+
+
+    #bannerText{
+
+        font-size:36px;
+
+    }
+
+
+    .banner-small{
+
+        font-size:10px;
+
+    }
+
+
+    .banner-sub{
+
+        font-size:11px;
+
+    }
+
+
+    .actions{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .design-btn{
+
+        font-size:10px;
+
+    }
+
 }
 
-.hero p{
-font-size:12px;
-}
 
-#banner{
-width:600px;
-height:338px;
-}
-
-#bannerText{
-font-size:36px;
-}
-
-.actions{
-grid-template-columns:1fr;
-}
-
-}
-
-
-/* PRINT */
+/* =========================================================
+   PRINT
+========================================================= */
 
 @media print{
 
-body *{
-visibility:hidden;
+    body *{
+
+        visibility:hidden;
+
+    }
+
+
+    #banner,
+    #banner *{
+
+        visibility:visible;
+
+    }
+
+
+    #banner{
+
+        position:absolute;
+
+        left:0;
+
+        top:0;
+
+    }
+
 }
 
-#banner,
-#banner *{
-visibility:visible;
-}
 
-#banner{
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
 
-position:absolute;
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
 
-left:0;
+    outline:
+    2px solid var(--cyan);
 
-top:0;
-}
+    outline-offset:2px;
 
 }
 
@@ -1219,18 +1662,33 @@ top:0;
 <body>
 
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
-<a href="../" class="logo">
+<a
+href="../"
+class="logo">
+
 ▲ ASIM <span>TECH</span>
+
 </a>
 
-<div class="badge">
+
+<div class="header-badge">
+
 বাংলা BANNER MAKER
+
 </div>
 
 </header>
 
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="container">
 
@@ -1238,11 +1696,16 @@ top:0;
 <section class="hero">
 
 <h1>
+
 বাংলা <span>Banner Maker</span>
+
 </h1>
 
+
 <p>
-Professional বাংলা Banner তৈরি করুন — Font, Color, Style, Logo ও Background সহ
+
+স্টাইলিশ বাংলা Font ব্যবহার করে নিজের পছন্দের Banner তৈরি করুন
+
 </p>
 
 </section>
@@ -1259,61 +1722,94 @@ Professional বাংলা Banner তৈরি করুন — Font, Color, S
 
 
 <div class="control-title">
-🎨 Professional Design Controls
+
+🎨 Design Controls
+
 </div>
 
 
-<!-- TEXT -->
+<!-- =====================================================
+     TEXT
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
+
 বাংলা লেখা
+
 </label>
 
+
 <textarea
-id="textInput">আপনার স্বপ্নকে
+id="textInput"
+placeholder="এখানে আপনার বাংলা লেখা লিখুন...">আপনার স্বপ্নকে
 বাস্তবে রূপ দিন</textarea>
 
 </div>
 
 
-<!-- FONT -->
+<!-- =====================================================
+     FONT
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
-বাংলা Font
+
+বাংলা Font নির্বাচন করুন
+
 </label>
+
 
 <select id="fontSelect">
 
 <option value="font-hind">
+
 Hind Siliguri — পরিষ্কার
+
 </option>
+
 
 <option value="font-anek">
+
 Anek Bangla — Modern
+
 </option>
+
 
 <option value="font-baloo">
+
 Baloo Da 2 — Stylish
+
 </option>
+
 
 <option value="font-atma">
+
 Atma — Creative
+
 </option>
+
 
 <option value="font-galada">
+
 Galada — Artistic
+
 </option>
+
 
 <option value="font-noto">
+
 Noto Serif Bengali — Classic
+
 </option>
 
+
 <option value="font-tiro">
+
 Tiro Bangla — Elegant
+
 </option>
 
 </select>
@@ -1321,93 +1817,121 @@ Tiro Bangla — Elegant
 </div>
 
 
-<!-- TEXT STYLE -->
+<!-- =====================================================
+     TEXT DESIGN
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
-✨ Text Design
+
+✨ লেখার Design
+
 </label>
 
-<div class="styles">
+
+<div class="design-grid">
+
 
 <button
 type="button"
-class="style-btn"
-data-style="normal">
+class="design-btn active"
+data-design="design-normal">
+
 ⚪ Normal
+
 </button>
+
 
 <button
 type="button"
-class="style-btn"
-data-style="neon">
+class="design-btn"
+data-design="design-neon">
+
 💠 Neon
+
 </button>
+
 
 <button
 type="button"
-class="style-btn"
-data-style="golden">
+class="design-btn"
+data-design="design-golden">
+
 🟡 Golden
+
 </button>
+
 
 <button
 type="button"
-class="style-btn"
-data-style="gradient">
+class="design-btn"
+data-design="design-gradient">
+
 🌈 Gradient
+
 </button>
+
 
 <button
 type="button"
-class="style-btn"
-data-style="outline">
-🔲 Outline
+class="design-btn"
+data-design="design-outline">
+
+◻️ Outline
+
 </button>
+
 
 <button
 type="button"
-class="style-btn"
-data-style="shadow">
+class="design-btn"
+data-design="design-shadow">
+
 🌑 Shadow
+
 </button>
+
 
 <button
 type="button"
-class="style-btn"
-data-style="cyan">
+class="design-btn"
+data-design="design-cyan">
+
 🔵 Cyan Glow
+
 </button>
+
 
 <button
 type="button"
-class="style-btn active"
-data-style="premium">
+class="design-btn"
+data-design="design-premium">
+
 💎 Premium
+
 </button>
 
-<button
-type="button"
-class="style-btn"
-data-style="threeD">
-🧊 3D Text
-</button>
 
 </div>
 
 </div>
 
 
-<!-- FONT SIZE -->
+<!-- =====================================================
+     FONT SIZE
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
+
 Font Size
+
 </label>
 
-<div class="range">
+
+<div class="range-line">
 
 <input
 type="range"
@@ -1416,10 +1940,13 @@ min="20"
 max="110"
 value="52">
 
+
 <span
-class="value"
+class="range-value"
 id="fontSizeValue">
+
 52px
+
 </span>
 
 </div>
@@ -1427,64 +1954,36 @@ id="fontSizeValue">
 </div>
 
 
-<!-- THICKNESS -->
+<!-- =====================================================
+     FONT THICKNESS
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
+
 লেখার Thickness
+
 </label>
 
-<select id="fontWeight">
 
-<option value="400">
-Regular
-</option>
-
-<option value="500">
-Medium
-</option>
-
-<option value="600">
-Semi Bold
-</option>
-
-<option value="700"
-selected>
-Bold
-</option>
-
-<option value="800">
-Extra Bold
-</option>
-
-</select>
-
-</div>
-
-
-<!-- LETTER -->
-
-<div class="group">
-
-<label>
-Letter Spacing
-</label>
-
-<div class="range">
+<div class="range-line">
 
 <input
 type="range"
-id="letterSpacing"
-min="-3"
-max="12"
-step=".5"
-value="0">
+id="fontWeight"
+min="400"
+max="900"
+step="100"
+value="700">
+
 
 <span
-class="value"
-id="letterValue">
-0px
+class="range-value"
+id="fontWeightValue">
+
+700
+
 </span>
 
 </div>
@@ -1492,111 +1991,27 @@ id="letterValue">
 </div>
 
 
-<!-- LINE -->
+<!-- =====================================================
+     TEXT COLOR
+===================================================== -->
 
-<div class="group">
-
-<label>
-Line Height
-</label>
-
-<div class="range">
-
-<input
-type="range"
-id="lineHeight"
-min=".8"
-max="2"
-step=".05"
-value="1.25">
-
-<span
-class="value"
-id="lineValue">
-1.25
-</span>
-
-</div>
-
-</div>
-
-
-<!-- ALIGN -->
-
-<div class="group">
+<div class="control-group">
 
 <label>
-লেখার Alignment
-</label>
 
-<div class="align">
-
-<button
-type="button"
-data-align="left">
-⬅
-</button>
-
-<button
-type="button"
-class="active"
-data-align="center">
-↔
-</button>
-
-<button
-type="button"
-data-align="right">
-➡
-</button>
-
-</div>
-
-</div>
-
-
-<!-- VERTICAL POSITION -->
-
-<div class="group">
-
-<label>
-লেখার Vertical Position
-</label>
-
-<div class="range">
-
-<input
-type="range"
-id="verticalPosition"
-min="-120"
-max="120"
-value="0">
-
-<span
-class="value"
-id="verticalValue">
-0px
-</span>
-
-</div>
-
-</div>
-
-
-<!-- TEXT COLOR -->
-
-<div class="group">
-
-<label>
 Text Color
+
 </label>
 
-<div class="color-row">
+
+<div class="color-box">
+
 
 <input
 type="color"
 id="textColor"
 value="#ffffff">
+
 
 <input
 type="text"
@@ -1608,28 +2023,106 @@ value="#ffffff">
 </div>
 
 
-<!-- STROKE -->
+<!-- =====================================================
+     POSITION
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
-Text Stroke
+
+↕️ লেখার অবস্থান
+
 </label>
 
-<div class="range">
+
+<div class="position-grid">
+
+
+<button
+type="button"
+class="position-btn"
+id="moveUp">
+
+⬆️ উপরে
+
+</button>
+
+
+<button
+type="button"
+class="position-btn"
+id="moveDown">
+
+⬇️ নিচে
+
+</button>
+
+
+<button
+type="button"
+class="position-btn"
+id="moveLeft">
+
+⬅️ বামে
+
+</button>
+
+
+<button
+type="button"
+class="position-btn"
+id="moveRight">
+
+➡️ ডানে
+
+</button>
+
+</div>
+
+
+<div class="range-line">
 
 <input
 type="range"
-id="strokeWidth"
-min="0"
-max="8"
-step=".5"
+id="verticalPosition"
+min="-180"
+max="180"
 value="0">
 
+
 <span
-class="value"
-id="strokeValue">
+class="range-value"
+id="verticalValue">
+
 0px
+
+</span>
+
+</div>
+
+
+<div
+style="height:8px">
+</div>
+
+
+<div class="range-line">
+
+<input
+type="range"
+id="horizontalPosition"
+min="-180"
+max="180"
+value="0">
+
+
+<span
+class="range-value"
+id="horizontalValue">
+
+0px
+
 </span>
 
 </div>
@@ -1637,145 +2130,194 @@ id="strokeValue">
 </div>
 
 
-<!-- STROKE COLOR -->
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-<div class="group">
-
-<label>
-Stroke Color
-</label>
-
-<input
-type="color"
-id="strokeColor"
-value="#000000">
-
-</div>
-
-
-<!-- BACKGROUND -->
-
-<div class="group">
+<div class="control-group">
 
 <label>
+
 Background Style
+
 </label>
+
 
 <select id="backgroundSelect">
 
+
 <option value="blue">
+
 Ocean Blue
+
 </option>
+
 
 <option value="purple">
+
 Royal Purple
+
 </option>
+
 
 <option value="red">
+
 Red Glow
+
 </option>
+
 
 <option value="green">
+
 Emerald
+
 </option>
+
 
 <option value="orange">
+
 Sunset Orange
+
 </option>
+
 
 <option value="dark">
+
 Dark Premium
+
 </option>
 
+
 <option value="white">
+
 Clean White
+
 </option>
+
 
 </select>
 
 </div>
 
 
-<!-- BACKGROUND IMAGE -->
+<!-- =====================================================
+     QUICK STYLES
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
-🖼️ নিজের Background Image
-</label>
 
-<label class="upload">
-
-📷 Choose Background Image
-
-<input
-type="file"
-id="backgroundUpload"
-accept="image/*">
+Quick Styles
 
 </label>
+
+
+<div class="presets">
+
+
+<button
+type="button"
+class="preset"
+data-style="blue">
+
+🔵 Blue
+
+</button>
+
+
+<button
+type="button"
+class="preset"
+data-style="purple">
+
+🟣 Purple
+
+</button>
+
+
+<button
+type="button"
+class="preset"
+data-style="red">
+
+🔴 Red
+
+</button>
+
+
+<button
+type="button"
+class="preset"
+data-style="green">
+
+🟢 Green
+
+</button>
+
+
+<button
+type="button"
+class="preset"
+data-style="orange">
+
+🟠 Sunset
+
+</button>
+
+</div>
 
 </div>
 
 
-<!-- LOGO -->
+<!-- =====================================================
+     BANNER SIZE
+===================================================== -->
 
-<div class="group">
-
-<label>
-🏷️ নিজের Logo
-</label>
-
-<label class="upload">
-
-📁 Upload Logo
-
-<input
-type="file"
-id="logoUpload"
-accept="image/*">
-
-</label>
-
-</div>
-
-
-<!-- SIZE -->
-
-<div class="group">
+<div class="control-group">
 
 <label>
+
 Banner Size
+
 </label>
+
 
 <div class="row">
+
 
 <input
 type="number"
 id="bannerWidth"
 value="800"
 min="300"
-max="2000">
+max="1600">
+
 
 <input
 type="number"
 id="bannerHeight"
 value="450"
 min="200"
-max="1500">
+max="1200">
 
 </div>
 
 </div>
 
 
-<!-- SMALL HEADING -->
+<!-- =====================================================
+     SMALL HEADING
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
+
 ছোট Heading
+
 </label>
+
 
 <input
 type="text"
@@ -1785,13 +2327,18 @@ value="ASIM TECH">
 </div>
 
 
-<!-- SUBTITLE -->
+<!-- =====================================================
+     SUBTITLE
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
+
 নিচের ছোট লেখা
+
 </label>
+
 
 <input
 type="text"
@@ -1801,28 +2348,61 @@ value="আপনার জন্য সহজ ও সুন্দর ডিজ�
 </div>
 
 
-<!-- OVERLAY -->
+<!-- =====================================================
+     BACKGROUND IMAGE
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
 <label>
-Background Dark Overlay
+
+🖼️ নিজের ছবি Background করুন
+
 </label>
 
-<div class="range">
+
+<div class="upload-box">
+
+<input
+type="file"
+id="backgroundUpload"
+accept="image/*">
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE OPACITY
+===================================================== -->
+
+<div class="control-group">
+
+<label>
+
+Background Image Opacity
+
+</label>
+
+
+<div class="range-line">
 
 <input
 type="range"
-id="overlay"
+id="imageOpacity"
 min="0"
-max=".75"
-step=".05"
-value=".20">
+max="100"
+value="45">
+
 
 <span
-class="value"
-id="overlayValue">
-20%
+class="range-value"
+id="imageOpacityValue">
+
+45%
+
 </span>
 
 </div>
@@ -1830,45 +2410,55 @@ id="overlayValue">
 </div>
 
 
-<!-- DECORATION -->
+<!-- =====================================================
+     DECORATION
+===================================================== -->
 
-<div class="group">
+<div class="control-group">
 
-<label class="check">
+<label class="check-row">
+
 
 <input
 type="checkbox"
 id="showDecoration"
 checked>
 
+
 Show decorative design
+
 
 </label>
 
 </div>
 
 
-<!-- ACTION -->
+<!-- =====================================================
+     ACTIONS
+===================================================== -->
 
 <div class="actions">
 
+
 <button
 type="button"
-class="action download"
+class="action-btn download-btn"
 id="downloadBtn">
 
 ⬇ Download PNG
 
 </button>
 
+
 <button
 type="button"
-class="action reset"
+class="action-btn reset-btn"
 id="resetBtn">
 
 ↻ Reset
 
 </button>
+
 
 </div>
 
@@ -1876,23 +2466,29 @@ id="resetBtn">
 </section>
 
 
-
 <!-- =====================================================
      PREVIEW
 ===================================================== -->
 
-<section class="preview">
+<section class="preview-area">
 
 
-<div class="preview-head">
+<div class="preview-title">
+
 
 <strong>
+
 👁 Live Preview
+
 </strong>
 
+
 <span>
-Automatically updates
+
+Banner automatically updates
+
 </span>
+
 
 </div>
 
@@ -1903,44 +2499,49 @@ Automatically updates
 <div id="banner">
 
 
+<!-- BACKGROUND IMAGE -->
+
 <img
 id="backgroundImage"
 alt="">
 
 
+<!-- IMAGE OVERLAY -->
+
 <div
-id="backgroundOverlay">
+id="imageOverlay">
 </div>
 
 
+<!-- DECORATION -->
+
 <div
-class="circle one"
+class="banner-circle"
 id="circleOne">
 </div>
 
 
 <div
-class="circle two"
+class="banner-circle two"
 id="circleTwo">
 </div>
 
 
 <div
-class="line"
+class="banner-line"
 id="bannerLine">
 </div>
 
 
-<img
-id="logoPreview"
-alt="Logo">
+<!-- CONTENT -->
 
-
-<div class="content">
+<div
+class="banner-content"
+id="bannerContent">
 
 
 <div
-class="small"
+class="banner-small"
 id="smallPreview">
 
 ASIM TECH
@@ -1950,7 +2551,7 @@ ASIM TECH
 
 <div
 id="bannerText"
-class="font-hind premium">
+class="font-hind design-normal">
 
 আপনার স্বপ্নকে
 বাস্তবে রূপ দিন
@@ -1959,7 +2560,7 @@ class="font-hind premium">
 
 
 <div
-class="sub"
+class="banner-sub"
 id="subPreview">
 
 আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান
@@ -1972,25 +2573,37 @@ id="subPreview">
 
 </div>
 
+
 </div>
+
 
 </section>
 
+
 </div>
 
 
+<!-- =====================================================
+     INFO
+===================================================== -->
+
 <section class="info">
 
+
 <h2>
-✨ Professional Bengali Banner Maker
+
+✨ ৭টি Stylish বাংলা Font + ৮টি Text Design
+
 </h2>
+
 
 <p>
 
-৭টি Stylish Bengali Font, ৯টি Text Design,
-3D Text, Stroke, Logo Upload, Background Image,
-Vertical Position, Alignment এবং High Quality PNG Download —
-সব এক জায়গায়।
+Hind Siliguri, Anek Bangla, Baloo Da 2, Atma,
+Galada, Noto Serif Bengali এবং Tiro Bangla —
+এর সঙ্গে Normal, Neon, Golden, Gradient, Outline,
+Shadow, Cyan Glow ও Premium Design ব্যবহার করে
+নিজের পছন্দের Banner তৈরি করুন।
 
 </p>
 
@@ -2000,13 +2613,17 @@ Vertical Position, Alignment এবং High Quality PNG Download —
 </main>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
 ▲ ASIM <strong>TECH</strong>
 
 <br>
 
-বাংলা Banner Maker • Professional Web Tool
+বাংলা Banner Maker • Web Tool
 
 <br>
 
@@ -2016,6 +2633,10 @@ Vertical Position, Alignment এবং High Quality PNG Download —
 
 
 <script>
+
+/* =========================================================
+   ASIM TECH BANNER MAKER JAVASCRIPT
+========================================================= */
 
 (function(){
 
@@ -2029,116 +2650,153 @@ Vertical Position, Alignment এবং High Quality PNG Download —
 const textInput =
 document.getElementById("textInput");
 
+
 const fontSelect =
 document.getElementById("fontSelect");
+
 
 const fontSize =
 document.getElementById("fontSize");
 
+
 const fontSizeValue =
 document.getElementById("fontSizeValue");
+
 
 const fontWeight =
 document.getElementById("fontWeight");
 
-const letterSpacing =
-document.getElementById("letterSpacing");
 
-const letterValue =
-document.getElementById("letterValue");
+const fontWeightValue =
+document.getElementById("fontWeightValue");
 
-const lineHeight =
-document.getElementById("lineHeight");
-
-const lineValue =
-document.getElementById("lineValue");
-
-const verticalPosition =
-document.getElementById("verticalPosition");
-
-const verticalValue =
-document.getElementById("verticalValue");
 
 const textColor =
 document.getElementById("textColor");
 
+
 const textColorCode =
 document.getElementById("textColorCode");
 
-const strokeWidth =
-document.getElementById("strokeWidth");
-
-const strokeValue =
-document.getElementById("strokeValue");
-
-const strokeColor =
-document.getElementById("strokeColor");
 
 const backgroundSelect =
 document.getElementById("backgroundSelect");
 
-const backgroundUpload =
-document.getElementById("backgroundUpload");
-
-const logoUpload =
-document.getElementById("logoUpload");
 
 const bannerWidth =
 document.getElementById("bannerWidth");
 
+
 const bannerHeight =
 document.getElementById("bannerHeight");
+
 
 const smallText =
 document.getElementById("smallText");
 
+
 const subText =
 document.getElementById("subText");
 
-const overlay =
-document.getElementById("overlay");
-
-const overlayValue =
-document.getElementById("overlayValue");
 
 const showDecoration =
 document.getElementById("showDecoration");
 
+
 const banner =
 document.getElementById("banner");
 
-const backgroundImage =
-document.getElementById("backgroundImage");
-
-const backgroundOverlay =
-document.getElementById("backgroundOverlay");
-
-const logoPreview =
-document.getElementById("logoPreview");
 
 const bannerText =
 document.getElementById("bannerText");
 
+
+const bannerContent =
+document.getElementById("bannerContent");
+
+
 const smallPreview =
 document.getElementById("smallPreview");
+
 
 const subPreview =
 document.getElementById("subPreview");
 
+
 const circleOne =
 document.getElementById("circleOne");
+
 
 const circleTwo =
 document.getElementById("circleTwo");
 
+
 const bannerLine =
 document.getElementById("bannerLine");
+
 
 const downloadBtn =
 document.getElementById("downloadBtn");
 
+
 const resetBtn =
 document.getElementById("resetBtn");
+
+
+const verticalPosition =
+document.getElementById("verticalPosition");
+
+
+const verticalValue =
+document.getElementById("verticalValue");
+
+
+const horizontalPosition =
+document.getElementById("horizontalPosition");
+
+
+const horizontalValue =
+document.getElementById("horizontalValue");
+
+
+const moveUp =
+document.getElementById("moveUp");
+
+
+const moveDown =
+document.getElementById("moveDown");
+
+
+const moveLeft =
+document.getElementById("moveLeft");
+
+
+const moveRight =
+document.getElementById("moveRight");
+
+
+const backgroundUpload =
+document.getElementById("backgroundUpload");
+
+
+const backgroundImage =
+document.getElementById("backgroundImage");
+
+
+const imageOverlay =
+document.getElementById("imageOverlay");
+
+
+const imageOpacity =
+document.getElementById("imageOpacity");
+
+
+const imageOpacityValue =
+document.getElementById("imageOpacityValue");
+
+
+const designButtons =
+document.querySelectorAll(".design-btn");
 
 
 /* =====================================================
@@ -2147,143 +2805,167 @@ document.getElementById("resetBtn");
 
 const backgrounds = {
 
+
 blue:`
+
 radial-gradient(
 circle at 15% 15%,
 rgba(0,180,255,.38),
 transparent 35%
 ),
+
 radial-gradient(
 circle at 85% 85%,
 rgba(80,50,255,.28),
 transparent 35%
 ),
+
 linear-gradient(
 135deg,
 #062a49,
 #07172b 55%,
 #24105a
 )
+
 `,
 
+
 purple:`
+
 radial-gradient(
 circle at 15% 20%,
 rgba(200,60,255,.35),
 transparent 34%
 ),
+
 radial-gradient(
 circle at 85% 80%,
 rgba(80,80,255,.35),
 transparent 35%
 ),
+
 linear-gradient(
 135deg,
 #250640,
 #160d35 55%,
 #351064
 )
+
 `,
 
+
 red:`
+
 radial-gradient(
 circle at 20% 20%,
 rgba(255,40,70,.35),
 transparent 34%
 ),
+
 radial-gradient(
 circle at 85% 80%,
 rgba(255,120,0,.30),
 transparent 35%
 ),
+
 linear-gradient(
 135deg,
 #45050c,
 #22070c 55%,
 #570011
 )
+
 `,
 
+
 green:`
+
 radial-gradient(
 circle at 20% 15%,
 rgba(0,255,160,.30),
 transparent 35%
 ),
+
 radial-gradient(
 circle at 85% 85%,
 rgba(0,150,255,.25),
 transparent 35%
 ),
+
 linear-gradient(
 135deg,
 #04352b,
 #061d1e 55%,
 #063f45
 )
+
 `,
 
+
 orange:`
+
 radial-gradient(
 circle at 20% 20%,
 rgba(255,180,0,.35),
 transparent 34%
 ),
+
 radial-gradient(
 circle at 85% 85%,
 rgba(255,50,50,.32),
 transparent 35%
 ),
+
 linear-gradient(
 135deg,
 #542000,
 #31100a 55%,
 #5d0711
 )
+
 `,
 
+
 dark:`
+
 radial-gradient(
 circle at 20% 20%,
 rgba(255,255,255,.07),
 transparent 30%
 ),
+
 linear-gradient(
 135deg,
 #10151e,
 #05070c
 )
+
 `,
 
+
 white:`
+
 linear-gradient(
 135deg,
 #ffffff,
 #edf5ff
 )
+
 `
 
 };
 
 
 /* =====================================================
-   TEXT STYLE
+   CURRENT DESIGN
 ===================================================== */
 
-let currentStyle =
-"premium";
+let currentDesign =
+"design-normal";
 
 
 /* =====================================================
-   ALIGN
-===================================================== */
-
-let currentAlign =
-"center";
-
-
-/* =====================================================
-   UPDATE
+   UPDATE BANNER
 ===================================================== */
 
 function updateBanner(){
@@ -2301,114 +2983,55 @@ textInput.value ||
 bannerText.className =
 fontSelect.value +
 " " +
-currentStyle;
+currentDesign;
 
 
-/* SIZE */
+/* FONT SIZE */
 
 const size =
 Number(fontSize.value) || 52;
 
+
 bannerText.style.fontSize =
 size + "px";
+
 
 fontSizeValue.textContent =
 size + "px";
 
 
-/* WEIGHT */
+/* FONT WEIGHT */
+
+const weight =
+Number(fontWeight.value) || 700;
+
 
 bannerText.style.fontWeight =
-fontWeight.value;
+weight;
 
 
-/* LETTER */
-
-const spacing =
-Number(letterSpacing.value) || 0;
-
-bannerText.style.letterSpacing =
-spacing + "px";
-
-letterValue.textContent =
-spacing + "px";
-
-
-/* LINE */
-
-const line =
-Number(lineHeight.value) || 1.25;
-
-bannerText.style.lineHeight =
-line;
-
-lineValue.textContent =
-line.toFixed(2);
-
-
-/* ALIGN */
-
-bannerText.style.textAlign =
-currentAlign;
-
-
-/* VERTICAL */
-
-const vertical =
-Number(verticalPosition.value) || 0;
-
-document.querySelector(".content")
-.style.transform =
-"translateY(" + vertical + "px)";
-
-verticalValue.textContent =
-vertical + "px";
+fontWeightValue.textContent =
+weight;
 
 
 /* COLOR */
 
+bannerText.style.color =
+textColor.value;
+
+
 textColorCode.value =
 textColor.value;
-
-if(
-currentStyle === "normal" ||
-currentStyle === "neon" ||
-currentStyle === "shadow" ||
-currentStyle === "cyan" ||
-currentStyle === "premium" ||
-currentStyle === "threeD"
-){
-
-bannerText.style.color =
-textColor.value;
-
-}else{
-
-bannerText.style.color =
-"";
-
-}
-
-
-/* STROKE */
-
-const stroke =
-Number(strokeWidth.value) || 0;
-
-bannerText.style.webkitTextStroke =
-stroke + "px " +
-strokeColor.value;
-
-strokeValue.textContent =
-stroke + "px";
 
 
 /* BACKGROUND */
 
+const selectedBackground =
+backgroundSelect.value;
+
+
 banner.style.background =
-backgrounds[
-backgroundSelect.value
-];
+backgrounds[selectedBackground];
 
 
 /* SIZE */
@@ -2416,83 +3039,147 @@ backgroundSelect.value
 const width =
 Number(bannerWidth.value) || 800;
 
+
 const height =
 Number(bannerHeight.value) || 450;
 
+
 banner.style.width =
 width + "px";
+
 
 banner.style.height =
 height + "px";
 
 
-/* SMALL */
+/* SMALL TITLE */
 
 smallPreview.textContent =
 smallText.value;
 
 
-/* SUB */
+/* SUBTITLE */
 
 subPreview.textContent =
 subText.value;
 
 
-/* OVERLAY */
+/* POSITION */
 
-const ov =
-Number(overlay.value) || 0;
+const vertical =
+Number(verticalPosition.value) || 0;
 
-backgroundOverlay.style.background =
-"rgba(0,0,0," + ov + ")";
 
-overlayValue.textContent =
-Math.round(ov * 100) +
-"%";
+const horizontal =
+Number(horizontalPosition.value) || 0;
+
+
+bannerContent.style.transform =
+"translate(" +
+horizontal +
+"px," +
+vertical +
+"px)";
+
+
+verticalValue.textContent =
+vertical + "px";
+
+
+horizontalValue.textContent =
+horizontal + "px";
 
 
 /* DECORATION */
 
-const display =
+const visible =
 showDecoration.checked
 ? "block"
 : "none";
 
+
 circleOne.style.display =
-display;
+visible;
+
 
 circleTwo.style.display =
-display;
+visible;
+
 
 bannerLine.style.display =
-display;
+visible;
+
+
+/* IMAGE OPACITY */
+
+const opacity =
+Number(imageOpacity.value) || 45;
+
+
+imageOverlay.style.background =
+"rgba(0,0,0," +
+(opacity / 100) +
+")";
+
+
+imageOpacityValue.textContent =
+opacity + "%";
 
 
 /* WHITE BACKGROUND */
 
 if(
-backgroundSelect.value === "white"
+selectedBackground === "white" &&
+!backgroundImage.src
 ){
 
-smallPreview.style.color =
-"#006dff";
+    smallPreview.style.color =
+    "#006dff";
 
-smallPreview.style.borderColor =
-"rgba(0,100,200,.20)";
 
-subPreview.style.color =
-"rgba(0,0,0,.60)";
+    smallPreview.style.borderColor =
+    "rgba(0,100,200,.20)";
+
+
+    subPreview.style.color =
+    "rgba(0,0,0,.60)";
+
 
 }else{
 
-smallPreview.style.color =
-"#8bdcff";
+    smallPreview.style.color =
+    "#8bdcff";
 
-smallPreview.style.borderColor =
-"rgba(255,255,255,.20)";
 
-subPreview.style.color =
-"rgba(255,255,255,.72)";
+    smallPreview.style.borderColor =
+    "rgba(255,255,255,.20)";
+
+
+    subPreview.style.color =
+    "rgba(255,255,255,.72)";
+
+}
+
+
+/* TEXT SHADOW */
+
+if(
+currentDesign === "design-normal"
+){
+
+    if(
+    selectedBackground === "white"
+    ){
+
+        bannerText.style.textShadow =
+        "0 2px 10px rgba(0,0,0,.15)";
+
+    }else{
+
+        bannerText.style.textShadow =
+        "0 4px 18px rgba(0,0,0,.45)";
+
+    }
 
 }
 
@@ -2500,7 +3187,7 @@ subPreview.style.color =
 
 
 /* =====================================================
-   INPUT EVENTS
+   TEXT INPUT
 ===================================================== */
 
 textInput.addEventListener(
@@ -2508,84 +3195,51 @@ textInput.addEventListener(
 updateBanner
 );
 
+
+/* =====================================================
+   FONT
+===================================================== */
+
 fontSelect.addEventListener(
 "change",
 updateBanner
 );
+
+
+/* =====================================================
+   FONT SIZE
+===================================================== */
 
 fontSize.addEventListener(
 "input",
 updateBanner
 );
 
+
+/* =====================================================
+   FONT WEIGHT
+===================================================== */
+
 fontWeight.addEventListener(
-"change",
-updateBanner
-);
-
-letterSpacing.addEventListener(
 "input",
 updateBanner
 );
 
-lineHeight.addEventListener(
-"input",
-updateBanner
-);
 
-verticalPosition.addEventListener(
-"input",
-updateBanner
-);
+/* =====================================================
+   COLOR PICKER
+===================================================== */
 
 textColor.addEventListener(
 "input",
-updateBanner
-);
+function(){
 
-strokeWidth.addEventListener(
-"input",
-updateBanner
-);
+    textColorCode.value =
+    textColor.value;
 
-strokeColor.addEventListener(
-"input",
-updateBanner
-);
+    updateBanner();
 
-backgroundSelect.addEventListener(
-"change",
-updateBanner
-);
-
-bannerWidth.addEventListener(
-"input",
-updateBanner
-);
-
-bannerHeight.addEventListener(
-"input",
-updateBanner
-);
-
-smallText.addEventListener(
-"input",
-updateBanner
-);
-
-subText.addEventListener(
-"input",
-updateBanner
-);
-
-overlay.addEventListener(
-"input",
-updateBanner
-);
-
-showDecoration.addEventListener(
-"change",
-updateBanner
+}
 );
 
 
@@ -2597,165 +3251,364 @@ textColorCode.addEventListener(
 "input",
 function(){
 
-if(
-/^#[0-9A-Fa-f]{6}$/
-.test(
-textColorCode.value
+    const value =
+    textColorCode.value;
+
+
+    if(
+    /^#[0-9A-Fa-f]{6}$/.test(value)
+    ){
+
+        textColor.value =
+        value;
+
+        updateBanner();
+
+    }
+
+}
+);
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+backgroundSelect.addEventListener(
+"change",
+updateBanner
+);
+
+
+/* =====================================================
+   SIZE
+===================================================== */
+
+bannerWidth.addEventListener(
+"input",
+updateBanner
+);
+
+
+bannerHeight.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   SMALL TEXT
+===================================================== */
+
+smallText.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   SUB TEXT
+===================================================== */
+
+subText.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   DECORATION
+===================================================== */
+
+showDecoration.addEventListener(
+"change",
+updateBanner
+);
+
+
+/* =====================================================
+   VERTICAL SLIDER
+===================================================== */
+
+verticalPosition.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   HORIZONTAL SLIDER
+===================================================== */
+
+horizontalPosition.addEventListener(
+"input",
+updateBanner
+);
+
+
+/* =====================================================
+   MOVE UP
+===================================================== */
+
+moveUp.addEventListener(
+"click",
+function(){
+
+    let value =
+    Number(verticalPosition.value);
+
+
+    value =
+    Math.max(
+        -180,
+        value - 10
+    );
+
+
+    verticalPosition.value =
+    value;
+
+
+    updateBanner();
+
+}
+);
+
+
+/* =====================================================
+   MOVE DOWN
+===================================================== */
+
+moveDown.addEventListener(
+"click",
+function(){
+
+    let value =
+    Number(verticalPosition.value);
+
+
+    value =
+    Math.min(
+        180,
+        value + 10
+    );
+
+
+    verticalPosition.value =
+    value;
+
+
+    updateBanner();
+
+}
+);
+
+
+/* =====================================================
+   MOVE LEFT
+===================================================== */
+
+moveLeft.addEventListener(
+"click",
+function(){
+
+    let value =
+    Number(horizontalPosition.value);
+
+
+    value =
+    Math.max(
+        -180,
+        value - 10
+    );
+
+
+    horizontalPosition.value =
+    value;
+
+
+    updateBanner();
+
+}
+);
+
+
+/* =====================================================
+   MOVE RIGHT
+===================================================== */
+
+moveRight.addEventListener(
+"click",
+function(){
+
+    let value =
+    Number(horizontalPosition.value);
+
+
+    value =
+    Math.min(
+        180,
+        value + 10
+    );
+
+
+    horizontalPosition.value =
+    value;
+
+
+    updateBanner();
+
+}
+);
+
+
+/* =====================================================
+   DESIGN BUTTONS
+===================================================== */
+
+designButtons.forEach(
+function(button){
+
+    button.addEventListener(
+    "click",
+    function(){
+
+        designButtons.forEach(
+        function(btn){
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        button.classList.add(
+            "active"
+        );
+
+
+        currentDesign =
+        button.dataset.design;
+
+
+        updateBanner();
+
+    }
+    );
+
+}
+);
+
+
+/* =====================================================
+   QUICK PRESETS
+===================================================== */
+
+document.querySelectorAll(
+".preset"
 )
-){
+.forEach(
+function(button){
 
-textColor.value =
-textColorCode.value;
+    button.addEventListener(
+    "click",
+    function(){
 
-updateBanner();
+        const style =
+        button.dataset.style;
 
-}
+
+        backgroundSelect.value =
+        style;
+
+
+        updateBanner();
+
+    }
+    );
 
 }
 );
 
 
 /* =====================================================
-   TEXT STYLES
-===================================================== */
-
-document
-.querySelectorAll(".style-btn")
-.forEach(function(button){
-
-button.addEventListener(
-"click",
-function(){
-
-document
-.querySelectorAll(".style-btn")
-.forEach(function(btn){
-
-btn.classList.remove(
-"active"
-);
-
-});
-
-button.classList.add(
-"active"
-);
-
-currentStyle =
-button.dataset.style;
-
-updateBanner();
-
-}
-);
-
-});
-
-
-/* =====================================================
-   ALIGNMENT
-===================================================== */
-
-document
-.querySelectorAll(".align button")
-.forEach(function(button){
-
-button.addEventListener(
-"click",
-function(){
-
-document
-.querySelectorAll(".align button")
-.forEach(function(btn){
-
-btn.classList.remove(
-"active"
-);
-
-});
-
-button.classList.add(
-"active"
-);
-
-currentAlign =
-button.dataset.align;
-
-updateBanner();
-
-}
-);
-
-});
-
-
-/* =====================================================
-   BACKGROUND IMAGE
+   BACKGROUND IMAGE UPLOAD
 ===================================================== */
 
 backgroundUpload.addEventListener(
 "change",
-function(){
-
-const file =
-this.files[0];
-
-if(!file){
-return;
-}
-
-const reader =
-new FileReader();
-
-reader.onload =
 function(event){
 
-backgroundImage.src =
-event.target.result;
+    const file =
+    event.target.files[0];
 
-backgroundImage.style.display =
-"block";
 
-};
+    if(!file){
 
-reader.readAsDataURL(file);
+        backgroundImage.style.display =
+        "none";
+
+        backgroundImage.removeAttribute(
+            "src"
+        );
+
+        updateBanner();
+
+        return;
+
+    }
+
+
+    if(
+    !file.type.startsWith("image/")
+    ){
+
+        alert(
+        "দয়া করে একটি Image নির্বাচন করুন।"
+        );
+
+        backgroundUpload.value =
+        "";
+
+        return;
+
+    }
+
+
+    const reader =
+    new FileReader();
+
+
+    reader.onload =
+    function(e){
+
+        backgroundImage.src =
+        e.target.result;
+
+
+        backgroundImage.style.display =
+        "block";
+
+
+        updateBanner();
+
+    };
+
+
+    reader.readAsDataURL(file);
 
 }
 );
 
 
 /* =====================================================
-   LOGO UPLOAD
+   IMAGE OPACITY
 ===================================================== */
 
-logoUpload.addEventListener(
-"change",
-function(){
-
-const file =
-this.files[0];
-
-if(!file){
-return;
-}
-
-const reader =
-new FileReader();
-
-reader.onload =
-function(event){
-
-logoPreview.src =
-event.target.result;
-
-logoPreview.style.display =
-"block";
-
-};
-
-reader.readAsDataURL(file);
-
-}
+imageOpacity.addEventListener(
+"input",
+updateBanner
 );
 
 
@@ -2767,128 +3620,106 @@ resetBtn.addEventListener(
 "click",
 function(){
 
+
 textInput.value =
 "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
+
 
 fontSelect.value =
 "font-hind";
 
+
 fontSize.value =
 52;
+
 
 fontWeight.value =
 700;
 
-letterSpacing.value =
-0;
-
-lineHeight.value =
-1.25;
-
-verticalPosition.value =
-0;
 
 textColor.value =
 "#ffffff";
 
+
 textColorCode.value =
 "#ffffff";
 
-strokeWidth.value =
-0;
-
-strokeColor.value =
-"#000000";
 
 backgroundSelect.value =
 "blue";
 
+
 bannerWidth.value =
 800;
+
 
 bannerHeight.value =
 450;
 
+
 smallText.value =
 "ASIM TECH";
+
 
 subText.value =
 "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
 
-overlay.value =
-".20";
+
+verticalPosition.value =
+0;
+
+
+horizontalPosition.value =
+0;
+
 
 showDecoration.checked =
 true;
 
 
-/* STYLE */
+imageOpacity.value =
+45;
 
-currentStyle =
-"premium";
-
-document
-.querySelectorAll(".style-btn")
-.forEach(function(btn){
-
-btn.classList.remove(
-"active"
-);
-
-});
-
-document
-.querySelector(
-'[data-style="premium"]'
-)
-.classList.add(
-"active"
-);
-
-
-/* ALIGN */
-
-currentAlign =
-"center";
-
-document
-.querySelectorAll(".align button")
-.forEach(function(btn){
-
-btn.classList.remove(
-"active"
-);
-
-});
-
-document
-.querySelector(
-'[data-align="center"]'
-)
-.classList.add(
-"active"
-);
-
-
-/* REMOVE UPLOADS */
-
-backgroundImage.src =
-"";
-
-backgroundImage.style.display =
-"none";
-
-logoPreview.src =
-"";
-
-logoPreview.style.display =
-"none";
 
 backgroundUpload.value =
 "";
 
-logoUpload.value =
+
+backgroundImage.src =
 "";
+
+
+backgroundImage.style.display =
+"none";
+
+
+currentDesign =
+"design-normal";
+
+
+designButtons.forEach(
+function(button){
+
+    button.classList.remove(
+        "active"
+    );
+
+});
+
+
+const normalButton =
+document.querySelector(
+'[data-design="design-normal"]'
+);
+
+
+if(normalButton){
+
+    normalButton.classList.add(
+        "active"
+    );
+
+}
 
 
 updateBanner();
@@ -2898,18 +3729,21 @@ updateBanner();
 
 
 /* =====================================================
-   DOWNLOAD
+   DOWNLOAD PNG
 ===================================================== */
 
 downloadBtn.addEventListener(
 "click",
 async function(){
 
-const old =
+
+const oldText =
 downloadBtn.textContent;
+
 
 downloadBtn.textContent =
 "⏳ তৈরি হচ্ছে...";
+
 
 downloadBtn.disabled =
 true;
@@ -2918,42 +3752,47 @@ true;
 try{
 
 
+/* WAIT FOR FONTS */
+
 if(document.fonts){
 
-await document.fonts.ready;
+    await document.fonts.ready;
 
 }
 
 
-/* WAIT */
+/* SMALL DELAY */
 
 await new Promise(
-resolve =>
-setTimeout(
-resolve,
-200
-)
+function(resolve){
+
+    setTimeout(
+        resolve,
+        300
+    );
+
+}
 );
 
 
-/* CANVAS */
+/* CREATE CANVAS */
 
 const canvas =
 await html2canvas(
 banner,
 {
 
-scale:2,
+    scale:2,
 
-useCORS:true,
+    useCORS:true,
 
-allowTaint:true,
+    allowTaint:true,
 
-backgroundColor:null,
+    backgroundColor:null,
 
-logging:false,
+    logging:false,
 
-imageTimeout:15000
+    imageTimeout:15000
 
 }
 );
@@ -2964,39 +3803,76 @@ imageTimeout:15000
 const link =
 document.createElement("a");
 
+
 link.download =
 "asim-tech-bangla-banner.png";
+
 
 link.href =
 canvas.toDataURL(
 "image/png"
 );
 
+
 document.body.appendChild(
 link
 );
 
+
 link.click();
+
 
 link.remove();
 
 
 }catch(error){
 
+
 console.error(error);
+
 
 alert(
 "Banner download করা যায়নি। আবার চেষ্টা করুন।"
 );
 
+
 }
 
 
+/* RESTORE */
+
 downloadBtn.textContent =
-old;
+oldText;
+
 
 downloadBtn.disabled =
 false;
+
+
+}
+);
+
+
+/* =====================================================
+   KEYBOARD SHORTCUT
+===================================================== */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    /* CTRL + ENTER */
+
+    if(
+    event.ctrlKey &&
+    event.key === "Enter"
+    ){
+
+        event.preventDefault();
+
+        downloadBtn.click();
+
+    }
 
 }
 );
@@ -3010,6 +3886,7 @@ updateBanner();
 
 
 })();
+
 </script>
 
 
