@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
 content="#020b18">
 
 <meta name="description"
-content="Asim Tech Image to Excel - Convert image, photo or screenshot into editable Excel and CSV files.">
+content="Asim Tech Image to Excel - Convert list and table images into editable Excel files.">
 
 <meta name="mobile-web-app-capable"
 content="yes">
@@ -23,24 +23,30 @@ content="yes">
 <meta name="apple-mobile-web-app-status-bar-style"
 content="black-translucent">
 
+<meta name="apple-mobile-web-app-title"
+content="Image to Excel">
+
+<link rel="manifest"
+href="./manifest.json">
+
 <title>Asim Tech - Image to Excel</title>
 
 
 <!-- =====================================================
-     OCR LIBRARY
+     SHEETJS
 ===================================================== -->
 
 <script
-src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
+src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
 </script>
 
 
 <!-- =====================================================
-     EXCEL LIBRARY
+     TESSERACT OCR
 ===================================================== -->
 
 <script
-src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js">
+src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
 </script>
 
 
@@ -70,20 +76,20 @@ body{
     background:
 
     radial-gradient(
-        circle at 10% 10%,
-        rgba(0,140,255,.13),
+        circle at 15% 10%,
+        rgba(0,140,255,.14),
         transparent 30%
     ),
 
     radial-gradient(
-        circle at 90% 70%,
-        rgba(120,0,255,.12),
-        transparent 30%
+        circle at 85% 75%,
+        rgba(100,0,255,.10),
+        transparent 35%
     ),
 
     #020b18;
 
-    color:#fff;
+    color:#ffffff;
 
     overflow-x:hidden;
 }
@@ -101,23 +107,29 @@ header{
 
     z-index:9999;
 
-    padding:14px 5%;
+    min-height:72px;
+
+    padding:
+    12px 4%;
 
     display:flex;
 
+    justify-content:
+    space-between;
+
     align-items:center;
 
-    justify-content:space-between;
-
     background:
-    rgba(2,9,20,.92);
+    rgba(2,9,20,.94);
 
     border-bottom:
     1px solid #12304a;
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+    blur(18px);
 
-    -webkit-backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:
+    blur(18px);
 }
 
 
@@ -127,7 +139,9 @@ header{
 
     align-items:center;
 
-    font-size:21px;
+    gap:7px;
+
+    font-size:23px;
 
     font-weight:900;
 
@@ -137,9 +151,9 @@ header{
 
 .logo-icon{
 
-    width:38px;
+    width:42px;
 
-    height:38px;
+    height:42px;
 
     display:flex;
 
@@ -147,20 +161,20 @@ header{
 
     justify-content:center;
 
-    margin-right:10px;
-
     border-radius:12px;
 
     background:
     linear-gradient(
         135deg,
-        #008cff,
-        #0062e5
+        #087ff5,
+        #006de5
     );
 
     box-shadow:
-    0 0 25px
-    rgba(0,140,255,.25);
+    0 8px 25px
+    rgba(0,140,255,.30);
+
+    font-size:22px;
 }
 
 
@@ -172,25 +186,30 @@ header{
 
 .home{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
     text-decoration:none;
 
-    color:#ffffff;
+    color:white;
 
     border:
     1px solid #29465e;
 
-    padding:10px 15px;
-
-    border-radius:11px;
-
     background:
     rgba(255,255,255,.035);
+
+    padding:
+    10px 15px;
+
+    border-radius:12px;
 
     font-size:13px;
 
     font-weight:bold;
-
-    transition:.25s;
 }
 
 
@@ -198,12 +217,13 @@ header{
 
     border-color:#008cff;
 
-    transform:translateY(-2px);
+    background:
+    rgba(0,140,255,.10);
 }
 
 
 /* =====================================================
-   MAIN
+   CONTAINER
 ===================================================== */
 
 .container{
@@ -215,7 +235,7 @@ header{
     margin:auto;
 
     padding:
-    40px 0 80px;
+    38px 0 70px;
 }
 
 
@@ -227,7 +247,7 @@ header{
 
     text-align:center;
 
-    margin-bottom:32px;
+    margin-bottom:38px;
 }
 
 
@@ -235,36 +255,37 @@ header{
 
     display:inline-block;
 
-    padding:8px 15px;
+    padding:
+    8px 17px;
 
     border:
     1px solid
-    rgba(0,157,255,.3);
+    rgba(0,157,255,.35);
 
     border-radius:999px;
 
-    color:#62caff;
+    color:#48c2ff;
 
     background:
-    rgba(0,157,255,.08);
+    rgba(0,157,255,.07);
 
-    font-size:10px;
+    font-size:11px;
 
     font-weight:900;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
 
 .hero h1{
 
     margin:
-    18px 0 12px;
+    25px 0 14px;
 
     font-size:
-    clamp(34px,7vw,55px);
+    clamp(38px,7vw,58px);
 
-    line-height:1.08;
+    line-height:1.05;
 
     letter-spacing:-2px;
 }
@@ -275,20 +296,22 @@ header{
     color:#008cff;
 
     text-shadow:
-    0 0 25px
-    rgba(0,140,255,.3);
+    0 0 28px
+    rgba(0,140,255,.30);
 }
 
 
 .hero p{
 
-    margin:0;
+    max-width:720px;
+
+    margin:auto;
 
     color:#8fa7ba;
 
-    font-size:15px;
+    font-size:16px;
 
-    line-height:1.7;
+    line-height:1.8;
 }
 
 
@@ -298,36 +321,36 @@ header{
 
 .card{
 
-    margin-bottom:22px;
+    margin-bottom:25px;
 
-    padding:22px;
+    padding:28px;
 
     border:
     1px solid
     rgba(105,190,255,.18);
 
-    border-radius:21px;
+    border-radius:22px;
 
     background:
 
     linear-gradient(
         145deg,
-        rgba(8,27,43,.86),
-        rgba(3,14,24,.96)
+        rgba(8,31,49,.88),
+        rgba(3,15,26,.96)
     );
 
     box-shadow:
-    0 18px 55px
-    rgba(0,0,0,.25);
+    0 20px 65px
+    rgba(0,0,0,.28);
 }
 
 
 .card h2{
 
     margin:
-    0 0 18px;
+    0 0 20px;
 
-    font-size:21px;
+    font-size:23px;
 }
 
 
@@ -337,82 +360,40 @@ header{
 
 .upload-area{
 
+    width:100%;
+
+    padding:
+    35px 22px;
+
     border:
     2px dashed
-    #14587b;
+    #075a82;
 
     border-radius:20px;
-
-    padding:32px 20px;
 
     text-align:center;
 
     background:
-    rgba(0,70,105,.10);
+    rgba(0,50,75,.16);
 
     transition:.25s;
 }
 
 
-.upload-area.drag{
+.upload-area:hover{
 
     border-color:#008cff;
 
     background:
-    rgba(0,140,255,.10);
+    rgba(0,100,150,.10);
 }
 
 
 .upload-icon{
 
-    font-size:58px;
+    width:80px;
 
-    margin-bottom:10px;
-}
-
-
-.upload-area h3{
-
-    margin:
-    0 0 9px;
-
-    font-size:23px;
-}
-
-
-.upload-area p{
-
-    color:#8fa7ba;
-
-    line-height:1.7;
-
-    margin:
-    0 auto 20px;
-
-    max-width:600px;
-}
-
-
-/* =====================================================
-   FILE INPUT
-===================================================== */
-
-.file-buttons{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:10px;
-
-    max-width:500px;
-
-    margin:auto;
-}
-
-
-.file-label{
+    height:80px;
 
     display:flex;
 
@@ -420,11 +401,100 @@ header{
 
     justify-content:center;
 
-    min-height:52px;
+    margin:
+    0 auto 20px;
 
-    padding:14px;
+    border-radius:20px;
 
-    border-radius:12px;
+    background:
+    rgba(255,255,255,.96);
+
+    color:#008cff;
+
+    font-size:48px;
+}
+
+
+.upload-area h3{
+
+    margin:
+    0 0 10px;
+
+    font-size:25px;
+}
+
+
+.upload-area p{
+
+    margin:
+    0 auto 22px;
+
+    max-width:650px;
+
+    color:#8fa7ba;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   UPLOAD BUTTONS
+===================================================== */
+
+.upload-buttons{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:12px;
+
+    max-width:650px;
+
+    margin:auto;
+}
+
+
+.upload-btn{
+
+    min-height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.25s;
+}
+
+
+.upload-btn:hover{
+
+    transform:
+    translateY(-2px);
+
+    filter:
+    brightness(1.08);
+}
+
+
+.upload-btn.blue{
 
     background:
     linear-gradient(
@@ -432,37 +502,21 @@ header{
         #087ff5,
         #006de5
     );
-
-    color:#fff;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.25s;
 }
 
 
-.camera-label{
+.upload-btn.orange{
 
     background:
     linear-gradient(
         135deg,
-        #7b3ff2,
-        #a52cff
+        #ff9800,
+        #ff5b00
     );
 }
 
 
-.file-label:hover{
-
-    transform:translateY(-2px);
-
-    filter:brightness(1.08);
-}
-
-
-.file-input{
+.upload-btn input{
 
     display:none;
 }
@@ -476,7 +530,16 @@ header{
 
     display:none;
 
-    margin-top:20px;
+    margin-top:22px;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    background:#061d2c;
+
+    border:
+    1px solid #174661;
 
     text-align:center;
 }
@@ -488,22 +551,13 @@ header{
 }
 
 
-#previewImage{
-
-    display:block;
+.preview-box img{
 
     max-width:100%;
 
-    max-height:500px;
+    max-height:450px;
 
-    margin:auto;
-
-    border-radius:15px;
-
-    border:
-    1px solid #20445b;
-
-    background:#fff;
+    border-radius:12px;
 
     object-fit:contain;
 }
@@ -522,7 +576,7 @@ header{
 
 
 /* =====================================================
-   FORM
+   LABEL
 ===================================================== */
 
 .label{
@@ -530,11 +584,11 @@ header{
     display:block;
 
     margin:
-    16px 0 8px;
+    18px 0 8px;
 
     color:#91a9bd;
 
-    font-size:13px;
+    font-size:14px;
 
     font-weight:bold;
 }
@@ -544,7 +598,7 @@ select{
 
     width:100%;
 
-    padding:14px;
+    padding:15px;
 
     border:
     1px solid #1c425b;
@@ -553,7 +607,7 @@ select{
 
     outline:none;
 
-    color:#fff;
+    color:white;
 
     background:#061d2c;
 
@@ -564,10 +618,6 @@ select{
 select:focus{
 
     border-color:#008cff;
-
-    box-shadow:
-    0 0 0 3px
-    rgba(0,140,255,.08);
 }
 
 
@@ -581,17 +631,17 @@ button{
 
     border:0;
 
-    border-radius:12px;
+    border-radius:13px;
 
     padding:15px;
 
-    margin-top:10px;
+    margin-top:12px;
 
     font-size:15px;
 
     font-weight:bold;
 
-    color:#fff;
+    color:white;
 
     cursor:pointer;
 
@@ -601,9 +651,11 @@ button{
 
 button:hover{
 
-    transform:translateY(-2px);
+    transform:
+    translateY(-2px);
 
-    filter:brightness(1.08);
+    filter:
+    brightness(1.08);
 }
 
 
@@ -641,7 +693,12 @@ button:disabled{
 
 .red{
 
-    background:#ef3041;
+    background:
+    linear-gradient(
+        135deg,
+        #ff1744,
+        #ed102e
+    );
 }
 
 
@@ -650,8 +707,8 @@ button:disabled{
     background:
     linear-gradient(
         135deg,
-        #ff8a00,
-        #ff5c00
+        #ff9800,
+        #ff5b00
     );
 }
 
@@ -661,15 +718,15 @@ button:disabled{
     background:
     linear-gradient(
         135deg,
-        #7b3ff2,
-        #a52cff
+        #8b3dff,
+        #a525ff
     );
 }
 
 
 .dark{
 
-    background:#132b3d;
+    background:#123044;
 }
 
 
@@ -685,12 +742,14 @@ button:disabled{
 
     padding:18px;
 
-    border-radius:15px;
+    border-radius:14px;
 
     background:#061d2c;
 
     border:
-    1px solid #173f58;
+    1px solid #174661;
+
+    text-align:center;
 }
 
 
@@ -702,31 +761,29 @@ button:disabled{
 
 .progress-text{
 
-    text-align:center;
+    color:#70caff;
 
-    color:#a8c2d4;
-
-    font-size:14px;
+    font-weight:bold;
 
     margin-bottom:12px;
 }
 
 
-.progress{
+.progress-bar{
 
     width:100%;
 
-    height:12px;
-
-    border-radius:999px;
+    height:10px;
 
     overflow:hidden;
 
-    background:#102d40;
+    border-radius:999px;
+
+    background:#102f43;
 }
 
 
-.progress-bar{
+.progress-fill{
 
     width:0%;
 
@@ -741,28 +798,75 @@ button:disabled{
         #00d4ff
     );
 
-    transition:.25s;
+    transition:
+    width .3s;
 }
 
 
 /* =====================================================
-   RESULT
+   STATUS
+===================================================== */
+
+.status{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    background:#061d2c;
+
+    color:#9bb0c0;
+}
+
+
+.status.show{
+
+    display:block;
+}
+
+
+.status.success{
+
+    color:#00e676;
+
+}
+
+
+.status.error{
+
+    color:#ff5968;
+
+}
+
+
+/* =====================================================
+   TABLE
 ===================================================== */
 
 .table-wrapper{
 
     display:none;
 
-    margin-top:20px;
+    margin-top:25px;
 
     overflow-x:auto;
 
-    border-radius:15px;
+    border-radius:16px;
 
     border:
-    1px solid #23485d;
+    1px solid #174661;
 
-    background:#fff;
+    background:#ffffff;
 }
 
 
@@ -772,58 +876,105 @@ button:disabled{
 }
 
 
-table{
+#dataTable{
 
     width:100%;
 
     min-width:500px;
 
-    border-collapse:collapse;
+    border-collapse:
+    collapse;
 
     color:#111;
 
-    background:#fff;
+    background:white;
+
+    font-size:14px;
 }
 
 
-th{
+#dataTable th{
 
     padding:13px;
 
+    background:
+    #d9f0ff;
+
+    color:#092638;
+
     border:
-    1px solid #b9cbd5;
-
-    background:#d9f1ff;
-
-    font-weight:bold;
+    1px solid #a9c4d3;
 
     text-align:center;
+
+    font-weight:900;
 }
 
 
-td{
+#dataTable td{
+
+    min-width:120px;
 
     padding:11px;
 
     border:
-    1px solid #c6d2d8;
-
-    background:#fff;
+    1px solid #c5d0d6;
 
     color:#111;
 
-    min-width:120px;
+    background:white;
+
+    vertical-align:top;
 
     outline:none;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
 }
 
 
-td:focus{
+#dataTable td:focus{
 
-    background:#fff8d7;
+    background:#fffde7;
 
     box-shadow:
     inset 0 0 0 2px #008cff;
+}
+
+
+#dataTable tr:nth-child(even) td{
+
+    background:#f7fbfd;
+}
+
+
+#dataTable tr:nth-child(even) td:focus{
+
+    background:#fffde7;
+}
+
+
+/* =====================================================
+   TABLE BUTTONS
+===================================================== */
+
+.table-actions{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+
+.table-actions button{
+
+    margin:0;
 }
 
 
@@ -833,21 +984,58 @@ td:focus{
 
 .info{
 
-    margin-top:14px;
+    margin-top:18px;
 
-    padding:13px;
+    padding:15px;
 
     border-radius:12px;
 
-    color:#9fb6c8;
+    background:
+    rgba(0,140,255,.06);
 
-    background:#061d2c;
+    border:
+    1px solid
+    rgba(0,140,255,.14);
+
+    color:#8fa7ba;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   PRIVACY
+===================================================== */
+
+.private{
+
+    text-align:center;
+}
+
+
+.private-icon{
+
+    font-size:42px;
+
+    margin-bottom:12px;
+}
+
+
+.private p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#8fa7ba;
 
     font-size:13px;
 
-    line-height:1.6;
-
-    text-align:center;
+    line-height:1.8;
 }
 
 
@@ -889,29 +1077,33 @@ footer strong{
 
     header{
 
+        min-height:68px;
+
         padding:
-        12px 4%;
+        10px 4%;
     }
 
 
     .logo{
 
-        font-size:18px;
+        font-size:19px;
     }
 
 
     .logo-icon{
 
-        width:32px;
+        width:38px;
 
-        height:32px;
+        height:38px;
+
+        font-size:19px;
     }
 
 
     .home{
 
         padding:
-        8px 10px;
+        9px 11px;
 
         font-size:12px;
     }
@@ -925,42 +1117,74 @@ footer strong{
     }
 
 
+    .hero{
+
+        margin-bottom:28px;
+    }
+
+
+    .hero h1{
+
+        font-size:39px;
+
+        letter-spacing:-1.5px;
+    }
+
+
+    .hero p{
+
+        font-size:14px;
+    }
+
+
     .card{
 
-        padding:16px;
+        padding:17px;
 
-        border-radius:18px;
+        border-radius:19px;
+    }
+
+
+    .card h2{
+
+        font-size:21px;
     }
 
 
     .upload-area{
 
         padding:
-        28px 15px;
-    }
-
-
-    .upload-icon{
-
-        font-size:50px;
+        27px 13px;
     }
 
 
     .upload-area h3{
 
-        font-size:21px;
+        font-size:22px;
     }
 
 
-    .file-buttons{
+    .upload-buttons{
 
         grid-template-columns:1fr;
     }
 
 
-    table{
+    .upload-btn{
 
-        min-width:550px;
+        min-height:54px;
+    }
+
+
+    .table-actions{
+
+        grid-template-columns:1fr;
+    }
+
+
+    #dataTable{
+
+        min-width:600px;
     }
 
 }
@@ -974,9 +1198,14 @@ footer strong{
 
     *{
 
-        animation:none !important;
+        animation-duration:
+        .01ms !important;
 
-        transition:none !important;
+        animation-iteration-count:
+        1 !important;
+
+        transition-duration:
+        .01ms !important;
     }
 
 }
@@ -995,14 +1224,13 @@ footer strong{
 
 <header>
 
-
 <div class="logo">
 
 <span class="logo-icon">
 ▲
 </span>
 
-ASIM
+<span>ASIM</span>
 
 <span class="logo-blue">
 TECH
@@ -1019,7 +1247,6 @@ href="../">
 
 </a>
 
-
 </header>
 
 
@@ -1031,8 +1258,11 @@ href="../">
 <main class="container">
 
 
-<section class="hero">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
+<section class="hero">
 
 <div class="badge">
 ASIM TECH TOOL
@@ -1041,38 +1271,36 @@ ASIM TECH TOOL
 
 <h1>
 
-Image <span>→ Excel</span>
+Image
+<span>→ Excel</span>
 
 </h1>
 
 
 <p>
 
-Convert list, table or document images
-into editable Excel files.
+Upload a list or table image and convert it
+into an editable Excel file.
 
 </p>
-
 
 </section>
 
 
 
 <!-- =====================================================
-     UPLOAD
+     UPLOAD CARD
 ===================================================== -->
 
 <section class="card">
 
 
 <h2>
-📷 Upload Image
+📷 Image to Excel
 </h2>
 
 
-<div
-id="uploadArea"
-class="upload-area">
+<div class="upload-area">
 
 
 <div class="upload-icon">
@@ -1081,67 +1309,60 @@ class="upload-area">
 
 
 <h3>
-Select List / Table Image
+Upload List / Table Image
 </h3>
 
 
 <p>
 
-Choose an image from your phone gallery
-or take a new photo with the camera.
+Select a photo or screenshot containing
+a table, list, names, numbers or text.
 
 </p>
 
 
-<div class="file-buttons">
+<!-- =====================================================
+     IMPORTANT:
+     CHOOSE IMAGE = GALLERY / FILES
+     TAKE PHOTO = CAMERA
+===================================================== -->
+
+<div class="upload-buttons">
 
 
-<!-- GALLERY -->
+<label class="upload-btn blue">
 
-<label
-class="file-label"
-for="galleryInput">
-
-🖼️ Choose Image
-
-</label>
-
+📁 Choose Image
 
 <input
 type="file"
-id="galleryInput"
-class="file-input"
+id="imageInput"
 accept="image/*">
-
-
-<!-- CAMERA -->
-
-<label
-class="file-label camera-label"
-for="cameraInput">
-
-📷 Take Photo
 
 </label>
 
+
+<label class="upload-btn orange">
+
+📷 Take Photo
 
 <input
 type="file"
 id="cameraInput"
-class="file-input"
 accept="image/*"
 capture="environment">
 
+</label>
+
 
 </div>
-
 
 </div>
 
 
 
 <!-- =====================================================
-     PREVIEW
+     IMAGE PREVIEW
 ===================================================== -->
 
 <div
@@ -1170,34 +1391,28 @@ class="file-name">
 
 <label
 class="label"
-for="language">
+for="ocrLanguage">
 
 OCR Language
 
 </label>
 
 
-<select id="language">
+<select id="ocrLanguage">
 
 
 <option value="eng">
-
 English
-
 </option>
 
 
 <option value="ben">
-
-বাংলা
-
+বাংলা / Bengali
 </option>
 
 
 <option value="eng+ben">
-
-English + বাংলা
-
+English + Bengali
 </option>
 
 
@@ -1206,7 +1421,7 @@ English + বাংলা
 
 
 <!-- =====================================================
-     COLUMNS
+     EXPECTED COLUMNS
 ===================================================== -->
 
 <label
@@ -1222,51 +1437,47 @@ Expected Columns
 
 
 <option value="auto">
-
 Auto Detect
-
 </option>
 
 
 <option value="1">
-
 1 Column
-
 </option>
 
 
 <option value="2">
-
 2 Columns
-
 </option>
 
 
 <option value="3">
-
 3 Columns
-
 </option>
 
 
 <option value="4">
-
 4 Columns
-
 </option>
 
 
 <option value="5">
-
 5 Columns
-
 </option>
 
 
 <option value="6">
-
 6 Columns
+</option>
 
+
+<option value="7">
+7 Columns
+</option>
+
+
+<option value="8">
+8 Columns
 </option>
 
 
@@ -1283,16 +1494,7 @@ id="extractButton"
 class="blue"
 disabled>
 
-🔎 Extract Table
-
-</button>
-
-
-<button
-id="clearButton"
-class="red">
-
-✕ Clear
+🔍 Extract Table
 
 </button>
 
@@ -1316,15 +1518,52 @@ Preparing OCR...
 </div>
 
 
-<div class="progress">
+<div class="progress-bar">
 
 <div
-id="progressBar"
-class="progress-bar">
+id="progressFill"
+class="progress-fill">
 </div>
 
 </div>
 
+</div>
+
+
+
+<!-- =====================================================
+     STATUS
+===================================================== -->
+
+<div
+id="status"
+class="status">
+</div>
+
+
+
+<!-- =====================================================
+     CLEAR IMAGE
+===================================================== -->
+
+<button
+id="clearImageButton"
+class="red">
+
+✕ Clear
+
+</button>
+
+
+<div class="info">
+
+💡 <strong>Choose Image</strong> opens Gallery / Files.
+<br>
+
+📷 <strong>Take Photo</strong> opens your camera.
+<br>
+
+🔒 Image processing is performed in your browser.
 
 </div>
 
@@ -1334,7 +1573,7 @@ class="progress-bar">
 
 
 <!-- =====================================================
-     RESULT
+     RESULT CARD
 ===================================================== -->
 
 <section
@@ -1344,43 +1583,53 @@ style="display:none;">
 
 
 <h2>
-
 📊 Extracted Table
-
 </h2>
 
 
-<div class="info">
+<p
+style="
+color:#8fa7ba;
+font-size:13px;
+line-height:1.7;
+text-align:center;
+margin-top:-8px;
+">
 
-The table is editable.
-Tap any cell to correct the OCR result
-before downloading.
+The extracted data is editable.
+Tap any cell and correct the text before downloading.
 
-</div>
+</p>
 
+
+<!-- =====================================================
+     TABLE
+===================================================== -->
 
 <div
 id="tableWrapper"
 class="table-wrapper">
 
 
-<table
-id="resultTable">
+<table id="dataTable">
 
-
-<thead>
+<thead id="tableHead">
 </thead>
 
-
-<tbody>
+<tbody id="tableBody">
 </tbody>
-
 
 </table>
 
-
 </div>
 
+
+
+<!-- =====================================================
+     DOWNLOAD
+===================================================== -->
+
+<div class="table-actions">
 
 
 <button
@@ -1437,67 +1686,38 @@ class="red">
 </button>
 
 
+</div>
+
+
 </section>
 
 
 
 <!-- =====================================================
-     OCR TIPS
+     PRIVACY CARD
 ===================================================== -->
 
-<section class="card">
+<section class="card private">
+
+
+<div class="private-icon">
+🔒
+</div>
 
 
 <h2>
-💡 Better OCR Result
+Privacy First
 </h2>
 
 
-<div class="info">
+<p>
 
+Your image and extracted data are processed
+inside your browser. The tool does not require
+an account and does not upload your image
+to your own server.
 
-<strong>1.</strong>
-Use a clear and high-resolution image.
-
-
-<br><br>
-
-
-<strong>2.</strong>
-Keep the paper straight.
-
-
-<br><br>
-
-
-<strong>3.</strong>
-Avoid shadows and glare.
-
-
-<br><br>
-
-
-<strong>4.</strong>
-For Bengali text choose
-<strong>বাংলা</strong>.
-
-
-<br><br>
-
-
-<strong>5.</strong>
-For mixed text choose
-<strong>English + বাংলা</strong>.
-
-
-<br><br>
-
-
-<strong>6.</strong>
-If your list has fixed columns,
-select the number of columns.
-
-</div>
+</p>
 
 
 </section>
@@ -1538,34 +1758,18 @@ Image to Excel
 <script>
 
 /* =====================================================
-   VARIABLES
-===================================================== */
-
-let selectedFile = null;
-
-let tableData = [];
-
-
-
-/* =====================================================
    ELEMENTS
 ===================================================== */
 
-const galleryInput =
+const imageInput =
 document.getElementById(
-    "galleryInput"
+    "imageInput"
 );
 
 
 const cameraInput =
 document.getElementById(
     "cameraInput"
-);
-
-
-const uploadArea =
-document.getElementById(
-    "uploadArea"
 );
 
 
@@ -1593,9 +1797,9 @@ document.getElementById(
 );
 
 
-const clearButton =
+const clearImageButton =
 document.getElementById(
-    "clearButton"
+    "clearImageButton"
 );
 
 
@@ -1605,15 +1809,21 @@ document.getElementById(
 );
 
 
-const progressBar =
-document.getElementById(
-    "progressBar"
-);
-
-
 const progressText =
 document.getElementById(
     "progressText"
+);
+
+
+const progressFill =
+document.getElementById(
+    "progressFill"
+);
+
+
+const statusBox =
+document.getElementById(
+    "status"
 );
 
 
@@ -1629,95 +1839,101 @@ document.getElementById(
 );
 
 
-const resultTable =
+const tableHead =
 document.getElementById(
-    "resultTable"
+    "tableHead"
 );
 
 
-const languageSelect =
+const tableBody =
 document.getElementById(
-    "language"
+    "tableBody"
 );
 
 
-const columnSelect =
+const ocrLanguage =
+document.getElementById(
+    "ocrLanguage"
+);
+
+
+const columnCount =
 document.getElementById(
     "columnCount"
 );
 
 
+let selectedFile = null;
+
+let tableData = [];
+
 
 /* =====================================================
-   GALLERY
+   STATUS
 ===================================================== */
 
-galleryInput.addEventListener(
-    "change",
-    function(){
+function showStatus(
+    message,
+    type = ""
+){
 
-        if(
-            this.files &&
-            this.files[0]
-        ){
+    statusBox.innerHTML =
+        message;
 
-            handleFile(
-                this.files[0]
-            );
+    statusBox.className =
+        "status show " + type;
 
-        }
+}
 
+
+/* =====================================================
+   IMAGE FILE HANDLER
+===================================================== */
+
+function handleImageFile(file){
+
+    if(!file){
+
+        return;
     }
-);
 
-
-
-/* =====================================================
-   CAMERA
-===================================================== */
-
-cameraInput.addEventListener(
-    "change",
-    function(){
-
-        if(
-            this.files &&
-            this.files[0]
-        ){
-
-            handleFile(
-                this.files[0]
-            );
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   HANDLE FILE
-===================================================== */
-
-function handleFile(file){
 
     if(
         !file.type ||
-        !file.type.startsWith(
-            "image/"
-        )
+        !file.type.startsWith("image/")
     ){
 
-        alert(
-            "Please select an image."
+        showStatus(
+            "❌ Please select an image file.",
+            "error"
         );
 
         return;
     }
 
 
-    selectedFile = file;
+    selectedFile =
+        file;
+
+
+    const url =
+        URL.createObjectURL(
+            file
+        );
+
+
+    previewImage.onload =
+        function(){
+
+            URL.revokeObjectURL(
+                url
+            );
+
+        };
+
+
+    previewImage.src =
+        url;
 
 
     fileName.textContent =
@@ -1725,357 +1941,94 @@ function handleFile(file){
         file.name;
 
 
-    const reader =
-        new FileReader();
+    previewBox.classList.add(
+        "show"
+    );
 
 
-    reader.onload =
-        function(event){
-
-            previewImage.src =
-                event.target.result;
+    extractButton.disabled =
+        false;
 
 
-            previewBox.classList.add(
-                "show"
-            );
-
-
-            extractButton.disabled =
-                false;
-
-        };
-
-
-    reader.readAsDataURL(
-        file
+    showStatus(
+        "✅ Image selected successfully. Tap Extract Table.",
+        "success"
     );
 
 }
 
 
 /* =====================================================
-   DRAG & DROP
+   CHOOSE IMAGE
+   IMPORTANT:
+   No capture attribute here.
 ===================================================== */
 
-uploadArea.addEventListener(
-    "dragover",
-    function(event){
-
-        event.preventDefault();
-
-        uploadArea.classList.add(
-            "drag"
-        );
-
-    }
-);
-
-
-uploadArea.addEventListener(
-    "dragleave",
+imageInput.addEventListener(
+    "change",
     function(){
 
-        uploadArea.classList.remove(
-            "drag"
+        handleImageFile(
+            this.files &&
+            this.files[0]
         );
 
     }
 );
-
-
-uploadArea.addEventListener(
-    "drop",
-    function(event){
-
-        event.preventDefault();
-
-        uploadArea.classList.remove(
-            "drag"
-        );
-
-
-        const file =
-            event.dataTransfer.files &&
-            event.dataTransfer.files[0];
-
-
-        if(file){
-
-            handleFile(file);
-
-        }
-
-    }
-);
-
 
 
 /* =====================================================
-   CLEAR ALL
+   TAKE PHOTO
 ===================================================== */
 
-clearButton.addEventListener(
-    "click",
-    clearAll
+cameraInput.addEventListener(
+    "change",
+    function(){
+
+        handleImageFile(
+            this.files &&
+            this.files[0]
+        );
+
+    }
 );
-
-
-function clearAll(){
-
-    selectedFile = null;
-
-    tableData = [];
-
-
-    galleryInput.value = "";
-
-    cameraInput.value = "";
-
-
-    previewImage.src = "";
-
-    fileName.textContent = "";
-
-
-    previewBox.classList.remove(
-        "show"
-    );
-
-
-    extractButton.disabled =
-        true;
-
-
-    progressBox.classList.remove(
-        "show"
-    );
-
-
-    resultCard.style.display =
-        "none";
-
-
-    resultTable
-    .querySelector("thead")
-    .innerHTML = "";
-
-
-    resultTable
-    .querySelector("tbody")
-    .innerHTML = "";
-
-}
-
 
 
 /* =====================================================
-   EXTRACT TABLE
+   CLEAR IMAGE
 ===================================================== */
 
-extractButton.addEventListener(
+clearImageButton.addEventListener(
     "click",
-    extractTable
-);
+    function(){
+
+        selectedFile =
+            null;
 
 
-async function extractTable(){
-
-    if(!selectedFile){
-
-        alert(
-            "Please select an image first."
-        );
-
-        return;
-    }
+        imageInput.value =
+            "";
 
 
-    extractButton.disabled =
-        true;
+        cameraInput.value =
+            "";
 
 
-    progressBox.classList.add(
-        "show"
-    );
+        previewImage.src =
+            "";
 
 
-    progressBar.style.width =
-        "3%";
+        fileName.textContent =
+            "";
 
 
-    try{
-
-        progressText.textContent =
-            "🖼️ Preparing image...";
-
-
-        const image =
-            await prepareImage(
-                selectedFile
-            );
-
-
-        progressBar.style.width =
-            "8%";
-
-
-        progressText.textContent =
-            "🔎 Loading OCR engine...";
-
-
-        const language =
-            languageSelect.value;
-
-
-        const worker =
-            await Tesseract.createWorker(
-                language,
-                1,
-                {
-
-                    logger:function(info){
-
-                        if(
-                            typeof info.progress ===
-                            "number"
-                        ){
-
-                            const percent =
-                                10 +
-                                Math.round(
-                                    info.progress *
-                                    80
-                                );
-
-
-                            progressBar.style.width =
-                                percent +
-                                "%";
-
-                        }
-
-
-                        if(
-                            info.status
-                        ){
-
-                            progressText.textContent =
-                                "🔎 " +
-                                info.status;
-
-                        }
-
-                    }
-
-                }
-            );
-
-
-        progressText.textContent =
-            "🔍 Reading image...";
-
-
-        const result =
-            await worker.recognize(
-                image
-            );
-
-
-        await worker.terminate();
-
-
-        progressBar.style.width =
-            "94%";
-
-
-        progressText.textContent =
-            "📊 Creating table...";
-
-
-        const words =
-            result &&
-            result.data &&
-            result.data.words
-            ? result.data.words
-            : [];
-
-
-        const text =
-            result &&
-            result.data &&
-            result.data.text
-            ? result.data.text
-            : "";
-
-
-        tableData =
-            buildTable(
-                words,
-                text
-            );
-
-
-        if(
-            !tableData ||
-            tableData.length === 0
-        ){
-
-            throw new Error(
-                "No readable text found. Please use a clearer image."
-            );
-
-        }
-
-
-        renderTable(
-            tableData
+        previewBox.classList.remove(
+            "show"
         );
 
 
-        progressBar.style.width =
-            "100%";
-
-
-        progressText.textContent =
-            "✅ Completed";
-
-
-        resultCard.style.display =
-            "block";
-
-
-        setTimeout(
-            function(){
-
-                progressBox.classList.remove(
-                    "show"
-                );
-
-            },
-            1000
-        );
-
-
-        setTimeout(
-            function(){
-
-                resultCard.scrollIntoView({
-                    behavior:"smooth",
-                    block:"start"
-                });
-
-            },
-            200
-        );
-
-
-    }catch(error){
-
-        console.error(
-            "OCR ERROR:",
-            error
-        );
+        extractButton.disabled =
+            true;
 
 
         progressBox.classList.remove(
@@ -2083,104 +2036,126 @@ async function extractTable(){
         );
 
 
-        alert(
-            "OCR could not complete.\n\n" +
-            (
-                error.message ||
-                "Please try a clearer image."
-            )
+        statusBox.classList.remove(
+            "show"
         );
 
     }
-
-
-    extractButton.disabled =
-        false;
-
-}
-
+);
 
 
 /* =====================================================
-   IMAGE PREPARATION
+   PREPROCESS IMAGE
 ===================================================== */
 
-function prepareImage(file){
+function preprocessImage(
+    file
+){
 
     return new Promise(
         function(resolve,reject){
 
-            const reader =
-                new FileReader();
+            const img =
+                new Image();
 
 
-            reader.onload =
-                function(event){
-
-                    const img =
-                        new Image();
-
-
-                    img.onload =
-                        function(){
-
-                            let width =
-                                img.naturalWidth;
+            const url =
+                URL.createObjectURL(
+                    file
+                );
 
 
-                            let height =
-                                img.naturalHeight;
+            img.onload =
+                function(){
+
+                    URL.revokeObjectURL(
+                        url
+                    );
 
 
-                            const maxWidth =
-                                2400;
+                    let maxWidth =
+                        2200;
 
 
-                            if(
-                                width >
-                                maxWidth
-                            ){
-
-                                const ratio =
-                                    maxWidth /
-                                    width;
+                    let scale =
+                        Math.min(
+                            1,
+                            maxWidth /
+                            img.naturalWidth
+                        );
 
 
-                                width =
-                                    maxWidth;
+                    let width =
+                        Math.round(
+                            img.naturalWidth *
+                            scale
+                        );
 
 
-                                height =
-                                    Math.round(
-                                        height *
-                                        ratio
-                                    );
+                    let height =
+                        Math.round(
+                            img.naturalHeight *
+                            scale
+                        );
 
+
+                    const canvas =
+                        document.createElement(
+                            "canvas"
+                        );
+
+
+                    canvas.width =
+                        width;
+
+
+                    canvas.height =
+                        height;
+
+
+                    const ctx =
+                        canvas.getContext(
+                            "2d",
+                            {
+                                willReadFrequently:true
                             }
+                        );
 
 
-                            const canvas =
-                                document.createElement(
-                                    "canvas"
-                                );
+                    /*
+                       White background helps
+                       OCR on screenshots.
+                    */
+
+                    ctx.fillStyle =
+                        "#ffffff";
 
 
-                            canvas.width =
-                                width;
+                    ctx.fillRect(
+                        0,
+                        0,
+                        width,
+                        height
+                    );
 
 
-                            canvas.height =
-                                height;
+                    ctx.drawImage(
+                        img,
+                        0,
+                        0,
+                        width,
+                        height
+                    );
 
 
-                            const ctx =
-                                canvas.getContext(
-                                    "2d"
-                                );
+                    /*
+                       Mild contrast enhancement.
+                    */
 
+                    try{
 
-                            ctx.drawImage(
-                                img,
+                        const imageData =
+                            ctx.getImageData(
                                 0,
                                 0,
                                 width,
@@ -2188,101 +2163,93 @@ function prepareImage(file){
                             );
 
 
-                            /*
-                               Improve contrast
-                               without making
-                               Bengali characters
-                               too harsh.
-                            */
+                        const data =
+                            imageData.data;
 
-                            const imageData =
-                                ctx.getImageData(
-                                    0,
-                                    0,
-                                    width,
-                                    height
+
+                        for(
+                            let i=0;
+                            i<data.length;
+                            i+=4
+                        ){
+
+                            data[i] =
+                                Math.min(
+                                    255,
+                                    Math.max(
+                                        0,
+                                        (data[i]-128)
+                                        *1.12+128
+                                    )
                                 );
 
 
-                            const data =
-                                imageData.data;
+                            data[i+1] =
+                                Math.min(
+                                    255,
+                                    Math.max(
+                                        0,
+                                        (data[i+1]-128)
+                                        *1.12+128
+                                    )
+                                );
 
 
-                            for(
-                                let i=0;
-                                i<data.length;
-                                i+=4
-                            ){
+                            data[i+2] =
+                                Math.min(
+                                    255,
+                                    Math.max(
+                                        0,
+                                        (data[i+2]-128)
+                                        *1.12+128
+                                    )
+                                );
 
-                                data[i] =
-                                    improve(
-                                        data[i]
-                                    );
-
-
-                                data[i+1] =
-                                    improve(
-                                        data[i+1]
-                                    );
+                        }
 
 
-                                data[i+2] =
-                                    improve(
-                                        data[i+2]
-                                    );
+                        ctx.putImageData(
+                            imageData,
+                            0,
+                            0
+                        );
 
-                            }
+                    }catch(e){
 
+                        console.log(
+                            "Image enhancement skipped",
+                            e
+                        );
 
-                            ctx.putImageData(
-                                imageData,
-                                0,
-                                0
-                            );
-
-
-                            resolve(
-                                canvas.toDataURL(
-                                    "image/png"
-                                )
-                            );
-
-                        };
+                    }
 
 
-                    img.onerror =
-                        function(){
-
-                            reject(
-                                new Error(
-                                    "Image could not be opened."
-                                )
-                            );
-
-                        };
-
-
-                    img.src =
-                        event.target.result;
+                    resolve(
+                        canvas
+                    );
 
                 };
 
 
-            reader.onerror =
+            img.onerror =
                 function(){
+
+                    URL.revokeObjectURL(
+                        url
+                    );
+
 
                     reject(
                         new Error(
-                            "Image reading failed."
+                            "Could not read image."
                         )
                     );
 
                 };
 
 
-            reader.readAsDataURL(
-                file
-            );
+            img.src =
+                url;
 
         }
     );
@@ -2291,254 +2258,245 @@ function prepareImage(file){
 
 
 /* =====================================================
-   CONTRAST
+   OCR
 ===================================================== */
 
-function improve(value){
+extractButton.addEventListener(
+    "click",
+    async function(){
 
-    const factor =
-        1.08;
+        if(!selectedFile){
 
+            showStatus(
+                "❌ Please choose an image first.",
+                "error"
+            );
 
-    return Math.min(
-        255,
-        Math.max(
-            0,
-            (
-                value - 128
-            ) *
-            factor +
-            128
-        )
-    );
-
-}
+            return;
+        }
 
 
+        if(
+            typeof Tesseract ===
+            "undefined"
+        ){
 
-/* =====================================================
-   BUILD TABLE
-===================================================== */
+            showStatus(
+                "❌ OCR library could not be loaded. Check your internet connection.",
+                "error"
+            );
 
-function buildTable(
-    words,
-    fullText
-){
+            return;
+        }
 
-    const validWords =
-        words
-        .filter(
-            function(word){
 
-                return(
-                    word &&
-                    word.text &&
-                    word.text.trim() &&
-                    (
-                        typeof word.conf !==
-                        "number" ||
-                        word.conf >= 20
-                    )
-                );
+        extractButton.disabled =
+            true;
 
-            }
+
+        progressBox.classList.add(
+            "show"
         );
 
 
-    if(
-        validWords.length === 0
-    ){
-
-        return textToRows(
-            fullText
-        );
-
-    }
+        progressFill.style.width =
+            "0%";
 
 
-    /*
-       Sort words vertically.
-    */
-
-    validWords.sort(
-        function(a,b){
-
-            return (
-                a.bbox.y0 -
-                b.bbox.y0
-            );
-
-        }
-    );
+        progressText.textContent =
+            "Preparing image...";
 
 
-    const lines = [];
+        try{
 
-
-    const tolerance = 20;
-
-
-    validWords.forEach(
-        function(word){
-
-            const centerY =
-                (
-                    word.bbox.y0 +
-                    word.bbox.y1
-                ) / 2;
-
-
-            let line = null;
-
-
-            for(
-                let i=0;
-                i<lines.length;
-                i++
-            ){
-
-                if(
-                    Math.abs(
-                        lines[i].centerY -
-                        centerY
-                    ) <= tolerance
-                ){
-
-                    line =
-                        lines[i];
-
-                    break;
-
-                }
-
-            }
-
-
-            if(!line){
-
-                line = {
-
-                    centerY:centerY,
-
-                    words:[]
-
-                };
-
-
-                lines.push(
-                    line
-                );
-
-            }
-
-
-            line.words.push(
-                word
-            );
-
-        }
-    );
-
-
-    lines.sort(
-        function(a,b){
-
-            return (
-                a.centerY -
-                b.centerY
-            );
-
-        }
-    );
-
-
-    const rows =
-        lines.map(
-            function(line){
-
-                line.words.sort(
-                    function(a,b){
-
-                        return (
-                            a.bbox.x0 -
-                            b.bbox.x0
-                        );
-
-                    }
+            const canvas =
+                await preprocessImage(
+                    selectedFile
                 );
 
 
-                return line.words.map(
-                    function(word){
-
-                        return word.text
-                        .trim();
-
-                    }
-                );
-
-            }
-        );
+            const language =
+                ocrLanguage.value;
 
 
-    const cleanRows =
-        rows.filter(
-            function(row){
+            showStatus(
+                "⏳ OCR is processing your image. Please wait..."
+            );
 
-                return(
-                    row.length > 0 &&
-                    row.some(
-                        function(cell){
 
-                            return cell.trim();
+            progressText.textContent =
+                "Starting OCR...";
+
+
+            const result =
+                await Tesseract.recognize(
+
+                    canvas,
+
+                    language,
+
+                    {
+
+                        logger:function(info){
+
+                            if(
+                                info &&
+                                typeof info.progress ===
+                                "number"
+                            ){
+
+                                const percent =
+                                    Math.round(
+                                        info.progress *
+                                        100
+                                    );
+
+
+                                progressFill.style.width =
+                                    percent +
+                                    "%";
+
+
+                                if(
+                                    info.status
+                                ){
+
+                                    progressText.textContent =
+                                        info.status +
+                                        " " +
+                                        percent +
+                                        "%";
+
+                                }
+
+                            }
 
                         }
-                    )
+
+                    }
+
+                );
+
+
+            progressFill.style.width =
+                "100%";
+
+
+            progressText.textContent =
+                "OCR completed";
+
+
+            const text =
+                result &&
+                result.data &&
+                result.data.text
+                ? result.data.text
+                : "";
+
+
+            if(!text.trim()){
+
+                throw new Error(
+                    "No readable text was found in the image."
                 );
 
             }
-        );
 
 
-    const selected =
-        columnSelect.value;
+            tableData =
+                convertOCRToTable(
+                    text
+                );
 
 
-    if(
-        selected !== "auto"
-    ){
+            if(
+                !tableData ||
+                tableData.length === 0
+            ){
 
-        return fixedColumns(
-            validWords,
-            cleanRows,
-            parseInt(
-                selected,
-                10
-            )
-        );
+                throw new Error(
+                    "Could not create a table from the image."
+                );
+
+            }
+
+
+            renderTable();
+
+
+            resultCard.style.display =
+                "block";
+
+
+            tableWrapper.classList.add(
+                "show"
+            );
+
+
+            resultCard.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+
+            showStatus(
+                "✅ Table extracted successfully. You can edit any cell before downloading.",
+                "success"
+            );
+
+
+        }catch(error){
+
+            console.error(
+                "OCR error:",
+                error
+            );
+
+
+            showStatus(
+                "❌ " +
+                escapeHtml(
+                    error.message ||
+                    "Could not extract the table."
+                ),
+                "error"
+            );
+
+        }finally{
+
+            extractButton.disabled =
+                !selectedFile;
+
+
+            setTimeout(
+                function(){
+
+                    progressBox.classList.remove(
+                        "show"
+                    );
+
+                },
+                1200
+            );
+
+        }
 
     }
-
-
-    return autoColumns(
-        cleanRows
-    );
-
-}
-
+);
 
 
 /* =====================================================
-   TEXT FALLBACK
+   OCR TEXT → TABLE
 ===================================================== */
 
-function textToRows(
+function convertOCRToTable(
     text
 ){
 
-    const lines =
+    let rawLines =
         text
-        .split(/\r?\n/)
+        .replace(/\r/g,"")
+        .split("\n")
         .map(
             function(line){
 
@@ -2546,320 +2504,264 @@ function textToRows(
 
             }
         )
-        .filter(Boolean);
+        .filter(
+            function(line){
 
-
-    return lines.map(
-        function(line){
-
-            if(
-                line.includes("\t")
-            ){
-
-                return line
-                .split("\t")
-                .map(
-                    x =>
-                    x.trim()
-                );
+                return line.length > 0;
 
             }
+        );
 
-
-            return [
-                line
-            ];
-
-        }
-    );
-
-}
-
-
-
-/* =====================================================
-   AUTO COLUMNS
-===================================================== */
-
-function autoColumns(
-    rows
-){
 
     if(
-        !rows.length
+        rawLines.length === 0
     ){
 
         return [];
-
     }
 
 
-    const max =
-        Math.max.apply(
-            null,
-            rows.map(
-                row =>
-                row.length
-            )
-        );
+    /*
+       Remove obvious OCR noise.
+    */
 
+    rawLines =
+        rawLines.map(
+            function(line){
 
-    if(
-        max > 1
-    ){
-
-        return normalizeRows(
-            rows,
-            max
-        );
-
-    }
-
-
-    return rows.map(
-        function(row){
-
-            return [
-                row.join(" ")
-            ];
-
-        }
-    );
-
-}
-
-
-
-/* =====================================================
-   FIXED COLUMNS
-===================================================== */
-
-function fixedColumns(
-    words,
-    rows,
-    count
-){
-
-    if(
-        count <= 1
-    ){
-
-        return rows.map(
-            function(row){
-
-                return [
-                    row.join(" ")
-                ];
+                return line
+                    .replace(/[ \t]+/g," ")
+                    .trim();
 
             }
         );
 
-    }
+
+    const selectedColumns =
+        columnCount.value;
 
 
-    let maxX = 0;
-
-
-    words.forEach(
-        function(word){
-
-            if(
-                word.bbox &&
-                word.bbox.x1 >
-                maxX
-            ){
-
-                maxX =
-                    word.bbox.x1;
-
-            }
-
-        }
-    );
-
+    /*
+       If user selected one column,
+       each OCR line becomes a row.
+    */
 
     if(
-        maxX <= 0
+        selectedColumns === "1"
     ){
 
-        return rows;
+        return rawLines.map(
+            function(line){
+
+                return [line];
+
+            }
+        );
 
     }
 
 
     /*
-       Make horizontal lines
-       again directly from
-       words for better column
-       positioning.
+       Detect columns from tabs first.
     */
 
-    const lineObjects = [];
-
-
-    words
-    .slice()
-    .sort(
-        function(a,b){
-
-            return (
-                a.bbox.y0 -
-                b.bbox.y0
-            );
-
-        }
-    )
-    .forEach(
-        function(word){
-
-            const centerY =
-                (
-                    word.bbox.y0 +
-                    word.bbox.y1
-                ) / 2;
-
-
-            let line = null;
-
-
-            for(
-                let i=0;
-                i<lineObjects.length;
-                i++
-            ){
+    let rows =
+        rawLines.map(
+            function(line){
 
                 if(
-                    Math.abs(
-                        lineObjects[i].centerY -
-                        centerY
-                    ) <= 20
+                    line.includes("\t")
                 ){
 
-                    line =
-                        lineObjects[i];
-
-                    break;
+                    return line
+                        .split("\t")
+                        .map(
+                            function(x){
+                                return x.trim();
+                            }
+                        );
 
                 }
 
-            }
 
+                /*
+                   Two or more spaces often
+                   indicate columns in OCR.
+                */
 
-            if(!line){
-
-                line = {
-
-                    centerY:centerY,
-
-                    words:[]
-
-                };
-
-
-                lineObjects.push(
+                const parts =
                     line
-                );
+                    .split(/\s{2,}/)
+                    .map(
+                        function(x){
+                            return x.trim();
+                        }
+                    )
+                    .filter(
+                        function(x){
+                            return x.length > 0;
+                        }
+                    );
+
+
+                return parts.length > 1
+                    ? parts
+                    : [line];
 
             }
+        );
 
 
-            line.words.push(
-                word
+    /*
+       User selected expected columns.
+    */
+
+    if(
+        selectedColumns !== "auto"
+    ){
+
+        const count =
+            parseInt(
+                selectedColumns,
+                10
             );
 
-        }
-    );
 
+        rows =
+            rows.map(
+                function(row){
 
-    lineObjects.sort(
-        (a,b) =>
-        a.centerY -
-        b.centerY
-    );
-
-
-    const result = [];
-
-
-    lineObjects.forEach(
-        function(line){
-
-            const row =
-                new Array(
-                    count
-                ).fill("");
-
-
-            line.words.sort(
-                function(a,b){
-
-                    return (
-                        a.bbox.x0 -
-                        b.bbox.x0
+                    return normalizeRow(
+                        row,
+                        count
                     );
 
                 }
             );
 
+    }else{
 
-            line.words.forEach(
-                function(word){
+        /*
+           Auto detect maximum number
+           of columns.
+        */
 
-                    const centerX =
-                        (
-                            word.bbox.x0 +
-                            word.bbox.x1
-                        ) / 2;
-
-
-                    let col =
-                        Math.floor(
-                            (
-                                centerX /
-                                maxX
-                            ) *
-                            count
-                        );
+        let maxColumns = 1;
 
 
-                    col =
-                        Math.max(
-                            0,
-                            Math.min(
-                                count - 1,
-                                col
-                            )
-                        );
+        rows.forEach(
+            function(row){
+
+                if(
+                    row.length >
+                    maxColumns
+                ){
+
+                    maxColumns =
+                        row.length;
+
+                }
+
+            }
+        );
 
 
-                    if(
-                        row[col]
-                    ){
+        /*
+           Prevent accidental huge
+           column counts from OCR noise.
+        */
 
-                        row[col] +=
-                            " " +
-                            word.text;
+        maxColumns =
+            Math.min(
+                maxColumns,
+                12
+            );
 
-                    }else{
 
-                        row[col] =
-                            word.text;
+        rows =
+            rows.map(
+                function(row){
 
-                    }
+                    return normalizeRow(
+                        row,
+                        maxColumns
+                    );
 
                 }
             );
 
+    }
 
-            result.push(
-                row.map(
-                    x =>
-                    x.trim()
-                )
-            );
 
-        }
-    );
+    return rows;
+
+}
+
+
+/* =====================================================
+   NORMALIZE ROW
+===================================================== */
+
+function normalizeRow(
+    row,
+    count
+){
+
+    const result =
+        new Array(
+            count
+        ).fill("");
+
+
+    if(
+        row.length === 1
+    ){
+
+        result[0] =
+            row[0] || "";
+
+
+        return result;
+
+    }
+
+
+    for(
+        let i=0;
+        i<Math.min(
+            row.length,
+            count
+        );
+        i++
+    ){
+
+        result[i] =
+            row[i] || "";
+
+    }
+
+
+    /*
+       If OCR returned more data than
+       selected columns, append it to
+       the last cell instead of losing it.
+    */
+
+    if(
+        row.length > count
+    ){
+
+        result[count-1] =
+            (
+                result[count-1]
+                ? result[count-1] + " "
+                : ""
+            ) +
+            row
+            .slice(count)
+            .join(" ");
+
+    }
 
 
     return result;
@@ -2867,117 +2769,48 @@ function fixedColumns(
 }
 
 
-
-/* =====================================================
-   NORMALIZE ROWS
-===================================================== */
-
-function normalizeRows(
-    rows,
-    count
-){
-
-    return rows.map(
-        function(row){
-
-            const newRow =
-                row.slice();
-
-
-            while(
-                newRow.length <
-                count
-            ){
-
-                newRow.push("");
-
-            }
-
-
-            return newRow.slice(
-                0,
-                count
-            );
-
-        }
-    );
-
-}
-
-
-
 /* =====================================================
    RENDER TABLE
 ===================================================== */
 
-function renderTable(
-    data
-){
+function renderTable(){
 
-    tableData =
-        data.map(
-            function(row){
+    tableHead.innerHTML =
+        "";
 
-                return row.map(
-                    function(cell){
 
-                        return String(
-                            cell || ""
-                        );
-
-                    }
-                );
-
-            }
-        );
+    tableBody.innerHTML =
+        "";
 
 
     if(
-        !tableData.length
+        !tableData ||
+        tableData.length === 0
     ){
 
         return;
-
     }
 
 
-    const maxColumns =
-        Math.max.apply(
-            null,
-            tableData.map(
-                row =>
-                row.length
-            )
-        );
+    let columns =
+        1;
 
 
-    tableData =
-        normalizeRows(
-            tableData,
-            maxColumns
-        );
+    tableData.forEach(
+        function(row){
 
+            if(
+                row.length >
+                columns
+            ){
 
-    const thead =
-        resultTable
-        .querySelector(
-            "thead"
-        );
+                columns =
+                    row.length;
 
+            }
 
-    const tbody =
-        resultTable
-        .querySelector(
-            "tbody"
-        );
-
-
-    thead.innerHTML =
-        "";
-
-
-    tbody.innerHTML =
-        "";
+        }
+    );
 
 
     /*
@@ -2992,7 +2825,7 @@ function renderTable(
 
     for(
         let c=0;
-        c<maxColumns;
+        c<columns;
         c++
     ){
 
@@ -3004,7 +2837,7 @@ function renderTable(
 
         th.textContent =
             "Column " +
-            (c + 1);
+            (c+1);
 
 
         headerRow.appendChild(
@@ -3014,7 +2847,7 @@ function renderTable(
     }
 
 
-    thead.appendChild(
+    tableHead.appendChild(
         headerRow
     );
 
@@ -3024,7 +2857,7 @@ function renderTable(
     */
 
     tableData.forEach(
-        function(row,r){
+        function(row){
 
             const tr =
                 document.createElement(
@@ -3034,7 +2867,7 @@ function renderTable(
 
             for(
                 let c=0;
-                c<maxColumns;
+                c<columns;
                 c++
             ){
 
@@ -3048,6 +2881,10 @@ function renderTable(
                     "true";
 
 
+                td.spellcheck =
+                    false;
+
+
                 td.textContent =
                     row[c] || "";
 
@@ -3056,8 +2893,7 @@ function renderTable(
                     "input",
                     function(){
 
-                        tableData[r][c] =
-                            td.textContent;
+                        updateTableData();
 
                     }
                 );
@@ -3070,70 +2906,342 @@ function renderTable(
             }
 
 
-            tbody.appendChild(
+            tableBody.appendChild(
                 tr
             );
 
         }
     );
 
-
-    tableWrapper.classList.add(
-        "show"
-    );
-
 }
-
 
 
 /* =====================================================
-   SYNC TABLE
+   UPDATE TABLE DATA FROM DOM
 ===================================================== */
 
-function syncTable(){
+function updateTableData(){
 
     const rows =
-        resultTable
-        .querySelectorAll(
-            "tbody tr"
+        Array.from(
+            tableBody.querySelectorAll(
+                "tr"
+            )
         );
 
 
-    tableData = [];
+    tableData =
+        rows.map(
+            function(row){
 
+                return Array.from(
+                    row.querySelectorAll(
+                        "td"
+                    )
+                ).map(
+                    function(cell){
 
-    rows.forEach(
-        function(tr){
+                        return cell
+                            .innerText
+                            .trim();
 
-            const cells =
-                tr.querySelectorAll(
-                    "td"
+                    }
                 );
 
-
-            const row = [];
-
-
-            cells.forEach(
-                function(td){
-
-                    row.push(
-                        td.textContent.trim()
-                    );
-
-                }
-            );
-
-
-            tableData.push(
-                row
-            );
-
-        }
-    );
+            }
+        );
 
 }
 
+
+/* =====================================================
+   ADD ROW
+===================================================== */
+
+document
+.getElementById("addRow")
+.addEventListener(
+    "click",
+    function(){
+
+        updateTableData();
+
+
+        let columns =
+            tableData.length > 0
+            ? tableData[0].length
+            : 1;
+
+
+        tableData.push(
+            new Array(
+                columns
+            ).fill("")
+        );
+
+
+        renderTable();
+
+
+        focusLastCell();
+
+    }
+);
+
+
+/* =====================================================
+   FOCUS LAST CELL
+===================================================== */
+
+function focusLastCell(){
+
+    const rows =
+        tableBody.querySelectorAll(
+            "tr"
+        );
+
+
+    if(
+        rows.length === 0
+    ){
+
+        return;
+    }
+
+
+    const cells =
+        rows[
+            rows.length-1
+        ].querySelectorAll(
+            "td"
+        );
+
+
+    if(
+        cells.length > 0
+    ){
+
+        cells[
+            cells.length-1
+        ].focus();
+
+    }
+
+}
+
+
+/* =====================================================
+   ADD COLUMN
+===================================================== */
+
+document
+.getElementById("addColumn")
+.addEventListener(
+    "click",
+    function(){
+
+        updateTableData();
+
+
+        if(
+            tableData.length === 0
+        ){
+
+            tableData = [
+                [""]
+            ];
+
+        }else{
+
+            tableData =
+                tableData.map(
+                    function(row){
+
+                        row.push("");
+
+                        return row;
+
+                    }
+                );
+
+        }
+
+
+        renderTable();
+
+    }
+);
+
+
+/* =====================================================
+   CLEAR TABLE
+===================================================== */
+
+document
+.getElementById("clearTable")
+.addEventListener(
+    "click",
+    function(){
+
+        if(
+            !confirm(
+                "Clear the extracted table?"
+            )
+        ){
+
+            return;
+        }
+
+
+        tableData =
+            [];
+
+
+        tableHead.innerHTML =
+            "";
+
+
+        tableBody.innerHTML =
+            "";
+
+
+        tableWrapper.classList.remove(
+            "show"
+        );
+
+
+        resultCard.style.display =
+            "none";
+
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+/* =====================================================
+   COPY TABLE
+===================================================== */
+
+document
+.getElementById("copyTable")
+.addEventListener(
+    "click",
+    async function(){
+
+        updateTableData();
+
+
+        if(
+            tableData.length === 0
+        ){
+
+            alert(
+                "No table data to copy."
+            );
+
+            return;
+        }
+
+
+        const text =
+            tableData
+            .map(
+                function(row){
+
+                    return row.join("\t");
+
+                }
+            )
+            .join("\n");
+
+
+        try{
+
+            await navigator.clipboard.writeText(
+                text
+            );
+
+
+            this.textContent =
+                "✅ Copied";
+
+
+            const button =
+                this;
+
+
+            setTimeout(
+                function(){
+
+                    button.textContent =
+                        "📋 Copy Table";
+
+                },
+                1500
+            );
+
+
+        }catch(error){
+
+            /*
+               Fallback
+            */
+
+            const textarea =
+                document.createElement(
+                    "textarea"
+                );
+
+
+            textarea.value =
+                text;
+
+
+            document.body.appendChild(
+                textarea
+            );
+
+
+            textarea.select();
+
+
+            document.execCommand(
+                "copy"
+            );
+
+
+            document.body.removeChild(
+                textarea
+            );
+
+
+            this.textContent =
+                "✅ Copied";
+
+
+            const button =
+                this;
+
+
+            setTimeout(
+                function(){
+
+                    button.textContent =
+                        "📋 Copy Table";
+
+                },
+                1500
+            );
+
+        }
+
+    }
+);
 
 
 /* =====================================================
@@ -3141,18 +3249,16 @@ function syncTable(){
 ===================================================== */
 
 document
-.getElementById(
-    "downloadExcel"
-)
+.getElementById("downloadExcel")
 .addEventListener(
     "click",
     function(){
 
-        syncTable();
+        updateTableData();
 
 
         if(
-            !tableData.length
+            tableData.length === 0
         ){
 
             alert(
@@ -3160,92 +3266,86 @@ document
             );
 
             return;
-
         }
 
 
-        const worksheet =
-            XLSX.utils.aoa_to_sheet(
-                tableData
-            );
-
-
-        const columnCount =
-            Math.max.apply(
-                null,
-                tableData.map(
-                    row =>
-                    row.length
-                )
-            );
-
-
-        const widths = [];
-
-
-        for(
-            let c=0;
-            c<columnCount;
-            c++
+        if(
+            typeof XLSX ===
+            "undefined"
         ){
 
-            let maxLength =
-                10;
-
-
-            tableData.forEach(
-                function(row){
-
-                    const value =
-                        String(
-                            row[c] || ""
-                        );
-
-
-                    maxLength =
-                        Math.max(
-                            maxLength,
-                            value.length
-                        );
-
-                }
+            alert(
+                "Excel library could not be loaded. Please check your internet connection."
             );
 
-
-            widths.push({
-                wch:
-                Math.min(
-                    maxLength + 2,
-                    40
-                )
-            });
-
+            return;
         }
 
 
-        worksheet["!cols"] =
-            widths;
+        try{
+
+            const worksheet =
+                XLSX.utils.aoa_to_sheet(
+                    tableData
+                );
 
 
-        const workbook =
-            XLSX.utils.book_new();
+            /*
+               Make columns readable.
+            */
+
+            const maxColumns =
+                Math.max(
+                    ...tableData.map(
+                        function(row){
+                            return row.length;
+                        }
+                    )
+                );
 
 
-        XLSX.utils.book_append_sheet(
-            workbook,
-            worksheet,
-            "Extracted Data"
-        );
+            worksheet["!cols"] =
+                new Array(
+                    maxColumns
+                ).fill(
+                    {
+                        wch:20
+                    }
+                );
 
 
-        XLSX.writeFile(
-            workbook,
-            "asim-image-to-excel.xlsx"
-        );
+            const workbook =
+                XLSX.utils.book_new();
+
+
+            XLSX.utils.book_append_sheet(
+                workbook,
+                worksheet,
+                "Extracted Data"
+            );
+
+
+            XLSX.writeFile(
+                workbook,
+                "asim-tech-image-to-excel.xlsx"
+            );
+
+
+        }catch(error){
+
+            console.error(
+                error
+            );
+
+
+            alert(
+                "Excel download failed."
+            );
+
+        }
 
     }
 );
-
 
 
 /* =====================================================
@@ -3253,18 +3353,16 @@ document
 ===================================================== */
 
 document
-.getElementById(
-    "downloadCSV"
-)
+.getElementById("downloadCSV")
 .addEventListener(
     "click",
     function(){
 
-        syncTable();
+        updateTableData();
 
 
         if(
-            !tableData.length
+            tableData.length === 0
         ){
 
             alert(
@@ -3272,7 +3370,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3310,7 +3407,10 @@ document
 
         const blob =
             new Blob(
-                [csv],
+                [
+                    "\uFEFF" +
+                    csv
+                ],
                 {
                     type:
                     "text/csv;charset=utf-8;"
@@ -3318,245 +3418,164 @@ document
             );
 
 
-        const url =
-            URL.createObjectURL(
-                blob
-            );
-
-
-        const link =
-            document.createElement(
-                "a"
-            );
-
-
-        link.href =
-            url;
-
-
-        link.download =
-            "asim-image-to-excel.csv";
-
-
-        document.body.appendChild(
-            link
-        );
-
-
-        link.click();
-
-
-        document.body.removeChild(
-            link
-        );
-
-
-        setTimeout(
-            function(){
-
-                URL.revokeObjectURL(
-                    url
-                );
-
-            },
-            1000
+        downloadBlob(
+            blob,
+            "asim-tech-image-to-excel.csv"
         );
 
     }
 );
 
 
-
 /* =====================================================
-   ADD ROW
+   DOWNLOAD BLOB
 ===================================================== */
 
-document
-.getElementById(
-    "addRow"
-)
-.addEventListener(
-    "click",
-    function(){
+function downloadBlob(
+    blob,
+    filename
+){
 
-        if(
-            tableData.length === 0
-        ){
-
-            tableData = [
-                [""]
-            ];
-
-        }else{
-
-            tableData.push(
-                new Array(
-                    tableData[0].length
-                ).fill("")
-            );
-
-        }
-
-
-        renderTable(
-            tableData
+    const url =
+        URL.createObjectURL(
+            blob
         );
 
-    }
-);
 
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        filename;
+
+
+    link.style.display =
+        "none";
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    document.body.removeChild(
+        link
+    );
+
+
+    setTimeout(
+        function(){
+
+            URL.revokeObjectURL(
+                url
+            );
+
+        },
+        2000
+    );
+
+}
 
 
 /* =====================================================
-   ADD COLUMN
+   ESCAPE HTML
 ===================================================== */
 
-document
-.getElementById(
-    "addColumn"
-)
-.addEventListener(
-    "click",
-    function(){
+function escapeHtml(
+    text
+){
 
-        if(
-            tableData.length === 0
-        ){
+    const div =
+        document.createElement(
+            "div"
+        );
 
-            tableData = [
-                [""]
-            ];
 
-        }else{
+    div.textContent =
+        text;
 
-            tableData.forEach(
-                function(row){
 
-                    row.push("");
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   PWA SERVICE WORKER
+===================================================== */
+
+if(
+    "serviceWorker" in navigator
+){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator.serviceWorker
+            .register(
+                "./sw.js"
+            )
+            .then(
+                function(){
+
+                    console.log(
+                        "Service Worker registered."
+                    );
+
+                }
+            )
+            .catch(
+                function(error){
+
+                    console.log(
+                        "Service Worker registration failed:",
+                        error
+                    );
 
                 }
             );
 
         }
+    );
 
-
-        renderTable(
-            tableData
-        );
-
-    }
-);
-
+}
 
 
 /* =====================================================
-   COPY TABLE
-===================================================== */
-
-document
-.getElementById(
-    "copyTable"
-)
-.addEventListener(
-    "click",
-    async function(){
-
-        syncTable();
-
-
-        const text =
-            tableData
-            .map(
-                row =>
-                row.join("\t")
-            )
-            .join("\n");
-
-
-        try{
-
-            await navigator.clipboard.writeText(
-                text
-            );
-
-
-            this.textContent =
-                "✅ Copied";
-
-
-            setTimeout(
-                () => {
-
-                    this.textContent =
-                        "📋 Copy Table";
-
-                },
-                1500
-            );
-
-        }catch(error){
-
-            alert(
-                "Copy failed."
-            );
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   CLEAR TABLE
-===================================================== */
-
-document
-.getElementById(
-    "clearTable"
-)
-.addEventListener(
-    "click",
-    function(){
-
-        tableData = [];
-
-
-        resultTable
-        .querySelector(
-            "thead"
-        )
-        .innerHTML =
-        "";
-
-
-        resultTable
-        .querySelector(
-            "tbody"
-        )
-        .innerHTML =
-        "";
-
-
-        resultCard.style.display =
-            "none";
-
-    }
-);
-
-
-
-/* =====================================================
-   PAGE START
+   BACK/FORWARD CACHE CLEANUP
 ===================================================== */
 
 window.addEventListener(
-    "load",
+    "pageshow",
     function(){
 
-        console.log(
-            "Asim Tech Image to Excel loaded."
-        );
+        /*
+           Make sure file inputs are
+           reset after browser back/forward.
+        */
+
+        if(
+            !selectedFile
+        ){
+
+            imageInput.value =
+                "";
+
+            cameraInput.value =
+                "";
+
+        }
 
     }
 );
