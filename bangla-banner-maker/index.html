@@ -2,22 +2,18 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#050914">
+<meta name="description" content="ASIM TECH বাংলা Banner Maker">
 
 <title>ASIM TECH বাংলা Banner Maker</title>
 
-<meta name="description"
-content="ASIM TECH বাংলা Banner Maker - সুন্দর বাংলা ব্যানার তৈরি করুন।">
-
 <link rel="manifest" href="manifest.json">
 
-<!-- Bengali Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Anek+Bangla:wght@400;500;600;700;800&family=Atma:wght@400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Tiro+Bangla:ital@0;1&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Anek+Bangla:wght@400;500;600;700;800&family=Atma:wght@400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Mukta:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
 
@@ -29,13 +25,10 @@ padding:0;
 
 :root{
 --bg:#050914;
---panel:#0b1220;
---blue:#159cff;
---cyan:#00d9ff;
---purple:#7b4dff;
---pink:#ff19c8;
---white:#ffffff;
---muted:#94a3b8;
+--panel:#0b1626;
+--blue:#00cfff;
+--text:#ffffff;
+--muted:#9aacbf;
 }
 
 html{
@@ -44,58 +37,55 @@ scroll-behavior:smooth;
 
 body{
 font-family:Arial,Helvetica,sans-serif;
-background:
-radial-gradient(circle at 10% 10%,rgba(0,160,255,.18),transparent 30%),
-radial-gradient(circle at 90% 90%,rgba(100,50,255,.18),transparent 30%),
-#050914;
-color:white;
 min-height:100vh;
+color:white;
+background:
+radial-gradient(circle at 10% 10%,rgba(0,160,255,.20),transparent 30%),
+radial-gradient(circle at 90% 90%,rgba(100,50,255,.20),transparent 30%),
+#050914;
 overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
 position:sticky;
 top:0;
 z-index:9999;
 height:70px;
+padding:0 5%;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:0 5%;
-background:rgba(4,10,22,.94);
-border-bottom:1px solid rgba(0,180,255,.2);
+background:rgba(3,10,22,.95);
+border-bottom:1px solid rgba(0,200,255,.25);
 backdrop-filter:blur(15px);
 }
 
 .logo{
 font-size:23px;
 font-weight:900;
-letter-spacing:.5px;
 }
 
 .logo span{
-color:#12aaff;
+color:#00cfff;
 }
 
 .install-btn{
-border:1px solid #159cff;
-background:rgba(0,150,255,.12);
-color:#e8f7ff;
+padding:11px 17px;
 border-radius:25px;
-padding:10px 16px;
+border:1px solid #00cfff;
+background:rgba(0,180,255,.10);
+color:white;
 font-weight:800;
 cursor:pointer;
-transition:.2s;
 }
 
 .install-btn:hover{
-background:rgba(0,150,255,.28);
-transform:translateY(-1px);
+background:rgba(0,180,255,.25);
 }
 
-/* ================= MAIN ================= */
+/* MAIN */
 
 .container{
 width:94%;
@@ -103,92 +93,88 @@ max-width:1200px;
 margin:35px auto;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
 text-align:center;
 margin-bottom:30px;
 }
 
+.badge{
+display:inline-block;
+padding:9px 20px;
+border-radius:999px;
+border:1px solid rgba(0,200,255,.35);
+background:rgba(0,150,255,.08);
+color:#72ddff;
+font-weight:800;
+margin-bottom:16px;
+}
+
 .hero h1{
-font-size:clamp(30px,5vw,52px);
+font-size:clamp(32px,5vw,58px);
 font-weight:900;
-margin-bottom:10px;
-background:linear-gradient(90deg,#ffffff,#00d9ff,#ff3bd4);
+margin-bottom:12px;
+background:linear-gradient(
+90deg,
+#ffffff,
+#00d9ff,
+#ff2bd6
+);
 -webkit-background-clip:text;
 background-clip:text;
 color:transparent;
 }
 
 .hero p{
-color:#aebbd0;
 font-size:15px;
+color:#aab9cb;
 }
 
-.badge{
-display:inline-block;
-padding:8px 18px;
-border:1px solid rgba(0,180,255,.3);
-border-radius:999px;
-color:#73d5ff;
-background:rgba(0,150,255,.07);
-font-weight:800;
-margin-bottom:15px;
-}
-
-/* ================= DESIGNER ================= */
+/* DESIGNER */
 
 .designer{
 display:grid;
-grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);
+grid-template-columns:1fr 1.2fr;
 gap:25px;
 align-items:start;
 }
 
-/* ================= CONTROL PANEL ================= */
+/* CONTROL */
 
 .controls{
-padding:20px;
-border:1px solid rgba(0,180,255,.22);
+padding:22px;
+border:1px solid rgba(0,190,255,.25);
 border-radius:22px;
 background:linear-gradient(
 145deg,
-rgba(18,28,48,.94),
-rgba(6,13,27,.96)
+rgba(16,29,48,.95),
+rgba(5,13,27,.97)
 );
-box-shadow:0 20px 60px rgba(0,0,0,.30);
+box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
 .section-title{
-font-size:20px;
+font-size:21px;
 font-weight:800;
-margin-bottom:18px;
-color:#d7f4ff;
-}
-
-.row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-bottom:15px;
+margin-bottom:20px;
+color:#d9f7ff;
 }
 
 .field{
-margin-bottom:16px;
+margin-bottom:18px;
 }
 
 label{
 display:block;
 font-size:13px;
 font-weight:700;
-color:#9eb2ca;
+color:#a5b8cc;
 margin-bottom:8px;
 }
 
 textarea,
-select,
-input[type="text"],
-input[type="number"]{
+select{
 width:100%;
 border:1px solid #29445d;
 border-radius:11px;
@@ -200,33 +186,36 @@ font-size:15px;
 }
 
 textarea{
-min-height:110px;
+height:115px;
 resize:vertical;
 }
 
 textarea:focus,
-select:focus,
-input:focus{
+select:focus{
 border-color:#00cfff;
 box-shadow:0 0 0 3px rgba(0,200,255,.08);
 }
 
-/* ================= FONT ================= */
+/* FONT PREVIEW */
 
 .font-preview{
-font-size:20px;
-margin-bottom:8px;
-color:#7be2ff;
-font-weight:800;
+padding:10px 12px;
+margin-bottom:9px;
+border:1px solid #29445d;
+border-radius:11px;
+background:#071321;
+font-size:23px;
+color:#fff;
+text-align:center;
 }
 
 .font-note{
-font-size:12px;
-color:#8294aa;
 margin-top:7px;
+font-size:11px;
+color:#788da4;
 }
 
-/* ================= RANGE ================= */
+/* RANGE */
 
 .range-line{
 display:flex;
@@ -234,77 +223,94 @@ align-items:center;
 gap:10px;
 }
 
-input[type="range"]{
+input[type=range]{
 width:100%;
 accent-color:#00cfff;
-cursor:pointer;
 }
 
 .range-value{
-min-width:40px;
+width:40px;
 font-weight:800;
 text-align:right;
 }
 
-/* ================= COLOR ================= */
+/* COLOR */
 
 .color-row{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px;
+gap:10px;
 }
 
 .color-box{
-height:45px;
 width:100%;
+height:46px;
+padding:3px;
 border:1px solid #29445d;
 border-radius:10px;
 background:#081322;
 cursor:pointer;
-padding:3px;
 }
 
-/* ================= BUTTONS ================= */
+/* ALIGNMENT */
 
 .design-buttons{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(3,1fr);
 gap:8px;
 }
 
 .design-btn{
-min-height:46px;
-padding:8px;
+height:44px;
 border:1px solid #29445d;
-border-radius:11px;
+border-radius:10px;
+background:#101d2e;
 color:white;
-background:#111c2d;
-font-size:13px;
 font-weight:800;
 cursor:pointer;
-transition:.2s;
-}
-
-.design-btn:hover{
-transform:translateY(-1px);
-border-color:#159cff;
 }
 
 .design-btn.active{
-background:linear-gradient(135deg,#006bd0,#008de8);
-border-color:#26d8ff;
+background:linear-gradient(
+135deg,
+#0077d8,
+#00a9e8
+);
+border-color:#20d7ff;
 }
 
-/* ================= CHECK ================= */
+/* PRESETS */
+
+.presets{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.preset{
+padding:9px 12px;
+border:1px solid #29445d;
+border-radius:10px;
+background:#101d2e;
+color:white;
+font-size:12px;
+font-weight:700;
+cursor:pointer;
+}
+
+.preset:hover{
+border-color:#00cfff;
+}
+
+/* CHECKBOX */
 
 .check-row{
 display:flex;
 align-items:center;
 gap:9px;
-color:#b9cbd8;
-font-size:13px;
-cursor:pointer;
 margin-top:12px;
+color:#b9cad8;
+font-size:13px;
 }
 
 .check-row input{
@@ -313,78 +319,58 @@ height:17px;
 accent-color:#00cfff;
 }
 
-/* ================= PRESETS ================= */
-
-.presets{
-display:flex;
-flex-wrap:wrap;
-gap:7px;
-}
-
-.preset{
-padding:8px 10px;
-border:1px solid #29445d;
-border-radius:10px;
-background:#111c2d;
-color:white;
-font-size:12px;
-font-weight:700;
-cursor:pointer;
-}
-
-.preset:hover{
-border-color:#159cff;
-}
-
-/* ================= ACTIONS ================= */
+/* ACTION */
 
 .actions{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:10px;
-margin-top:20px;
+margin-top:22px;
 }
 
 .action-btn{
-min-height:48px;
+height:50px;
 border:0;
 border-radius:12px;
+color:white;
 font-size:14px;
 font-weight:800;
 cursor:pointer;
-color:white;
 }
 
 .download-btn{
-background:linear-gradient(135deg,#00bd72,#00a968);
+background:linear-gradient(
+135deg,
+#00bd72,
+#00a45f
+);
 }
 
 .reset-btn{
-background:linear-gradient(135deg,#6540e8,#8b45ff);
+background:linear-gradient(
+135deg,
+#6741e8,
+#8a45ff
+);
 }
 
-.action-btn:hover{
-transform:translateY(-1px);
-}
-
-/* ================= PREVIEW ================= */
+/* PREVIEW */
 
 .preview-area{
 min-width:0;
 }
 
 .preview-title{
-font-size:18px;
+font-size:19px;
 font-weight:800;
 margin-bottom:12px;
 }
 
 .preview-box{
-width:100%;
 padding:20px;
-border:1px solid rgba(0,180,255,.2);
+border:1px solid rgba(0,190,255,.22);
 border-radius:22px;
-background:rgba(7,15,29,.9);
+background:rgba(7,15,29,.90);
 }
 
 canvas{
@@ -392,45 +378,46 @@ display:block;
 width:100%;
 height:auto;
 border-radius:14px;
-background:#081322;
+background:#071321;
 box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .preview-help{
+text-align:center;
 margin-top:10px;
 font-size:12px;
-color:#7f93a9;
-text-align:center;
+color:#7f94aa;
 }
 
-/* ================= FONT LIST ================= */
+/* FONT LIST */
 
 .font-list{
-margin-top:25px;
+margin-top:22px;
 padding:18px;
-border:1px solid rgba(0,180,255,.16);
+border:1px solid rgba(0,190,255,.18);
 border-radius:18px;
-background:rgba(8,18,32,.75);
+background:rgba(7,18,32,.75);
 }
 
 .font-list h3{
-font-size:16px;
+font-size:17px;
+color:#72ddff;
 margin-bottom:12px;
-color:#7be2ff;
 }
 
 .font-items{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr 1fr;
 gap:8px;
 }
 
 .font-item{
 padding:10px;
+border:1px solid #203a52;
 border-radius:10px;
 background:#0b1727;
-border:1px solid #1d354d;
 cursor:pointer;
+font-size:19px;
 transition:.2s;
 }
 
@@ -442,133 +429,81 @@ transform:translateY(-1px);
 .font-item small{
 display:block;
 font-family:Arial,sans-serif;
-color:#7d91a8;
-margin-top:3px;
 font-size:10px;
+color:#71869d;
+margin-top:4px;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
 text-align:center;
 padding:35px 20px;
-color:#75879c;
+color:#71859b;
 font-size:12px;
 }
 
 footer strong{
-color:#15bfff;
+color:#00cfff;
 }
 
-/* ================= RESPONSIVE ================= */
+/* MOBILE */
 
 @media(max-width:850px){
 
-header{
-height:64px;
-padding:0 4%;
-}
-
-.logo{
-font-size:20px;
-}
-
-.container{
-width:94%;
-margin:25px auto;
-}
-
 .designer{
 grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:36px;
-}
-
-.controls{
-order:2;
 }
 
 .preview-area{
 order:1;
 }
 
+.controls{
+order:2;
+}
+
 }
 
 @media(max-width:500px){
 
-.row{
-grid-template-columns:1fr;
+header{
+padding:0 4%;
+height:64px;
+}
+
+.logo{
+font-size:20px;
+}
+
+.install-btn{
+font-size:12px;
+padding:9px 12px;
+}
+
+.container{
+margin-top:25px;
 }
 
 .color-row{
 grid-template-columns:1fr;
 }
 
-.design-buttons{
-grid-template-columns:1fr 1fr;
-}
-
 .font-items{
 grid-template-columns:1fr;
 }
 
-.install-btn{
-padding:9px 12px;
-font-size:12px;
+.hero h1{
+font-size:35px;
 }
 
-}
-
-/* ================= FONT CLASSES ================= */
-
-.font-anek{
-font-family:"Anek Bangla",sans-serif;
-}
-
-.font-atma{
-font-family:"Atma",sans-serif;
-}
-
-.font-noto-serif{
-font-family:"Noto Serif Bengali",serif;
-}
-
-.font-tiro{
-font-family:"Tiro Bangla",serif;
-}
-
-.font-baloo{
-font-family:"Baloo Da 2",sans-serif;
-}
-
-.font-hind{
-font-family:"Hind Siliguri",sans-serif;
-}
-
-.font-noto-sans{
-font-family:"Noto Sans Bengali",sans-serif;
-}
-
-.font-galada{
-font-family:"Galada",cursive;
-}
-
-.font-mukta{
-font-family:"Mukta",sans-serif;
-}
-
-.font-alkatra{
-font-family:"Alkatra",cursive;
 }
 
 </style>
 </head>
 
-<body>
 
-<!-- ================= HEADER ================= -->
+<body>
 
 <header>
 
@@ -583,24 +518,29 @@ ASIM <span>TECH</span>
 </header>
 
 
-<!-- ================= MAIN ================= -->
-
 <main class="container">
 
 <section class="hero">
 
-<div class="badge">ASIM TECH</div>
+<div class="badge">
+ASIM TECH
+</div>
 
-<h1>বাংলা ব্যানার মেকার</h1>
+<h1>
+বাংলা ব্যানার মেকার
+</h1>
 
-<p>আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান</p>
+<p>
+আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান
+</p>
 
 </section>
 
 
 <div class="designer">
 
-<!-- ================= CONTROLS ================= -->
+
+<!-- CONTROL PANEL -->
 
 <section class="controls">
 
@@ -611,7 +551,9 @@ ASIM <span>TECH</span>
 
 <div class="field">
 
-<label>বাংলা লেখা</label>
+<label>
+বাংলা লেখা
+</label>
 
 <textarea id="textInput">আপনার স্বপ্নকে
 বাস্তবে রূপ দিন</textarea>
@@ -621,54 +563,40 @@ ASIM <span>TECH</span>
 
 <div class="field">
 
-<label>বাংলা Font</label>
+<label>
+বাংলা Font
+</label>
 
-<div id="fontPreview" class="font-preview font-anek">
+<div id="fontPreview" class="font-preview">
 বাংলা লেখা দেখুন
 </div>
 
 <select id="fontSelect">
 
-<option value="Anek Bangla">Anek Bangla</option>
+<option>Anek Bangla</option>
 
-<option value="Atma">Atma</option>
+<option>Atma</option>
 
-<option value="Noto Serif Bengali">
-Noto Serif Bengali
-</option>
+<option>Noto Serif Bengali</option>
 
-<option value="Tiro Bangla">
-Tiro Bangla
-</option>
+<option>Tiro Bangla</option>
 
-<option value="Baloo Da 2">
-Baloo Da 2
-</option>
+<option>Baloo Da 2</option>
 
-<option value="Hind Siliguri">
-Hind Siliguri
-</option>
+<option>Hind Siliguri</option>
 
-<option value="Noto Sans Bengali">
-Noto Sans Bengali
-</option>
+<option>Noto Sans Bengali</option>
 
-<option value="Galada">
-Galada
-</option>
+<option>Galada</option>
 
-<option value="Mukta">
-Mukta
-</option>
+<option>Mukta</option>
 
-<option value="Alkatra">
-Alkatra
-</option>
+<option>Alkatra</option>
 
 </select>
 
 <div class="font-note">
-১০টি সুন্দর Bengali Font থেকে বেছে নিন
+১০টি বাংলা Font দেওয়া হয়েছে
 </div>
 
 </div>
@@ -676,7 +604,9 @@ Alkatra
 
 <div class="field">
 
-<label>Font Size</label>
+<label>
+📏 Font Size
+</label>
 
 <div class="range-line">
 
@@ -687,7 +617,9 @@ min="30"
 max="120"
 value="70">
 
-<span id="fontSizeValue" class="range-value">
+<span
+id="fontSizeValue"
+class="range-value">
 70
 </span>
 
@@ -698,19 +630,27 @@ value="70">
 
 <div class="field">
 
-<label>Text Alignment</label>
+<label>
+↔️ Text Alignment
+</label>
 
 <div class="design-buttons">
 
-<button class="design-btn active" data-align="center">
+<button
+class="design-btn active"
+data-align="center">
 Center
 </button>
 
-<button class="design-btn" data-align="left">
+<button
+class="design-btn"
+data-align="left">
 Left
 </button>
 
-<button class="design-btn" data-align="right">
+<button
+class="design-btn"
+data-align="right">
 Right
 </button>
 
@@ -721,7 +661,9 @@ Right
 
 <div class="field">
 
-<label>Text Color</label>
+<label>
+🎨 Text Color
+</label>
 
 <input
 type="color"
@@ -734,7 +676,9 @@ value="#ffffff">
 
 <div class="field">
 
-<label>Background</label>
+<label>
+🌈 Background
+</label>
 
 <div class="color-row">
 
@@ -757,7 +701,9 @@ value="#25105d">
 
 <div class="field">
 
-<label>Banner Style</label>
+<label>
+✨ Banner Style
+</label>
 
 <div class="presets">
 
@@ -784,7 +730,10 @@ value="#25105d">
 
 <label class="check-row">
 
-<input type="checkbox" id="shadow" checked>
+<input
+type="checkbox"
+id="shadow"
+checked>
 
 Text Shadow
 
@@ -793,7 +742,10 @@ Text Shadow
 
 <label class="check-row">
 
-<input type="checkbox" id="badgeCheck" checked>
+<input
+type="checkbox"
+id="badgeCheck"
+checked>
 
 ASIM TECH Badge
 
@@ -803,14 +755,14 @@ ASIM TECH Badge
 <div class="actions">
 
 <button
-class="action-btn download-btn"
-id="downloadBtn">
+id="downloadBtn"
+class="action-btn download-btn">
 ⬇️ Download Banner
 </button>
 
 <button
-class="action-btn reset-btn"
-id="resetBtn">
+id="resetBtn"
+class="action-btn reset-btn">
 ↻ Reset
 </button>
 
@@ -819,7 +771,7 @@ id="resetBtn">
 </section>
 
 
-<!-- ================= PREVIEW ================= -->
+<!-- PREVIEW -->
 
 <section class="preview-area">
 
@@ -852,70 +804,80 @@ height="900">
 
 <div class="font-items">
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Anek Bangla"
 style="font-family:'Anek Bangla'">
 বাংলা লেখা
 <small>Anek Bangla</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Atma"
 style="font-family:'Atma'">
 বাংলা লেখা
 <small>Atma</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Noto Serif Bengali"
 style="font-family:'Noto Serif Bengali'">
 বাংলা লেখা
 <small>Noto Serif Bengali</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Tiro Bangla"
 style="font-family:'Tiro Bangla'">
 বাংলা লেখা
 <small>Tiro Bangla</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Baloo Da 2"
 style="font-family:'Baloo Da 2'">
 বাংলা লেখা
 <small>Baloo Da 2</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Hind Siliguri"
 style="font-family:'Hind Siliguri'">
 বাংলা লেখা
 <small>Hind Siliguri</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Noto Sans Bengali"
 style="font-family:'Noto Sans Bengali'">
 বাংলা লেখা
 <small>Noto Sans Bengali</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Galada"
 style="font-family:'Galada'">
 বাংলা লেখা
 <small>Galada</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Mukta"
 style="font-family:'Mukta'">
 বাংলা লেখা
 <small>Mukta</small>
 </div>
 
-<div class="font-item"
+<div
+class="font-item"
 data-font="Alkatra"
 style="font-family:'Alkatra'">
 বাংলা লেখা
@@ -935,7 +897,8 @@ style="font-family:'Alkatra'">
 
 <footer>
 
-<strong>ASIM TECH</strong> বাংলা Banner Maker
+<strong>ASIM TECH</strong>
+বাংলা Banner Maker
 
 <br><br>
 
@@ -990,63 +953,62 @@ document.getElementById("downloadBtn");
 const resetBtn =
 document.getElementById("resetBtn");
 
-let alignment = "center";
+let alignment="center";
 
 
 /* ================= FONT MAP ================= */
 
-const fonts = {
+const fonts={
 
 "Anek Bangla":
-'"Anek Bangla", sans-serif',
+'"Anek Bangla",sans-serif',
 
 "Atma":
-'"Atma", sans-serif',
+'"Atma",sans-serif',
 
 "Noto Serif Bengali":
-'"Noto Serif Bengali", serif',
+'"Noto Serif Bengali",serif',
 
 "Tiro Bangla":
-'"Tiro Bangla", serif',
+'"Tiro Bangla",serif',
 
 "Baloo Da 2":
-'"Baloo Da 2", sans-serif',
+'"Baloo Da 2",sans-serif',
 
 "Hind Siliguri":
-'"Hind Siliguri", sans-serif',
+'"Hind Siliguri",sans-serif',
 
 "Noto Sans Bengali":
-'"Noto Sans Bengali", sans-serif',
+'"Noto Sans Bengali",sans-serif',
 
 "Galada":
-'"Galada", cursive',
+'"Galada",cursive',
 
 "Mukta":
-'"Mukta", sans-serif',
+'"Mukta",sans-serif',
 
 "Alkatra":
-'"Alkatra", cursive'
+'"Alkatra",cursive'
 
 };
 
 
-/* ================= FONT LOAD ================= */
+/* ================= LOAD FONT ================= */
 
 async function loadSelectedFont(){
 
-const font =
-fontSelect.value;
+const name=fontSelect.value;
+
+fontPreview.style.fontFamily=
+fonts[name];
 
 try{
 
 await document.fonts.load(
-`70px ${fonts[font]}`
+"70px "+fonts[name]
 );
 
 }catch(e){}
-
-fontPreview.style.fontFamily =
-fonts[font];
 
 drawBanner();
 
@@ -1057,14 +1019,16 @@ drawBanner();
 
 function drawBanner(){
 
-const W = canvas.width;
-const H = canvas.height;
+const W=canvas.width;
+const H=canvas.height;
 
 
 /* Background */
 
-const gradient =
-ctx.createLinearGradient(0,0,W,H);
+const gradient=
+ctx.createLinearGradient(
+0,0,W,H
+);
 
 gradient.addColorStop(
 0,
@@ -1076,22 +1040,24 @@ gradient.addColorStop(
 bgColor2.value
 );
 
-ctx.fillStyle = gradient;
+ctx.fillStyle=gradient;
 
-ctx.fillRect(0,0,W,H);
+ctx.fillRect(
+0,0,W,H
+);
 
 
-/* Glow */
+/* Blue glow */
 
-const glow1 =
+const glow1=
 ctx.createRadialGradient(
-220,180,10,
-220,180,500
+220,150,10,
+220,150,500
 );
 
 glow1.addColorStop(
 0,
-"rgba(0,210,255,.22)"
+"rgba(0,210,255,.23)"
 );
 
 glow1.addColorStop(
@@ -1099,15 +1065,19 @@ glow1.addColorStop(
 "rgba(0,210,255,0)"
 );
 
-ctx.fillStyle = glow1;
+ctx.fillStyle=glow1;
 
-ctx.fillRect(0,0,W,H);
+ctx.fillRect(
+0,0,W,H
+);
 
 
-const glow2 =
+/* Purple glow */
+
+const glow2=
 ctx.createRadialGradient(
-1400,760,10,
-1400,760,500
+1400,780,10,
+1400,780,500
 );
 
 glow2.addColorStop(
@@ -1120,17 +1090,19 @@ glow2.addColorStop(
 "rgba(130,60,255,0)"
 );
 
-ctx.fillStyle = glow2;
+ctx.fillStyle=glow2;
 
-ctx.fillRect(0,0,W,H);
+ctx.fillRect(
+0,0,W,H
+);
 
 
-/* Decorative circles */
+/* Decorative circle */
 
-ctx.strokeStyle =
-"rgba(80,200,255,.16)";
+ctx.strokeStyle=
+"rgba(80,200,255,.15)";
 
-ctx.lineWidth = 2;
+ctx.lineWidth=2;
 
 ctx.beginPath();
 
@@ -1158,33 +1130,19 @@ Math.PI*2
 ctx.stroke();
 
 
-/* Badge */
+/* BADGE */
 
 if(badgeCheck.checked){
 
+const bw=175;
+const bh=58;
+const bx=W/2-bw/2;
+const by=115;
+
 ctx.save();
 
-ctx.font =
-"700 28px Arial";
-
-ctx.textAlign = "center";
-
-ctx.textBaseline = "middle";
-
-const badgeText =
-"ASIM TECH";
-
-const bw = 170;
-const bh = 55;
-
-const bx =
-W/2 - bw/2;
-
-const by =
-115;
-
-ctx.fillStyle =
-"rgba(0,130,200,.12)";
+ctx.fillStyle=
+"rgba(0,150,255,.10)";
 
 roundRect(
 ctx,
@@ -1192,25 +1150,30 @@ bx,
 by,
 bw,
 bh,
-28
+30
 );
 
 ctx.fill();
 
-ctx.strokeStyle =
-"rgba(70,200,255,.45)";
+ctx.strokeStyle=
+"rgba(80,210,255,.45)";
 
-ctx.lineWidth = 2;
+ctx.lineWidth=2;
 
 ctx.stroke();
 
-ctx.fillStyle =
-"#7adfff";
+ctx.font=
+"700 28px Arial";
+
+ctx.textAlign="center";
+ctx.textBaseline="middle";
+
+ctx.fillStyle="#75ddff";
 
 ctx.fillText(
-badgeText,
+"ASIM TECH",
 W/2,
-by + bh/2
+by+bh/2
 );
 
 ctx.restore();
@@ -1218,89 +1181,80 @@ ctx.restore();
 }
 
 
-/* Main text */
+/* MAIN TEXT */
 
-const selectedFont =
-fonts[fontSelect.value];
-
-const size =
+const size=
 Number(fontSize.value);
 
-ctx.font =
-`800 ${size}px ${selectedFont}`;
+ctx.font=
+`800 ${size}px ${fonts[fontSelect.value]}`;
 
-ctx.textAlign =
+ctx.textAlign=
 alignment;
 
-ctx.textBaseline =
+ctx.textBaseline=
 "middle";
 
-ctx.fillStyle =
+ctx.fillStyle=
 textColor.value;
 
 
-/* Shadow */
+/* SHADOW */
 
 if(shadow.checked){
 
-ctx.shadowColor =
-"rgba(0,0,0,.65)";
+ctx.shadowColor=
+"rgba(0,0,0,.70)";
 
-ctx.shadowBlur = 14;
+ctx.shadowBlur=14;
 
-ctx.shadowOffsetX = 5;
+ctx.shadowOffsetX=5;
 
-ctx.shadowOffsetY = 7;
+ctx.shadowOffsetY=7;
 
 }else{
 
-ctx.shadowColor =
-"transparent";
-
-ctx.shadowBlur = 0;
-
-ctx.shadowOffsetX = 0;
-
-ctx.shadowOffsetY = 0;
+ctx.shadowColor="transparent";
+ctx.shadowBlur=0;
+ctx.shadowOffsetX=0;
+ctx.shadowOffsetY=0;
 
 }
 
 
-/* Text lines */
+/* LINES */
 
-const lines =
+const lines=
 textInput.value.split("\n");
 
-const lineHeight =
-size * 1.35;
+const lineHeight=
+size*1.35;
 
-const totalHeight =
-lines.length * lineHeight;
+const totalHeight=
+lines.length*lineHeight;
 
-let y =
-H/2 - totalHeight/2 + lineHeight/2;
-
-
-/* Position */
+let y=
+H/2-totalHeight/2+
+lineHeight/2;
 
 let x;
 
-if(alignment === "left"){
+if(alignment==="left"){
 
-x = 130;
+x=130;
 
-}else if(alignment === "right"){
+}else if(alignment==="right"){
 
-x = W - 130;
+x=W-130;
 
 }else{
 
-x = W/2;
+x=W/2;
 
 }
 
 
-for(const line of lines){
+lines.forEach(line=>{
 
 ctx.fillText(
 line,
@@ -1308,42 +1262,47 @@ x,
 y
 );
 
-y += lineHeight;
+y+=lineHeight;
 
-}
+});
 
 
 /* Bottom line */
 
-ctx.shadowColor =
+ctx.shadowColor=
 "transparent";
 
-ctx.shadowBlur = 0;
+ctx.shadowBlur=0;
 
-ctx.strokeStyle =
+ctx.strokeStyle=
 "rgba(255,255,255,.10)";
 
-ctx.lineWidth = 1;
+ctx.lineWidth=1;
 
 ctx.beginPath();
 
-ctx.moveTo(380,H-135);
+ctx.moveTo(
+380,
+H-135
+);
 
-ctx.lineTo(1220,H-135);
+ctx.lineTo(
+1220,
+H-135
+);
 
 ctx.stroke();
 
 
 /* Subtitle */
 
-ctx.font =
+ctx.font=
 `400 25px ${fonts["Noto Sans Bengali"]}`;
 
-ctx.fillStyle =
-"rgba(220,235,245,.68)";
+ctx.fillStyle=
+"rgba(220,235,245,.70)";
 
-ctx.textAlign =
-"center";
+ctx.textAlign="center";
 
 ctx.fillText(
 "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান",
@@ -1370,34 +1329,26 @@ ctx.beginPath();
 ctx.moveTo(x+r,y);
 
 ctx.arcTo(
-x+w,
-y,
-x+w,
-y+h,
+x+w,y,
+x+w,y+h,
 r
 );
 
 ctx.arcTo(
-x+w,
-y+h,
-x,
-y+h,
+x+w,y+h,
+x,y+h,
 r
 );
 
 ctx.arcTo(
-x,
-y+h,
-x,
-y,
+x,y+h,
+x,y,
 r
 );
 
 ctx.arcTo(
-x,
-y,
-x+w,
-y,
+x,y,
+x+w,y,
 r
 );
 
@@ -1406,7 +1357,7 @@ ctx.closePath();
 }
 
 
-/* ================= EVENTS ================= */
+/* ================= INPUT EVENTS ================= */
 
 textInput.addEventListener(
 "input",
@@ -1415,9 +1366,9 @@ drawBanner
 
 fontSize.addEventListener(
 "input",
-()=>{
+function(){
 
-fontSizeValue.textContent =
+fontSizeValue.textContent=
 fontSize.value;
 
 drawBanner();
@@ -1450,24 +1401,21 @@ badgeCheck.addEventListener(
 drawBanner
 );
 
-
-/* Font dropdown */
-
 fontSelect.addEventListener(
 "change",
 loadSelectedFont
 );
 
 
-/* Alignment */
+/* ================= ALIGNMENT ================= */
 
 document.querySelectorAll(
 "[data-align]"
-).forEach(btn=>{
+).forEach(button=>{
 
-btn.addEventListener(
+button.addEventListener(
 "click",
-()=>{
+function(){
 
 document.querySelectorAll(
 "[data-align]"
@@ -1475,10 +1423,10 @@ document.querySelectorAll(
 b.classList.remove("active")
 );
 
-btn.classList.add("active");
+button.classList.add("active");
 
-alignment =
-btn.dataset.align;
+alignment=
+button.dataset.align;
 
 drawBanner();
 
@@ -1487,7 +1435,7 @@ drawBanner();
 });
 
 
-/* Font cards */
+/* ================= FONT CARDS ================= */
 
 document.querySelectorAll(
 ".font-item"
@@ -1495,9 +1443,9 @@ document.querySelectorAll(
 
 item.addEventListener(
 "click",
-()=>{
+function(){
 
-fontSelect.value =
+fontSelect.value=
 item.dataset.font;
 
 loadSelectedFont();
@@ -1511,52 +1459,40 @@ loadSelectedFont();
 
 document.querySelectorAll(
 ".preset"
-).forEach(btn=>{
+).forEach(button=>{
 
-btn.addEventListener(
+button.addEventListener(
 "click",
-()=>{
+function(){
 
-const style =
-btn.dataset.style;
+const style=
+button.dataset.style;
 
-if(style === "blue"){
+if(style==="blue"){
 
-bgColor1.value =
-"#071a2d";
-
-bgColor2.value =
-"#063c65";
+bgColor1.value="#071a2d";
+bgColor2.value="#063c65";
 
 }
 
-if(style === "purple"){
+if(style==="purple"){
 
-bgColor1.value =
-"#081326";
-
-bgColor2.value =
-"#321276";
+bgColor1.value="#081326";
+bgColor2.value="#321276";
 
 }
 
-if(style === "pink"){
+if(style==="pink"){
 
-bgColor1.value =
-"#061526";
-
-bgColor2.value =
-"#73005d";
+bgColor1.value="#061526";
+bgColor2.value="#73005d";
 
 }
 
-if(style === "dark"){
+if(style==="dark"){
 
-bgColor1.value =
-"#050914";
-
-bgColor2.value =
-"#111827";
+bgColor1.value="#050914";
+bgColor2.value="#111827";
 
 }
 
@@ -1571,16 +1507,18 @@ drawBanner();
 
 downloadBtn.addEventListener(
 "click",
-()=>{
+function(){
 
-const link =
+const link=
 document.createElement("a");
 
-link.download =
+link.download=
 "ASIM-TECH-Bengali-Banner.png";
 
-link.href =
-canvas.toDataURL("image/png");
+link.href=
+canvas.toDataURL(
+"image/png"
+);
 
 link.click();
 
@@ -1592,37 +1530,32 @@ link.click();
 
 resetBtn.addEventListener(
 "click",
-()=>{
+function(){
 
-textInput.value =
+textInput.value=
 "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
 
-fontSelect.value =
+fontSelect.value=
 "Anek Bangla";
 
-fontSize.value =
-70;
+fontSize.value=70;
 
-fontSizeValue.textContent =
-70;
+fontSizeValue.textContent=70;
 
-textColor.value =
+textColor.value=
 "#ffffff";
 
-bgColor1.value =
+bgColor1.value=
 "#071a2d";
 
-bgColor2.value =
+bgColor2.value=
 "#25105d";
 
-shadow.checked =
-true;
+shadow.checked=true;
 
-badgeCheck.checked =
-true;
+badgeCheck.checked=true;
 
-alignment =
-"center";
+alignment="center";
 
 document.querySelectorAll(
 "[data-align]"
@@ -1642,33 +1575,32 @@ loadSelectedFont();
 
 /* ================= PWA INSTALL ================= */
 
-let deferredPrompt = null;
+let deferredPrompt=null;
 
-const installBtn =
-document.getElementById("installBtn");
+const installBtn=
+document.getElementById(
+"installBtn"
+);
 
 window.addEventListener(
 "beforeinstallprompt",
-e=>{
+function(e){
 
 e.preventDefault();
 
-deferredPrompt = e;
-
-installBtn.style.display =
-"block";
+deferredPrompt=e;
 
 }
 );
 
 installBtn.addEventListener(
 "click",
-async()=>{
+async function(){
 
 if(!deferredPrompt){
 
 alert(
-"Browser-এর Menu থেকে 'Install App' অথবা 'Add to Home Screen' নির্বাচন করুন।"
+"Browser Menu খুলে 'Install App' অথবা 'Add to Home Screen' নির্বাচন করুন।"
 );
 
 return;
@@ -1679,7 +1611,7 @@ deferredPrompt.prompt();
 
 await deferredPrompt.userChoice;
 
-deferredPrompt = null;
+deferredPrompt=null;
 
 }
 );
@@ -1687,21 +1619,21 @@ deferredPrompt = null;
 
 /* ================= SERVICE WORKER ================= */
 
-if(
-"serviceWorker" in navigator
-){
+if("serviceWorker" in navigator){
 
 window.addEventListener(
 "load",
-()=>{
+function(){
 
 navigator.serviceWorker.register(
 "sw.js"
 ).catch(
-err=>console.log(
+function(error){
+console.log(
 "Service Worker Error:",
-err
-)
+error
+);
+}
 );
 
 });
@@ -1709,11 +1641,11 @@ err
 }
 
 
-/* ================= INITIAL ================= */
+/* ================= START ================= */
 
 window.addEventListener(
 "load",
-async()=>{
+async function(){
 
 try{
 
@@ -1721,10 +1653,12 @@ await document.fonts.ready;
 
 }catch(e){}
 
+fontPreview.style.fontFamily=
+fonts[fontSelect.value];
+
 drawBanner();
 
 });
-
 
 </script>
 
