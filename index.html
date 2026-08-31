@@ -12,17 +12,15 @@
 <style>
 
 /* =========================================================
-   ASIM TECH — PREMIUM HOME PAGE
+   ASIM TECH PREMIUM HOME
 ========================================================= */
 
 :root{
     --bg:#02050b;
     --panel:#081522;
-    --panel2:#0b1b2b;
     --border:rgba(80,190,255,.18);
     --blue:#00a8ff;
     --cyan:#39ddff;
-    --purple:#8b45ff;
     --text:#f7fbff;
     --muted:#8da5b8;
 }
@@ -89,18 +87,24 @@ body::before{
 body::after{
     content:"";
     position:fixed;
+
     width:420px;
     height:420px;
+
     left:-250px;
     top:250px;
+
     border-radius:50%;
+
     background:rgba(0,150,255,.12);
+
     filter:blur(90px);
+
     z-index:-4;
+
     pointer-events:none;
 
-    animation:
-    bgMove 10s ease-in-out infinite;
+    animation:bgMove 10s ease-in-out infinite;
 }
 
 
@@ -113,6 +117,7 @@ body::after{
     50%{
         transform:translate(180px,-60px);
     }
+
 }
 
 
@@ -126,6 +131,7 @@ header{
     z-index:9999;
 
     height:68px;
+
     padding:0 5%;
 
     display:flex;
@@ -138,7 +144,6 @@ header{
     1px solid var(--border);
 
     backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
 }
 
 
@@ -147,6 +152,7 @@ header{
     align-items:center;
 
     color:#fff;
+
     text-decoration:none;
 
     font-size:21px;
@@ -193,6 +199,7 @@ nav{
 
 nav a{
     color:#bcd0dd;
+
     text-decoration:none;
 
     padding:9px 11px;
@@ -208,7 +215,9 @@ nav a{
 
 nav a:hover{
     color:#fff;
-    background:rgba(0,160,255,.10);
+
+    background:
+    rgba(0,160,255,.10);
 }
 
 
@@ -218,10 +227,13 @@ nav a:hover{
     width:42px;
     height:40px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     border-radius:11px;
 
-    background:rgba(255,255,255,.04);
+    background:
+    rgba(255,255,255,.04);
 
     color:#fff;
 
@@ -248,6 +260,7 @@ nav a:hover{
 .badge{
     display:inline-flex;
     align-items:center;
+
     gap:8px;
 
     padding:8px 14px;
@@ -263,6 +276,7 @@ nav a:hover{
     color:#6ed7ff;
 
     font-size:10px;
+
     font-weight:900;
 
     letter-spacing:2px;
@@ -280,8 +294,7 @@ nav a:hover{
     box-shadow:
     0 0 14px var(--cyan);
 
-    animation:
-    pulse 1.7s infinite;
+    animation:pulse 1.7s infinite;
 }
 
 
@@ -296,6 +309,7 @@ nav a:hover{
         opacity:.45;
         transform:scale(1.5);
     }
+
 }
 
 
@@ -337,8 +351,11 @@ nav a:hover{
 
 .hero-buttons{
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:11px;
 
     margin-top:28px;
@@ -353,9 +370,11 @@ nav a:hover{
     border-radius:11px;
 
     color:#fff;
+
     text-decoration:none;
 
     font-size:13px;
+
     font-weight:800;
 
     transition:.3s;
@@ -377,8 +396,11 @@ nav a:hover{
 
 
 .secondary-btn{
-    border:1px solid #29465e;
-    background:rgba(255,255,255,.035);
+    border:
+    1px solid #29465e;
+
+    background:
+    rgba(255,255,255,.035);
 }
 
 
@@ -398,7 +420,9 @@ nav a:hover{
     margin:42px auto 0;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
 
     gap:10px;
 }
@@ -419,15 +443,20 @@ nav a:hover{
 
 .stat strong{
     display:block;
+
     font-size:21px;
+
     margin-bottom:4px;
 }
 
 
 .stat span{
     color:#71899b;
+
     font-size:9px;
+
     text-transform:uppercase;
+
     letter-spacing:1px;
 }
 
@@ -438,6 +467,7 @@ nav a:hover{
 
 .hero-phone-area{
     display:flex;
+
     justify-content:center;
 
     margin:55px auto 80px;
@@ -454,7 +484,9 @@ nav a:hover{
 
     padding:9px;
 
-    border:5px solid #4d687b;
+    border:
+    5px solid #4d687b;
+
     border-radius:43px;
 
     background:#01050a;
@@ -486,6 +518,7 @@ nav a:hover{
         rotate(5deg)
         translateY(-10px);
     }
+
 }
 
 
@@ -557,13 +590,16 @@ nav a:hover{
 
 .phone-screen h2{
     font-size:26px;
+
     margin-bottom:8px;
 }
 
 
 .phone-screen p{
     color:#91aabd;
+
     font-size:12px;
+
     line-height:1.7;
 }
 
@@ -576,7 +612,8 @@ nav a:hover{
 .phone-grid{
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+    repeat(2,1fr);
 
     gap:9px;
 
@@ -588,9 +625,11 @@ nav a:hover{
     height:68px;
 
     display:flex;
+
     flex-direction:column;
 
     justify-content:center;
+
     align-items:center;
 
     gap:4px;
@@ -674,6 +713,7 @@ nav a:hover{
     0 auto 24px;
 
     display:flex;
+
     flex-direction:column;
 
     align-items:center;
@@ -686,15 +726,18 @@ nav a:hover{
     position:relative;
 
     width:100%;
+
     max-width:600px;
 }
 
 
 .search-box input{
     width:100%;
+
     height:50px;
 
-    padding:0 50px 0 17px;
+    padding:
+    0 50px 0 17px;
 
     outline:none;
 
@@ -730,6 +773,7 @@ nav a:hover{
     position:absolute;
 
     right:17px;
+
     top:50%;
 
     transform:translateY(-50%);
@@ -742,7 +786,9 @@ nav a:hover{
 
 .filters{
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
 
     gap:7px;
@@ -750,7 +796,8 @@ nav a:hover{
 
 
 .filter-btn{
-    padding:8px 13px;
+    padding:
+    8px 13px;
 
     border:
     1px solid #26445b;
@@ -763,6 +810,7 @@ nav a:hover{
     color:#a9bdca;
 
     font-size:10px;
+
     font-weight:800;
 
     cursor:pointer;
@@ -773,6 +821,7 @@ nav a:hover{
 
 .filter-btn:hover{
     color:#fff;
+
     border-color:var(--blue);
 }
 
@@ -784,15 +833,12 @@ nav a:hover{
 
     background:
     rgba(0,160,255,.15);
-
-    box-shadow:
-    0 0 18px
-    rgba(0,160,255,.08);
 }
 
 
 .search-status{
     color:#71899c;
+
     font-size:10px;
 }
 
@@ -805,7 +851,8 @@ nav a:hover{
     width:92%;
     max-width:1100px;
 
-    margin:0 auto 75px;
+    margin:
+    0 auto 75px;
 
     display:grid;
 
@@ -817,7 +864,7 @@ nav a:hover{
 
 
 /* =========================================================
-   SMALL PREMIUM CARD
+   APP CARD
 ========================================================= */
 
 .app-card{
@@ -858,6 +905,7 @@ nav a:hover{
 
     from{
         opacity:0;
+
         transform:
         translateY(18px)
         scale(.97);
@@ -865,14 +913,16 @@ nav a:hover{
 
     to{
         opacity:1;
+
         transform:
         translateY(0)
         scale(1);
     }
+
 }
 
 
-/* animated shine */
+/* CARD SHINE */
 
 .app-card::before{
 
@@ -916,67 +966,6 @@ nav a:hover{
 }
 
 
-/* animated border */
-
-.app-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-1px;
-
-    border-radius:17px;
-
-    pointer-events:none;
-
-    z-index:4;
-
-    border:1px solid transparent;
-
-    background:
-    linear-gradient(
-        120deg,
-        transparent,
-        rgba(0,200,255,.5),
-        transparent,
-        rgba(150,60,255,.5),
-        transparent
-    ) border-box;
-
-    -webkit-mask:
-    linear-gradient(#000 0 0) padding-box,
-    linear-gradient(#000 0 0);
-
-    -webkit-mask-composite:xor;
-
-    mask-composite:exclude;
-
-    background-size:250% 250%;
-
-    animation:
-    borderMove 5s linear infinite;
-
-    opacity:.45;
-}
-
-
-@keyframes borderMove{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
-}
-
-
 .app-card:hover{
 
     transform:
@@ -1001,7 +990,7 @@ nav a:hover{
 
 
 /* =========================================================
-   CARD IMAGE
+   APP IMAGE
 ========================================================= */
 
 .app-image{
@@ -1011,7 +1000,9 @@ nav a:hover{
     height:180px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     overflow:hidden;
@@ -1048,7 +1039,7 @@ nav a:hover{
     filter:blur(40px);
 
     animation:
-    glowMove1 4s ease-in-out infinite;
+    glow1 4s ease-in-out infinite;
 }
 
 
@@ -1072,11 +1063,11 @@ nav a:hover{
     filter:blur(40px);
 
     animation:
-    glowMove2 5s ease-in-out infinite;
+    glow2 5s ease-in-out infinite;
 }
 
 
-@keyframes glowMove1{
+@keyframes glow1{
 
     0%,100%{
         transform:translate(0,0) scale(1);
@@ -1085,10 +1076,11 @@ nav a:hover{
     50%{
         transform:translate(35px,25px) scale(1.2);
     }
+
 }
 
 
-@keyframes glowMove2{
+@keyframes glow2{
 
     0%,100%{
         transform:translate(0,0) scale(1);
@@ -1097,6 +1089,7 @@ nav a:hover{
     50%{
         transform:translate(-30px,-20px) scale(1.2);
     }
+
 }
 
 
@@ -1134,12 +1127,14 @@ nav a:hover{
 .fallback-icon{
 
     position:relative;
+
     z-index:2;
 
     width:90px;
     height:90px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -1159,9 +1154,7 @@ nav a:hover{
 }
 
 
-/* =========================================================
-   APP BACKGROUNDS
-========================================================= */
+/* APP IMAGE COLORS */
 
 .barcode .app-image{
     background:
@@ -1224,8 +1217,11 @@ nav a:hover{
 
 
 .app-title-row{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-start;
 
     gap:8px;
@@ -1287,7 +1283,7 @@ nav a:hover{
 
 
 /* =========================================================
-   BUTTON
+   BUTTONS
 ========================================================= */
 
 .app-btn{
@@ -1301,6 +1297,7 @@ nav a:hover{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     margin-top:10px;
@@ -1432,9 +1429,13 @@ nav a:hover{
 
 
 .no-results strong{
+
     display:block;
+
     color:#fff;
+
     font-size:17px;
+
     margin-bottom:5px;
 }
 
@@ -1483,7 +1484,9 @@ nav a:hover{
 
 
 .feature:hover{
+
     transform:translateY(-5px);
+
     border-color:
     rgba(40,180,255,.55);
 }
@@ -1499,7 +1502,8 @@ nav a:hover{
     align-items:center;
     justify-content:center;
 
-    margin:0 auto 13px;
+    margin:
+    0 auto 13px;
 
     border-radius:15px;
 
@@ -1514,20 +1518,25 @@ nav a:hover{
 
 
 .feature h3{
+
     font-size:16px;
+
     margin-bottom:7px;
 }
 
 
 .feature p{
+
     color:var(--muted);
+
     font-size:11px;
+
     line-height:1.65;
 }
 
 
 /* =========================================================
-   INFO
+   INFO BOX
 ========================================================= */
 
 .info-box{
@@ -1557,7 +1566,9 @@ nav a:hover{
 
 
 .info-box h2{
+
     font-size:23px;
+
     margin-bottom:9px;
 }
 
@@ -1639,6 +1650,257 @@ footer{
 
 
 /* =========================================================
+   UPDATE NOTIFICATION
+========================================================= */
+
+.update-notification{
+
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    z-index:99999;
+
+    width:320px;
+
+    max-width:
+    calc(100% - 30px);
+
+    padding:15px 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    border:
+    1px solid rgba(0,190,255,.40);
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(8,27,45,.97),
+        rgba(3,12,23,.98)
+    );
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,.50),
+    0 0 25px rgba(0,170,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    animation:
+    updateSlide .65s ease both,
+    updateGlow 3s ease-in-out 1s infinite;
+}
+
+
+@keyframes updateSlide{
+
+    from{
+        opacity:0;
+
+        transform:
+        translateY(35px)
+        scale(.94);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+
+}
+
+
+@keyframes updateGlow{
+
+    0%,100%{
+        box-shadow:
+        0 15px 45px rgba(0,0,0,.50),
+        0 0 25px rgba(0,170,255,.12);
+    }
+
+    50%{
+        box-shadow:
+        0 18px 50px rgba(0,0,0,.55),
+        0 0 35px rgba(0,190,255,.22);
+    }
+
+}
+
+
+.update-icon{
+
+    width:43px;
+    height:43px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #009fff,
+        #0065e8
+    );
+
+    font-size:21px;
+
+    box-shadow:
+    0 0 20px
+    rgba(0,160,255,.25);
+
+    animation:
+    updateBell 1.8s ease-in-out infinite;
+}
+
+
+@keyframes updateBell{
+
+    0%,100%{
+        transform:rotate(0);
+    }
+
+    10%{
+        transform:rotate(10deg);
+    }
+
+    20%{
+        transform:rotate(-10deg);
+    }
+
+    30%{
+        transform:rotate(6deg);
+    }
+
+    40%{
+        transform:rotate(-4deg);
+    }
+
+    50%{
+        transform:rotate(0);
+    }
+
+}
+
+
+.update-content{
+    flex:1;
+    min-width:0;
+}
+
+
+.update-label{
+
+    color:#51d7ff;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:1.8px;
+
+    margin-bottom:4px;
+}
+
+
+.update-title{
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    margin-bottom:4px;
+}
+
+
+.update-text{
+
+    color:#8fa9bb;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+
+.update-link{
+
+    display:inline-flex;
+
+    margin-top:7px;
+
+    color:#6bdcff;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    text-decoration:none;
+}
+
+
+.update-link:hover{
+    color:#fff;
+}
+
+
+.update-close{
+
+    position:absolute;
+
+    right:8px;
+    top:7px;
+
+    width:23px;
+    height:23px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.06);
+
+    color:#8ca4b5;
+
+    font-size:13px;
+
+    cursor:pointer;
+}
+
+
+.update-close:hover{
+
+    color:#fff;
+
+    background:
+    rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -1688,6 +1950,7 @@ footer{
 
     nav a{
         text-align:center;
+
         padding:11px;
     }
 
@@ -1697,17 +1960,11 @@ footer{
     }
 
 
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-
     .apps{
 
         width:94%;
 
-        grid-template-columns:
-        1fr;
+        grid-template-columns:1fr;
 
         gap:14px;
     }
@@ -1730,6 +1987,20 @@ footer{
         width:94%;
     }
 
+
+    .update-notification{
+
+        right:12px;
+        bottom:12px;
+
+        width:
+        calc(100% - 24px);
+
+        padding:13px 14px;
+
+        border-radius:14px;
+    }
+
 }
 
 
@@ -1746,7 +2017,9 @@ footer{
 
 
     .hero-buttons{
+
         flex-direction:column;
+
         align-items:center;
     }
 
@@ -1757,13 +2030,10 @@ footer{
 
 
     .phone{
+
         width:225px;
+
         height:420px;
-    }
-
-
-    .phone-screen{
-        border-radius:31px;
     }
 
 
@@ -1790,6 +2060,7 @@ footer{
     *::after{
 
         animation:none !important;
+
         transition:none !important;
     }
 
@@ -1808,7 +2079,9 @@ footer{
 
 <header>
 
-<a href="./" class="logo">
+<a
+href="./"
+class="logo">
 
 <span class="logo-mark">
 ▲
@@ -1835,17 +2108,29 @@ aria-expanded="false">
 
 <nav id="mainNav">
 
-<a href="./">Home</a>
+<a href="./">
+Home
+</a>
 
-<a href="#apps">Apps</a>
+<a href="#apps">
+Apps
+</a>
 
-<a href="#features">Tools</a>
+<a href="#features">
+Tools
+</a>
 
-<a href="#updates">Updates</a>
+<a href="#updates">
+Updates
+</a>
 
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 
 </nav>
 
@@ -1880,9 +2165,9 @@ Useful Apps.
 
 <p class="hero-description">
 
-Explore useful Android applications, web tools,
-productivity utilities and entertainment apps
-created by Asim Tech.
+Explore useful Android applications,
+web tools, productivity utilities and
+entertainment apps created by Asim Tech.
 
 </p>
 
@@ -1915,7 +2200,9 @@ class="hero-btn secondary-btn">
 
 <strong>11+</strong>
 
-<span>Apps & Tools</span>
+<span>
+Apps & Tools
+</span>
 
 </div>
 
@@ -1924,7 +2211,9 @@ class="hero-btn secondary-btn">
 
 <strong>Web</strong>
 
-<span>Browser Tools</span>
+<span>
+Browser Tools
+</span>
 
 </div>
 
@@ -1933,7 +2222,9 @@ class="hero-btn secondary-btn">
 
 <strong>Android</strong>
 
-<span>Applications</span>
+<span>
+Applications
+</span>
 
 </div>
 
@@ -1950,7 +2241,8 @@ class="hero-btn secondary-btn">
 
 <div class="phone">
 
-<div class="phone-camera"></div>
+<div class="phone-camera">
+</div>
 
 
 <div class="phone-screen">
@@ -1962,7 +2254,9 @@ class="hero-btn secondary-btn">
 </div>
 
 
-<h2>Hello 👋</h2>
+<h2>
+Hello 👋
+</h2>
 
 
 <p>
@@ -1971,7 +2265,9 @@ Building useful digital experiences for
 
 <br>
 
-<strong>everyday life</strong>
+<strong>
+everyday life
+</strong>
 
 </p>
 
@@ -2056,6 +2352,7 @@ id="appSearch"
 placeholder="Search apps and tools..."
 autocomplete="off">
 
+
 <span class="search-icon">
 ⌕
 </span>
@@ -2068,35 +2365,45 @@ autocomplete="off">
 <button
 class="filter-btn active"
 data-filter="all">
+
 All
+
 </button>
 
 
 <button
 class="filter-btn"
 data-filter="web">
+
 🌐 Web Apps
+
 </button>
 
 
 <button
 class="filter-btn"
 data-filter="android">
+
 📱 Android
+
 </button>
 
 
 <button
 class="filter-btn"
 data-filter="music">
+
 🎵 Music
+
 </button>
 
 
 <button
 class="filter-btn"
 data-filter="tools">
+
 🛠️ Tools
+
 </button>
 
 </div>
@@ -2114,10 +2421,12 @@ Showing 11 applications
 
 
 <!-- =====================================================
-     APP CARDS
+     APP GRID
 ===================================================== -->
 
-<div class="apps" id="appsGrid">
+<div
+class="apps"
+id="appsGrid">
 
 
 <!-- 01 BARCODE -->
@@ -2138,7 +2447,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 ▥
+
 </div>
 
 </div>
@@ -2200,7 +2511,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📄
+
 </div>
 
 </div>
@@ -2262,7 +2575,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📕
+
 </div>
 
 </div>
@@ -2324,7 +2639,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📸
+
 </div>
 
 </div>
@@ -2386,7 +2703,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 ✍️
+
 </div>
 
 </div>
@@ -2448,7 +2767,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🪪
+
 </div>
 
 </div>
@@ -2510,7 +2831,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📻
+
 </div>
 
 </div>
@@ -2573,7 +2896,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🎵
+
 </div>
 
 </div>
@@ -2636,7 +2961,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🎙️
+
 </div>
 
 </div>
@@ -2699,7 +3026,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🎧
+
 </div>
 
 </div>
@@ -2773,11 +3102,13 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 class="fallback-icon"
 style="
 display:none;
-font-family:'Noto Serif Bengali',serif;
+font-family:serif;
 font-size:30px;
 font-weight:700;
 ">
+
 বাংলা
+
 </div>
 
 </div>
@@ -2830,7 +3161,9 @@ class="app-btn purple-btn">
 class="no-results"
 id="noResults">
 
-<strong>No app found</strong>
+<strong>
+No app found
+</strong>
 
 Try another search term or category.
 
@@ -2851,9 +3184,11 @@ Try another search term or category.
 WHY ASIM TECH
 </div>
 
+
 <h2>
 Built For Everyday Use
 </h2>
+
 
 <p>
 Simple ideas, useful tools and practical applications.
@@ -2870,9 +3205,11 @@ Simple ideas, useful tools and practical applications.
 ⚡
 </div>
 
+
 <h3>
 Fast & Simple
 </h3>
+
 
 <p>
 Clean and straightforward applications designed to be easy to use.
@@ -2887,9 +3224,11 @@ Clean and straightforward applications designed to be easy to use.
 🔒
 </div>
 
+
 <h3>
 Privacy Minded
 </h3>
+
 
 <p>
 Applications are designed with sensible privacy in mind.
@@ -2904,9 +3243,11 @@ Applications are designed with sensible privacy in mind.
 📱
 </div>
 
+
 <h3>
 Mobile Friendly
 </h3>
+
 
 <p>
 Responsive experiences designed for phones, tablets and computers.
@@ -2931,9 +3272,10 @@ class="info-box">
 🆕 Latest Updates
 </h2>
 
+
 <p>
 New applications and useful digital tools are being added
-to Asim Tech regularly.
+to Asim Tech regularly. Check back for new releases and improvements.
 </p>
 
 </section>
@@ -2950,6 +3292,7 @@ class="info-box">
 <h2>
 About Asim Tech
 </h2>
+
 
 <p>
 Welcome to Asim Tech. I create useful Android applications,
@@ -2972,6 +3315,7 @@ class="info-box">
 Contact Asim Tech
 </h2>
 
+
 <p>
 For application information, support and other enquiries,
 please contact Asim Tech.
@@ -2987,8 +3331,11 @@ please contact Asim Tech.
 <footer>
 
 <div class="footer-brand">
+
 ▲ ASIM <strong>TECH</strong>
+
 </div>
+
 
 Apps • Tools • Innovation
 
@@ -2997,6 +3344,7 @@ Apps • Tools • Innovation
 © 2026 Asim Tech. All rights reserved.
 
 <br>
+
 
 <a
 href="#top"
@@ -3009,10 +3357,68 @@ class="back-top">
 </footer>
 
 
+<!-- =====================================================
+     UPDATE NOTIFICATION
+===================================================== -->
+
+<div
+class="update-notification"
+id="updateNotification">
+
+
+<div class="update-icon">
+🔔
+</div>
+
+
+<div class="update-content">
+
+
+<div class="update-label">
+NEW UPDATE
+</div>
+
+
+<div class="update-title">
+Asim Tech Updated
+</div>
+
+
+<div class="update-text">
+নতুন App ও উন্নত features এখন available।
+</div>
+
+
+<a
+href="#updates"
+class="update-link"
+id="updateLink">
+
+View Updates →
+
+</a>
+
+
+</div>
+
+
+<button
+class="update-close"
+id="updateClose"
+aria-label="Close notification">
+
+✕
+
+</button>
+
+
+</div>
+
+
 <script>
 
 /* =========================================================
-   ASIM TECH JAVASCRIPT
+   ASIM TECH MAIN JAVASCRIPT
 ========================================================= */
 
 (function(){
@@ -3040,13 +3446,25 @@ function(){
 const open =
 nav.classList.toggle("open");
 
+
 menuBtn.setAttribute(
 "aria-expanded",
 String(open)
 );
 
+
+menuBtn.setAttribute(
+"aria-label",
+open
+? "Close menu"
+: "Open menu"
+);
+
+
 menuBtn.textContent =
-open ? "✕" : "☰";
+open
+? "✕"
+: "☰";
 
 }
 );
@@ -3077,7 +3495,7 @@ menuBtn.textContent="☰";
 
 
 /* =========================================================
-   SEARCH
+   SEARCH + FILTER
 ========================================================= */
 
 const searchInput =
@@ -3103,9 +3521,10 @@ function filterApps(){
 
 const searchTerm =
 searchInput
-.value
+? searchInput.value
 .trim()
-.toLowerCase();
+.toLowerCase()
+: "";
 
 
 let visible=0;
@@ -3114,18 +3533,24 @@ let visible=0;
 appCards.forEach(function(card){
 
 const name =
-(card.dataset.name || "")
-.toLowerCase();
+(
+card.dataset.name ||
+""
+).toLowerCase();
 
 
 const category =
-(card.dataset.category || "")
-.toLowerCase();
+(
+card.dataset.category ||
+""
+).toLowerCase();
 
 
 const text =
-(card.innerText || "")
-.toLowerCase();
+(
+card.innerText ||
+""
+).toLowerCase();
 
 
 const searchMatch =
@@ -3176,9 +3601,15 @@ status.textContent =
 "Found " +
 visible +
 " application" +
-(visible===1 ? "" : "s");
+(
+visible===1
+? ""
+: "s"
+);
 
-}else if(currentFilter==="all"){
+}else if(
+currentFilter==="all"
+){
 
 status.textContent =
 "Showing " +
@@ -3199,9 +3630,7 @@ visible +
 }
 
 
-/* =========================================================
-   SEARCH INPUT
-========================================================= */
+/* Search */
 
 if(searchInput){
 
@@ -3213,9 +3642,7 @@ filterApps
 }
 
 
-/* =========================================================
-   FILTER BUTTONS
-========================================================= */
+/* Filters */
 
 filterButtons.forEach(function(button){
 
@@ -3223,11 +3650,13 @@ button.addEventListener(
 "click",
 function(){
 
-filterButtons.forEach(function(btn){
+filterButtons.forEach(
+function(btn){
 
 btn.classList.remove("active");
 
-});
+}
+);
 
 
 button.classList.add("active");
@@ -3261,6 +3690,7 @@ document.activeElement !== searchInput
 
 event.preventDefault();
 
+
 if(searchInput){
 
 searchInput.focus();
@@ -3273,7 +3703,7 @@ searchInput.focus();
 
 
 /* =========================================================
-   CLICK OUTSIDE MENU
+   CLOSE MENU OUTSIDE
 ========================================================= */
 
 document.addEventListener(
@@ -3294,17 +3724,18 @@ if(
 
 nav.classList.remove("open");
 
+
 menuBtn.setAttribute(
 "aria-expanded",
 "false"
 );
+
 
 menuBtn.textContent="☰";
 
 }
 
 });
-
 
 
 /* =========================================================
@@ -3321,6 +3752,7 @@ img.addEventListener(
 function(){
 
 this.style.display="none";
+
 
 const fallback =
 this.nextElementSibling;
@@ -3374,7 +3806,70 @@ link.click();
 
 
 /* =========================================================
-   INITIAL
+   UPDATE NOTIFICATION
+========================================================= */
+
+const updateNotification =
+document.getElementById(
+"updateNotification"
+);
+
+
+const updateClose =
+document.getElementById(
+"updateClose"
+);
+
+
+const updateLink =
+document.getElementById(
+"updateLink"
+);
+
+
+if(updateClose){
+
+updateClose.addEventListener(
+"click",
+function(){
+
+updateNotification.style.animation =
+"updateSlide .35s ease reverse both";
+
+
+setTimeout(
+function(){
+
+updateNotification.style.display =
+"none";
+
+},
+330
+);
+
+}
+);
+
+}
+
+
+if(updateLink){
+
+updateLink.addEventListener(
+"click",
+function(){
+
+updateNotification.style.display =
+"none";
+
+}
+);
+
+}
+
+
+/* =========================================================
+   INITIAL LOAD
 ========================================================= */
 
 filterApps();
@@ -3383,6 +3878,7 @@ filterApps();
 })();
 
 </script>
+
 
 </body>
 </html>
