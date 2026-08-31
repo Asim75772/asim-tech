@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#070b16">
+
+<title>Asim Tech বাংলা Banner Maker</title>
+
+<meta name="description"
+content="Create beautiful Bengali banners online with stylish Bengali fonts.">
+
+<!-- Bengali Fonts -->
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&family=Atma:wght@400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&family=Galada&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Tiro+Bangla:ital@0;1&display=swap"
+rel="stylesheet">
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+<style>
+
+/* =========================================================
+   ASIM TECH BENGALI BANNER MAKER
+========================================================= */
+
+:root{
+
+    --bg:#050914;
+    --panel:#0b1220;
+    --panel2:#101a2b;
+
+    --border:rgba(100,180,255,.20);
+
+    --text:#ffffff;
+    --muted:#8fa4b8;
+
+    --blue:#159cff;
+    --blue2:#006cff;
+    --cyan:#3be3ff;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:var(--text);
+
+    background:
+
+    radial-gradient(
+        circle at 15% 5%,
+        rgba(0,150,255,.16),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 90% 30%,
+        rgba(120,50,255,.13),
+        transparent 30%
+    ),
+
+    #050914;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:13px 5%;
+
+    background:
+    rgba(5,9,20,.88);
+
+    border-bottom:
+    1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+}
+
+
+.logo{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:21px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+}
+
+
+.logo span{
+    color:var(--blue);
+}
+
+
+.header-badge{
+
+    padding:7px 12px;
+
+    border:
+    1px solid rgba(0,170,255,.25);
+
+    border-radius:999px;
+
+    color:#73d5ff;
+
+    background:
+    rgba(0,150,255,.07);
+
+    font-size:10px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container{
+
+    width:94%;
+
+    max-width:1200px;
+
+    margin:
+    35px auto 70px;
+}
+
+
+.hero{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+
+.hero h1{
+
+    font-size:
+    clamp(30px,6vw,52px);
+
+    line-height:1.1;
+
+    margin-bottom:10px;
+
+    font-weight:900;
+}
+
+
+.hero h1 span{
+    color:var(--blue);
+}
+
+
+.hero p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   DESIGNER
+========================================================= */
+
+.designer{
+
+    display:grid;
+
+    grid-template-columns:
+    370px 1fr;
+
+    gap:25px;
+
+    align-items:start;
+}
+
+
+/* =========================================================
+   CONTROL PANEL
+========================================================= */
+
+.controls{
+
+    padding:20px;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(13,28,48,.92),
+        rgba(6,13,25,.96)
+    );
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.28);
+}
+
+
+.control-title{
+
+    font-size:18px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
+}
+
+
+.control-group{
+
+    margin-bottom:17px;
+}
+
+
+.control-group label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#c9d8e5;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+textarea,
+select,
+input[type="text"],
+input[type="number"]{
+
+    width:100%;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:11px;
+
+    outline:none;
+
+    color:#fff;
+
+    background:
+    #081322;
+
+    font-family:inherit;
+
+    transition:.2s ease;
+}
+
+
+textarea{
+
+    min-height:105px;
+
+    padding:12px;
+
+    resize:vertical;
+
+    font-size:16px;
+
+    line-height:1.6;
+}
+
+
+select,
+input[type="text"],
+input[type="number"]{
+
+    height:43px;
+
+    padding:
+    0 11px;
+
+    font-size:13px;
+}
+
+
+textarea:focus,
+select:focus,
+input:focus{
+
+    border-color:var(--blue);
+
+    box-shadow:
+    0 0 0 3px
+    rgba(0,160,255,.08);
+}
+
+
+/* =========================================================
+   TWO COLUMN INPUT
+========================================================= */
+
+.row{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:10px;
+}
+
+
+/* =========================================================
+   RANGE
+========================================================= */
+
+.range-line{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+
+input[type="range"]{
+
+    width:100%;
+
+    accent-color:var(--blue);
+}
+
+
+.range-value{
+
+    min-width:45px;
+
+    text-align:right;
+
+    color:#75d2ff;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   COLOR
+========================================================= */
+
+.color-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+
+input[type="color"]{
+
+    width:48px;
+
+    height:40px;
+
+    padding:2px;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:9px;
+
+    background:#081322;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.check-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:#b9cbd8;
+
+    font-size:12px;
+
+    cursor:pointer;
+}
+
+
+.check-row input{
+
+    width:17px;
+
+    height:17px;
+
+    accent-color:var(--blue);
+}
+
+
+/* =========================================================
+   PRESET BUTTONS
+========================================================= */
+
+.presets{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+}
+
+
+.preset{
+
+    padding:
+    8px 10px;
+
+    border:
+    1px solid #29445d;
+
+    border-radius:9px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:#bcd0dd;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+
+.preset:hover{
+
+    border-color:var(--blue);
+
+    color:#fff;
+
+    transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.actions{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:9px;
+
+    margin-top:20px;
+}
+
+
+.action-btn{
+
+    min-height:46px;
+
+    border:0;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+
+.action-btn:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.1);
+}
+
+
+.download-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00bd72,
+        #009b58
+    );
+}
+
+
+.reset-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #24364c,
+        #17263a
+    );
+
+    border:
+    1px solid #35506a;
+}
+
+
+/* =========================================================
+   PREVIEW AREA
+========================================================= */
+
+.preview-area{
+
+    min-width:0;
+
+    padding:20px;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:22px;
+
+    background:
+    rgba(7,15,28,.72);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.22);
+}
+
+
+.preview-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+
+.preview-title strong{
+    font-size:16px;
+}
+
+
+.preview-title span{
+
+    color:#6d879b;
+
+    font-size:10px;
+}
+
+
+.preview-scroll{
+
+    width:100%;
+
+    overflow:auto;
+
+    padding:10px;
+
+    border-radius:15px;
+
+    background:
+    #02050a;
+}
+
+
+/* =========================================================
+   BANNER
+========================================================= */
+
+#banner{
+
+    position:relative;
+
+    width:800px;
+
+    height:450px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    margin:auto;
+
+    border-radius:0;
+
+    background:
+
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(0,170,255,.30),
+        transparent 32%
+    ),
+
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(145,40,255,.28),
+        transparent 32%
+    ),
+
+    linear-gradient(
+        135deg,
+        #071c32,
+        #10102a 55%,
+        #250d43
+    );
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
+}
+
+
+/* =========================================================
+   DECORATION
+========================================================= */
+
+.banner-circle{
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    border-radius:50%;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    background:
+    rgba(255,255,255,.025);
+
+    top:-90px;
+
+    left:-70px;
+}
+
+
+.banner-circle.two{
+
+    width:300px;
+
+    height:300px;
+
+    top:auto;
+
+    left:auto;
+
+    right:-130px;
+
+    bottom:-150px;
+
+    border-color:
+    rgba(0,190,255,.17);
+}
+
+
+.banner-line{
+
+    position:absolute;
+
+    width:75%;
+
+    height:1px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+
+    bottom:65px;
+}
+
+
+/* =========================================================
+   BANNER CONTENT
+========================================================= */
+
+.banner-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:88%;
+
+    padding:20px;
+}
+
+
+.banner-small{
+
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    padding:6px 14px;
+
+    border:
+    1px solid rgba(255,255,255,.20);
+
+    border-radius:999px;
+
+    color:#8bdcff;
+
+    background:
+    rgba(0,150,255,.09);
+
+    font-family:
+    Arial,
+    sans-serif;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+
+#bannerText{
+
+    white-space:pre-line;
+
+    word-break:break-word;
+
+    font-size:52px;
+
+    line-height:1.25;
+
+    font-weight:700;
+
+    text-shadow:
+    0 4px 18px rgba(0,0,0,.45);
+}
+
+
+.banner-sub{
+
+    margin-top:16px;
+
+    color:rgba(255,255,255,.72);
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   FONT CLASSES
+========================================================= */
+
+.font-hind{
+    font-family:"Hind Siliguri",sans-serif;
+}
+
+
+.font-anek{
+    font-family:"Anek Bangla",sans-serif;
+}
+
+
+.font-baloo{
+    font-family:"Baloo Da 2",sans-serif;
+}
+
+
+.font-atma{
+    font-family:"Atma",sans-serif;
+}
+
+
+.font-galada{
+    font-family:"Galada",cursive;
+}
+
+
+.font-noto{
+    font-family:"Noto Serif Bengali",serif;
+}
+
+
+.font-tiro{
+    font-family:"Tiro Bangla",serif;
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.info{
+
+    margin-top:25px;
+
+    padding:24px;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:20px;
+
+    background:
+    rgba(8,20,35,.70);
+
+    text-align:center;
+}
+
+
+.info h2{
+
+    margin-bottom:9px;
+
+    font-size:22px;
+}
+
+
+.info p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    border-top:
+    1px solid var(--border);
+
+    color:#70889a;
+
+    font-size:12px;
+}
+
+
+footer strong{
+    color:var(--blue);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .designer{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .controls{
+
+        order:1;
+
+    }
+
+
+    .preview-area{
+
+        order:2;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    header{
+
+        padding:
+        12px 4%;
+
+    }
+
+
+    .logo{
+        font-size:18px;
+    }
+
+
+    .header-badge{
+        font-size:8px;
+        padding:6px 8px;
+    }
+
+
+    .container{
+
+        width:95%;
+
+        margin-top:25px;
+
+    }
+
+
+    .hero h1{
+        font-size:31px;
+    }
+
+
+    .controls,
+    .preview-area{
+
+        padding:14px;
+
+        border-radius:17px;
+
+    }
+
+
+    .row{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    #banner{
+
+        width:700px;
+
+        height:394px;
+
+    }
+
+
+    #bannerText{
+
+        font-size:43px;
+
+    }
+
+
+    .preview-scroll{
+
+        padding:5px;
+
+    }
+
+}
+
+
+@media(max-width:430px){
+
+    .hero p{
+        font-size:12px;
+    }
+
+
+    #banner{
+
+        width:600px;
+
+        height:338px;
+
+    }
+
+
+    #bannerText{
+
+        font-size:36px;
+
+    }
+
+
+    .banner-small{
+        font-size:10px;
+    }
+
+
+    .banner-sub{
+        font-size:11px;
+    }
+
+
+    .actions{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+    body *{
+        visibility:hidden;
+    }
+
+    #banner,
+    #banner *{
+        visibility:visible;
+    }
+
+    #banner{
+        position:absolute;
+        left:0;
+        top:0;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<a href="../" class="logo">
+
+▲ ASIM <span>TECH</span>
+
+</a>
+
+<div class="header-badge">
+
+বাংলা BANNER MAKER
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+<section class="hero">
+
+<h1>
+বাংলা <span>Banner Maker</span>
+</h1>
+
+<p>
+স্টাইলিশ বাংলা Font ব্যবহার করে নিজের পছন্দের Banner তৈরি করুন
+</p>
+
+</section>
+
+
+<div class="designer">
+
+
+<!-- =====================================================
+     CONTROLS
+===================================================== -->
+
+<section class="controls">
+
+
+<div class="control-title">
+🎨 Design Controls
+</div>
+
+
+<!-- TEXT -->
+
+<div class="control-group">
+
+<label>
+বাংলা লেখা
+</label>
+
+<textarea
+id="textInput"
+placeholder="এখানে আপনার বাংলা লেখা লিখুন...">আপনার স্বপ্নকে
+বাস্তবে রূপ দিন</textarea>
+
+</div>
+
+
+<!-- FONT -->
+
+<div class="control-group">
+
+<label>
+বাংলা Font নির্বাচন করুন
+</label>
+
+<select id="fontSelect">
+
+<option value="font-hind">
+Hind Siliguri — পরিষ্কার
+</option>
+
+<option value="font-anek">
+Anek Bangla — Modern
+</option>
+
+<option value="font-baloo">
+Baloo Da 2 — Stylish
+</option>
+
+<option value="font-atma">
+Atma — Creative
+</option>
+
+<option value="font-galada">
+Galada — Artistic
+</option>
+
+<option value="font-noto">
+Noto Serif Bengali — Classic
+</option>
+
+<option value="font-tiro">
+Tiro Bangla — Elegant
+</option>
+
+</select>
+
+</div>
+
+
+<!-- FONT SIZE -->
+
+<div class="control-group">
+
+<label>
+Font Size
+</label>
+
+<div class="range-line">
+
+<input
+type="range"
+id="fontSize"
+min="25"
+max="100"
+value="52">
+
+<span
+class="range-value"
+id="fontSizeValue">
+52px
+</span>
+
+</div>
+
+</div>
+
+
+<!-- TEXT COLOR -->
+
+<div class="control-group">
+
+<label>
+Text Color
+</label>
+
+<div class="color-box">
+
+<input
+type="color"
+id="textColor"
+value="#ffffff">
+
+<input
+type="text"
+id="textColorCode"
+value="#ffffff">
+
+</div>
+
+</div>
+
+
+<!-- BACKGROUND -->
+
+<div class="control-group">
+
+<label>
+Background Style
+</label>
+
+<select id="backgroundSelect">
+
+<option value="blue">
+Ocean Blue
+</option>
+
+<option value="purple">
+Royal Purple
+</option>
+
+<option value="red">
+Red Glow
+</option>
+
+<option value="green">
+Emerald
+</option>
+
+<option value="orange">
+Sunset Orange
+</option>
+
+<option value="dark">
+Dark Premium
+</option>
+
+<option value="white">
+Clean White
+</option>
+
+</select>
+
+</div>
+
+
+<!-- WIDTH HEIGHT -->
+
+<div class="control-group">
+
+<label>
+Banner Size
+</label>
+
+<div class="row">
+
+<div>
+
+<input
+type="number"
+id="bannerWidth"
+value="800"
+min="300"
+max="1600">
+
+</div>
+
+<div>
+
+<input
+type="number"
+id="bannerHeight"
+value="450"
+min="200"
+max="1200">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SMALL TITLE -->
+
+<div class="control-group">
+
+<label>
+ছোট Heading
+</label>
+
+<input
+type="text"
+id="smallText"
+value="ASIM TECH">
+
+</div>
+
+
+<!-- SUBTITLE -->
+
+<div class="control-group">
+
+<label>
+নিচের ছোট লেখা
+</label>
+
+<input
+type="text"
+id="subText"
+value="আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান">
+
+</div>
+
+
+<!-- PRESETS -->
+
+<div class="control-group">
+
+<label>
+Quick Styles
+</label>
+
+<div class="presets">
+
+<button
+class="preset"
+data-style="blue">
+🔵 Blue
+</button>
+
+<button
+class="preset"
+data-style="purple">
+🟣 Purple
+</button>
+
+<button
+class="preset"
+data-style="red">
+🔴 Red
+</button>
+
+<button
+class="preset"
+data-style="green">
+🟢 Green
+</button>
+
+<button
+class="preset"
+data-style="orange">
+🟠 Sunset
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CHECKBOX -->
+
+<div class="control-group">
+
+<label class="check-row">
+
+<input
+type="checkbox"
+id="showDecoration"
+checked>
+
+Show decorative design
+
+</label>
+
+</div>
+
+
+<!-- ACTIONS -->
+
+<div class="actions">
+
+<button
+class="action-btn download-btn"
+id="downloadBtn">
+
+⬇ Download PNG
+
+</button>
+
+<button
+class="action-btn reset-btn"
+id="resetBtn">
+
+↻ Reset
+
+</button>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PREVIEW
+===================================================== -->
+
+<section class="preview-area">
+
+
+<div class="preview-title">
+
+<strong>
+👁 Live Preview
+</strong>
+
+<span>
+Banner automatically updates
+</span>
+
+</div>
+
+
+<div class="preview-scroll">
+
+
+<div id="banner">
+
+
+<div
+class="banner-circle"
+id="circleOne">
+</div>
+
+
+<div
+class="banner-circle two"
+id="circleTwo">
+</div>
+
+
+<div
+class="banner-line"
+id="bannerLine">
+</div>
+
+
+<div class="banner-content">
+
+
+<div
+class="banner-small"
+id="smallPreview">
+
+ASIM TECH
+
+</div>
+
+
+<div
+id="bannerText"
+class="font-hind">
+
+আপনার স্বপ্নকে
+বাস্তবে রূপ দিন
+
+</div>
+
+
+<div
+class="banner-sub"
+id="subPreview">
+
+আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+<!-- =====================================================
+     INFO
+===================================================== -->
+
+<section class="info">
+
+<h2>
+✨ ৭টি Stylish বাংলা Font
+</h2>
+
+<p>
+
+Hind Siliguri, Anek Bangla, Baloo Da 2, Atma,
+Galada, Noto Serif Bengali এবং Tiro Bangla —
+বিভিন্ন ধরনের ডিজাইনের জন্য ব্যবহার করতে পারবেন।
+
+</p>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+▲ ASIM <strong>TECH</strong>
+
+<br>
+
+বাংলা Banner Maker • Web Tool
+
+<br>
+
+© 2026 Asim Tech
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   ASIM TECH BANNER MAKER JAVASCRIPT
+========================================================= */
+
+(function(){
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const textInput =
+document.getElementById("textInput");
+
+const fontSelect =
+document.getElementById("fontSelect");
+
+const fontSize =
+document.getElementById("fontSize");
+
+const fontSizeValue =
+document.getElementById("fontSizeValue");
+
+const textColor =
+document.getElementById("textColor");
+
+const textColorCode =
+document.getElementById("textColorCode");
+
+const backgroundSelect =
+document.getElementById("backgroundSelect");
+
+const bannerWidth =
+document.getElementById("bannerWidth");
+
+const bannerHeight =
+document.getElementById("bannerHeight");
+
+const smallText =
+document.getElementById("smallText");
+
+const subText =
+document.getElementById("subText");
+
+const showDecoration =
+document.getElementById("showDecoration");
+
+const banner =
+document.getElementById("banner");
+
+const bannerText =
+document.getElementById("bannerText");
+
+const smallPreview =
+document.getElementById("smallPreview");
+
+const subPreview =
+document.getElementById("subPreview");
+
+const circleOne =
+document.getElementById("circleOne");
+
+const circleTwo =
+document.getElementById("circleTwo");
+
+const bannerLine =
+document.getElementById("bannerLine");
+
+const downloadBtn =
+document.getElementById("downloadBtn");
+
+const resetBtn =
+document.getElementById("resetBtn");
+
+
+/* =====================================================
+   BACKGROUNDS
+===================================================== */
+
+const backgrounds = {
+
+    blue: `
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0,180,255,.38),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(80,50,255,.28),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #062a49,
+            #07172b 55%,
+            #24105a
+        )
+    `,
+
+    purple: `
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(200,60,255,.35),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(80,80,255,.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #250640,
+            #160d35 55%,
+            #351064
+        )
+    `,
+
+    red: `
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,40,70,.35),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255,120,0,.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #45050c,
+            #22070c 55%,
+            #570011
+        )
+    `,
+
+    green: `
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(0,255,160,.30),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(0,150,255,.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #04352b,
+            #061d1e 55%,
+            #063f45
+        )
+    `,
+
+    orange: `
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,180,0,.35),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(255,50,50,.32),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #542000,
+            #31100a 55%,
+            #5d0711
+        )
+    `,
+
+    dark: `
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.07),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #10151e,
+            #05070c
+        )
+    `,
+
+    white: `
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #edf5ff
+        )
+    `
+};
+
+
+/* =====================================================
+   UPDATE BANNER
+===================================================== */
+
+function updateBanner(){
+
+    /* Text */
+
+    bannerText.textContent =
+    textInput.value ||
+    "বাংলা লেখা এখানে লিখুন";
+
+
+    /* Font */
+
+    bannerText.className =
+    fontSelect.value;
+
+
+    /* Size */
+
+    const size =
+    Number(fontSize.value);
+
+    bannerText.style.fontSize =
+    size + "px";
+
+    fontSizeValue.textContent =
+    size + "px";
+
+
+    /* Color */
+
+    bannerText.style.color =
+    textColor.value;
+
+
+    textColorCode.value =
+    textColor.value;
+
+
+    /* Background */
+
+    const selectedBackground =
+    backgroundSelect.value;
+
+    banner.style.background =
+    backgrounds[selectedBackground];
+
+
+    /* Width */
+
+    const width =
+    Number(bannerWidth.value) || 800;
+
+    const height =
+    Number(bannerHeight.value) || 450;
+
+
+    banner.style.width =
+    width + "px";
+
+    banner.style.height =
+    height + "px";
+
+
+    /* Small title */
+
+    smallPreview.textContent =
+    smallText.value;
+
+
+    /* Subtitle */
+
+    subPreview.textContent =
+    subText.value;
+
+
+    /* Decoration */
+
+    const visible =
+    showDecoration.checked
+    ? "block"
+    : "none";
+
+
+    circleOne.style.display =
+    visible;
+
+    circleTwo.style.display =
+    visible;
+
+    bannerLine.style.display =
+    visible;
+
+
+    /* White background adjustment */
+
+    if(selectedBackground === "white"){
+
+        smallPreview.style.color =
+        "#006dff";
+
+        smallPreview.style.borderColor =
+        "rgba(0,100,200,.20)";
+
+        bannerText.style.textShadow =
+        "0 2px 10px rgba(0,0,0,.15)";
+
+        subPreview.style.color =
+        "rgba(0,0,0,.60)";
+
+    }else{
+
+        smallPreview.style.color =
+        "#8bdcff";
+
+        smallPreview.style.borderColor =
+        "rgba(255,255,255,.20)";
+
+        bannerText.style.textShadow =
+        "0 4px 18px rgba(0,0,0,.45)";
+
+        subPreview.style.color =
+        "rgba(255,255,255,.72)";
+
+    }
+
+}
+
+
+/* =====================================================
+   INPUT EVENTS
+===================================================== */
+
+textInput.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+fontSelect.addEventListener(
+    "change",
+    updateBanner
+);
+
+
+fontSize.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+textColor.addEventListener(
+    "input",
+    function(){
+
+        textColorCode.value =
+        textColor.value;
+
+        updateBanner();
+
+    }
+);
+
+
+textColorCode.addEventListener(
+    "input",
+    function(){
+
+        const value =
+        textColorCode.value;
+
+        if(
+            /^#[0-9A-Fa-f]{6}$/.test(value)
+        ){
+
+            textColor.value =
+            value;
+
+            updateBanner();
+
+        }
+
+    }
+);
+
+
+backgroundSelect.addEventListener(
+    "change",
+    updateBanner
+);
+
+
+bannerWidth.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+bannerHeight.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+smallText.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+subText.addEventListener(
+    "input",
+    updateBanner
+);
+
+
+showDecoration.addEventListener(
+    "change",
+    updateBanner
+);
+
+
+/* =====================================================
+   QUICK PRESETS
+===================================================== */
+
+document.querySelectorAll(".preset")
+.forEach(function(button){
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            const style =
+            button.dataset.style;
+
+            backgroundSelect.value =
+            style;
+
+            updateBanner();
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+resetBtn.addEventListener(
+    "click",
+    function(){
+
+        textInput.value =
+        "আপনার স্বপ্নকে\nবাস্তবে রূপ দিন";
+
+        fontSelect.value =
+        "font-hind";
+
+        fontSize.value =
+        52;
+
+        textColor.value =
+        "#ffffff";
+
+        textColorCode.value =
+        "#ffffff";
+
+        backgroundSelect.value =
+        "blue";
+
+        bannerWidth.value =
+        800;
+
+        bannerHeight.value =
+        450;
+
+        smallText.value =
+        "ASIM TECH";
+
+        subText.value =
+        "আপনার জন্য সহজ ও সুন্দর ডিজিটাল সমাধান";
+
+        showDecoration.checked =
+        true;
+
+        updateBanner();
+
+    }
+);
+
+
+/* =====================================================
+   DOWNLOAD PNG
+===================================================== */
+
+downloadBtn.addEventListener(
+    "click",
+    async function(){
+
+        const oldText =
+        downloadBtn.textContent;
+
+
+        downloadBtn.textContent =
+        "⏳ তৈরি হচ্ছে...";
+
+
+        downloadBtn.disabled =
+        true;
+
+
+        try{
+
+            /*
+             * Wait for Bengali fonts
+             */
+
+            if(document.fonts){
+
+                await document.fonts.ready;
+
+            }
+
+
+            /*
+             * Create canvas
+             */
+
+            const canvas =
+            await html2canvas(
+                banner,
+                {
+                    scale:2,
+
+                    useCORS:true,
+
+                    backgroundColor:null,
+
+                    logging:false
+                }
+            );
+
+
+            /*
+             * Download
+             */
+
+            const link =
+            document.createElement("a");
+
+
+            link.download =
+            "asim-tech-bangla-banner.png";
+
+
+            link.href =
+            canvas.toDataURL(
+                "image/png"
+            );
+
+
+            link.click();
+
+
+        }catch(error){
+
+            console.error(error);
+
+            alert(
+                "Banner download করা যায়নি। আবার চেষ্টা করুন।"
+            );
+
+        }
+
+
+        downloadBtn.textContent =
+        oldText;
+
+        downloadBtn.disabled =
+        false;
+
+    }
+);
+
+
+/* =====================================================
+   INITIAL
+===================================================== */
+
+updateBanner();
+
+
+})();
+
+</script>
+
+
+</body>
+
+</html>
