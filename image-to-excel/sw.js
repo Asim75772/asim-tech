@@ -1,63 +1,249 @@
-const CACHE_NAME = "asim-image-to-excel-v2";
+const CACHE_NAME = "asim-image-to-excel-v4";
 
-const APP_FILES = [
-  "./",
-  "./index.html",
-  "./manifest.json",
-  "./icon-192.png",
-  "./icon-512.png"
+
+const APP_SHELL = [
+    "./",
+    "./index.html",
+    "./manifest.json"
 ];
 
-// INSTALL
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(APP_FILES))
-      .then(() => self.skipWaiting())
-  );
+
+/* =====================================================
+   INSTALL
+===================================================== */
+
+self.addEventListener(
+"install",
+function(event){
+
+    self.skipWaiting();
+
+    event.waitUntil(
+
+        caches.open(
+            CACHE_NAME
+        )
+        .then(
+            cache =>
+            cache.addAll(
+                APP_SHELL
+            )
+        )
+
+    );
+
 });
 
-// ACTIVATE
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME)
-          .map((name) => caches.delete(name))
-      );
-    }).then(() => self.clients.claim())
-  );
+
+/* =====================================================
+   ACTIVATE
+===================================================== */
+
+self.addEventListener(
+"activate",
+function(event){
+
+    event.waitUntil(
+
+        caches.keys()
+        .then(
+            keys =>
+
+            Promise.all(
+
+                keys
+                .filter(
+                    key =>
+                    key !== CACHE_NAME
+                )
+                .map(
+                    key =>
+                    caches.delete(key)
+                )
+
+            )
+
+        )
+        .then(
+            () =>
+            self.clients.claim()
+        )
+
+    );
+
 });
 
-// FETCH
-self.addEventListener("fetch", (event) => {
-  const request = event.request;
 
-  // শুধু GET request handle করবে
-  if (request.method !== "GET") {
-    return;
-  }
+/* =====================================================
+   FETCH
+===================================================== */
 
-  event.respondWith(
-    fetch(request)
-      .then((response) => {
-        // নতুন response cache করে রাখবে
-        if (response && response.status === 200) {
-          const responseClone = response.clone();
+self.addEventListener(
+"fetch",
+function(event){
 
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseClone);
-          });
-        }
+    const request =
+    event.request;
 
-        return response;
-      })
-      .catch(() => {
-        // Internet না থাকলে cache থেকে নেবে
-        return caches.match(request).then((cachedResponse) => {
-          return cachedResponse || caches.match("./index.html");
-        });
-      })
-  );
+
+    /*
+       Only handle GET requests.
+    */
+
+    if(
+        request.method !== "GET"
+    ){
+
+        return;
+    }
+
+
+    const url =
+    new URL(
+        request.url
+    );
+
+
+    /*
+       For our own HTML files:
+       NETWORK FIRST.
+
+       This is important because
+       GitHub Pages should show
+       the newest index.html.
+    */
+
+    if(
+        url.origin ===
+        self.location.origin
+        &&
+        (
+            url.pathname.endsWith(
+                "/index.html"
+            )
+            ||
+            url.pathname.endsWith(
+                "/manifest.json"
+            )
+        )
+    ){
+
+        event.respondWith(
+
+            fetch(
+                request,
+                {
+                    cache:"no-store"
+                }
+            )
+            .then(
+                response => {
+
+                    if(
+                        response &&
+                        response.ok
+                    ){
+
+                        const copy =
+                        response.clone();
+
+                        caches.open(
+                            CACHE_NAME
+                        )
+                        .then(
+                            cache =>
+                            cache.put(
+                                request,
+                                copy
+                            )
+                        );
+
+                    }
+
+                    return response;
+
+                }
+            )
+            .catch(
+                () =>
+                caches.match(
+                    request
+                )
+            )
+
+        );
+
+        return;
+    }
+
+
+    /*
+       CDN files:
+       let browser fetch them normally.
+       This prevents old library files
+       from breaking the application.
+    */
+
+    if(
+        url.origin !==
+        self.location.origin
+    ){
+
+        return;
+    }
+
+
+    /*
+       Other same-origin files:
+       Cache first with network fallback.
+    */
+
+    event.respondWith(
+
+        caches.match(request)
+        .then(
+            cached => {
+
+                if(cached){
+
+                    return cached;
+                }
+
+                return fetch(
+                    request
+                )
+                .then(
+                    response => {
+
+                        if(
+                            response &&
+                            response.ok
+                        ){
+
+                            const copy =
+                            response.clone();
+
+                            caches.open(
+                                CACHE_NAME
+                            )
+                            .then(
+                                cache =>
+                                cache.put(
+                                    request,
+                                    copy
+                                )
+                            );
+
+                        }
+
+                        return response;
+
+                    }
+                );
+
+            }
+        )
+
+    );
+
 });
