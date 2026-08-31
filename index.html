@@ -3,44 +3,29 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#02050b">
+<meta name="description" content="Asim Tech - Apps, Tools and Innovation">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color"
-content="#02050b">
-
-<meta name="description"
-content="Asim Tech - Useful apps, web tools, productivity tools, music and entertainment applications.">
-
-<meta name="author"
-content="Asim Tech">
-
-<title>Asim Tech | Apps • Tools • Innovation</title>
+<title>ASIM TECH | Apps • Tools • Innovation</title>
 
 <style>
 
 /* =========================================================
-   ASIM TECH PREMIUM APP INDEX
+   ASIM TECH — PREMIUM HOME PAGE
 ========================================================= */
 
 :root{
     --bg:#02050b;
-    --panel:rgba(8,19,32,.82);
-    --border:rgba(105,190,255,.18);
-    --border-hover:rgba(40,177,255,.75);
-    --text:#f7fbff;
-    --muted:#8ea5b8;
-    --blue:#00a2ff;
-    --blue2:#006dff;
-    --cyan:#35dcff;
-    --green:#00c878;
+    --panel:#081522;
+    --panel2:#0b1b2b;
+    --border:rgba(80,190,255,.18);
+    --blue:#00a8ff;
+    --cyan:#39ddff;
     --purple:#8b45ff;
-    --orange:#ff8a00;
-    --red:#ff3045;
+    --text:#f7fbff;
+    --muted:#8da5b8;
 }
-
-/* RESET */
 
 *{
     box-sizing:border-box;
@@ -55,32 +40,36 @@ html{
 
 body{
     min-height:100vh;
-    font-family:Arial,Helvetica,sans-serif;
     color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+
     background:
     radial-gradient(
-        circle at 15% 5%,
-        rgba(0,150,255,.14),
-        transparent 30%
+        circle at 10% 5%,
+        rgba(0,170,255,.15),
+        transparent 28%
     ),
     radial-gradient(
-        circle at 85% 30%,
-        rgba(110,45,255,.11),
+        circle at 90% 30%,
+        rgba(130,50,255,.12),
         transparent 28%
     ),
     #02050b;
-    overflow-x:hidden;
 }
 
-/* BACKGROUND GRID */
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:-3;
-    opacity:.14;
+    z-index:-5;
+    opacity:.13;
 
     background-image:
     linear-gradient(
@@ -96,35 +85,36 @@ body::before{
     background-size:55px 55px;
 }
 
-/* ANIMATED LIGHT */
 
 body::after{
     content:"";
     position:fixed;
-    width:450px;
-    height:450px;
-    left:-300px;
+    width:420px;
+    height:420px;
+    left:-250px;
     top:250px;
     border-radius:50%;
-    background:rgba(0,145,255,.12);
+    background:rgba(0,150,255,.12);
     filter:blur(90px);
+    z-index:-4;
     pointer-events:none;
-    z-index:-2;
-    animation:lightMove 12s ease-in-out infinite;
+
+    animation:
+    bgMove 10s ease-in-out infinite;
 }
 
-@keyframes lightMove{
+
+@keyframes bgMove{
 
     0%,100%{
-        transform:translate(0,0) scale(1);
+        transform:translate(0,0);
     }
 
     50%{
-        transform:
-        translate(180px,-70px)
-        scale(1.25);
+        transform:translate(180px,-60px);
     }
 }
+
 
 /* =========================================================
    HEADER
@@ -135,34 +125,38 @@ header{
     top:0;
     z-index:9999;
 
+    height:68px;
+    padding:0 5%;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:12px 5%;
-
-    background:
-    rgba(2,7,14,.88);
+    background:rgba(2,8,16,.86);
 
     border-bottom:
     1px solid var(--border);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
 }
+
 
 .logo{
     display:flex;
     align-items:center;
+
     color:#fff;
     text-decoration:none;
+
     font-size:21px;
     font-weight:900;
 }
 
+
 .logo-mark{
-    width:34px;
-    height:34px;
+    width:35px;
+    height:35px;
 
     display:flex;
     align-items:center;
@@ -170,55 +164,72 @@ header{
 
     margin-right:8px;
 
-    border:1px solid rgba(0,170,255,.45);
     border-radius:10px;
 
     background:
     linear-gradient(
         135deg,
-        #009dff,
+        #009eff,
         #005de5
     );
 
     box-shadow:
-    0 0 25px rgba(0,157,255,.25);
+    0 0 25px
+    rgba(0,160,255,.25);
 }
+
 
 .logo-blue{
     color:var(--blue);
 }
 
+
 nav{
     display:flex;
     align-items:center;
-    gap:4px;
+    gap:3px;
 }
 
+
 nav a{
-    color:#cbd9e4;
+    color:#bcd0dd;
     text-decoration:none;
+
+    padding:9px 11px;
+
+    border-radius:9px;
+
     font-size:12px;
     font-weight:700;
-    padding:8px 11px;
-    border-radius:9px;
+
     transition:.25s;
 }
 
+
 nav a:hover{
     color:#fff;
-    background:rgba(0,157,255,.10);
+    background:rgba(0,160,255,.10);
 }
+
 
 .menu-btn{
     display:none;
-    width:40px;
-    height:38px;
+
+    width:42px;
+    height:40px;
+
     border:1px solid var(--border);
-    border-radius:10px;
+    border-radius:11px;
+
     background:rgba(255,255,255,.04);
+
     color:#fff;
-    font-size:20px;
+
+    font-size:21px;
+
+    cursor:pointer;
 }
+
 
 /* =========================================================
    HERO
@@ -227,9 +238,12 @@ nav a:hover{
 .hero{
     width:92%;
     max-width:1100px;
-    margin:65px auto 0;
+
+    margin:70px auto 0;
+
     text-align:center;
 }
+
 
 .badge{
     display:inline-flex;
@@ -239,30 +253,39 @@ nav a:hover{
     padding:8px 14px;
 
     border:
-    1px solid rgba(0,164,255,.25);
+    1px solid rgba(0,180,255,.30);
 
     border-radius:999px;
 
     background:
-    rgba(0,164,255,.07);
+    rgba(0,160,255,.07);
 
-    color:#70d1ff;
+    color:#6ed7ff;
 
     font-size:10px;
     font-weight:900;
+
     letter-spacing:2px;
 }
+
 
 .badge-dot{
     width:7px;
     height:7px;
+
     border-radius:50%;
+
     background:var(--cyan);
-    box-shadow:0 0 13px var(--cyan);
-    animation:dotPulse 1.8s infinite;
+
+    box-shadow:
+    0 0 14px var(--cyan);
+
+    animation:
+    pulse 1.7s infinite;
 }
 
-@keyframes dotPulse{
+
+@keyframes pulse{
 
     0%,100%{
         opacity:1;
@@ -270,62 +293,67 @@ nav a:hover{
     }
 
     50%{
-        opacity:.5;
-        transform:scale(.7);
+        opacity:.45;
+        transform:scale(1.5);
     }
 }
 
+
 .hero h1{
-    margin:22px auto 15px;
+    margin:24px auto 16px;
 
     font-size:
-    clamp(42px,7vw,76px);
+    clamp(43px,8vw,78px);
 
     line-height:1.03;
+
     letter-spacing:-3px;
+
     font-weight:900;
 }
+
 
 .hero h1 span{
     color:var(--blue);
 
     text-shadow:
-    0 0 35px rgba(0,162,255,.32);
+    0 0 35px
+    rgba(0,160,255,.30);
 }
 
+
 .hero-description{
-    max-width:700px;
+    max-width:690px;
+
     margin:auto;
 
     color:var(--muted);
 
-    font-size:
-    clamp(14px,2vw,18px);
+    font-size:16px;
 
-    line-height:1.7;
+    line-height:1.75;
 }
+
 
 .hero-buttons{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
     gap:11px;
-    margin-top:27px;
+
+    margin-top:28px;
 }
 
-.hero-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
 
+.hero-btn{
     min-width:155px;
 
-    padding:12px 20px;
+    padding:13px 20px;
 
     border-radius:11px;
 
-    text-decoration:none;
     color:#fff;
+    text-decoration:none;
 
     font-size:13px;
     font-weight:800;
@@ -333,26 +361,31 @@ nav a:hover{
     transition:.3s;
 }
 
+
 .primary-btn{
     background:
     linear-gradient(
         135deg,
-        var(--blue),
-        var(--blue2)
+        #009fff,
+        #0069f0
     );
 
     box-shadow:
-    0 10px 30px rgba(0,145,255,.20);
+    0 12px 30px
+    rgba(0,140,255,.20);
 }
+
 
 .secondary-btn{
     border:1px solid #29465e;
     background:rgba(255,255,255,.035);
 }
 
+
 .hero-btn:hover{
     transform:translateY(-4px);
 }
+
 
 /* =========================================================
    STATS
@@ -362,34 +395,42 @@ nav a:hover{
     width:92%;
     max-width:700px;
 
-    margin:40px auto 0;
+    margin:42px auto 0;
 
     display:grid;
     grid-template-columns:repeat(3,1fr);
+
     gap:10px;
 }
+
 
 .stat{
     padding:15px 8px;
 
-    border:1px solid var(--border);
+    border:
+    1px solid var(--border);
+
     border-radius:14px;
 
-    background:rgba(255,255,255,.025);
+    background:
+    rgba(255,255,255,.025);
 }
+
 
 .stat strong{
     display:block;
-    font-size:20px;
-    margin-bottom:3px;
+    font-size:21px;
+    margin-bottom:4px;
 }
 
+
 .stat span{
-    color:#71899c;
+    color:#71899b;
     font-size:9px;
     text-transform:uppercase;
     letter-spacing:1px;
 }
+
 
 /* =========================================================
    PHONE
@@ -398,31 +439,39 @@ nav a:hover{
 .hero-phone-area{
     display:flex;
     justify-content:center;
-    margin:55px auto 75px;
+
+    margin:55px auto 80px;
+
     perspective:1200px;
 }
+
 
 .phone{
     position:relative;
 
-    width:250px;
-    height:455px;
+    width:255px;
+    height:470px;
 
     padding:9px;
 
-    border:4px solid #526f83;
-    border-radius:40px;
+    border:5px solid #4d687b;
+    border-radius:43px;
 
     background:#01050a;
 
     transform:rotate(5deg);
 
     box-shadow:
-    0 0 45px rgba(0,157,255,.18),
-    0 30px 70px rgba(0,0,0,.65);
+    0 0 45px
+    rgba(0,160,255,.18),
 
-    animation:phoneFloat 4.5s ease-in-out infinite;
+    0 30px 70px
+    rgba(0,0,0,.60);
+
+    animation:
+    phoneFloat 4.5s ease-in-out infinite;
 }
+
 
 @keyframes phoneFloat{
 
@@ -439,34 +488,39 @@ nav a:hover{
     }
 }
 
+
 .phone-camera{
     position:absolute;
-    z-index:5;
 
-    top:7px;
+    top:8px;
     left:50%;
 
     transform:translateX(-50%);
 
-    width:70px;
-    height:16px;
+    width:75px;
+    height:17px;
 
     border-radius:20px;
+
     background:#010207;
+
+    z-index:5;
 }
+
 
 .phone-screen{
     height:100%;
-    padding:45px 17px 20px;
+
+    padding:45px 18px 20px;
 
     overflow:hidden;
 
-    border-radius:32px;
+    border-radius:33px;
 
     background:
     radial-gradient(
         circle at 15% 5%,
-        rgba(0,178,255,.25),
+        rgba(0,180,255,.25),
         transparent 35%
     ),
 
@@ -484,21 +538,28 @@ nav a:hover{
     );
 }
 
+
 .phone-brand{
     color:var(--blue);
+
     font-weight:900;
+
     font-size:14px;
-    margin-bottom:34px;
+
+    margin-bottom:38px;
 }
+
 
 .phone-brand span{
     color:#fff;
 }
 
+
 .phone-screen h2{
-    font-size:25px;
+    font-size:26px;
     margin-bottom:8px;
 }
+
 
 .phone-screen p{
     color:#91aabd;
@@ -506,22 +567,29 @@ nav a:hover{
     line-height:1.7;
 }
 
+
 .phone-screen strong{
     color:#fff;
 }
 
+
 .phone-grid{
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:9px;
-    margin-top:24px;
+
+    margin-top:25px;
 }
+
 
 .phone-box{
     height:68px;
 
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
 
@@ -540,9 +608,11 @@ nav a:hover{
     font-size:11px;
 }
 
+
 .phone-box span{
     font-size:24px;
 }
+
 
 /* =========================================================
    SECTION
@@ -551,34 +621,46 @@ nav a:hover{
 .section-head{
     width:92%;
     max-width:1100px;
+
     margin:0 auto 22px;
+
     text-align:center;
 }
 
+
 .section-label{
     color:#52c2ff;
-    font-size:9px;
+
+    font-size:10px;
+
     font-weight:900;
-    letter-spacing:2.5px;
+
+    letter-spacing:2.7px;
+
     margin-bottom:8px;
 }
+
 
 .section-head h2{
     font-size:
-    clamp(27px,5vw,40px);
+    clamp(28px,5vw,42px);
 
-    margin-bottom:8px;
+    margin-bottom:9px;
 }
 
+
 .section-head p{
-    max-width:600px;
+    max-width:620px;
+
     margin:auto;
 
     color:var(--muted);
 
     font-size:13px;
-    line-height:1.6;
+
+    line-height:1.7;
 }
+
 
 /* =========================================================
    SEARCH
@@ -589,77 +671,86 @@ nav a:hover{
     max-width:1100px;
 
     margin:
-    0 auto 25px;
+    0 auto 24px;
 
     display:flex;
     flex-direction:column;
+
     align-items:center;
 
     gap:14px;
 }
 
+
 .search-box{
     position:relative;
+
     width:100%;
     max-width:600px;
 }
 
+
 .search-box input{
     width:100%;
-    height:48px;
+    height:50px;
 
-    padding:
-    0 48px 0 17px;
+    padding:0 50px 0 17px;
+
+    outline:none;
 
     border:
     1px solid var(--border);
 
     border-radius:13px;
 
-    outline:none;
-
     color:#fff;
 
     background:
-    rgba(8,22,36,.82);
+    rgba(8,22,36,.85);
 
     font-size:13px;
 }
 
-.search-box input::placeholder{
-    color:#71899c;
-}
 
 .search-box input:focus{
     border-color:var(--blue);
 
     box-shadow:
     0 0 0 3px
-    rgba(0,162,255,.08);
+    rgba(0,160,255,.08);
 }
+
+
+.search-box input::placeholder{
+    color:#71899c;
+}
+
 
 .search-icon{
     position:absolute;
 
-    right:16px;
+    right:17px;
     top:50%;
 
     transform:translateY(-50%);
 
     color:#69caff;
+
     font-size:19px;
 }
+
 
 .filters{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
+
     gap:7px;
 }
 
+
 .filter-btn{
-    padding:
-    8px 13px;
+    padding:8px 13px;
 
     border:
     1px solid #26445b;
@@ -679,54 +770,60 @@ nav a:hover{
     transition:.25s;
 }
 
+
 .filter-btn:hover{
     color:#fff;
     border-color:var(--blue);
 }
 
+
 .filter-btn.active{
     color:#fff;
+
     border-color:var(--blue);
 
     background:
-    linear-gradient(
-        135deg,
-        rgba(0,162,255,.20),
-        rgba(0,109,255,.12)
-    );
+    rgba(0,160,255,.15);
+
+    box-shadow:
+    0 0 18px
+    rgba(0,160,255,.08);
 }
+
 
 .search-status{
-    color:#70899b;
+    color:#71899c;
     font-size:10px;
-    min-height:14px;
 }
 
+
 /* =========================================================
-   APPS GRID
+   APP GRID
 ========================================================= */
 
 .apps{
     width:92%;
     max-width:1100px;
 
-    margin:
-    0 auto 75px;
+    margin:0 auto 75px;
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,minmax(0,1fr));
+    repeat(2,minmax(0,1fr));
 
-    gap:15px;
+    gap:16px;
 }
 
+
 /* =========================================================
-   CARD
+   SMALL PREMIUM CARD
 ========================================================= */
 
 .app-card{
+
     position:relative;
+
     overflow:hidden;
 
     padding:8px;
@@ -734,17 +831,18 @@ nav a:hover{
     border:
     1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:17px;
 
     background:
     linear-gradient(
         145deg,
         rgba(10,28,45,.82),
-        rgba(4,13,23,.94)
+        rgba(4,13,23,.95)
     );
 
     box-shadow:
-    0 10px 35px rgba(0,0,0,.22);
+    0 12px 38px
+    rgba(0,0,0,.22);
 
     transition:
     transform .35s ease,
@@ -752,46 +850,165 @@ nav a:hover{
     box-shadow .35s ease;
 
     animation:
-    cardAppear .6s ease both;
+    cardIn .6s ease both;
 }
 
-@keyframes cardAppear{
+
+@keyframes cardIn{
 
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:
+        translateY(18px)
+        scale(.97);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:
+        translateY(0)
+        scale(1);
     }
 }
 
+
+/* animated shine */
+
+.app-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+    left:-65%;
+
+    width:45%;
+    height:300%;
+
+    transform:rotate(25deg);
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.17),
+        rgba(255,255,255,.04),
+        transparent
+    );
+
+    pointer-events:none;
+
+    z-index:5;
+
+    opacity:0;
+
+    transition:
+    left .8s ease,
+    opacity .3s ease;
+}
+
+
+.app-card:hover::before{
+    left:125%;
+    opacity:1;
+}
+
+
+/* animated border */
+
+.app-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-1px;
+
+    border-radius:17px;
+
+    pointer-events:none;
+
+    z-index:4;
+
+    border:1px solid transparent;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(0,200,255,.5),
+        transparent,
+        rgba(150,60,255,.5),
+        transparent
+    ) border-box;
+
+    -webkit-mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    background-size:250% 250%;
+
+    animation:
+    borderMove 5s linear infinite;
+
+    opacity:.45;
+}
+
+
+@keyframes borderMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+
 .app-card:hover{
+
     transform:
-    translateY(-7px)
-    scale(1.015);
+    translateY(-6px)
+    scale(1.012);
 
     border-color:
-    var(--border-hover);
+    rgba(30,190,255,.65);
 
     box-shadow:
-    0 20px 55px rgba(0,100,180,.22);
+    0 22px 50px
+    rgba(0,120,220,.18),
+
+    0 0 25px
+    rgba(0,170,255,.07);
 }
+
 
 .app-card.hidden{
     display:none;
 }
 
+
 /* =========================================================
-   IMAGE
+   CARD IMAGE
 ========================================================= */
 
 .app-image{
+
     position:relative;
 
-    height:170px;
+    height:180px;
 
     display:flex;
     align-items:center;
@@ -799,7 +1016,7 @@ nav a:hover{
 
     overflow:hidden;
 
-    border-radius:14px;
+    border-radius:13px;
 
     background:
     linear-gradient(
@@ -810,13 +1027,15 @@ nav a:hover{
     );
 }
 
+
 .app-image::before{
+
     content:"";
 
     position:absolute;
 
-    width:130px;
-    height:130px;
+    width:140px;
+    height:140px;
 
     left:-30px;
     top:-30px;
@@ -824,21 +1043,23 @@ nav a:hover{
     border-radius:50%;
 
     background:
-    rgba(0,180,255,.25);
+    rgba(0,180,255,.24);
 
-    filter:blur(35px);
+    filter:blur(40px);
 
     animation:
-    glowMove 5s ease-in-out infinite;
+    glowMove1 4s ease-in-out infinite;
 }
 
+
 .app-image::after{
+
     content:"";
 
     position:absolute;
 
-    width:130px;
-    height:130px;
+    width:140px;
+    height:140px;
 
     right:-30px;
     bottom:-40px;
@@ -848,37 +1069,39 @@ nav a:hover{
     background:
     rgba(150,50,255,.22);
 
-    filter:blur(35px);
+    filter:blur(40px);
 
     animation:
-    glowMove2 6s ease-in-out infinite;
+    glowMove2 5s ease-in-out infinite;
 }
 
-@keyframes glowMove{
+
+@keyframes glowMove1{
 
     0%,100%{
-        transform:translate(0,0);
+        transform:translate(0,0) scale(1);
     }
 
     50%{
-        transform:translate(25px,20px);
+        transform:translate(35px,25px) scale(1.2);
     }
 }
+
 
 @keyframes glowMove2{
 
     0%,100%{
-        transform:translate(0,0);
+        transform:translate(0,0) scale(1);
     }
 
     50%{
-        transform:translate(-25px,-20px);
+        transform:translate(-30px,-20px) scale(1.2);
     }
 }
 
-/* REAL PNG */
 
 .app-image img{
+
     position:relative;
 
     z-index:2;
@@ -888,161 +1111,142 @@ nav a:hover{
 
     object-fit:contain;
 
-    border-radius:12px;
+    border-radius:11px;
 
     display:block;
 
     transition:
-    transform .4s ease,
-    filter .4s ease;
+    transform .5s ease,
+    filter .5s ease;
 }
+
 
 .app-card:hover .app-image img{
-    transform:scale(1.045);
-    filter:brightness(1.08);
+
+    transform:scale(1.06);
+
+    filter:
+    brightness(1.08)
+    saturate(1.08);
 }
 
-/* individual backgrounds */
 
-.barcode{
+.fallback-icon{
+
+    position:relative;
+    z-index:2;
+
+    width:90px;
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:
+    1px solid rgba(255,255,255,.18);
+
+    border-radius:23px;
+
     background:
-    linear-gradient(
-        135deg,
-        #063a66,
-        #071b2d,
-        #321060
-    );
+    rgba(255,255,255,.08);
+
+    font-size:46px;
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.35);
 }
 
-.office{
-    background:
-    linear-gradient(
-        135deg,
-        #006fd3,
-        #087ff5
-    );
-}
-
-.pdf{
-    background:
-    linear-gradient(
-        135deg,
-        #510006,
-        #e9162a
-    );
-}
-
-.photo{
-    background:
-    linear-gradient(
-        135deg,
-        #40005c,
-        #aa00cc
-    );
-}
-
-.signature{
-    background:
-    linear-gradient(
-        135deg,
-        #180044,
-        #5100a8,
-        #001f55
-    );
-}
-
-.idphoto{
-    background:
-    linear-gradient(
-        135deg,
-        #003b5c,
-        #007c9e,
-        #0046a8
-    );
-}
-
-.devotional{
-    background:
-    linear-gradient(
-        135deg,
-        #5b0000,
-        #c00000
-    );
-}
-
-.oldies{
-    background:
-    linear-gradient(
-        135deg,
-        #542900,
-        #b55c00
-    );
-}
-
-.madhu{
-    background:
-    linear-gradient(
-        135deg,
-        #32105c,
-        #7c12c9
-    );
-}
-
-.sangit{
-    background:
-    linear-gradient(
-        135deg,
-        #402000,
-        #9a3900
-    );
-}
-
-.banner{
-    background:
-    linear-gradient(
-        135deg,
-        #5b1a8e,
-        #0066cc,
-        #00a2ff
-    );
-}
 
 /* =========================================================
-   CARD CONTENT
+   APP BACKGROUNDS
+========================================================= */
+
+.barcode .app-image{
+    background:
+    linear-gradient(135deg,#063a66,#071b2d,#321060);
+}
+
+.office .app-image{
+    background:
+    linear-gradient(135deg,#006fd3,#087ff5);
+}
+
+.pdf .app-image{
+    background:
+    linear-gradient(135deg,#510006,#e9162a);
+}
+
+.photo .app-image{
+    background:
+    linear-gradient(135deg,#40005c,#aa00cc);
+}
+
+.signature .app-image{
+    background:
+    linear-gradient(135deg,#180044,#5100a8,#001f55);
+}
+
+.idphoto .app-image{
+    background:
+    linear-gradient(135deg,#003b5c,#007c9e,#0046a8);
+}
+
+.devotional .app-image{
+    background:
+    linear-gradient(135deg,#5b0000,#c00000);
+}
+
+.oldies .app-image{
+    background:
+    linear-gradient(135deg,#542900,#b55c00);
+}
+
+.madhu .app-image{
+    background:
+    linear-gradient(135deg,#32105c,#7c12c9);
+}
+
+.sangit .app-image{
+    background:
+    linear-gradient(135deg,#402000,#9a3900);
+}
+
+
+/* =========================================================
+   CONTENT
 ========================================================= */
 
 .app-content{
-    padding:
-    12px 5px 5px;
+    padding:13px 6px 6px;
 }
+
 
 .app-title-row{
     display:flex;
-    align-items:flex-start;
     justify-content:space-between;
+    align-items:flex-start;
 
-    gap:7px;
+    gap:8px;
 
     margin-bottom:6px;
 }
+
 
 .app-content h3{
     font-size:16px;
     line-height:1.3;
 }
 
+
 .app-type{
+
     flex-shrink:0;
 
-    padding:
-    4px 6px;
+    padding:4px 6px;
 
     border-radius:6px;
-
-    font-size:7px;
-    font-weight:900;
-
-    letter-spacing:.5px;
 
     color:#6fd0ff;
 
@@ -1051,9 +1255,15 @@ nav a:hover{
 
     border:
     1px solid rgba(0,157,255,.18);
+
+    font-size:7px;
+
+    font-weight:900;
 }
 
+
 .app-content p{
+
     min-height:40px;
 
     color:var(--muted);
@@ -1063,26 +1273,33 @@ nav a:hover{
     line-height:1.55;
 }
 
+
 .tags{
+
     margin-top:8px;
 
-    min-height:17px;
+    min-height:15px;
 
     color:#7891a4;
 
     font-size:9px;
-
-    line-height:1.4;
 }
+
 
 /* =========================================================
    BUTTON
 ========================================================= */
 
 .app-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
     width:100%;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -1092,19 +1309,56 @@ nav a:hover{
 
     border-radius:9px;
 
-    text-decoration:none;
     color:#fff;
 
+    text-decoration:none;
+
     font-size:11px;
+
     font-weight:800;
 
     transition:.25s;
+
+    z-index:6;
 }
+
+
+.app-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:70%;
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transition:left .6s ease;
+}
+
+
+.app-btn:hover::before{
+    left:140%;
+}
+
 
 .app-btn:hover{
     transform:translateY(-2px);
     filter:brightness(1.1);
 }
+
 
 .blue-btn{
     background:
@@ -1141,16 +1395,22 @@ nav a:hover{
     );
 }
 
+
 /* =========================================================
-   NO RESULTS
+   NO RESULT
 ========================================================= */
 
 .no-results{
+
     display:none;
 
-    grid-column:1/-1;
+    width:92%;
+    max-width:650px;
 
-    padding:30px 20px;
+    margin:
+    20px auto 70px;
+
+    padding:25px;
 
     text-align:center;
 
@@ -1165,22 +1425,26 @@ nav a:hover{
     color:var(--muted);
 }
 
+
 .no-results.show{
     display:block;
 }
+
 
 .no-results strong{
     display:block;
     color:#fff;
     font-size:17px;
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
+
 
 /* =========================================================
    FEATURES
 ========================================================= */
 
 .features{
+
     width:92%;
     max-width:1100px;
 
@@ -1192,10 +1456,12 @@ nav a:hover{
     grid-template-columns:
     repeat(3,1fr);
 
-    gap:15px;
+    gap:16px;
 }
 
+
 .feature{
+
     padding:25px 18px;
 
     text-align:center;
@@ -1215,23 +1481,27 @@ nav a:hover{
     transition:.3s;
 }
 
+
 .feature:hover{
     transform:translateY(-5px);
-    border-color:var(--border-hover);
+    border-color:
+    rgba(40,180,255,.55);
 }
 
+
 .feature-icon{
-    width:55px;
-    height:55px;
+
+    width:52px;
+    height:52px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    margin:
-    0 auto 14px;
+    margin:0 auto 13px;
 
-    border-radius:16px;
+    border-radius:15px;
 
     background:
     rgba(0,157,255,.08);
@@ -1242,30 +1512,33 @@ nav a:hover{
     font-size:25px;
 }
 
+
 .feature h3{
-    margin-bottom:7px;
     font-size:16px;
+    margin-bottom:7px;
 }
+
 
 .feature p{
     color:var(--muted);
     font-size:11px;
-    line-height:1.6;
+    line-height:1.65;
 }
+
 
 /* =========================================================
    INFO
 ========================================================= */
 
 .info-box{
+
     width:92%;
     max-width:1100px;
 
     margin:
     0 auto 18px;
 
-    padding:
-    28px 20px;
+    padding:28px 20px;
 
     text-align:center;
 
@@ -1282,30 +1555,36 @@ nav a:hover{
     );
 }
 
+
 .info-box h2{
     font-size:23px;
     margin-bottom:9px;
 }
 
+
 .info-box p{
+
     max-width:800px;
+
     margin:auto;
 
     color:var(--muted);
 
     font-size:12px;
+
     line-height:1.75;
 }
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
+
     margin-top:60px;
 
-    padding:
-    35px 20px;
+    padding:35px 20px;
 
     text-align:center;
 
@@ -1322,23 +1601,31 @@ footer{
     line-height:1.8;
 }
 
-footer strong{
+
+.footer-brand{
+
+    font-size:18px;
+
+    font-weight:900;
+
+    color:#fff;
+
+    margin-bottom:5px;
+}
+
+
+.footer-brand strong{
     color:var(--blue);
 }
 
-.footer-brand{
-    font-size:17px;
-    font-weight:900;
-    color:#fff;
-}
 
 .back-top{
+
     display:inline-flex;
 
     margin-top:12px;
 
-    padding:
-    7px 12px;
+    padding:7px 12px;
 
     border:
     1px solid var(--border);
@@ -1350,18 +1637,6 @@ footer strong{
     text-decoration:none;
 }
 
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:900px){
-
-    .apps{
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-    }
-
-}
 
 /* =========================================================
    MOBILE
@@ -1370,30 +1645,29 @@ footer strong{
 @media(max-width:700px){
 
     header{
-        padding:11px 4%;
+        padding:0 4%;
     }
 
-    .logo{
-        font-size:19px;
-    }
 
     .menu-btn{
         display:block;
-        cursor:pointer;
     }
 
+
     nav{
+
         display:none;
 
         position:absolute;
 
+        top:67px;
+
         left:4%;
         right:4%;
-        top:62px;
 
         flex-direction:column;
 
-        gap:3px;
+        align-items:stretch;
 
         padding:7px;
 
@@ -1404,58 +1678,60 @@ footer strong{
 
         background:
         rgba(2,9,18,.98);
-
-        box-shadow:
-        0 25px 60px rgba(0,0,0,.5);
     }
+
 
     nav.open{
         display:flex;
     }
 
+
     nav a{
-        padding:11px;
         text-align:center;
-        font-size:12px;
+        padding:11px;
     }
+
 
     .hero{
         margin-top:50px;
     }
 
+
     .hero h1{
         letter-spacing:-2px;
     }
 
-    .hero-phone-area{
-        margin:
-        45px auto 60px;
-    }
 
     .apps{
-        grid-template-columns:1fr;
+
         width:94%;
+
+        grid-template-columns:
+        1fr;
+
         gap:14px;
     }
 
+
     .app-image{
-        height:205px;
+        height:195px;
     }
+
 
     .features{
-        grid-template-columns:1fr;
+
         width:94%;
+
+        grid-template-columns:1fr;
     }
 
-    .app-content h3{
-        font-size:17px;
+
+    .stats{
+        width:94%;
     }
 
 }
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media(max-width:430px){
 
@@ -1463,50 +1739,56 @@ footer strong{
         font-size:37px;
     }
 
+
+    .hero-description{
+        font-size:13px;
+    }
+
+
     .hero-buttons{
         flex-direction:column;
         align-items:center;
     }
 
+
     .hero-btn{
         width:220px;
     }
 
-    .stats{
-        width:94%;
-    }
 
     .phone{
-        width:220px;
-        height:405px;
+        width:225px;
+        height:420px;
     }
+
 
     .phone-screen{
-        border-radius:30px;
+        border-radius:31px;
     }
+
 
     .app-image{
-        height:200px;
+        height:185px;
+    }
+
+
+    .app-content h3{
+        font-size:15px;
     }
 
 }
 
-/* ACCESSIBILITY */
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible{
-    outline:
-    2px solid var(--cyan);
-
-    outline-offset:3px;
-}
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
     *,
     *::before,
     *::after{
+
         animation:none !important;
         transition:none !important;
     }
@@ -1514,8 +1796,8 @@ input:focus-visible{
 }
 
 </style>
-
 </head>
+
 
 <body id="top">
 
@@ -1528,23 +1810,28 @@ input:focus-visible{
 
 <a href="./" class="logo">
 
-<span class="logo-mark">▲</span>
+<span class="logo-mark">
+▲
+</span>
 
 ASIM
 
-<span class="logo-blue">TECH</span>
+<span class="logo-blue">
+TECH
+</span>
 
 </a>
+
 
 <button
 class="menu-btn"
 id="menuBtn"
-aria-label="Open menu"
 aria-expanded="false">
 
 ☰
 
 </button>
+
 
 <nav id="mainNav">
 
@@ -1579,6 +1866,7 @@ WELCOME TO ASIM TECH
 
 </div>
 
+
 <h1>
 
 Useful Apps.
@@ -1589,6 +1877,7 @@ Useful Apps.
 
 </h1>
 
+
 <p class="hero-description">
 
 Explore useful Android applications, web tools,
@@ -1596,6 +1885,7 @@ productivity utilities and entertainment apps
 created by Asim Tech.
 
 </p>
+
 
 <div class="hero-buttons">
 
@@ -1606,6 +1896,7 @@ class="hero-btn primary-btn">
 🚀 Explore Apps
 
 </a>
+
 
 <a
 href="#about"
@@ -1618,8 +1909,6 @@ class="hero-btn secondary-btn">
 </div>
 
 
-<!-- STATS -->
-
 <div class="stats">
 
 <div class="stat">
@@ -1630,6 +1919,7 @@ class="hero-btn secondary-btn">
 
 </div>
 
+
 <div class="stat">
 
 <strong>Web</strong>
@@ -1637,6 +1927,7 @@ class="hero-btn secondary-btn">
 <span>Browser Tools</span>
 
 </div>
+
 
 <div class="stat">
 
@@ -1661,6 +1952,7 @@ class="hero-btn secondary-btn">
 
 <div class="phone-camera"></div>
 
+
 <div class="phone-screen">
 
 <div class="phone-brand">
@@ -1669,7 +1961,9 @@ class="hero-btn secondary-btn">
 
 </div>
 
+
 <h2>Hello 👋</h2>
+
 
 <p>
 
@@ -1681,36 +1975,36 @@ Building useful digital experiences for
 
 </p>
 
+
 <div class="phone-grid">
 
 <div class="phone-box">
 
 <span>📻</span>
-
 Radio
 
 </div>
 
+
 <div class="phone-box">
 
 <span>🎵</span>
-
 Music
 
 </div>
 
+
 <div class="phone-box">
 
 <span>🛠️</span>
-
 Tools
 
 </div>
 
+
 <div class="phone-box">
 
 <span>📱</span>
-
 Apps
 
 </div>
@@ -1730,21 +2024,21 @@ Apps
 
 <section id="apps">
 
+
 <div class="section-head">
 
 <div class="section-label">
-
 MY APPLICATIONS
-
 </div>
 
-<h2>Explore Asim Tech</h2>
+
+<h2>
+Explore Asim Tech
+</h2>
+
 
 <p>
-
-Search and filter applications
-to quickly find what you need.
-
+Search and filter applications to quickly find what you need.
 </p>
 
 </div>
@@ -1760,10 +2054,11 @@ to quickly find what you need.
 type="search"
 id="appSearch"
 placeholder="Search apps and tools..."
-aria-label="Search apps and tools"
 autocomplete="off">
 
-<span class="search-icon">⌕</span>
+<span class="search-icon">
+⌕
+</span>
 
 </div>
 
@@ -1773,44 +2068,39 @@ autocomplete="off">
 <button
 class="filter-btn active"
 data-filter="all">
-
 All
-
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="web">
-
 🌐 Web Apps
-
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="android">
-
 📱 Android
-
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="music">
-
-🎵 Music & Radio
-
+🎵 Music
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="tools">
-
 🛠️ Tools
-
 </button>
 
 </div>
+
 
 <div
 class="search-status"
@@ -1824,28 +2114,35 @@ Showing 11 applications
 
 
 <!-- =====================================================
-     APP GRID
+     APP CARDS
 ===================================================== -->
 
 <div class="apps" id="appsGrid">
 
 
-<!-- =====================================================
-     1 BARCODE
-===================================================== -->
+<!-- 01 BARCODE -->
 
 <article
-class="app-card"
+class="app-card barcode"
 data-category="web tools"
 data-name="Asim Barcode QR Scanner">
 
-<div class="app-image barcode">
+<div class="app-image">
 
 <img
 src="images/01-barcode-qr-scanner.png"
-alt="Asim Barcode QR Scanner">
+alt="Asim Barcode QR Scanner"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+▥
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -1861,14 +2158,16 @@ WEB APP
 
 </div>
 
+
 <p>
-Scan, create, save and download
-barcodes and QR codes easily.
+Scan, create, save and download barcodes and QR codes easily.
 </p>
+
 
 <div class="tags">
 Scanner • Barcode • QR Maker
 </div>
+
 
 <a
 href="barcode-scanner/"
@@ -1883,22 +2182,29 @@ class="app-btn blue-btn">
 </article>
 
 
-<!-- =====================================================
-     2 OFFICE
-===================================================== -->
+<!-- 02 OFFICE -->
 
 <article
-class="app-card"
+class="app-card office"
 data-category="web tools"
 data-name="Asim Office Suite V5">
 
-<div class="app-image office">
+<div class="app-image">
 
 <img
 src="images/02-office-suite.png"
-alt="Asim Office Suite">
+alt="Asim Office Suite"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+📄
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -1914,14 +2220,16 @@ WEB APP
 
 </div>
 
+
 <p>
-Create and edit documents,
-spreadsheets and PDF files.
+Create and edit documents, spreadsheets and PDF files.
 </p>
 
+
 <div class="tags">
-Office • Document • Spreadsheet • PDF
+Office • Document • PDF • Scanner
 </div>
+
 
 <a
 href="office/"
@@ -1936,22 +2244,29 @@ class="app-btn blue-btn">
 </article>
 
 
-<!-- =====================================================
-     3 PDF
-===================================================== -->
+<!-- 03 PDF -->
 
 <article
-class="app-card"
+class="app-card pdf"
 data-category="web tools"
 data-name="Asim PDF Tools">
 
-<div class="app-image pdf">
+<div class="app-image">
 
 <img
 src="images/03-pdf-tools.png"
-alt="Asim PDF Tools">
+alt="Asim PDF Tools"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+📕
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -1967,14 +2282,16 @@ WEB APP
 
 </div>
 
+
 <p>
-Create PDF from images,
-merge and split PDF files.
+Create PDF, merge PDF files and extract selected pages.
 </p>
+
 
 <div class="tags">
 PDF • JPG to PDF • Merge • Split
 </div>
+
 
 <a
 href="pdf-tools/"
@@ -1989,22 +2306,29 @@ class="app-btn red-btn">
 </article>
 
 
-<!-- =====================================================
-     4 PHOTO RESIZER
-===================================================== -->
+<!-- 04 PHOTO RESIZER -->
 
 <article
-class="app-card"
+class="app-card photo"
 data-category="web tools"
 data-name="Asim Tech Photo Resizer">
 
-<div class="app-image photo">
+<div class="app-image">
 
 <img
 src="images/04-photo-resizer.png"
-alt="Asim Tech Photo Resizer">
+alt="Asim Tech Photo Resizer"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+📸
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2020,14 +2344,16 @@ WEB APP
 
 </div>
 
+
 <p>
-Resize, crop, filter and compress
-photos easily.
+Resize, crop, filter and compress photos easily.
 </p>
 
+
 <div class="tags">
-Photo • Passport • Stamp • Crop
+Photo • Passport • Crop • Filter
 </div>
+
 
 <a
 href="photo-resizer/"
@@ -2042,22 +2368,29 @@ class="app-btn purple-btn">
 </article>
 
 
-<!-- =====================================================
-     5 SIGNATURE MAKER
-===================================================== -->
+<!-- 05 SIGNATURE -->
 
 <article
-class="app-card"
+class="app-card signature"
 data-category="web tools"
 data-name="Asim Tech Signature Maker">
 
-<div class="app-image signature">
+<div class="app-image">
 
 <img
 src="images/05-signature-maker.png"
-alt="Asim Tech Signature Maker">
+alt="Asim Tech Signature Maker"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+✍️
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2073,14 +2406,16 @@ WEB APP
 
 </div>
 
+
 <p>
-Create digital signatures by drawing
-or uploading a signature.
+Create digital signatures by drawing or uploading.
 </p>
+
 
 <div class="tags">
 Signature • Draw • Upload • PNG
 </div>
+
 
 <a
 href="signature-maker/"
@@ -2095,22 +2430,29 @@ class="app-btn purple-btn">
 </article>
 
 
-<!-- =====================================================
-     6 ID PHOTO MAKER
-===================================================== -->
+<!-- 06 ID PHOTO -->
 
 <article
-class="app-card"
+class="app-card idphoto"
 data-category="web tools"
 data-name="Asim ID Photo Maker">
 
-<div class="app-image idphoto">
+<div class="app-image">
 
 <img
 src="images/06-id-photo-maker.png"
-alt="Asim ID Photo Maker">
+alt="Asim ID Photo Maker"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+🪪
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2126,14 +2468,16 @@ WEB APP
 
 </div>
 
+
 <p>
-Create ID, passport and official-size
-photos easily.
+Create ID, passport and official-size photos easily.
 </p>
+
 
 <div class="tags">
 ID Photo • Passport • Print
 </div>
+
 
 <a
 href="id-photo-maker/"
@@ -2148,22 +2492,29 @@ class="app-btn blue-btn">
 </article>
 
 
-<!-- =====================================================
-     7 DEVOTIONAL RADIO
-===================================================== -->
+<!-- 07 DEVOTIONAL RADIO -->
 
 <article
-class="app-card"
+class="app-card devotional"
 data-category="android music"
 data-name="Devotional Radio">
 
-<div class="app-image devotional">
+<div class="app-image">
 
 <img
 src="images/07-devotional-radio.png"
-alt="Devotional Radio">
+alt="Devotional Radio"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+📻
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2179,14 +2530,16 @@ ANDROID APP
 
 </div>
 
+
 <p>
-Listen to devotional radio
-and spiritual music.
+Listen to devotional radio and spiritual music.
 </p>
+
 
 <div class="tags">
 Radio • Spiritual • Music
 </div>
+
 
 <a
 href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
@@ -2202,22 +2555,29 @@ class="app-btn green-btn">
 </article>
 
 
-<!-- =====================================================
-     8 OLD IS GOLD
-===================================================== -->
+<!-- 08 OLD IS GOLD -->
 
 <article
-class="app-card"
+class="app-card oldies"
 data-category="android music"
 data-name="80s 90s Old Is Gold">
 
-<div class="app-image oldies">
+<div class="app-image">
 
 <img
 src="images/08-80s-90s-old-is-gold.png"
-alt="80s 90s Old Is Gold">
+alt="80s 90s Old Is Gold"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+🎵
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2233,14 +2593,16 @@ ANDROID APP
 
 </div>
 
+
 <p>
-Enjoy classic songs and timeless
-memories from the golden era.
+Enjoy classic songs and timeless memories.
 </p>
 
+
 <div class="tags">
-Classic Music • 80s • 90s • Radio
+Classic Music • 80s • 90s
 </div>
+
 
 <a
 href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
@@ -2256,22 +2618,29 @@ class="app-btn green-btn">
 </article>
 
 
-<!-- =====================================================
-     9 MADHU MUSIC WORLD
-===================================================== -->
+<!-- 09 MADHU -->
 
 <article
-class="app-card"
+class="app-card madhu"
 data-category="android music"
 data-name="Madhu Music World">
 
-<div class="app-image madhu">
+<div class="app-image">
 
 <img
 src="images/09-madhu-music-world.png"
-alt="Madhu Music World">
+alt="Madhu Music World"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+🎙️
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2287,14 +2656,16 @@ ANDROID APP
 
 </div>
 
+
 <p>
-Enjoy music, radio and entertainment
-from Madhu Music World.
+Enjoy music, radio and entertainment.
 </p>
+
 
 <div class="tags">
 Music • Radio • Entertainment
 </div>
+
 
 <a
 href="Madhu_Music_World_com_asimtech_madhumusicworld_PlayStore.apk"
@@ -2310,22 +2681,29 @@ class="app-btn orange-btn">
 </article>
 
 
-<!-- =====================================================
-     10 SANGIT
-===================================================== -->
+<!-- 10 SANGIT -->
 
 <article
-class="app-card"
+class="app-card sangit"
 data-category="android music"
 data-name="Sangit">
 
-<div class="app-image sangit">
+<div class="app-image">
 
 <img
 src="images/10-sangit-music.png"
-alt="Sangit">
+alt="Sangit"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="display:none">
+🎧
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2341,14 +2719,16 @@ ANDROID APP
 
 </div>
 
+
 <p>
-A music application created
-by Asim for music lovers.
+A music application created by Asim.
 </p>
+
 
 <div class="tags">
 Music • Audio • Entertainment
 </div>
+
 
 <a
 href="Sangit.apk"
@@ -2364,22 +2744,44 @@ class="app-btn green-btn">
 </article>
 
 
-<!-- =====================================================
-     11 BANGLA BANNER MAKER
-===================================================== -->
+<!-- 11 BANGLA BANNER -->
 
 <article
 class="app-card"
 data-category="web tools"
 data-name="Asim Tech Bangla Banner Maker">
 
-<div class="app-image banner">
+<div
+class="app-image"
+style="
+background:
+linear-gradient(
+135deg,
+#5b1a8e,
+#0066cc,
+#00a2ff
+);
+">
 
 <img
 src="images/11-bangla-banner-maker.png"
-alt="Asim Tech Bangla Banner Maker">
+alt="Asim Tech Bangla Banner Maker"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+
+<div
+class="fallback-icon"
+style="
+display:none;
+font-family:'Noto Serif Bengali',serif;
+font-size:30px;
+font-weight:700;
+">
+বাংলা
+</div>
 
 </div>
+
 
 <div class="app-content">
 
@@ -2395,20 +2797,22 @@ WEB APP
 
 </div>
 
+
 <p>
-স্টাইলিশ বাংলা লেখা দিয়ে সুন্দর
-Banner, Poster ও Social Media Design তৈরি করুন।
+স্টাইলিশ বাংলা লেখা দিয়ে সুন্দর Banner ও Poster তৈরি করুন।
 </p>
+
 
 <div class="tags">
 বাংলা Font • Banner • Poster • PNG
 </div>
 
+
 <a
 href="bangla-banner-maker/"
 class="app-btn purple-btn">
 
-🎨 Open Bangla Banner Maker
+🎨 Open Banner Maker
 
 </a>
 
@@ -2417,20 +2821,18 @@ class="app-btn purple-btn">
 </article>
 
 
-<!-- NO RESULTS -->
+</div>
+
+
+<!-- NO RESULT -->
 
 <div
 class="no-results"
 id="noResults">
 
-<strong>
-No app found
-</strong>
+<strong>No app found</strong>
 
-Try another search term or select a different category.
-
-</div>
-
+Try another search term or category.
 
 </div>
 
@@ -2473,8 +2875,7 @@ Fast & Simple
 </h3>
 
 <p>
-Clean and straightforward applications
-designed to be easy to use.
+Clean and straightforward applications designed to be easy to use.
 </p>
 
 </div>
@@ -2491,8 +2892,7 @@ Privacy Minded
 </h3>
 
 <p>
-Applications are designed with sensible
-privacy and local processing in mind where practical.
+Applications are designed with sensible privacy in mind.
 </p>
 
 </div>
@@ -2509,8 +2909,7 @@ Mobile Friendly
 </h3>
 
 <p>
-Responsive experiences designed for
-phones, tablets and computers.
+Responsive experiences designed for phones, tablets and computers.
 </p>
 
 </div>
@@ -2533,9 +2932,8 @@ class="info-box">
 </h2>
 
 <p>
-New applications and useful digital tools
-are being added to Asim Tech regularly.
-Check back for new releases and improvements.
+New applications and useful digital tools are being added
+to Asim Tech regularly.
 </p>
 
 </section>
@@ -2554,9 +2952,9 @@ About Asim Tech
 </h2>
 
 <p>
-Welcome to Asim Tech. I create useful Android
-applications, web applications and digital tools
-designed to make everyday tasks simpler and easier.
+Welcome to Asim Tech. I create useful Android applications,
+web applications and digital tools designed to make everyday
+tasks simpler and easier.
 </p>
 
 </section>
@@ -2575,8 +2973,8 @@ Contact Asim Tech
 </h2>
 
 <p>
-For application information, support and
-other enquiries, please contact Asim Tech.
+For application information, support and other enquiries,
+please contact Asim Tech.
 </p>
 
 </section>
@@ -2589,9 +2987,7 @@ other enquiries, please contact Asim Tech.
 <footer>
 
 <div class="footer-brand">
-
 ▲ ASIM <strong>TECH</strong>
-
 </div>
 
 Apps • Tools • Innovation
@@ -2613,20 +3009,20 @@ class="back-top">
 </footer>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
+
+/* =========================================================
+   ASIM TECH JAVASCRIPT
+========================================================= */
 
 (function(){
 
 "use strict";
 
 
-/* =====================================================
+/* =========================================================
    MOBILE MENU
-===================================================== */
+========================================================= */
 
 const menuBtn =
 document.getElementById("menuBtn");
@@ -2641,16 +3037,16 @@ menuBtn.addEventListener(
 "click",
 function(){
 
-const isOpen =
+const open =
 nav.classList.toggle("open");
 
 menuBtn.setAttribute(
 "aria-expanded",
-String(isOpen)
+String(open)
 );
 
 menuBtn.textContent =
-isOpen ? "✕" : "☰";
+open ? "✕" : "☰";
 
 }
 );
@@ -2670,8 +3066,7 @@ menuBtn.setAttribute(
 "false"
 );
 
-menuBtn.textContent =
-"☰";
+menuBtn.textContent="☰";
 
 }
 );
@@ -2681,9 +3076,9 @@ menuBtn.textContent =
 }
 
 
-/* =====================================================
+/* =========================================================
    SEARCH
-===================================================== */
+========================================================= */
 
 const searchInput =
 document.getElementById("appSearch");
@@ -2700,57 +3095,59 @@ document.getElementById("searchStatus");
 const noResults =
 document.getElementById("noResults");
 
-let currentFilter = "all";
+
+let currentFilter="all";
 
 
 function filterApps(){
 
 const searchTerm =
-searchInput.value
+searchInput
+.value
 .trim()
 .toLowerCase();
 
-let visibleCount = 0;
+
+let visible=0;
 
 
 appCards.forEach(function(card){
 
 const name =
-(
-card.dataset.name || ""
-).toLowerCase();
+(card.dataset.name || "")
+.toLowerCase();
+
 
 const category =
-(
-card.dataset.category || ""
-).toLowerCase();
+(card.dataset.category || "")
+.toLowerCase();
+
 
 const text =
-(
-card.innerText || ""
-).toLowerCase();
+(card.innerText || "")
+.toLowerCase();
 
 
-const matchesSearch =
+const searchMatch =
 searchTerm === "" ||
 name.includes(searchTerm) ||
 category.includes(searchTerm) ||
 text.includes(searchTerm);
 
 
-const matchesFilter =
+const filterMatch =
 currentFilter === "all" ||
 category.includes(currentFilter);
 
 
 if(
-matchesSearch &&
-matchesFilter
+searchMatch &&
+filterMatch
 ){
 
 card.classList.remove("hidden");
 
-visibleCount++;
+visible++;
 
 }else{
 
@@ -2763,51 +3160,36 @@ card.classList.add("hidden");
 
 if(noResults){
 
-if(visibleCount === 0){
-
-noResults.classList.add("show");
-
-}else{
-
-noResults.classList.remove("show");
-
-}
+noResults.classList.toggle(
+"show",
+visible===0
+);
 
 }
 
 
 if(status){
 
-if(searchTerm !== ""){
+if(searchTerm){
 
 status.textContent =
 "Found " +
-visibleCount +
+visible +
 " application" +
-(
-visibleCount === 1
-? ""
-: "s"
-);
+(visible===1 ? "" : "s");
 
-}
-
-else if(
-currentFilter === "all"
-){
+}else if(currentFilter==="all"){
 
 status.textContent =
 "Showing " +
-visibleCount +
+visible +
 " applications";
 
-}
-
-else{
+}else{
 
 status.textContent =
 "Showing " +
-visibleCount +
+visible +
 " matching applications";
 
 }
@@ -2817,7 +3199,9 @@ visibleCount +
 }
 
 
-/* SEARCH INPUT */
+/* =========================================================
+   SEARCH INPUT
+========================================================= */
 
 if(searchInput){
 
@@ -2829,31 +3213,24 @@ filterApps
 }
 
 
-/* =====================================================
+/* =========================================================
    FILTER BUTTONS
-===================================================== */
+========================================================= */
 
-filterButtons.forEach(
-function(button){
+filterButtons.forEach(function(button){
 
 button.addEventListener(
 "click",
 function(){
 
-filterButtons.forEach(
-function(btn){
+filterButtons.forEach(function(btn){
 
-btn.classList.remove(
-"active"
-);
+btn.classList.remove("active");
 
-}
-);
+});
 
 
-button.classList.add(
-"active"
-);
+button.classList.add("active");
 
 
 currentFilter =
@@ -2866,13 +3243,12 @@ filterApps();
 }
 );
 
-}
-);
+});
 
 
-/* =====================================================
-   KEYBOARD SEARCH
-===================================================== */
+/* =========================================================
+   "/" SEARCH SHORTCUT
+========================================================= */
 
 document.addEventListener(
 "keydown",
@@ -2893,72 +3269,68 @@ searchInput.focus();
 
 }
 
-}
-);
+});
 
 
-/* =====================================================
-   CLOSE MENU OUTSIDE
-===================================================== */
+/* =========================================================
+   CLICK OUTSIDE MENU
+========================================================= */
 
 document.addEventListener(
 "click",
 function(event){
 
 if(!nav || !menuBtn){
+
 return;
+
 }
 
 
-const insideNav =
-nav.contains(event.target);
-
-const insideMenu =
-menuBtn.contains(event.target);
-
-
 if(
-!insideNav &&
-!insideMenu
+!nav.contains(event.target) &&
+!menuBtn.contains(event.target)
 ){
 
-nav.classList.remove(
-"open"
-);
+nav.classList.remove("open");
 
 menuBtn.setAttribute(
 "aria-expanded",
 "false"
 );
 
-menuBtn.textContent =
-"☰";
+menuBtn.textContent="☰";
 
 }
 
-}
-);
+});
 
 
-/* =====================================================
-   IMAGE ERROR HANDLER
-===================================================== */
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
 
 document.querySelectorAll(
 ".app-image img"
 )
-.forEach(function(image){
+.forEach(function(img){
 
-image.addEventListener(
+img.addEventListener(
 "error",
 function(){
 
-this.style.opacity = "0.25";
+this.style.display="none";
 
-console.log(
-"Image not found:",
-this.src
-);
+const fallback =
+this.nextElementSibling;
+
+
+if(fallback){
+
+fallback.style.display="flex";
+
+}
 
 }
 );
@@ -2966,25 +3338,30 @@ this.src
 });
 
 
-/* =====================================================
+/* =========================================================
    CARD CLICK
-===================================================== */
+========================================================= */
 
-appCards.forEach(
-function(card){
+appCards.forEach(function(card){
 
 card.addEventListener(
 "click",
 function(event){
 
+if(
+event.target.closest("a")
+){
+
+return;
+
+}
+
+
 const link =
 card.querySelector(".app-btn");
 
 
-if(
-link &&
-!event.target.closest("a")
-){
+if(link){
 
 link.click();
 
@@ -2993,41 +3370,19 @@ link.click();
 }
 );
 
-}
-);
+});
 
 
-/* =====================================================
+/* =========================================================
    INITIAL
-===================================================== */
+========================================================= */
 
 filterApps();
 
 
-/* =====================================================
-   YEAR
-===================================================== */
-
-const footer =
-document.querySelector("footer");
-
-if(footer){
-
-const year =
-new Date().getFullYear();
-
-footer.innerHTML =
-footer.innerHTML.replace(
-/©\s*2026/g,
-"© " + year
-);
-
-}
-
 })();
 
 </script>
-
 
 </body>
 </html>
