@@ -14,6 +14,14 @@ content="#020b18">
 <meta name="description"
 content="Asim Barcode & QR Scanner - Scan, create and download QR codes and barcodes.">
 
+<meta name="author"
+content="Asim Tech">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+
+<link rel="apple-touch-icon" href="icon-192.png">
+
 <title>Asim Barcode & QR Scanner</title>
 
 
@@ -102,6 +110,8 @@ header{
 
     align-items:center;
 
+    gap:10px;
+
     background:
     rgba(2,9,20,.88);
 
@@ -165,6 +175,20 @@ header{
 }
 
 
+/* =====================================================
+   HEADER BUTTONS
+===================================================== */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+
 .home{
 
     display:flex;
@@ -184,7 +208,7 @@ header{
     rgba(255,255,255,.035);
 
     padding:
-    10px 16px;
+    10px 14px;
 
     border-radius:11px;
 
@@ -205,6 +229,50 @@ header{
 
     transform:
     translateY(-2px);
+}
+
+
+.install-button{
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    border:0;
+
+    padding:
+    10px 13px;
+
+    border-radius:11px;
+
+    color:#ffffff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00b956,
+        #008f45
+    );
+
+    font-size:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 8px 25px
+    rgba(0,185,86,.18);
+}
+
+
+.install-button.show{
+
+    display:flex;
 }
 
 
@@ -365,11 +433,6 @@ header{
 }
 
 
-/*
-   html5-qrcode creates the camera video
-   inside this element.
-*/
-
 #reader{
 
     width:100%;
@@ -399,10 +462,6 @@ header{
     max-width:100%;
 }
 
-
-/*
-   Hide unnecessary library text/buttons.
-*/
 
 #reader__dashboard_section_csr{
 
@@ -447,7 +506,8 @@ header{
 
     color:white;
 
-    border:1px solid #24445c;
+    border:
+    1px solid #24445c;
 }
 
 
@@ -542,14 +602,12 @@ header{
 .camera-status.success{
 
     color:#00e676;
-
 }
 
 
 .camera-status.error{
 
     color:#ff5968;
-
 }
 
 
@@ -636,8 +694,7 @@ button:disabled{
 
 .red{
 
-    background:
-    #ef3041;
+    background:#ef3041;
 }
 
 
@@ -983,6 +1040,114 @@ select:focus{
 
 
 /* =====================================================
+   PWA INSTALL BOX
+===================================================== */
+
+.pwa-box{
+
+    text-align:center;
+
+    padding:
+    10px 0 5px;
+}
+
+
+.pwa-icon{
+
+    width:72px;
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:
+    0 auto 15px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #087ff5,
+        #7b3ff2
+    );
+
+    font-size:34px;
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,140,255,.18);
+}
+
+
+.pwa-box h3{
+
+    margin:
+    0 0 8px;
+
+    font-size:20px;
+}
+
+
+.pwa-box p{
+
+    max-width:600px;
+
+    margin:
+    0 auto 18px;
+
+    color:#8fa7ba;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+.pwa-install-btn{
+
+    display:none;
+
+    width:100%;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:12px;
+
+    color:#ffffff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #087ff5,
+        #006de5
+    );
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,140,255,.16);
+}
+
+
+.pwa-install-btn.show{
+
+    display:block;
+}
+
+
+/* =====================================================
    PRIVATE
 ===================================================== */
 
@@ -1069,12 +1234,27 @@ footer strong{
     }
 
 
+    .header-actions{
+
+        gap:5px;
+    }
+
+
     .home{
 
         padding:
-        8px 11px;
+        8px 10px;
 
-        font-size:12px;
+        font-size:11px;
+    }
+
+
+    .install-button{
+
+        padding:
+        8px 9px;
+
+        font-size:10px;
     }
 
 
@@ -1131,6 +1311,48 @@ footer strong{
 
 
 /* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+    .logo{
+
+        font-size:16px;
+    }
+
+
+    .logo-icon{
+
+        width:27px;
+
+        height:27px;
+
+        margin-right:5px;
+    }
+
+
+    .home{
+
+        padding:
+        7px 8px;
+
+        font-size:10px;
+    }
+
+
+    .install-button{
+
+        font-size:9px;
+
+        padding:
+        7px 8px;
+    }
+
+}
+
+
+/* =====================================================
    REDUCED MOTION
 ===================================================== */
 
@@ -1180,6 +1402,18 @@ TECH
 </div>
 
 
+<div class="header-actions">
+
+
+<button
+id="headerInstallButton"
+class="install-button">
+
+📲 Install
+
+</button>
+
+
 <a
 class="home"
 href="../">
@@ -1187,6 +1421,9 @@ href="../">
 ← Asim Tech
 
 </a>
+
+
+</div>
 
 
 </header>
@@ -1227,6 +1464,69 @@ Barcode &amp; <span>QR Scanner</span>
 Scan • Create • Download
 
 </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PWA INSTALL
+===================================================== -->
+
+<section class="card">
+
+
+<div class="pwa-box">
+
+
+<div class="pwa-icon">
+
+📱
+
+</div>
+
+
+<h3>
+
+Install Asim Scanner
+
+</h3>
+
+
+<p>
+
+Install this scanner on your Android phone
+and use it like a normal app without opening
+the main Asim Tech website every time.
+
+</p>
+
+
+<button
+id="pwaInstallButton"
+class="pwa-install-btn">
+
+📲 Install Asim Scanner
+
+</button>
+
+
+<p
+id="pwaInstallMessage"
+style="
+display:none;
+color:#00e676;
+margin-top:14px;
+font-size:12px;
+">
+
+✓ App installation is available from your browser menu.
+
+</p>
+
+
+</div>
 
 
 </section>
@@ -1406,16 +1706,15 @@ Your scanned result is processed in your browser.
 
 <h3>
 
-Android App
+Android APK
 
 </h3>
 
 
 <p>
 
-Prefer using the Android application?
-Download the Asim Barcode &amp; QR Scanner APK
-directly from Asim Tech.
+Prefer a traditional Android application?
+You can download the APK directly from Asim Tech.
 
 </p>
 
@@ -1646,7 +1945,6 @@ Barcode &amp; QR Scanner
 
 /* =========================================================
    CAMERA SCANNER
-   Using html5-qrcode for better browser compatibility
 ========================================================= */
 
 let html5QrCode = null;
@@ -1805,10 +2103,6 @@ async function getCameras(){
     }
 
 
-    /*
-       Prefer rear camera.
-    */
-
     let rearIndex =
         cameras.findIndex(
             function(camera){
@@ -1871,10 +2165,6 @@ async function startCamera(){
         );
 
 
-        /*
-           Create scanner object only once.
-        */
-
         if(!html5QrCode){
 
             html5QrCode =
@@ -1885,16 +2175,8 @@ async function startCamera(){
         }
 
 
-        /*
-           Get available cameras.
-        */
-
         await getCameras();
 
-
-        /*
-           Start scanner.
-        */
 
         await html5QrCode.start(
 
@@ -2207,11 +2489,6 @@ function onScanSuccess(
     }
 
 
-    /*
-       Prevent duplicate result
-       firing repeatedly.
-    */
-
     if(
         lastResult ===
         decodedText
@@ -2230,10 +2507,6 @@ function onScanSuccess(
     );
 
 
-    /*
-       Stop scanner after successful scan.
-    */
-
     stopCamera();
 
 }
@@ -2246,10 +2519,7 @@ function onScanSuccess(
 function onScanFailure(errorMessage){
 
     /*
-       Do not display continuous
-       scan errors. html5-qrcode
-       calls this frequently when
-       no code is detected.
+       Ignore continuous scan errors.
     */
 
 }
@@ -2272,10 +2542,6 @@ function showResult(text){
 
     copyButton.disabled = false;
 
-
-    /*
-       Detect URL.
-    */
 
     if(
         /^https?:\/\//i.test(
@@ -2354,10 +2620,6 @@ copyButton.addEventListener(
 
 
         }catch(error){
-
-            /*
-               Fallback copy method.
-            */
 
             const temp =
                 document.createElement(
@@ -3033,6 +3295,310 @@ window.addEventListener(
         }
 
     }
+);
+
+
+/* =========================================================
+   PWA INSTALL SYSTEM
+========================================================= */
+
+let deferredPrompt = null;
+
+
+const pwaInstallButton =
+document.getElementById(
+    "pwaInstallButton"
+);
+
+
+const headerInstallButton =
+document.getElementById(
+    "headerInstallButton"
+);
+
+
+const pwaInstallMessage =
+document.getElementById(
+    "pwaInstallMessage"
+);
+
+
+/*
+   Browser fires this event when
+   the website is installable.
+*/
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event){
+
+        /*
+           Stop Chrome from showing
+           the automatic prompt.
+        */
+
+        event.preventDefault();
+
+
+        /*
+           Save event for later.
+        */
+
+        deferredPrompt =
+            event;
+
+
+        /*
+           Show our Install buttons.
+        */
+
+        if(pwaInstallButton){
+
+            pwaInstallButton.classList.add(
+                "show"
+            );
+
+        }
+
+
+        if(headerInstallButton){
+
+            headerInstallButton.classList.add(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INSTALL FUNCTION
+========================================================= */
+
+async function installPWA(){
+
+    /*
+       If browser does not provide
+       install prompt, tell user to
+       use browser menu.
+    */
+
+    if(!deferredPrompt){
+
+        if(pwaInstallMessage){
+
+            pwaInstallMessage.style.display =
+                "block";
+
+        }
+
+
+        alert(
+            "যদি Install button না আসে, Chrome-এর ⋮ Menu খুলে 'Install app' অথবা 'Add to Home screen' নির্বাচন করুন।"
+        );
+
+        return;
+    }
+
+
+    /*
+       Show installation prompt.
+    */
+
+    try{
+
+        deferredPrompt.prompt();
+
+
+        const result =
+            await deferredPrompt.userChoice;
+
+
+        console.log(
+            "PWA install result:",
+            result.outcome
+        );
+
+
+    }catch(error){
+
+        console.log(
+            "PWA install error:",
+            error
+        );
+
+    }
+
+
+    /*
+       Prompt can only be used once.
+    */
+
+    deferredPrompt = null;
+
+
+    if(pwaInstallButton){
+
+        pwaInstallButton.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    if(headerInstallButton){
+
+        headerInstallButton.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   INSTALL BUTTONS
+========================================================= */
+
+if(pwaInstallButton){
+
+    pwaInstallButton.addEventListener(
+        "click",
+        installPWA
+    );
+
+}
+
+
+if(headerInstallButton){
+
+    headerInstallButton.addEventListener(
+        "click",
+        installPWA
+    );
+
+}
+
+
+/* =========================================================
+   APP INSTALLED
+========================================================= */
+
+window.addEventListener(
+    "appinstalled",
+    function(){
+
+        console.log(
+            "Asim Scanner installed successfully."
+        );
+
+
+        deferredPrompt = null;
+
+
+        if(pwaInstallButton){
+
+            pwaInstallButton.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        if(headerInstallButton){
+
+            headerInstallButton.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        if(pwaInstallMessage){
+
+            pwaInstallMessage.style.display =
+                "block";
+
+
+            pwaInstallMessage.textContent =
+                "✓ Asim Scanner has been installed successfully.";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SERVICE WORKER
+========================================================= */
+
+if(
+    "serviceWorker" in navigator
+){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator.serviceWorker
+            .register(
+                "./sw.js"
+            )
+            .then(
+                function(registration){
+
+                    console.log(
+                        "Asim Scanner PWA registered:",
+                        registration.scope
+                    );
+
+                }
+            )
+            .catch(
+                function(error){
+
+                    console.error(
+                        "Service Worker registration failed:",
+                        error
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DISPLAY MODE CHECK
+========================================================= */
+
+if(
+    window.matchMedia &&
+    window.matchMedia(
+        "(display-mode: standalone)"
+    ).matches
+){
+
+    console.log(
+        "Asim Scanner is running as installed PWA."
+    );
+
+}
+
+
+/* =========================================================
+   FINAL START
+========================================================= */
+
+console.log(
+    "Asim Barcode & QR Scanner ready."
 );
 
 </script>
