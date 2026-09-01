@@ -1,2968 +1,2632 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#2563eb">
-<title>ASIM TECH STUDY</title>
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,"Noto Sans Bengali",sans-serif
-}
+  <meta charset="UTF-8">
 
-body{
-  background:#f5f7ff;
-  color:#172033;
-  line-height:1.6
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-header{
-  background:linear-gradient(135deg,#172554,#2563eb);
-  color:white;
-  padding:14px 5%;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 5px 20px #0002
-}
+  <title>ASIM TECH STUDY</title>
 
-.nav{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between
-}
+  <meta
+    name="description"
+    content="ASIM TECH STUDY - Smart Learning Platform"
+  >
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:bold;
-  font-size:19px
-}
+  <link
+    rel="stylesheet"
+    href="study-style.css"
+  >
 
-.logo img{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  object-fit:cover;
-  background:white
-}
-
-.nav button{
-  background:#ffffff20;
-  color:white;
-  border:1px solid #ffffff40;
-  padding:9px 14px;
-  border-radius:10px;
-  cursor:pointer
-}
-
-.hero{
-  max-width:1200px;
-  margin:25px auto;
-  padding:35px 25px;
-  border-radius:25px;
-  color:white;
-  background:linear-gradient(135deg,#1e3a8a,#2563eb,#7c3aed);
-  box-shadow:0 15px 40px #1e3a8a30
-}
-
-.hero h1{
-  font-size:38px;
-  margin-bottom:8px
-}
-
-.hero p{
-  opacity:.9
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px 50px
-}
-
-.controls{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  margin:20px 0
-}
-
-select,input,textarea{
-  width:100%;
-  padding:13px;
-  border:1px solid #d9def0;
-  border-radius:12px;
-  outline:none;
-  background:white;
-  font-size:15px
-}
-
-select:focus,input:focus,textarea:focus{
-  border-color:#2563eb
-}
-
-.section-title{
-  margin:25px 0 15px;
-  font-size:23px
-}
-
-.subjects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:14px
-}
-
-.subject{
-  background:white;
-  border:2px solid transparent;
-  border-radius:18px;
-  padding:20px 12px;
-  text-align:center;
-  cursor:pointer;
-  box-shadow:0 5px 20px #17255410;
-  transition:.2s
-}
-
-.subject:hover{
-  transform:translateY(-3px)
-}
-
-.subject.active{
-  border-color:#2563eb;
-  background:#eff6ff
-}
-
-.subject .icon{
-  font-size:32px;
-  margin-bottom:5px
-}
-
-.chapter-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:15px
-}
-
-.chapter{
-  background:white;
-  padding:18px;
-  border-radius:18px;
-  box-shadow:0 5px 20px #17255410;
-  cursor:pointer;
-  border-left:5px solid #2563eb;
-  transition:.2s
-}
-
-.chapter:hover{
-  transform:translateY(-3px)
-}
-
-.chapter.done{
-  border-left-color:#16a34a
-}
-
-.chapter-head{
-  display:flex;
-  justify-content:space-between;
-  gap:10px
-}
-
-.chapter h3{
-  font-size:17px
-}
-
-.badge{
-  background:#e0edff;
-  color:#1d4ed8;
-  padding:4px 8px;
-  border-radius:20px;
-  font-size:11px;
-  white-space:nowrap
-}
-
-.done .badge{
-  background:#dcfce7;
-  color:#15803d
-}
-
-.progress-box{
-  background:white;
-  padding:20px;
-  border-radius:18px;
-  margin:20px 0;
-  box-shadow:0 5px 20px #17255410
-}
-
-.progress{
-  height:12px;
-  background:#e5e7eb;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:10px
-}
-
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#2563eb,#7c3aed);
-  transition:.3s
-}
-
-.study-panel{
-  background:white;
-  border-radius:22px;
-  margin-top:25px;
-  padding:25px;
-  box-shadow:0 8px 30px #17255415;
-  display:none
-}
-
-.study-panel.show{
-  display:block
-}
-
-.study-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:15px;
-  margin-bottom:20px
-}
-
-.study-top h2{
-  color:#1e3a8a
-}
-
-.close{
-  border:0;
-  background:#fee2e2;
-  color:#b91c1c;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  cursor:pointer
-}
-
-.material{
-  margin-top:18px
-}
-
-.material h3{
-  color:#1d4ed8;
-  margin:20px 0 8px
-}
-
-.material p{
-  background:#f8faff;
-  padding:15px;
-  border-radius:12px
-}
-
-.points{
-  padding:15px 20px;
-  background:#eff6ff;
-  border-radius:14px
-}
-
-.points li{
-  margin:7px 0
-}
-
-.remember{
-  background:#fff7ed;
-  border-left:5px solid #f97316;
-  padding:15px;
-  border-radius:10px;
-  margin-top:15px
-}
-
-.action-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:20px
-}
-
-.btn{
-  border:0;
-  padding:12px 18px;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:bold
-}
-
-.primary{
-  background:#2563eb;
-  color:white
-}
-
-.success{
-  background:#16a34a;
-  color:white
-}
-
-.dark{
-  background:#172033;
-  color:white
-}
-
-.quiz{
-  margin-top:25px;
-  padding-top:20px;
-  border-top:1px solid #e5e7eb
-}
-
-.quiz-header{
-  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
-  padding:20px;
-  border-radius:16px;
-  margin-bottom:15px
-}
-
-.question{
-  background:#f8faff;
-  padding:17px;
-  border-radius:14px;
-  margin:15px 0;
-  border:1px solid #e5e7eb
-}
-
-.question-number{
-  color:#2563eb;
-  font-weight:bold;
-  margin-bottom:6px
-}
-
-.option{
-  display:block;
-  background:white;
-  padding:11px;
-  border:1px solid #ddd;
-  margin-top:8px;
-  border-radius:9px;
-  cursor:pointer;
-  transition:.2s
-}
-
-.option:hover{
-  border-color:#2563eb;
-  background:#eff6ff
-}
-
-.option input{
-  width:auto;
-  margin-right:8px
-}
-
-.option.correct{
-  background:#dcfce7;
-  border-color:#16a34a
-}
-
-.option.wrong{
-  background:#fee2e2;
-  border-color:#dc2626
-}
-
-.explanation{
-  display:none;
-  margin-top:10px;
-  padding:10px;
-  border-radius:10px;
-  background:#fefce8
-}
-
-.result{
-  margin-top:20px;
-  padding:22px;
-  border-radius:16px;
-  background:#ecfdf5;
-  color:#166534;
-  font-weight:bold;
-  text-align:center
-}
-
-.score-big{
-  font-size:38px;
-  margin:5px
-}
-
-.result-message{
-  margin-top:8px;
-  font-size:16px
-}
-
-.tools{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-  margin-top:25px
-}
-
-.tool{
-  background:white;
-  padding:20px;
-  border-radius:18px;
-  box-shadow:0 5px 20px #17255410;
-  text-align:center;
-  cursor:pointer
-}
-
-.tool .big{
-  font-size:35px
-}
-
-.notes{
-  background:white;
-  padding:20px;
-  border-radius:18px;
-  margin-top:25px;
-  box-shadow:0 5px 20px #17255410
-}
-
-.note-list{
-  margin-top:15px
-}
-
-.note{
-  background:#f8faff;
-  padding:12px;
-  margin:10px 0;
-  border-radius:12px
-}
-
-.note img{
-  max-width:180px;
-  margin-top:10px;
-  border-radius:10px
-}
-
-footer{
-  background:#172033;
-  color:white;
-  text-align:center;
-  padding:25px;
-  margin-top:40px
-}
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:#0008;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
-  padding:20px
-}
-
-.modal.show{
-  display:flex
-}
-
-.modal-box{
-  background:white;
-  width:min(500px,100%);
-  padding:25px;
-  border-radius:20px;
-  max-height:90vh;
-  overflow:auto
-}
-
-.calc-display{
-  width:100%;
-  padding:15px;
-  font-size:24px;
-  text-align:right;
-  margin-bottom:10px
-}
-
-.calc-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:7px
-}
-
-.calc-grid button{
-  padding:15px;
-  border:0;
-  border-radius:10px;
-  background:#eef2ff;
-  cursor:pointer;
-  font-size:17px
-}
-
-.timer-display{
-  font-size:55px;
-  text-align:center;
-  margin:20px;
-  color:#1e3a8a
-}
-
-@media(max-width:650px){
-  .hero h1{
-    font-size:29px
-  }
-
-  .controls{
-    grid-template-columns:1fr
-  }
-
-  .study-top{
-    flex-direction:column
-  }
-}
-</style>
 </head>
 
 <body>
 
-<header>
-<div class="nav">
+<!-- ==================================================
+     HEADER
+================================================== -->
 
-<div class="logo">
-<img src="study-logo.png" alt="ASIM TECH STUDY">
-<span>ASIM TECH STUDY</span>
-</div>
+<header class="header">
 
-<button onclick="window.scrollTo({top:0,behavior:'smooth'})">
-🏠 Home
-</button>
+  <div class="header-inner">
 
-</div>
+    <a href="#" class="logo">
+
+      <span class="logo-icon">
+        🎓
+      </span>
+
+      <span>
+        ASIM TECH STUDY
+      </span>
+
+    </a>
+
+    <nav class="nav">
+
+      <a href="#subjects">
+        Subjects
+      </a>
+
+      <a href="#chapters">
+        Chapters
+      </a>
+
+      <a href="#tools">
+        Tools
+      </a>
+
+      <a href="#notes">
+        Notes
+      </a>
+
+    </nav>
+
+  </div>
+
 </header>
 
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
 <section class="hero">
-<div class="container">
 
-<h1>Learn Smart. Study Better. 📚</h1>
+  <div>
 
-<p>
-Class নির্বাচন করুন → Subject নির্বাচন করুন → Chapter খুলুন → Quiz দিন → Score দেখুন
-</p>
+    <h1>
+      Learn Smart.
+      <br>
+      <span>Study Better.</span>
+    </h1>
 
-</div>
+    <p>
+      Class 5 থেকে Class 12 পর্যন্ত
+      পড়াশোনা, Chapter, MCQ, Progress,
+      Notes এবং Study Tools — সব এক জায়গায়।
+    </p>
+
+    <div class="hero-buttons">
+
+      <button
+        class="btn btn-primary"
+        onclick="scrollToStudy()"
+      >
+        🚀 Start Studying
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="openCalculator()"
+      >
+        🧮 Calculator
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-card">
+
+    <div class="hero-book">
+      📚
+    </div>
+
+    <h2>
+      Smart Study Platform
+    </h2>
+
+    <p>
+      Learn • Practice • Improve
+    </p>
+
+  </div>
+
 </section>
 
+
+<!-- ==================================================
+     MAIN
+================================================== -->
 
 <main class="container">
 
-<h2 class="section-title">🎓 Select Class</h2>
 
-<div class="controls">
+<!-- ==================================================
+     CLASS SELECTOR
+================================================== -->
 
-<select id="classSelect" onchange="changeClass()">
+<section class="section" id="study">
 
-<option value="5">Class 5</option>
-<option value="6">Class 6</option>
-<option value="7">Class 7</option>
-<option value="8">Class 8</option>
-<option value="9">Class 9</option>
-<option value="10">Class 10</option>
-<option value="11">Class 11</option>
-<option value="12">Class 12</option>
+  <div class="section-title">
 
-</select>
+    <h2>
+      🎓 Select Your Class
+    </h2>
 
-<input
-id="chapterSearch"
-placeholder="🔍 Chapter search..."
-oninput="searchChapter()">
+    <p>
+      আপনার Class নির্বাচন করুন।
+    </p>
 
-</div>
+  </div>
 
-
-<h2 class="section-title">📚 Subjects</h2>
-
-<div id="subjects" class="subjects"></div>
-
-
-<div class="progress-box">
-
-<b id="progressTitle">Subject Progress</b>
-
-<div class="progress">
-<div id="progressBar" class="progress-bar"></div>
-</div>
-
-<small id="progressText">
-0% Complete
-</small>
-
-</div>
-
-
-<h2 class="section-title">📖 Chapters</h2>
-
-<div id="chapters" class="chapter-grid"></div>
-
-
-<!-- STUDY PANEL -->
-
-<section id="studyPanel" class="study-panel">
-
-<div class="study-top">
-
-<div>
-
-<small id="studySubject"></small>
-
-<h2 id="studyTitle"></h2>
-
-</div>
-
-<button class="close" onclick="closeStudy()">✕</button>
-
-</div>
-
-
-<div class="material">
-
-<h3>📖 Chapter Overview</h3>
-
-<p id="overview"></p>
-
-
-<h3>🎯 Learning Goals</h3>
-
-<ul id="goals" class="points"></ul>
-
-
-<h3>💡 Important Points</h3>
-
-<ul id="important" class="points"></ul>
-
-
-<div class="remember">
-
-<b>🧠 মনে রাখবে</b>
-
-<p id="remember"></p>
-
-</div>
-
-
-<h3>📝 সহজ ভাষায় Study Note</h3>
-
-<p id="studyNote"></p>
-
-</div>
-
-
-<div class="action-row">
-
-<button
-class="btn success"
-id="completeBtn"
-onclick="completeChapter()">
-
-✅ Chapter Complete
-
-</button>
-
-<button
-class="btn primary"
-onclick="startQuiz()">
-
-📝 Chapter Quiz
-
-</button>
-
-</div>
-
-
-<div id="quizBox" class="quiz"></div>
+  <div
+    class="class-selector"
+    id="classSelector"
+  ></div>
 
 </section>
 
 
-<!-- TOOLS -->
+<!-- ==================================================
+     SUBJECTS
+================================================== -->
 
-<h2 class="section-title">🛠 Study Tools</h2>
+<section
+  class="section"
+  id="subjects"
+>
 
-<div class="tools">
+  <div class="section-title">
 
-<div class="tool" onclick="openCalculator()">
+    <h2>
+      📚 Subjects
+    </h2>
 
-<div class="big">🧮</div>
+    <p id="subjectDescription">
+      একটি Subject নির্বাচন করুন।
+    </p>
 
-<b>Calculator</b>
-
-<p>Quick calculation</p>
-
-</div>
-
-
-<div class="tool" onclick="openTimer()">
-
-<div class="big">⏱️</div>
-
-<b>Study Timer</b>
-
-<p>Focus timer</p>
-
-</div>
+  </div>
 
 
-<div class="tool"
-onclick="document.getElementById('notesBox').scrollIntoView({behavior:'smooth'})">
+  <div
+    class="subject-grid"
+    id="subjectGrid"
+  ></div>
 
-<div class="big">📝</div>
-
-<b>My Notes</b>
-
-<p>Save your notes</p>
-
-</div>
-
-</div>
+</section>
 
 
-<!-- NOTES -->
+<!-- ==================================================
+     SEARCH
+================================================== -->
 
-<section class="notes" id="notesBox">
+<section class="section">
 
-<h2>📝 My Study Notes</h2>
+  <div class="section-title">
 
-<textarea
-id="noteText"
-rows="4"
-placeholder="এখানে নিজের Study Note লিখুন...">
-</textarea>
+    <h2>
+      🔎 Search Chapter
+    </h2>
 
+    <p>
+      Chapter-এর নাম লিখে খুঁজুন।
+    </p>
 
-<div class="action-row">
-
-<label class="btn dark">
-
-📷 Camera
-
-<input
-type="file"
-accept="image/*"
-capture="environment"
-hidden
-onchange="addNoteImage(this)">
-
-</label>
+  </div>
 
 
-<label class="btn dark">
+  <div class="search-box">
 
-🖼️ Gallery
+    <input
+      type="search"
+      id="chapterSearch"
+      placeholder="যেমন: সংখ্যা, ভগ্নাংশ, Grammar..."
+      oninput="searchChapters()"
+    >
 
-<input
-type="file"
-accept="image/*"
-multiple
-hidden
-onchange="addNoteImage(this)">
+  </div>
 
-</label>
-
-
-<button
-class="btn primary"
-onclick="saveNote()">
-
-💾 Save Note
-
-</button>
-
-</div>
+</section>
 
 
-<div id="noteImagePreview"></div>
+<!-- ==================================================
+     PROGRESS
+================================================== -->
 
-<div id="noteList" class="note-list"></div>
+<section class="section">
+
+  <div class="section-title">
+
+    <h2>
+      📊 My Progress
+    </h2>
+
+    <p>
+      আপনার পড়াশোনার অগ্রগতি।
+    </p>
+
+  </div>
+
+
+  <div class="progress-card">
+
+    <div class="progress-top">
+
+      <span>
+        Overall Progress
+      </span>
+
+      <span id="progressText">
+        0%
+      </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     CHAPTERS
+================================================== -->
+
+<section
+  class="section"
+  id="chapters"
+>
+
+  <div class="section-title">
+
+    <h2 id="chapterHeading">
+      📖 Chapters
+    </h2>
+
+    <p id="chapterDescription">
+      Subject নির্বাচন করলে Chapter দেখা যাবে।
+    </p>
+
+  </div>
+
+
+  <div
+    class="chapter-grid"
+    id="chapterGrid"
+  ></div>
+
+
+  <!-- STUDY PANEL -->
+
+  <div
+    class="study-panel"
+    id="studyPanel"
+  >
+
+    <div class="study-header">
+
+      <div>
+
+        <h2 id="studyTitle">
+          Chapter
+        </h2>
+
+        <p id="studyType">
+          Study Material
+        </p>
+
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        onclick="closeStudyPanel()"
+      >
+        ✕ Close
+      </button>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="study-section">
+
+      <h3>
+        📘 Chapter Overview
+      </h3>
+
+      <p id="studySummary">
+      </p>
+
+    </div>
+
+
+    <!-- GOALS -->
+
+    <div class="study-section">
+
+      <h3>
+        🎯 Learning Goals
+      </h3>
+
+      <ul
+        class="goal-list"
+        id="studyGoals"
+      ></ul>
+
+    </div>
+
+
+    <!-- IMPORTANT POINTS -->
+
+    <div class="study-section">
+
+      <h3>
+        ⭐ Important Points
+      </h3>
+
+      <ul
+        class="point-list"
+        id="studyPoints"
+      ></ul>
+
+    </div>
+
+
+    <!-- REMEMBER -->
+
+    <div class="study-section">
+
+      <h3>
+        💡 Remember
+      </h3>
+
+      <div
+        class="remember-box"
+        id="studyRemember"
+      >
+      </div>
+
+    </div>
+
+
+    <!-- STUDY NOTE -->
+
+    <div class="study-section">
+
+      <h3>
+        📝 Study Note
+      </h3>
+
+      <div
+        class="note-box"
+        id="chapterNote"
+      >
+      </div>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <div class="study-section">
+
+      <h3>
+        🧠 Chapter Quiz
+      </h3>
+
+      <div
+        class="quiz-container"
+        id="quizContainer"
+      ></div>
+
+    </div>
+
+
+    <div
+      class="quiz-result"
+      id="quizResult"
+    >
+
+      <div class="quiz-score" id="quizScore">
+        0/0
+      </div>
+
+      <div
+        class="quiz-message"
+        id="quizMessage"
+      >
+      </div>
+
+    </div>
+
+
+    <div class="hero-buttons">
+
+      <button
+        class="btn btn-primary"
+        onclick="submitQuiz()"
+      >
+        ✅ Submit Quiz
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="newQuiz()"
+      >
+        🔄 New Quiz
+      </button>
+
+      <button
+        class="btn btn-primary"
+        onclick="completeChapter()"
+      >
+        🏆 Chapter Complete
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     STUDY TOOLS
+================================================== -->
+
+<section
+  class="section"
+  id="tools"
+>
+
+  <div class="section-title">
+
+    <h2>
+      🛠️ Study Tools
+    </h2>
+
+    <p>
+      পড়াশোনার কাজে প্রয়োজনীয় ছোট ছোট tools।
+    </p>
+
+  </div>
+
+
+  <div class="tools-grid">
+
+
+    <!-- CALCULATOR -->
+
+    <div class="tool-card">
+
+      <div class="tool-icon">
+        🧮
+      </div>
+
+      <h3>
+        Calculator
+      </h3>
+
+      <p>
+        দ্রুত হিসাব করুন।
+      </p>
+
+      <button
+        class="btn btn-primary"
+        onclick="openCalculator()"
+      >
+        Open
+      </button>
+
+    </div>
+
+
+    <!-- TIMER -->
+
+    <div class="tool-card">
+
+      <div class="tool-icon">
+        ⏱️
+      </div>
+
+      <h3>
+        Study Timer
+      </h3>
+
+      <p>
+        Focus করে পড়ার জন্য timer।
+      </p>
+
+      <button
+        class="btn btn-primary"
+        onclick="openTimer()"
+      >
+        Open
+      </button>
+
+    </div>
+
+
+    <!-- NOTES -->
+
+    <div class="tool-card">
+
+      <div class="tool-icon">
+        📝
+      </div>
+
+      <h3>
+        My Notes
+      </h3>
+
+      <p>
+        নিজের Notes সংরক্ষণ করুন।
+      </p>
+
+      <button
+        class="btn btn-primary"
+        onclick="scrollToNotes()"
+      >
+        Open
+      </button>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <div class="tool-card">
+
+      <div class="tool-icon">
+        🧠
+      </div>
+
+      <h3>
+        MCQ Practice
+      </h3>
+
+      <p>
+        Chapter-wise MCQ practice।
+      </p>
+
+      <button
+        class="btn btn-primary"
+        onclick="scrollToChapters()"
+      >
+        Practice
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     NOTES
+================================================== -->
+
+<section
+  class="section"
+  id="notes"
+>
+
+  <div class="section-title">
+
+    <h2>
+      📝 My Personal Notes
+    </h2>
+
+    <p>
+      আপনার নিজের Study Notes লিখুন।
+    </p>
+
+  </div>
+
+
+  <div class="notes-box">
+
+    <textarea
+      id="personalNotes"
+      placeholder="এখানে আপনার Notes লিখুন..."
+    ></textarea>
+
+
+    <div class="notes-actions">
+
+      <button
+        class="btn btn-primary"
+        onclick="saveNotes()"
+      >
+        💾 Save Notes
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="clearNotes()"
+      >
+        🗑️ Clear
+      </button>
+
+    </div>
+
+    <p
+      id="notesStatus"
+      style="
+        margin-top:10px;
+        color:#16a34a;
+        font-size:13px;
+      "
+    ></p>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     DAILY ROUTINE
+================================================== -->
+
+<section class="section">
+
+  <div class="section-title">
+
+    <h2>
+      📅 Daily Study Routine
+    </h2>
+
+    <p>
+      একটি সহজ daily routine।
+    </p>
+
+  </div>
+
+
+  <div class="routine">
+
+    <div class="routine-item">
+
+      <span class="routine-time">
+        30 min
+      </span>
+
+      <span>
+        📖 Previous chapter revision
+      </span>
+
+    </div>
+
+
+    <div class="routine-item">
+
+      <span class="routine-time">
+        45 min
+      </span>
+
+      <span>
+        📚 New chapter study
+      </span>
+
+    </div>
+
+
+    <div class="routine-item">
+
+      <span class="routine-time">
+        20 min
+      </span>
+
+      <span>
+        🧠 MCQ Practice
+      </span>
+
+    </div>
+
+
+    <div class="routine-item">
+
+      <span class="routine-time">
+        10 min
+      </span>
+
+      <span>
+        📝 Notes revision
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     STUDY TIP
+================================================== -->
+
+<section class="section">
+
+  <div class="tip-card">
+
+    <h3>
+      💡 Today's Study Tip
+    </h3>
+
+    <p id="studyTip">
+      নিয়মিত অল্প অল্প করে পড়লে দীর্ঘদিন মনে রাখা সহজ হয়।
+    </p>
+
+  </div>
 
 </section>
 
 </main>
 
 
-<footer>
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
-<b>ASIM TECH STUDY</b>
+<footer class="footer">
 
-<p>
-Learn • Practice • Improve • Succeed 🚀
-</p>
+  <h3>
+    ASIM TECH STUDY
+  </h3>
+
+  <p>
+    Learn Smart • Study Better
+  </p>
+
+  <p>
+    © 2026 ASIM TECH
+  </p>
 
 </footer>
 
 
-<!-- CALCULATOR -->
+<!-- ==================================================
+     CALCULATOR MODAL
+================================================== -->
 
-<div id="calculator" class="modal">
+<div
+  class="modal"
+  id="calculatorModal"
+>
 
-<div class="modal-box">
+  <div class="modal-box">
 
-<h2>🧮 Calculator</h2>
+    <div class="modal-header">
 
-<input
-id="calcDisplay"
-class="calc-display"
-readonly>
+      <h2>
+        🧮 Calculator
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeCalculator()"
+      >
+        ✕
+      </button>
+
+    </div>
 
 
-<div class="calc-grid">
+    <div class="calculator">
 
-<button onclick="calc('7')">7</button>
-<button onclick="calc('8')">8</button>
-<button onclick="calc('9')">9</button>
-<button onclick="calc('/')">÷</button>
+      <input
+        class="calc-display"
+        id="calcDisplay"
+        readonly
+      >
 
-<button onclick="calc('4')">4</button>
-<button onclick="calc('5')">5</button>
-<button onclick="calc('6')">6</button>
-<button onclick="calc('*')">×</button>
 
-<button onclick="calc('1')">1</button>
-<button onclick="calc('2')">2</button>
-<button onclick="calc('3')">3</button>
-<button onclick="calc('-')">−</button>
+      <div class="calc-grid">
 
-<button onclick="calc('0')">0</button>
-<button onclick="calc('.')">.</button>
-<button onclick="calculate()">=</button>
-<button onclick="calc('+')">+</button>
+        <button
+          class="calc-btn"
+          onclick="calcClear()"
+        >
+          C
+        </button>
 
-<button onclick="clearCalc()">C</button>
+        <button
+          class="calc-btn"
+          onclick="calcBack()"
+        >
+          ⌫
+        </button>
+
+        <button
+          class="calc-btn operator"
+          onclick="calcInput('%')"
+        >
+          %
+        </button>
+
+        <button
+          class="calc-btn operator"
+          onclick="calcInput('/')"
+        >
+          ÷
+        </button>
+
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('7')"
+        >
+          7
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('8')"
+        >
+          8
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('9')"
+        >
+          9
+        </button>
+
+        <button
+          class="calc-btn operator"
+          onclick="calcInput('*')"
+        >
+          ×
+        </button>
+
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('4')"
+        >
+          4
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('5')"
+        >
+          5
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('6')"
+        >
+          6
+        </button>
+
+        <button
+          class="calc-btn operator"
+          onclick="calcInput('-')"
+        >
+          −
+        </button>
+
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('1')"
+        >
+          1
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('2')"
+        >
+          2
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('3')"
+        >
+          3
+        </button>
+
+        <button
+          class="calc-btn operator"
+          onclick="calcInput('+')"
+        >
+          +
+        </button>
+
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('0')"
+        >
+          0
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcInput('.')"
+        >
+          .
+        </button>
+
+        <button
+          class="calc-btn"
+          onclick="calcCalculate()"
+          style="grid-column:span 2;"
+        >
+          =
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
 
-<button
-class="btn dark"
-style="width:100%;margin-top:15px"
-onclick="closeCalculator()">
+<!-- ==================================================
+     TIMER MODAL
+================================================== -->
 
-Close
+<div
+  class="modal"
+  id="timerModal"
+>
 
-</button>
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <h2>
+        ⏱️ Study Timer
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeTimer()"
+      >
+        ✕
+      </button>
+
+    </div>
+
+
+    <div class="timer">
+
+      <div
+        class="timer-display"
+        id="timerDisplay"
+      >
+        25:00
+      </div>
+
+
+      <div class="timer-buttons">
+
+        <button
+          class="btn btn-primary"
+          onclick="startTimer()"
+        >
+          ▶ Start
+        </button>
+
+        <button
+          class="btn btn-secondary"
+          onclick="pauseTimer()"
+        >
+          ⏸ Pause
+        </button>
+
+        <button
+          class="btn btn-secondary"
+          onclick="resetTimer()"
+        >
+          🔄 Reset
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
-</div>
 
+<!-- ==================================================
+     JAVASCRIPT DATABASE
+================================================== -->
 
-<!-- TIMER -->
-
-<div id="timerModal" class="modal">
-
-<div class="modal-box">
-
-<h2>⏱️ Study Timer</h2>
-
-<div id="timerDisplay" class="timer-display">
-25:00
-</div>
-
-
-<div class="action-row">
-
-<button class="btn primary" onclick="startTimer()">
-▶ Start
-</button>
-
-<button class="btn dark" onclick="pauseTimer()">
-⏸ Pause
-</button>
-
-<button class="btn success" onclick="resetTimer()">
-🔄 Reset
-</button>
-
-</div>
-
-
-<button
-class="btn dark"
-style="width:100%;margin-top:15px"
-onclick="closeTimer()">
-
-Close
-
-</button>
-
-</div>
-
-</div>
+<script src="study-data.js"></script>
 
 
 <script>
 
-/* =========================
-   SUBJECT DATABASE
-========================= */
+/* =====================================================
+   GLOBAL VARIABLES
+===================================================== */
 
-const subjectsDB={
+let currentClass = "5";
 
-5:[
-["বাংলা","📕"],
-["English","📘"],
-["গণিত","➗"],
-["পরিবেশ ও বিজ্ঞান","🌱"],
-["ইতিহাস","🏛️"],
-["ভূগোল","🌍"]
-],
+let currentSubject = "";
 
-6:[
-["বাংলা","📕"],
-["English","📘"],
-["গণিত","➗"],
-["পরিবেশ ও বিজ্ঞান","🔬"],
-["ইতিহাস","🏛️"],
-["ভূগোল","🌍"]
-],
+let currentChapter = null;
 
-7:[
-["বাংলা","📕"],
-["English","📘"],
-["গণিত","➗"],
-["পরিবেশ ও বিজ্ঞান","🔬"],
-["ইতিহাস","🏛️"],
-["ভূগোল","🌍"]
-],
+let currentQuiz = [];
 
-8:[
-["বাংলা","📕"],
-["English","📘"],
-["গণিত","➗"],
-["পরিবেশ ও বিজ্ঞান","🔬"],
-["ইতিহাস","🏛️"],
-["ভূগোল","🌍"]
-],
+let quizSubmitted = false;
 
-9:[
-["বাংলা","📕"],
-["English","📘"],
-["গণিত","➗"],
-["ভৌতবিজ্ঞান","⚛️"],
-["জীবনবিজ্ঞান","🧬"],
-["ইতিহাস","🏛️"],
-["ভূগোল","🌍"]
-],
+let timerSeconds = 25 * 60;
 
-10:[
-["বাংলা","📕"],
-["English","📘"],
-["গণিত","➗"],
-["ভৌতবিজ্ঞান","⚛️"],
-["জীবনবিজ্ঞান","🧬"],
-["ইতিহাস","🏛️"],
-["ভূগোল","🌍"]
-],
+let timerInterval = null;
 
-11:[
-["বাংলা","📕"],
-["English","📘"],
-["Physics","⚛️"],
-["Chemistry","🧪"],
-["Mathematics","➗"],
-["Biological Science","🧬"],
-["Geography","🌍"],
-["History","🏛️"]
-],
 
-12:[
-["বাংলা","📕"],
-["English","📘"],
-["Physics","⚛️"],
-["Chemistry","🧪"],
-["Mathematics","➗"],
-["Biological Science","🧬"],
-["Geography","🌍"],
-["History","🏛️"]
-]
+/* =====================================================
+   DOM HELPERS
+===================================================== */
 
-};
+const $ = id =>
+  document.getElementById(id);
 
 
-/* =========================
-   CHAPTER DATABASE
-========================= */
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
-const chapterDB={
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
 
-"5-বাংলা":[
-"পাঠ ও গল্প",
-"কবিতা",
-"ব্যাকরণ",
-"রচনা ও অনুচ্ছেদ"
-],
+    loadSavedSettings();
 
-"5-English":[
-"Reading",
-"Grammar",
-"Writing",
-"Literature"
-],
+    renderClasses();
 
-"5-গণিত":[
-"সংখ্যা",
-"ভগ্নাংশ",
-"দশমিক",
-"জ্যামিতির প্রাথমিক ধারণা"
-],
+    renderSubjects();
 
-"5-পরিবেশ ও বিজ্ঞান":[
-"উদ্ভিদ ও প্রাণী",
-"আমাদের পরিবেশ",
-"পদার্থ ও শক্তি"
-],
+    loadNotes();
 
-"5-ইতিহাস":[
-"অতীতের পরিচয়",
-"প্রাচীন ভারত",
-"ঐতিহাসিক স্থান"
-],
+    setRandomTip();
 
-"5-ভূগোল":[
-"পৃথিবী",
-"মানচিত্র",
-"ভারতের পরিচয়"
-],
+    updateProgress();
 
-"6-বাংলা":[
-"গদ্য",
-"পদ্য",
-"ব্যাকরণ",
-"রচনা"
-],
-
-"6-English":[
-"Prose",
-"Poetry",
-"Grammar",
-"Writing"
-],
-
-"6-গণিত":[
-"সংখ্যা",
-"ভগ্নাংশ ও দশমিক",
-"অনুপাত",
-"জ্যামিতি"
-],
-
-"6-পরিবেশ ও বিজ্ঞান":[
-"জীবজগৎ",
-"পদার্থ",
-"শক্তি",
-"পরিবেশ"
-],
-
-"6-ইতিহাস":[
-"প্রাচীন ভারত",
-"মধ্যযুগের ভারত",
-"সমাজ ও সংস্কৃতি"
-],
-
-"6-ভূগোল":[
-"পৃথিবীর গঠন",
-"জলবায়ু",
-"ভারতের ভূপ্রকৃতি"
-],
-
-"7-বাংলা":[
-"গদ্য",
-"পদ্য",
-"ব্যাকরণ",
-"রচনা"
-],
-
-"7-English":[
-"Prose",
-"Poetry",
-"Grammar",
-"Writing"
-],
-
-"7-গণিত":[
-"পূর্ণসংখ্যা",
-"ভগ্নাংশ",
-"বীজগণিতের প্রাথমিক ধারণা",
-"জ্যামিতি"
-],
-
-"7-পরিবেশ ও বিজ্ঞান":[
-"উদ্ভিদ",
-"প্রাণী",
-"পদার্থ ও তাপ",
-"পরিবেশ"
-],
-
-"7-ইতিহাস":[
-"মধ্যযুগ",
-"আঞ্চলিক রাজ্য",
-"সংস্কৃতি"
-],
-
-"7-ভূগোল":[
-"বায়ুমণ্ডল",
-"জলবায়ু",
-"মহাদেশ",
-"ভারত"
-],
-
-"8-বাংলা":[
-"গদ্য",
-"পদ্য",
-"ব্যাকরণ",
-"রচনা"
-],
-
-"8-English":[
-"Prose",
-"Poetry",
-"Grammar",
-"Writing"
-],
-
-"8-গণিত":[
-"মূলদ সংখ্যা",
-"বীজগণিত",
-"সমীকরণ",
-"জ্যামিতি"
-],
-
-"8-পরিবেশ ও বিজ্ঞান":[
-"কোষ",
-"পদার্থ",
-"শক্তি",
-"পরিবেশ"
-],
-
-"8-ইতিহাস":[
-"ঔপনিবেশিক ভারত",
-"জাতীয়তাবাদ",
-"সংস্কৃতি"
-],
-
-"8-ভূগোল":[
-"ভূমিরূপ",
-"জলবায়ু",
-"জনসংখ্যা",
-"সম্পদ"
-],
-
-"9-বাংলা":[
-"গদ্য",
-"পদ্য",
-"নাটক",
-"ব্যাকরণ ও নির্মিতি"
-],
-
-"9-English":[
-"Reading",
-"Grammar",
-"Writing",
-"Literature"
-],
-
-"9-গণিত":[
-"Real Numbers",
-"Polynomials",
-"Coordinate Geometry",
-"Linear Equations",
-"Geometry",
-"Statistics"
-],
-
-"9-ভৌতবিজ্ঞান":[
-"পরিমাপ",
-"গতি",
-"বল ও শক্তি",
-"তাপ",
-"আলো"
-],
-
-"9-জীবনবিজ্ঞান":[
-"জীবনের সংগঠন",
-"জীবন প্রক্রিয়া",
-"জীববৈচিত্র্য",
-"পরিবেশ"
-],
-
-"9-ইতিহাস":[
-"ঔপনিবেশিকতা",
-"আধুনিক ভারত",
-"জাতীয়তাবাদ",
-"বিশ্ব ইতিহাস"
-],
-
-"9-ভূগোল":[
-"ভূমিরূপ",
-"বায়ুমণ্ডল",
-"জলবায়ু",
-"ভারত"
-],
-
-"10-বাংলা":[
-"গদ্য",
-"পদ্য",
-"নাটক",
-"ভাষা ও নির্মিতি"
-],
-
-"10-English":[
-"Reading",
-"Grammar",
-"Writing",
-"Literature"
-],
-
-"10-গণিত":[
-"Real Numbers",
-"Polynomials",
-"Pair of Linear Equations",
-"Quadratic Equations",
-"Arithmetic Progression",
-"Coordinate Geometry",
-"Geometry",
-"Trigonometry",
-"Statistics",
-"Probability"
-],
-
-"10-ভৌতবিজ্ঞান":[
-"ভৌত রাশি ও পরিমাপ",
-"গতি",
-"বল",
-"কাজ ও শক্তি",
-"তাপ",
-"আলো",
-"বিদ্যুৎ",
-"পরমাণুর গঠন"
-],
-
-"10-জীবনবিজ্ঞান":[
-"জীবনের বৈচিত্র্য",
-"বংশগতি",
-"অভিযোজন",
-"জীবন প্রক্রিয়া",
-"পরিবেশ"
-],
-
-"10-ইতিহাস":[
-"ইতিহাসের ধারণা",
-"সংস্কার ও আন্দোলন",
-"প্রতিরোধ ও বিদ্রোহ",
-"জাতীয়তাবাদ",
-"স্বাধীনতা"
-],
-
-"10-ভূগোল":[
-"ভূমিরূপ",
-"বায়ুমণ্ডল",
-"জলবায়ু",
-"ভারত",
-"সম্পদ",
-"অর্থনৈতিক কার্যকলাপ"
-],
-
-"11-বাংলা":[
-"ভাষা",
-"গদ্য",
-"পদ্য",
-"রচনা"
-],
-
-"11-English":[
-"Language",
-"Prose",
-"Poetry",
-"Writing"
-],
-
-"11-Physics":[
-"Units and Measurements",
-"Motion",
-"Laws of Motion",
-"Work, Energy and Power",
-"Gravitation"
-],
-
-"11-Chemistry":[
-"Basic Concepts",
-"Atomic Structure",
-"Periodic Table",
-"Chemical Bonding",
-"Thermodynamics"
-],
-
-"11-Mathematics":[
-"Sets",
-"Relations and Functions",
-"Trigonometry",
-"Complex Numbers",
-"Sequences and Series",
-"Straight Lines"
-],
-
-"11-Biological Science":[
-"Diversity of Life",
-"Cell",
-"Biomolecules",
-"Plant Physiology",
-"Human Physiology"
-],
-
-"11-Geography":[
-"Physical Geography",
-"Geomorphology",
-"Climatology",
-"Oceanography"
-],
-
-"11-History":[
-"Early Societies",
-"States and Empires",
-"Culture",
-"Colonialism"
-],
-
-"12-বাংলা":[
-"ভাষা",
-"গদ্য",
-"পদ্য",
-"রচনা"
-],
-
-"12-English":[
-"Language",
-"Prose",
-"Poetry",
-"Writing"
-],
-
-"12-Physics":[
-"Electrostatics",
-"Current Electricity",
-"Magnetism",
-"Electromagnetic Induction",
-"Optics",
-"Modern Physics"
-],
-
-"12-Chemistry":[
-"Solutions",
-"Electrochemistry",
-"Chemical Kinetics",
-"Coordination Compounds",
-"Organic Chemistry"
-],
-
-"12-Mathematics":[
-"Relations and Functions",
-"Matrices",
-"Determinants",
-"Calculus",
-"Vectors",
-"Three Dimensional Geometry",
-"Probability"
-],
-
-"12-Biological Science":[
-"Reproduction",
-"Genetics",
-"Evolution",
-"Biology and Human Welfare",
-"Ecology"
-],
-
-"12-Geography":[
-"Human Geography",
-"Resources",
-"Population",
-"Economic Geography"
-],
-
-"12-History":[
-"Modern India",
-"Nationalism",
-"Partition",
-"Post-Independence India"
-]
-
-};
-
-
-/* =========================
-   STUDY CONTENT
-========================= */
-
-const contentDB={
-
-"সংখ্যা":{
-overview:"এই অধ্যায়ে সংখ্যা এবং দৈনন্দিন জীবনে সংখ্যার ব্যবহার সম্পর্কে ধারণা তৈরি করা হবে।",
-goals:[
-"সংখ্যার ধারণা পরিষ্কার করা",
-"সংখ্যা চিনতে শেখা",
-"দৈনন্দিন জীবনে সংখ্যার ব্যবহার বোঝা"
-],
-important:[
-"সংখ্যা গণনা ও পরিমাপের জন্য ব্যবহার করা হয়",
-"সংখ্যার মান বুঝে ব্যবহার করা গুরুত্বপূর্ণ",
-"সংখ্যা সঠিকভাবে পড়া ও লেখা প্রয়োজন"
-],
-remember:"প্রশ্ন করার সময় সংখ্যার স্থানমান এবং সংখ্যার মান ভালোভাবে লক্ষ্য করবে।",
-note:"সংখ্যা আমাদের দৈনন্দিন জীবনের একটি গুরুত্বপূর্ণ অংশ। টাকা, সময়, দূরত্ব, বয়স এবং হিসাব—সব ক্ষেত্রেই সংখ্যার প্রয়োজন হয়।"
-},
-
-"ভগ্নাংশ":{
-overview:"ভগ্নাংশ ব্যবহার করে কোনো সম্পূর্ণ বস্তুর অংশ প্রকাশ করা হয়।",
-goals:[
-"ভগ্নাংশ চিনতে পারা",
-"লব ও হর বুঝতে পারা",
-"সহজ ভগ্নাংশের হিসাব করা"
-],
-important:[
-"উপরের সংখ্যাকে লব বলে",
-"নিচের সংখ্যাকে হর বলে",
-"হর শূন্য হতে পারে না"
-],
-remember:"ভগ্নাংশ দেখলে প্রথমে লব এবং হর শনাক্ত করবে।",
-note:"যেমন 3/4 একটি ভগ্নাংশ। এখানে 3 হলো লব এবং 4 হলো হর।"
-},
-
-"Real Numbers":{
-overview:"Real Numbers বা বাস্তব সংখ্যা হলো সংখ্যার একটি বিস্তৃত শ্রেণি, যার মধ্যে rational ও irrational উভয় সংখ্যাই অন্তর্ভুক্ত।",
-goals:[
-"বাস্তব সংখ্যার ধারণা বোঝা",
-"Rational ও irrational number চেনা",
-"সংখ্যার বৈশিষ্ট্য বোঝা"
-],
-important:[
-"Rational number p/q আকারে প্রকাশ করা যায়",
-"Irrational number সাধারণত p/q আকারে প্রকাশ করা যায় না",
-"বাস্তব সংখ্যার মধ্যে উভয় ধরনের সংখ্যা রয়েছে"
-],
-remember:"√2 এবং √3 irrational সংখ্যার উদাহরণ।",
-note:"বাস্তব সংখ্যা গণিতের একটি মৌলিক ধারণা। বিভিন্ন গণনা এবং বীজগাণিতিক সমস্যায় বাস্তব সংখ্যার ব্যবহার হয়।"
-},
-
-"ভাষা":{
-overview:"ভাষা মানুষের ভাব, অনুভূতি ও চিন্তা প্রকাশের প্রধান মাধ্যম।",
-goals:[
-"ভাষার গুরুত্ব বোঝা",
-"শুদ্ধ ভাষা ব্যবহারের অভ্যাস করা",
-"লিখিত ও মৌখিক ভাষার পার্থক্য বোঝা"
-],
-important:[
-"ভাষা যোগাযোগের মাধ্যম",
-"শুদ্ধ উচ্চারণ ও বানান গুরুত্বপূর্ণ",
-"প্রসঙ্গ অনুযায়ী ভাষার ব্যবহার পরিবর্তিত হতে পারে"
-],
-remember:"ভাষা শেখার সবচেয়ে ভালো উপায় হলো নিয়মিত পড়া, লেখা ও অনুশীলন।",
-note:"ভাষার মাধ্যমে আমরা অন্যের সঙ্গে ভাব বিনিময় করি। শিক্ষা ও যোগাযোগের ক্ষেত্রে ভাষার ভূমিকা অত্যন্ত গুরুত্বপূর্ণ।"
-}
-
-};
-
-
-/* =========================
-   QUIZ DATABASE
-========================= */
-
-const quizDB={
-
-"সংখ্যা":[
-
-{
-q:"সংখ্যা সাধারণত কী কাজে ব্যবহার করা হয়?",
-options:[
-"গণনা ও পরিমাপ",
-"শুধু ছবি আঁকা",
-"শুধু গান গাওয়া",
-"শুধু গল্প লেখা"
-],
-answer:0,
-explain:"সংখ্যা গণনা, পরিমাপ এবং হিসাবের কাজে ব্যবহৃত হয়।"
-},
-
-{
-q:"সংখ্যার স্থানমান বোঝা কেন প্রয়োজন?",
-options:[
-"সঠিক মান বোঝার জন্য",
-"শুধু ছবি আঁকার জন্য",
-"গান শেখার জন্য",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"একটি সংখ্যায় অঙ্কের অবস্থান তার মান নির্ধারণ করে।"
-},
-
-{
-q:"20 সংখ্যাটিতে 2-এর স্থানমান কত?",
-options:[
-"2",
-"20",
-"200",
-"0"
-],
-answer:1,
-explain:"20 সংখ্যায় 2 দশকের স্থানে আছে, তাই তার স্থানমান 20।"
-},
-
-{
-q:"দৈনন্দিন জীবনে সংখ্যার ব্যবহার কোথায় হয়?",
-options:[
-"টাকা ও সময়ের হিসাবে",
-"শুধু খেলায়",
-"শুধু গানে",
-"কোথাও নয়"
-],
-answer:0,
-explain:"টাকা, সময়, বয়স, দূরত্ব ইত্যাদি অনেক ক্ষেত্রেই সংখ্যা ব্যবহার হয়।"
-},
-
-{
-q:"সংখ্যা শেখার সময় কী করা ভালো?",
-options:[
-"নিয়মিত অনুশীলন",
-"কখনও অনুশীলন না করা",
-"শুধু উত্তর মুখস্থ করা",
-"বই না খোলা"
-],
-answer:0,
-explain:"নিয়মিত অনুশীলন করলে সংখ্যার ধারণা পরিষ্কার হয়।"
-}
-
-],
-
-"ভগ্নাংশ":[
-
-{
-q:"ভগ্নাংশ কী প্রকাশ করে?",
-options:[
-"সম্পূর্ণ বস্তুর একটি অংশ",
-"শুধু একটি সংখ্যা",
-"শুধু সময়",
-"শুধু দূরত্ব"
-],
-answer:0,
-explain:"ভগ্নাংশ কোনো সম্পূর্ণ বস্তুর অংশকে প্রকাশ করতে পারে।"
-},
-
-{
-q:"3/4-এ লব কোনটি?",
-options:[
-"3",
-"4",
-"7",
-"1"
-],
-answer:0,
-explain:"ভগ্নাংশের উপরের সংখ্যাকে লব বলে।"
-},
-
-{
-q:"3/4-এ হর কোনটি?",
-options:[
-"3",
-"4",
-"7",
-"1"
-],
-answer:1,
-explain:"ভগ্নাংশের নিচের সংখ্যাকে হর বলে।"
-},
-
-{
-q:"ভগ্নাংশের হর কেমন হতে পারে না?",
-options:[
-"1",
-"2",
-"5",
-"0"
-],
-answer:3,
-explain:"শূন্য দিয়ে ভাগ করা যায় না, তাই ভগ্নাংশের হর শূন্য হতে পারে না।"
-},
-
-{
-q:"1/2 কী ধরনের সংখ্যা?",
-options:[
-"ভগ্নাংশ",
-"পূর্ণসংখ্যা",
-"শুধু দশমিক",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"1/2 একটি সাধারণ ভগ্নাংশ।"
-}
-
-],
-
-"Real Numbers":[
-
-{
-q:"Real Numbers-এর মধ্যে কোন দুটি শ্রেণি রয়েছে?",
-options:[
-"Rational ও Irrational",
-"শুধু Natural",
-"শুধু Whole",
-"শুধু Integer"
-],
-answer:0,
-explain:"বাস্তব সংখ্যার মধ্যে rational এবং irrational উভয় সংখ্যাই রয়েছে।"
-},
-
-{
-q:"√2 কোন ধরনের সংখ্যা?",
-options:[
-"Rational",
-"Irrational",
-"Natural",
-"Whole"
-],
-answer:1,
-explain:"√2 একটি irrational number।"
-},
-
-{
-q:"Rational number সাধারণত কোন আকারে প্রকাশ করা যায়?",
-options:[
-"p/q",
-"p+q",
-"p×q only",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"Rational number p/q আকারে প্রকাশ করা যায়, যেখানে q শূন্য নয়।"
-},
-
-{
-q:"বাস্তব সংখ্যা কোন ক্ষেত্রে গুরুত্বপূর্ণ?",
-options:[
-"গণিতের বিভিন্ন হিসাব",
-"শুধু গান",
-"শুধু ছবি",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"বিভিন্ন গাণিতিক হিসাব ও সমস্যায় বাস্তব সংখ্যার ব্যবহার হয়।"
-},
-
-{
-q:"√3 কী?",
-options:[
-"Irrational number",
-"Natural number",
-"Whole number",
-"শূন্য"
-],
-answer:0,
-explain:"√3 একটি irrational number।"
-}
-
-],
-
-"ভাষা":[
-
-{
-q:"ভাষার প্রধান কাজ কী?",
-options:[
-"ভাব প্রকাশ করা",
-"শুধু ছবি আঁকা",
-"শুধু গান গাওয়া",
-"শুধু হিসাব করা"
-],
-answer:0,
-explain:"ভাষার মাধ্যমে মানুষ নিজের ভাব, অনুভূতি ও চিন্তা প্রকাশ করে।"
-},
-
-{
-q:"ভাষা কীসের মাধ্যম?",
-options:[
-"যোগাযোগের",
-"শুধু খেলাধুলার",
-"শুধু অঙ্কের",
-"শুধু ছবি আঁকার"
-],
-answer:0,
-explain:"ভাষা মানুষের যোগাযোগের অন্যতম প্রধান মাধ্যম।"
-},
-
-{
-q:"ভাষা শেখার ভালো উপায় কোনটি?",
-options:[
-"পড়া, লেখা ও অনুশীলন",
-"কিছুই না করা",
-"শুধু মুখস্থ করা",
-"শুধু শোনা"
-],
-answer:0,
-explain:"নিয়মিত পড়া, লেখা ও অনুশীলনের মাধ্যমে ভাষা ভালোভাবে শেখা যায়।"
-},
-
-{
-q:"শুদ্ধ ভাষা ব্যবহারে কী গুরুত্বপূর্ণ?",
-options:[
-"শুদ্ধ বানান ও উচ্চারণ",
-"শুধু দ্রুত কথা বলা",
-"শুধু বড় শব্দ ব্যবহার",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"শুদ্ধ বানান ও উচ্চারণ ভাষার সঠিক ব্যবহারের গুরুত্বপূর্ণ অংশ।"
-},
-
-{
-q:"ভাষার মাধ্যমে কী প্রকাশ করা যায়?",
-options:[
-"চিন্তা ও অনুভূতি",
-"শুধু সংখ্যা",
-"শুধু ছবি",
-"শুধু সময়"
-],
-answer:0,
-explain:"ভাষার মাধ্যমে মানুষের চিন্তা, অনুভূতি ও মতামত প্রকাশ করা যায়।"
-}
-
-]
-
-};
-
-
-/* =========================
-   STATE
-========================= */
-
-let currentClass=5;
-let currentSubject="বাংলা";
-let currentChapter="";
-
-let currentQuiz=[];
-let quizSubmitted=false;
-
-let completed=
-JSON.parse(
-localStorage.getItem("asimStudyCompleted")||"[]"
+  }
 );
 
-let selectedImage=null;
+
+/* =====================================================
+   CLASS SELECTOR
+===================================================== */
+
+function renderClasses() {
+
+  const container =
+    $("classSelector");
+
+  container.innerHTML = "";
+
+  const classes =
+    getClasses();
 
 
-/* =========================
-   INIT
-========================= */
+  classes.forEach(cls => {
 
-function init(){
+    const button =
+      document.createElement("button");
 
-const savedClass=
-localStorage.getItem("asimClass");
+    button.className =
+      "class-btn";
 
-if(savedClass){
+    if (cls === currentClass) {
 
-currentClass=Number(savedClass);
+      button.classList.add("active");
 
-document.getElementById("classSelect").value=
-currentClass;
+    }
 
-}
-
-currentSubject=
-subjectsDB[currentClass][0][0];
-
-renderSubjects();
-
-renderChapters();
-
-renderNotes();
-
-}
-
-init();
+    button.textContent =
+      "Class " + cls;
 
 
-/* =========================
-   CLASS
-========================= */
+    button.onclick =
+      function() {
 
-function changeClass(){
+        selectClass(cls);
 
-currentClass=
-Number(
-document.getElementById("classSelect").value
-);
+      };
 
-localStorage.setItem(
-"asimClass",
-currentClass
-);
 
-currentSubject=
-subjectsDB[currentClass][0][0];
+    container.appendChild(button);
 
-renderSubjects();
-
-renderChapters();
-
-document
-.getElementById("studyPanel")
-.classList.remove("show");
+  });
 
 }
 
 
-/* =========================
+/* =====================================================
+   SELECT CLASS
+===================================================== */
+
+function selectClass(cls) {
+
+  currentClass = cls;
+
+  localStorage.setItem(
+    "asimStudyClass",
+    cls
+  );
+
+
+  currentSubject = "";
+
+  currentChapter = null;
+
+  closeStudyPanel();
+
+
+  renderClasses();
+
+  renderSubjects();
+
+  clearChapterSearch();
+
+  updateProgress();
+
+}
+
+
+/* =====================================================
    SUBJECTS
-========================= */
+===================================================== */
 
-function renderSubjects(){
+function renderSubjects() {
 
-const box=
-document.getElementById("subjects");
+  const grid =
+    $("subjectGrid");
 
-box.innerHTML="";
+  grid.innerHTML = "";
 
-subjectsDB[currentClass].forEach(item=>{
 
-const name=item[0];
-const icon=item[1];
+  const subjects =
+    getSubjects(currentClass);
 
-const div=
-document.createElement("div");
 
-div.className=
-"subject "+
-(name===currentSubject?"active":"");
+  const subjectNames =
+    Object.keys(subjects);
 
-div.innerHTML=`
 
-<div class="icon">${icon}</div>
+  if (!subjectNames.length) {
 
-<b>${name}</b>
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📚</div>
+        <p>কোনো Subject পাওয়া যায়নি।</p>
+      </div>
+    `;
 
-`;
+    return;
 
-div.onclick=()=>{
+  }
 
-currentSubject=name;
 
-renderSubjects();
+  subjectNames.forEach(
+    subjectName => {
 
-renderChapters();
+      const subject =
+        subjects[subjectName];
 
-document
-.getElementById("studyPanel")
-.classList.remove("show");
 
-};
+      const card =
+        document.createElement("div");
 
-box.appendChild(div);
 
-});
+      card.className =
+        "subject-card";
+
+
+      if (
+        currentSubject === subjectName
+      ) {
+
+        card.classList.add("active");
+
+      }
+
+
+      card.innerHTML = `
+
+        <div class="subject-icon">
+          ${subject.icon || "📚"}
+        </div>
+
+        <h3>
+          ${escapeHTML(subjectName)}
+        </h3>
+
+        <p>
+          ${subject.chapters.length}
+          Chapters
+        </p>
+
+      `;
+
+
+      card.onclick =
+        function() {
+
+          selectSubject(subjectName);
+
+        };
+
+
+      grid.appendChild(card);
+
+    }
+  );
+
+
+  if (!currentSubject) {
+
+    selectSubject(subjectNames[0]);
+
+  }
 
 }
 
 
-/* =========================
+/* =====================================================
+   SELECT SUBJECT
+===================================================== */
+
+function selectSubject(subjectName) {
+
+  currentSubject =
+    subjectName;
+
+
+  localStorage.setItem(
+    "asimStudySubject",
+    subjectName
+  );
+
+
+  closeStudyPanel();
+
+  renderSubjects();
+
+  renderChapters();
+
+}
+
+
+/* =====================================================
    CHAPTERS
-========================= */
+===================================================== */
 
-function renderChapters(){
+function renderChapters(
+  filter = ""
+) {
 
-const box=
-document.getElementById("chapters");
+  const grid =
+    $("chapterGrid");
 
-box.innerHTML="";
+  grid.innerHTML = "";
 
-const key=
-currentClass+"-"+currentSubject;
 
-const list=
-chapterDB[key]||[];
+  if (!currentSubject) {
 
-const search=
-document
-.getElementById("chapterSearch")
-.value
-.toLowerCase();
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📖</div>
+        <p>প্রথমে Subject নির্বাচন করুন।</p>
+      </div>
+    `;
 
-let count=0;
+    return;
 
-list.forEach((chapter,index)=>{
+  }
 
-if(
-search &&
-!chapter
-.toLowerCase()
-.includes(search)
-){
-return;
+
+  let chapters =
+    getChapters(
+      currentClass,
+      currentSubject
+    );
+
+
+  if (filter) {
+
+    const search =
+      filter.toLowerCase();
+
+    chapters =
+      chapters.filter(
+        chapter =>
+          chapter.title
+            .toLowerCase()
+            .includes(search)
+      );
+
+  }
+
+
+  $("chapterHeading").textContent =
+    "📖 " + currentSubject;
+
+
+  $("chapterDescription").textContent =
+    chapters.length +
+    "টি Chapter available";
+
+
+  if (!chapters.length) {
+
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">🔎</div>
+        <p>কোনো Chapter পাওয়া যায়নি।</p>
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  chapters.forEach(
+    (chapter, index) => {
+
+      const card =
+        document.createElement("div");
+
+
+      card.className =
+        "chapter-card";
+
+
+      const complete =
+        isChapterComplete(
+          chapter.id
+        );
+
+
+      card.innerHTML = `
+
+        <div class="chapter-number">
+          ${index + 1}
+        </div>
+
+        ${
+          complete
+          ? `<div class="chapter-completed">✓</div>`
+          : ""
+        }
+
+        <h3>
+          ${escapeHTML(chapter.title)}
+        </h3>
+
+        <p>
+          ${escapeHTML(
+            chapter.summary ||
+            "Study Material available"
+          )}
+        </p>
+
+      `;
+
+
+      card.onclick =
+        function() {
+
+          openChapter(chapter);
+
+        };
+
+
+      grid.appendChild(card);
+
+    }
+  );
+
 }
 
-count++;
 
-const id=
-currentClass+"|"+
-currentSubject+"|"+
-chapter;
-
-const done=
-completed.includes(id);
-
-const div=
-document.createElement("div");
-
-div.className=
-"chapter "+
-(done?"done":"");
-
-div.innerHTML=`
-
-<div class="chapter-head">
-
-<h3>
-${index+1}. ${chapter}
-</h3>
-
-<span class="badge">
-${done?"Completed":"Start"}
-</span>
-
-</div>
-
-<p>
-${done
-?"✅ এই Chapter সম্পন্ন হয়েছে"
-:"📖 পড়া শুরু করতে ক্লিক করুন"}
-</p>
-
-`;
-
-div.onclick=
-()=>openChapter(chapter);
-
-box.appendChild(div);
-
-});
-
-if(count===0){
-
-box.innerHTML=`
-
-<div class="chapter">
-
-🔍 কোনো Chapter পাওয়া যায়নি।
-
-</div>
-
-`;
-
-}
-
-updateProgress();
-
-}
-
-
-/* =========================
+/* =====================================================
    SEARCH
-========================= */
+===================================================== */
 
-function searchChapter(){
+function searchChapters() {
 
-renderChapters();
+  const value =
+    $("chapterSearch").value.trim();
+
+  renderChapters(value);
 
 }
 
 
-/* =========================
+function clearChapterSearch() {
+
+  $("chapterSearch").value = "";
+
+  renderChapters();
+
+}
+
+
+/* =====================================================
    OPEN CHAPTER
-========================= */
+===================================================== */
 
-function openChapter(chapter){
+function openChapter(chapter) {
 
-currentChapter=chapter;
+  currentChapter =
+    chapter;
 
-const data=
-contentDB[chapter] ||
-createGenericContent(chapter);
+  quizSubmitted = false;
 
-document
-.getElementById("studySubject")
-.textContent=
-`Class ${currentClass} • ${currentSubject}`;
 
-document
-.getElementById("studyTitle")
-.textContent=
-chapter;
+  $("studyPanel")
+    .classList.add("show");
 
-document
-.getElementById("overview")
-.textContent=
-data.overview;
 
-document
-.getElementById("studyNote")
-.textContent=
-data.note;
+  $("studyTitle").textContent =
+    chapter.title;
 
-document
-.getElementById("remember")
-.textContent=
-data.remember;
 
-document
-.getElementById("goals")
-.innerHTML=
-data.goals
-.map(x=>`<li>${x}</li>`)
-.join("");
+  $("studyType").textContent =
+    currentSubject +
+    " • " +
+    (chapter.type || "Study Material");
 
-document
-.getElementById("important")
-.innerHTML=
-data.important
-.map(x=>`<li>${x}</li>`)
-.join("");
 
-const id=
-currentClass+"|"+
-currentSubject+"|"+
-chapter;
+  $("studySummary").textContent =
+    chapter.summary || "";
 
-const done=
-completed.includes(id);
 
-document
-.getElementById("completeBtn")
-.textContent=
-done
-?"✅ Completed"
-:"✅ Chapter Complete";
+  renderList(
+    "studyGoals",
+    chapter.goals
+  );
 
-document
-.getElementById("quizBox")
-.innerHTML="";
 
-document
-.getElementById("studyPanel")
-.classList.add("show");
+  renderList(
+    "studyPoints",
+    chapter.points
+  );
 
-document
-.getElementById("studyPanel")
-.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+
+  $("studyRemember").textContent =
+    chapter.points &&
+    chapter.points.length
+    ? chapter.points[0]
+    : "গুরুত্বপূর্ণ বিষয় মনে রাখুন।";
+
+
+  $("chapterNote").textContent =
+    chapter.note || "";
+
+
+  generateQuiz();
+
+
+  $("studyPanel")
+    .scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
 
 }
 
 
-/* =========================
-   GENERIC CONTENT
-========================= */
+/* =====================================================
+   RENDER LIST
+===================================================== */
 
-function createGenericContent(chapter){
+function renderList(
+  elementId,
+  items
+) {
 
-return{
+  const el =
+    $(elementId);
 
-overview:
-`এই Chapter-এ "${chapter}" বিষয়টি ধাপে ধাপে বোঝানো হবে। বিষয়টির মূল ধারণা বুঝে নিয়মিত অনুশীলন করলে প্রস্তুতি আরও ভালো হবে।`,
-
-goals:[
-"Chapter-এর মূল ধারণা বোঝা",
-"গুরুত্বপূর্ণ বিষয়গুলো চিহ্নিত করা",
-"প্রশ্নোত্তর ও অনুশীলনের মাধ্যমে ধারণা শক্ত করা"
-],
-
-important:[
-"মূল সংজ্ঞা ও ধারণাগুলো ভালোভাবে পড়বে",
-"উদাহরণগুলো নিজে করার চেষ্টা করবে",
-"প্রয়োজনে নিজের Note তৈরি করবে"
-],
-
-remember:
-"শুধু মুখস্থ না করে বিষয়টি বুঝে পড়ার চেষ্টা করবে।",
-
-note:
-`"${chapter}" অধ্যায়টি ভালোভাবে আয়ত্ত করার জন্য প্রথমে মূল ধারণা পড়বে। তারপর গুরুত্বপূর্ণ পয়েন্ট লিখে রাখবে এবং শেষে Quiz দিয়ে নিজেকে যাচাই করবে।`
-
-};
-
-}
+  el.innerHTML = "";
 
 
-/* =========================
-   COMPLETE CHAPTER
-========================= */
+  if (!items || !items.length) {
 
-function completeChapter(){
+    el.innerHTML =
+      "<li>তথ্য শীঘ্রই যোগ করা হবে।</li>";
 
-const id=
-currentClass+"|"+
-currentSubject+"|"+
-currentChapter;
+    return;
 
-if(!completed.includes(id)){
+  }
 
-completed.push(id);
 
-localStorage.setItem(
-"asimStudyCompleted",
-JSON.stringify(completed)
-);
+  items.forEach(item => {
 
-}
+    const li =
+      document.createElement("li");
 
-document
-.getElementById("completeBtn")
-.textContent=
-"✅ Completed";
+    li.textContent =
+      item;
 
-renderChapters();
+    el.appendChild(li);
+
+  });
 
 }
 
 
-/* =========================
-   PROGRESS
-========================= */
-
-function updateProgress(){
-
-const key=
-currentClass+"-"+currentSubject;
-
-const list=
-chapterDB[key]||[];
-
-if(!list.length)return;
-
-let done=0;
-
-list.forEach(chapter=>{
-
-const id=
-currentClass+"|"+
-currentSubject+"|"+
-chapter;
-
-if(completed.includes(id)){
-done++;
-}
-
-});
-
-const percent=
-Math.round((done/list.length)*100);
-
-document
-.getElementById("progressBar")
-.style.width=
-percent+"%";
-
-document
-.getElementById("progressText")
-.textContent=
-`${done}/${list.length} Chapter Complete • ${percent}%`;
-
-document
-.getElementById("progressTitle")
-.textContent=
-`${currentSubject} Progress`;
-
-}
-
-
-/* =========================
+/* =====================================================
    CLOSE STUDY
-========================= */
+===================================================== */
 
-function closeStudy(){
+function closeStudyPanel() {
 
-document
-.getElementById("studyPanel")
-.classList.remove("show");
-
-}
-
-
-/* =========================
-   CHAPTER QUIZ
-========================= */
-
-function startQuiz(){
-
-let questions=
-quizDB[currentChapter];
-
-if(!questions){
-
-questions=
-createGenericQuiz(currentChapter);
-
-}
-
-currentQuiz=
-shuffleArray([...questions])
-.slice(0,10);
-
-quizSubmitted=false;
-
-let html=`
-
-<div class="quiz-header">
-
-<h3>📝 ${currentChapter} Quiz</h3>
-
-<p>
-১০টি প্রশ্নের উত্তর দাও এবং শেষে তোমার Score দেখো।
-</p>
-
-</div>
-
-`;
-
-currentQuiz.forEach((item,i)=>{
-
-html+=`
-
-<div class="question" id="question-${i}">
-
-<div class="question-number">
-Question ${i+1} / ${currentQuiz.length}
-</div>
-
-<b>${item.q}</b>
-
-${item.options
-.map((option,j)=>`
-
-<label
-class="option"
-id="option-${i}-${j}">
-
-<input
-type="radio"
-name="q${i}"
-value="${j}">
-
-${option}
-
-</label>
-
-`)
-.join("")}
-
-<div
-class="explanation"
-id="explanation-${i}">
-
-💡 ${item.explain}
-
-</div>
-
-</div>
-
-`;
-
-});
-
-html+=`
-
-<button
-class="btn primary"
-onclick="submitQuiz()">
-
-✅ Submit Quiz
-
-</button>
-
-<button
-class="btn dark"
-style="margin-left:8px"
-onclick="startQuiz()">
-
-🔄 New Quiz
-
-</button>
-
-<div id="quizResult"></div>
-
-`;
-
-document
-.getElementById("quizBox")
-.innerHTML=html;
-
-document
-.getElementById("quizBox")
-.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+  $("studyPanel")
+    .classList.remove("show");
 
 }
 
 
-/* =========================
+/* =====================================================
+   QUIZ
+===================================================== */
+
+function generateQuiz() {
+
+  quizSubmitted = false;
+
+
+  let questions =
+    currentChapter &&
+    Array.isArray(
+      currentChapter.mcq
+    )
+      ? currentChapter.mcq
+      : [];
+
+
+  if (!questions.length) {
+
+    questions =
+      createGenericQuestions(
+        currentChapter
+      );
+
+  }
+
+
+  currentQuiz =
+    shuffleArray(
+      questions
+    ).slice(
+      0,
+      Math.min(
+        10,
+        questions.length
+      )
+    );
+
+
+  renderQuiz();
+
+
+  $("quizResult")
+    .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   GENERIC QUESTIONS
+===================================================== */
+
+function createGenericQuestions(
+  chapter
+) {
+
+  const title =
+    chapter?.title ||
+    "এই অধ্যায়";
+
+
+  return [
+
+    {
+      q:
+        `${title} অধ্যায়টি ভালোভাবে শেখার প্রথম ধাপ কোনটি?`,
+
+      options: [
+        "অধ্যায়টি মন দিয়ে পড়া",
+        "শুধু উত্তর মুখস্থ করা",
+        "পড়া বাদ দেওয়া",
+        "শুধু ছবি দেখা"
+      ],
+
+      answer: 0,
+
+      explanation:
+        "প্রথমে অধ্যায়ের বিষয়বস্তু বুঝে পড়া প্রয়োজন।"
+
+    },
+
+    {
+      q:
+        "পড়ার পরে কী করা ভালো?",
+
+      options: [
+        "Revision",
+        "পড়া বন্ধ করা",
+        "শুধু খেলাধুলা করা",
+        "কিছুই না"
+      ],
+
+      answer: 0,
+
+      explanation:
+        "Revision করলে শেখা বিষয় দীর্ঘদিন মনে থাকে।"
+
+    },
+
+    {
+      q:
+        "গুরুত্বপূর্ণ বিষয় কীভাবে মনে রাখা যায়?",
+
+      options: [
+        "নিজের ভাষায় Note তৈরি করে",
+        "কখনো না পড়ে",
+        "শুধু অন্যের উপর নির্ভর করে",
+        "সবকিছু বাদ দিয়ে"
+      ],
+
+      answer: 0,
+
+      explanation:
+        "নিজের ভাষায় Notes তৈরি করা শেখার একটি কার্যকর পদ্ধতি।"
+
+    }
+
+  ];
+
+}
+
+
+/* =====================================================
+   RENDER QUIZ
+===================================================== */
+
+function renderQuiz() {
+
+  const container =
+    $("quizContainer");
+
+  container.innerHTML = "";
+
+
+  if (!currentQuiz.length) {
+
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">🧠</div>
+        <p>
+          এই Chapter-এর MCQ এখনো যোগ করা হয়নি।
+        </p>
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  currentQuiz.forEach(
+    (question, index) => {
+
+      const box =
+        document.createElement("div");
+
+
+      box.className =
+        "quiz-question";
+
+
+      let optionsHTML = "";
+
+
+      question.options.forEach(
+        (option, optionIndex) => {
+
+          optionsHTML += `
+
+            <div class="quiz-option">
+
+              <input
+                type="radio"
+                name="question-${index}"
+                id="q-${index}-${optionIndex}"
+                value="${optionIndex}"
+              >
+
+              <label
+                for="q-${index}-${optionIndex}"
+              >
+
+                ${
+                  String.fromCharCode(
+                    65 + optionIndex
+                  )
+                }.
+                ${escapeHTML(option)}
+
+              </label>
+
+            </div>
+
+          `;
+
+        }
+      );
+
+
+      box.innerHTML = `
+
+        <h4>
+          ${index + 1}.
+          ${escapeHTML(question.q)}
+        </h4>
+
+        <div class="quiz-options">
+          ${optionsHTML}
+        </div>
+
+        <div
+          class="explanation"
+          id="explanation-${index}"
+        ></div>
+
+      `;
+
+
+      container.appendChild(box);
+
+    }
+  );
+
+}
+
+
+/* =====================================================
    SUBMIT QUIZ
-========================= */
+===================================================== */
 
-function submitQuiz(){
+function submitQuiz() {
 
-if(quizSubmitted){
+  if (!currentQuiz.length) {
 
-return;
+    alert(
+      "এই Chapter-এ এখনো MCQ নেই।"
+    );
 
-}
+    return;
 
-let score=0;
-
-currentQuiz.forEach((q,i)=>{
-
-const selected=
-document.querySelector(
-`input[name="q${i}"]:checked`
-);
-
-if(selected){
-
-const answer=
-Number(selected.value);
-
-if(answer===q.answer){
-
-score++;
-
-document
-.getElementById(
-`option-${i}-${answer}`
-)
-.classList.add("correct");
-
-}else{
-
-document
-.getElementById(
-`option-${i}-${answer}`
-)
-.classList.add("wrong");
-
-document
-.getElementById(
-`option-${i}-${q.answer}`
-)
-.classList.add("correct");
-
-}
-
-}else{
-
-document
-.getElementById(
-`option-${i}-${q.answer}`
-)
-.classList.add("correct");
-
-}
-
-document
-.getElementById(
-`explanation-${i}`
-)
-.style.display="block";
-
-});
-
-quizSubmitted=true;
-
-const total=
-currentQuiz.length;
-
-const percent=
-Math.round(
-(score/total)*100
-);
-
-let message="";
-
-if(percent===100){
-
-message=
-"🏆 অসাধারণ! Perfect Score!";
-
-}else if(percent>=80){
-
-message=
-"🌟 খুব ভালো! তোমার প্রস্তুতি দারুণ।";
-
-}else if(percent>=60){
-
-message=
-"👍 ভালো হয়েছে। আরও একটু practice করো।";
-
-}else if(percent>=40){
-
-message=
-"📚 আরও পড়াশোনা ও practice দরকার।";
-
-}else{
-
-message=
-"💪 আবার Chapter পড়ো এবং Quiz দাও।";
-
-}
-
-document
-.getElementById("quizResult")
-.innerHTML=`
-
-<div class="result">
-
-<div>🎉 Quiz Completed!</div>
-
-<div class="score-big">
-${score}/${total}
-</div>
-
-<div>
-Score: ${percent}%
-</div>
-
-<div class="result-message">
-${message}
-</div>
-
-</div>
-
-`;
-
-localStorage.setItem(
-"quiz_"+currentClass+"_"+currentSubject+"_"+currentChapter,
-JSON.stringify({
-score:score,
-total:total,
-percent:percent,
-date:new Date().toLocaleString()
-})
-);
-
-}
+  }
 
 
-/* =========================
-   GENERIC QUIZ
-========================= */
+  if (quizSubmitted) {
 
-function createGenericQuiz(chapter){
+    return;
 
-return[
+  }
 
-{
-q:`"${chapter}" Chapter-এর মূল উদ্দেশ্য কী?`,
-options:[
-"বিষয়টি বুঝে শেখা",
-"শুধু মুখস্থ করা",
-"পড়া বন্ধ করা",
-"শুধু ছবি আঁকা"
-],
-answer:0,
-explain:"Chapter-এর মূল ধারণা বুঝে শেখাই সবচেয়ে গুরুত্বপূর্ণ।"
-},
 
-{
-q:"ভালোভাবে পড়ার জন্য কী প্রয়োজন?",
-options:[
-"নিয়মিত অনুশীলন",
-"শুধু শেষ দিনে পড়া",
-"কখনও Revision না করা",
-"শুধু উত্তর দেখা"
-],
-answer:0,
-explain:"নিয়মিত অনুশীলন শেখাকে আরও শক্তিশালী করে।"
-},
+  let score = 0;
 
-{
-q:"নিজের Note তৈরি করলে কী সুবিধা হয়?",
-options:[
-"পড়া মনে রাখতে সাহায্য করে",
-"পড়া ভুলিয়ে দেয়",
-"সময় সবসময় নষ্ট করে",
-"কোনো সুবিধা নেই"
-],
-answer:0,
-explain:"নিজের ভাষায় Note তৈরি করলে বিষয়টি মনে রাখা সহজ হয়।"
-},
 
-{
-q:"Quiz দেওয়ার উদ্দেশ্য কী?",
-options:[
-"নিজের জ্ঞান যাচাই করা",
-"পড়া এড়িয়ে যাওয়া",
-"শুধু সময় কাটানো",
-"বই বন্ধ করা"
-],
-answer:0,
-explain:"Quiz নিজের প্রস্তুতি ও জ্ঞান যাচাই করতে সাহায্য করে।"
-},
+  currentQuiz.forEach(
+    (question, index) => {
 
-{
-q:"Revision কেন করা হয়?",
-options:[
-"ভুলে যাওয়া বিষয় আবার মনে করার জন্য",
-"পড়া বন্ধ করার জন্য",
-"শুধু সময় কাটানোর জন্য",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"Revision শেখা বিষয়কে আরও ভালোভাবে মনে রাখতে সাহায্য করে।"
-},
+      const selected =
+        document.querySelector(
+          `input[name="question-${index}"]:checked`
+        );
 
-{
-q:"Chapter পড়ার পরে কী করা ভালো?",
-options:[
-"প্রশ্ন অনুশীলন করা",
-"সবকিছু ভুলে যাওয়া",
-"বই বন্ধ করে দেওয়া",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"পড়ার পরে প্রশ্ন অনুশীলন করলে ধারণা শক্ত হয়।"
-},
 
-{
-q:"ভুল উত্তর থেকে কী শেখা যায়?",
-options:[
-"কোথায় ভুল হয়েছে",
-"কিছুই শেখা যায় না",
-"শুধু নম্বর",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"ভুল উত্তর বিশ্লেষণ করলে দুর্বল জায়গা চিহ্নিত করা যায়।"
-},
+      const options =
+        document.querySelectorAll(
+          `input[name="question-${index}"]`
+        );
 
-{
-q:"Study করার সময় কোনটি গুরুত্বপূর্ণ?",
-options:[
-"মনোযোগ",
-"অমনোযোগ",
-"শুধু মোবাইল",
-"কোনোটিই নয়"
-],
-answer:0,
-explain:"মনোযোগ দিয়ে পড়লে শেখার ফল ভালো হয়।"
-},
 
-{
-q:"ভালো ফলাফলের জন্য কী প্রয়োজন?",
-options:[
-"পড়া + অনুশীলন + Revision",
-"শুধু মুখস্থ",
-"শুধু Quiz",
-"শুধু বই কেনা"
-],
-answer:0,
-explain:"পড়া, অনুশীলন এবং Revision একসঙ্গে করলে প্রস্তুতি ভালো হয়।"
-},
+      options.forEach(
+        input => {
 
-{
-q:"নিজের Progress দেখা কেন দরকার?",
-options:[
-"নিজের উন্নতি বোঝার জন্য",
-"শুধু অন্যকে দেখানোর জন্য",
-"সময় নষ্ট করার জন্য",
-"কোনো কারণ নেই"
-],
-answer:0,
-explain:"Progress দেখে কোন জায়গায় আরও কাজ করতে হবে তা বোঝা যায়।"
-}
+          const label =
+            input.nextElementSibling;
 
-];
+
+          if (
+            Number(input.value) ===
+            question.answer
+          ) {
+
+            label.parentElement
+              .classList.add("correct");
+
+          }
+
+
+          if (
+            selected &&
+            input === selected &&
+            Number(input.value) !==
+            question.answer
+          ) {
+
+            label.parentElement
+              .classList.add("wrong");
+
+          }
+
+
+          input.disabled = true;
+
+        }
+      );
+
+
+      if (
+        selected &&
+        Number(selected.value) ===
+        question.answer
+      ) {
+
+        score++;
+
+      }
+
+
+      const explanation =
+        $(
+          `explanation-${index}`
+        );
+
+
+      explanation.style.display =
+        "block";
+
+
+      explanation.textContent =
+        "💡 " +
+        (
+          question.explanation ||
+          "সঠিক উত্তরটি দেখে বিষয়টি আবার পড়ুন।"
+        );
+
+    }
+  );
+
+
+  quizSubmitted = true;
+
+
+  const total =
+    currentQuiz.length;
+
+
+  const percentage =
+    Math.round(
+      (score / total) * 100
+    );
+
+
+  $("quizScore").textContent =
+    `${score}/${total}`;
+
+
+  $("quizMessage").textContent =
+    getQuizMessage(
+      percentage
+    );
+
+
+  $("quizResult")
+    .classList.add("show");
+
+
+  localStorage.setItem(
+    "asimLastQuizScore",
+    percentage
+  );
 
 }
 
 
-/* =========================
-   SHUFFLE
-========================= */
+/* =====================================================
+   QUIZ MESSAGE
+===================================================== */
 
-function shuffleArray(array){
+function getQuizMessage(
+  percentage
+) {
 
-for(let i=array.length-1;i>0;i--){
+  if (percentage === 100) {
 
-const j=
-Math.floor(
-Math.random()*(i+1)
-);
+    return "🎉 Perfect! অসাধারণ!";
 
-[array[i],array[j]]=
-[array[j],array[i]];
+  }
 
-}
+  if (percentage >= 80) {
 
-return array;
+    return "🌟 খুব ভালো! আরও একটু practice করুন।";
 
-}
+  }
 
+  if (percentage >= 60) {
 
-/* =========================
-   CALCULATOR
-========================= */
+    return "👍 ভালো হয়েছে। Revision করলে আরও ভালো হবে।";
 
-function openCalculator(){
+  }
 
-document
-.getElementById("calculator")
-.classList.add("show");
+  if (percentage >= 40) {
 
-}
+    return "📖 আরও একটু practice প্রয়োজন।";
 
-function closeCalculator(){
+  }
 
-document
-.getElementById("calculator")
-.classList.remove("show");
-
-}
-
-function calc(value){
-
-document
-.getElementById("calcDisplay")
-.value+=value;
-
-}
-
-function clearCalc(){
-
-document
-.getElementById("calcDisplay")
-.value="";
-
-}
-
-function calculate(){
-
-const display=
-document.getElementById("calcDisplay");
-
-try{
-
-display.value=
-Function(
-'"use strict";return ('+
-display.value+
-')'
-)();
-
-}catch{
-
-display.value="Error";
-
-}
+  return "💪 Chapter-টি আবার পড়ুন এবং আবার Quiz দিন।";
 
 }
 
 
-/* =========================
-   TIMER
-========================= */
+/* =====================================================
+   NEW QUIZ
+===================================================== */
 
-let timerSeconds=25*60;
+function newQuiz() {
 
-let timerInterval=null;
+  if (!currentChapter) {
 
-function openTimer(){
+    return;
 
-document
-.getElementById("timerModal")
-.classList.add("show");
+  }
 
-updateTimer();
-
-}
-
-function closeTimer(){
-
-document
-.getElementById("timerModal")
-.classList.remove("show");
-
-}
-
-function updateTimer(){
-
-const min=
-Math.floor(timerSeconds/60)
-.toString()
-.padStart(2,"0");
-
-const sec=
-(timerSeconds%60)
-.toString()
-.padStart(2,"0");
-
-document
-.getElementById("timerDisplay")
-.textContent=
-`${min}:${sec}`;
-
-}
-
-function startTimer(){
-
-if(timerInterval)return;
-
-timerInterval=
-setInterval(()=>{
-
-if(timerSeconds>0){
-
-timerSeconds--;
-
-updateTimer();
-
-}else{
-
-clearInterval(timerInterval);
-
-timerInterval=null;
-
-alert("🎉 Study Time Finished!");
-
-}
-
-},1000);
-
-}
-
-function pauseTimer(){
-
-clearInterval(timerInterval);
-
-timerInterval=null;
-
-}
-
-function resetTimer(){
-
-pauseTimer();
-
-timerSeconds=25*60;
-
-updateTimer();
+  generateQuiz();
 
 }
 
 
-/* =========================
+/* =====================================================
+   COMPLETE CHAPTER
+===================================================== */
+
+function completeChapter() {
+
+  if (!currentChapter) {
+
+    return;
+
+  }
+
+
+  localStorage.setItem(
+    "chapter-" +
+    currentClass +
+    "-" +
+    currentChapter.id,
+    "completed"
+  );
+
+
+  updateProgress();
+
+  renderChapters(
+    $("chapterSearch").value.trim()
+  );
+
+
+  alert(
+    "🏆 Chapter Complete হয়েছে!"
+  );
+
+}
+
+
+/* =====================================================
+   CHECK COMPLETED
+===================================================== */
+
+function isChapterComplete(
+  chapterId
+) {
+
+  return (
+    localStorage.getItem(
+      "chapter-" +
+      currentClass +
+      "-" +
+      chapterId
+    ) === "completed"
+  );
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+  let total = 0;
+
+  let completed = 0;
+
+
+  const subjects =
+    getSubjects(currentClass);
+
+
+  Object.values(subjects)
+    .forEach(subject => {
+
+      subject.chapters
+        .forEach(chapter => {
+
+          total++;
+
+          if (
+            isChapterComplete(
+              chapter.id
+            )
+          ) {
+
+            completed++;
+
+          }
+
+        });
+
+    });
+
+
+  const percent =
+    total
+      ? Math.round(
+          (completed / total) * 100
+        )
+      : 0;
+
+
+  $("progressFill")
+    .style.width =
+    percent + "%";
+
+
+  $("progressText")
+    .textContent =
+    percent + "%";
+
+}
+
+
+/* =====================================================
    NOTES
-========================= */
+===================================================== */
 
-function addNoteImage(input){
+function saveNotes() {
 
-if(!input.files.length)return;
+  const notes =
+    $("personalNotes").value;
 
-selectedImage=input.files[0];
 
-const reader=
-new FileReader();
+  localStorage.setItem(
+    "asimStudyNotes",
+    notes
+  );
 
-reader.onload=function(e){
 
-document
-.getElementById("noteImagePreview")
-.innerHTML=`
+  $("notesStatus").textContent =
+    "✓ Notes saved successfully!";
 
-<div style="margin-top:15px">
 
-<b>Selected Image:</b>
+  setTimeout(
+    () => {
 
-<br>
+      $("notesStatus").textContent =
+        "";
 
-<img
-src="${e.target.result}"
-style="max-width:180px;border-radius:12px;margin-top:8px">
-
-</div>
-
-`;
-
-};
-
-reader.readAsDataURL(selectedImage);
+    },
+    2500
+  );
 
 }
 
 
-function saveNote(){
+function loadNotes() {
 
-const text=
-document
-.getElementById("noteText")
-.value
-.trim();
+  const notes =
+    localStorage.getItem(
+      "asimStudyNotes"
+    );
 
-if(!text && !selectedImage){
 
-alert("আগে Note লিখুন বা Image দিন।");
+  if (notes !== null) {
 
-return;
+    $("personalNotes")
+      .value = notes;
+
+  }
 
 }
 
-const saveNoteData=(image)=>{
 
-const notes=
-JSON.parse(
-localStorage.getItem("asimNotes")||"[]"
+function clearNotes() {
+
+  if (
+    confirm(
+      "আপনি কি Notes মুছে ফেলতে চান?"
+    )
+  ) {
+
+    $("personalNotes")
+      .value = "";
+
+
+    localStorage.removeItem(
+      "asimStudyNotes"
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   CALCULATOR
+===================================================== */
+
+function openCalculator() {
+
+  $("calculatorModal")
+    .classList.add("show");
+
+}
+
+
+function closeCalculator() {
+
+  $("calculatorModal")
+    .classList.remove("show");
+
+}
+
+
+function calcInput(value) {
+
+  $("calcDisplay").value +=
+    value;
+
+}
+
+
+function calcClear() {
+
+  $("calcDisplay").value =
+    "";
+
+}
+
+
+function calcBack() {
+
+  const display =
+    $("calcDisplay");
+
+  display.value =
+    display.value.slice(
+      0,
+      -1
+    );
+
+}
+
+
+function calcCalculate() {
+
+  const display =
+    $("calcDisplay");
+
+
+  try {
+
+    if (!display.value) {
+
+      return;
+
+    }
+
+
+    const result =
+      Function(
+        `"use strict";
+         return (${display.value})`
+      )();
+
+
+    display.value =
+      result;
+
+  }
+
+  catch {
+
+    display.value =
+      "Error";
+
+  }
+
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function openTimer() {
+
+  $("timerModal")
+    .classList.add("show");
+
+}
+
+
+function closeTimer() {
+
+  $("timerModal")
+    .classList.remove("show");
+
+}
+
+
+function updateTimerDisplay() {
+
+  const minutes =
+    Math.floor(
+      timerSeconds / 60
+    );
+
+  const seconds =
+    timerSeconds % 60;
+
+
+  $("timerDisplay")
+    .textContent =
+    String(minutes)
+      .padStart(2, "0") +
+    ":" +
+    String(seconds)
+      .padStart(2, "0");
+
+}
+
+
+function startTimer() {
+
+  if (timerInterval) {
+
+    return;
+
+  }
+
+
+  timerInterval =
+    setInterval(
+      () => {
+
+        if (
+          timerSeconds <= 0
+        ) {
+
+          clearInterval(
+            timerInterval
+          );
+
+          timerInterval = null;
+
+          alert(
+            "⏰ Study Session Complete!"
+          );
+
+          return;
+
+        }
+
+
+        timerSeconds--;
+
+        updateTimerDisplay();
+
+      },
+      1000
+    );
+
+}
+
+
+function pauseTimer() {
+
+  if (timerInterval) {
+
+    clearInterval(
+      timerInterval
+    );
+
+    timerInterval = null;
+
+  }
+
+}
+
+
+function resetTimer() {
+
+  pauseTimer();
+
+  timerSeconds =
+    25 * 60;
+
+  updateTimerDisplay();
+
+}
+
+
+/* =====================================================
+   SCROLL HELPERS
+===================================================== */
+
+function scrollToStudy() {
+
+  $("study")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+function scrollToChapters() {
+
+  $("chapters")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+function scrollToNotes() {
+
+  $("notes")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   RANDOM STUDY TIP
+===================================================== */
+
+function setRandomTip() {
+
+  const tips = [
+
+    "প্রতিদিন অল্প অল্প করে পড়লে দীর্ঘদিন মনে রাখা সহজ হয়।",
+
+    "MCQ করার আগে Chapter-এর মূল বিষয়গুলো ভালোভাবে পড়ুন।",
+
+    "নিজের ভাষায় Notes তৈরি করলে Revision সহজ হয়।",
+
+    "পড়ার সময় মোবাইলের distraction কমিয়ে Focus করুন।",
+
+    "প্রতিদিন আগের দিনের পড়া 10 মিনিট Revision করুন।",
+
+    "কোনো বিষয় না বুঝলে সেটি আবার ধীরে ধীরে পড়ুন।"
+
+  ];
+
+
+  const index =
+    Math.floor(
+      Math.random() *
+      tips.length
+    );
+
+
+  $("studyTip").textContent =
+    tips[index];
+
+}
+
+
+/* =====================================================
+   LOAD SETTINGS
+===================================================== */
+
+function loadSavedSettings() {
+
+  const savedClass =
+    localStorage.getItem(
+      "asimStudyClass"
+    );
+
+
+  const savedSubject =
+    localStorage.getItem(
+      "asimStudySubject"
+    );
+
+
+  if (
+    savedClass &&
+    STUDY_DATA[savedClass]
+  ) {
+
+    currentClass =
+      savedClass;
+
+  }
+
+
+  if (
+    savedSubject &&
+    STUDY_DATA[currentClass]
+      .subjects[savedSubject]
+  ) {
+
+    currentSubject =
+      savedSubject;
+
+  }
+
+}
+
+
+/* =====================================================
+   SHUFFLE
+===================================================== */
+
+function shuffleArray(
+  array
+) {
+
+  return [...array]
+    .sort(
+      () => Math.random() - 0.5
+    );
+
+}
+
+
+/* =====================================================
+   HTML SAFETY
+===================================================== */
+
+function escapeHTML(
+  text
+) {
+
+  if (
+    text === null ||
+    text === undefined
+  ) {
+
+    return "";
+
+  }
+
+
+  return String(text)
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   MODAL OUTSIDE CLICK
+===================================================== */
+
+window.addEventListener(
+  "click",
+  function(event) {
+
+    if (
+      event.target ===
+      $("calculatorModal")
+    ) {
+
+      closeCalculator();
+
+    }
+
+
+    if (
+      event.target ===
+      $("timerModal")
+    ) {
+
+      closeTimer();
+
+    }
+
+  }
 );
 
-notes.unshift({
 
-text:text,
+/* =====================================================
+   KEYBOARD SUPPORT
+===================================================== */
 
-image:image||"",
+document.addEventListener(
+  "keydown",
+  function(event) {
 
-date:new Date().toLocaleString()
+    if (
+      event.key === "Escape"
+    ) {
 
-});
+      closeCalculator();
 
-localStorage.setItem(
-"asimNotes",
-JSON.stringify(notes)
+      closeTimer();
+
+    }
+
+  }
 );
 
-document
-.getElementById("noteText")
-.value="";
 
-document
-.getElementById("noteImagePreview")
-.innerHTML="";
+/* =====================================================
+   FINAL
+===================================================== */
 
-selectedImage=null;
-
-renderNotes();
-
-alert("✅ Note Saved!");
-
-};
-
-
-if(selectedImage){
-
-const reader=
-new FileReader();
-
-reader.onload=
-e=>saveNoteData(e.target.result);
-
-reader.readAsDataURL(selectedImage);
-
-}else{
-
-saveNoteData("");
-
-}
-
-}
-
-
-function renderNotes(){
-
-const notes=
-JSON.parse(
-localStorage.getItem("asimNotes")||"[]"
+console.log(
+  "ASIM TECH STUDY APP READY 🚀"
 );
-
-const box=
-document.getElementById("noteList");
-
-box.innerHTML="";
-
-if(!notes.length){
-
-box.innerHTML=
-"<p>এখনও কোনো Note save করা হয়নি।</p>";
-
-return;
-
-}
-
-notes.forEach((note,index)=>{
-
-box.innerHTML+=`
-
-<div class="note">
-
-<small>${note.date}</small>
-
-<p>${escapeHTML(note.text)}</p>
-
-${
-note.image
-?`<img src="${note.image}">`
-:""
-}
-
-<br>
-
-<button
-class="btn"
-style="background:#fee2e2;color:#b91c1c;margin-top:8px"
-onclick="deleteNote(${index})">
-
-🗑️ Delete
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-function deleteNote(index){
-
-const notes=
-JSON.parse(
-localStorage.getItem("asimNotes")||"[]"
-);
-
-notes.splice(index,1);
-
-localStorage.setItem(
-"asimNotes",
-JSON.stringify(notes)
-);
-
-renderNotes();
-
-}
-
-
-function escapeHTML(text){
-
-return text
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-
-}
 
 </script>
 
