@@ -1,63 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Asim Multimedia Studio</title>
 
 <style>
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
 }
 
 body{
-  font-family:Arial, sans-serif;
-  background:linear-gradient(135deg,#eef2ff,#f8fafc);
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#eef2ff,#f8faff);
   color:#172033;
-  min-height:100vh;
 }
 
+/* HEADER */
 header{
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
+  background:linear-gradient(135deg,#4f46e5,#9333ea);
   color:white;
   text-align:center;
-  padding:28px 15px;
-  box-shadow:0 4px 15px rgba(0,0,0,.15);
+  padding:25px 15px 30px;
+}
+
+.logo{
+  width:150px;
+  height:150px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 8px;
 }
 
 header h1{
-  font-size:30px;
-  margin-bottom:8px;
+  margin:5px 0;
+  font-size:29px;
 }
 
 header p{
-  opacity:.9;
+  margin:8px 0 0;
+  font-size:17px;
+  opacity:.92;
 }
 
+/* MAIN */
 .container{
-  max-width:1100px;
+  max-width:1050px;
   margin:25px auto;
   padding:0 15px;
 }
 
+/* TABS */
 .tabs{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-bottom:20px;
+  gap:12px;
+  margin-bottom:22px;
 }
 
 .tab{
-  border:none;
-  padding:14px 8px;
-  border-radius:12px;
+  border:0;
   background:white;
-  cursor:pointer;
+  color:#172033;
+  border-radius:15px;
+  padding:18px 10px;
+  font-size:17px;
   font-weight:bold;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
   transition:.2s;
 }
 
@@ -66,16 +78,17 @@ header p{
 }
 
 .tab.active{
-  background:#4f46e5;
+  background:linear-gradient(135deg,#4f46e5,#7c3aed);
   color:white;
 }
 
+/* PANELS */
 .panel{
   display:none;
   background:white;
   padding:25px;
-  border-radius:18px;
-  box-shadow:0 5px 20px rgba(0,0,0,.09);
+  border-radius:20px;
+  box-shadow:0 7px 25px rgba(0,0,0,.08);
 }
 
 .panel.active{
@@ -83,77 +96,83 @@ header p{
 }
 
 h2{
-  margin-bottom:18px;
   color:#3730a3;
+  margin-top:0;
+  font-size:28px;
 }
 
+/* FILE INPUT */
 input[type=file]{
   width:100%;
-  padding:12px;
+  padding:15px;
   border:2px dashed #a5b4fc;
   border-radius:12px;
   margin-bottom:15px;
+  background:#fafbff;
+  font-size:15px;
 }
 
-audio,video{
+/* MEDIA */
+audio,
+video{
   width:100%;
+  margin-top:10px;
+  border-radius:15px;
+  background:#000;
+}
+
+/* BUTTONS */
+.controls{
+  text-align:center;
   margin-top:15px;
-  border-radius:12px;
-  background:#111;
 }
 
 button{
-  border:none;
+  border:0;
   padding:12px 18px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:bold;
   margin:5px;
+  border-radius:10px;
   background:#4f46e5;
   color:white;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
 }
 
 button:hover{
   opacity:.88;
 }
 
-button.stop{
+.stop{
   background:#dc2626;
 }
 
-button.secondary{
+.gray{
   background:#64748b;
 }
 
+.green{
+  background:#059669;
+}
+
+/* STATUS */
 .status{
-  margin-top:15px;
-  padding:12px;
-  border-radius:10px;
   background:#f1f5f9;
+  padding:13px;
+  border-radius:12px;
   text-align:center;
+  margin-top:15px;
 }
 
-.preview{
-  margin-top:20px;
-  text-align:center;
-}
-
-.preview img{
-  max-width:100%;
-  max-height:500px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
+/* SLIDESHOW */
 .slideshow{
+  background:#111827;
   min-height:300px;
+  border-radius:15px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#111827;
-  border-radius:15px;
   overflow:hidden;
-  margin-top:15px;
 }
 
 .slideshow img{
@@ -162,224 +181,431 @@ button.secondary{
   object-fit:contain;
 }
 
-.controls{
-  text-align:center;
-  margin-top:15px;
-}
-
-video.camera{
+/* CAMERA */
+.camera{
   width:100%;
   max-height:500px;
   background:#000;
+  border-radius:15px;
 }
 
+/* NOTE */
 .note{
-  margin-top:15px;
-  padding:12px;
   background:#fff7ed;
   border-left:4px solid #f97316;
+  padding:12px;
+  margin-top:15px;
   border-radius:8px;
   font-size:14px;
 }
 
+/* DOWNLOAD */
+.download{
+  display:none;
+  text-align:center;
+  margin-top:15px;
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:30px 10px;
   color:#64748b;
+  font-size:16px;
 }
 
+/* MOBILE */
 @media(max-width:650px){
+
   .tabs{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .logo{
+    width:115px;
+    height:115px;
   }
 
   header h1{
     font-size:24px;
   }
 
+  header p{
+    font-size:15px;
+  }
+
   .panel{
     padding:18px;
+  }
+
+  h2{
+    font-size:24px;
+  }
+
+  button{
+    padding:11px 15px;
+    font-size:14px;
   }
 }
 </style>
 </head>
 
+
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
-  <h1>🎬 Asim Multimedia Studio</h1>
+
+  <!-- YOUR MULTIMEDIA PNG -->
+  <img
+    src="file_00000000845481fa8c577a57988ede22.png"
+    class="logo"
+    alt="Asim Multimedia">
+
+  <h1>Asim Multimedia Studio</h1>
+
   <p>Audio • Video • Photos • Recorder</p>
+
 </header>
+
 
 <div class="container">
 
-  <div class="tabs">
-    <button class="tab active" onclick="showPanel('audioPanel',this)">
-      🎵 Audio
+
+<!-- ================= TABS ================= -->
+
+<div class="tabs">
+
+  <button
+    class="tab active"
+    onclick="showPanel('audioPanel',this)">
+    🎵 Audio
+  </button>
+
+  <button
+    class="tab"
+    onclick="showPanel('videoPanel',this)">
+    🎬 Video
+  </button>
+
+  <button
+    class="tab"
+    onclick="showPanel('slidePanel',this)">
+    🖼️ Slideshow
+  </button>
+
+  <button
+    class="tab"
+    onclick="showPanel('voicePanel',this)">
+    🎙️ Voice
+  </button>
+
+  <button
+    class="tab"
+    onclick="showPanel('cameraPanel',this)">
+    📹 Camera
+  </button>
+
+  <button
+    class="tab"
+    onclick="showPanel('screenPanel',this)">
+    🖥️ Screen
+  </button>
+
+</div>
+
+
+<!-- ================= AUDIO ================= -->
+
+<div id="audioPanel" class="panel active">
+
+  <h2>🎵 Audio Player</h2>
+
+  <input
+    type="file"
+    id="audioFile"
+    accept="audio/*">
+
+  <audio
+    id="audioPlayer"
+    controls>
+  </audio>
+
+  <div class="controls">
+
+    <button onclick="audioPlayer.play()">
+      ▶ Play
     </button>
 
-    <button class="tab" onclick="showPanel('videoPanel',this)">
-      🎬 Video
+    <button
+      class="gray"
+      onclick="audioPlayer.pause()">
+      ⏸ Pause
     </button>
 
-    <button class="tab" onclick="showPanel('slidePanel',this)">
-      🖼️ Slideshow
+    <button
+      class="stop"
+      onclick="stopAudio()">
+      ⏹ Stop
     </button>
-
-    <button class="tab" onclick="showPanel('voicePanel',this)">
-      🎙️ Voice
-    </button>
-
-    <button class="tab" onclick="showPanel('cameraPanel',this)">
-      📹 Camera
-    </button>
-
-    <button class="tab" onclick="showPanel('screenPanel',this)">
-      🖥️ Screen
-    </button>
-  </div>
-
-
-  <!-- AUDIO -->
-  <div id="audioPanel" class="panel active">
-
-    <h2>🎵 Audio Player</h2>
-
-    <input type="file" id="audioFile" accept="audio/*">
-
-    <audio id="audioPlayer" controls></audio>
-
-    <div class="controls">
-      <button onclick="audioPlayer.play()">▶ Play</button>
-      <button class="secondary" onclick="audioPlayer.pause()">⏸ Pause</button>
-      <button class="stop" onclick="stopAudio()">⏹ Stop</button>
-    </div>
-
-  </div>
-
-
-  <!-- VIDEO -->
-  <div id="videoPanel" class="panel">
-
-    <h2>🎬 Video Player</h2>
-
-    <input type="file" id="videoFile" accept="video/*">
-
-    <video id="videoPlayer" controls></video>
-
-    <div class="controls">
-      <button onclick="videoPlayer.play()">▶ Play</button>
-      <button class="secondary" onclick="videoPlayer.pause()">⏸ Pause</button>
-      <button class="stop" onclick="stopVideo()">⏹ Stop</button>
-      <button onclick="videoPlayer.requestFullscreen()">⛶ Fullscreen</button>
-    </div>
-
-  </div>
-
-
-  <!-- SLIDESHOW -->
-  <div id="slidePanel" class="panel">
-
-    <h2>🖼️ Photo Slideshow</h2>
-
-    <input type="file" id="imageFiles" accept="image/*" multiple>
-
-    <div class="slideshow">
-      <img id="slideImage" style="display:none;">
-      <div id="slideMessage" style="color:white;">
-        Select multiple images
-      </div>
-    </div>
-
-    <div class="controls">
-      <button onclick="previousSlide()">⬅ Previous</button>
-      <button onclick="nextSlide()">Next ➡</button>
-      <button onclick="startSlide()">▶ Start</button>
-      <button class="stop" onclick="stopSlide()">⏹ Stop</button>
-    </div>
-
-    <div class="status" id="slideStatus">
-      No images selected
-    </div>
-
-  </div>
-
-
-  <!-- VOICE RECORDER -->
-  <div id="voicePanel" class="panel">
-
-    <h2>🎙️ Voice Recorder</h2>
-
-    <div class="controls">
-      <button onclick="startVoice()">🔴 Start Recording</button>
-      <button class="stop" onclick="stopVoice()">⏹ Stop</button>
-    </div>
-
-    <div class="status" id="voiceStatus">
-      Ready to record
-    </div>
-
-    <audio id="voicePlayback" controls></audio>
-
-    <div class="controls">
-      <a id="voiceDownload" style="display:none;" download="asim-voice-recording.webm">
-        <button>⬇ Download Recording</button>
-      </a>
-    </div>
-
-    <div class="note">
-      🎤 আপনার browser microphone permission চাইতে পারে। Allow করুন।
-    </div>
-
-  </div>
-
-
-  <!-- CAMERA -->
-  <div id="cameraPanel" class="panel">
-
-    <h2>📹 Webcam</h2>
-
-    <video id="cameraVideo" class="camera" autoplay playsinline></video>
-
-    <div class="controls">
-      <button onclick="startCamera()">📷 Start Camera</button>
-      <button class="stop" onclick="stopCamera()">⏹ Stop Camera</button>
-    </div>
-
-    <div class="status" id="cameraStatus">
-      Camera is off
-    </div>
-
-  </div>
-
-
-  <!-- SCREEN RECORDER -->
-  <div id="screenPanel" class="panel">
-
-    <h2>🖥️ Screen Recorder</h2>
-
-    <video id="screenPreview" class="camera" autoplay muted></video>
-
-    <div class="controls">
-      <button onclick="startScreen()">🔴 Start Screen</button>
-      <button class="stop" onclick="stopScreen()">⏹ Stop Recording</button>
-    </div>
-
-    <div class="status" id="screenStatus">
-      Ready
-    </div>
-
-    <a id="screenDownload" style="display:none;" download="asim-screen-recording.webm">
-      <button>⬇ Download Screen Recording</button>
-    </a>
-
-    <div class="note">
-      ℹ️ Screen recording সাধারণত HTTPS website-এ কাজ করে। GitHub Pages HTTPS হওয়ায় এটি ব্যবহার করা যাবে।
-    </div>
 
   </div>
 
 </div>
+
+
+<!-- ================= VIDEO ================= -->
+
+<div id="videoPanel" class="panel">
+
+  <h2>🎬 Video Player</h2>
+
+  <input
+    type="file"
+    id="videoFile"
+    accept="video/*">
+
+  <video
+    id="videoPlayer"
+    controls>
+  </video>
+
+  <div class="controls">
+
+    <button onclick="videoPlayer.play()">
+      ▶ Play
+    </button>
+
+    <button
+      class="gray"
+      onclick="videoPlayer.pause()">
+      ⏸ Pause
+    </button>
+
+    <button
+      class="stop"
+      onclick="stopVideo()">
+      ⏹ Stop
+    </button>
+
+    <button onclick="videoFullscreen()">
+      ⛶ Fullscreen
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= SLIDESHOW ================= -->
+
+<div id="slidePanel" class="panel">
+
+  <h2>🖼️ Photo Slideshow</h2>
+
+  <input
+    type="file"
+    id="imageFiles"
+    accept="image/*"
+    multiple>
+
+  <div class="slideshow">
+
+    <img
+      id="slideImage"
+      style="display:none;">
+
+    <span
+      id="slideMessage"
+      style="color:white;">
+      Select multiple photos
+    </span>
+
+  </div>
+
+  <div class="controls">
+
+    <button onclick="previousSlide()">
+      ⬅ Previous
+    </button>
+
+    <button onclick="nextSlide()">
+      Next ➡
+    </button>
+
+    <button onclick="startSlide()">
+      ▶ Start
+    </button>
+
+    <button
+      class="stop"
+      onclick="stopSlide()">
+      ⏹ Stop
+    </button>
+
+  </div>
+
+  <div
+    class="status"
+    id="slideStatus">
+    No images selected
+  </div>
+
+</div>
+
+
+<!-- ================= VOICE RECORDER ================= -->
+
+<div id="voicePanel" class="panel">
+
+  <h2>🎙️ Voice Recorder</h2>
+
+  <div class="controls">
+
+    <button onclick="startVoice()">
+      🔴 Start Recording
+    </button>
+
+    <button
+      class="stop"
+      onclick="stopVoice()">
+      ⏹ Stop
+    </button>
+
+  </div>
+
+  <div
+    class="status"
+    id="voiceStatus">
+    Ready to record
+  </div>
+
+  <audio
+    id="voicePlayback"
+    controls>
+  </audio>
+
+  <div
+    class="download"
+    id="voiceDownloadBox">
+
+    <a
+      id="voiceDownload"
+      download="asim-voice-recording.webm">
+
+      <button class="green">
+        ⬇ Download Recording
+      </button>
+
+    </a>
+
+  </div>
+
+  <div class="note">
+    🎤 Microphone permission চাইলে Allow করুন।
+  </div>
+
+</div>
+
+
+<!-- ================= CAMERA ================= -->
+
+<div id="cameraPanel" class="panel">
+
+  <h2>📹 Camera</h2>
+
+  <video
+    id="cameraVideo"
+    class="camera"
+    autoplay
+    playsinline>
+  </video>
+
+  <div class="controls">
+
+    <button onclick="startCamera()">
+      📷 Start Camera
+    </button>
+
+    <button
+      class="stop"
+      onclick="stopCamera()">
+      ⏹ Stop Camera
+    </button>
+
+  </div>
+
+  <div
+    class="status"
+    id="cameraStatus">
+    Camera is off
+  </div>
+
+</div>
+
+
+<!-- ================= SCREEN RECORDER ================= -->
+
+<div id="screenPanel" class="panel">
+
+  <h2>🖥️ Screen Recorder</h2>
+
+  <video
+    id="screenPreview"
+    class="camera"
+    autoplay
+    muted
+    playsinline>
+  </video>
+
+  <div class="controls">
+
+    <button onclick="startScreen()">
+      🔴 Start Screen
+    </button>
+
+    <button
+      class="stop"
+      onclick="stopScreen()">
+      ⏹ Stop Recording
+    </button>
+
+  </div>
+
+  <div
+    class="status"
+    id="screenStatus">
+    Ready
+  </div>
+
+  <div
+    class="download"
+    id="screenDownloadBox">
+
+    <a
+      id="screenDownload"
+      download="asim-screen-recording.webm">
+
+      <button class="green">
+        ⬇ Download Recording
+      </button>
+
+    </a>
+
+  </div>
+
+  <div class="note">
+    ℹ️ Screen recording-এর জন্য browser permission দিতে হবে।
+  </div>
+
+</div>
+
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
   © 2026 Asim Tech • Asim Multimedia Studio
@@ -388,46 +614,62 @@ footer{
 
 <script>
 
-/* =========================
+/* =====================================================
    TAB SYSTEM
-========================= */
+===================================================== */
 
 function showPanel(id,btn){
 
-  document.querySelectorAll('.panel')
-    .forEach(p=>p.classList.remove('active'));
+  document
+    .querySelectorAll(".panel")
+    .forEach(function(panel){
 
-  document.querySelectorAll('.tab')
-    .forEach(b=>b.classList.remove('active'));
+      panel.classList.remove("active");
 
-  document.getElementById(id).classList.add('active');
+    });
 
-  btn.classList.add('active');
+  document
+    .querySelectorAll(".tab")
+    .forEach(function(button){
+
+      button.classList.remove("active");
+
+    });
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  btn.classList.add("active");
+
 }
 
 
-/* =========================
+/* =====================================================
    AUDIO PLAYER
-========================= */
+===================================================== */
 
 const audioFile =
-document.getElementById('audioFile');
+document.getElementById("audioFile");
 
 const audioPlayer =
-document.getElementById('audioPlayer');
+document.getElementById("audioPlayer");
 
-audioFile.addEventListener('change',function(){
+audioFile.addEventListener("change",function(){
 
   const file=this.files[0];
 
-  if(!file)return;
+  if(!file){
+    return;
+  }
 
-  audioPlayer.src=
-  URL.createObjectURL(file);
+  audioPlayer.src =
+    URL.createObjectURL(file);
 
   audioPlayer.load();
 
 });
+
 
 function stopAudio(){
 
@@ -438,28 +680,31 @@ function stopAudio(){
 }
 
 
-/* =========================
+/* =====================================================
    VIDEO PLAYER
-========================= */
+===================================================== */
 
 const videoFile =
-document.getElementById('videoFile');
+document.getElementById("videoFile");
 
 const videoPlayer =
-document.getElementById('videoPlayer');
+document.getElementById("videoPlayer");
 
-videoFile.addEventListener('change',function(){
+videoFile.addEventListener("change",function(){
 
   const file=this.files[0];
 
-  if(!file)return;
+  if(!file){
+    return;
+  }
 
-  videoPlayer.src=
-  URL.createObjectURL(file);
+  videoPlayer.src =
+    URL.createObjectURL(file);
 
   videoPlayer.load();
 
 });
+
 
 function stopVideo(){
 
@@ -470,33 +715,50 @@ function stopVideo(){
 }
 
 
-/* =========================
-   SLIDESHOW
-========================= */
+function videoFullscreen(){
+
+  if(videoPlayer.requestFullscreen){
+
+    videoPlayer.requestFullscreen();
+
+  }
+
+}
+
+
+/* =====================================================
+   PHOTO SLIDESHOW
+===================================================== */
 
 let slides=[];
 let slideIndex=0;
 let slideTimer=null;
 
-const imageFiles=
-document.getElementById('imageFiles');
+const imageFiles =
+document.getElementById("imageFiles");
 
-const slideImage=
-document.getElementById('slideImage');
+const slideImage =
+document.getElementById("slideImage");
 
-const slideMessage=
-document.getElementById('slideMessage');
+const slideMessage =
+document.getElementById("slideMessage");
 
-const slideStatus=
-document.getElementById('slideStatus');
+const slideStatus =
+document.getElementById("slideStatus");
 
-imageFiles.addEventListener('change',function(){
+
+imageFiles.addEventListener("change",function(){
 
   slides=[];
 
-  Array.from(this.files).forEach(file=>{
+  const files =
+    Array.from(this.files);
 
-    slides.push(URL.createObjectURL(file));
+  files.forEach(function(file){
+
+    slides.push(
+      URL.createObjectURL(file)
+    );
 
   });
 
@@ -504,61 +766,81 @@ imageFiles.addEventListener('change',function(){
 
   if(slides.length>0){
 
-    slideMessage.style.display='none';
+    slideMessage.style.display="none";
 
-    slideImage.style.display='block';
+    slideImage.style.display="block";
 
     showSlide();
-
-    slideStatus.innerText=
-      slides.length+" image(s) selected";
 
   }
 
 });
 
+
 function showSlide(){
 
-  if(slides.length===0)return;
+  if(slides.length===0){
+    return;
+  }
 
-  slideImage.src=slides[slideIndex];
+  slideImage.src =
+    slides[slideIndex];
 
-  slideStatus.innerText=
-    "Image "+(slideIndex+1)+" of "+slides.length;
+  slideStatus.innerText =
+    "Image "+
+    (slideIndex+1)+
+    " of "+
+    slides.length;
 
 }
+
 
 function nextSlide(){
 
-  if(slides.length===0)return;
+  if(slides.length===0){
+    return;
+  }
 
   slideIndex++;
 
-  if(slideIndex>=slides.length)
+  if(slideIndex>=slides.length){
+
     slideIndex=0;
+
+  }
 
   showSlide();
 
 }
+
 
 function previousSlide(){
 
-  if(slides.length===0)return;
+  if(slides.length===0){
+    return;
+  }
 
   slideIndex--;
 
-  if(slideIndex<0)
-    slideIndex=slides.length-1;
+  if(slideIndex<0){
+
+    slideIndex=
+      slides.length-1;
+
+  }
 
   showSlide();
 
 }
+
 
 function startSlide(){
 
   if(slides.length===0){
 
-    alert("Please select images first.");
+    alert(
+      "Please select photos first."
+    );
 
     return;
 
@@ -566,12 +848,14 @@ function startSlide(){
 
   stopSlide();
 
-  slideTimer=setInterval(
-    nextSlide,
-    3000
-  );
+  slideTimer =
+    setInterval(
+      nextSlide,
+      3000
+    );
 
 }
+
 
 function stopSlide(){
 
@@ -586,151 +870,180 @@ function stopSlide(){
 }
 
 
-/* =========================
+/* =====================================================
    VOICE RECORDER
-========================= */
+===================================================== */
 
-let voiceRecorder;
+let voiceRecorder=null;
 let voiceChunks=[];
+
 
 async function startVoice(){
 
   try{
 
-    const stream=
-      await navigator.mediaDevices.getUserMedia({
+    const stream =
+      await navigator.mediaDevices
+      .getUserMedia({
         audio:true
       });
 
     voiceChunks=[];
 
-    voiceRecorder=
+    voiceRecorder =
       new MediaRecorder(stream);
 
-    voiceRecorder.ondataavailable=e=>{
-      if(e.data.size>0)
-        voiceChunks.push(e.data);
-    };
+    voiceRecorder.ondataavailable =
+      function(event){
 
-    voiceRecorder.onstop=()=>{
+        if(event.data.size>0){
 
-      const blob=
-        new Blob(
-          voiceChunks,
-          {type:'audio/webm'}
-        );
+          voiceChunks.push(
+            event.data
+          );
 
-      const url=
-        URL.createObjectURL(blob);
+        }
 
-      document.getElementById(
-        'voicePlayback'
-      ).src=url;
+      };
 
-      const download=
+
+    voiceRecorder.onstop =
+      function(){
+
+        const blob =
+          new Blob(
+            voiceChunks,
+            {
+              type:"audio/webm"
+            }
+          );
+
+        const url =
+          URL.createObjectURL(blob);
+
         document.getElementById(
-          'voiceDownload'
-        );
+          "voicePlayback"
+        ).src=url;
 
-      download.href=url;
-      download.style.display='inline-block';
+        document.getElementById(
+          "voiceDownload"
+        ).href=url;
 
-      stream.getTracks().forEach(
-        track=>track.stop()
-      );
+        document.getElementById(
+          "voiceDownloadBox"
+        ).style.display="block";
 
-    };
+        stream
+          .getTracks()
+          .forEach(
+            track=>track.stop()
+          );
+
+      };
+
 
     voiceRecorder.start();
 
     document.getElementById(
-      'voiceStatus'
-    ).innerText="🔴 Recording...";
+      "voiceStatus"
+    ).innerText =
+      "🔴 Recording...";
 
   }
   catch(error){
 
     alert(
-      "Microphone permission পাওয়া যায়নি."
+      "Microphone permission পাওয়া যায়নি।"
     );
 
   }
 
 }
+
 
 function stopVoice(){
 
   if(
     voiceRecorder &&
-    voiceRecorder.state!=="inactive"
+    voiceRecorder.state !== "inactive"
   ){
 
     voiceRecorder.stop();
 
     document.getElementById(
-      'voiceStatus'
-    ).innerText="Recording completed.";
+      "voiceStatus"
+    ).innerText =
+      "Recording completed.";
 
   }
 
 }
 
 
-/* =========================
+/* =====================================================
    CAMERA
-========================= */
+===================================================== */
 
 let cameraStream=null;
+
 
 async function startCamera(){
 
   try{
 
-    cameraStream=
-      await navigator.mediaDevices.getUserMedia({
+    cameraStream =
+      await navigator.mediaDevices
+      .getUserMedia({
+
         video:true,
+
         audio:false
+
       });
 
-    const camera=
-      document.getElementById(
-        'cameraVideo'
-      );
-
-    camera.srcObject=
-      cameraStream;
 
     document.getElementById(
-      'cameraStatus'
-    ).innerText="📷 Camera is ON";
+      "cameraVideo"
+    ).srcObject =
+      cameraStream;
+
+
+    document.getElementById(
+      "cameraStatus"
+    ).innerText =
+      "📷 Camera is ON";
 
   }
   catch(error){
 
     alert(
-      "Camera permission পাওয়া যায়নি."
+      "Camera permission পাওয়া যায়নি।"
     );
 
   }
 
 }
 
+
 function stopCamera(){
 
   if(cameraStream){
 
-    cameraStream.getTracks()
-      .forEach(track=>track.stop());
+    cameraStream
+      .getTracks()
+      .forEach(
+        track=>track.stop()
+      );
 
     cameraStream=null;
 
     document.getElementById(
-      'cameraVideo'
+      "cameraVideo"
     ).srcObject=null;
 
     document.getElementById(
-      'cameraStatus'
-    ).innerText=
+      "cameraStatus"
+    ).innerText =
       "Camera is off";
 
   }
@@ -738,114 +1051,145 @@ function stopCamera(){
 }
 
 
-/* =========================
+/* =====================================================
    SCREEN RECORDER
-========================= */
+===================================================== */
 
-let screenRecorder;
+let screenRecorder=null;
 let screenChunks=[];
-let screenStream;
+let screenStream=null;
+
 
 async function startScreen(){
 
   try{
 
-    screenStream=
-      await navigator.mediaDevices.getDisplayMedia({
+    screenStream =
+      await navigator.mediaDevices
+      .getDisplayMedia({
+
         video:true,
+
         audio:true
+
       });
 
-    const preview=
-      document.getElementById(
-        'screenPreview'
-      );
 
-    preview.srcObject=
+    document.getElementById(
+      "screenPreview"
+    ).srcObject =
       screenStream;
+
 
     screenChunks=[];
 
-    screenRecorder=
+
+    screenRecorder =
       new MediaRecorder(
         screenStream
       );
 
-    screenRecorder.ondataavailable=e=>{
 
-      if(e.data.size>0)
-        screenChunks.push(e.data);
+    screenRecorder.ondataavailable =
+      function(event){
 
-    };
+        if(event.data.size>0){
 
-    screenRecorder.onstop=()=>{
+          screenChunks.push(
+            event.data
+          );
 
-      const blob=
-        new Blob(
-          screenChunks,
-          {type:'video/webm'}
-        );
+        }
 
-      const url=
-        URL.createObjectURL(blob);
+      };
 
-      const download=
+
+    screenRecorder.onstop =
+      function(){
+
+        const blob =
+          new Blob(
+            screenChunks,
+            {
+              type:"video/webm"
+            }
+          );
+
+        const url =
+          URL.createObjectURL(blob);
+
+
         document.getElementById(
-          'screenDownload'
-        );
+          "screenDownload"
+        ).href=url;
 
-      download.href=url;
 
-      download.style.display=
-        'inline-block';
+        document.getElementById(
+          "screenDownloadBox"
+        ).style.display="block";
 
-      document.getElementById(
-        'screenStatus'
-      ).innerText=
-        "Recording completed.";
 
-    };
+        document.getElementById(
+          "screenStatus"
+        ).innerText =
+          "Recording completed.";
+
+      };
+
 
     screenRecorder.start();
 
-    document.getElementById(
-      'screenStatus'
-    ).innerText=
-      "🔴 Screen recording...";
 
-    screenStream
-      .getVideoTracks()[0]
-      .addEventListener(
-        'ended',
-        stopScreen
-      );
+    document.getElementById(
+      "screenStatus"
+    ).innerText =
+      "🔴 Recording screen...";
+
+
+    const videoTrack =
+      screenStream.getVideoTracks()[0];
+
+
+    videoTrack.onended =
+      function(){
+
+        stopScreen();
+
+      };
 
   }
   catch(error){
 
     alert(
-      "Screen sharing permission দেওয়া হয়নি."
+      "Screen sharing permission দেওয়া হয়নি।"
     );
 
   }
 
 }
 
+
 function stopScreen(){
 
   if(
     screenRecorder &&
-    screenRecorder.state!=="inactive"
+    screenRecorder.state !== "inactive"
   ){
 
     screenRecorder.stop();
 
   }
 
+
   if(screenStream){
 
-    screenStream.getTracks()
-      .forEach(track=>track.stop());
+    screenStream
+      .getTracks()
+      .forEach(
+        track=>track.stop()
+      );
+
+    screenStream=null;
 
   }
 
