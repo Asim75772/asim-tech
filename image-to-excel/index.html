@@ -6,34 +6,34 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-      content="#020b18">
+content="#020b18">
 
 <meta name="description"
-      content="Asim Tech Image to Excel">
+content="Asim Tech - Image to Excel">
 
 <meta name="mobile-web-app-capable"
-      content="yes">
+content="yes">
 
 <meta name="apple-mobile-web-app-capable"
-      content="yes">
+content="yes">
 
 <meta name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent">
+content="black-translucent">
 
 <meta name="apple-mobile-web-app-title"
-      content="Image to Excel">
+content="Image to Excel">
 
 <link rel="manifest"
-      href="./manifest.json">
+href="./manifest.json">
 
 <title>Asim Tech - Image to Excel</title>
 
 
 <!-- =====================================================
-     EXCEL LIBRARY WITH STYLE SUPPORT
+     EXCEL
 ===================================================== -->
 
 <script
@@ -42,7 +42,7 @@ src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js">
 
 
 <!-- =====================================================
-     OCR
+     TESSERACT OCR
 ===================================================== -->
 
 <script
@@ -51,6 +51,10 @@ src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
 
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -68,18 +72,17 @@ body{
     Arial,
     "Noto Sans Bengali",
     "Noto Sans",
-    Helvetica,
     sans-serif;
 
     background:
     radial-gradient(
         circle at top,
-        #06243d 0%,
+        #07304d 0%,
         #021525 45%,
         #010914 100%
     );
 
-    color:#fff;
+    color:white;
 
     min-height:100vh;
 
@@ -97,13 +100,13 @@ header{
 
     top:0;
 
-    z-index:999;
+    z-index:9999;
 
     background:
-    rgba(1,10,22,.97);
+    rgba(1,10,22,.98);
 
     border-bottom:
-    1px solid
+    2px solid
     rgba(0,153,255,.25);
 
     backdrop-filter:blur(12px);
@@ -113,11 +116,11 @@ header{
 
     max-width:1100px;
 
-    min-height:78px;
+    min-height:76px;
 
     margin:auto;
 
-    padding:12px 18px;
+    padding:10px 15px;
 
     display:flex;
 
@@ -125,7 +128,7 @@ header{
 
     justify-content:space-between;
 
-    gap:15px;
+    gap:12px;
 }
 
 .brand{
@@ -134,7 +137,7 @@ header{
 
     align-items:center;
 
-    gap:12px;
+    gap:11px;
 }
 
 .brand-icon{
@@ -143,7 +146,7 @@ header{
 
     height:46px;
 
-    border-radius:14px;
+    border-radius:13px;
 
     display:flex;
 
@@ -161,17 +164,13 @@ header{
     font-size:22px;
 
     font-weight:bold;
-
-    box-shadow:
-    0 8px 25px
-    rgba(0,130,255,.35);
 }
 
 .brand-text{
 
     font-size:24px;
 
-    font-weight:800;
+    font-weight:900;
 }
 
 .brand-text span{
@@ -183,22 +182,19 @@ header{
 
     text-decoration:none;
 
-    color:white;
+    color:#fff;
+
+    padding:11px 16px;
+
+    border-radius:15px;
 
     border:
     1px solid
-    rgba(0,150,255,.4);
+    rgba(0,150,255,.45);
 
-    background:
-    rgba(5,25,42,.7);
-
-    border-radius:16px;
-
-    padding:11px 17px;
+    background:#06243a;
 
     font-weight:700;
-
-    white-space:nowrap;
 }
 
 
@@ -212,7 +208,7 @@ header{
 
     margin:auto;
 
-    padding:40px 15px 70px;
+    padding:35px 13px 70px;
 }
 
 
@@ -224,14 +220,14 @@ header{
 
     text-align:center;
 
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .badge{
 
     display:inline-block;
 
-    padding:10px 22px;
+    padding:9px 20px;
 
     border-radius:30px;
 
@@ -239,13 +235,13 @@ header{
     1px solid
     rgba(0,153,255,.5);
 
-    color:#36b4ff;
+    color:#39b5ff;
 
-    font-weight:700;
+    font-weight:800;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .hero h1{
@@ -256,8 +252,6 @@ header{
     line-height:1;
 
     font-weight:900;
-
-    letter-spacing:-3px;
 }
 
 .hero h1 span{
@@ -267,14 +261,11 @@ header{
 
 .hero p{
 
-    max-width:800px;
+    margin-top:18px;
 
-    margin:22px auto 0;
+    color:#9bb6c8;
 
-    color:#91adc0;
-
-    font-size:
-    clamp(17px,3vw,23px);
+    font-size:18px;
 
     line-height:1.6;
 }
@@ -289,32 +280,32 @@ header{
     background:
     linear-gradient(
         145deg,
-        rgba(3,35,55,.93),
-        rgba(1,20,34,.96)
+        rgba(3,35,55,.96),
+        rgba(1,20,34,.98)
     );
 
     border:
     1px solid
-    rgba(0,145,220,.28);
+    rgba(0,145,220,.3);
 
-    border-radius:26px;
+    border-radius:25px;
 
     padding:
-    clamp(20px,4vw,35px);
+    clamp(18px,4vw,32px);
 
-    margin-bottom:25px;
+    margin-bottom:22px;
 
     box-shadow:
-    0 20px 70px
+    0 18px 60px
     rgba(0,0,0,.3);
 }
 
 .card-title{
 
     font-size:
-    clamp(26px,5vw,36px);
+    clamp(25px,5vw,34px);
 
-    margin-bottom:25px;
+    margin-bottom:22px;
 }
 
 
@@ -324,15 +315,15 @@ header{
 
 .upload-box{
 
+    min-height:300px;
+
+    padding:25px 15px;
+
     border:
     3px dashed
-    rgba(0,145,220,.42);
+    rgba(0,150,230,.45);
 
-    border-radius:25px;
-
-    min-height:320px;
-
-    padding:30px 15px;
+    border-radius:23px;
 
     display:flex;
 
@@ -345,35 +336,33 @@ header{
     text-align:center;
 
     background:
-    rgba(0,30,48,.4);
+    rgba(0,30,48,.45);
 }
 
 .file-icon{
 
-    font-size:70px;
+    font-size:65px;
 
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
 
 .upload-box h2{
 
     font-size:
-    clamp(24px,5vw,35px);
+    clamp(23px,5vw,34px);
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .upload-box p{
 
-    color:#8ba9bf;
+    color:#8faabd;
 
     max-width:650px;
 
-    font-size:17px;
-
     line-height:1.6;
 
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .file-label{
@@ -384,30 +373,26 @@ header{
 
     justify-content:center;
 
-    min-height:62px;
+    min-height:60px;
 
-    padding:0 28px;
+    padding:0 25px;
 
-    border-radius:17px;
+    border-radius:16px;
 
     background:
     linear-gradient(
         135deg,
         #078dff,
-        #006bd9
+        #0066d7
     );
 
-    color:#fff;
+    color:white;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:800;
 
     cursor:pointer;
-
-    box-shadow:
-    0 10px 30px
-    rgba(0,120,255,.25);
 }
 
 #imageInput{
@@ -435,20 +420,22 @@ header{
 
     max-width:100%;
 
-    max-height:400px;
+    max-height:420px;
 
-    border-radius:18px;
+    border-radius:15px;
 
     border:
-    1px solid
-    rgba(0,160,255,.3);
+    2px solid
+    #188fd0;
 }
 
 .preview-name{
 
-    margin-top:10px;
+    margin-top:9px;
 
-    color:#91adc0;
+    color:#9bb5c7;
+
+    word-break:break-all;
 }
 
 
@@ -463,41 +450,41 @@ header{
     grid-template-columns:
     repeat(2,1fr);
 
-    gap:16px;
+    gap:15px;
 
-    margin-top:22px;
+    margin-top:20px;
 }
 
 .form-group label{
 
     display:block;
 
-    color:#9bb5c7;
+    color:#a4bdcc;
 
     font-weight:700;
 
-    margin-bottom:9px;
+    margin-bottom:8px;
 }
 
 select{
 
     width:100%;
 
-    height:58px;
+    height:56px;
 
-    border-radius:16px;
+    border-radius:15px;
 
     border:
     1px solid
-    rgba(0,150,220,.3);
+    #176c91;
 
     background:#032436;
 
-    color:#fff;
+    color:white;
 
-    padding:0 15px;
+    padding:0 13px;
 
-    font-size:17px;
+    font-size:16px;
 
     outline:none;
 }
@@ -511,17 +498,17 @@ select{
 
     width:100%;
 
-    height:62px;
+    height:61px;
 
-    border:none;
+    border:0;
 
-    border-radius:17px;
+    border-radius:16px;
 
-    margin-top:20px;
+    margin-top:18px;
 
-    color:#fff;
+    color:white;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:800;
 
@@ -537,7 +524,7 @@ select{
 
 .main-btn:disabled{
 
-    opacity:.4;
+    opacity:.45;
 
     cursor:not-allowed;
 }
@@ -548,7 +535,7 @@ select{
     linear-gradient(
         135deg,
         #ff2447,
-        #ed002f
+        #e60030
     );
 }
 
@@ -561,23 +548,23 @@ select{
 
     display:none;
 
-    margin-top:20px;
+    margin-top:18px;
 
-    padding:18px;
+    padding:17px;
 
-    border-radius:17px;
+    border-radius:16px;
 
     background:
-    rgba(0,0,0,.2);
+    rgba(0,0,0,.25);
 }
 
 .progress-text{
 
     text-align:center;
 
-    color:#a8c0d1;
+    color:#aac0ce;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .progress{
@@ -618,11 +605,11 @@ select{
 
     display:none;
 
-    margin-top:18px;
+    margin-top:17px;
 
-    padding:14px;
+    padding:13px;
 
-    border-radius:13px;
+    border-radius:12px;
 
     text-align:center;
 
@@ -633,7 +620,7 @@ select{
 
     display:block;
 
-    color:#54e39a;
+    color:#55e69c;
 
     background:
     rgba(0,200,100,.1);
@@ -643,7 +630,7 @@ select{
 
     display:block;
 
-    color:#ff7188;
+    color:#ff7088;
 
     background:
     rgba(255,0,50,.1);
@@ -661,9 +648,9 @@ select{
 
 .result-info{
 
-    color:#8faec2;
+    color:#91adbe;
 
-    margin-bottom:20px;
+    margin:14px 0 18px;
 
     line-height:1.6;
 }
@@ -679,17 +666,17 @@ select{
 
     overflow-x:auto;
 
-    border-radius:18px;
-
     border:
-    2px solid
-    #0b79bd;
+    3px solid
+    #126f9d;
 
-    background:#fff;
+    border-radius:16px;
+
+    background:white;
 
     box-shadow:
     0 8px 30px
-    rgba(0,0,0,.25);
+    rgba(0,0,0,.35);
 }
 
 table{
@@ -709,70 +696,74 @@ table{
 
 th{
 
-    background:#ccecff;
+    background:#d8f2ff;
 
-    color:#06283b;
+    color:#062b40;
 
-    padding:14px;
+    padding:13px 10px;
 
     border:
     2px solid
-    #2787b8;
+    #276f91;
 
-    white-space:nowrap;
+    font-size:16px;
 
-    font-size:17px;
+    font-weight:900;
 
     text-align:left;
+
+    white-space:nowrap;
 }
 
 td{
 
-    min-width:130px;
-
-    padding:13px;
+    padding:12px 10px;
 
     border:
-    1.5px solid
-    #6e9aaa;
-
-    vertical-align:top;
-
-    font-size:16px;
-
-    line-height:1.45;
+    2px solid
+    #718f9d;
 
     background:#fff;
 
     color:#111;
 
+    font-size:16px;
+
+    line-height:1.5;
+
+    vertical-align:top;
+
     word-break:break-word;
 
     overflow-wrap:anywhere;
+
+    min-width:130px;
 }
 
-tr:nth-child(even) td{
+tbody tr:nth-child(even) td{
 
-    background:#f8fcff;
+    background:#f5fbff;
 }
 
 td[contenteditable="true"]{
 
     outline:none;
+
+    cursor:text;
 }
 
 td[contenteditable="true"]:focus{
 
+    background:#eef9ff;
+
     box-shadow:
     inset 0 0 0 2px
     #078dff;
-
-    background:#eef9ff;
 }
 
 
 /* =====================================================
-   ACTIONS
+   ACTION BUTTONS
 ===================================================== */
 
 .action-grid{
@@ -782,20 +773,20 @@ td[contenteditable="true"]:focus{
     grid-template-columns:
     repeat(2,1fr);
 
-    gap:14px;
+    gap:13px;
 
-    margin-top:22px;
+    margin-top:20px;
 }
 
 .action-btn{
 
-    min-height:60px;
+    min-height:58px;
 
-    border:none;
+    border:0;
 
-    border-radius:16px;
+    border-radius:15px;
 
-    color:#fff;
+    color:white;
 
     font-size:17px;
 
@@ -830,7 +821,7 @@ td[contenteditable="true"]:focus{
     linear-gradient(
         135deg,
         #a72cff,
-        #7b1fff
+        #741cff
     );
 }
 
@@ -839,8 +830,8 @@ td[contenteditable="true"]:focus{
     background:
     linear-gradient(
         135deg,
-        #ff9500,
-        #ff6500
+        #ff9800,
+        #f26300
     );
 }
 
@@ -855,7 +846,7 @@ td[contenteditable="true"]:focus{
     linear-gradient(
         135deg,
         #ff2447,
-        #e9002c
+        #e60030
     );
 }
 
@@ -866,16 +857,16 @@ td[contenteditable="true"]:focus{
 
 .help{
 
-    color:#7898ac;
+    color:#8ca8ba;
 
-    line-height:1.8;
+    line-height:1.9;
 
     font-size:16px;
 }
 
 .help strong{
 
-    color:#c1d9e8;
+    color:#d0e4ee;
 }
 
 
@@ -887,35 +878,35 @@ td[contenteditable="true"]:focus{
 
     .header-inner{
 
-        min-height:70px;
+        min-height:68px;
 
-        padding:10px 13px;
+        padding:9px 11px;
     }
 
     .brand-icon{
 
-        width:42px;
+        width:40px;
 
-        height:42px;
+        height:40px;
 
-        font-size:19px;
+        font-size:18px;
     }
 
     .brand-text{
 
-        font-size:21px;
+        font-size:20px;
     }
 
     .back-btn{
 
-        padding:9px 12px;
+        padding:9px 11px;
 
         font-size:13px;
     }
 
     .container{
 
-        padding:30px 12px 60px;
+        padding:25px 10px 55px;
     }
 
     .form-row{
@@ -930,12 +921,20 @@ td[contenteditable="true"]:focus{
 
     .upload-box{
 
-        min-height:310px;
+        min-height:285px;
     }
 
+    table{
+
+        min-width:600px;
+    }
+
+    th,
     td{
 
-        font-size:15px;
+        font-size:14px;
+
+        padding:10px 8px;
     }
 
 }
@@ -1099,16 +1098,16 @@ OCR Language
 
 <select id="language">
 
+<option value="eng+ben">
+বাংলা + English
+</option>
+
 <option value="eng">
 English
 </option>
 
 <option value="ben">
 বাংলা
-</option>
-
-<option value="eng+ben">
-বাংলা + English
 </option>
 
 </select>
@@ -1218,7 +1217,6 @@ class="status">
 </section>
 
 
-
 <section
 id="resultCard"
 class="card result-card">
@@ -1229,7 +1227,7 @@ class="card result-card">
 
 <p class="result-info">
 
-প্রতিটি cell-এ click করে OCR ভুল ঠিক করতে পারবেন।
+Cell-এ click করে OCR ভুল সংশোধন করতে পারবেন।
 তারপর Download Excel করুন।
 
 </p>
@@ -1314,7 +1312,6 @@ id="clearTable">
 </section>
 
 
-
 <section class="card">
 
 <h2 class="card-title">
@@ -1330,7 +1327,7 @@ Choose Image / Camera চাপুন।
 
 <p>
 <strong>2.</strong>
-English, বাংলা অথবা বাংলা + English select করুন।
+বাংলা + English select করুন।
 </p>
 
 <p>
@@ -1345,7 +1342,7 @@ Extract Table চাপুন।
 
 <p>
 <strong>5.</strong>
-প্রয়োজনে cell-এর OCR লেখা ঠিক করুন।
+প্রয়োজনে cell-এর লেখা ঠিক করুন।
 </p>
 
 <p>
@@ -1361,7 +1358,6 @@ Download Excel চাপুন।
 </main>
 
 
-
 <script>
 
 /* =====================================================
@@ -1373,10 +1369,6 @@ let selectedFile = null;
 let tableData = [];
 
 let currentColumns = 1;
-
-let sourceImageWidth = 0;
-
-let sourceImageHeight = 0;
 
 
 /* =====================================================
@@ -1453,10 +1445,11 @@ document.getElementById("clearTable");
 
 function showStatus(message,type){
 
-    statusBox.textContent = message;
+    statusBox.textContent =
+    message;
 
     statusBox.className =
-        "status " + type;
+    "status " + type;
 
 }
 
@@ -1490,7 +1483,8 @@ function(event){
     }
 
 
-    selectedFile = file;
+    selectedFile =
+    file;
 
 
     const reader =
@@ -1564,10 +1558,6 @@ function(){
 
     currentColumns = 1;
 
-    sourceImageWidth = 0;
-
-    sourceImageHeight = 0;
-
     headerRow.innerHTML = "";
 
     tableBody.innerHTML = "";
@@ -1602,8 +1592,6 @@ async function prepareImage(file){
 
             try{
 
-                const maxWidth = 3000;
-
                 let width =
                 img.naturalWidth;
 
@@ -1611,11 +1599,12 @@ async function prepareImage(file){
                 img.naturalHeight;
 
 
-                sourceImageWidth =
-                width;
+                /*
+                   Keep large images readable
+                */
 
-                sourceImageHeight =
-                height;
+                const maxWidth =
+                3200;
 
 
                 if(width > maxWidth){
@@ -1658,9 +1647,12 @@ async function prepareImage(file){
                 );
 
 
+                /*
+                   White paper background
+                */
+
                 ctx.fillStyle =
                 "#ffffff";
-
 
                 ctx.fillRect(
                     0,
@@ -1732,7 +1724,8 @@ async function prepareImage(file){
         };
 
 
-        img.src = url;
+        img.src =
+        url;
 
     });
 
@@ -1740,7 +1733,7 @@ async function prepareImage(file){
 
 
 /* =====================================================
-   VALID WORD
+   VALID OCR WORD
 ===================================================== */
 
 function validWord(word){
@@ -1756,9 +1749,7 @@ function validWord(word){
 
 
     const text =
-    String(
-        word.text
-    ).trim();
+    String(word.text).trim();
 
 
     if(!text){
@@ -1783,15 +1774,10 @@ function validWord(word){
     return (
 
         Number.isFinite(x0) &&
-
         Number.isFinite(x1) &&
-
         Number.isFinite(y0) &&
-
         Number.isFinite(y1) &&
-
         x1 > x0 &&
-
         y1 > y0
 
     );
@@ -1800,7 +1786,7 @@ function validWord(word){
 
 
 /* =====================================================
-   MAKE OCR ROWS
+   MAKE ROWS
 ===================================================== */
 
 function makeRows(words){
@@ -1821,24 +1807,16 @@ function makeRows(words){
             bbox:{
 
                 x0:
-                Number(
-                    w.bbox.x0
-                ),
+                Number(w.bbox.x0),
 
                 x1:
-                Number(
-                    w.bbox.x1
-                ),
+                Number(w.bbox.x1),
 
                 y0:
-                Number(
-                    w.bbox.y0
-                ),
+                Number(w.bbox.y0),
 
                 y1:
-                Number(
-                    w.bbox.y1
-                )
+                Number(w.bbox.y1)
 
             }
 
@@ -2018,7 +1996,7 @@ function makeRows(words){
 
 
 /* =====================================================
-   BLOCKS
+   MAKE BLOCKS
 ===================================================== */
 
 function makeBlocks(row){
@@ -2062,10 +2040,15 @@ function makeBlocks(row){
     ] || 20;
 
 
+    /*
+       Keep words close together
+       inside same cell.
+    */
+
     const gapThreshold =
     Math.max(
-        12,
-        medianHeight * 1.5
+        10,
+        medianHeight * 1.25
     );
 
 
@@ -2177,121 +2160,260 @@ function makeBlocks(row){
 
 
 /* =====================================================
-   AUTO COLUMN
+   K-MEANS COLUMN CENTRES
 ===================================================== */
 
-function estimateColumns(rows){
+function clusterColumns(values,k){
 
-    if(!rows.length){
+    if(!values.length){
 
-        return 1;
+        return [];
     }
 
 
-    const counts =
-    rows
-    .map(
-        row =>
-        makeBlocks(row).length
-    )
-    .filter(
-        n =>
-        n >= 1 &&
-        n <= 8
+    if(k === 1){
+
+        return [
+
+            values.reduce(
+                (a,b) =>
+                a+b,
+                0
+            ) /
+            values.length
+
+        ];
+
+    }
+
+
+    const sorted =
+    [...values].sort(
+        (a,b) =>
+        a-b
     );
 
 
-    if(!counts.length){
+    /*
+       Initial centres distributed
+       across the page.
+    */
 
-        return 1;
-    }
+    let centers =
+    Array.from(
+    {
+        length:k
+    },
+    function(_,i){
 
+        const pos =
+        Math.round(
+            i *
+            (
+                sorted.length - 1
+            ) /
+            (
+                k - 1
+            )
+        );
 
-    const frequency = {};
-
-
-    counts.forEach(
-    function(n){
-
-        frequency[n] =
-        (
-            frequency[n] || 0
-        ) + 1;
+        return sorted[pos];
 
     });
 
 
-    let best = 1;
+    for(
+        let iteration=0;
+        iteration<40;
+        iteration++
+    ){
 
-    let bestFrequency = 0;
+        const groups =
+        Array.from(
+        {
+            length:k
+        },
+        () => []
+        );
 
 
-    Object.keys(
-        frequency
-    )
-    .forEach(
-    function(key){
+        values.forEach(
+        function(value){
 
-        const n =
-        Number(key);
+            let best = 0;
+
+            let distance =
+            Math.abs(
+                value -
+                centers[0]
+            );
 
 
-        if(
-            frequency[key] >
-            bestFrequency
+            for(
+                let i=1;
+                i<k;
+                i++
+            ){
+
+                const d =
+                Math.abs(
+                    value -
+                    centers[i]
+                );
+
+
+                if(d < distance){
+
+                    distance = d;
+
+                    best = i;
+
+                }
+
+            }
+
+
+            groups[best].push(
+                value
+            );
+
+        });
+
+
+        let changed = false;
+
+
+        for(
+            let i=0;
+            i<k;
+            i++
         ){
 
-            best =
-            n;
+            if(!groups[i].length){
 
-            bestFrequency =
-            frequency[key];
+                continue;
+            }
+
+
+            const newCenter =
+            groups[i].reduce(
+                (a,b) =>
+                a+b,
+                0
+            )
+            /
+            groups[i].length;
+
+
+            if(
+                Math.abs(
+                    newCenter -
+                    centers[i]
+                ) > .5
+            ){
+
+                changed = true;
+
+            }
+
+
+            centers[i] =
+            newCenter;
 
         }
 
-    });
+
+        if(!changed){
+
+            break;
+        }
+
+    }
 
 
-    return Math.min(
-        8,
-        Math.max(
-            1,
-            best
-        )
+    return centers.sort(
+        (a,b) =>
+        a-b
     );
 
 }
 
 
 /* =====================================================
-   FIXED COLUMN TABLE
+   FIND COLUMN CENTRES
 ===================================================== */
 
-/*
-   IMPORTANT:
-
-   Manual column selection uses the COMPLETE
-   OCR image width.
-
-   Example:
-
-   3 columns:
-
-   0% -------- 33% -------- 66% -------- 100%
-
-   7 columns:
-
-   0% - 14.28% - 28.57% ... - 100%
-
-   This prevents OCR words from being pushed
-   into a neighbouring column just because
-   another row has different word positions.
-*/
-
-function buildFixedColumnTable(
+function findColumnCenters(
     rows,
-    columnCount,
-    imageWidth
+    count
+){
+
+    const centers = [];
+
+
+    /*
+       Collect block centres from rows
+       containing enough columns.
+    */
+
+    rows.forEach(
+    function(row){
+
+        const blocks =
+        makeBlocks(row);
+
+
+        if(
+            blocks.length >= count
+        ){
+
+            blocks.forEach(
+                block =>
+                centers.push(
+                    block.centerX
+                )
+            );
+
+        }
+
+    });
+
+
+    if(
+        centers.length < count
+    ){
+
+        rows.forEach(
+        function(row){
+
+            makeBlocks(row)
+            .forEach(
+                block =>
+                centers.push(
+                    block.centerX
+                )
+            );
+
+        });
+
+    }
+
+
+    return clusterColumns(
+        centers,
+        count
+    );
+
+}
+
+
+/* =====================================================
+   BUILD TABLE
+===================================================== */
+
+function buildTable(
+    rows,
+    count
 ){
 
     if(!rows.length){
@@ -2300,87 +2422,119 @@ function buildFixedColumnTable(
     }
 
 
-    let minX = Infinity;
+    /*
+       One column:
+       keep complete row text.
+    */
 
-    let maxX = -Infinity;
+    if(count === 1){
 
+        return rows.map(
+        function(row){
 
-    rows.forEach(
-    function(row){
+            return [
 
-        row.words.forEach(
-        function(word){
+                makeBlocks(row)
+                .map(
+                    b =>
+                    b.text
+                )
+                .join(" ")
+                .replace(
+                    /\s+/g,
+                    " "
+                )
+                .trim()
 
-            minX =
-            Math.min(
-                minX,
-                word.bbox.x0
-            );
-
-
-            maxX =
-            Math.max(
-                maxX,
-                word.bbox.x1
-            );
+            ];
 
         });
-
-    });
-
-
-    if(
-        !Number.isFinite(minX) ||
-        !Number.isFinite(maxX)
-    ){
-
-        return [];
 
     }
 
 
     /*
-       Use OCR image width if available.
-       This is better than using only the
-       detected text width.
+       Find real OCR column positions.
     */
 
-    const width =
-    imageWidth > 0
-    ? imageWidth
-    : Math.max(
-        1,
-        maxX - minX
+    const centers =
+    findColumnCenters(
+        rows,
+        count
     );
 
 
-    /*
-       If OCR coordinates don't start at 0,
-       calculate the actual detected range.
+    if(
+        centers.length !== count
+    ){
 
-       We use a small safety margin so text
-       close to the outer edge remains inside.
-    */
+        /*
+           Equal-width fallback.
+        */
 
-    const startX =
-    Math.min(
-        0,
-        minX
-    );
+        let minX = Infinity;
+
+        let maxX = -Infinity;
 
 
-    const endX =
-    Math.max(
-        width,
-        maxX
-    );
+        rows.forEach(
+        function(row){
+
+            row.words.forEach(
+            function(w){
+
+                minX =
+                Math.min(
+                    minX,
+                    w.bbox.x0
+                );
+
+                maxX =
+                Math.max(
+                    maxX,
+                    w.bbox.x1
+                );
+
+            });
+
+        });
 
 
-    const totalWidth =
-    Math.max(
-        1,
-        endX - startX
-    );
+        if(
+            !Number.isFinite(minX) ||
+            !Number.isFinite(maxX)
+        ){
+
+            return [];
+
+        }
+
+
+        const width =
+        Math.max(
+            1,
+            maxX-minX
+        );
+
+
+        for(
+            let i=0;
+            i<count;
+            i++
+        ){
+
+            centers.push(
+                minX +
+                width *
+                (
+                    i+.5
+                ) /
+                count
+            );
+
+        }
+
+    }
 
 
     const result = [];
@@ -2392,17 +2546,11 @@ function buildFixedColumnTable(
         const cells =
         Array.from(
         {
-            length:
-            columnCount
+            length:count
         },
         () => []
         );
 
-
-        /*
-           First create blocks so words in
-           the same cell remain together.
-        */
 
         const blocks =
         makeBlocks(row);
@@ -2411,60 +2559,40 @@ function buildFixedColumnTable(
         blocks.forEach(
         function(block){
 
-            /*
-               IMPORTANT:
-               Use block CENTER rather than first
-               word position.
-            */
+            let best = 0;
 
-            let relative =
-            (
+            let distance =
+            Math.abs(
                 block.centerX -
-                startX
-            )
-            /
-            totalWidth;
-
-
-            /*
-               Keep between 0 and almost 1.
-            */
-
-            relative =
-            Math.max(
-                0,
-                Math.min(
-                    0.999999,
-                    relative
-                )
+                centers[0]
             );
 
 
-            let index =
-            Math.floor(
-                relative *
-                columnCount
-            );
-
-
-            if(index < 0){
-
-                index = 0;
-
-            }
-
-
-            if(
-                index >= columnCount
+            for(
+                let i=1;
+                i<centers.length;
+                i++
             ){
 
-                index =
-                columnCount - 1;
+                const d =
+                Math.abs(
+                    block.centerX -
+                    centers[i]
+                );
+
+
+                if(d < distance){
+
+                    distance = d;
+
+                    best = i;
+
+                }
 
             }
 
 
-            cells[index].push(
+            cells[best].push(
                 block
             );
 
@@ -2482,8 +2610,8 @@ function buildFixedColumnTable(
                 b.x0
             )
             .map(
-                block =>
-                block.text
+                b =>
+                b.text
             )
             .join(" ")
             .replace(
@@ -2494,11 +2622,6 @@ function buildFixedColumnTable(
 
         });
 
-
-        /*
-           Keep every row exactly the same
-           number of columns.
-        */
 
         result.push(
             rowData
@@ -2513,64 +2636,7 @@ function buildFixedColumnTable(
 
 
 /* =====================================================
-   IMPROVED COLUMN TABLE
-===================================================== */
-
-function buildTableFromRows(
-    rows,
-    columnCount,
-    imageWidth
-){
-
-    /*
-       For 1 column, everything belongs
-       to Column 1.
-    */
-
-    if(columnCount === 1){
-
-        return rows.map(
-        function(row){
-
-            return [
-
-                makeBlocks(row)
-                .map(
-                    block =>
-                    block.text
-                )
-                .join(" ")
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim()
-
-            ];
-
-        });
-
-    }
-
-
-    /*
-       For manually selected columns,
-       ALWAYS use fixed page geometry.
-
-       This is the main correction.
-    */
-
-    return buildFixedColumnTable(
-        rows,
-        columnCount,
-        imageWidth
-    );
-
-}
-
-
-/* =====================================================
-   EXTRACT OCR
+   OCR EXTRACTION
 ===================================================== */
 
 extractBtn.addEventListener(
@@ -2621,8 +2687,7 @@ async function(){
 
 
         /*
-           Bengali + English works through
-           eng+ben if selected.
+           OCR
         */
 
         const result =
@@ -2664,8 +2729,13 @@ async function(){
 
                 },
 
+                /*
+                   PSM 11 works better for
+                   list/table photographs.
+                */
+
                 tessedit_pageseg_mode:
-                "6",
+                "11",
 
                 preserve_interword_spaces:
                 "1"
@@ -2698,10 +2768,55 @@ async function(){
             "auto"
         ){
 
-            count =
-            estimateColumns(
-                rows
+            /*
+               Auto mode
+            */
+
+            const counts =
+            rows
+            .map(
+                row =>
+                makeBlocks(row).length
+            )
+            .filter(
+                n =>
+                n >= 1 &&
+                n <= 8
             );
+
+
+            if(counts.length){
+
+                const frequency = {};
+
+
+                counts.forEach(
+                n =>
+                frequency[n] =
+                (
+                    frequency[n] || 0
+                ) + 1
+                );
+
+
+                count =
+                Number(
+                    Object.keys(
+                        frequency
+                    )
+                    .sort(
+                    (a,b) =>
+                    frequency[b] -
+                    frequency[a]
+                    )[0]
+                ) || 1;
+
+            }
+            else{
+
+                count = 1;
+
+            }
 
         }
         else{
@@ -2739,11 +2854,9 @@ async function(){
         if(rows.length){
 
             tableData =
-            buildTableFromRows(
+            buildTable(
                 rows,
-                count,
-                result.data.width ||
-                sourceImageWidth
+                count
             );
 
         }
@@ -2772,7 +2885,7 @@ async function(){
 
 
         /*
-           Remove completely empty rows.
+           Remove empty rows
         */
 
         tableData =
@@ -2799,18 +2912,16 @@ async function(){
 
 
         /*
-           Ensure exact number of columns.
+           Ensure exact columns
         */
 
         tableData =
         tableData.map(
         function(row){
 
-            const newRow =
-            Array.from(
+            return Array.from(
             {
-                length:
-                count
+                length:count
             },
             function(_,i){
 
@@ -2819,9 +2930,6 @@ async function(){
                 ).trim();
 
             });
-
-
-            return newRow;
 
         });
 
@@ -2848,7 +2956,7 @@ async function(){
             "none";
 
         },
-        400
+        500
         );
 
 
@@ -2867,7 +2975,6 @@ async function(){
             behavior:"smooth",
             block:"start"
         });
-
 
     }
     catch(error){
@@ -2921,17 +3028,13 @@ function renderTable(){
     }
 
 
-    const colCount =
-    currentColumns;
-
-
     /*
        Header
     */
 
     for(
         let c=0;
-        c<colCount;
+        c<currentColumns;
         c++
     ){
 
@@ -2944,7 +3047,7 @@ function renderTable(){
         th.textContent =
         "Column " +
         (
-            c + 1
+            c+1
         );
 
 
@@ -2970,7 +3073,7 @@ function renderTable(){
 
         for(
             let c=0;
-            c<colCount;
+            c<currentColumns;
             c++
         ){
 
@@ -3025,7 +3128,7 @@ function renderTable(){
 
 
 /* =====================================================
-   GET CURRENT TABLE
+   GET TABLE DATA
 ===================================================== */
 
 function getTableData(){
@@ -3033,17 +3136,17 @@ function getTableData(){
     const rows = [];
 
 
-    const headerCells =
+    const headers =
     document.querySelectorAll(
         "#resultTable thead th"
     );
 
 
-    if(headerCells.length){
+    if(headers.length){
 
         rows.push(
             Array.from(
-                headerCells
+                headers
             ).map(
                 cell =>
                 cell.innerText.trim()
@@ -3150,7 +3253,7 @@ function(){
                     widths[index] || 10,
                     Math.min(
                         length + 2,
-                        45
+                        50
                     )
                 );
 
@@ -3168,120 +3271,137 @@ function(){
 
 
         /*
-           Apply border + alignment
-           to EVERY Excel cell.
+           IMPORTANT:
+           Strong borders for EVERY cell
         */
 
-        const range =
-        XLSX.utils.decode_range(
-            worksheet["!ref"]
-        );
+        if(worksheet["!ref"]){
 
+            const range =
+            XLSX.utils.decode_range(
+                worksheet["!ref"]
+            );
 
-        for(
-            let R =
-            range.s.r;
-            R <= range.e.r;
-            R++
-        ){
 
             for(
-                let C =
-                range.s.c;
-                C <= range.e.c;
-                C++
+                let R=range.s.r;
+                R<=range.e.r;
+                R++
             ){
 
-                const address =
-                XLSX.utils.encode_cell(
-                {
-                    r:R,
-                    c:C
-                });
-
-
-                if(
-                    !worksheet[address]
+                for(
+                    let C=range.s.c;
+                    C<=range.e.c;
+                    C++
                 ){
 
-                    worksheet[address] = {
-                        v:""
-                    };
+                    const address =
+                    XLSX.utils.encode_cell(
+                    {
+                        r:R,
+                        c:C
+                    });
 
-                }
 
+                    if(
+                        !worksheet[address]
+                    ){
 
-                worksheet[address].s = {
-
-                    border:{
-
-                        top:{
-                            style:"thin",
-                            color:{
-                                rgb:"5F7F8F"
-                            }
-                        },
-
-                        bottom:{
-                            style:"thin",
-                            color:{
-                                rgb:"5F7F8F"
-                            }
-                        },
-
-                        left:{
-                            style:"thin",
-                            color:{
-                                rgb:"5F7F8F"
-                            }
-                        },
-
-                        right:{
-                            style:"thin",
-                            color:{
-                                rgb:"5F7F8F"
-                            }
-                        }
-
-                    },
-
-                    alignment:{
-
-                        vertical:"top",
-
-                        wrapText:true
+                        worksheet[address] = {
+                            v:""
+                        };
 
                     }
 
-                };
 
+                    worksheet[address].s = {
 
-                /*
-                   Header style
-                */
+                        border:{
 
-                if(R === 0){
+                            top:{
+                                style:"medium",
+                                color:{
+                                    rgb:"4F6672"
+                                }
+                            },
 
-                    worksheet[address].s.fill = {
+                            bottom:{
+                                style:"medium",
+                                color:{
+                                    rgb:"4F6672"
+                                }
+                            },
 
-                        patternType:"solid",
+                            left:{
+                                style:"medium",
+                                color:{
+                                    rgb:"4F6672"
+                                }
+                            },
 
-                        fgColor:{
-                            rgb:"D9F1FF"
+                            right:{
+                                style:"medium",
+                                color:{
+                                    rgb:"4F6672"
+                                }
+                            }
+
+                        },
+
+                        alignment:{
+
+                            vertical:"top",
+
+                            horizontal:"left",
+
+                            wrapText:true
+
+                        },
+
+                        font:{
+
+                            name:"Arial",
+
+                            sz:11
+
                         }
 
                     };
 
 
-                    worksheet[address].s.font = {
+                    /*
+                       Header
+                    */
 
-                        bold:true,
+                    if(R === 0){
 
-                        color:{
-                            rgb:"07344D"
-                        }
+                        worksheet[address].s.fill = {
 
-                    };
+                            patternType:
+                            "solid",
+
+                            fgColor:{
+                                rgb:"D9F1FF"
+                            }
+
+                        };
+
+
+                        worksheet[address].s.font = {
+
+                            name:"Arial",
+
+                            sz:11,
+
+                            bold:true,
+
+                            color:{
+                                rgb:"07344D"
+                            }
+
+                        };
+
+                    }
 
                 }
 
@@ -3291,17 +3411,8 @@ function(){
 
 
         /*
-           Freeze first row.
+           Workbook
         */
-
-        worksheet["!freeze"] = {
-
-            xSplit:0,
-
-            ySplit:1
-
-        };
-
 
         const workbook =
         XLSX.utils.book_new();
@@ -3315,7 +3426,7 @@ function(){
 
 
         /*
-           Download.
+           Download
         */
 
         XLSX.writeFile(
@@ -3358,82 +3469,68 @@ downloadCSV.addEventListener(
 "click",
 function(){
 
-    try{
-
-        const data =
-        getTableData();
+    const data =
+    getTableData();
 
 
-        if(!data.length){
-
-            alert(
-                "No table data available."
-            );
-
-            return;
-
-        }
-
-
-        const csv =
-        data
-        .map(
-        function(row){
-
-            return row
-            .map(
-            function(value){
-
-                return '"' +
-                String(
-                    value || ""
-                )
-                .replace(
-                    /"/g,
-                    '""'
-                ) +
-                '"';
-
-            })
-            .join(",");
-
-        })
-        .join("\r\n");
-
-
-        const blob =
-        new Blob(
-        [
-            "\uFEFF" +
-            csv
-        ],
-        {
-            type:
-            "text/csv;charset=utf-8"
-        });
-
-
-        downloadBlob(
-            blob,
-            "Asim_Tech_Image_to_Excel.csv"
-        );
-
-
-        showStatus(
-            "CSV downloaded successfully.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        console.error(error);
+    if(!data.length){
 
         alert(
-            "CSV download failed."
+            "No table data available."
         );
 
+        return;
     }
+
+
+    const csv =
+    data
+    .map(
+    function(row){
+
+        return row
+        .map(
+        function(value){
+
+            return '"' +
+            String(
+                value || ""
+            )
+            .replace(
+                /"/g,
+                '""'
+            ) +
+            '"';
+
+        })
+        .join(",");
+
+    })
+    .join("\r\n");
+
+
+    const blob =
+    new Blob(
+    [
+        "\uFEFF" +
+        csv
+    ],
+    {
+        type:
+        "text/csv;charset=utf-8"
+    });
+
+
+    downloadBlob(
+        blob,
+        "Asim_Tech_Image_to_Excel.csv"
+    );
+
+
+    showStatus(
+        "CSV downloaded successfully.",
+        "success"
+    );
 
 });
 
@@ -3462,14 +3559,11 @@ function downloadBlob(
     a.href =
     url;
 
-
     a.download =
     filename;
 
-
     a.rel =
     "noopener";
-
 
     a.style.display =
     "none";
@@ -3514,18 +3608,15 @@ addRow.addEventListener(
 "click",
 function(){
 
-    if(!currentColumns){
-
-        currentColumns = 1;
-
-    }
-
-
     tableData.push(
         Array(
             currentColumns
         ).fill("")
     );
+
+
+    resultCard.style.display =
+    "block";
 
 
     renderTable();
@@ -3541,17 +3632,6 @@ addColumn.addEventListener(
 "click",
 function(){
 
-    if(!tableData.length){
-
-        tableData.push(
-            Array(
-                currentColumns
-            ).fill("")
-        );
-
-    }
-
-
     if(
         currentColumns >= 20
     ){
@@ -3561,6 +3641,16 @@ function(){
         );
 
         return;
+    }
+
+
+    if(!tableData.length){
+
+        tableData.push(
+            Array(
+                currentColumns
+            ).fill("")
+        );
 
     }
 
@@ -3598,7 +3688,6 @@ async function(){
         );
 
         return;
-
     }
 
 
@@ -3613,23 +3702,9 @@ async function(){
 
     try{
 
-        if(
-            navigator.clipboard &&
-            navigator.clipboard.writeText
-        ){
-
-            await navigator.clipboard.writeText(
-                text
-            );
-
-        }
-        else{
-
-            throw new Error(
-                "Clipboard unavailable"
-            );
-
-        }
+        await navigator.clipboard.writeText(
+            text
+        );
 
 
         showStatus(
@@ -3661,8 +3736,6 @@ async function(){
             textarea
         );
 
-
-        textarea.focus();
 
         textarea.select();
 
@@ -3732,8 +3805,7 @@ if(
         .register(
             "./sw.js",
             {
-                updateViaCache:
-                "none"
+                updateViaCache:"none"
             }
         )
         .then(
@@ -3757,7 +3829,6 @@ if(
 }
 
 </script>
-
 
 </body>
 
