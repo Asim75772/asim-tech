@@ -5,24 +5,21 @@ const FILES_TO_CACHE = [
   "./index.html",
   "./manifest.json",
   "./sw.js",
-  "./multimedia.png"
+  "./file_00000000845481fa8c577a57988ede22.png"
 ];
 
 
-/* ================================
-   INSTALL
-================================ */
+/* INSTALL */
 
 self.addEventListener("install", event => {
 
   event.waitUntil(
 
-    caches.open(CACHE_NAME)
-      .then(cache => {
+    caches.open(CACHE_NAME).then(cache => {
 
-        return cache.addAll(FILES_TO_CACHE);
+      return cache.addAll(FILES_TO_CACHE);
 
-      })
+    })
 
   );
 
@@ -31,26 +28,29 @@ self.addEventListener("install", event => {
 });
 
 
-/* ================================
-   ACTIVATE
-================================ */
+/* ACTIVATE */
 
 self.addEventListener("activate", event => {
 
   event.waitUntil(
 
-    caches.keys()
-      .then(keys => {
+    caches.keys().then(keys => {
 
-        return Promise.all(
+      return Promise.all(
 
-          keys
-            .filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
+        keys.map(key => {
 
-        );
+          if(key !== CACHE_NAME){
 
-      })
+            return caches.delete(key);
+
+          }
+
+        })
+
+      );
+
+    })
 
   );
 
@@ -59,9 +59,7 @@ self.addEventListener("activate", event => {
 });
 
 
-/* ================================
-   FETCH
-================================ */
+/* FETCH */
 
 self.addEventListener("fetch", event => {
 
@@ -69,66 +67,45 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-
   event.respondWith(
 
-    caches.match(event.request)
+    fetch(event.request)
+      .then(response => {
 
-      .then(cachedResponse => {
+        if(
+          response &&
+          response.status === 200
+        ){
 
-        /* CACHE FIRST */
+          const copy =
+          response.clone();
 
-        if(cachedResponse){
+          caches.open(CACHE_NAME)
+            .then(cache => {
 
-          return cachedResponse;
+              cache.put(
+                event.request,
+                copy
+              );
+
+            });
 
         }
 
+        return response;
 
-        /* NETWORK */
+      })
 
-        return fetch(event.request)
+      .catch(() => {
 
-          .then(networkResponse => {
+        return caches.match(
+          event.request
+        ).then(cached => {
 
-            if(
-              !networkResponse ||
-              networkResponse.status !== 200 ||
-              networkResponse.type === "opaque"
-            ){
+          return cached ||
+          caches.match("./index.html");
 
-              return networkResponse;
-
-            }
-
-
-            const responseClone =
-              networkResponse.clone();
-
-
-            caches.open(CACHE_NAME)
-              .then(cache => {
-
-                cache.put(
-                  event.request,
-                  responseClone
-                );
-
-              });
-
-
-            return networkResponse;
-
-          })
-
-
-          /* OFFLINE FALLBACK */
-
-          .catch(() => {
-
-            return caches.match("./index.html");
-
-          });
+        });
 
       })
 
