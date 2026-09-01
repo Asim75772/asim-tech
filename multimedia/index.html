@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name="theme-color" content="#5425ff">
-<meta name="description" content="Asim Multimedia Studio">
+
+<meta name="description"
+content="Asim Multimedia Studio - Audio, Video, Photo, Recording and Creative Tools">
 
 <title>Asim Multimedia Studio</title>
 
@@ -14,656 +19,669 @@
 <style>
 
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:linear-gradient(180deg,#f3f6ff,#eef1ff);
-color:#172033;
-overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(180deg,#f3f6ff,#eef1ff);
+    color:#172033;
+    overflow-x:hidden;
 }
 
-/* HERO */
-
 .hero{
-background:
-radial-gradient(circle at top right,rgba(255,255,255,.18),transparent 35%),
-linear-gradient(135deg,#3920d8,#6525ff,#a126ff);
-color:white;
-text-align:center;
-padding:32px 15px 40px;
-box-shadow:0 12px 35px rgba(70,40,200,.28);
+    background:
+    radial-gradient(circle at top right,
+    rgba(255,255,255,.18),
+    transparent 35%),
+    linear-gradient(135deg,#3920d8,#6525ff,#a126ff);
+
+    color:white;
+    text-align:center;
+    padding:32px 15px 40px;
+
+    box-shadow:
+    0 12px 35px rgba(70,40,200,.28);
 }
 
 .logo{
-width:180px;
-max-width:65%;
-height:auto;
-display:block;
-margin:0 auto 14px;
+    width:180px;
+    max-width:65%;
+    height:auto;
+    display:block;
+    margin:0 auto 14px;
 }
 
 .hero h1{
-font-size:clamp(28px,7vw,50px);
-font-weight:900;
-margin-bottom:9px;
+    font-size:clamp(28px,7vw,50px);
+    font-weight:900;
+    margin-bottom:9px;
 }
 
 .hero p{
-font-size:clamp(13px,3vw,18px);
-opacity:.93;
+    font-size:clamp(13px,3vw,18px);
+    opacity:.93;
 }
 
-/* INSTALL */
-
 .install-area{
-text-align:center;
-padding:16px 10px 5px;
+    text-align:center;
+    padding:16px 10px 5px;
 }
 
 #installBtn{
-display:none;
-border:0;
-border-radius:14px;
-padding:13px 21px;
-color:white;
-background:linear-gradient(135deg,#5425ff,#9225ff);
-font-size:14px;
-font-weight:800;
-cursor:pointer;
+    display:none;
+    border:0;
+    border-radius:14px;
+    padding:13px 21px;
+    color:white;
+    background:linear-gradient(135deg,#5425ff,#9225ff);
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
 }
 
-/* NAV */
-
 .nav{
-width:94%;
-max-width:1050px;
-margin:15px auto 20px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
+    width:94%;
+    max-width:1050px;
+    margin:15px auto 20px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
 
 .nav button{
-min-height:92px;
-border:0;
-border-radius:20px;
-background:white;
-color:#172033;
-cursor:pointer;
-padding:13px 8px;
-box-shadow:0 8px 25px rgba(50,70,130,.11);
-transition:.22s;
+    min-height:92px;
+    border:0;
+    border-radius:20px;
+    background:white;
+    color:#172033;
+
+    cursor:pointer;
+    padding:13px 8px;
+
+    box-shadow:
+    0 8px 25px rgba(50,70,130,.11);
+
+    transition:.22s;
 }
 
 .nav button:hover{
-transform:translateY(-3px);
+    transform:translateY(-3px);
 }
 
 .nav button span{
-display:block;
-font-size:27px;
-margin-bottom:6px;
+    display:block;
+    font-size:27px;
+    margin-bottom:6px;
 }
 
 .nav button strong{
-display:block;
-font-size:14px;
-font-weight:900;
+    display:block;
+    font-size:14px;
+    font-weight:900;
 }
 
 .nav button small{
-display:block;
-margin-top:4px;
-font-size:10px;
-color:#7b879c;
+    display:block;
+    margin-top:4px;
+    font-size:10px;
+    color:#7b879c;
 }
 
 .nav button.active{
-color:white;
-background:linear-gradient(135deg,#5035ee,#8a27ff);
+    color:white;
+    background:linear-gradient(135deg,#5035ee,#8a27ff);
 }
 
-/* MAIN */
+.nav button.active small{
+    color:rgba(255,255,255,.8);
+}
 
 main{
-width:94%;
-max-width:1050px;
-margin:20px auto 70px;
+    width:94%;
+    max-width:1050px;
+    margin:20px auto 70px;
 }
 
-/* PANEL */
-
 .panel{
-display:none;
-background:white;
-border-radius:25px;
-padding:27px;
-margin-bottom:25px;
-box-shadow:0 14px 45px rgba(45,60,120,.11);
+    display:none;
+    background:white;
+    border-radius:25px;
+    padding:27px;
+    margin-bottom:25px;
+
+    box-shadow:
+    0 14px 45px rgba(45,60,120,.11);
 }
 
 .panel.active{
-display:block;
+    display:block;
 }
 
 .panel h2{
-color:#4032a5;
-font-size:clamp(24px,5vw,37px);
-margin-bottom:8px;
+    color:#4032a5;
+    font-size:clamp(24px,5vw,37px);
+    margin-bottom:8px;
 }
 
 .panel-description{
-color:#6c7890;
-font-size:13px;
-line-height:1.7;
-margin-bottom:20px;
+    color:#6c7890;
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:20px;
 }
 
-/* FILE */
+.feature-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:12px 0 18px;
+}
+
+.feature-badge{
+    padding:7px 11px;
+    border-radius:20px;
+    background:#f0efff;
+    color:#5140b8;
+    font-size:11px;
+    font-weight:800;
+}
 
 .file-box{
-border:2px dashed #aebaf0;
-border-radius:17px;
-padding:18px;
-background:#f8f9ff;
-margin:15px 0;
+    border:2px dashed #aebaf0;
+    border-radius:17px;
+    padding:18px;
+    background:#f8f9ff;
+    margin:15px 0;
 }
 
 .file-box input{
-width:100%;
-font-size:14px;
+    width:100%;
+    font-size:14px;
 }
-
-/* BUTTON */
-
-.btn{
-border:0;
-padding:12px 18px;
-border-radius:12px;
-color:white;
-font-size:13px;
-font-weight:800;
-cursor:pointer;
-margin:5px 3px;
-transition:.2s;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-}
-
-.btn:disabled{
-opacity:.45;
-cursor:not-allowed;
-}
-
-.primary{
-background:linear-gradient(135deg,#5135ed,#8528ff);
-}
-
-.success{
-background:#00a95c;
-}
-
-.danger{
-background:#ef233c;
-}
-
-.orange{
-background:linear-gradient(135deg,#ff8a00,#ff3d4d);
-}
-
-.dark{
-background:#53677c;
-}
-
-/* STATUS */
-
-.status{
-margin-top:15px;
-padding:12px;
-text-align:center;
-border-radius:12px;
-background:#f0f3fb;
-color:#52617b;
-font-size:13px;
-}
-
-/* MEDIA */
 
 audio,
 video{
-width:100%;
-margin-top:15px;
-border-radius:15px;
+    width:100%;
+    margin-top:15px;
+    border-radius:15px;
 }
 
 video{
-background:#000;
-max-height:480px;
+    background:#000;
+    max-height:480px;
 }
 
-/* SLIDESHOW */
+.btn{
+    border:0;
+    padding:12px 18px;
+    border-radius:12px;
 
-.slideshow{
-width:100%;
-min-height:280px;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-border-radius:19px;
-background:#10131c;
+    color:white;
+    font-size:13px;
+    font-weight:800;
+
+    cursor:pointer;
+    margin:5px 3px;
+
+    transition:.2s;
 }
 
-.slideshow img{
-max-width:100%;
-max-height:500px;
-object-fit:contain;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-.slide-controls{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:7px;
-margin-top:12px;
+.btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    transform:none;
 }
 
-.thumbs{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
-gap:8px;
-margin-top:15px;
+.primary{
+    background:linear-gradient(135deg,#5135ed,#8528ff);
 }
 
-.thumbs img{
-width:100%;
-height:80px;
-object-fit:cover;
-border-radius:10px;
-cursor:pointer;
+.success{
+    background:#00a95c;
+}
+
+.danger{
+    background:#ef233c;
+}
+
+.orange{
+    background:linear-gradient(135deg,#ff8a00,#ff3d4d);
+}
+
+.dark{
+    background:#53677c;
+}
+
+.status{
+    margin-top:15px;
+    padding:12px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    background:#f0f3fb;
+
+    color:#52617b;
+
+    font-size:13px;
+}
+
+/* =====================================================
+PHOTO VIDEO MAKER
+===================================================== */
+
+.maker-box{
+    background:
+    linear-gradient(135deg,#101827,#1b2540);
+
+    padding:20px;
+    border-radius:22px;
+    color:white;
+    margin-top:18px;
+}
+
+.maker-preview{
+    width:100%;
+    aspect-ratio:16/9;
+
+    background:#000;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+#mCanvas{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+.maker-empty{
+    position:absolute;
+    color:#9ba6bb;
+    font-size:14px;
+}
+
+.maker-controls{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.control-box{
+    background:#f7f8ff;
+    border:1px solid #e1e5f6;
+    border-radius:15px;
+    padding:14px;
+}
+
+.control-box label{
+    display:block;
+    color:#454f68;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:7px;
+}
+
+.control-box select{
+    width:100%;
+    padding:10px;
+
+    border:1px solid #ccd4ed;
+    border-radius:9px;
+
+    background:white;
+    font-size:13px;
+}
+
+.music-box{
+    margin-top:15px;
+    padding:17px;
+
+    border-radius:17px;
+
+    background:#f7f8ff;
+    border:1px solid #e1e5f6;
+}
+
+.music-box h3{
+    font-size:17px;
+    color:#302d83;
+    margin-bottom:12px;
+}
+
+.music-file{
+    width:100%;
+    padding:12px;
+
+    background:white;
+
+    border:1px dashed #aebaf0;
+    border-radius:10px;
+}
+
+.music-preview{
+    margin-top:12px;
+    padding:12px;
+
+    background:white;
+    border-radius:12px;
+}
+
+.music-preview audio{
+    margin:0;
+}
+
+.music-options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:12px;
+}
+
+.music-option{
+    background:white;
+    padding:12px;
+    border-radius:10px;
+}
+
+.music-option label{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    color:#4d5870;
+    margin-bottom:7px;
+}
+
+.music-option input[type="range"]{
+    width:100%;
+}
+
+.music-option select{
+    width:100%;
+    padding:8px;
+
+    border:1px solid #ccd4ed;
+    border-radius:8px;
+}
+
+.music-status{
+    margin-top:10px;
+    padding:9px;
+
+    background:#eeeaff;
+
+    border-radius:9px;
+
+    font-size:11px;
+
+    color:#5140b8;
+
+    text-align:center;
+
+    font-weight:700;
+}
+
+.photo-list{
+    margin-top:20px;
+}
+
+.photo-list h3{
+    color:#302d83;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.photo-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:#f6f7ff;
+    border:1px solid #e1e5f6;
+
+    padding:8px;
+
+    border-radius:12px;
+
+    margin-bottom:7px;
+}
+
+.photo-item img{
+    width:60px;
+    height:50px;
+
+    object-fit:cover;
+
+    border-radius:8px;
+}
+
+.photo-item span{
+    flex:1;
+    min-width:0;
+
+    font-size:12px;
+    font-weight:700;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.photo-item button{
+    border:0;
+
+    background:#ffe8eb;
+    color:#ef233c;
+
+    border-radius:8px;
+
+    padding:7px 10px;
+
+    cursor:pointer;
+    font-weight:900;
+}
+
+.transition-info{
+    margin-top:15px;
+    padding:12px;
+
+    background:#f0efff;
+
+    border-radius:12px;
+
+    color:#5140b8;
+
+    font-size:12px;
+
+    text-align:center;
+
+    font-weight:800;
+}
+
+.download-box{
+    display:none;
+
+    margin-top:18px;
+    padding:16px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:#effff5;
+    border:1px solid #a7e9c2;
+}
+
+.download-box.show{
+    display:block;
+}
+
+.download-link{
+    display:inline-block;
+
+    margin-top:10px;
+    padding:12px 20px;
+
+    border-radius:11px;
+
+    background:#00a95c;
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:800;
 }
 
 /* RECORDER */
 
 .recorder-box{
-padding:22px;
-border-radius:20px;
-background:linear-gradient(135deg,#101827,#17223a);
-color:white;
-text-align:center;
+    padding:22px;
+    border-radius:20px;
+
+    background:
+    linear-gradient(135deg,#101827,#17223a);
+
+    color:white;
+
+    text-align:center;
 }
 
 .timer{
-font-size:38px;
-font-weight:900;
-margin:15px;
+    font-size:38px;
+    font-weight:900;
+    margin:15px;
 }
 
 /* CAMERA */
 
 .camera-preview{
-width:100%;
-background:#000;
-border-radius:20px;
-overflow:hidden;
+    width:100%;
+    background:#000;
+    border-radius:20px;
+    overflow:hidden;
 }
 
 .camera-preview video{
-display:block;
-width:100%;
-margin:0;
-max-height:600px;
-}
-
-/* ==================================================
-PHOTO VIDEO MAKER
-================================================== */
-
-.maker-box{
-background:linear-gradient(135deg,#101827,#1b2540);
-padding:20px;
-border-radius:22px;
-color:white;
-margin-top:18px;
-}
-
-.maker-preview{
-width:100%;
-aspect-ratio:16/9;
-background:#000;
-border-radius:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-position:relative;
-}
-
-#mCanvas{
-width:100%;
-height:100%;
-display:block;
-}
-
-.maker-empty{
-position:absolute;
-color:#9ba6bb;
-font-size:14px;
-}
-
-.feature-row{
-display:flex;
-flex-wrap:wrap;
-gap:7px;
-margin:12px 0 18px;
-}
-
-.feature-badge{
-padding:7px 11px;
-border-radius:20px;
-background:#f0efff;
-color:#5140b8;
-font-size:11px;
-font-weight:800;
-}
-
-.maker-controls{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-margin-top:18px;
-}
-
-.control-box{
-background:#f7f8ff;
-border:1px solid #e1e5f6;
-border-radius:15px;
-padding:14px;
-}
-
-.control-box label{
-display:block;
-color:#454f68;
-font-size:12px;
-font-weight:900;
-margin-bottom:7px;
-}
-
-.control-box select,
-.control-box input{
-width:100%;
-padding:10px;
-border:1px solid #ccd4ed;
-border-radius:9px;
-background:white;
-font-size:13px;
-}
-
-.music-box{
-margin-top:15px;
-padding:16px;
-border-radius:16px;
-background:#f7f8ff;
-border:1px solid #e1e5f6;
-}
-
-.music-box h3{
-font-size:16px;
-color:#302d83;
-margin-bottom:10px;
-}
-
-.music-file{
-width:100%;
-padding:12px;
-background:white;
-border:1px dashed #aebaf0;
-border-radius:10px;
-}
-
-.music-options{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-top:12px;
-}
-
-.music-option{
-background:white;
-padding:12px;
-border-radius:10px;
-}
-
-.music-option label{
-display:block;
-font-size:11px;
-font-weight:800;
-color:#4d5870;
-margin-bottom:7px;
-}
-
-.music-option input[type="range"]{
-width:100%;
-}
-
-.music-option select{
-width:100%;
-padding:8px;
-border:1px solid #ccd4ed;
-border-radius:8px;
-}
-
-.music-status{
-margin-top:10px;
-padding:9px;
-background:#eeeaff;
-border-radius:9px;
-font-size:11px;
-color:#5140b8;
-text-align:center;
-font-weight:700;
-}
-
-.photo-list{
-margin-top:20px;
-}
-
-.photo-list h3{
-color:#302d83;
-font-size:18px;
-margin-bottom:10px;
-}
-
-.photo-item{
-display:flex;
-align-items:center;
-gap:10px;
-background:#f6f7ff;
-border:1px solid #e1e5f6;
-padding:8px;
-border-radius:12px;
-margin-bottom:7px;
-}
-
-.photo-item img{
-width:60px;
-height:50px;
-object-fit:cover;
-border-radius:8px;
-}
-
-.photo-item span{
-flex:1;
-min-width:0;
-font-size:12px;
-font-weight:700;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-
-.photo-item button{
-border:0;
-background:#ffe8eb;
-color:#ef233c;
-border-radius:8px;
-padding:7px 10px;
-cursor:pointer;
-font-weight:900;
-}
-
-.transition-info{
-margin-top:15px;
-padding:12px;
-background:#f0efff;
-border-radius:12px;
-color:#5140b8;
-font-size:12px;
-text-align:center;
-font-weight:800;
-}
-
-/* DOWNLOAD */
-
-.download-box{
-display:none;
-margin-top:18px;
-padding:16px;
-text-align:center;
-border-radius:15px;
-background:#effff5;
-border:1px solid #a7e9c2;
-}
-
-.download-box.show{
-display:block;
-}
-
-.download-link{
-display:inline-block;
-margin-top:10px;
-padding:12px 20px;
-border-radius:11px;
-background:#00a95c;
-color:white;
-text-decoration:none;
-font-weight:800;
+    display:block;
+    width:100%;
+    margin:0;
+    max-height:600px;
 }
 
 /* TOOLS */
 
 .tool-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:20px;
 }
 
 .tool-card{
-padding:20px;
-border-radius:19px;
-background:linear-gradient(135deg,#f7f8ff,#f0f3ff);
-border:1px solid #e2e6fa;
+    padding:20px;
+    border-radius:19px;
+
+    background:
+    linear-gradient(135deg,#f7f8ff,#f0f3ff);
+
+    border:1px solid #e2e6fa;
 }
 
 .tool-card h3{
-margin-bottom:7px;
-color:#302d83;
+    margin-bottom:7px;
+    color:#302d83;
 }
 
 .tool-card p{
-color:#738097;
-font-size:12px;
-line-height:1.6;
+    color:#738097;
+    font-size:12px;
+    line-height:1.6;
 }
 
-/* FOOTER */
-
 footer{
-text-align:center;
-padding:30px 15px;
-color:#718098;
-font-size:12px;
+    text-align:center;
+    padding:30px 15px;
+
+    color:#718098;
+    font-size:12px;
 }
 
 .footer-brand{
-font-size:19px;
-font-weight:900;
-color:#352b91;
-margin-bottom:7px;
+    font-size:19px;
+    font-weight:900;
+    color:#352b91;
+    margin-bottom:7px;
 }
-
-/* MOBILE */
 
 @media(max-width:750px){
 
-.nav{
-grid-template-columns:repeat(2,1fr);
-gap:9px;
-}
+    .nav{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
 
-.nav button{
-min-height:84px;
-}
+    .nav button{
+        min-height:84px;
+    }
 
-.panel{
-padding:18px;
-border-radius:20px;
-}
+    .panel{
+        padding:18px;
+        border-radius:20px;
+    }
 
-.maker-controls{
-grid-template-columns:1fr;
-}
+    .maker-controls{
+        grid-template-columns:1fr;
+    }
 
-.music-options{
-grid-template-columns:1fr;
-}
+    .music-options{
+        grid-template-columns:1fr;
+    }
 
-.tool-grid{
-grid-template-columns:1fr;
-}
+    .tool-grid{
+        grid-template-columns:1fr;
+    }
 
 }
 
 @media(max-width:400px){
 
-.logo{
-width:145px;
-}
+    .logo{
+        width:145px;
+    }
 
-.hero h1{
-font-size:28px;
-}
+    .hero h1{
+        font-size:28px;
+    }
 
-.nav{
-gap:7px;
-}
+    .nav{
+        gap:7px;
+    }
 
-.nav button{
-min-height:76px;
-}
-
-.nav button span{
-font-size:22px;
-}
-
-.nav button strong{
-font-size:12px;
-}
-
-.nav button small{
-font-size:8px;
-}
+    .nav button{
+        min-height:76px;
+    }
 
 }
 
@@ -671,8 +689,6 @@ font-size:8px;
 </head>
 
 <body>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -697,8 +713,6 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 </div>
-
-<!-- NAV -->
 
 <div class="nav">
 
@@ -761,7 +775,7 @@ Audio • Video • Photos • Recording • Creative Tools
 <h2>🎵 Audio Studio</h2>
 
 <p class="panel-description">
-Play local audio files.
+Select multiple audio files and play them locally.
 </p>
 
 <div class="file-box">
@@ -774,13 +788,21 @@ multiple>
 
 </div>
 
-<audio id="audioPlayer" controls></audio>
+<audio
+id="audioPlayer"
+controls>
+</audio>
 
-<div class="status" id="audioStatus">
+<div
+class="status"
+id="audioStatus">
+
 Select audio files
+
 </div>
 
 </section>
+
 
 <!-- VIDEO -->
 
@@ -789,7 +811,7 @@ Select audio files
 <h2>🎬 Video Player</h2>
 
 <p class="panel-description">
-Play video files stored on your device.
+Play local video files.
 </p>
 
 <div class="file-box">
@@ -809,38 +831,53 @@ playsinline>
 
 <div>
 
-<button class="btn primary" onclick="playVideo()">
+<button
+class="btn primary"
+onclick="playVideo()">
 ▶ Play
 </button>
 
-<button class="btn dark" onclick="pauseVideo()">
+<button
+class="btn dark"
+onclick="pauseVideo()">
 ⏸ Pause
 </button>
 
-<button class="btn danger" onclick="stopVideo()">
+<button
+class="btn danger"
+onclick="stopVideo()">
 ⏹ Stop
 </button>
 
-<button class="btn orange" onclick="fullscreenVideo()">
+<button
+class="btn orange"
+onclick="fullscreenVideo()">
 ⛶ Fullscreen
 </button>
 
 </div>
 
-<div class="status" id="videoStatus">
+<div
+class="status"
+id="videoStatus">
+
 Ready
+
 </div>
 
 </section>
 
+
 <!-- SLIDESHOW -->
 
-<section class="panel" id="slideshow">
+<section
+class="panel"
+id="slideshow">
 
 <h2>🖼️ Photo Slideshow</h2>
 
 <p class="panel-description">
-Select multiple photos and view them.
+Select multiple photos.
 </p>
 
 <div class="file-box">
@@ -853,7 +890,9 @@ multiple>
 
 </div>
 
-<div class="slideshow" id="slideShow">
+<div
+class="slideshow"
+id="slideShow">
 
 <span style="color:#aaa">
 Select photos
@@ -863,38 +902,52 @@ Select photos
 
 <div class="slide-controls">
 
-<button class="btn primary" onclick="previousSlide()">
+<button
+class="btn primary"
+onclick="previousSlide()">
 ⬅ Previous
 </button>
 
-<button class="btn primary" onclick="nextSlide()">
+<button
+class="btn primary"
+onclick="nextSlide()">
 Next ➡
 </button>
 
-<button class="btn orange" onclick="startSlideshow()">
+<button
+class="btn orange"
+onclick="startSlideshow()">
 ▶ Auto Play
 </button>
 
-<button class="btn danger" onclick="stopSlideshow()">
+<button
+class="btn danger"
+onclick="stopSlideshow()">
 ⏹ Stop
 </button>
 
 </div>
 
-<div class="thumbs" id="slideThumbs"></div>
+<div
+class="thumbs"
+id="slideThumbs">
+</div>
 
 </section>
+
 
 <!-- =====================================================
 PHOTO VIDEO MAKER
 ===================================================== -->
 
-<section class="panel" id="videoMaker">
+<section
+class="panel"
+id="videoMaker">
 
 <h2>🎞️ Photo Video Maker</h2>
 
 <p class="panel-description">
-Create a video from your photos with transitions and background music.
+Create a video from multiple photos with transitions and background music.
 </p>
 
 <div class="feature-row">
@@ -912,17 +965,18 @@ Create a video from your photos with transitions and background music.
 </span>
 
 <span class="feature-badge">
-🎬 WebM Video
+🔊 Music Volume
 </span>
 
 </div>
 
-<!-- PHOTO SELECT -->
+
+<!-- PHOTOS -->
 
 <div class="file-box">
 
 <strong>
-📸 Select Photos
+📸 Select Multiple Photos
 </strong>
 
 <br><br>
@@ -934,6 +988,7 @@ accept="image/*"
 multiple>
 
 </div>
+
 
 <!-- PREVIEW -->
 
@@ -959,7 +1014,8 @@ Select photos to start
 
 </div>
 
-<!-- CONTROLS -->
+
+<!-- SETTINGS -->
 
 <div class="maker-controls">
 
@@ -998,6 +1054,7 @@ Select photos to start
 </select>
 
 </div>
+
 
 <div class="control-box">
 
@@ -1045,9 +1102,15 @@ Zoom Out
 
 </div>
 
-<div class="transition-info" id="transitionInfo">
+
+<div
+class="transition-info"
+id="transitionInfo">
+
 ✨ Transition: Fade
+
 </div>
+
 
 <!-- MUSIC -->
 
@@ -1063,6 +1126,22 @@ type="file"
 id="makerMusic"
 accept="audio/*">
 
+
+<!-- MUSIC TEST -->
+
+<div
+class="music-preview"
+id="musicPreviewBox"
+style="display:none;">
+
+<audio
+id="musicPreview"
+controls>
+</audio>
+
+</div>
+
+
 <div class="music-options">
 
 <div class="music-option">
@@ -1077,9 +1156,10 @@ id="musicVolume"
 min="0"
 max="1"
 step="0.05"
-value="0.5">
+value="0.7">
 
 </div>
+
 
 <div class="music-option">
 
@@ -1103,6 +1183,7 @@ Play Once
 
 </div>
 
+
 <div
 class="music-status"
 id="musicStatus">
@@ -1113,9 +1194,11 @@ No music selected
 
 </div>
 
-<!-- BUTTONS -->
 
-<div style="text-align:center;margin-top:15px;">
+<!-- ACTION BUTTONS -->
+
+<div
+style="text-align:center;margin-top:15px;">
 
 <button
 class="btn primary"
@@ -1143,6 +1226,7 @@ id="stopBtn">
 
 </div>
 
+
 <div
 class="status"
 id="makerStatus">
@@ -1150,6 +1234,7 @@ id="makerStatus">
 Ready — Select photos
 
 </div>
+
 
 <!-- PHOTO LIST -->
 
@@ -1168,6 +1253,7 @@ No photos selected
 </div>
 
 </div>
+
 
 <!-- DOWNLOAD -->
 
@@ -1194,9 +1280,12 @@ download="asim-photo-video.webm">
 
 </section>
 
+
 <!-- VOICE -->
 
-<section class="panel" id="voice">
+<section
+class="panel"
+id="voice">
 
 <h2>🎙️ Voice Recorder</h2>
 
@@ -1206,19 +1295,28 @@ Record voice using your microphone.
 
 <div class="recorder-box">
 
-<div class="timer" id="voiceTimer">
+<div
+class="timer"
+id="voiceTimer">
 00:00
 </div>
 
-<button class="btn primary" id="voiceStart">
+<button
+class="btn primary"
+id="voiceStart">
 🔴 Start Recording
 </button>
 
-<button class="btn danger" id="voiceStop" disabled>
+<button
+class="btn danger"
+id="voiceStop"
+disabled>
 ⏹ Stop
 </button>
 
-<div class="status" id="voiceStatus">
+<div
+class="status"
+id="voiceStatus">
 Ready
 </div>
 
@@ -1253,9 +1351,12 @@ download="asim-voice-recording.webm">
 
 </section>
 
+
 <!-- CAMERA -->
 
-<section class="panel" id="camera">
+<section
+class="panel"
+id="camera">
 
 <h2>📷 Camera</h2>
 
@@ -1273,15 +1374,21 @@ playsinline>
 
 </div>
 
-<button class="btn primary" id="cameraStart">
+<button
+class="btn primary"
+id="cameraStart">
 📷 Start Camera
 </button>
 
-<button class="btn danger" id="cameraStop">
+<button
+class="btn danger"
+id="cameraStop">
 ⏹ Stop Camera
 </button>
 
-<button class="btn success" id="takePhoto">
+<button
+class="btn success"
+id="takePhoto">
 📸 Take Photo
 </button>
 
@@ -1313,31 +1420,43 @@ download="asim-camera-photo.png">
 
 </section>
 
+
 <!-- SCREEN -->
 
-<section class="panel" id="screen">
+<section
+class="panel"
+id="screen">
 
 <h2>🖥️ Screen Recorder</h2>
 
 <p class="panel-description">
-Record your screen using browser screen capture.
+Record your screen.
 </p>
 
 <div class="recorder-box">
 
-<div class="timer" id="screenTimer">
+<div
+class="timer"
+id="screenTimer">
 00:00
 </div>
 
-<button class="btn primary" id="screenStart">
+<button
+class="btn primary"
+id="screenStart">
 🔴 Start Screen Recording
 </button>
 
-<button class="btn danger" id="screenStop" disabled>
+<button
+class="btn danger"
+id="screenStop"
+disabled>
 ⏹ Stop Recording
 </button>
 
-<div class="status" id="screenStatus">
+<div
+class="status"
+id="screenStatus">
 Ready
 </div>
 
@@ -1373,11 +1492,16 @@ download="asim-screen-recording.webm">
 
 </section>
 
+
 <!-- TOOLS -->
 
-<section class="panel" id="tools">
+<section
+class="panel"
+id="tools">
 
-<h2>🛠️ Creative Tools</h2>
+<h2>
+🛠️ Creative Tools
+</h2>
 
 <div class="tool-grid">
 
@@ -1392,18 +1516,18 @@ download="asim-screen-recording.webm">
 </div>
 
 <div class="tool-card">
-<h3>🖼️ Slideshow</h3>
-<p>View multiple photos.</p>
+<h3>🖼️ Photos</h3>
+<p>Photo slideshow.</p>
 </div>
 
 <div class="tool-card">
 <h3>🎞️ Video Maker</h3>
-<p>Create photo videos with transitions and music.</p>
+<p>Photos + transitions + music.</p>
 </div>
 
 <div class="tool-card">
 <h3>🎙️ Voice</h3>
-<p>Record voice.</p>
+<p>Voice recording.</p>
 </div>
 
 <div class="tool-card">
@@ -1413,12 +1537,12 @@ download="asim-screen-recording.webm">
 
 <div class="tool-card">
 <h3>🖥️ Screen</h3>
-<p>Record your screen.</p>
+<p>Screen recording.</p>
 </div>
 
 <div class="tool-card">
 <h3>🔒 Privacy</h3>
-<p>Local media processing.</p>
+<p>Local browser processing.</p>
 </div>
 
 </div>
@@ -1426,6 +1550,7 @@ download="asim-screen-recording.webm">
 </section>
 
 </main>
+
 
 <footer>
 
@@ -1440,6 +1565,7 @@ Audio • Video • Photos • Recorder • Creative Tools
 © 2026 Asim Tech. All rights reserved.
 
 </footer>
+
 
 <script>
 
@@ -1457,7 +1583,7 @@ navButtons.forEach(button=>{
 
 button.addEventListener("click",()=>{
 
-const target =
+const target=
 button.dataset.panel;
 
 navButtons.forEach(btn=>
@@ -1468,7 +1594,7 @@ button.classList.add("active");
 panels.forEach(panel=>
 panel.classList.remove("active"));
 
-const selected =
+const selected=
 document.getElementById(target);
 
 if(selected){
@@ -1476,9 +1602,12 @@ selected.classList.add("active");
 }
 
 window.scrollTo({
+
 top:
 document.querySelector(".nav").offsetTop-10,
+
 behavior:"smooth"
+
 });
 
 });
@@ -1490,21 +1619,24 @@ behavior:"smooth"
 AUDIO
 ===================================================== */
 
-const audioFiles =
+const audioFiles=
 document.getElementById("audioFiles");
 
-const audioPlayer =
+const audioPlayer=
 document.getElementById("audioPlayer");
 
-const audioStatus =
+const audioStatus=
 document.getElementById("audioStatus");
 
 let audioURLs=[];
 
-audioFiles.addEventListener("change",function(){
+audioFiles.addEventListener(
+"change",
+function(){
 
-audioURLs.forEach(url=>
-URL.revokeObjectURL(url));
+audioURLs.forEach(
+url=>URL.revokeObjectURL(url)
+);
 
 audioURLs=[];
 
@@ -1516,11 +1648,14 @@ return;
 }
 
 audioURLs=
-files.map(file=>
-URL.createObjectURL(file));
+files.map(
+file=>URL.createObjectURL(file)
+);
 
 audioPlayer.src=
 audioURLs[0];
+
+audioPlayer.volume=1;
 
 audioStatus.textContent=
 files.length+
@@ -1533,16 +1668,18 @@ files.length+
 VIDEO
 ===================================================== */
 
-const videoFile =
+const videoFile=
 document.getElementById("videoFile");
 
-const videoPlayer =
+const videoPlayer=
 document.getElementById("videoPlayer");
 
-const videoStatus =
+const videoStatus=
 document.getElementById("videoStatus");
 
-videoFile.addEventListener("change",function(){
+videoFile.addEventListener(
+"change",
+function(){
 
 const file=this.files[0];
 
@@ -1567,18 +1704,24 @@ videoPlayer.pause();
 }
 
 function stopVideo(){
+
 videoPlayer.pause();
+
 videoPlayer.currentTime=0;
+
 }
 
 function fullscreenVideo(){
 
 if(videoPlayer.requestFullscreen){
-videoPlayer.requestFullscreen();
-}
 
+videoPlayer.requestFullscreen();
+
+}
 else if(videoPlayer.webkitRequestFullscreen){
+
 videoPlayer.webkitRequestFullscreen();
+
 }
 
 }
@@ -1588,31 +1731,37 @@ videoPlayer.webkitRequestFullscreen();
 SLIDESHOW
 ===================================================== */
 
-const slideFiles =
+const slideFiles=
 document.getElementById("slideFiles");
 
-const slideShow =
+const slideShow=
 document.getElementById("slideShow");
 
-const slideThumbs =
+const slideThumbs=
 document.getElementById("slideThumbs");
 
 let slides=[];
+
 let slideIndex=0;
+
 let slideInterval=null;
 
-slideFiles.addEventListener("change",function(){
+slideFiles.addEventListener(
+"change",
+function(){
 
 stopSlideshow();
 
-slides.forEach(url=>
-URL.revokeObjectURL(url));
+slides.forEach(
+url=>URL.revokeObjectURL(url)
+);
 
 slides=[];
 
 slideThumbs.innerHTML="";
 
-Array.from(this.files).forEach(file=>{
+Array.from(this.files).forEach(
+file=>{
 
 const url=
 URL.createObjectURL(file);
@@ -1696,7 +1845,9 @@ function startSlideshow(){
 
 if(!slides.length){
 
-alert("Please select photos first.");
+alert(
+"Please select photos first."
+);
 
 return;
 
@@ -1705,7 +1856,10 @@ return;
 stopSlideshow();
 
 slideInterval=
-setInterval(nextSlide,3000);
+setInterval(
+nextSlide,
+3000
+);
 
 }
 
@@ -1713,7 +1867,9 @@ function stopSlideshow(){
 
 if(slideInterval){
 
-clearInterval(slideInterval);
+clearInterval(
+slideInterval
+);
 
 slideInterval=null;
 
@@ -1726,58 +1882,64 @@ slideInterval=null;
 PHOTO VIDEO MAKER
 ===================================================== */
 
-const makerImages =
+const makerImages=
 document.getElementById("makerImages");
 
-const makerMusic =
+const makerMusic=
 document.getElementById("makerMusic");
 
-const makerCanvas =
+const makerCanvas=
 document.getElementById("mCanvas");
 
-const ctx =
+const ctx=
 makerCanvas.getContext("2d");
 
-const makerEmpty =
+const makerEmpty=
 document.getElementById("makerEmpty");
 
-const makerStatus =
+const makerStatus=
 document.getElementById("makerStatus");
 
-const makerPhotoList =
+const makerPhotoList=
 document.getElementById("makerPhotoList");
 
-const imageDuration =
+const imageDuration=
 document.getElementById("imageDuration");
 
-const transitionType =
+const transitionType=
 document.getElementById("transitionType");
 
-const transitionInfo =
+const transitionInfo=
 document.getElementById("transitionInfo");
 
-const musicVolume =
+const musicVolume=
 document.getElementById("musicVolume");
 
-const musicMode =
+const musicMode=
 document.getElementById("musicMode");
 
-const musicStatus =
+const musicStatus=
 document.getElementById("musicStatus");
 
-const previewBtn =
+const musicPreview=
+document.getElementById("musicPreview");
+
+const musicPreviewBox=
+document.getElementById("musicPreviewBox");
+
+const previewBtn=
 document.getElementById("previewBtn");
 
-const createBtn =
+const createBtn=
 document.getElementById("createBtn");
 
-const stopBtn =
+const stopBtn=
 document.getElementById("stopBtn");
 
-const makerDownload =
+const makerDownload=
 document.getElementById("makerDownload");
 
-const makerDownloadLink =
+const makerDownloadLink=
 document.getElementById("makerDownloadLink");
 
 let makerFiles=[];
@@ -1793,26 +1955,21 @@ let running=false;
 let animationFrame=null;
 
 
-/* TRANSITION NAME */
+/* =====================================================
+TRANSITION NAME
+===================================================== */
 
 function transitionName(type){
 
 const names={
 
 fade:"Fade",
-
 crossfade:"Cross Fade",
-
 slideLeft:"Slide Left",
-
 slideRight:"Slide Right",
-
 slideUp:"Slide Up",
-
 slideDown:"Slide Down",
-
 zoomIn:"Zoom In",
-
 zoomOut:"Zoom Out"
 
 };
@@ -1821,7 +1978,9 @@ return names[type]||"Fade";
 
 }
 
-transitionType.addEventListener("change",function(){
+transitionType.addEventListener(
+"change",
+function(){
 
 transitionInfo.textContent=
 "✨ Transition: "+
@@ -1831,7 +1990,7 @@ transitionName(this.value);
 
 
 /* =====================================================
-SELECT PHOTOS
+PHOTO SELECT
 ===================================================== */
 
 makerImages.addEventListener(
@@ -1840,8 +1999,9 @@ async function(){
 
 stopMaker();
 
-makerURLs.forEach(url=>
-URL.revokeObjectURL(url));
+makerURLs.forEach(
+url=>URL.revokeObjectURL(url)
+);
 
 makerURLs=[];
 
@@ -1852,7 +2012,8 @@ Array.from(this.files);
 
 if(!makerFiles.length){
 
-makerEmpty.style.display="block";
+makerEmpty.style.display=
+"block";
 
 makerStatus.textContent=
 "Ready — Select photos";
@@ -1863,12 +2024,15 @@ return;
 
 }
 
-makerEmpty.style.display="none";
+makerEmpty.style.display=
+"none";
 
 makerStatus.textContent=
 "Loading photos...";
 
-for(const file of makerFiles){
+for(
+const file of makerFiles
+){
 
 const url=
 URL.createObjectURL(file);
@@ -1884,9 +2048,13 @@ loadedImages.push(img);
 
 renderPhotoList();
 
+if(loadedImages[0]){
+
 drawNormal(
 loadedImages[0]
 );
+
+}
 
 makerStatus.textContent=
 makerFiles.length+
@@ -1902,11 +2070,13 @@ return new Promise(resolve=>{
 const img=
 new Image();
 
-img.onload=()=>{
+img.onload=
+()=>{
 resolve(img);
 };
 
-img.onerror=()=>{
+img.onerror=
+()=>{
 resolve(null);
 };
 
@@ -1917,7 +2087,9 @@ img.src=url;
 }
 
 
-/* PHOTO LIST */
+/* =====================================================
+PHOTO LIST
+===================================================== */
 
 function renderPhotoList(){
 
@@ -1932,12 +2104,14 @@ return;
 
 }
 
-makerFiles.forEach((file,index)=>{
+makerFiles.forEach(
+(file,index)=>{
 
 const row=
 document.createElement("div");
 
-row.className="photo-item";
+row.className=
+"photo-item";
 
 const img=
 document.createElement("img");
@@ -1949,21 +2123,22 @@ const name=
 document.createElement("span");
 
 name.textContent=
-(index+1)+". "+file.name;
+(index+1)+
+". "+
+file.name;
 
 const remove=
 document.createElement("button");
 
 remove.textContent="×";
 
-remove.onclick=()=>{
-
-removePhoto(index);
-
-};
+remove.onclick=
+()=>removePhoto(index);
 
 row.appendChild(img);
+
 row.appendChild(name);
+
 row.appendChild(remove);
 
 makerPhotoList.appendChild(row);
@@ -1973,7 +2148,9 @@ makerPhotoList.appendChild(row);
 }
 
 
-/* REMOVE PHOTO */
+/* =====================================================
+REMOVE PHOTO
+===================================================== */
 
 function removePhoto(index){
 
@@ -2004,10 +2181,10 @@ loadedImages.length+
 " photo(s) selected.";
 
 }
-
 else{
 
-makerEmpty.style.display="block";
+makerEmpty.style.display=
+"block";
 
 ctx.clearRect(
 0,
@@ -2025,7 +2202,7 @@ makerStatus.textContent=
 
 
 /* =====================================================
-IMAGE FIT
+FIT IMAGE
 ===================================================== */
 
 function fitImage(img){
@@ -2033,10 +2210,12 @@ function fitImage(img){
 if(!img){
 
 return {
+
 x:0,
 y:0,
 width:1280,
 height:720
+
 };
 
 }
@@ -2057,15 +2236,17 @@ return {
 
 x:(1280-width)/2,
 y:(720-height)/2,
-width,
-height
+width:width,
+height:height
 
 };
 
 }
 
 
-/* NORMAL */
+/* =====================================================
+NORMAL DRAW
+===================================================== */
 
 function drawNormal(img){
 
@@ -2097,7 +2278,7 @@ f.height
 
 
 /* =====================================================
-TRANSITION
+TRANSITIONS
 ===================================================== */
 
 function drawTransition(
@@ -2397,12 +2578,15 @@ b.height
 
 
 /* =====================================================
-MUSIC
+MUSIC SELECT
 ===================================================== */
 
 makerMusic.addEventListener(
 "change",
 function(){
+
+const file=
+this.files[0];
 
 if(musicURL){
 
@@ -2414,10 +2598,10 @@ musicURL=null;
 
 }
 
-const file=
-this.files[0];
-
 if(!file){
+
+musicPreviewBox.style.display=
+"none";
 
 musicStatus.textContent=
 "No music selected";
@@ -2429,8 +2613,46 @@ return;
 musicURL=
 URL.createObjectURL(file);
 
+
+/* IMPORTANT:
+   PREVIEW AUDIO IS DIRECTLY PLAYABLE */
+
+musicPreview.src=
+musicURL;
+
+musicPreview.volume=
+Number(musicVolume.value);
+
+musicPreviewBox.style.display=
+"block";
+
 musicStatus.textContent=
-"🎵 "+file.name;
+"🎵 Music selected: "+
+file.name;
+
+});
+
+
+/* MUSIC VOLUME */
+
+musicVolume.addEventListener(
+"input",
+function(){
+
+musicPreview.volume=
+Number(this.value);
+
+});
+
+
+/* MUSIC MODE */
+
+musicMode.addEventListener(
+"change",
+function(){
+
+musicPreview.loop=
+this.value==="loop";
 
 });
 
@@ -2456,7 +2678,9 @@ return;
 
 }
 
-if(Date.now()-start>=ms){
+if(
+Date.now()-start>=ms
+){
 
 resolve();
 
@@ -2500,11 +2724,44 @@ running=true;
 makerStatus.textContent=
 "▶ Preview playing...";
 
+
+/* MUSIC PREVIEW */
+
+if(musicURL){
+
+musicPreview.currentTime=0;
+
+musicPreview.volume=
+Number(musicVolume.value);
+
+musicPreview.loop=
+musicMode.value==="loop";
+
+try{
+
+await musicPreview.play();
+
+}
+catch(error){
+
+console.log(
+"Preview music blocked:",
+error
+);
+
+}
+
+}
+
+
 const duration=
 Number(imageDuration.value)*1000;
 
 const transitionDuration=
-Math.min(800,duration/2);
+Math.min(
+800,
+duration/2
+);
 
 for(
 let i=0;
@@ -2518,8 +2775,7 @@ loadedImages[i];
 
 const next=
 loadedImages[
-(i+1)%
-loadedImages.length
+(i+1)%loadedImages.length
 ];
 
 drawNormal(current);
@@ -2567,7 +2823,6 @@ animationFrame=
 requestAnimationFrame(frame);
 
 }
-
 else{
 
 resolve();
@@ -2583,20 +2838,23 @@ requestAnimationFrame(frame);
 
 }
 
-if(running){
+
+/* STOP PREVIEW MUSIC */
+
+musicPreview.pause();
+
+musicPreview.currentTime=0;
 
 running=false;
 
 makerStatus.textContent=
 "✅ Preview finished.";
 
-}
-
 });
 
 
 /* =====================================================
-CREATE VIDEO WITH MUSIC
+CREATE VIDEO
 ===================================================== */
 
 createBtn.addEventListener(
@@ -2613,7 +2871,9 @@ return;
 
 }
 
-if(!makerCanvas.captureStream){
+if(
+!HTMLCanvasElement.prototype.captureStream
+){
 
 makerStatus.textContent=
 "Video creation is not supported in this browser.";
@@ -2624,7 +2884,9 @@ return;
 
 stopMaker();
 
-makerDownload.classList.remove("show");
+makerDownload.classList.remove(
+"show"
+);
 
 createBtn.disabled=true;
 
@@ -2633,16 +2895,20 @@ previewBtn.disabled=true;
 running=true;
 
 makerStatus.textContent=
-"🎬 Creating video... Please wait.";
+"🎬 Creating video with music...";
 
 
-/* VIDEO STREAM */
+/* =================================================
+VIDEO STREAM
+================================================= */
 
 const videoStream=
 makerCanvas.captureStream(30);
 
 
-/* AUDIO */
+/* =================================================
+AUDIO CONTEXT
+================================================= */
 
 let audioContext=null;
 
@@ -2650,10 +2916,10 @@ let audioDestination=null;
 
 let musicElement=null;
 
-let audioSource=null;
+let musicSource=null;
 
+let gainNode=null;
 
-/* CREATE AUDIO STREAM IF MUSIC EXISTS */
 
 if(musicURL){
 
@@ -2667,8 +2933,14 @@ window.webkitAudioContext
 
 await audioContext.resume();
 
+
+/* AUDIO OUTPUT */
+
 audioDestination=
 audioContext.createMediaStreamDestination();
+
+
+/* AUDIO ELEMENT */
 
 musicElement=
 new Audio();
@@ -2676,32 +2948,46 @@ new Audio();
 musicElement.src=
 musicURL;
 
+musicElement.preload=
+"auto";
+
 musicElement.loop=
 musicMode.value==="loop";
 
 musicElement.volume=1;
 
-musicElement.crossOrigin=
-"anonymous";
 
-audioSource=
+/* CREATE SOURCE */
+
+musicSource=
 audioContext.createMediaElementSource(
 musicElement
 );
 
-const gain=
+
+/* GAIN */
+
+gainNode=
 audioContext.createGain();
 
-gain.gain.value=
+gainNode.gain.value=
 Number(musicVolume.value);
 
-audioSource.connect(gain);
 
-gain.connect(
+/* IMPORTANT AUDIO ROUTING */
+
+musicSource.connect(
+gainNode
+);
+
+gainNode.connect(
 audioDestination
 );
 
-audioSource.connect(
+
+/* ALSO SEND TO SPEAKERS */
+
+gainNode.connect(
 audioContext.destination
 );
 
@@ -2709,18 +2995,19 @@ audioContext.destination
 catch(error){
 
 console.log(
-"Audio setup error:",
+"Audio setup failed:",
 error
 );
 
 }
-
 }
 
 
-/* COMBINE STREAMS */
+/* =================================================
+COMBINE VIDEO + AUDIO
+================================================= */
 
-const finalTracks=[
+const tracks=[
 ...videoStream.getVideoTracks()
 ];
 
@@ -2729,21 +3016,39 @@ audioDestination &&
 audioDestination.stream.getAudioTracks().length
 ){
 
-finalTracks.push(
+tracks.push(
 ...audioDestination.stream.getAudioTracks()
 );
 
 }
 
 const finalStream=
-new MediaStream(
-finalTracks
-);
+new MediaStream(tracks);
 
 
-/* RECORDER */
+/* =================================================
+MEDIA RECORDER
+================================================= */
 
-let recorder;
+let recorder=null;
+
+const mimeTypes=[
+
+"video/webm;codecs=vp9,opus",
+
+"video/webm;codecs=vp8,opus",
+
+"video/webm"
+
+];
+
+for(
+const type of mimeTypes
+){
+
+if(
+MediaRecorder.isTypeSupported(type)
+){
 
 try{
 
@@ -2751,26 +3056,22 @@ recorder=
 new MediaRecorder(
 finalStream,
 {
-mimeType:"video/webm;codecs=vp9,opus"
+mimeType:type
 }
 );
 
+break;
+
+}
+catch(error){}
+
 }
 
-catch(error){
+}
+
+if(!recorder){
 
 try{
-
-recorder=
-new MediaRecorder(
-finalStream,
-{
-mimeType:"video/webm"
-}
-);
-
-}
-catch(error2){
 
 recorder=
 new MediaRecorder(
@@ -2778,15 +3079,31 @@ finalStream
 );
 
 }
+catch(error){
+
+makerStatus.textContent=
+"Your browser cannot create this video.";
+
+createBtn.disabled=false;
+
+previewBtn.disabled=false;
+
+running=false;
+
+return;
 
 }
+
+}
+
 
 const chunks=[];
 
 recorder.ondataavailable=
 function(event){
 
-if(event.data.size){
+if(event.data &&
+event.data.size>0){
 
 chunks.push(
 event.data
@@ -2796,17 +3113,22 @@ event.data
 
 };
 
+
 const stopped=
 new Promise(resolve=>{
 
-recorder.onstop=resolve;
+recorder.onstop=
+resolve;
 
 });
 
-recorder.start();
+
+/* START RECORDING */
+
+recorder.start(250);
 
 
-/* MUSIC START */
+/* START MUSIC */
 
 if(musicElement){
 
@@ -2814,15 +3136,13 @@ try{
 
 musicElement.currentTime=0;
 
-musicElement.volume=1;
-
 await musicElement.play();
 
 }
 catch(error){
 
 console.log(
-"Music playback error:",
+"Music playback blocked:",
 error
 );
 
@@ -2831,13 +3151,18 @@ error
 }
 
 
-/* VIDEO */
+/* =================================================
+RENDER PHOTOS
+================================================= */
 
 const duration=
 Number(imageDuration.value)*1000;
 
 const transitionDuration=
-Math.min(800,duration/2);
+Math.min(
+800,
+duration/2
+);
 
 try{
 
@@ -2853,9 +3178,9 @@ loadedImages[i];
 
 const next=
 loadedImages[
-(i+1)%
-loadedImages.length
+(i+1)%loadedImages.length
 ];
+
 
 /* PHOTO */
 
@@ -2868,6 +3193,7 @@ duration-transitionDuration
 if(!running){
 break;
 }
+
 
 /* TRANSITION */
 
@@ -2905,7 +3231,6 @@ if(p<1){
 requestAnimationFrame(frame);
 
 }
-
 else{
 
 resolve();
@@ -2923,27 +3248,51 @@ requestAnimationFrame(frame);
 }
 catch(error){
 
-console.log(error);
-
-}
-
-
-/* STOP MUSIC */
-
-if(musicElement){
-
-musicElement.pause();
-
-}
+console.log(
+"Render error:",
+error
+);
 
 
-/* STOP RECORDER */
+/* STOP */
 
 running=false;
 
+}
+
+
+/* =================================================
+STOP MUSIC
+================================================= */
+
+if(musicElement){
+
 try{
 
+musicElement.pause();
+
+musicElement.currentTime=0;
+
+}
+catch(error){}
+
+}
+
+
+/* =================================================
+STOP RECORDER
+================================================= */
+
+try{
+
+if(
+recorder &&
+recorder.state!=="inactive"
+){
+
 recorder.stop();
+
+}
 
 }
 catch(error){}
@@ -2951,15 +3300,19 @@ catch(error){}
 await stopped;
 
 
-/* CLEANUP */
+/* =================================================
+CLEANUP
+================================================= */
+
+try{
 
 finalStream.getTracks().forEach(
 track=>track.stop()
 );
 
-videoStream.getTracks().forEach(
-track=>track.stop()
-);
+}
+catch(error){}
+
 
 if(audioContext){
 
@@ -2973,11 +3326,9 @@ catch(error){}
 }
 
 
-/* DOWNLOAD */
-
-createBtn.disabled=false;
-
-previewBtn.disabled=false;
+/* =================================================
+CREATE FILE
+================================================= */
 
 if(chunks.length){
 
@@ -2995,27 +3346,38 @@ URL.createObjectURL(blob);
 makerDownloadLink.href=
 url;
 
+makerDownloadLink.download=
+"asim-photo-video-with-music.webm";
+
 makerDownload.classList.add(
 "show"
 );
 
 makerStatus.textContent=
-"✅ Video created successfully!";
+"✅ Video created with music successfully!";
 
 }
-
 else{
 
 makerStatus.textContent=
-"Video creation failed.";
+"❌ Video creation failed.";
 
 }
+
+
+/* BUTTONS */
+
+createBtn.disabled=false;
+
+previewBtn.disabled=false;
+
+running=false;
 
 });
 
 
 /* =====================================================
-STOP
+STOP MAKER
 ===================================================== */
 
 stopBtn.addEventListener(
@@ -3023,6 +3385,10 @@ stopBtn.addEventListener(
 function(){
 
 stopMaker();
+
+musicPreview.pause();
+
+musicPreview.currentTime=0;
 
 makerStatus.textContent=
 "⏹ Stopped.";
@@ -3056,8 +3422,11 @@ VOICE RECORDER
 ===================================================== */
 
 let voiceRecorder=null;
+
 let voiceChunks=[];
+
 let voiceSeconds=0;
+
 let voiceInterval=null;
 
 const voiceStart=
@@ -3101,7 +3470,11 @@ voiceRecorder.ondataavailable=
 event=>{
 
 if(event.data.size){
-voiceChunks.push(event.data);
+
+voiceChunks.push(
+event.data
+);
+
 }
 
 };
@@ -3112,7 +3485,9 @@ voiceRecorder.onstop=
 const blob=
 new Blob(
 voiceChunks,
-{type:"audio/webm"}
+{
+type:"audio/webm"
+}
 );
 
 const url=
@@ -3143,11 +3518,8 @@ voiceStop.disabled=false;
 
 voiceSeconds=0;
 
-voiceTimer.textContent="00:00";
-
-clearInterval(
-voiceInterval
-);
+voiceTimer.textContent=
+"00:00";
 
 voiceInterval=
 setInterval(()=>{
@@ -3352,8 +3724,11 @@ SCREEN RECORDER
 ===================================================== */
 
 let screenRecorder=null;
+
 let screenChunks=[];
+
 let screenSeconds=0;
+
 let screenInterval=null;
 
 const screenStart=
@@ -3401,7 +3776,9 @@ event=>{
 
 if(event.data.size){
 
-screenChunks.push(event.data);
+screenChunks.push(
+event.data
+);
 
 }
 
@@ -3413,7 +3790,9 @@ screenRecorder.onstop=
 const blob=
 new Blob(
 screenChunks,
-{type:"video/webm"}
+{
+type:"video/webm"
+}
 );
 
 const url=
@@ -3444,11 +3823,8 @@ screenStop.disabled=false;
 
 screenSeconds=0;
 
-screenTimer.textContent="00:00";
-
-clearInterval(
-screenInterval
-);
+screenTimer.textContent=
+"00:00";
 
 screenInterval=
 setInterval(()=>{
@@ -3501,7 +3877,7 @@ screenStatus.textContent=
 
 
 /* =====================================================
-PWA
+PWA INSTALL
 ===================================================== */
 
 let deferredPrompt=null;
@@ -3533,7 +3909,9 @@ return;
 deferredPrompt.prompt();
 
 try{
+
 await deferredPrompt.userChoice;
+
 }
 catch(error){}
 
@@ -3554,9 +3932,13 @@ installBtn.style.display=
 });
 
 
-/* SERVICE WORKER */
+/* =====================================================
+SERVICE WORKER
+===================================================== */
 
-if("serviceWorker" in navigator){
+if(
+"serviceWorker" in navigator
+){
 
 window.addEventListener(
 "load",
@@ -3564,18 +3946,22 @@ function(){
 
 navigator.serviceWorker
 .register("./sw.js")
-.catch(error=>
+.catch(
+error=>
 console.log(
 "Service Worker error:",
 error
-));
+)
+);
 
 });
 
 }
 
 
-/* CLEANUP */
+/* =====================================================
+CLEANUP
+===================================================== */
 
 window.addEventListener(
 "beforeunload",
@@ -3587,12 +3973,20 @@ stopCamera();
 
 stopMaker();
 
-makerURLs.forEach(url=>
-URL.revokeObjectURL(url)
+audioURLs.forEach(
+url=>URL.revokeObjectURL(url)
+);
+
+makerURLs.forEach(
+url=>URL.revokeObjectURL(url)
 );
 
 if(musicURL){
-URL.revokeObjectURL(musicURL);
+
+URL.revokeObjectURL(
+musicURL
+);
+
 }
 
 });
