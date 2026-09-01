@@ -1,1 +1,1638 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#020b18">
+
+<title>Asim Tech - Image to Excel</title>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#020b18;
+    color:white;
+}
+
+header{
+    padding:15px;
+    background:#010914;
+    border-bottom:1px solid #07598a;
+}
+
+.header{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#078dff;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+    border:1px solid #0877b7;
+    padding:10px 15px;
+    border-radius:12px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:25px 12px;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:45px;
+    margin:10px 0;
+}
+
+.title h1 span{
+    color:#078dff;
+}
+
+.title p{
+    color:#9bb5c7;
+    font-size:18px;
+}
+
+.main{
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:20px;
+}
+
+.card{
+    background:#031a2c;
+    border:1px solid #07547e;
+    border-radius:18px;
+    padding:20px;
+}
+
+.card h2{
+    margin-top:0;
+}
+
+.upload{
+    border:2px dashed #0878bb;
+    border-radius:16px;
+    padding:30px 15px;
+    text-align:center;
+}
+
+.camera{
+    font-size:55px;
+}
+
+input[type=file]{
+    display:none;
+}
+
+.choose{
+    display:inline-block;
+    background:#087ff0;
+    padding:14px 20px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.preview{
+    display:none;
+    margin-top:18px;
+}
+
+.preview img{
+    width:100%;
+    max-height:250px;
+    object-fit:contain;
+    background:white;
+    border-radius:10px;
+}
+
+select,
+button{
+    width:100%;
+    height:52px;
+    border-radius:12px;
+    border:1px solid #176b96;
+    margin-top:12px;
+    font-size:16px;
+}
+
+select{
+    background:#062438;
+    color:white;
+    padding:0 12px;
+}
+
+button{
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    border:0;
+}
+
+.extract{
+    background:#00b94f;
+}
+
+.clear{
+    background:#e91e3d;
+}
+
+.progress{
+    display:none;
+    margin-top:15px;
+}
+
+.bar{
+    height:10px;
+    background:#087ff0;
+    width:0%;
+    border-radius:10px;
+}
+
+.status{
+    margin-top:12px;
+    text-align:center;
+    color:#8ee9ad;
+}
+
+.result{
+    overflow:hidden;
+}
+
+.table-wrap{
+    width:100%;
+    overflow:auto;
+    background:white;
+    border:3px solid #0875ad;
+    border-radius:12px;
+}
+
+table{
+    border-collapse:collapse;
+    width:100%;
+    min-width:700px;
+    color:#111;
+    background:white;
+}
+
+th,
+td{
+    border:2px solid #6b8795;
+    padding:10px;
+    min-width:130px;
+    vertical-align:top;
+    word-break:break-word;
+}
+
+th{
+    background:#ccecff;
+    color:#06283b;
+    text-align:center;
+}
+
+td{
+    background:white;
+}
+
+td:focus{
+    outline:3px solid #078dff;
+    background:#effaff;
+}
+
+.actions{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.excel{
+    background:#00b94f;
+}
+
+.csv{
+    background:#087ff0;
+}
+
+.row{
+    background:#8b2cff;
+}
+
+.col{
+    background:#ff8500;
+}
+
+.copy{
+    background:#16445e;
+}
+
+.delete{
+    background:#e91e3d;
+}
+
+.retry{
+    background:#008c9e;
+}
+
+.help{
+    margin-top:20px;
+    color:#9bb5c7;
+    line-height:1.8;
+}
+
+@media(max-width:800px){
+
+    .main{
+        grid-template-columns:1fr;
+    }
+
+    .title h1{
+        font-size:36px;
+    }
+
+    .actions{
+        grid-template-columns:1fr;
+    }
+
+    .header{
+        gap:10px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .back{
+        font-size:13px;
+        padding:8px 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header">
+
+<div class="logo">
+ASIM<span>TECH</span>
+</div>
+
+<a class="back" href="../">
+← Asim Tech
+</a>
+
+</div>
+</header>
+
+<div class="container">
+
+<div class="title">
+
+<h1>
+Image → <span>Excel</span>
+</h1>
+
+<p>
+ছবি থেকে বাংলা + English Table / List OCR করে Editable Excel তৈরি করুন
+</p>
+
+</div>
+
+<div class="main">
+
+<!-- LEFT -->
+
+<div class="card">
+
+<h2>📷 ছবি আপলোড করুন</h2>
+
+<div class="upload">
+
+<div class="camera">📷</div>
+
+<p>
+Camera দিয়ে ছবি তুলুন অথবা Gallery থেকে নির্বাচন করুন
+</p>
+
+<label for="imageInput" class="choose">
+📁 ছবি নির্বাচন করুন
+</label>
+
+<input
+id="imageInput"
+type="file"
+accept="image/*">
+
+<div class="preview" id="preview">
+
+<img id="previewImage">
+
+<p id="fileName"></p>
+
+</div>
+
+</div>
+
+<label>OCR Language</label>
+
+<select id="language">
+
+<option value="eng+ben">
+বাংলা + English
+</option>
+
+<option value="ben">
+বাংলা
+</option>
+
+<option value="eng">
+English
+</option>
+
+</select>
+
+<label>Column সংখ্যা</label>
+
+<select id="columns">
+
+<option value="auto">
+Auto Detect
+</option>
+
+<option value="1">1 Column</option>
+<option value="2">2 Columns</option>
+<option value="3">3 Columns</option>
+<option value="4">4 Columns</option>
+<option value="5">5 Columns</option>
+<option value="6">6 Columns</option>
+<option value="7">7 Columns</option>
+<option value="8">8 Columns</option>
+
+</select>
+
+<button
+class="extract"
+id="extract">
+🔍 Extract Table
+</button>
+
+<button
+class="clear"
+id="clear">
+✕ Clear
+</button>
+
+<div class="progress" id="progress">
+
+<p id="progressText">
+OCR চলছে...
+</p>
+
+<div class="bar" id="bar"></div>
+
+</div>
+
+<div class="status" id="status"></div>
+
+</div>
+
+
+<!-- RIGHT -->
+
+<div class="card result">
+
+<h2>
+📊 Extracted Table
+</h2>
+
+<p>
+👉 নিচের প্রতিটি ঘরে click করে OCR-এর ভুল লেখা ঠিক করুন।
+</p>
+
+<div class="table-wrap">
+
+<table id="table">
+
+<thead id="thead"></thead>
+
+<tbody id="tbody"></tbody>
+
+</table>
+
+</div>
+
+<div class="actions">
+
+<button class="excel" id="downloadExcel">
+📥 Excel Download
+</button>
+
+<button class="csv" id="downloadCSV">
+📄 CSV Download
+</button>
+
+<button class="row" id="addRow">
+＋ নতুন Row
+</button>
+
+<button class="col" id="addCol">
+＋ নতুন Column
+</button>
+
+<button class="copy" id="copy">
+📋 Table Copy
+</button>
+
+<button class="delete" id="clearTable">
+🗑️ Table মুছে ফেলুন
+</button>
+
+<button class="retry" id="retry">
+🔄 আবার OCR
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card help">
+
+<h2>ℹ️ ব্যবহার পদ্ধতি</h2>
+
+<p>1️⃣ ছবি নির্বাচন করুন।</p>
+
+<p>2️⃣ বাংলা + English নির্বাচন করুন।</p>
+
+<p>3️⃣ ছবির Column সংখ্যা নির্বাচন করুন অথবা Auto Detect রাখুন।</p>
+
+<p>4️⃣ Extract Table চাপুন।</p>
+
+<p>5️⃣ OCR-এর ভুল থাকলে cell-এ click করে ঠিক করুন।</p>
+
+<p>6️⃣ সব ঠিক হলে Excel Download করুন।</p>
+
+</div>
+
+</div>
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let file = null;
+let data = [];
+let columnCount = 1;
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const imageInput =
+document.getElementById("imageInput");
+
+const preview =
+document.getElementById("preview");
+
+const previewImage =
+document.getElementById("previewImage");
+
+const fileName =
+document.getElementById("fileName");
+
+const extract =
+document.getElementById("extract");
+
+const clear =
+document.getElementById("clear");
+
+const language =
+document.getElementById("language");
+
+const columns =
+document.getElementById("columns");
+
+const progress =
+document.getElementById("progress");
+
+const progressText =
+document.getElementById("progressText");
+
+const bar =
+document.getElementById("bar");
+
+const status =
+document.getElementById("status");
+
+const thead =
+document.getElementById("thead");
+
+const tbody =
+document.getElementById("tbody");
+
+const downloadExcel =
+document.getElementById("downloadExcel");
+
+const downloadCSV =
+document.getElementById("downloadCSV");
+
+const addRow =
+document.getElementById("addRow");
+
+const addCol =
+document.getElementById("addCol");
+
+const copy =
+document.getElementById("copy");
+
+const clearTable =
+document.getElementById("clearTable");
+
+const retry =
+document.getElementById("retry");
+
+
+/* =========================
+   IMAGE SELECT
+========================= */
+
+imageInput.addEventListener(
+"change",
+function(){
+
+    file =
+    this.files[0];
+
+    if(!file) return;
+
+    previewImage.src =
+    URL.createObjectURL(file);
+
+    fileName.textContent =
+    file.name;
+
+    preview.style.display =
+    "block";
+
+    status.textContent =
+    "ছবি নির্বাচন হয়েছে ✓";
+
+});
+
+
+/* =========================
+   CLEAR
+========================= */
+
+clear.addEventListener(
+"click",
+function(){
+
+    file = null;
+
+    imageInput.value = "";
+
+    preview.style.display =
+    "none";
+
+    data = [];
+
+    thead.innerHTML = "";
+
+    tbody.innerHTML = "";
+
+    status.textContent = "";
+
+    progress.style.display =
+    "none";
+
+});
+
+
+/* =========================
+   IMAGE PREPARATION
+========================= */
+
+function prepareImage(file){
+
+    return new Promise(
+    function(resolve,reject){
+
+        const img =
+        new Image();
+
+        const url =
+        URL.createObjectURL(file);
+
+        img.onload =
+        function(){
+
+            const max =
+            3000;
+
+            let w =
+            img.naturalWidth;
+
+            let h =
+            img.naturalHeight;
+
+            if(w > max){
+
+                const scale =
+                max / w;
+
+                w =
+                Math.round(w * scale);
+
+                h =
+                Math.round(h * scale);
+
+            }
+
+            const canvas =
+            document.createElement(
+                "canvas"
+            );
+
+            canvas.width = w;
+            canvas.height = h;
+
+            const ctx =
+            canvas.getContext("2d");
+
+            ctx.fillStyle =
+            "#ffffff";
+
+            ctx.fillRect(
+                0,
+                0,
+                w,
+                h
+            );
+
+            ctx.drawImage(
+                img,
+                0,
+                0,
+                w,
+                h
+            );
+
+            canvas.toBlob(
+            function(blob){
+
+                URL.revokeObjectURL(url);
+
+                if(blob)
+                    resolve(blob);
+                else
+                    reject(
+                        new Error(
+                            "Image error"
+                        )
+                    );
+
+            },
+            "image/png",
+            1
+            );
+
+        };
+
+        img.onerror =
+        function(){
+
+            URL.revokeObjectURL(url);
+
+            reject(
+                new Error(
+                    "Image load failed"
+                )
+            );
+
+        };
+
+        img.src = url;
+
+    });
+
+}
+
+
+/* =========================
+   OCR
+========================= */
+
+extract.addEventListener(
+"click",
+async function(){
+
+    if(!file){
+
+        alert(
+            "আগে একটি ছবি নির্বাচন করুন।"
+        );
+
+        return;
+
+    }
+
+    try{
+
+        extract.disabled = true;
+
+        progress.style.display =
+        "block";
+
+        bar.style.width =
+        "5%";
+
+        progressText.textContent =
+        "ছবি প্রস্তুত হচ্ছে...";
+
+        const image =
+        await prepareImage(file);
+
+        progressText.textContent =
+        "OCR চলছে...";
+
+        const result =
+        await Tesseract.recognize(
+            image,
+            language.value,
+            {
+
+                logger:
+                function(info){
+
+                    if(
+                        info.status ===
+                        "recognizing text"
+                    ){
+
+                        const p =
+                        Math.round(
+                            info.progress * 100
+                        );
+
+                        bar.style.width =
+                        p + "%";
+
+                        progressText.textContent =
+                        "OCR চলছে... " +
+                        p +
+                        "%";
+
+                    }
+
+                }
+
+            }
+        );
+
+        const words =
+        result.data.words || [];
+
+        const rows =
+        makeRows(words);
+
+        let count;
+
+        if(
+            columns.value ===
+            "auto"
+        ){
+
+            count =
+            estimateColumns(rows);
+
+        }
+        else{
+
+            count =
+            parseInt(
+                columns.value
+            );
+
+        }
+
+        columnCount =
+        count || 1;
+
+        data =
+        createTable(
+            rows,
+            columnCount,
+            result.data.width
+        );
+
+        if(!data.length){
+
+            const text =
+            result.data.text || "";
+
+            data =
+            text
+            .split(/\r?\n/)
+            .filter(x => x.trim())
+            .map(x => [x]);
+
+            columnCount = 1;
+
+        }
+
+        render();
+
+        progressText.textContent =
+        "OCR সম্পূর্ণ ✓";
+
+        bar.style.width =
+        "100%";
+
+        status.textContent =
+        "Table তৈরি হয়েছে। এখন cell-এ click করে correction করুন।";
+
+        progress.style.display =
+        "none";
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        progress.style.display =
+        "none";
+
+        alert(
+            "OCR failed: " +
+            error.message
+        );
+
+    }
+    finally{
+
+        extract.disabled = false;
+
+    }
+
+});
+
+
+/* =========================
+   MAKE ROWS
+========================= */
+
+function makeRows(words){
+
+    const valid =
+    words
+    .filter(
+    w =>
+        w.text &&
+        w.bbox
+    )
+    .map(
+    w => ({
+
+        text:
+        w.text.trim(),
+
+        x:
+        Number(w.bbox.x0),
+
+        x2:
+        Number(w.bbox.x1),
+
+        y:
+        Number(w.bbox.y0),
+
+        y2:
+        Number(w.bbox.y1)
+
+    })
+    )
+    .filter(
+        w => w.text
+    );
+
+    if(!valid.length)
+        return [];
+
+    const heights =
+    valid
+    .map(
+        w => w.y2 - w.y
+    )
+    .sort(
+        (a,b)=>a-b
+    );
+
+    const median =
+    heights[
+        Math.floor(
+            heights.length / 2
+        )
+    ] || 20;
+
+    const tolerance =
+    Math.max(
+        8,
+        median * .6
+    );
+
+    valid.sort(
+        (a,b)=>a.y-b.y
+    );
+
+    const rows = [];
+
+    valid.forEach(
+    word => {
+
+        const center =
+        (word.y + word.y2) / 2;
+
+        let row =
+        rows.find(
+        r =>
+            Math.abs(
+                r.center - center
+            ) <= tolerance
+        );
+
+        if(!row){
+
+            row = {
+                center:center,
+                words:[]
+            };
+
+            rows.push(row);
+
+        }
+
+        row.words.push(word);
+
+    });
+
+    rows.sort(
+        (a,b)=>a.center-b.center
+    );
+
+    rows.forEach(
+        row =>
+        row.words.sort(
+            (a,b)=>a.x-b.x
+        )
+    );
+
+    return rows;
+
+}
+
+
+/* =========================
+   AUTO COLUMN
+========================= */
+
+function estimateColumns(rows){
+
+    if(!rows.length)
+        return 1;
+
+    const counts =
+    rows.map(
+        row =>
+        row.words.length
+    );
+
+    const average =
+    counts.reduce(
+        (a,b)=>a+b,
+        0
+    ) /
+    counts.length;
+
+    if(average >= 7)
+        return 5;
+
+    if(average >= 5)
+        return 4;
+
+    if(average >= 3)
+        return 3;
+
+    if(average >= 2)
+        return 2;
+
+    return 1;
+
+}
+
+
+/* =========================
+   CREATE TABLE
+========================= */
+
+function createTable(
+    rows,
+    count,
+    width
+){
+
+    if(!rows.length)
+        return [];
+
+    let maxX = 0;
+
+    rows.forEach(
+    row =>
+    row.words.forEach(
+        w =>
+        maxX =
+        Math.max(
+            maxX,
+            w.x2
+        )
+    )
+    );
+
+    const imageWidth =
+    width ||
+    maxX ||
+    1000;
+
+    return rows.map(
+    row => {
+
+        const cells =
+        Array.from(
+        {
+            length:count
+        },
+        ()=>[]
+        );
+
+        row.words.forEach(
+        word => {
+
+            const center =
+            (word.x + word.x2) / 2;
+
+            let index =
+            Math.floor(
+                (
+                    center /
+                    imageWidth
+                ) * count
+            );
+
+            if(index < 0)
+                index = 0;
+
+            if(index >= count)
+                index = count - 1;
+
+            cells[index].push(
+                word.text
+            );
+
+        });
+
+        return cells.map(
+            cell =>
+            cell.join(" ")
+        );
+
+    });
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
+function render(){
+
+    thead.innerHTML = "";
+
+    tbody.innerHTML = "";
+
+    const header =
+    document.createElement("tr");
+
+    for(
+        let c=0;
+        c<columnCount;
+        c++
+    ){
+
+        const th =
+        document.createElement("th");
+
+        th.textContent =
+        "Column " +
+        (c+1);
+
+        header.appendChild(th);
+
+    }
+
+    thead.appendChild(header);
+
+    data.forEach(
+    (row,r) => {
+
+        const tr =
+        document.createElement("tr");
+
+        for(
+            let c=0;
+            c<columnCount;
+            c++
+        ){
+
+            const td =
+            document.createElement("td");
+
+            td.contentEditable =
+            "true";
+
+            td.textContent =
+            row[c] || "";
+
+            td.addEventListener(
+            "input",
+            function(){
+
+                if(!data[r])
+                    return;
+
+                data[r][c] =
+                td.innerText;
+
+            });
+
+            tr.appendChild(td);
+
+        }
+
+        tbody.appendChild(tr);
+
+    });
+
+}
+
+
+/* =========================
+   ADD ROW
+========================= */
+
+addRow.addEventListener(
+"click",
+function(){
+
+    data.push(
+        Array(
+            columnCount
+        ).fill("")
+    );
+
+    render();
+
+});
+
+
+/* =========================
+   ADD COLUMN
+========================= */
+
+addCol.addEventListener(
+"click",
+function(){
+
+    if(
+        columnCount >= 20
+    ){
+
+        alert(
+            "Maximum 20 columns."
+        );
+
+        return;
+
+    }
+
+    columnCount++;
+
+    data.forEach(
+        row =>
+        row.push("")
+    );
+
+    if(!data.length){
+
+        data.push(
+            Array(
+                columnCount
+            ).fill("")
+        );
+
+    }
+
+    render();
+
+});
+
+
+/* =========================
+   CLEAR TABLE
+========================= */
+
+clearTable.addEventListener(
+"click",
+function(){
+
+    data = [];
+
+    columnCount = 1;
+
+    thead.innerHTML = "";
+
+    tbody.innerHTML = "";
+
+});
+
+
+/* =========================
+   GET DATA
+========================= */
+
+function getData(){
+
+    const output = [];
+
+    const headers =
+    Array.from(
+        thead.querySelectorAll("th")
+    )
+    .map(
+        x =>
+        x.innerText.trim()
+    );
+
+    if(headers.length)
+        output.push(headers);
+
+    tbody
+    .querySelectorAll("tr")
+    .forEach(
+    tr => {
+
+        output.push(
+            Array.from(
+                tr.querySelectorAll("td")
+            )
+            .map(
+                td =>
+                td.innerText.trim()
+            )
+        );
+
+    });
+
+    return output;
+
+}
+
+
+/* =========================
+   EXCEL
+========================= */
+
+downloadExcel.addEventListener(
+"click",
+function(){
+
+    const output =
+    getData();
+
+    if(!output.length){
+
+        alert(
+            "কোনো data নেই।"
+        );
+
+        return;
+
+    }
+
+    const ws =
+    XLSX.utils.aoa_to_sheet(
+        output
+    );
+
+    const range =
+    XLSX.utils.decode_range(
+        ws["!ref"]
+    );
+
+    for(
+        let r=range.s.r;
+        r<=range.e.r;
+        r++
+    ){
+
+        for(
+            let c=range.s.c;
+            c<=range.e.c;
+            c++
+        ){
+
+            const cell =
+            XLSX.utils.encode_cell(
+            {
+                r:r,
+                c:c
+            });
+
+            if(!ws[cell])
+                ws[cell] = {v:""};
+
+            ws[cell].s = {
+
+                border:{
+
+                    top:{
+                        style:"thin",
+                        color:{
+                            rgb:"666666"
+                        }
+                    },
+
+                    bottom:{
+                        style:"thin",
+                        color:{
+                            rgb:"666666"
+                        }
+                    },
+
+                    left:{
+                        style:"thin",
+                        color:{
+                            rgb:"666666"
+                        }
+                    },
+
+                    right:{
+                        style:"thin",
+                        color:{
+                            rgb:"666666"
+                        }
+                    }
+
+                },
+
+                alignment:{
+                    vertical:"top",
+                    wrapText:true
+                }
+
+            };
+
+            if(r===0){
+
+                ws[cell].s.fill = {
+
+                    patternType:"solid",
+
+                    fgColor:{
+                        rgb:"CDEFFF"
+                    }
+
+                };
+
+                ws[cell].s.font = {
+                    bold:true
+                };
+
+            }
+
+        }
+
+    }
+
+    const wb =
+    XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+        wb,
+        ws,
+        "Image Data"
+    );
+
+    XLSX.writeFile(
+        wb,
+        "Asim_Tech_Image_to_Excel.xlsx",
+        {
+            cellStyles:true
+        }
+    );
+
+});
+
+
+/* =========================
+   CSV
+========================= */
+
+downloadCSV.addEventListener(
+"click",
+function(){
+
+    const output =
+    getData();
+
+    if(!output.length){
+
+        alert(
+            "কোনো data নেই।"
+        );
+
+        return;
+
+    }
+
+    const csv =
+    output
+    .map(
+        row =>
+        row
+        .map(
+            value =>
+            '"' +
+            String(value)
+            .replace(
+                /"/g,
+                '""'
+            ) +
+            '"'
+        )
+        .join(",")
+    )
+    .join("\r\n");
+
+    const blob =
+    new Blob(
+    [
+        "\uFEFF" +
+        csv
+    ],
+    {
+        type:
+        "text/csv;charset=utf-8"
+    });
+
+    downloadBlob(
+        blob,
+        "Asim_Tech_Image_to_Excel.csv"
+    );
+
+});
+
+
+/* =========================
+   DOWNLOAD
+========================= */
+
+function downloadBlob(
+    blob,
+    name
+){
+
+    const url =
+    URL.createObjectURL(blob);
+
+    const a =
+    document.createElement("a");
+
+    a.href = url;
+
+    a.download = name;
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    document.body.removeChild(a);
+
+    setTimeout(
+        ()=>URL.revokeObjectURL(url),
+        1000
+    );
+
+}
+
+
+/* =========================
+   COPY
+========================= */
+
+copy.addEventListener(
+"click",
+async function(){
+
+    const output =
+    getData();
+
+    const text =
+    output
+    .map(
+        row =>
+        row.join("\t")
+    )
+    .join("\n");
+
+    try{
+
+        await navigator.clipboard.writeText(
+            text
+        );
+
+        alert(
+            "Table copy হয়েছে ✓"
+        );
+
+    }
+    catch(e){
+
+        alert(
+            "Copy করা যায়নি।"
+        );
+
+    }
+
+});
+
+
+/* =========================
+   RETRY
+========================= */
+
+retry.addEventListener(
+"click",
+function(){
+
+    if(file){
+
+        extract.click();
+
+    }
+    else{
+
+        alert(
+            "আগে ছবি নির্বাচন করুন।"
+        );
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
