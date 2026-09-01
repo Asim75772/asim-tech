@@ -1,5 +1,4 @@
-const CACHE_NAME = "asim-image-to-excel-v4";
-
+const CACHE_NAME = "asim-image-to-excel-v5";
 
 const APP_SHELL = [
     "./",
@@ -83,12 +82,8 @@ self.addEventListener(
 function(event){
 
     const request =
-    event.request;
+        event.request;
 
-
-    /*
-       Only handle GET requests.
-    */
 
     if(
         request.method !== "GET"
@@ -99,34 +94,48 @@ function(event){
 
 
     const url =
-    new URL(
-        request.url
-    );
+        new URL(
+            request.url
+        );
 
 
     /*
-       For our own HTML files:
-       NETWORK FIRST.
-
-       This is important because
-       GitHub Pages should show
-       the newest index.html.
+       Do not intercept external CDN.
     */
 
     if(
-        url.origin ===
+        url.origin !==
         self.location.origin
-        &&
-        (
-            url.pathname.endsWith(
-                "/index.html"
-            )
-            ||
-            url.pathname.endsWith(
-                "/manifest.json"
-            )
-        )
     ){
+
+        return;
+    }
+
+
+    const pathname =
+        url.pathname;
+
+
+    /*
+       Always get latest versions of
+       important application files.
+    */
+
+    const importantFile =
+        pathname.endsWith(
+            "/index.html"
+        )
+        ||
+        pathname.endsWith(
+            "/manifest.json"
+        )
+        ||
+        pathname.endsWith(
+            "/sw.js"
+        );
+
+
+    if(importantFile){
 
         event.respondWith(
 
@@ -145,7 +154,8 @@ function(event){
                     ){
 
                         const copy =
-                        response.clone();
+                            response.clone();
+
 
                         caches.open(
                             CACHE_NAME
@@ -159,6 +169,7 @@ function(event){
                         );
 
                     }
+
 
                     return response;
 
@@ -178,29 +189,15 @@ function(event){
 
 
     /*
-       CDN files:
-       let browser fetch them normally.
-       This prevents old library files
-       from breaking the application.
-    */
-
-    if(
-        url.origin !==
-        self.location.origin
-    ){
-
-        return;
-    }
-
-
-    /*
-       Other same-origin files:
-       Cache first with network fallback.
+       Other local files:
+       cache first.
     */
 
     event.respondWith(
 
-        caches.match(request)
+        caches.match(
+            request
+        )
         .then(
             cached => {
 
@@ -208,6 +205,7 @@ function(event){
 
                     return cached;
                 }
+
 
                 return fetch(
                     request
@@ -221,7 +219,8 @@ function(event){
                         ){
 
                             const copy =
-                            response.clone();
+                                response.clone();
+
 
                             caches.open(
                                 CACHE_NAME
@@ -235,6 +234,7 @@ function(event){
                             );
 
                         }
+
 
                         return response;
 
