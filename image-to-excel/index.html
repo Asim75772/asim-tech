@@ -6,40 +6,44 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-content="#020b18">
+      content="#020b18">
 
 <meta name="description"
-content="Asim Tech Image to Excel">
+      content="Asim Tech Image to Excel">
 
 <meta name="mobile-web-app-capable"
-content="yes">
+      content="yes">
 
 <meta name="apple-mobile-web-app-capable"
-content="yes">
+      content="yes">
 
 <meta name="apple-mobile-web-app-status-bar-style"
-content="black-translucent">
+      content="black-translucent">
 
 <meta name="apple-mobile-web-app-title"
-content="Image to Excel">
+      content="Image to Excel">
 
 <link rel="manifest"
-href="./manifest.json">
+      href="./manifest.json">
 
 <title>Asim Tech - Image to Excel</title>
 
 
-<!-- EXCEL -->
+<!-- =====================================================
+     XLSX LIBRARY
+===================================================== -->
 
 <script
-src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js">
+src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
 </script>
 
 
-<!-- OCR -->
+<!-- =====================================================
+     TESSERACT OCR
+===================================================== -->
 
 <script
 src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
@@ -48,908 +52,939 @@ src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
 
-font-family:
-Arial,
-Helvetica,
-sans-serif;
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-background:
-radial-gradient(
-circle at top,
-#06243d 0%,
-#021525 45%,
-#010914 100%
-);
+    background:
+    radial-gradient(
+        circle at top,
+        #06243d 0%,
+        #021525 45%,
+        #010914 100%
+    );
 
-color:#fff;
+    color:#ffffff;
 
-min-height:100vh;
+    min-height:100vh;
 
-overflow-x:hidden;
-
+    overflow-x:hidden;
 }
 
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
 
-position:sticky;
-top:0;
-z-index:999;
+    position:sticky;
 
-background:
-rgba(1,10,22,.97);
+    top:0;
 
-border-bottom:
-1px solid
-rgba(0,153,255,.25);
+    z-index:999;
 
-backdrop-filter:
-blur(12px);
+    background:
+    rgba(1,10,22,.97);
 
+    border-bottom:
+    1px solid
+    rgba(0,153,255,.25);
+
+    backdrop-filter:
+    blur(12px);
 }
 
 .header-inner{
 
-max-width:1100px;
+    max-width:1100px;
 
-min-height:78px;
+    min-height:78px;
 
-margin:auto;
+    margin:auto;
 
-padding:
-12px 18px;
+    padding:
+    12px 18px;
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-gap:15px;
-
+    gap:15px;
 }
 
 .brand{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:12px;
-
+    gap:12px;
 }
 
 .brand-icon{
 
-width:46px;
-height:46px;
+    width:46px;
 
-border-radius:14px;
+    height:46px;
 
-display:flex;
+    border-radius:14px;
 
-align-items:center;
+    display:flex;
 
-justify-content:center;
+    align-items:center;
 
-background:
-linear-gradient(
-145deg,
-#0d8cff,
-#0065d8
-);
+    justify-content:center;
 
-font-size:22px;
+    background:
+    linear-gradient(
+        145deg,
+        #0d8cff,
+        #0065d8
+    );
 
-font-weight:bold;
+    font-size:22px;
 
-box-shadow:
-0 8px 25px
-rgba(0,130,255,.35);
+    font-weight:bold;
 
+    box-shadow:
+    0 8px 25px
+    rgba(0,130,255,.35);
 }
 
 .brand-text{
 
-font-size:24px;
+    font-size:24px;
 
-font-weight:800;
-
+    font-weight:800;
 }
 
 .brand-text span{
 
-color:#078dff;
-
+    color:#078dff;
 }
 
 .back-btn{
 
-text-decoration:none;
+    text-decoration:none;
 
-color:white;
+    color:white;
 
-border:
-1px solid
-rgba(0,150,255,.4);
+    border:
+    1px solid
+    rgba(0,150,255,.4);
 
-background:
-rgba(5,25,42,.7);
+    background:
+    rgba(5,25,42,.7);
 
-border-radius:16px;
+    border-radius:16px;
 
-padding:
-11px 17px;
+    padding:
+    11px 17px;
 
-font-weight:700;
+    font-weight:700;
 
-white-space:nowrap;
-
+    white-space:nowrap;
 }
 
 
-/* MAIN */
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container{
 
-max-width:1000px;
+    max-width:1000px;
 
-margin:auto;
+    margin:auto;
 
-padding:
-40px 15px 70px;
-
+    padding:
+    40px 15px 70px;
 }
 
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
 
-text-align:center;
+    text-align:center;
 
-margin-bottom:35px;
-
+    margin-bottom:35px;
 }
 
 .badge{
 
-display:inline-block;
+    display:inline-block;
 
-padding:
-10px 22px;
+    padding:
+    10px 22px;
 
-border-radius:30px;
+    border-radius:30px;
 
-border:
-1px solid
-rgba(0,153,255,.5);
+    border:
+    1px solid
+    rgba(0,153,255,.5);
 
-color:#36b4ff;
+    color:#36b4ff;
 
-font-weight:700;
+    font-weight:700;
 
-letter-spacing:3px;
+    letter-spacing:3px;
 
-margin-bottom:20px;
-
+    margin-bottom:20px;
 }
 
 .hero h1{
 
-font-size:
-clamp(42px,8vw,70px);
+    font-size:
+    clamp(42px,8vw,70px);
 
-line-height:1;
+    line-height:1;
 
-font-weight:900;
+    font-weight:900;
 
-letter-spacing:-3px;
-
+    letter-spacing:-3px;
 }
 
-.hero h1 span{
+.hero h1 .blue{
 
-color:#078dff;
-
+    color:#078dff;
 }
 
 .hero p{
 
-max-width:800px;
+    max-width:800px;
 
-margin:
-22px auto 0;
+    margin:
+    22px auto 0;
 
-color:#91adc0;
+    color:#91adc0;
 
-font-size:
-clamp(17px,3vw,23px);
+    font-size:
+    clamp(17px,3vw,23px);
 
-line-height:1.6;
-
+    line-height:1.6;
 }
 
 
-/* CARD */
+/* =====================================================
+   CARD
+===================================================== */
 
 .card{
 
-background:
-linear-gradient(
-145deg,
-rgba(3,35,55,.93),
-rgba(1,20,34,.96)
-);
+    background:
+    linear-gradient(
+        145deg,
+        rgba(3,35,55,.93),
+        rgba(1,20,34,.96)
+    );
 
-border:
-1px solid
-rgba(0,145,220,.28);
+    border:
+    1px solid
+    rgba(0,145,220,.28);
 
-border-radius:26px;
+    border-radius:26px;
 
-padding:
-clamp(20px,4vw,35px);
+    padding:
+    clamp(20px,4vw,35px);
 
-margin-bottom:25px;
+    margin-bottom:25px;
 
-box-shadow:
-0 20px 70px
-rgba(0,0,0,.3);
-
+    box-shadow:
+    0 20px 70px
+    rgba(0,0,0,.3);
 }
 
 .card-title{
 
-font-size:
-clamp(26px,5vw,36px);
+    font-size:
+    clamp(26px,5vw,36px);
 
-margin-bottom:25px;
-
+    margin-bottom:25px;
 }
 
 
-/* UPLOAD */
+/* =====================================================
+   UPLOAD BOX
+===================================================== */
 
 .upload-box{
 
-border:
-3px dashed
-rgba(0,145,220,.42);
+    border:
+    3px dashed
+    rgba(0,145,220,.42);
 
-border-radius:25px;
+    border-radius:25px;
 
-min-height:320px;
+    min-height:320px;
 
-padding:30px 15px;
+    padding:30px 15px;
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
+    justify-content:center;
 
-text-align:center;
+    text-align:center;
 
-background:
-rgba(0,30,48,.4);
-
+    background:
+    rgba(0,30,48,.4);
 }
 
 .file-icon{
 
-font-size:70px;
+    font-size:70px;
 
-margin-bottom:15px;
-
+    margin-bottom:15px;
 }
 
 .upload-box h2{
 
-font-size:
-clamp(24px,5vw,35px);
+    font-size:
+    clamp(24px,5vw,35px);
 
-margin-bottom:12px;
-
+    margin-bottom:12px;
 }
 
 .upload-box p{
 
-color:#8ba9bf;
+    color:#8ba9bf;
 
-max-width:650px;
+    max-width:650px;
 
-font-size:17px;
+    font-size:17px;
 
-line-height:1.6;
+    line-height:1.6;
 
-margin-bottom:22px;
-
+    margin-bottom:22px;
 }
 
 
-/* FILE */
+/* =====================================================
+   FILE BUTTON
+===================================================== */
 
 .file-label{
 
-display:inline-flex;
+    display:inline-flex;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
+    justify-content:center;
 
-min-height:62px;
+    min-height:62px;
 
-padding:
-0 28px;
+    padding:
+    0 28px;
 
-border-radius:17px;
+    border-radius:17px;
 
-background:
-linear-gradient(
-135deg,
-#078dff,
-#006bd9
-);
+    background:
+    linear-gradient(
+        135deg,
+        #078dff,
+        #006bd9
+    );
 
-color:#fff;
+    color:#ffffff;
 
-font-size:19px;
+    font-size:19px;
 
-font-weight:800;
+    font-weight:800;
 
-cursor:pointer;
+    cursor:pointer;
 
-box-shadow:
-0 10px 30px
-rgba(0,120,255,.25);
-
+    box-shadow:
+    0 10px 30px
+    rgba(0,120,255,.25);
 }
+
+.file-label:active{
+
+    transform:scale(.98);
+}
+
+
+/*
+   IMPORTANT:
+   No capture="environment"
+   Therefore Android will NOT directly
+   force Camera.
+*/
 
 #imageInput{
 
-display:none;
-
+    display:none;
 }
 
 
-/* PREVIEW */
+/* =====================================================
+   PREVIEW
+===================================================== */
 
 .preview{
 
-display:none;
+    display:none;
 
-width:100%;
+    width:100%;
 
-margin-top:20px;
+    margin-top:20px;
 
-text-align:center;
-
+    text-align:center;
 }
 
 .preview img{
 
-max-width:100%;
+    max-width:100%;
 
-max-height:400px;
+    max-height:400px;
 
-border-radius:18px;
+    border-radius:18px;
 
-border:
-1px solid
-rgba(0,160,255,.3);
-
+    border:
+    1px solid
+    rgba(0,160,255,.3);
 }
 
 .preview-name{
 
-margin-top:10px;
+    margin-top:10px;
 
-color:#91adc0;
+    color:#91adc0;
 
+    word-break:break-word;
 }
 
 
-/* FORM */
+/* =====================================================
+   FORM
+===================================================== */
 
 .form-row{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-repeat(2,1fr);
+    grid-template-columns:
+    repeat(2,1fr);
 
-gap:16px;
+    gap:16px;
 
-margin-top:22px;
-
+    margin-top:22px;
 }
 
 .form-group label{
 
-display:block;
+    display:block;
 
-color:#9bb5c7;
+    color:#9bb5c7;
 
-font-weight:700;
+    font-weight:700;
 
-margin-bottom:9px;
-
+    margin-bottom:9px;
 }
 
 select{
 
-width:100%;
+    width:100%;
 
-height:58px;
+    height:58px;
 
-border-radius:16px;
+    border-radius:16px;
 
-border:
-1px solid
-rgba(0,150,220,.3);
+    border:
+    1px solid
+    rgba(0,150,220,.3);
 
-background:#032436;
+    background:#032436;
 
-color:#fff;
+    color:#ffffff;
 
-padding:0 15px;
+    padding:
+    0 15px;
 
-font-size:17px;
+    font-size:17px;
 
-outline:none;
-
+    outline:none;
 }
 
 
-/* BUTTON */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .main-btn{
 
-width:100%;
+    width:100%;
 
-height:62px;
+    height:62px;
 
-border:none;
+    border:none;
 
-border-radius:17px;
+    border-radius:17px;
 
-margin-top:20px;
+    margin-top:20px;
 
-color:#fff;
+    color:#ffffff;
 
-font-size:19px;
+    font-size:19px;
 
-font-weight:800;
+    font-weight:800;
 
-cursor:pointer;
+    cursor:pointer;
 
-background:
-linear-gradient(
-135deg,
-#078dff,
-#0063d4
-);
-
+    background:
+    linear-gradient(
+        135deg,
+        #078dff,
+        #0063d4
+    );
 }
 
 .main-btn:disabled{
 
-opacity:.4;
+    opacity:.4;
 
-cursor:not-allowed;
-
+    cursor:not-allowed;
 }
 
 .clear-btn{
 
-background:
-linear-gradient(
-135deg,
-#ff2447,
-#ed002f
-);
-
+    background:
+    linear-gradient(
+        135deg,
+        #ff2447,
+        #ed002f
+    );
 }
 
 
-/* PROGRESS */
+/* =====================================================
+   PROGRESS
+===================================================== */
 
 .progress-box{
 
-display:none;
+    display:none;
 
-margin-top:20px;
+    margin-top:20px;
 
-padding:18px;
+    padding:18px;
 
-border-radius:17px;
+    border-radius:17px;
 
-background:
-rgba(0,0,0,.2);
-
+    background:
+    rgba(0,0,0,.2);
 }
 
 .progress-text{
 
-text-align:center;
+    text-align:center;
 
-color:#a8c0d1;
+    color:#a8c0d1;
 
-margin-bottom:12px;
-
+    margin-bottom:12px;
 }
 
 .progress{
 
-width:100%;
+    width:100%;
 
-height:12px;
+    height:12px;
 
-background:#092538;
+    background:#092538;
 
-border-radius:20px;
+    border-radius:20px;
 
-overflow:hidden;
-
+    overflow:hidden;
 }
 
 .progress-bar{
 
-width:0%;
+    width:0%;
 
-height:100%;
+    height:100%;
 
-background:
-linear-gradient(
-90deg,
-#078dff,
-#00c6ff
-);
+    background:
+    linear-gradient(
+        90deg,
+        #078dff,
+        #00c6ff
+    );
 
-transition:.2s;
-
+    transition:.2s;
 }
 
 
-/* STATUS */
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status{
 
-display:none;
+    display:none;
 
-margin-top:18px;
+    margin-top:18px;
 
-padding:14px;
+    padding:14px;
 
-border-radius:13px;
+    border-radius:13px;
 
-text-align:center;
+    text-align:center;
 
-font-weight:700;
-
+    font-weight:700;
 }
 
 .status.success{
 
-display:block;
+    display:block;
 
-color:#54e39a;
+    color:#54e39a;
 
-background:
-rgba(0,200,100,.1);
-
+    background:
+    rgba(0,200,100,.1);
 }
 
 .status.error{
 
-display:block;
+    display:block;
 
-color:#ff7188;
+    color:#ff7188;
 
-background:
-rgba(255,0,50,.1);
-
+    background:
+    rgba(255,0,50,.1);
 }
 
 
-/* RESULT */
+/* =====================================================
+   RESULT
+===================================================== */
 
 .result-card{
 
-display:none;
-
+    display:none;
 }
 
 .result-info{
 
-color:#8faec2;
+    color:#8faec2;
 
-margin-bottom:20px;
+    margin:
+    15px 0 20px;
 
-line-height:1.6;
-
+    line-height:1.6;
 }
 
 
-/* TABLE */
+/* =====================================================
+   TABLE
+===================================================== */
 
 .table-wrap{
 
-width:100%;
+    width:100%;
 
-overflow-x:auto;
+    overflow-x:auto;
 
-border-radius:18px;
+    border-radius:18px;
 
-border:
-1px solid
-rgba(0,150,220,.25);
+    border:
+    1px solid
+    rgba(0,150,220,.25);
 
-background:white;
+    background:#ffffff;
 
+    -webkit-overflow-scrolling:touch;
 }
 
 table{
 
-border-collapse:collapse;
+    border-collapse:collapse;
 
-width:100%;
+    width:100%;
 
-min-width:650px;
+    min-width:650px;
 
-background:white;
+    background:#ffffff;
 
-color:#111;
-
+    color:#111111;
 }
 
 th{
 
-background:#d8f0fc;
+    background:#d8f0fc;
 
-color:#092b3e;
+    color:#092b3e;
 
-padding:14px;
+    padding:14px;
 
-border:
-1px solid
-#b8ccd5;
+    border:
+    1px solid
+    #b8ccd5;
 
-white-space:nowrap;
+    white-space:nowrap;
 
-font-size:17px;
-
+    font-size:17px;
 }
 
 td{
 
-min-width:130px;
+    min-width:130px;
 
-padding:13px;
+    padding:13px;
 
-border:
-1px solid
-#c5d1d6;
+    border:
+    1px solid
+    #c5d1d6;
 
-vertical-align:top;
+    vertical-align:top;
 
-font-size:16px;
+    font-size:16px;
 
-line-height:1.45;
+    line-height:1.45;
 
-background:white;
+    background:#ffffff;
 
+    color:#111111;
 }
 
 td[contenteditable="true"]{
 
-outline:none;
-
+    outline:none;
 }
 
 td[contenteditable="true"]:focus{
 
-box-shadow:
-inset 0 0 0 2px
-#078dff;
+    box-shadow:
+    inset 0 0 0 2px
+    #078dff;
 
-background:#f0f9ff;
-
+    background:#f0f9ff;
 }
 
 
-/* ACTIONS */
+/* =====================================================
+   ACTIONS
+===================================================== */
 
 .action-grid{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-repeat(2,1fr);
+    grid-template-columns:
+    repeat(2,1fr);
 
-gap:14px;
+    gap:14px;
 
-margin-top:22px;
-
+    margin-top:22px;
 }
 
 .action-btn{
 
-min-height:60px;
+    min-height:60px;
 
-border:none;
+    border:none;
 
-border-radius:16px;
+    border-radius:16px;
 
-color:#fff;
+    color:#ffffff;
 
-font-size:17px;
+    font-size:17px;
 
-font-weight:800;
+    font-weight:800;
 
-cursor:pointer;
-
+    cursor:pointer;
 }
 
 .excel-btn{
 
-background:
-linear-gradient(
-135deg,
-#00c853,
-#00a83e
-);
-
+    background:
+    linear-gradient(
+        135deg,
+        #00c853,
+        #00a83e
+    );
 }
 
 .csv-btn{
 
-background:
-linear-gradient(
-135deg,
-#078dff,
-#0066d7
-);
-
+    background:
+    linear-gradient(
+        135deg,
+        #078dff,
+        #0066d7
+    );
 }
 
 .add-row{
 
-background:
-linear-gradient(
-135deg,
-#a72cff,
-#7b1fff
-);
-
+    background:
+    linear-gradient(
+        135deg,
+        #a72cff,
+        #7b1fff
+    );
 }
 
 .add-col{
 
-background:
-linear-gradient(
-135deg,
-#ff9500,
-#ff6500
-);
-
+    background:
+    linear-gradient(
+        135deg,
+        #ff9500,
+        #ff6500
+    );
 }
 
 .copy-btn{
 
-background:#08364d;
-
+    background:#08364d;
 }
 
 .delete-btn{
 
-background:
-linear-gradient(
-135deg,
-#ff2447,
-#e9002c
-);
-
+    background:
+    linear-gradient(
+        135deg,
+        #ff2447,
+        #e9002c
+    );
 }
 
 
-/* HELP */
+/* =====================================================
+   HELP
+===================================================== */
 
 .help{
 
-color:#7898ac;
+    color:#7898ac;
 
-line-height:1.8;
+    line-height:1.8;
 
-font-size:16px;
-
+    font-size:16px;
 }
 
 .help strong{
 
-color:#c1d9e8;
-
+    color:#c1d9e8;
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px){
 
-.header-inner{
+    .header-inner{
 
-min-height:70px;
+        min-height:70px;
 
-padding:
-10px 13px;
+        padding:
+        10px 13px;
+    }
+
+    .brand-icon{
+
+        width:42px;
+
+        height:42px;
+
+        font-size:19px;
+    }
+
+    .brand-text{
+
+        font-size:21px;
+    }
+
+    .back-btn{
+
+        padding:
+        9px 12px;
+
+        font-size:13px;
+    }
+
+    .container{
+
+        padding:
+        30px 12px 60px;
+    }
+
+    .form-row{
+
+        grid-template-columns:1fr;
+    }
+
+    .action-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .upload-box{
+
+        min-height:310px;
+    }
+
+    .hero h1{
+
+        letter-spacing:-2px;
+    }
 
 }
 
-.brand-icon{
 
-width:42px;
-height:42px;
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
 
-font-size:19px;
+@media(max-width:400px){
 
-}
+    .brand-text{
 
-.brand-text{
+        font-size:18px;
+    }
 
-font-size:21px;
+    .back-btn{
 
-}
+        font-size:12px;
 
-.back-btn{
+        padding:
+        8px 10px;
+    }
 
-padding:
-9px 12px;
+    .file-label{
 
-font-size:13px;
+        width:100%;
 
-}
-
-.container{
-
-padding:
-30px 12px 60px;
-
-}
-
-.form-row{
-
-grid-template-columns:1fr;
-
-}
-
-.action-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.upload-box{
-
-min-height:310px;
-
-}
+        max-width:280px;
+    }
 
 }
 
@@ -960,6 +995,10 @@ min-height:310px;
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
@@ -991,8 +1030,17 @@ class="back-btn">
 </header>
 
 
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main class="container">
 
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -1002,16 +1050,21 @@ ASIM TECH TOOL
 
 <h1>
 Image
-<span>→</span>
-<span>Excel</span>
+<span class="blue">→</span>
+<span class="blue">Excel</span>
 </h1>
 
 <p>
-Upload a list or table image and convert it into an editable Excel file.
+Upload a list/table image and convert it into an editable Excel file.
 </p>
 
 </section>
 
+
+
+<!-- =====================================================
+     UPLOAD CARD
+===================================================== -->
 
 <section class="card">
 
@@ -1035,8 +1088,8 @@ Upload List / Table Image
 
 
 <p>
-Select a photo or screenshot containing
-Bangla, English, numbers or a table.
+Select a photo or screenshot containing a table,
+list, names, numbers or other text.
 </p>
 
 
@@ -1049,11 +1102,22 @@ class="file-label">
 </label>
 
 
+<!--
+==========================================================
+IMPORTANT
+
+DO NOT ADD capture="environment"
+
+This allows Android to show
+Gallery / Photos / Files picker
+instead of automatically opening Camera.
+==========================================================
+-->
+
 <input
 id="imageInput"
 type="file"
-accept="image/*"
-capture="environment">
+accept="image/*">
 
 
 <div
@@ -1075,6 +1139,11 @@ class="preview-name">
 </div>
 
 
+
+<!-- =====================================================
+     OPTIONS
+===================================================== -->
+
 <div class="form-row">
 
 
@@ -1094,8 +1163,8 @@ English
 বাংলা
 </option>
 
-<option value="eng+ben" selected>
-বাংলা + English
+<option value="eng+ben">
+English + বাংলা
 </option>
 
 </select>
@@ -1123,7 +1192,7 @@ Auto Detect
 2 Columns
 </option>
 
-<option value="3" selected>
+<option value="3">
 3 Columns
 </option>
 
@@ -1154,6 +1223,11 @@ Auto Detect
 </div>
 
 
+
+<!-- =====================================================
+     EXTRACT
+===================================================== -->
+
 <button
 id="extractBtn"
 class="main-btn"
@@ -1164,6 +1238,10 @@ disabled>
 </button>
 
 
+<!-- =====================================================
+     CLEAR
+===================================================== -->
+
 <button
 id="clearBtn"
 class="main-btn clear-btn">
@@ -1172,6 +1250,11 @@ class="main-btn clear-btn">
 
 </button>
 
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
 
 <div
 id="progressBox"
@@ -1197,6 +1280,11 @@ class="progress-bar">
 </div>
 
 
+
+<!-- =====================================================
+     STATUS
+===================================================== -->
+
 <div
 id="status"
 class="status">
@@ -1205,6 +1293,11 @@ class="status">
 
 </section>
 
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
 
 <section
 id="resultCard"
@@ -1242,6 +1335,11 @@ Tap any cell and correct the text before downloading.
 
 </div>
 
+
+
+<!-- =====================================================
+     ACTION BUTTONS
+===================================================== -->
 
 <div class="action-grid">
 
@@ -1306,6 +1404,11 @@ id="clearTable">
 </section>
 
 
+
+<!-- =====================================================
+     HELP
+===================================================== -->
+
 <section class="card">
 
 <h2 class="card-title">
@@ -1316,18 +1419,17 @@ id="clearTable">
 
 <p>
 <strong>1.</strong>
-Tap Choose Image and select a photo.
+Tap Choose Image and select a photo from Gallery / Files.
 </p>
 
 <p>
 <strong>2.</strong>
-Select <strong>বাংলা + English</strong> for mixed text.
+Select English, বাংলা or English + বাংলা.
 </p>
 
 <p>
 <strong>3.</strong>
-If your image has 3 columns, select
-<strong>3 Columns</strong>.
+If you know the number of columns, select it.
 </p>
 
 <p>
@@ -1337,7 +1439,7 @@ Tap Extract Table.
 
 <p>
 <strong>5.</strong>
-Correct OCR mistakes directly in the table.
+Correct OCR mistakes by tapping any cell.
 </p>
 
 <p>
@@ -1353,15 +1455,12 @@ Tap Download Excel.
 </main>
 
 
+
 <script>
 
 /* =====================================================
-   ASIM TECH IMAGE TO EXCEL
-   FINAL OCR + TABLE VERSION
+   VARIABLES
 ===================================================== */
-
-
-/* VARIABLES */
 
 let selectedFile = null;
 
@@ -1370,7 +1469,9 @@ let tableData = [];
 let currentColumns = 1;
 
 
-/* ELEMENTS */
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
 const imageInput =
 document.getElementById("imageInput");
@@ -1442,10 +1543,11 @@ document.getElementById("clearTable");
 
 function showStatus(message,type){
 
-statusBox.textContent = message;
+    statusBox.textContent =
+        message;
 
-statusBox.className =
-"status " + type;
+    statusBox.className =
+        "status " + type;
 
 }
 
@@ -1458,260 +1560,302 @@ imageInput.addEventListener(
 "change",
 function(event){
 
-const file =
-event.target.files &&
-event.target.files[0];
+    const file =
+        event.target.files &&
+        event.target.files[0];
 
-if(!file){
+    if(!file){
 
-return;
-
-}
-
-
-if(!file.type.startsWith("image/")){
-
-showStatus(
-"Please select an image file.",
-"error"
-);
-
-return;
-
-}
+        return;
+    }
 
 
-selectedFile = file;
+    if(
+        !file.type ||
+        !file.type.startsWith("image/")
+    ){
+
+        showStatus(
+            "Please select an image file.",
+            "error"
+        );
+
+        return;
+    }
 
 
-const reader =
-new FileReader();
+    selectedFile =
+        file;
 
 
-reader.onload =
-function(e){
-
-previewImage.src =
-e.target.result;
-
-previewName.textContent =
-file.name;
-
-preview.style.display =
-"block";
-
-extractBtn.disabled =
-false;
-
-showStatus(
-"Image selected successfully.",
-"success"
-);
-
-};
+    const reader =
+        new FileReader();
 
 
-reader.onerror =
-function(){
+    reader.onload =
+    function(e){
 
-showStatus(
-"Could not read the image.",
-"error"
-);
+        previewImage.src =
+            e.target.result;
 
-};
+        previewName.textContent =
+            file.name;
+
+        preview.style.display =
+            "block";
+
+        extractBtn.disabled =
+            false;
+
+        showStatus(
+            "Image selected successfully.",
+            "success"
+        );
+
+    };
 
 
-reader.readAsDataURL(file);
+    reader.onerror =
+    function(){
+
+        showStatus(
+            "Could not read the image.",
+            "error"
+        );
+
+    };
+
+
+    reader.readAsDataURL(file);
 
 });
 
 
 /* =====================================================
-   CLEAR
+   CLEAR INPUT
 ===================================================== */
 
 clearBtn.addEventListener(
 "click",
 function(){
 
-selectedFile = null;
+    selectedFile =
+        null;
 
-imageInput.value = "";
+    imageInput.value =
+        "";
 
-preview.style.display =
-"none";
+    preview.style.display =
+        "none";
 
-previewImage.src = "";
+    previewImage.src =
+        "";
 
-previewName.textContent = "";
+    previewName.textContent =
+        "";
 
-extractBtn.disabled =
-true;
+    extractBtn.disabled =
+        true;
 
-resultCard.style.display =
-"none";
+    resultCard.style.display =
+        "none";
 
-tableData = [];
+    tableData =
+        [];
 
-currentColumns = 1;
+    currentColumns =
+        1;
 
-headerRow.innerHTML = "";
+    headerRow.innerHTML =
+        "";
 
-tableBody.innerHTML = "";
+    tableBody.innerHTML =
+        "";
 
-progressBox.style.display =
-"none";
+    progressBox.style.display =
+        "none";
 
-statusBox.className =
-"status";
+    progressBar.style.width =
+        "0%";
+
+    statusBox.className =
+        "status";
 
 });
 
 
 /* =====================================================
-   IMAGE PREPARATION
+   PREPARE IMAGE
 ===================================================== */
 
 async function prepareImage(file){
 
-return new Promise(
-function(resolve,reject){
+    return new Promise(
+    function(resolve,reject){
 
-const img =
-new Image();
+        const img =
+            new Image();
 
-const url =
-URL.createObjectURL(file);
-
-
-img.onload =
-function(){
-
-try{
-
-const maxWidth = 3000;
-
-let width =
-img.naturalWidth;
-
-let height =
-img.naturalHeight;
+        const url =
+            URL.createObjectURL(file);
 
 
-if(width > maxWidth){
+        img.onload =
+        function(){
 
-const scale =
-maxWidth / width;
+            try{
 
-width =
-Math.round(
-width * scale
-);
-
-height =
-Math.round(
-height * scale
-);
-
-}
+                const maxWidth =
+                    3000;
 
 
-const canvas =
-document.createElement("canvas");
+                let width =
+                    img.naturalWidth;
 
-canvas.width =
-width;
-
-canvas.height =
-height;
+                let height =
+                    img.naturalHeight;
 
 
-const ctx =
-canvas.getContext(
-"2d",
-{
-willReadFrequently:true
-}
-);
+                if(
+                    !width ||
+                    !height
+                ){
+
+                    throw new Error(
+                        "Invalid image dimensions."
+                    );
+
+                }
 
 
-ctx.fillStyle =
-"#ffffff";
+                if(
+                    width >
+                    maxWidth
+                ){
 
-ctx.fillRect(
-0,
-0,
-width,
-height
-);
+                    const scale =
+                        maxWidth /
+                        width;
 
+                    width =
+                        Math.round(
+                            width *
+                            scale
+                        );
 
-ctx.drawImage(
-img,
-0,
-0,
-width,
-height
-);
+                    height =
+                        Math.round(
+                            height *
+                            scale
+                        );
 
-
-canvas.toBlob(
-function(blob){
-
-URL.revokeObjectURL(url);
+                }
 
 
-if(!blob){
-
-reject(
-new Error(
-"Image conversion failed."
-)
-);
-
-return;
-
-}
+                const canvas =
+                    document.createElement(
+                        "canvas"
+                    );
 
 
-resolve(blob);
+                canvas.width =
+                    width;
 
-},
-"image/png",
-1
-);
-
-
-}
-catch(error){
-
-URL.revokeObjectURL(url);
-
-reject(error);
-
-}
-
-};
+                canvas.height =
+                    height;
 
 
-img.onerror =
-function(){
-
-URL.revokeObjectURL(url);
-
-reject(
-new Error(
-"Could not load image."
-)
-);
-
-};
+                const ctx =
+                    canvas.getContext(
+                        "2d",
+                        {
+                            willReadFrequently:true
+                        }
+                    );
 
 
-img.src = url;
+                ctx.fillStyle =
+                    "#ffffff";
 
-});
+
+                ctx.fillRect(
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    width,
+                    height
+                );
+
+
+                canvas.toBlob(
+                function(blob){
+
+                    URL.revokeObjectURL(
+                        url
+                    );
+
+
+                    if(!blob){
+
+                        reject(
+                            new Error(
+                                "Image conversion failed."
+                            )
+                        );
+
+                        return;
+                    }
+
+
+                    resolve(blob);
+
+                },
+                "image/png",
+                1
+                );
+
+            }
+            catch(error){
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+                reject(error);
+
+            }
+
+        };
+
+
+        img.onerror =
+        function(){
+
+            URL.revokeObjectURL(
+                url
+            );
+
+            reject(
+                new Error(
+                    "Could not load image."
+                )
+            );
+
+        };
+
+
+        img.src =
+            url;
+
+    });
 
 }
 
@@ -1722,51 +1866,57 @@ img.src = url;
 
 function validWord(word){
 
-if(
-!word ||
-!word.text ||
-!word.bbox
-){
+    if(
+        !word ||
+        !word.text ||
+        !word.bbox
+    ){
 
-return false;
-
-}
-
-
-const text =
-String(word.text).trim();
+        return false;
+    }
 
 
-if(!text){
-
-return false;
-
-}
-
-
-const x0 =
-Number(word.bbox.x0);
-
-const x1 =
-Number(word.bbox.x1);
-
-const y0 =
-Number(word.bbox.y0);
-
-const y1 =
-Number(word.bbox.y1);
+    const text =
+        String(
+            word.text
+        ).trim();
 
 
-return (
+    if(!text){
 
-Number.isFinite(x0) &&
-Number.isFinite(x1) &&
-Number.isFinite(y0) &&
-Number.isFinite(y1) &&
-x1 > x0 &&
-y1 > y0
+        return false;
+    }
 
-);
+
+    const x0 =
+        Number(
+            word.bbox.x0
+        );
+
+    const x1 =
+        Number(
+            word.bbox.x1
+        );
+
+    const y0 =
+        Number(
+            word.bbox.y0
+        );
+
+    const y1 =
+        Number(
+            word.bbox.y1
+        );
+
+
+    return (
+        Number.isFinite(x0) &&
+        Number.isFinite(x1) &&
+        Number.isFinite(y0) &&
+        Number.isFinite(y1) &&
+        x1 > x0 &&
+        y1 > y0
+    );
 
 }
 
@@ -1777,790 +1927,776 @@ y1 > y0
 
 function makeRows(words){
 
-const valid =
-(words || [])
-.filter(validWord)
-.map(function(w){
+    const valid =
+        (words || [])
+        .filter(validWord)
+        .map(
+        function(w){
 
-return {
+            return {
 
-text:
-String(w.text).trim(),
+                text:
+                    String(
+                        w.text
+                    ).trim(),
 
-bbox:{
+                bbox:{
 
-x0:Number(w.bbox.x0),
+                    x0:
+                        Number(
+                            w.bbox.x0
+                        ),
 
-x1:Number(w.bbox.x1),
+                    x1:
+                        Number(
+                            w.bbox.x1
+                        ),
 
-y0:Number(w.bbox.y0),
+                    y0:
+                        Number(
+                            w.bbox.y0
+                        ),
 
-y1:Number(w.bbox.y1)
+                    y1:
+                        Number(
+                            w.bbox.y1
+                        )
 
-}
+                }
 
-};
+            };
 
-});
+        });
 
 
-if(!valid.length){
+    if(!valid.length){
 
-return [];
+        return [];
+    }
 
-}
 
+    const heights =
+        valid
+        .map(
+            w =>
+            w.bbox.y1 -
+            w.bbox.y0
+        )
+        .sort(
+            (a,b) =>
+            a-b
+        );
 
-const heights =
-valid
-.map(
-w =>
-w.bbox.y1 -
-w.bbox.y0
-)
-.sort(
-(a,b) =>
-a-b
-);
 
+    const medianHeight =
+        heights[
+            Math.floor(
+                heights.length / 2
+            )
+        ] || 20;
 
-const medianHeight =
-heights[
-Math.floor(
-heights.length / 2
-)
-] || 20;
 
+    const tolerance =
+        Math.max(
+            8,
+            medianHeight * 0.55
+        );
 
-/*
-   Adaptive row tolerance.
-*/
 
-const tolerance =
-Math.max(
-10,
-medianHeight * 0.60
-);
+    valid.sort(
+    function(a,b){
 
+        const ay =
+            (
+                a.bbox.y0 +
+                a.bbox.y1
+            ) / 2;
 
-valid.sort(function(a,b){
 
-const ay =
-(
-a.bbox.y0 +
-a.bbox.y1
-) / 2;
+        const by =
+            (
+                b.bbox.y0 +
+                b.bbox.y1
+            ) / 2;
 
-const by =
-(
-b.bbox.y0 +
-b.bbox.y1
-) / 2;
 
-return ay - by;
+        return ay - by;
 
-});
+    });
 
 
-const rows = [];
+    const rows = [];
 
 
-for(const word of valid){
+    for(
+        const word of valid
+    ){
 
-const centerY =
-(
-word.bbox.y0 +
-word.bbox.y1
-) / 2;
+        const centerY =
+            (
+                word.bbox.y0 +
+                word.bbox.y1
+            ) / 2;
 
 
-let bestRow = null;
+        let bestRow =
+            null;
 
-let bestDistance =
-Infinity;
+        let bestDistance =
+            Infinity;
 
 
-for(const row of rows){
+        for(
+            const row of rows
+        ){
 
-const distance =
-Math.abs(
-row.centerY -
-centerY
-);
+            const distance =
+                Math.abs(
+                    row.centerY -
+                    centerY
+                );
 
 
-if(
-distance <= tolerance &&
-distance < bestDistance
-){
+            if(
+                distance <=
+                tolerance &&
+                distance <
+                bestDistance
+            ){
 
-bestRow =
-row;
+                bestRow =
+                    row;
 
-bestDistance =
-distance;
+                bestDistance =
+                    distance;
 
-}
+            }
 
-}
+        }
 
 
-if(!bestRow){
+        if(!bestRow){
 
-bestRow = {
+            bestRow = {
 
-centerY:centerY,
+                centerY:
+                    centerY,
 
-words:[]
+                words:
+                    []
 
-};
+            };
 
-rows.push(bestRow);
+            rows.push(
+                bestRow
+            );
 
-}
+        }
 
 
-bestRow.words.push(word);
+        bestRow.words.push(
+            word
+        );
 
 
-bestRow.centerY =
-bestRow.words.reduce(
-function(sum,w){
+        bestRow.centerY =
+            bestRow.words.reduce(
+            function(sum,w){
 
-return sum +
-(
-w.bbox.y0 +
-w.bbox.y1
-) / 2;
+                return sum +
+                    (
+                        w.bbox.y0 +
+                        w.bbox.y1
+                    ) / 2;
 
-},
-0
-) /
-bestRow.words.length;
+            },
+            0
+            ) /
+            bestRow.words.length;
 
-}
+    }
 
 
-rows.sort(
-(a,b) =>
-a.centerY -
-b.centerY
-);
+    rows.sort(
+        (a,b) =>
+        a.centerY -
+        b.centerY
+    );
 
 
-rows.forEach(function(row){
+    rows.forEach(
+    function(row){
 
-row.words.sort(
-(a,b) =>
-a.bbox.x0 -
-b.bbox.x0
-);
+        row.words.sort(
+            (a,b) =>
+            a.bbox.x0 -
+            b.bbox.x0
+        );
 
-});
+    });
 
 
-return rows;
+    return rows;
 
 }
 
 
 /* =====================================================
-   WORDS INTO BLOCKS
+   MAKE BLOCKS
 ===================================================== */
 
 function makeBlocks(row){
 
-if(
-!row ||
-!row.words ||
-!row.words.length
-){
+    if(
+        !row ||
+        !row.words ||
+        !row.words.length
+    ){
 
-return [];
-
-}
-
-
-const words =
-[...row.words].sort(
-(a,b) =>
-a.bbox.x0 -
-b.bbox.x0
-);
+        return [];
+    }
 
 
-const heights =
-words
-.map(
-w =>
-w.bbox.y1 -
-w.bbox.y0
-)
-.sort(
-(a,b) =>
-a-b
-);
+    const words =
+        [...row.words].sort(
+            (a,b) =>
+            a.bbox.x0 -
+            b.bbox.x0
+        );
 
 
-const medianHeight =
-heights[
-Math.floor(
-heights.length / 2
-)
-] || 20;
+    const heights =
+        words
+        .map(
+            w =>
+            w.bbox.y1 -
+            w.bbox.y0
+        )
+        .sort(
+            (a,b) =>
+            a-b
+        );
 
 
-/*
-   Join normal words belonging to
-   the same cell.
-
-   Keep large gaps separate.
-*/
-
-const gapThreshold =
-Math.max(
-18,
-medianHeight * 1.8
-);
+    const medianHeight =
+        heights[
+            Math.floor(
+                heights.length / 2
+            )
+        ] || 20;
 
 
-const blocks = [];
+    /*
+       Small gaps are treated as
+       words belonging to same cell.
+    */
+
+    const gapThreshold =
+        Math.max(
+            15,
+            medianHeight * 1.35
+        );
 
 
-for(const word of words){
-
-if(!blocks.length){
-
-blocks.push({
-
-words:[word],
-
-x0:word.bbox.x0,
-
-x1:word.bbox.x1
-
-});
-
-continue;
-
-}
+    const blocks = [];
 
 
-const last =
-blocks[
-blocks.length - 1
-];
+    for(
+        const word of words
+    ){
+
+        if(!blocks.length){
+
+            blocks.push({
+
+                words:
+                    [word],
+
+                x0:
+                    word.bbox.x0,
+
+                x1:
+                    word.bbox.x1
+
+            });
+
+            continue;
+        }
 
 
-const gap =
-word.bbox.x0 -
-last.x1;
+        const last =
+            blocks[
+                blocks.length - 1
+            ];
 
 
-if(gap <= gapThreshold){
-
-last.words.push(word);
-
-last.x1 =
-Math.max(
-last.x1,
-word.bbox.x1
-);
-
-}
-else{
-
-blocks.push({
-
-words:[word],
-
-x0:word.bbox.x0,
-
-x1:word.bbox.x1
-
-});
-
-}
-
-}
+        const gap =
+            word.bbox.x0 -
+            last.x1;
 
 
-return blocks.map(
-function(block){
+        if(
+            gap <=
+            gapThreshold
+        ){
 
-return {
+            last.words.push(
+                word
+            );
 
-text:
-block.words
-.map(
-w =>
-w.text
-)
-.join(" ")
-.replace(
-/\s+/g,
-" "
-)
-.trim(),
+            last.x1 =
+                Math.max(
+                    last.x1,
+                    word.bbox.x1
+                );
 
-x0:
-block.x0,
+        }
+        else{
 
-x1:
-block.x1,
+            blocks.push({
 
-centerX:
-(
-block.x0 +
-block.x1
-) / 2
+                words:
+                    [word],
 
-};
+                x0:
+                    word.bbox.x0,
 
-});
+                x1:
+                    word.bbox.x1
+
+            });
+
+        }
+
+    }
+
+
+    return blocks.map(
+    function(block){
+
+        return {
+
+            text:
+                block.words
+                .map(
+                    w =>
+                    w.text
+                )
+                .join(" ")
+                .replace(
+                    /\s+/g,
+                    " "
+                )
+                .trim(),
+
+            x0:
+                block.x0,
+
+            x1:
+                block.x1,
+
+            centerX:
+                (
+                    block.x0 +
+                    block.x1
+                ) / 2
+
+        };
+
+    });
 
 }
 
 
 /* =====================================================
-   AUTO COLUMN ESTIMATION
+   CLUSTER COLUMN POSITIONS
+===================================================== */
+
+function clusterX(values,k){
+
+    if(!values.length){
+
+        return [];
+    }
+
+
+    if(k <= 1){
+
+        return [
+
+            values.reduce(
+                (a,b) =>
+                a+b,
+                0
+            ) /
+            values.length
+
+        ];
+
+    }
+
+
+    const sorted =
+        [...values].sort(
+            (a,b) =>
+            a-b
+        );
+
+
+    let centers = [];
+
+
+    for(
+        let i=0;
+        i<k;
+        i++
+    ){
+
+        const pos =
+            Math.round(
+                i *
+                (
+                    sorted.length -
+                    1
+                ) /
+                (
+                    k -
+                    1
+                )
+            );
+
+
+        centers.push(
+            sorted[pos]
+        );
+
+    }
+
+
+    for(
+        let iteration=0;
+        iteration<30;
+        iteration++
+    ){
+
+        const groups =
+            Array.from(
+            {
+                length:k
+            },
+            () => []
+            );
+
+
+        for(
+            const value of values
+        ){
+
+            let best =
+                0;
+
+            let distance =
+                Math.abs(
+                    value -
+                    centers[0]
+                );
+
+
+            for(
+                let i=1;
+                i<centers.length;
+                i++
+            ){
+
+                const d =
+                    Math.abs(
+                        value -
+                        centers[i]
+                    );
+
+
+                if(
+                    d <
+                    distance
+                ){
+
+                    distance =
+                        d;
+
+                    best =
+                        i;
+
+                }
+
+            }
+
+
+            groups[best].push(
+                value
+            );
+
+        }
+
+
+        let changed =
+            false;
+
+
+        for(
+            let i=0;
+            i<k;
+            i++
+        ){
+
+            if(
+                !groups[i].length
+            ){
+
+                continue;
+            }
+
+
+            const newCenter =
+                groups[i].reduce(
+                    (a,b) =>
+                    a+b,
+                    0
+                ) /
+                groups[i].length;
+
+
+            if(
+                Math.abs(
+                    newCenter -
+                    centers[i]
+                ) >
+                0.5
+            ){
+
+                changed =
+                    true;
+
+            }
+
+
+            centers[i] =
+                newCenter;
+
+        }
+
+
+        if(!changed){
+
+            break;
+        }
+
+    }
+
+
+    return centers.sort(
+        (a,b) =>
+        a-b
+    );
+
+}
+
+
+/* =====================================================
+   ESTIMATE COLUMNS
 ===================================================== */
 
 function estimateColumns(rows){
 
-if(!rows.length){
+    if(!rows.length){
 
-return 1;
-
-}
-
-
-const counts =
-rows
-.map(
-row =>
-makeBlocks(row).length
-)
-.filter(
-n =>
-n >= 1 &&
-n <= 8
-);
+        return 1;
+    }
 
 
-if(!counts.length){
-
-return 1;
-
-}
-
-
-const frequency = {};
-
-
-counts.forEach(
-n => {
-
-frequency[n] =
-(
-frequency[n] || 0
-) + 1;
-
-});
+    const counts =
+        rows
+        .map(
+            row =>
+            makeBlocks(row).length
+        )
+        .filter(
+            n =>
+            n > 0 &&
+            n <= 8
+        );
 
 
-let best = 1;
+    if(!counts.length){
 
-let bestFrequency = 0;
-
-
-Object.keys(frequency)
-.forEach(
-key => {
-
-const n =
-Number(key);
+        return 1;
+    }
 
 
-if(
-frequency[key] >
-bestFrequency
-){
-
-best = n;
-
-bestFrequency =
-frequency[key];
-
-}
-
-});
+    const frequency = {};
 
 
-return Math.min(
-8,
-Math.max(
-1,
-best
-)
-);
+    counts.forEach(
+    function(n){
+
+        frequency[n] =
+            (
+                frequency[n] ||
+                0
+            ) + 1;
+
+    });
+
+
+    let best =
+        1;
+
+    let bestFrequency =
+        0;
+
+
+    Object.keys(
+        frequency
+    )
+    .forEach(
+    function(key){
+
+        const n =
+            Number(key);
+
+
+        if(
+            frequency[key] >
+            bestFrequency
+        ){
+
+            best =
+                n;
+
+            bestFrequency =
+                frequency[key];
+
+        }
+
+    });
+
+
+    return Math.min(
+        8,
+        Math.max(
+            1,
+            best
+        )
+    );
 
 }
 
 
 /* =====================================================
-   FIND COLUMN BOUNDARIES
+   FIND COLUMN CENTERS
 ===================================================== */
 
-/*
-   This method uses the actual OCR word positions.
-
-   Instead of clustering every word,
-   it searches for empty vertical gaps.
-
-   This prevents words inside the same
-   column from becoming separate columns.
-*/
-
-function findColumnBoundaries(
-rows,
-columnCount
+function findColumnCenters(
+    rows,
+    columnCount
 ){
 
-const allWords =
-rows.flatMap(
-row =>
-row.words
-);
+    let anchors = [];
 
 
-if(
-!allWords.length ||
-columnCount <= 1
-){
+    /*
+       First preference:
+       rows having exactly the expected
+       number of blocks.
+    */
 
-return [];
+    rows.forEach(
+    function(row){
 
-}
+        const blocks =
+            makeBlocks(row);
 
 
-let minX =
-Infinity;
+        if(
+            blocks.length ===
+            columnCount
+        ){
 
-let maxX =
--Infinity;
+            blocks.forEach(
+                block =>
+                anchors.push(
+                    block.centerX
+                )
+            );
 
+        }
 
-allWords.forEach(
-word => {
+    });
 
-minX =
-Math.min(
-minX,
-word.bbox.x0
-);
 
-maxX =
-Math.max(
-maxX,
-word.bbox.x1
-);
+    /*
+       Second preference:
+       rows with enough blocks.
+    */
 
-});
+    if(!anchors.length){
 
+        rows.forEach(
+        function(row){
 
-if(
-!Number.isFinite(minX) ||
-!Number.isFinite(maxX) ||
-maxX <= minX
-){
+            const blocks =
+                makeBlocks(row);
 
-return [];
 
-}
+            if(
+                blocks.length >=
+                columnCount
+            ){
 
+                blocks
+                .slice(
+                    0,
+                    columnCount
+                )
+                .forEach(
+                    block =>
+                    anchors.push(
+                        block.centerX
+                    )
+                );
 
-const range =
-maxX - minX;
+            }
 
+        });
 
-/*
-   500 bins gives good resolution.
-*/
+    }
 
-const bins =
-Math.min(
-600,
-Math.max(
-200,
-Math.round(range / 5)
-)
-);
 
+    /*
+       Last fallback.
+    */
 
-const occupancy =
-new Array(bins)
-.fill(0);
+    if(!anchors.length){
 
+        rows.forEach(
+        function(row){
 
-/*
-   Mark horizontal OCR occupation.
-*/
+            makeBlocks(row)
+            .forEach(
+                block =>
+                anchors.push(
+                    block.centerX
+                )
+            );
 
-allWords.forEach(
-word => {
+        });
 
-let a =
-Math.floor(
-(
-word.bbox.x0 -
-minX
-) /
-range *
-bins
-);
+    }
 
-let b =
-Math.ceil(
-(
-word.bbox.x1 -
-minX
-) /
-range *
-bins
-);
 
-
-a =
-Math.max(
-0,
-Math.min(
-bins - 1,
-a
-)
-);
-
-b =
-Math.max(
-a + 1,
-Math.min(
-bins,
-b
-)
-);
-
-
-for(
-let i=a;
-i<b;
-i++
-){
-
-occupancy[i] += 1;
-
-}
-
-});
-
-
-/*
-   Smooth occupancy.
-*/
-
-const smooth =
-new Array(bins)
-.fill(0);
-
-const radius = 5;
-
-
-for(
-let i=0;
-i<bins;
-i++
-){
-
-let sum = 0;
-
-let count = 0;
-
-
-for(
-let j=
-Math.max(0,i-radius);
-j<=
-Math.min(
-bins-1,
-i+radius
-);
-j++
-){
-
-sum += occupancy[j];
-
-count++;
-
-}
-
-
-smooth[i] =
-sum / count;
-
-}
-
-
-/*
-   Find low-occupancy valleys.
-*/
-
-const candidates = [];
-
-
-for(
-let i=10;
-i<bins-10;
-i++
-){
-
-let left =
-smooth[i];
-
-let right =
-smooth[i];
-
-
-for(
-let j=1;
-j<=8;
-j++
-){
-
-left =
-Math.max(
-left,
-smooth[i-j]
-);
-
-right =
-Math.max(
-right,
-smooth[i+j]
-);
-
-}
-
-
-const valley =
-smooth[i];
-
-const score =
-(
-left +
-right
-) -
-2 * valley;
-
-
-if(score > 0){
-
-candidates.push({
-
-index:i,
-
-score:score,
-
-value:valley
-
-});
-
-}
-
-}
-
-
-/*
-   Keep valleys separated.
-
-   This is important because text itself
-   creates many small gaps.
-*/
-
-candidates.sort(
-(a,b) =>
-b.score -
-a.score
-);
-
-
-const selected = [];
-
-
-/*
-   Minimum distance between column
-   boundaries = 10% of image width.
-*/
-
-const minDistance =
-Math.max(
-20,
-bins * 0.10
-);
-
-
-for(
-const candidate of candidates
-){
-
-if(
-selected.every(
-item =>
-Math.abs(
-item.index -
-candidate.index
-) >=
-minDistance
-)
-){
-
-selected.push(
-candidate
-);
-
-}
-
-
-if(
-selected.length >=
-columnCount - 1
-){
-
-break;
-
-}
-
-}
-
-
-selected.sort(
-(a,b) =>
-a.index -
-b.index
-);
-
-
-/*
-   Convert valley positions into X.
-*/
-
-return selected.map(
-item =>
-minX +
-(
-item.index /
-bins
-) *
-range
-);
+    return clusterX(
+        anchors,
+        columnCount
+    );
 
 }
 
@@ -2570,563 +2706,629 @@ range
 ===================================================== */
 
 function buildTableFromRows(
-rows,
-columnCount
+    rows,
+    columnCount
 ){
 
-if(!rows.length){
+    if(!rows.length){
 
-return [];
-
-}
-
-
-if(columnCount <= 1){
-
-return rows.map(
-row => [
-
-row.words
-.map(
-w =>
-w.text
-)
-.join(" ")
-.replace(
-/\s+/g,
-" "
-)
-.trim()
-
-]
-);
-
-}
+        return [];
+    }
 
 
-/*
-   Try to find true blank vertical
-   separators first.
-*/
+    /*
+       ONE COLUMN
+    */
 
-let boundaries =
-findColumnBoundaries(
-rows,
-columnCount
-);
+    if(
+        columnCount ===
+        1
+    ){
 
+        return rows.map(
+        function(row){
 
-/*
-   If insufficient boundaries,
-   use equal geometry.
+            return [
 
-   This guarantees the requested
-   number of columns.
-*/
+                makeBlocks(row)
+                .map(
+                    block =>
+                    block.text
+                )
+                .join(" ")
+                .replace(
+                    /\s+/g,
+                    " "
+                )
+                .trim()
 
-if(
-boundaries.length !==
-columnCount - 1
-){
+            ];
 
-const allWords =
-rows.flatMap(
-row =>
-row.words
-);
+        });
 
-
-let minX =
-Math.min(
-...allWords.map(
-w =>
-w.bbox.x0
-)
-);
+    }
 
 
-let maxX =
-Math.max(
-...allWords.map(
-w =>
-w.bbox.x1
-)
-);
+    /*
+       FIND CENTERS
+    */
+
+    let centers =
+        findColumnCenters(
+            rows,
+            columnCount
+        );
 
 
-const width =
-Math.max(
-1,
-maxX - minX
-);
+    /*
+       GEOMETRY FALLBACK
+    */
+
+    if(
+        centers.length !==
+        columnCount
+    ){
+
+        const allBlocks =
+            rows.flatMap(
+                row =>
+                makeBlocks(row)
+            );
 
 
-boundaries =
-Array.from(
-{
-length:
-columnCount - 1
-},
-(_,i) =>
-minX +
-width *
-(
-i + 1
-) /
-columnCount
-);
+        if(
+            allBlocks.length
+        ){
 
-}
+            const minX =
+                Math.min(
+                    ...allBlocks.map(
+                        b =>
+                        b.x0
+                    )
+                );
 
 
-/*
-   Convert boundaries into column ranges.
-*/
-
-const allWords =
-rows.flatMap(
-row =>
-row.words
-);
+            const maxX =
+                Math.max(
+                    ...allBlocks.map(
+                        b =>
+                        b.x1
+                    )
+                );
 
 
-const minX =
-Math.min(
-...allWords.map(
-w =>
-w.bbox.x0
-)
-);
-
-const maxX =
-Math.max(
-...allWords.map(
-w =>
-w.bbox.x1
-)
-);
+            const width =
+                Math.max(
+                    1,
+                    maxX -
+                    minX
+                );
 
 
-/*
-   Slight overlap tolerance around
-   boundaries prevents lost words.
-*/
+            centers =
+                Array.from(
+                {
+                    length:
+                    columnCount
+                },
+                (_,i) =>
 
-const result = [];
+                    minX +
+                    width *
+                    (
+                        i +
+                        0.5
+                    ) /
+                    columnCount
+                );
 
+        }
 
-rows.forEach(
-function(row){
-
-const cells =
-Array.from(
-{
-length:
-columnCount
-},
-() => []
-);
-
-
-row.words.forEach(
-function(word){
-
-const centerX =
-(
-word.bbox.x0 +
-word.bbox.x1
-) / 2;
+    }
 
 
-let columnIndex = 0;
+    /*
+       FINAL SAFETY
+    */
+
+    if(
+        centers.length !==
+        columnCount
+    ){
+
+        centers =
+            Array.from(
+            {
+                length:
+                columnCount
+            },
+            (_,i) =>
+            i
+            );
+
+    }
 
 
-while(
-columnIndex <
-boundaries.length &&
-centerX >=
-boundaries[columnIndex]
-){
-
-columnIndex++;
-
-}
+    const result = [];
 
 
-columnIndex =
-Math.max(
-0,
-Math.min(
-columnCount - 1,
-columnIndex
-)
-);
+    rows.forEach(
+    function(row){
+
+        const blocks =
+            makeBlocks(row);
 
 
-cells[
-columnIndex
-].push(word);
+        if(!blocks.length){
 
-});
-
-
-const rowData =
-cells.map(
-cell =>
-
-cell
-.sort(
-(a,b) =>
-a.bbox.x0 -
-b.bbox.x0
-)
-.map(
-w =>
-w.text
-)
-.join(" ")
-.replace(
-/\s+/g,
-" "
-)
-.trim()
-
-);
+            return;
+        }
 
 
-if(
-rowData.some(
-cell =>
-cell.length > 0
-)
-){
-
-result.push(
-rowData
-);
-
-}
-
-});
+        const cells =
+            Array.from(
+            {
+                length:
+                columnCount
+            },
+            () => []
+            );
 
 
-return result;
+        /*
+           Assign every block
+           to nearest column.
+        */
+
+        blocks.forEach(
+        function(block){
+
+            let bestIndex =
+                0;
+
+            let bestDistance =
+                Infinity;
+
+
+            centers.forEach(
+            function(
+                center,
+                index
+            ){
+
+                const distance =
+                    Math.abs(
+                        block.centerX -
+                        center
+                    );
+
+
+                if(
+                    distance <
+                    bestDistance
+                ){
+
+                    bestDistance =
+                        distance;
+
+                    bestIndex =
+                        index;
+
+                }
+
+            });
+
+
+            cells[
+                bestIndex
+            ].push(
+                block
+            );
+
+        });
+
+
+        const rowData =
+            cells.map(
+            function(cell){
+
+                return cell
+                .sort(
+                    (a,b) =>
+                    a.x0 -
+                    b.x0
+                )
+                .map(
+                    block =>
+                    block.text
+                )
+                .join(" ")
+                .replace(
+                    /\s+/g,
+                    " "
+                )
+                .trim();
+
+            });
+
+
+        result.push(
+            rowData
+        );
+
+    });
+
+
+    return result;
 
 }
 
 
 /* =====================================================
-   OCR
+   OCR EXTRACTION
 ===================================================== */
 
 extractBtn.addEventListener(
 "click",
 async function(){
 
-if(!selectedFile){
+    if(!selectedFile){
 
-showStatus(
-"Please choose an image first.",
-"error"
-);
+        showStatus(
+            "Please choose an image first.",
+            "error"
+        );
 
-return;
+        return;
+    }
 
-}
 
+    try{
 
-try{
+        extractBtn.disabled =
+            true;
 
-extractBtn.disabled =
-true;
 
-progressBox.style.display =
-"block";
+        progressBox.style.display =
+            "block";
 
-progressBar.style.width =
-"5%";
 
-progressText.textContent =
-"Preparing image...";
+        progressBar.style.width =
+            "5%";
 
 
-const image =
-await prepareImage(
-selectedFile
-);
+        progressText.textContent =
+            "Preparing image...";
 
 
-progressText.textContent =
-"Starting OCR...";
+        const image =
+            await prepareImage(
+                selectedFile
+            );
 
-progressBar.style.width =
-"10%";
 
+        progressText.textContent =
+            "Starting OCR...";
 
-/*
-   IMPORTANT:
-   eng+ben loads both languages.
-*/
 
-const result =
-await Tesseract.recognize(
-image,
-language.value,
-{
+        progressBar.style.width =
+            "10%";
 
-logger:
-function(info){
 
-if(
-info.status ===
-"recognizing text"
-){
+        /*
+           Check Tesseract library.
+        */
 
-const p =
-Math.round(
-(
-info.progress ||
-0
-) * 100
-);
+        if(
+            typeof Tesseract ===
+            "undefined"
+        ){
 
+            throw new Error(
+                "OCR library could not be loaded. Check internet connection."
+            );
 
-progressBar.style.width =
-(
-10 +
-p * 0.85
-) + "%";
+        }
 
 
-progressText.textContent =
-"Reading image... " +
-p +
-"%";
+        /*
+           OCR
+        */
 
-}
+        const result =
+            await Tesseract.recognize(
+                image,
+                language.value,
+                {
 
-},
+                    logger:
+                    function(info){
 
-tessedit_pageseg_mode:
-"6",
+                        if(
+                            info.status ===
+                            "recognizing text"
+                        ){
 
-preserve_interword_spaces:
-"1"
+                            const p =
+                                Math.round(
+                                    (
+                                        info.progress ||
+                                        0
+                                    ) *
+                                    100
+                                );
 
-}
-);
 
+                            progressBar.style.width =
+                                (
+                                    10 +
+                                    p *
+                                    0.85
+                                ) +
+                                "%";
 
-progressText.textContent =
-"Reconstructing table...";
 
-progressBar.style.width =
-"95%";
+                            progressText.textContent =
+                                "Reading image... " +
+                                p +
+                                "%";
 
+                        }
 
-const words =
-result.data.words || [];
 
+                        else if(
+                            info.status
+                        ){
 
-const rows =
-makeRows(words);
+                            progressText.textContent =
+                                info.status;
 
+                        }
 
-let count;
+                    }
 
+                }
+            );
 
-if(
-columns.value ===
-"auto"
-){
 
-count =
-estimateColumns(
-rows
-);
+        progressText.textContent =
+            "Building table...";
 
-}
-else{
 
-count =
-parseInt(
-columns.value,
-10
-);
+        progressBar.style.width =
+            "95%";
 
-}
 
+        const words =
+            result.data.words ||
+            [];
 
-if(
-!Number.isFinite(count) ||
-count < 1
-){
 
-count = 1;
+        const rows =
+            makeRows(
+                words
+            );
 
-}
 
+        let count;
 
-currentColumns =
-count;
 
+        /*
+           COLUMN SELECTION
+        */
 
-if(rows.length){
+        if(
+            columns.value ===
+            "auto"
+        ){
 
-tableData =
-buildTableFromRows(
-rows,
-count
-);
+            count =
+                estimateColumns(
+                    rows
+                );
 
-}
-else{
+        }
+        else{
 
-const text =
-result.data.text || "";
+            count =
+                parseInt(
+                    columns.value,
+                    10
+                );
 
+        }
 
-tableData =
-text
-.split(
-/\r?\n/
-)
-.map(
-line =>
-line.trim()
-)
-.filter(
-Boolean
-)
-.map(
-line =>
-[ line ]
-);
 
-}
+        if(
+            !Number.isFinite(count) ||
+            count < 1
+        ){
 
+            count =
+                1;
 
-/*
-   Remove empty rows.
-*/
+        }
 
-tableData =
-tableData.filter(
-row =>
-row.some(
-cell =>
-String(
-cell || ""
-).trim() !== ""
-)
-);
 
+        currentColumns =
+            count;
 
-if(!tableData.length){
 
-throw new Error(
-"No readable text found."
-);
+        /*
+           BUILD TABLE
+        */
 
-}
+        if(
+            rows.length
+        ){
 
+            tableData =
+                buildTableFromRows(
+                    rows,
+                    count
+                );
 
-/*
-   ALWAYS exactly requested
-   number of columns.
-*/
+        }
+        else{
 
-tableData =
-tableData.map(
-row => {
+            /*
+               TEXT FALLBACK
+            */
 
-const newRow =
-Array.from(
-{
-length:
-count
-},
-(_,i) =>
-String(
-row[i] || ""
-).trim()
-);
+            const text =
+                result.data.text ||
+                "";
 
-return newRow;
 
-});
+            tableData =
+                text
+                .split(
+                    /\r?\n/
+                )
+                .map(
+                    line =>
+                    line.trim()
+                )
+                .filter(
+                    Boolean
+                )
+                .map(
+                    line =>
+                    [line]
+                );
 
+        }
 
-currentColumns =
-count;
 
+        /*
+           REMOVE EMPTY ROWS
+        */
 
-renderTable();
+        tableData =
+            tableData.filter(
+            row =>
+                row.some(
+                    cell =>
+                    String(
+                        cell ||
+                        ""
+                    ).trim() !== ""
+                )
+            );
 
 
-progressBar.style.width =
-"100%";
+        if(!tableData.length){
 
-progressText.textContent =
-"Completed!";
+            throw new Error(
+                "No readable text found. Please try a clearer image."
+            );
 
+        }
 
-setTimeout(
-function(){
 
-progressBox.style.display =
-"none";
+        /*
+           FORCE REQUESTED
+           NUMBER OF COLUMNS
+        */
 
-},
-500
-);
+        tableData =
+            tableData.map(
+            function(row){
 
+                return Array.from(
+                {
+                    length:
+                    count
+                },
+                (_,i) =>
+                    String(
+                        row[i] ||
+                        ""
+                    ).trim()
+                );
 
-resultCard.style.display =
-"block";
+            });
 
 
-showStatus(
-"Table extracted successfully.",
-"success"
-);
+        currentColumns =
+            count;
 
 
-resultCard.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+        /*
+           RENDER
+        */
 
+        renderTable();
 
-}
-catch(error){
 
-console.error(
-"OCR ERROR:",
-error
-);
+        progressBar.style.width =
+            "100%";
 
 
-progressBox.style.display =
-"none";
+        progressText.textContent =
+            "Completed!";
 
 
-showStatus(
-"OCR failed: " +
-(
-error.message ||
-"Please try another image."
-),
-"error"
-);
+        resultCard.style.display =
+            "block";
 
-}
-finally{
 
-extractBtn.disabled =
-!selectedFile;
+        progressBox.style.display =
+            "none";
 
-}
+
+        showStatus(
+            "Table extracted successfully.",
+            "success"
+        );
+
+
+        /*
+           Scroll result into view.
+        */
+
+        setTimeout(
+        function(){
+
+            resultCard.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        },
+        200
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "OCR ERROR:",
+            error
+        );
+
+
+        progressBox.style.display =
+            "none";
+
+
+        showStatus(
+            "OCR failed: " +
+            (
+                error.message ||
+                "Please try another image."
+            ),
+            "error"
+        );
+
+    }
+    finally{
+
+        extractBtn.disabled =
+            !selectedFile;
+
+    }
 
 });
 
@@ -3137,364 +3339,334 @@ extractBtn.disabled =
 
 function renderTable(){
 
-headerRow.innerHTML =
-"";
+    headerRow.innerHTML =
+        "";
 
-tableBody.innerHTML =
-"";
-
-
-if(!tableData.length){
-
-return;
-
-}
+    tableBody.innerHTML =
+        "";
 
 
-const colCount =
-currentColumns;
+    if(!tableData.length){
+
+        return;
+    }
 
 
-for(
-let c=0;
-c<colCount;
-c++
-){
-
-const th =
-document.createElement(
-"th"
-);
-
-th.textContent =
-"Column " +
-(c + 1);
-
-headerRow.appendChild(
-th
-);
-
-}
+    const colCount =
+        currentColumns;
 
 
-tableData.forEach(
-function(row,rowIndex){
+    /*
+       HEADER
+    */
 
-const tr =
-document.createElement(
-"tr"
-);
+    for(
+        let c=0;
+        c<colCount;
+        c++
+    ){
 
-
-for(
-let c=0;
-c<colCount;
-c++
-){
-
-const td =
-document.createElement(
-"td"
-);
+        const th =
+            document.createElement(
+                "th"
+            );
 
 
-td.contentEditable =
-"true";
-
-td.spellcheck =
-false;
-
-
-td.textContent =
-row[c] || "";
+        th.textContent =
+            "Column " +
+            (
+                c +
+                1
+            );
 
 
-td.addEventListener(
-"input",
-function(){
+        headerRow.appendChild(
+            th
+        );
 
-if(
-tableData[rowIndex]
-){
-
-tableData[rowIndex][c] =
-td.innerText;
-
-}
-
-});
+    }
 
 
-tr.appendChild(
-td
-);
+    /*
+       BODY
+    */
 
-}
+    tableData.forEach(
+    function(
+        row,
+        rowIndex
+    ){
+
+        const tr =
+            document.createElement(
+                "tr"
+            );
 
 
-tableBody.appendChild(
-tr
-);
+        for(
+            let c=0;
+            c<colCount;
+            c++
+        ){
 
-});
+            const td =
+                document.createElement(
+                    "td"
+                );
+
+
+            td.contentEditable =
+                "true";
+
+
+            td.spellcheck =
+                false;
+
+
+            td.textContent =
+                row[c] ||
+                "";
+
+
+            td.addEventListener(
+            "input",
+            function(){
+
+                if(
+                    tableData[
+                        rowIndex
+                    ]
+                ){
+
+                    tableData[
+                        rowIndex
+                    ][c] =
+                        td.innerText;
+
+                }
+
+            });
+
+
+            tr.appendChild(
+                td
+            );
+
+        }
+
+
+        tableBody.appendChild(
+            tr
+        );
+
+    });
 
 }
 
 
 /* =====================================================
-   GET TABLE DATA
+   GET CURRENT TABLE
 ===================================================== */
 
 function getTableData(){
 
-const rows = [];
+    const rows = [];
 
 
-const headers =
-document.querySelectorAll(
-"#resultTable thead th"
-);
+    /*
+       HEADER
+    */
+
+    const headerCells =
+        document.querySelectorAll(
+            "#resultTable thead th"
+        );
 
 
-if(headers.length){
+    if(
+        headerCells.length
+    ){
 
-rows.push(
-Array.from(headers)
-.map(
-cell =>
-cell.innerText.trim()
-)
-);
+        rows.push(
+            Array.from(
+                headerCells
+            ).map(
+                cell =>
+                cell.innerText.trim()
+            )
+        );
 
-}
-
-
-const trs =
-document.querySelectorAll(
-"#resultTable tbody tr"
-);
+    }
 
 
-trs.forEach(
-function(tr){
+    /*
+       BODY
+    */
 
-rows.push(
-Array.from(
-tr.querySelectorAll("td")
-)
-.map(
-cell =>
-cell.innerText.trim()
-)
-);
-
-});
+    const trs =
+        document.querySelectorAll(
+            "#resultTable tbody tr"
+        );
 
 
-return rows;
+    trs.forEach(
+    function(tr){
+
+        rows.push(
+            Array.from(
+                tr.querySelectorAll(
+                    "td"
+                )
+            ).map(
+                cell =>
+                cell.innerText.trim()
+            )
+        );
+
+    });
+
+
+    return rows;
 
 }
 
 
 /* =====================================================
-   EXCEL DOWNLOAD
+   DOWNLOAD EXCEL
 ===================================================== */
 
 downloadExcel.addEventListener(
 "click",
 function(){
 
-try{
+    try{
 
-if(
-typeof XLSX ===
-"undefined"
-){
+        if(
+            typeof XLSX ===
+            "undefined"
+        ){
 
-alert(
-"Excel library load হয়নি। Internet ON করে আবার চেষ্টা করুন।"
-);
+            alert(
+                "Excel library is not loaded. Please check internet connection."
+            );
 
-return;
-
-}
-
-
-const data =
-getTableData();
+            return;
+        }
 
 
-if(
-!data.length
-){
-
-alert(
-"No table data available."
-);
-
-return;
-
-}
+        const data =
+            getTableData();
 
 
-const worksheet =
-XLSX.utils.aoa_to_sheet(
-data
-);
+        if(
+            !data.length
+        ){
+
+            alert(
+                "No table data available."
+            );
+
+            return;
+        }
 
 
-/*
-   Column widths.
-*/
-
-const widths = [];
-
-
-data.forEach(
-row => {
-
-row.forEach(
-(value,index) => {
-
-const length =
-String(
-value || ""
-).length;
+        const worksheet =
+            XLSX.utils.aoa_to_sheet(
+                data
+            );
 
 
-widths[index] =
-Math.max(
-widths[index] || 10,
-Math.min(
-length + 2,
-50
-)
-);
+        /*
+           COLUMN WIDTH
+        */
 
-});
-
-});
+        const widths = [];
 
 
-worksheet["!cols"] =
-widths.map(
-width => ({
-wch:
-width
-})
-);
+        data.forEach(
+        function(row){
+
+            row.forEach(
+            function(
+                value,
+                index
+            ){
+
+                const length =
+                    String(
+                        value ||
+                        ""
+                    ).length;
 
 
-const workbook =
-XLSX.utils.book_new();
+                widths[index] =
+                    Math.max(
+                        widths[index] ||
+                        10,
+                        Math.min(
+                            length +
+                            2,
+                            50
+                        )
+                    );
+
+            });
+
+        });
 
 
-XLSX.utils.book_append_sheet(
-workbook,
-worksheet,
-"Image Data"
-);
+        worksheet["!cols"] =
+            widths.map(
+                w => ({
+                    wch:w
+                })
+            );
 
 
-/*
-   Mobile-safe XLSX generation.
-*/
+        /*
+           WORKBOOK
+        */
 
-const excelArray =
-XLSX.write(
-workbook,
-{
-bookType:
-"xlsx",
-type:
-"array"
-}
-);
+        const workbook =
+            XLSX.utils.book_new();
 
 
-const blob =
-new Blob(
-[excelArray],
-{
-type:
-"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-}
-);
+        XLSX.utils.book_append_sheet(
+            workbook,
+            worksheet,
+            "Image Data"
+        );
 
 
-const url =
-URL.createObjectURL(
-blob
-);
+        /*
+           DOWNLOAD
+        */
+
+        XLSX.writeFile(
+            workbook,
+            "Asim_Tech_Image_to_Excel.xlsx"
+        );
 
 
-const a =
-document.createElement(
-"a"
-);
+        showStatus(
+            "Excel downloaded successfully.",
+            "success"
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "EXCEL ERROR:",
+            error
+        );
 
 
-a.href =
-url;
+        alert(
+            "Excel download failed. Please try again."
+        );
 
-a.download =
-"Asim_Tech_Image_to_Excel.xlsx";
-
-a.style.position =
-"fixed";
-
-a.style.left =
-"-9999px";
-
-
-document.body.appendChild(
-a
-);
-
-a.click();
-
-
-setTimeout(
-function(){
-
-if(a.parentNode){
-
-a.parentNode.removeChild(
-a
-);
-
-}
-
-URL.revokeObjectURL(
-url
-);
-
-},
-5000
-);
-
-
-showStatus(
-"✅ Excel download started.",
-"success"
-);
-
-
-}
-catch(error){
-
-console.error(
-"EXCEL ERROR:",
-error
-);
-
-
-alert(
-"Excel download failed: " +
-error.message
-);
-
-}
+    }
 
 });
 
@@ -3507,137 +3679,161 @@ downloadCSV.addEventListener(
 "click",
 function(){
 
-try{
+    try{
 
-const data =
-getTableData();
-
-
-if(!data.length){
-
-alert(
-"No table data available."
-);
-
-return;
-
-}
+        const data =
+            getTableData();
 
 
-const csv =
-data
-.map(
-row =>
-row
-.map(
-value =>
-'"' +
-String(
-value || ""
-)
-.replace(
-/"/g,
-'""'
-) +
-'"'
-)
-.join(",")
-)
-.join("\r\n");
+        if(
+            !data.length
+        ){
+
+            alert(
+                "No table data available."
+            );
+
+            return;
+        }
 
 
-const blob =
-new Blob(
-[
-"\uFEFF" +
-csv
-],
-{
-type:
-"text/csv;charset=utf-8"
-}
-);
+        const csv =
+            data
+            .map(
+            function(row){
+
+                return row
+                .map(
+                function(value){
+
+                    return '"' +
+                        String(
+                            value ||
+                            ""
+                        )
+                        .replace(
+                            /"/g,
+                            '""'
+                        ) +
+                        '"';
+
+                })
+                .join(",");
+
+            })
+            .join(
+                "\r\n"
+            );
 
 
-downloadBlob(
-blob,
-"Asim_Tech_Image_to_Excel.csv"
-);
+        const blob =
+            new Blob(
+            [
+                "\uFEFF" +
+                csv
+            ],
+            {
+                type:
+                "text/csv;charset=utf-8"
+            }
+            );
 
 
-}
-catch(error){
+        downloadBlob(
+            blob,
+            "Asim_Tech_Image_to_Excel.csv"
+        );
 
-console.error(error);
 
-alert(
-"CSV download failed."
-);
+        showStatus(
+            "CSV downloaded successfully.",
+            "success"
+        );
 
-}
+    }
+    catch(error){
+
+        console.error(
+            "CSV ERROR:",
+            error
+        );
+
+
+        alert(
+            "CSV download failed."
+        );
+
+    }
 
 });
 
 
 /* =====================================================
-   UNIVERSAL DOWNLOAD
+   DOWNLOAD BLOB
 ===================================================== */
 
 function downloadBlob(
-blob,
-filename
+    blob,
+    filename
 ){
 
-const url =
-URL.createObjectURL(
-blob
-);
+    const url =
+        URL.createObjectURL(
+            blob
+        );
 
 
-const a =
-document.createElement(
-"a"
-);
+    const a =
+        document.createElement(
+            "a"
+        );
 
 
-a.href =
-url;
-
-a.download =
-filename;
-
-a.style.position =
-"fixed";
-
-a.style.left =
-"-9999px";
+    a.href =
+        url;
 
 
-document.body.appendChild(
-a
-);
-
-a.click();
+    a.download =
+        filename;
 
 
-setTimeout(
-function(){
+    a.rel =
+        "noopener";
 
-if(a.parentNode){
 
-a.parentNode.removeChild(
-a
-);
+    a.style.display =
+        "none";
 
-}
 
-URL.revokeObjectURL(
-url
-);
+    document.body.appendChild(
+        a
+    );
 
-},
-5000
-);
+
+    a.click();
+
+
+    setTimeout(
+    function(){
+
+        if(
+            a.parentNode
+        ){
+
+            a.parentNode.removeChild(
+                a
+            );
+
+        }
+
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    },
+    2000
+    );
 
 }
 
@@ -3650,13 +3846,25 @@ addRow.addEventListener(
 "click",
 function(){
 
-tableData.push(
-Array(
-currentColumns
-).fill("")
-);
+    if(
+        currentColumns <
+        1
+    ){
 
-renderTable();
+        currentColumns =
+            1;
+
+    }
+
+
+    tableData.push(
+        Array(
+            currentColumns
+        ).fill("")
+    );
+
+
+    renderTable();
 
 });
 
@@ -3669,27 +3877,30 @@ addColumn.addEventListener(
 "click",
 function(){
 
-if(!tableData.length){
+    if(
+        !tableData.length
+    ){
 
-tableData.push(
-Array(
-currentColumns
-).fill("")
-);
+        tableData.push(
+            Array(
+                currentColumns
+            ).fill("")
+        );
 
-}
-
-
-tableData.forEach(
-row =>
-row.push("")
-);
+    }
 
 
-currentColumns += 1;
+    tableData.forEach(
+        row =>
+        row.push("")
+    );
 
 
-renderTable();
+    currentColumns +=
+        1;
+
+
+    renderTable();
 
 });
 
@@ -3702,68 +3913,118 @@ copyTable.addEventListener(
 "click",
 async function(){
 
-const data =
-getTableData();
+    const data =
+        getTableData();
 
 
-const text =
-data
-.map(
-row =>
-row.join("\t")
-)
-.join("\n");
+    if(
+        !data.length
+    ){
+
+        alert(
+            "No table data available."
+        );
+
+        return;
+    }
 
 
-try{
-
-await navigator.clipboard.writeText(
-text
-);
-
-
-showStatus(
-"Table copied successfully.",
-"success"
-);
+    const text =
+        data
+        .map(
+            row =>
+            row.join("\t")
+        )
+        .join("\n");
 
 
-}
-catch(error){
+    try{
 
-const textarea =
-document.createElement(
-"textarea"
-);
+        if(
+            navigator.clipboard &&
+            navigator.clipboard.writeText
+        ){
 
+            await navigator.clipboard.writeText(
+                text
+            );
 
-textarea.value =
-text;
+        }
+        else{
 
+            throw new Error(
+                "Clipboard unavailable."
+            );
 
-document.body.appendChild(
-textarea
-);
-
-textarea.select();
-
-
-document.execCommand(
-"copy"
-);
+        }
 
 
-document.body.removeChild(
-textarea
-);
+        showStatus(
+            "Table copied successfully.",
+            "success"
+        );
+
+    }
+    catch(error){
+
+        /*
+           FALLBACK COPY
+        */
+
+        const textarea =
+            document.createElement(
+                "textarea"
+            );
 
 
-showStatus(
-"Table copied.",
-"success"
-);
+        textarea.value =
+            text;
 
-}
+
+        textarea.style.position =
+            "fixed";
+
+        textarea.style.left =
+            "-9999px";
+
+
+        document.body.appendChild(
+            textarea
+        );
+
+
+        textarea.focus();
+
+        textarea.select();
+
+
+        try{
+
+            document.execCommand(
+                "copy"
+            );
+
+            showStatus(
+                "Table copied successfully.",
+                "success"
+            );
+
+        }
+        catch(e){
+
+            showStatus(
+                "Could not copy table.",
+                "error"
+            );
+
+        }
+
+
+        document.body.removeChild(
+            textarea
+        );
+
+    }
 
 });
 
@@ -3776,18 +4037,20 @@ clearTable.addEventListener(
 "click",
 function(){
 
-tableData = [];
+    tableData =
+        [];
 
-currentColumns = 1;
+    currentColumns =
+        1;
 
-headerRow.innerHTML =
-"";
+    headerRow.innerHTML =
+        "";
 
-tableBody.innerHTML =
-"";
+    tableBody.innerHTML =
+        "";
 
-resultCard.style.display =
-"none";
+    resultCard.style.display =
+        "none";
 
 });
 
@@ -3797,40 +4060,38 @@ resultCard.style.display =
 ===================================================== */
 
 if(
-"serviceWorker" in navigator
+    "serviceWorker" in navigator
 ){
 
-window.addEventListener(
-"load",
-function(){
+    window.addEventListener(
+    "load",
+    function(){
 
-navigator.serviceWorker
-.register(
-"./sw.js",
-{
-updateViaCache:
-"none"
-}
-)
-.then(
-registration => {
+        navigator.serviceWorker
+        .register(
+            "./sw.js",
+            {
+                updateViaCache:
+                    "none"
+            }
+        )
+        .then(
+        function(registration){
 
-registration.update();
+            registration.update();
 
-}
-)
-.catch(
-error => {
+        })
+        .catch(
+        function(error){
 
-console.log(
-"Service Worker:",
-error
-);
+            console.log(
+                "Service Worker:",
+                error
+            );
 
-}
-);
+        });
 
-});
+    });
 
 }
 
