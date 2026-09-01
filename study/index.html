@@ -11,13 +11,13 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  font-family:Arial,"Noto Sans Bengali",sans-serif
 }
 
 body{
   background:#f5f7ff;
   color:#172033;
-  line-height:1.6;
+  line-height:1.6
 }
 
 header{
@@ -27,7 +27,7 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 5px 20px #0002;
+  box-shadow:0 5px 20px #0002
 }
 
 .nav{
@@ -35,7 +35,7 @@ header{
   margin:auto;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:space-between
 }
 
 .logo{
@@ -43,7 +43,7 @@ header{
   align-items:center;
   gap:10px;
   font-weight:bold;
-  font-size:19px;
+  font-size:19px
 }
 
 .logo img{
@@ -51,7 +51,7 @@ header{
   height:48px;
   border-radius:50%;
   object-fit:cover;
-  background:white;
+  background:white
 }
 
 .nav button{
@@ -60,7 +60,7 @@ header{
   border:1px solid #ffffff40;
   padding:9px 14px;
   border-radius:10px;
-  cursor:pointer;
+  cursor:pointer
 }
 
 .hero{
@@ -69,31 +69,30 @@ header{
   padding:35px 25px;
   border-radius:25px;
   color:white;
-  background:
-  linear-gradient(135deg,#1e3a8a,#2563eb,#7c3aed);
-  box-shadow:0 15px 40px #1e3a8a30;
+  background:linear-gradient(135deg,#1e3a8a,#2563eb,#7c3aed);
+  box-shadow:0 15px 40px #1e3a8a30
 }
 
 .hero h1{
   font-size:38px;
-  margin-bottom:8px;
+  margin-bottom:8px
 }
 
 .hero p{
-  opacity:.9;
+  opacity:.9
 }
 
 .container{
   max-width:1200px;
   margin:auto;
-  padding:0 20px 50px;
+  padding:0 20px 50px
 }
 
 .controls{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:15px;
-  margin:20px 0;
+  margin:20px 0
 }
 
 select,input,textarea{
@@ -103,22 +102,22 @@ select,input,textarea{
   border-radius:12px;
   outline:none;
   background:white;
-  font-size:15px;
+  font-size:15px
 }
 
 select:focus,input:focus,textarea:focus{
-  border-color:#2563eb;
+  border-color:#2563eb
 }
 
 .section-title{
   margin:25px 0 15px;
-  font-size:23px;
+  font-size:23px
 }
 
 .subjects{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:14px;
+  gap:14px
 }
 
 .subject{
@@ -129,27 +128,27 @@ select:focus,input:focus,textarea:focus{
   text-align:center;
   cursor:pointer;
   box-shadow:0 5px 20px #17255410;
-  transition:.2s;
+  transition:.2s
 }
 
 .subject:hover{
-  transform:translateY(-3px);
+  transform:translateY(-3px)
 }
 
 .subject.active{
   border-color:#2563eb;
-  background:#eff6ff;
+  background:#eff6ff
 }
 
 .subject .icon{
   font-size:32px;
-  margin-bottom:5px;
+  margin-bottom:5px
 }
 
 .chapter-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:15px;
+  gap:15px
 }
 
 .chapter{
@@ -159,25 +158,25 @@ select:focus,input:focus,textarea:focus{
   box-shadow:0 5px 20px #17255410;
   cursor:pointer;
   border-left:5px solid #2563eb;
-  transition:.2s;
+  transition:.2s
 }
 
 .chapter:hover{
-  transform:translateY(-3px);
+  transform:translateY(-3px)
 }
 
 .chapter.done{
-  border-left-color:#16a34a;
+  border-left-color:#16a34a
 }
 
 .chapter-head{
   display:flex;
   justify-content:space-between;
-  gap:10px;
+  gap:10px
 }
 
 .chapter h3{
-  font-size:17px;
+  font-size:17px
 }
 
 .badge{
@@ -186,12 +185,12 @@ select:focus,input:focus,textarea:focus{
   padding:4px 8px;
   border-radius:20px;
   font-size:11px;
-  white-space:nowrap;
+  white-space:nowrap
 }
 
 .done .badge{
   background:#dcfce7;
-  color:#15803d;
+  color:#15803d
 }
 
 .progress-box{
@@ -199,7 +198,7 @@ select:focus,input:focus,textarea:focus{
   padding:20px;
   border-radius:18px;
   margin:20px 0;
-  box-shadow:0 5px 20px #17255410;
+  box-shadow:0 5px 20px #17255410
 }
 
 .progress{
@@ -207,14 +206,14 @@ select:focus,input:focus,textarea:focus{
   background:#e5e7eb;
   border-radius:20px;
   overflow:hidden;
-  margin-top:10px;
+  margin-top:10px
 }
 
 .progress-bar{
   height:100%;
   width:0%;
   background:linear-gradient(90deg,#2563eb,#7c3aed);
-  transition:.3s;
+  transition:.3s
 }
 
 .study-panel{
@@ -223,11 +222,11 @@ select:focus,input:focus,textarea:focus{
   margin-top:25px;
   padding:25px;
   box-shadow:0 8px 30px #17255415;
-  display:none;
+  display:none
 }
 
 .study-panel.show{
-  display:block;
+  display:block
 }
 
 .study-top{
@@ -235,11 +234,11 @@ select:focus,input:focus,textarea:focus{
   justify-content:space-between;
   align-items:flex-start;
   gap:15px;
-  margin-bottom:20px;
+  margin-bottom:20px
 }
 
 .study-top h2{
-  color:#1e3a8a;
+  color:#1e3a8a
 }
 
 .close{
@@ -249,32 +248,32 @@ select:focus,input:focus,textarea:focus{
   width:38px;
   height:38px;
   border-radius:50%;
-  cursor:pointer;
+  cursor:pointer
 }
 
 .material{
-  margin-top:18px;
+  margin-top:18px
 }
 
 .material h3{
   color:#1d4ed8;
-  margin:20px 0 8px;
+  margin:20px 0 8px
 }
 
 .material p{
   background:#f8faff;
   padding:15px;
-  border-radius:12px;
+  border-radius:12px
 }
 
 .points{
   padding:15px 20px;
   background:#eff6ff;
-  border-radius:14px;
+  border-radius:14px
 }
 
 .points li{
-  margin:7px 0;
+  margin:7px 0
 }
 
 .remember{
@@ -282,14 +281,14 @@ select:focus,input:focus,textarea:focus{
   border-left:5px solid #f97316;
   padding:15px;
   border-radius:10px;
-  margin-top:15px;
+  margin-top:15px
 }
 
 .action-row{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
-  margin-top:20px;
+  margin-top:20px
 }
 
 .btn{
@@ -297,65 +296,115 @@ select:focus,input:focus,textarea:focus{
   padding:12px 18px;
   border-radius:12px;
   cursor:pointer;
-  font-weight:bold;
+  font-weight:bold
 }
 
 .primary{
   background:#2563eb;
-  color:white;
+  color:white
 }
 
 .success{
   background:#16a34a;
-  color:white;
+  color:white
 }
 
 .dark{
   background:#172033;
-  color:white;
+  color:white
 }
 
 .quiz{
   margin-top:25px;
   padding-top:20px;
-  border-top:1px solid #e5e7eb;
+  border-top:1px solid #e5e7eb
+}
+
+.quiz-header{
+  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+  padding:20px;
+  border-radius:16px;
+  margin-bottom:15px
 }
 
 .question{
   background:#f8faff;
   padding:17px;
   border-radius:14px;
-  margin:12px 0;
+  margin:15px 0;
+  border:1px solid #e5e7eb
+}
+
+.question-number{
+  color:#2563eb;
+  font-weight:bold;
+  margin-bottom:6px
 }
 
 .option{
   display:block;
   background:white;
-  padding:10px;
+  padding:11px;
   border:1px solid #ddd;
   margin-top:8px;
   border-radius:9px;
   cursor:pointer;
+  transition:.2s
 }
 
 .option:hover{
   border-color:#2563eb;
+  background:#eff6ff
+}
+
+.option input{
+  width:auto;
+  margin-right:8px
+}
+
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a
+}
+
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626
+}
+
+.explanation{
+  display:none;
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  background:#fefce8
 }
 
 .result{
-  margin-top:15px;
-  padding:15px;
-  border-radius:12px;
+  margin-top:20px;
+  padding:22px;
+  border-radius:16px;
   background:#ecfdf5;
   color:#166534;
   font-weight:bold;
+  text-align:center
+}
+
+.score-big{
+  font-size:38px;
+  margin:5px
+}
+
+.result-message{
+  margin-top:8px;
+  font-size:16px
 }
 
 .tools{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:15px;
-  margin-top:25px;
+  margin-top:25px
 }
 
 .tool{
@@ -364,11 +413,11 @@ select:focus,input:focus,textarea:focus{
   border-radius:18px;
   box-shadow:0 5px 20px #17255410;
   text-align:center;
-  cursor:pointer;
+  cursor:pointer
 }
 
 .tool .big{
-  font-size:35px;
+  font-size:35px
 }
 
 .notes{
@@ -376,24 +425,24 @@ select:focus,input:focus,textarea:focus{
   padding:20px;
   border-radius:18px;
   margin-top:25px;
-  box-shadow:0 5px 20px #17255410;
+  box-shadow:0 5px 20px #17255410
 }
 
 .note-list{
-  margin-top:15px;
+  margin-top:15px
 }
 
 .note{
   background:#f8faff;
   padding:12px;
   margin:10px 0;
-  border-radius:12px;
+  border-radius:12px
 }
 
 .note img{
   max-width:180px;
   margin-top:10px;
-  border-radius:10px;
+  border-radius:10px
 }
 
 footer{
@@ -401,7 +450,7 @@ footer{
   color:white;
   text-align:center;
   padding:25px;
-  margin-top:40px;
+  margin-top:40px
 }
 
 .modal{
@@ -412,11 +461,11 @@ footer{
   align-items:center;
   justify-content:center;
   z-index:2000;
-  padding:20px;
+  padding:20px
 }
 
 .modal.show{
-  display:flex;
+  display:flex
 }
 
 .modal-box{
@@ -425,7 +474,7 @@ footer{
   padding:25px;
   border-radius:20px;
   max-height:90vh;
-  overflow:auto;
+  overflow:auto
 }
 
 .calc-display{
@@ -433,13 +482,13 @@ footer{
   padding:15px;
   font-size:24px;
   text-align:right;
-  margin-bottom:10px;
+  margin-bottom:10px
 }
 
 .calc-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:7px;
+  gap:7px
 }
 
 .calc-grid button{
@@ -448,27 +497,27 @@ footer{
   border-radius:10px;
   background:#eef2ff;
   cursor:pointer;
-  font-size:17px;
+  font-size:17px
 }
 
 .timer-display{
   font-size:55px;
   text-align:center;
   margin:20px;
-  color:#1e3a8a;
+  color:#1e3a8a
 }
 
 @media(max-width:650px){
   .hero h1{
-    font-size:29px;
+    font-size:29px
   }
 
   .controls{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr
   }
 
   .study-top{
-    flex-direction:column;
+    flex-direction:column
   }
 }
 </style>
@@ -477,181 +526,277 @@ footer{
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">
-      <img src="study-logo.png" alt="ASIM TECH STUDY">
-      <span>ASIM TECH STUDY</span>
-    </div>
-    <button onclick="window.scrollTo({top:0,behavior:'smooth'})">🏠 Home</button>
-  </div>
+<div class="nav">
+
+<div class="logo">
+<img src="study-logo.png" alt="ASIM TECH STUDY">
+<span>ASIM TECH STUDY</span>
+</div>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">
+🏠 Home
+</button>
+
+</div>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <h1>Learn Smart. Study Better. 📚</h1>
-    <p>Class নির্বাচন করুন → Subject নির্বাচন করুন → Chapter খুলে পড়ুন → Quiz দিন → Progress দেখুন</p>
-  </div>
+<div class="container">
+
+<h1>Learn Smart. Study Better. 📚</h1>
+
+<p>
+Class নির্বাচন করুন → Subject নির্বাচন করুন → Chapter খুলুন → Quiz দিন → Score দেখুন
+</p>
+
+</div>
 </section>
+
 
 <main class="container">
 
-  <h2 class="section-title">🎓 Select Class</h2>
+<h2 class="section-title">🎓 Select Class</h2>
 
-  <div class="controls">
-    <select id="classSelect" onchange="changeClass()">
-      <option value="5">Class 5</option>
-      <option value="6">Class 6</option>
-      <option value="7">Class 7</option>
-      <option value="8">Class 8</option>
-      <option value="9">Class 9</option>
-      <option value="10">Class 10</option>
-      <option value="11">Class 11</option>
-      <option value="12">Class 12</option>
-    </select>
+<div class="controls">
 
-    <input id="chapterSearch"
-           placeholder="🔍 Chapter search..."
-           oninput="searchChapter()">
-  </div>
+<select id="classSelect" onchange="changeClass()">
 
-  <h2 class="section-title">📚 Subjects</h2>
+<option value="5">Class 5</option>
+<option value="6">Class 6</option>
+<option value="7">Class 7</option>
+<option value="8">Class 8</option>
+<option value="9">Class 9</option>
+<option value="10">Class 10</option>
+<option value="11">Class 11</option>
+<option value="12">Class 12</option>
 
-  <div id="subjects" class="subjects"></div>
+</select>
 
-  <div class="progress-box">
-    <b id="progressTitle">Subject Progress</b>
-    <div class="progress">
-      <div id="progressBar" class="progress-bar"></div>
-    </div>
-    <small id="progressText">0% Complete</small>
-  </div>
+<input
+id="chapterSearch"
+placeholder="🔍 Chapter search..."
+oninput="searchChapter()">
 
-  <h2 class="section-title">📖 Chapters</h2>
+</div>
 
-  <div id="chapters" class="chapter-grid"></div>
 
-  <!-- STUDY PANEL -->
+<h2 class="section-title">📚 Subjects</h2>
 
-  <section id="studyPanel" class="study-panel">
+<div id="subjects" class="subjects"></div>
 
-    <div class="study-top">
-      <div>
-        <small id="studySubject"></small>
-        <h2 id="studyTitle"></h2>
-      </div>
 
-      <button class="close" onclick="closeStudy()">✕</button>
-    </div>
+<div class="progress-box">
 
-    <div class="material">
+<b id="progressTitle">Subject Progress</b>
 
-      <h3>📖 Chapter Overview</h3>
-      <p id="overview"></p>
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
 
-      <h3>🎯 Learning Goals</h3>
-      <ul id="goals" class="points"></ul>
+<small id="progressText">
+0% Complete
+</small>
 
-      <h3>💡 Important Points</h3>
-      <ul id="important" class="points"></ul>
+</div>
 
-      <div class="remember">
-        <b>🧠 মনে রাখবে</b>
-        <p id="remember"></p>
-      </div>
 
-      <h3>📝 সহজ ভাষায় Study Note</h3>
-      <p id="studyNote"></p>
+<h2 class="section-title">📖 Chapters</h2>
 
-    </div>
+<div id="chapters" class="chapter-grid"></div>
 
-    <div class="action-row">
-      <button class="btn success" id="completeBtn" onclick="completeChapter()">
-        ✅ Chapter Complete
-      </button>
 
-      <button class="btn primary" onclick="startQuiz()">
-        📝 Chapter Quiz
-      </button>
-    </div>
+<!-- STUDY PANEL -->
 
-    <div id="quizBox" class="quiz"></div>
+<section id="studyPanel" class="study-panel">
 
-  </section>
+<div class="study-top">
 
-  <!-- TOOLS -->
+<div>
 
-  <h2 class="section-title">🛠 Study Tools</h2>
+<small id="studySubject"></small>
 
-  <div class="tools">
+<h2 id="studyTitle"></h2>
 
-    <div class="tool" onclick="openCalculator()">
-      <div class="big">🧮</div>
-      <b>Calculator</b>
-      <p>Quick calculation</p>
-    </div>
+</div>
 
-    <div class="tool" onclick="openTimer()">
-      <div class="big">⏱️</div>
-      <b>Study Timer</b>
-      <p>Focus timer</p>
-    </div>
+<button class="close" onclick="closeStudy()">✕</button>
 
-    <div class="tool" onclick="document.getElementById('notesBox').scrollIntoView({behavior:'smooth'})">
-      <div class="big">📝</div>
-      <b>My Notes</b>
-      <p>Save your notes</p>
-    </div>
+</div>
 
-  </div>
 
-  <!-- NOTES -->
+<div class="material">
 
-  <section class="notes" id="notesBox">
+<h3>📖 Chapter Overview</h3>
 
-    <h2>📝 My Study Notes</h2>
+<p id="overview"></p>
 
-    <textarea id="noteText"
-      rows="4"
-      placeholder="এখানে নিজের Study Note লিখুন..."></textarea>
 
-    <div class="action-row">
+<h3>🎯 Learning Goals</h3>
 
-      <label class="btn dark">
-        📷 Camera
-        <input
-          type="file"
-          accept="image/*"
-          capture="environment"
-          hidden
-          onchange="addNoteImage(this)">
-      </label>
+<ul id="goals" class="points"></ul>
 
-      <label class="btn dark">
-        🖼️ Gallery
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          hidden
-          onchange="addNoteImage(this)">
-      </label>
 
-      <button class="btn primary" onclick="saveNote()">
-        💾 Save Note
-      </button>
+<h3>💡 Important Points</h3>
 
-    </div>
+<ul id="important" class="points"></ul>
 
-    <div id="noteImagePreview"></div>
-    <div id="noteList" class="note-list"></div>
 
-  </section>
+<div class="remember">
+
+<b>🧠 মনে রাখবে</b>
+
+<p id="remember"></p>
+
+</div>
+
+
+<h3>📝 সহজ ভাষায় Study Note</h3>
+
+<p id="studyNote"></p>
+
+</div>
+
+
+<div class="action-row">
+
+<button
+class="btn success"
+id="completeBtn"
+onclick="completeChapter()">
+
+✅ Chapter Complete
+
+</button>
+
+<button
+class="btn primary"
+onclick="startQuiz()">
+
+📝 Chapter Quiz
+
+</button>
+
+</div>
+
+
+<div id="quizBox" class="quiz"></div>
+
+</section>
+
+
+<!-- TOOLS -->
+
+<h2 class="section-title">🛠 Study Tools</h2>
+
+<div class="tools">
+
+<div class="tool" onclick="openCalculator()">
+
+<div class="big">🧮</div>
+
+<b>Calculator</b>
+
+<p>Quick calculation</p>
+
+</div>
+
+
+<div class="tool" onclick="openTimer()">
+
+<div class="big">⏱️</div>
+
+<b>Study Timer</b>
+
+<p>Focus timer</p>
+
+</div>
+
+
+<div class="tool"
+onclick="document.getElementById('notesBox').scrollIntoView({behavior:'smooth'})">
+
+<div class="big">📝</div>
+
+<b>My Notes</b>
+
+<p>Save your notes</p>
+
+</div>
+
+</div>
+
+
+<!-- NOTES -->
+
+<section class="notes" id="notesBox">
+
+<h2>📝 My Study Notes</h2>
+
+<textarea
+id="noteText"
+rows="4"
+placeholder="এখানে নিজের Study Note লিখুন...">
+</textarea>
+
+
+<div class="action-row">
+
+<label class="btn dark">
+
+📷 Camera
+
+<input
+type="file"
+accept="image/*"
+capture="environment"
+hidden
+onchange="addNoteImage(this)">
+
+</label>
+
+
+<label class="btn dark">
+
+🖼️ Gallery
+
+<input
+type="file"
+accept="image/*"
+multiple
+hidden
+onchange="addNoteImage(this)">
+
+</label>
+
+
+<button
+class="btn primary"
+onclick="saveNote()">
+
+💾 Save Note
+
+</button>
+
+</div>
+
+
+<div id="noteImagePreview"></div>
+
+<div id="noteList" class="note-list"></div>
+
+</section>
 
 </main>
 
+
 <footer>
-  <b>ASIM TECH STUDY</b>
-  <p>Learn • Practice • Improve • Succeed 🚀</p>
+
+<b>ASIM TECH STUDY</b>
+
+<p>
+Learn • Practice • Improve • Succeed 🚀
+</p>
+
 </footer>
 
 
@@ -659,47 +804,53 @@ footer{
 
 <div id="calculator" class="modal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <h2>🧮 Calculator</h2>
+<h2>🧮 Calculator</h2>
 
-    <input id="calcDisplay"
-           class="calc-display"
-           readonly>
+<input
+id="calcDisplay"
+class="calc-display"
+readonly>
 
-    <div class="calc-grid">
 
-      <button onclick="calc('7')">7</button>
-      <button onclick="calc('8')">8</button>
-      <button onclick="calc('9')">9</button>
-      <button onclick="calc('/')">÷</button>
+<div class="calc-grid">
 
-      <button onclick="calc('4')">4</button>
-      <button onclick="calc('5')">5</button>
-      <button onclick="calc('6')">6</button>
-      <button onclick="calc('*')">×</button>
+<button onclick="calc('7')">7</button>
+<button onclick="calc('8')">8</button>
+<button onclick="calc('9')">9</button>
+<button onclick="calc('/')">÷</button>
 
-      <button onclick="calc('1')">1</button>
-      <button onclick="calc('2')">2</button>
-      <button onclick="calc('3')">3</button>
-      <button onclick="calc('-')">−</button>
+<button onclick="calc('4')">4</button>
+<button onclick="calc('5')">5</button>
+<button onclick="calc('6')">6</button>
+<button onclick="calc('*')">×</button>
 
-      <button onclick="calc('0')">0</button>
-      <button onclick="calc('.')">.</button>
-      <button onclick="calculate()">=</button>
-      <button onclick="calc('+')">+</button>
+<button onclick="calc('1')">1</button>
+<button onclick="calc('2')">2</button>
+<button onclick="calc('3')">3</button>
+<button onclick="calc('-')">−</button>
 
-      <button onclick="clearCalc()">C</button>
+<button onclick="calc('0')">0</button>
+<button onclick="calc('.')">.</button>
+<button onclick="calculate()">=</button>
+<button onclick="calc('+')">+</button>
 
-    </div>
+<button onclick="clearCalc()">C</button>
 
-    <button class="btn dark"
-            style="width:100%;margin-top:15px"
-            onclick="closeCalculator()">
-      Close
-    </button>
+</div>
 
-  </div>
+
+<button
+class="btn dark"
+style="width:100%;margin-top:15px"
+onclick="closeCalculator()">
+
+Close
+
+</button>
+
+</div>
 
 </div>
 
@@ -708,37 +859,42 @@ footer{
 
 <div id="timerModal" class="modal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <h2>⏱️ Study Timer</h2>
+<h2>⏱️ Study Timer</h2>
 
-    <div id="timerDisplay" class="timer-display">
-      25:00
-    </div>
+<div id="timerDisplay" class="timer-display">
+25:00
+</div>
 
-    <div class="action-row">
 
-      <button class="btn primary" onclick="startTimer()">
-        ▶ Start
-      </button>
+<div class="action-row">
 
-      <button class="btn dark" onclick="pauseTimer()">
-        ⏸ Pause
-      </button>
+<button class="btn primary" onclick="startTimer()">
+▶ Start
+</button>
 
-      <button class="btn success" onclick="resetTimer()">
-        🔄 Reset
-      </button>
+<button class="btn dark" onclick="pauseTimer()">
+⏸ Pause
+</button>
 
-    </div>
+<button class="btn success" onclick="resetTimer()">
+🔄 Reset
+</button>
 
-    <button class="btn dark"
-            style="width:100%;margin-top:15px"
-            onclick="closeTimer()">
-      Close
-    </button>
+</div>
 
-  </div>
+
+<button
+class="btn dark"
+style="width:100%;margin-top:15px"
+onclick="closeTimer()">
+
+Close
+
+</button>
+
+</div>
 
 </div>
 
@@ -877,7 +1033,6 @@ const chapterDB={
 "ভারতের পরিচয়"
 ],
 
-
 "6-বাংলা":[
 "গদ্য",
 "পদ্য",
@@ -917,7 +1072,6 @@ const chapterDB={
 "জলবায়ু",
 "ভারতের ভূপ্রকৃতি"
 ],
-
 
 "7-বাংলা":[
 "গদ্য",
@@ -960,7 +1114,6 @@ const chapterDB={
 "ভারত"
 ],
 
-
 "8-বাংলা":[
 "গদ্য",
 "পদ্য",
@@ -1001,7 +1154,6 @@ const chapterDB={
 "জনসংখ্যা",
 "সম্পদ"
 ],
-
 
 "9-বাংলা":[
 "গদ্য",
@@ -1054,7 +1206,6 @@ const chapterDB={
 "জলবায়ু",
 "ভারত"
 ],
-
 
 "10-বাংলা":[
 "গদ্য",
@@ -1119,7 +1270,6 @@ const chapterDB={
 "অর্থনৈতিক কার্যকলাপ"
 ],
 
-
 "11-বাংলা":[
 "ভাষা",
 "গদ্য",
@@ -1180,7 +1330,6 @@ const chapterDB={
 "Culture",
 "Colonialism"
 ],
-
 
 "12-বাংলা":[
 "ভাষা",
@@ -1249,13 +1398,13 @@ const chapterDB={
 
 
 /* =========================
-   SAMPLE STUDY CONTENT
+   STUDY CONTENT
 ========================= */
 
 const contentDB={
 
 "সংখ্যা":{
-overview:"এই অধ্যায়ে বিভিন্ন ধরনের সংখ্যা, সংখ্যার ব্যবহার এবং দৈনন্দিন জীবনে সংখ্যার প্রয়োগ সম্পর্কে ধারণা তৈরি করা হবে।",
+overview:"এই অধ্যায়ে সংখ্যা এবং দৈনন্দিন জীবনে সংখ্যার ব্যবহার সম্পর্কে ধারণা তৈরি করা হবে।",
 goals:[
 "সংখ্যার ধারণা পরিষ্কার করা",
 "সংখ্যা চিনতে শেখা",
@@ -1263,8 +1412,8 @@ goals:[
 ],
 important:[
 "সংখ্যা গণনা ও পরিমাপের জন্য ব্যবহার করা হয়",
-"বিভিন্ন ধরনের সংখ্যার আলাদা বৈশিষ্ট্য রয়েছে",
-"সংখ্যা সঠিকভাবে পড়া ও লেখা গুরুত্বপূর্ণ"
+"সংখ্যার মান বুঝে ব্যবহার করা গুরুত্বপূর্ণ",
+"সংখ্যা সঠিকভাবে পড়া ও লেখা প্রয়োজন"
 ],
 remember:"প্রশ্ন করার সময় সংখ্যার স্থানমান এবং সংখ্যার মান ভালোভাবে লক্ষ্য করবে।",
 note:"সংখ্যা আমাদের দৈনন্দিন জীবনের একটি গুরুত্বপূর্ণ অংশ। টাকা, সময়, দূরত্ব, বয়স এবং হিসাব—সব ক্ষেত্রেই সংখ্যার প্রয়োজন হয়।"
@@ -1280,7 +1429,7 @@ goals:[
 important:[
 "উপরের সংখ্যাকে লব বলে",
 "নিচের সংখ্যাকে হর বলে",
-"হর কখনও শূন্য হতে পারে না"
+"হর শূন্য হতে পারে না"
 ],
 remember:"ভগ্নাংশ দেখলে প্রথমে লব এবং হর শনাক্ত করবে।",
 note:"যেমন 3/4 একটি ভগ্নাংশ। এখানে 3 হলো লব এবং 4 হলো হর।"
@@ -1291,14 +1440,14 @@ overview:"Real Numbers বা বাস্তব সংখ্যা হলো �
 goals:[
 "বাস্তব সংখ্যার ধারণা বোঝা",
 "Rational ও irrational number চেনা",
-"সংখ্যার বিভিন্ন বৈশিষ্ট্য বোঝা"
+"সংখ্যার বৈশিষ্ট্য বোঝা"
 ],
 important:[
 "Rational number p/q আকারে প্রকাশ করা যায়",
 "Irrational number সাধারণত p/q আকারে প্রকাশ করা যায় না",
 "বাস্তব সংখ্যার মধ্যে উভয় ধরনের সংখ্যা রয়েছে"
 ],
-remember:"√2 এবং √3-এর মতো সংখ্যা irrational-এর উদাহরণ।",
+remember:"√2 এবং √3 irrational সংখ্যার উদাহরণ।",
 note:"বাস্তব সংখ্যা গণিতের একটি মৌলিক ধারণা। বিভিন্ন গণনা এবং বীজগাণিতিক সমস্যায় বাস্তব সংখ্যার ব্যবহার হয়।"
 },
 
@@ -1322,17 +1471,287 @@ note:"ভাষার মাধ্যমে আমরা অন্যের স�
 
 
 /* =========================
+   QUIZ DATABASE
+========================= */
+
+const quizDB={
+
+"সংখ্যা":[
+
+{
+q:"সংখ্যা সাধারণত কী কাজে ব্যবহার করা হয়?",
+options:[
+"গণনা ও পরিমাপ",
+"শুধু ছবি আঁকা",
+"শুধু গান গাওয়া",
+"শুধু গল্প লেখা"
+],
+answer:0,
+explain:"সংখ্যা গণনা, পরিমাপ এবং হিসাবের কাজে ব্যবহৃত হয়।"
+},
+
+{
+q:"সংখ্যার স্থানমান বোঝা কেন প্রয়োজন?",
+options:[
+"সঠিক মান বোঝার জন্য",
+"শুধু ছবি আঁকার জন্য",
+"গান শেখার জন্য",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"একটি সংখ্যায় অঙ্কের অবস্থান তার মান নির্ধারণ করে।"
+},
+
+{
+q:"20 সংখ্যাটিতে 2-এর স্থানমান কত?",
+options:[
+"2",
+"20",
+"200",
+"0"
+],
+answer:1,
+explain:"20 সংখ্যায় 2 দশকের স্থানে আছে, তাই তার স্থানমান 20।"
+},
+
+{
+q:"দৈনন্দিন জীবনে সংখ্যার ব্যবহার কোথায় হয়?",
+options:[
+"টাকা ও সময়ের হিসাবে",
+"শুধু খেলায়",
+"শুধু গানে",
+"কোথাও নয়"
+],
+answer:0,
+explain:"টাকা, সময়, বয়স, দূরত্ব ইত্যাদি অনেক ক্ষেত্রেই সংখ্যা ব্যবহার হয়।"
+},
+
+{
+q:"সংখ্যা শেখার সময় কী করা ভালো?",
+options:[
+"নিয়মিত অনুশীলন",
+"কখনও অনুশীলন না করা",
+"শুধু উত্তর মুখস্থ করা",
+"বই না খোলা"
+],
+answer:0,
+explain:"নিয়মিত অনুশীলন করলে সংখ্যার ধারণা পরিষ্কার হয়।"
+}
+
+],
+
+"ভগ্নাংশ":[
+
+{
+q:"ভগ্নাংশ কী প্রকাশ করে?",
+options:[
+"সম্পূর্ণ বস্তুর একটি অংশ",
+"শুধু একটি সংখ্যা",
+"শুধু সময়",
+"শুধু দূরত্ব"
+],
+answer:0,
+explain:"ভগ্নাংশ কোনো সম্পূর্ণ বস্তুর অংশকে প্রকাশ করতে পারে।"
+},
+
+{
+q:"3/4-এ লব কোনটি?",
+options:[
+"3",
+"4",
+"7",
+"1"
+],
+answer:0,
+explain:"ভগ্নাংশের উপরের সংখ্যাকে লব বলে।"
+},
+
+{
+q:"3/4-এ হর কোনটি?",
+options:[
+"3",
+"4",
+"7",
+"1"
+],
+answer:1,
+explain:"ভগ্নাংশের নিচের সংখ্যাকে হর বলে।"
+},
+
+{
+q:"ভগ্নাংশের হর কেমন হতে পারে না?",
+options:[
+"1",
+"2",
+"5",
+"0"
+],
+answer:3,
+explain:"শূন্য দিয়ে ভাগ করা যায় না, তাই ভগ্নাংশের হর শূন্য হতে পারে না।"
+},
+
+{
+q:"1/2 কী ধরনের সংখ্যা?",
+options:[
+"ভগ্নাংশ",
+"পূর্ণসংখ্যা",
+"শুধু দশমিক",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"1/2 একটি সাধারণ ভগ্নাংশ।"
+}
+
+],
+
+"Real Numbers":[
+
+{
+q:"Real Numbers-এর মধ্যে কোন দুটি শ্রেণি রয়েছে?",
+options:[
+"Rational ও Irrational",
+"শুধু Natural",
+"শুধু Whole",
+"শুধু Integer"
+],
+answer:0,
+explain:"বাস্তব সংখ্যার মধ্যে rational এবং irrational উভয় সংখ্যাই রয়েছে।"
+},
+
+{
+q:"√2 কোন ধরনের সংখ্যা?",
+options:[
+"Rational",
+"Irrational",
+"Natural",
+"Whole"
+],
+answer:1,
+explain:"√2 একটি irrational number।"
+},
+
+{
+q:"Rational number সাধারণত কোন আকারে প্রকাশ করা যায়?",
+options:[
+"p/q",
+"p+q",
+"p×q only",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"Rational number p/q আকারে প্রকাশ করা যায়, যেখানে q শূন্য নয়।"
+},
+
+{
+q:"বাস্তব সংখ্যা কোন ক্ষেত্রে গুরুত্বপূর্ণ?",
+options:[
+"গণিতের বিভিন্ন হিসাব",
+"শুধু গান",
+"শুধু ছবি",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"বিভিন্ন গাণিতিক হিসাব ও সমস্যায় বাস্তব সংখ্যার ব্যবহার হয়।"
+},
+
+{
+q:"√3 কী?",
+options:[
+"Irrational number",
+"Natural number",
+"Whole number",
+"শূন্য"
+],
+answer:0,
+explain:"√3 একটি irrational number।"
+}
+
+],
+
+"ভাষা":[
+
+{
+q:"ভাষার প্রধান কাজ কী?",
+options:[
+"ভাব প্রকাশ করা",
+"শুধু ছবি আঁকা",
+"শুধু গান গাওয়া",
+"শুধু হিসাব করা"
+],
+answer:0,
+explain:"ভাষার মাধ্যমে মানুষ নিজের ভাব, অনুভূতি ও চিন্তা প্রকাশ করে।"
+},
+
+{
+q:"ভাষা কীসের মাধ্যম?",
+options:[
+"যোগাযোগের",
+"শুধু খেলাধুলার",
+"শুধু অঙ্কের",
+"শুধু ছবি আঁকার"
+],
+answer:0,
+explain:"ভাষা মানুষের যোগাযোগের অন্যতম প্রধান মাধ্যম।"
+},
+
+{
+q:"ভাষা শেখার ভালো উপায় কোনটি?",
+options:[
+"পড়া, লেখা ও অনুশীলন",
+"কিছুই না করা",
+"শুধু মুখস্থ করা",
+"শুধু শোনা"
+],
+answer:0,
+explain:"নিয়মিত পড়া, লেখা ও অনুশীলনের মাধ্যমে ভাষা ভালোভাবে শেখা যায়।"
+},
+
+{
+q:"শুদ্ধ ভাষা ব্যবহারে কী গুরুত্বপূর্ণ?",
+options:[
+"শুদ্ধ বানান ও উচ্চারণ",
+"শুধু দ্রুত কথা বলা",
+"শুধু বড় শব্দ ব্যবহার",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"শুদ্ধ বানান ও উচ্চারণ ভাষার সঠিক ব্যবহারের গুরুত্বপূর্ণ অংশ।"
+},
+
+{
+q:"ভাষার মাধ্যমে কী প্রকাশ করা যায়?",
+options:[
+"চিন্তা ও অনুভূতি",
+"শুধু সংখ্যা",
+"শুধু ছবি",
+"শুধু সময়"
+],
+answer:0,
+explain:"ভাষার মাধ্যমে মানুষের চিন্তা, অনুভূতি ও মতামত প্রকাশ করা যায়।"
+}
+
+]
+
+};
+
+
+/* =========================
    STATE
 ========================= */
 
 let currentClass=5;
 let currentSubject="বাংলা";
 let currentChapter="";
+
 let currentQuiz=[];
-let selectedImage=null;
+let quizSubmitted=false;
 
 let completed=
-JSON.parse(localStorage.getItem("asimStudyCompleted")||"[]");
+JSON.parse(
+localStorage.getItem("asimStudyCompleted")||"[]"
+);
+
+let selectedImage=null;
 
 
 /* =========================
@@ -1341,18 +1760,26 @@ JSON.parse(localStorage.getItem("asimStudyCompleted")||"[]");
 
 function init(){
 
-  const savedClass=localStorage.getItem("asimClass");
+const savedClass=
+localStorage.getItem("asimClass");
 
-  if(savedClass){
-    currentClass=Number(savedClass);
-    document.getElementById("classSelect").value=currentClass;
-  }
+if(savedClass){
 
-  renderSubjects();
+currentClass=Number(savedClass);
 
-  renderChapters();
+document.getElementById("classSelect").value=
+currentClass;
 
-  renderNotes();
+}
+
+currentSubject=
+subjectsDB[currentClass][0][0];
+
+renderSubjects();
+
+renderChapters();
+
+renderNotes();
 
 }
 
@@ -1365,16 +1792,26 @@ init();
 
 function changeClass(){
 
-  currentClass=Number(
-    document.getElementById("classSelect").value
-  );
+currentClass=
+Number(
+document.getElementById("classSelect").value
+);
 
-  localStorage.setItem("asimClass",currentClass);
+localStorage.setItem(
+"asimClass",
+currentClass
+);
 
-  currentSubject=subjectsDB[currentClass][0][0];
+currentSubject=
+subjectsDB[currentClass][0][0];
 
-  renderSubjects();
-  renderChapters();
+renderSubjects();
+
+renderChapters();
+
+document
+.getElementById("studyPanel")
+.classList.remove("show");
 
 }
 
@@ -1385,42 +1822,48 @@ function changeClass(){
 
 function renderSubjects(){
 
-  const box=document.getElementById("subjects");
+const box=
+document.getElementById("subjects");
 
-  box.innerHTML="";
+box.innerHTML="";
 
-  subjectsDB[currentClass].forEach(item=>{
+subjectsDB[currentClass].forEach(item=>{
 
-    const name=item[0];
-    const icon=item[1];
+const name=item[0];
+const icon=item[1];
 
-    const div=document.createElement("div");
+const div=
+document.createElement("div");
 
-    div.className=
-      "subject "+
-      (name===currentSubject?"active":"");
+div.className=
+"subject "+
+(name===currentSubject?"active":"");
 
-    div.innerHTML=`
-      <div class="icon">${icon}</div>
-      <b>${name}</b>
-    `;
+div.innerHTML=`
 
-    div.onclick=()=>{
+<div class="icon">${icon}</div>
 
-      currentSubject=name;
+<b>${name}</b>
 
-      renderSubjects();
-      renderChapters();
+`;
 
-      document
-      .getElementById("studyPanel")
-      .classList.remove("show");
+div.onclick=()=>{
 
-    };
+currentSubject=name;
 
-    box.appendChild(div);
+renderSubjects();
 
-  });
+renderChapters();
+
+document
+.getElementById("studyPanel")
+.classList.remove("show");
+
+};
+
+box.appendChild(div);
+
+});
 
 }
 
@@ -1431,86 +1874,97 @@ function renderSubjects(){
 
 function renderChapters(){
 
-  const box=document.getElementById("chapters");
+const box=
+document.getElementById("chapters");
 
-  box.innerHTML="";
+box.innerHTML="";
 
-  const key=currentClass+"-"+currentSubject;
+const key=
+currentClass+"-"+currentSubject;
 
-  const list=chapterDB[key]||[];
+const list=
+chapterDB[key]||[];
 
-  const search=
-    document
-    .getElementById("chapterSearch")
-    .value
-    .toLowerCase();
+const search=
+document
+.getElementById("chapterSearch")
+.value
+.toLowerCase();
 
-  let count=0;
+let count=0;
 
-  list.forEach((chapter,index)=>{
+list.forEach((chapter,index)=>{
 
-    if(
-      search &&
-      !chapter.toLowerCase().includes(search)
-    ){
-      return;
-    }
+if(
+search &&
+!chapter
+.toLowerCase()
+.includes(search)
+){
+return;
+}
 
-    count++;
+count++;
 
-    const id=
-      currentClass+"|"+
-      currentSubject+"|"+
-      chapter;
+const id=
+currentClass+"|"+
+currentSubject+"|"+
+chapter;
 
-    const done=
-      completed.includes(id);
+const done=
+completed.includes(id);
 
-    const div=document.createElement("div");
+const div=
+document.createElement("div");
 
-    div.className=
-      "chapter "+
-      (done?"done":"");
+div.className=
+"chapter "+
+(done?"done":"");
 
-    div.innerHTML=`
+div.innerHTML=`
 
-      <div class="chapter-head">
+<div class="chapter-head">
 
-        <h3>
-          ${index+1}. ${chapter}
-        </h3>
+<h3>
+${index+1}. ${chapter}
+</h3>
 
-        <span class="badge">
-          ${done?"Completed":"Start"}
-        </span>
+<span class="badge">
+${done?"Completed":"Start"}
+</span>
 
-      </div>
+</div>
 
-      <p>
-        ${done
-          ?"✅ এই Chapter সম্পন্ন হয়েছে"
-          :"📖 পড়া শুরু করতে ক্লিক করুন"}
-      </p>
+<p>
+${done
+?"✅ এই Chapter সম্পন্ন হয়েছে"
+:"📖 পড়া শুরু করতে ক্লিক করুন"}
+</p>
 
-    `;
+`;
 
-    div.onclick=()=>openChapter(chapter);
+div.onclick=
+()=>openChapter(chapter);
 
-    box.appendChild(div);
+box.appendChild(div);
 
-  });
+});
 
-  if(count===0){
+if(count===0){
 
-    box.innerHTML=`
-      <div class="chapter">
-        🔍 কোনো Chapter পাওয়া যায়নি।
-      </div>
-    `;
+box.innerHTML=`
 
-  }
+<div class="chapter">
 
-  updateProgress();
+🔍 কোনো Chapter পাওয়া যায়নি।
+
+</div>
+
+`;
+
+}
+
+updateProgress();
 
 }
 
@@ -1521,7 +1975,7 @@ function renderChapters(){
 
 function searchChapter(){
 
-  renderChapters();
+renderChapters();
 
 }
 
@@ -1532,64 +1986,80 @@ function searchChapter(){
 
 function openChapter(chapter){
 
-  currentChapter=chapter;
+currentChapter=chapter;
 
-  const data=
-    contentDB[chapter] ||
-    createGenericContent(chapter);
+const data=
+contentDB[chapter] ||
+createGenericContent(chapter);
 
-  document.getElementById("studySubject").textContent=
-    `Class ${currentClass} • ${currentSubject}`;
+document
+.getElementById("studySubject")
+.textContent=
+`Class ${currentClass} • ${currentSubject}`;
 
-  document.getElementById("studyTitle").textContent=
-    chapter;
+document
+.getElementById("studyTitle")
+.textContent=
+chapter;
 
-  document.getElementById("overview").textContent=
-    data.overview;
+document
+.getElementById("overview")
+.textContent=
+data.overview;
 
-  document.getElementById("studyNote").textContent=
-    data.note;
+document
+.getElementById("studyNote")
+.textContent=
+data.note;
 
-  document.getElementById("remember").textContent=
-    data.remember;
+document
+.getElementById("remember")
+.textContent=
+data.remember;
 
-  document.getElementById("goals").innerHTML=
-    data.goals
-    .map(x=>`<li>${x}</li>`)
-    .join("");
+document
+.getElementById("goals")
+.innerHTML=
+data.goals
+.map(x=>`<li>${x}</li>`)
+.join("");
 
-  document.getElementById("important").innerHTML=
-    data.important
-    .map(x=>`<li>${x}</li>`)
-    .join("");
+document
+.getElementById("important")
+.innerHTML=
+data.important
+.map(x=>`<li>${x}</li>`)
+.join("");
 
-  const id=
-    currentClass+"|"+
-    currentSubject+"|"+
-    chapter;
+const id=
+currentClass+"|"+
+currentSubject+"|"+
+chapter;
 
-  const done=
-    completed.includes(id);
+const done=
+completed.includes(id);
 
-  document.getElementById("completeBtn").textContent=
-    done
-      ?"✅ Completed"
-      :"✅ Chapter Complete";
+document
+.getElementById("completeBtn")
+.textContent=
+done
+?"✅ Completed"
+:"✅ Chapter Complete";
 
-  document
-    .getElementById("studyPanel")
-    .classList.add("show");
+document
+.getElementById("quizBox")
+.innerHTML="";
 
-  document
-    .getElementById("quizBox")
-    .innerHTML="";
+document
+.getElementById("studyPanel")
+.classList.add("show");
 
-  document
-    .getElementById("studyPanel")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
+document
+.getElementById("studyPanel")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
 }
 
@@ -1600,62 +2070,62 @@ function openChapter(chapter){
 
 function createGenericContent(chapter){
 
-  return {
+return{
 
-    overview:
-      `এই Chapter-এ "${chapter}" বিষয়টি ধাপে ধাপে বোঝানো হবে। বিষয়টির মূল ধারণা বুঝে নিয়মিত অনুশীলন করলে প্রস্তুতি আরও ভালো হবে।`,
+overview:
+`এই Chapter-এ "${chapter}" বিষয়টি ধাপে ধাপে বোঝানো হবে। বিষয়টির মূল ধারণা বুঝে নিয়মিত অনুশীলন করলে প্রস্তুতি আরও ভালো হবে।`,
 
-    goals:[
-      "Chapter-এর মূল ধারণা বোঝা",
-      "গুরুত্বপূর্ণ বিষয়গুলো চিহ্নিত করা",
-      "প্রশ্নোত্তর ও অনুশীলনের মাধ্যমে ধারণা শক্ত করা"
-    ],
+goals:[
+"Chapter-এর মূল ধারণা বোঝা",
+"গুরুত্বপূর্ণ বিষয়গুলো চিহ্নিত করা",
+"প্রশ্নোত্তর ও অনুশীলনের মাধ্যমে ধারণা শক্ত করা"
+],
 
-    important:[
-      "মূল সংজ্ঞা ও ধারণাগুলো ভালোভাবে পড়বে",
-      "উদাহরণগুলো নিজে করার চেষ্টা করবে",
-      "প্রয়োজনে নিজের Note তৈরি করবে"
-    ],
+important:[
+"মূল সংজ্ঞা ও ধারণাগুলো ভালোভাবে পড়বে",
+"উদাহরণগুলো নিজে করার চেষ্টা করবে",
+"প্রয়োজনে নিজের Note তৈরি করবে"
+],
 
-    remember:
-      "শুধু মুখস্থ না করে বিষয়টি বুঝে পড়ার চেষ্টা করবে।",
+remember:
+"শুধু মুখস্থ না করে বিষয়টি বুঝে পড়ার চেষ্টা করবে।",
 
-    note:
-      `"${chapter}" অধ্যায়টি ভালোভাবে আয়ত্ত করার জন্য প্রথমে মূল ধারণা পড়বে। তারপর গুরুত্বপূর্ণ পয়েন্ট লিখে রাখবে এবং শেষে Quiz দিয়ে নিজেকে যাচাই করবে।`
+note:
+`"${chapter}" অধ্যায়টি ভালোভাবে আয়ত্ত করার জন্য প্রথমে মূল ধারণা পড়বে। তারপর গুরুত্বপূর্ণ পয়েন্ট লিখে রাখবে এবং শেষে Quiz দিয়ে নিজেকে যাচাই করবে।`
 
-  };
+};
 
 }
 
 
 /* =========================
-   COMPLETE
+   COMPLETE CHAPTER
 ========================= */
 
 function completeChapter(){
 
-  const id=
-    currentClass+"|"+
-    currentSubject+"|"+
-    currentChapter;
+const id=
+currentClass+"|"+
+currentSubject+"|"+
+currentChapter;
 
-  if(!completed.includes(id)){
+if(!completed.includes(id)){
 
-    completed.push(id);
+completed.push(id);
 
-    localStorage.setItem(
-      "asimStudyCompleted",
-      JSON.stringify(completed)
-    );
+localStorage.setItem(
+"asimStudyCompleted",
+JSON.stringify(completed)
+);
 
-  }
+}
 
-  document.getElementById("completeBtn").textContent=
-    "✅ Completed";
+document
+.getElementById("completeBtn")
+.textContent=
+"✅ Completed";
 
-  renderChapters();
-
-  alert("🎉 Chapter Completed!");
+renderChapters();
 
 }
 
@@ -1666,42 +2136,46 @@ function completeChapter(){
 
 function updateProgress(){
 
-  const key=currentClass+"-"+currentSubject;
+const key=
+currentClass+"-"+currentSubject;
 
-  const list=chapterDB[key]||[];
+const list=
+chapterDB[key]||[];
 
-  if(!list.length){
-    return;
-  }
+if(!list.length)return;
 
-  let done=0;
+let done=0;
 
-  list.forEach(chapter=>{
+list.forEach(chapter=>{
 
-    const id=
-      currentClass+"|"+
-      currentSubject+"|"+
-      chapter;
+const id=
+currentClass+"|"+
+currentSubject+"|"+
+chapter;
 
-    if(completed.includes(id)){
-      done++;
-    }
+if(completed.includes(id)){
+done++;
+}
 
-  });
+});
 
-  const percent=
-    Math.round((done/list.length)*100);
+const percent=
+Math.round((done/list.length)*100);
 
-  document.getElementById("progressBar")
-    .style.width=percent+"%";
+document
+.getElementById("progressBar")
+.style.width=
+percent+"%";
 
-  document.getElementById("progressText")
-    .textContent=
-      `${done}/${list.length} Chapter Complete • ${percent}%`;
+document
+.getElementById("progressText")
+.textContent=
+`${done}/${list.length} Chapter Complete • ${percent}%`;
 
-  document.getElementById("progressTitle")
-    .textContent=
-      `${currentSubject} Progress`;
+document
+.getElementById("progressTitle")
+.textContent=
+`${currentSubject} Progress`;
 
 }
 
@@ -1712,119 +2186,127 @@ function updateProgress(){
 
 function closeStudy(){
 
-  document
-    .getElementById("studyPanel")
-    .classList.remove("show");
+document
+.getElementById("studyPanel")
+.classList.remove("show");
 
 }
 
 
 /* =========================
-   QUIZ
+   CHAPTER QUIZ
 ========================= */
 
 function startQuiz(){
 
-  const questions=[
+let questions=
+quizDB[currentChapter];
 
-    {
-      q:`"${currentChapter}" Chapter পড়ার মূল উদ্দেশ্য কী?`,
-      a:[
-        "শুধু মুখস্থ করা",
-        "বিষয়টি বুঝে শেখা",
-        "কিছু না পড়া",
-        "শুধু পরীক্ষা দেওয়া"
-      ],
-      c:1
-    },
+if(!questions){
 
-    {
-      q:"ভালোভাবে পড়ার জন্য কোনটি সবচেয়ে গুরুত্বপূর্ণ?",
-      a:[
-        "নিয়মিত অনুশীলন",
-        "শুধু শেষ দিনে পড়া",
-        "কিছুই না লেখা",
-        "শুধু উত্তর মুখস্থ করা"
-      ],
-      c:0
-    },
+questions=
+createGenericQuiz(currentChapter);
 
-    {
-      q:"নিজের Note তৈরি করলে কী সুবিধা হয়?",
-      a:[
-        "সময় নষ্ট হয়",
-        "পড়া মনে রাখতে সাহায্য করে",
-        "পড়া বন্ধ হয়ে যায়",
-        "কোনো সুবিধা নেই"
-      ],
-      c:1
-    },
+}
 
-    {
-      q:"Quiz দেওয়ার প্রধান উদ্দেশ্য কী?",
-      a:[
-        "নিজের জ্ঞান যাচাই করা",
-        "সময় নষ্ট করা",
-        "শুধু নম্বর পাওয়া",
-        "পড়া এড়িয়ে যাওয়া"
-      ],
-      c:0
-    },
+currentQuiz=
+shuffleArray([...questions])
+.slice(0,10);
 
-    {
-      q:"Chapter শেখার ভালো পদ্ধতি কোনটি?",
-      a:[
-        "পড়া + অনুশীলন + Revision",
-        "শুধু বই দেখা",
-        "শুধু উত্তর দেখা",
-        "কিছু না করা"
-      ],
-      c:0
-    }
+quizSubmitted=false;
 
-  ];
+let html=`
 
-  currentQuiz=questions;
+<div class="quiz-header">
 
-  let html="<h3>📝 Chapter Quiz</h3>";
+<h3>📝 ${currentChapter} Quiz</h3>
 
-  questions.forEach((item,i)=>{
+<p>
+১০টি প্রশ্নের উত্তর দাও এবং শেষে তোমার Score দেখো।
+</p>
 
-    html+=`
-      <div class="question">
+</div>
 
-        <b>${i+1}. ${item.q}</b>
+`;
 
-        ${item.a.map((option,j)=>`
+currentQuiz.forEach((item,i)=>{
 
-          <label class="option">
+html+=`
 
-            <input
-              type="radio"
-              name="q${i}"
-              value="${j}">
+<div class="question" id="question-${i}">
 
-            ${option}
+<div class="question-number">
+Question ${i+1} / ${currentQuiz.length}
+</div>
 
-          </label>
+<b>${item.q}</b>
 
-        `).join("")}
+${item.options
+.map((option,j)=>`
 
-      </div>
-    `;
+<label
+class="option"
+id="option-${i}-${j}">
 
-  });
+<input
+type="radio"
+name="q${i}"
+value="${j}">
 
-  html+=`
-    <button class="btn primary"
-            onclick="submitQuiz()">
-      ✅ Submit Quiz
-    </button>
+${option}
 
-    <div id="quizResult"></div>
-  `;
+</label>
 
-  document.getElementById("quizBox").innerHTML=html;
+`)
+.join("")}
+
+<div
+class="explanation"
+id="explanation-${i}">
+
+💡 ${item.explain}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+html+=`
+
+<button
+class="btn primary"
+onclick="submitQuiz()">
+
+✅ Submit Quiz
+
+</button>
+
+<button
+class="btn dark"
+style="margin-left:8px"
+onclick="startQuiz()">
+
+🔄 New Quiz
+
+</button>
+
+<div id="quizResult"></div>
+
+`;
+
+document
+.getElementById("quizBox")
+.innerHTML=html;
+
+document
+.getElementById("quizBox")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
 }
 
@@ -1835,41 +2317,298 @@ function startQuiz(){
 
 function submitQuiz(){
 
-  let score=0;
+if(quizSubmitted){
 
-  currentQuiz.forEach((q,i)=>{
+return;
 
-    const selected=
-      document.querySelector(
-        `input[name="q${i}"]:checked`
-      );
+}
 
-    if(selected &&
-       Number(selected.value)===q.c){
+let score=0;
 
-      score++;
+currentQuiz.forEach((q,i)=>{
 
-    }
+const selected=
+document.querySelector(
+`input[name="q${i}"]:checked`
+);
 
-  });
+if(selected){
 
-  const total=currentQuiz.length;
+const answer=
+Number(selected.value);
 
-  const percent=
-    Math.round((score/total)*100);
+if(answer===q.answer){
 
-  document.getElementById("quizResult").innerHTML=`
-    <div class="result">
-      🎉 Your Score: ${score}/${total}
-      <br>
-      📊 ${percent}%
-    </div>
-  `;
+score++;
 
-  localStorage.setItem(
-    "lastQuizScore",
-    percent
-  );
+document
+.getElementById(
+`option-${i}-${answer}`
+)
+.classList.add("correct");
+
+}else{
+
+document
+.getElementById(
+`option-${i}-${answer}`
+)
+.classList.add("wrong");
+
+document
+.getElementById(
+`option-${i}-${q.answer}`
+)
+.classList.add("correct");
+
+}
+
+}else{
+
+document
+.getElementById(
+`option-${i}-${q.answer}`
+)
+.classList.add("correct");
+
+}
+
+document
+.getElementById(
+`explanation-${i}`
+)
+.style.display="block";
+
+});
+
+quizSubmitted=true;
+
+const total=
+currentQuiz.length;
+
+const percent=
+Math.round(
+(score/total)*100
+);
+
+let message="";
+
+if(percent===100){
+
+message=
+"🏆 অসাধারণ! Perfect Score!";
+
+}else if(percent>=80){
+
+message=
+"🌟 খুব ভালো! তোমার প্রস্তুতি দারুণ।";
+
+}else if(percent>=60){
+
+message=
+"👍 ভালো হয়েছে। আরও একটু practice করো।";
+
+}else if(percent>=40){
+
+message=
+"📚 আরও পড়াশোনা ও practice দরকার।";
+
+}else{
+
+message=
+"💪 আবার Chapter পড়ো এবং Quiz দাও।";
+
+}
+
+document
+.getElementById("quizResult")
+.innerHTML=`
+
+<div class="result">
+
+<div>🎉 Quiz Completed!</div>
+
+<div class="score-big">
+${score}/${total}
+</div>
+
+<div>
+Score: ${percent}%
+</div>
+
+<div class="result-message">
+${message}
+</div>
+
+</div>
+
+`;
+
+localStorage.setItem(
+"quiz_"+currentClass+"_"+currentSubject+"_"+currentChapter,
+JSON.stringify({
+score:score,
+total:total,
+percent:percent,
+date:new Date().toLocaleString()
+})
+);
+
+}
+
+
+/* =========================
+   GENERIC QUIZ
+========================= */
+
+function createGenericQuiz(chapter){
+
+return[
+
+{
+q:`"${chapter}" Chapter-এর মূল উদ্দেশ্য কী?`,
+options:[
+"বিষয়টি বুঝে শেখা",
+"শুধু মুখস্থ করা",
+"পড়া বন্ধ করা",
+"শুধু ছবি আঁকা"
+],
+answer:0,
+explain:"Chapter-এর মূল ধারণা বুঝে শেখাই সবচেয়ে গুরুত্বপূর্ণ।"
+},
+
+{
+q:"ভালোভাবে পড়ার জন্য কী প্রয়োজন?",
+options:[
+"নিয়মিত অনুশীলন",
+"শুধু শেষ দিনে পড়া",
+"কখনও Revision না করা",
+"শুধু উত্তর দেখা"
+],
+answer:0,
+explain:"নিয়মিত অনুশীলন শেখাকে আরও শক্তিশালী করে।"
+},
+
+{
+q:"নিজের Note তৈরি করলে কী সুবিধা হয়?",
+options:[
+"পড়া মনে রাখতে সাহায্য করে",
+"পড়া ভুলিয়ে দেয়",
+"সময় সবসময় নষ্ট করে",
+"কোনো সুবিধা নেই"
+],
+answer:0,
+explain:"নিজের ভাষায় Note তৈরি করলে বিষয়টি মনে রাখা সহজ হয়।"
+},
+
+{
+q:"Quiz দেওয়ার উদ্দেশ্য কী?",
+options:[
+"নিজের জ্ঞান যাচাই করা",
+"পড়া এড়িয়ে যাওয়া",
+"শুধু সময় কাটানো",
+"বই বন্ধ করা"
+],
+answer:0,
+explain:"Quiz নিজের প্রস্তুতি ও জ্ঞান যাচাই করতে সাহায্য করে।"
+},
+
+{
+q:"Revision কেন করা হয়?",
+options:[
+"ভুলে যাওয়া বিষয় আবার মনে করার জন্য",
+"পড়া বন্ধ করার জন্য",
+"শুধু সময় কাটানোর জন্য",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"Revision শেখা বিষয়কে আরও ভালোভাবে মনে রাখতে সাহায্য করে।"
+},
+
+{
+q:"Chapter পড়ার পরে কী করা ভালো?",
+options:[
+"প্রশ্ন অনুশীলন করা",
+"সবকিছু ভুলে যাওয়া",
+"বই বন্ধ করে দেওয়া",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"পড়ার পরে প্রশ্ন অনুশীলন করলে ধারণা শক্ত হয়।"
+},
+
+{
+q:"ভুল উত্তর থেকে কী শেখা যায়?",
+options:[
+"কোথায় ভুল হয়েছে",
+"কিছুই শেখা যায় না",
+"শুধু নম্বর",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"ভুল উত্তর বিশ্লেষণ করলে দুর্বল জায়গা চিহ্নিত করা যায়।"
+},
+
+{
+q:"Study করার সময় কোনটি গুরুত্বপূর্ণ?",
+options:[
+"মনোযোগ",
+"অমনোযোগ",
+"শুধু মোবাইল",
+"কোনোটিই নয়"
+],
+answer:0,
+explain:"মনোযোগ দিয়ে পড়লে শেখার ফল ভালো হয়।"
+},
+
+{
+q:"ভালো ফলাফলের জন্য কী প্রয়োজন?",
+options:[
+"পড়া + অনুশীলন + Revision",
+"শুধু মুখস্থ",
+"শুধু Quiz",
+"শুধু বই কেনা"
+],
+answer:0,
+explain:"পড়া, অনুশীলন এবং Revision একসঙ্গে করলে প্রস্তুতি ভালো হয়।"
+},
+
+{
+q:"নিজের Progress দেখা কেন দরকার?",
+options:[
+"নিজের উন্নতি বোঝার জন্য",
+"শুধু অন্যকে দেখানোর জন্য",
+"সময় নষ্ট করার জন্য",
+"কোনো কারণ নেই"
+],
+answer:0,
+explain:"Progress দেখে কোন জায়গায় আরও কাজ করতে হবে তা বোঝা যায়।"
+}
+
+];
+
+}
+
+
+/* =========================
+   SHUFFLE
+========================= */
+
+function shuffleArray(array){
+
+for(let i=array.length-1;i>0;i--){
+
+const j=
+Math.floor(
+Math.random()*(i+1)
+);
+
+[array[i],array[j]]=
+[array[j],array[i]];
+
+}
+
+return array;
 
 }
 
@@ -1880,51 +2619,55 @@ function submitQuiz(){
 
 function openCalculator(){
 
-  document
-    .getElementById("calculator")
-    .classList.add("show");
+document
+.getElementById("calculator")
+.classList.add("show");
 
 }
 
 function closeCalculator(){
 
-  document
-    .getElementById("calculator")
-    .classList.remove("show");
+document
+.getElementById("calculator")
+.classList.remove("show");
 
 }
 
 function calc(value){
 
-  document.getElementById("calcDisplay").value+=value;
+document
+.getElementById("calcDisplay")
+.value+=value;
 
 }
 
 function clearCalc(){
 
-  document.getElementById("calcDisplay").value="";
+document
+.getElementById("calcDisplay")
+.value="";
 
 }
 
 function calculate(){
 
-  const display=
-    document.getElementById("calcDisplay");
+const display=
+document.getElementById("calcDisplay");
 
-  try{
+try{
 
-    display.value=
-      Function(
-        '"use strict";return ('+
-        display.value+
-        ')'
-      )();
+display.value=
+Function(
+'"use strict";return ('+
+display.value+
+')'
+)();
 
-  }catch{
+}catch{
 
-    display.value="Error";
+display.value="Error";
 
-  }
+}
 
 }
 
@@ -1934,82 +2677,88 @@ function calculate(){
 ========================= */
 
 let timerSeconds=25*60;
+
 let timerInterval=null;
 
 function openTimer(){
 
-  document
-    .getElementById("timerModal")
-    .classList.add("show");
+document
+.getElementById("timerModal")
+.classList.add("show");
 
-  updateTimer();
+updateTimer();
 
 }
 
 function closeTimer(){
 
-  document
-    .getElementById("timerModal")
-    .classList.remove("show");
+document
+.getElementById("timerModal")
+.classList.remove("show");
 
 }
 
 function updateTimer(){
 
-  const min=
-    Math.floor(timerSeconds/60)
-    .toString()
-    .padStart(2,"0");
+const min=
+Math.floor(timerSeconds/60)
+.toString()
+.padStart(2,"0");
 
-  const sec=
-    (timerSeconds%60)
-    .toString()
-    .padStart(2,"0");
+const sec=
+(timerSeconds%60)
+.toString()
+.padStart(2,"0");
 
-  document.getElementById("timerDisplay")
-    .textContent=
-      `${min}:${sec}`;
+document
+.getElementById("timerDisplay")
+.textContent=
+`${min}:${sec}`;
 
 }
 
 function startTimer(){
 
-  if(timerInterval)return;
+if(timerInterval)return;
 
-  timerInterval=setInterval(()=>{
+timerInterval=
+setInterval(()=>{
 
-    if(timerSeconds>0){
+if(timerSeconds>0){
 
-      timerSeconds--;
-      updateTimer();
+timerSeconds--;
 
-    }else{
+updateTimer();
 
-      clearInterval(timerInterval);
-      timerInterval=null;
+}else{
 
-      alert("🎉 Study Time Finished!");
+clearInterval(timerInterval);
 
-    }
+timerInterval=null;
 
-  },1000);
+alert("🎉 Study Time Finished!");
+
+}
+
+},1000);
 
 }
 
 function pauseTimer(){
 
-  clearInterval(timerInterval);
-  timerInterval=null;
+clearInterval(timerInterval);
+
+timerInterval=null;
 
 }
 
 function resetTimer(){
 
-  pauseTimer();
+pauseTimer();
 
-  timerSeconds=25*60;
+timerSeconds=25*60;
 
-  updateTimer();
+updateTimer();
 
 }
 
@@ -2020,182 +2769,198 @@ function resetTimer(){
 
 function addNoteImage(input){
 
-  if(!input.files.length)return;
+if(!input.files.length)return;
 
-  selectedImage=input.files[0];
+selectedImage=input.files[0];
 
-  const reader=new FileReader();
+const reader=
+new FileReader();
 
-  reader.onload=function(e){
+reader.onload=function(e){
 
-    document.getElementById(
-      "noteImagePreview"
-    ).innerHTML=`
-      <div style="margin-top:15px">
-        <b>Selected Image:</b><br>
-        <img
-          src="${e.target.result}"
-          style="max-width:180px;border-radius:12px;margin-top:8px">
-      </div>
-    `;
+document
+.getElementById("noteImagePreview")
+.innerHTML=`
 
-  };
+<div style="margin-top:15px">
 
-  reader.readAsDataURL(selectedImage);
+<b>Selected Image:</b>
+
+<br>
+
+<img
+src="${e.target.result}"
+style="max-width:180px;border-radius:12px;margin-top:8px">
+
+</div>
+
+`;
+
+};
+
+reader.readAsDataURL(selectedImage);
 
 }
 
 
 function saveNote(){
 
-  const text=
-    document.getElementById("noteText").value.trim();
+const text=
+document
+.getElementById("noteText")
+.value
+.trim();
 
-  if(!text && !selectedImage){
+if(!text && !selectedImage){
 
-    alert("আগে Note লিখুন বা Image দিন।");
+alert("আগে Note লিখুন বা Image দিন।");
 
-    return;
+return;
 
-  }
+}
 
-  const saveNoteData=(image)=>{
+const saveNoteData=(image)=>{
 
-    const notes=
-      JSON.parse(
-        localStorage.getItem("asimNotes")||"[]"
-      );
+const notes=
+JSON.parse(
+localStorage.getItem("asimNotes")||"[]"
+);
 
-    notes.unshift({
+notes.unshift({
 
-      text:text,
+text:text,
 
-      image:image||"",
+image:image||"",
 
-      date:new Date().toLocaleString()
+date:new Date().toLocaleString()
 
-    });
+});
 
-    localStorage.setItem(
-      "asimNotes",
-      JSON.stringify(notes)
-    );
+localStorage.setItem(
+"asimNotes",
+JSON.stringify(notes)
+);
 
-    document.getElementById("noteText").value="";
+document
+.getElementById("noteText")
+.value="";
 
-    document.getElementById(
-      "noteImagePreview"
-    ).innerHTML="";
+document
+.getElementById("noteImagePreview")
+.innerHTML="";
 
-    selectedImage=null;
+selectedImage=null;
 
-    renderNotes();
+renderNotes();
 
-    alert("✅ Note Saved!");
+alert("✅ Note Saved!");
 
-  };
+};
 
 
-  if(selectedImage){
+if(selectedImage){
 
-    const reader=new FileReader();
+const reader=
+new FileReader();
 
-    reader.onload=
-      e=>saveNoteData(e.target.result);
+reader.onload=
+e=>saveNoteData(e.target.result);
 
-    reader.readAsDataURL(selectedImage);
+reader.readAsDataURL(selectedImage);
 
-  }else{
+}else{
 
-    saveNoteData("");
+saveNoteData("");
 
-  }
+}
 
 }
 
 
 function renderNotes(){
 
-  const notes=
-    JSON.parse(
-      localStorage.getItem("asimNotes")||"[]"
-    );
+const notes=
+JSON.parse(
+localStorage.getItem("asimNotes")||"[]"
+);
 
-  const box=
-    document.getElementById("noteList");
+const box=
+document.getElementById("noteList");
 
-  box.innerHTML="";
+box.innerHTML="";
 
-  if(!notes.length){
+if(!notes.length){
 
-    box.innerHTML=
-      "<p>এখনও কোনো Note save করা হয়নি।</p>";
+box.innerHTML=
+"<p>এখনও কোনো Note save করা হয়নি।</p>";
 
-    return;
+return;
 
-  }
+}
 
-  notes.forEach((note,index)=>{
+notes.forEach((note,index)=>{
 
-    box.innerHTML+=`
+box.innerHTML+=`
 
-      <div class="note">
+<div class="note">
 
-        <small>${note.date}</small>
+<small>${note.date}</small>
 
-        <p>${escapeHTML(note.text)}</p>
+<p>${escapeHTML(note.text)}</p>
 
-        ${
-          note.image
-          ? `<img src="${note.image}">`
-          :""
-        }
+${
+note.image
+?`<img src="${note.image}">`
+:""
+}
 
-        <br>
+<br>
 
-        <button
-          class="btn"
-          style="background:#fee2e2;color:#b91c1c;margin-top:8px"
-          onclick="deleteNote(${index})">
-          🗑️ Delete
-        </button>
+<button
+class="btn"
+style="background:#fee2e2;color:#b91c1c;margin-top:8px"
+onclick="deleteNote(${index})">
 
-      </div>
+🗑️ Delete
 
-    `;
+</button>
 
-  });
+</div>
+
+`;
+
+});
 
 }
 
 
 function deleteNote(index){
 
-  const notes=
-    JSON.parse(
-      localStorage.getItem("asimNotes")||"[]"
-    );
+const notes=
+JSON.parse(
+localStorage.getItem("asimNotes")||"[]"
+);
 
-  notes.splice(index,1);
+notes.splice(index,1);
 
-  localStorage.setItem(
-    "asimNotes",
-    JSON.stringify(notes)
-  );
+localStorage.setItem(
+"asimNotes",
+JSON.stringify(notes)
+);
 
-  renderNotes();
+renderNotes();
 
 }
 
 
 function escapeHTML(text){
 
-  return text
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+return text
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
