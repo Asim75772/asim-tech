@@ -1,1083 +1,942 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 
 <head>
 
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-      content="#020b18">
+content="#020b18">
 
 <meta name="description"
-      content="Asim Tech Image to Excel">
+content="Asim Tech Image to Excel">
+
+<meta name="mobile-web-app-capable"
+content="yes">
+
+<meta name="apple-mobile-web-app-capable"
+content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+content="black-translucent">
+
+<meta name="apple-mobile-web-app-title"
+content="Image to Excel">
 
 <link rel="manifest"
-      href="./manifest.json">
+href="./manifest.json">
 
 <title>Asim Tech - Image to Excel</title>
 
 
-<!-- =====================================================
-     EXCEL LIBRARY
-===================================================== -->
+<!-- XLSX -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
+</script>
 
 
-<!-- =====================================================
-     OCR LIBRARY
-===================================================== -->
+<!-- TESSERACT -->
 
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
+</script>
 
 
 <style>
 
-/* =====================================================
-   BASIC
-===================================================== */
-
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
 
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+font-family:
+Arial,
+"Noto Sans Bengali",
+sans-serif;
 
-    background:
-    radial-gradient(
-        circle at top,
-        #06243d 0%,
-        #021525 45%,
-        #010914 100%
-    );
+background:
+radial-gradient(
+circle at top,
+#06243d 0%,
+#021525 45%,
+#010914 100%
+);
 
-    color:#ffffff;
+color:white;
 
-    min-height:100vh;
+min-height:100vh;
 
-    overflow-x:hidden;
+overflow-x:hidden;
+
 }
-
-
-/* =====================================================
-   HEADER
-===================================================== */
 
 header{
 
-    position:sticky;
-    top:0;
-    z-index:999;
+position:sticky;
 
-    background:rgba(1,10,22,.97);
+top:0;
 
-    border-bottom:
-    1px solid
-    rgba(0,153,255,.25);
+z-index:1000;
 
-    backdrop-filter:blur(12px);
+background:
+rgba(1,10,22,.97);
+
+border-bottom:
+1px solid
+rgba(0,153,255,.3);
+
+backdrop-filter:
+blur(12px);
+
 }
 
 .header-inner{
 
-    max-width:1100px;
+max-width:1100px;
 
-    min-height:78px;
+min-height:76px;
 
-    margin:auto;
+margin:auto;
 
-    padding:12px 18px;
+padding:10px 15px;
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    gap:15px;
+gap:12px;
+
 }
 
 .brand{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    gap:12px;
+gap:12px;
+
 }
 
 .brand-icon{
 
-    width:46px;
-    height:46px;
+width:46px;
 
-    border-radius:14px;
+height:46px;
 
-    display:flex;
+border-radius:14px;
 
-    align-items:center;
-    justify-content:center;
+display:flex;
 
-    background:
-    linear-gradient(
-        145deg,
-        #0d8cff,
-        #0065d8
-    );
+align-items:center;
 
-    font-size:22px;
+justify-content:center;
 
-    font-weight:bold;
+background:
+linear-gradient(
+145deg,
+#0d8cff,
+#0065d8
+);
 
-    box-shadow:
-    0 8px 25px
-    rgba(0,130,255,.35);
+font-size:23px;
+
+font-weight:bold;
+
 }
 
 .brand-text{
 
-    font-size:24px;
+font-size:24px;
 
-    font-weight:800;
+font-weight:900;
+
 }
 
 .brand-text span{
 
-    color:#078dff;
+color:#078dff;
+
 }
 
 .back-btn{
 
-    text-decoration:none;
+text-decoration:none;
 
-    color:white;
+color:white;
 
-    border:
-    1px solid
-    rgba(0,150,255,.4);
+border:
+1px solid
+rgba(0,150,255,.4);
 
-    background:
-    rgba(5,25,42,.7);
+background:
+rgba(5,25,42,.8);
 
-    border-radius:16px;
+border-radius:16px;
 
-    padding:11px 17px;
+padding:11px 17px;
 
-    font-weight:700;
+font-weight:700;
 
-    white-space:nowrap;
 }
-
-
-/* =====================================================
-   MAIN
-===================================================== */
 
 .container{
 
-    max-width:1000px;
+max-width:1050px;
 
-    margin:auto;
+margin:auto;
 
-    padding:40px 15px 70px;
+padding:35px 14px 70px;
+
 }
-
-
-/* =====================================================
-   HERO
-===================================================== */
 
 .hero{
 
-    text-align:center;
+text-align:center;
 
-    margin-bottom:35px;
+margin-bottom:30px;
+
 }
 
 .badge{
 
-    display:inline-block;
+display:inline-block;
 
-    padding:10px 22px;
+padding:9px 20px;
 
-    border-radius:30px;
+border-radius:30px;
 
-    border:
-    1px solid
-    rgba(0,153,255,.5);
+border:
+1px solid
+rgba(0,153,255,.5);
 
-    color:#36b4ff;
+color:#36b4ff;
 
-    font-weight:700;
+font-weight:700;
 
-    letter-spacing:3px;
+letter-spacing:2px;
 
-    margin-bottom:20px;
+margin-bottom:18px;
+
 }
 
 .hero h1{
 
-    font-size:
-    clamp(42px,8vw,70px);
+font-size:
+clamp(42px,8vw,70px);
 
-    line-height:1;
+line-height:1;
 
-    font-weight:900;
+font-weight:900;
 
-    letter-spacing:-3px;
+letter-spacing:-3px;
+
 }
 
 .hero h1 span{
 
-    color:#078dff;
+color:#078dff;
+
 }
 
 .hero p{
 
-    max-width:800px;
+max-width:800px;
 
-    margin:22px auto 0;
+margin:20px auto 0;
 
-    color:#91adc0;
+color:#91adc0;
 
-    font-size:
-    clamp(17px,3vw,23px);
+font-size:19px;
 
-    line-height:1.6;
+line-height:1.6;
+
 }
-
-
-/* =====================================================
-   CARD
-===================================================== */
 
 .card{
 
-    background:
-    linear-gradient(
-        145deg,
-        rgba(3,35,55,.93),
-        rgba(1,20,34,.96)
-    );
+background:
+linear-gradient(
+145deg,
+rgba(3,35,55,.94),
+rgba(1,20,34,.97)
+);
 
-    border:
-    1px solid
-    rgba(0,145,220,.28);
+border:
+1px solid
+rgba(0,145,220,.3);
 
-    border-radius:26px;
+border-radius:25px;
 
-    padding:
-    clamp(20px,4vw,35px);
+padding:
+clamp(20px,4vw,35px);
 
-    margin-bottom:25px;
+margin-bottom:24px;
 
-    box-shadow:
-    0 20px 70px
-    rgba(0,0,0,.3);
+box-shadow:
+0 20px 70px
+rgba(0,0,0,.3);
+
 }
 
 .card-title{
 
-    font-size:
-    clamp(26px,5vw,36px);
+font-size:
+clamp(25px,5vw,35px);
 
-    margin-bottom:25px;
+margin-bottom:22px;
+
 }
-
-
-/* =====================================================
-   UPLOAD
-===================================================== */
 
 .upload-box{
 
-    border:
-    3px dashed
-    rgba(0,145,220,.42);
+border:
+3px dashed
+rgba(0,145,220,.45);
 
-    border-radius:25px;
+border-radius:24px;
 
-    min-height:320px;
+min-height:300px;
 
-    padding:30px 15px;
+padding:28px 15px;
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:center;
+justify-content:center;
 
-    text-align:center;
+text-align:center;
 
-    background:
-    rgba(0,30,48,.4);
+background:
+rgba(0,30,48,.45);
+
 }
 
 .file-icon{
 
-    font-size:70px;
+font-size:65px;
 
-    margin-bottom:15px;
+margin-bottom:12px;
+
 }
 
 .upload-box h2{
 
-    font-size:
-    clamp(24px,5vw,35px);
+font-size:
+clamp(23px,5vw,34px);
 
-    margin-bottom:12px;
+margin-bottom:10px;
+
 }
 
 .upload-box p{
 
-    color:#8ba9bf;
+color:#8ba9bf;
 
-    max-width:650px;
+max-width:700px;
 
-    font-size:17px;
+font-size:16px;
 
-    line-height:1.6;
+line-height:1.6;
 
-    margin-bottom:22px;
+margin-bottom:20px;
+
 }
 
+.file-buttons{
 
-/* =====================================================
-   FILE BUTTON
-===================================================== */
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:12px;
+
+}
 
 .file-label{
 
-    display:inline-flex;
+display:inline-flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:center;
+justify-content:center;
 
-    min-height:62px;
+min-height:58px;
 
-    padding:0 28px;
+padding:0 25px;
 
-    border-radius:17px;
+border-radius:16px;
 
-    background:
-    linear-gradient(
-        135deg,
-        #078dff,
-        #006bd9
-    );
+background:
+linear-gradient(
+135deg,
+#078dff,
+#006bd9
+);
 
-    color:#ffffff;
+color:white;
 
-    font-size:19px;
+font-size:18px;
 
-    font-weight:800;
+font-weight:800;
 
-    cursor:pointer;
+cursor:pointer;
 
-    box-shadow:
-    0 10px 30px
-    rgba(0,120,255,.25);
 }
 
+.camera-label{
 
-/*
-   IMPORTANT:
-   No capture attribute.
+background:
+linear-gradient(
+135deg,
+#8b35ff,
+#6418d9
+);
 
-   Android will NOT be forced
-   to open Camera directly.
-*/
-
-#imageInput{
-
-    display:none;
 }
 
+#imageInput,
+#cameraInput{
 
-/* =====================================================
-   PREVIEW
-===================================================== */
+display:none;
+
+}
 
 .preview{
 
-    display:none;
+display:none;
 
-    width:100%;
+width:100%;
 
-    margin-top:20px;
+margin-top:20px;
 
-    text-align:center;
+text-align:center;
+
 }
 
 .preview img{
 
-    max-width:100%;
+max-width:100%;
 
-    max-height:400px;
+max-height:420px;
 
-    border-radius:18px;
+border-radius:18px;
 
-    border:
-    1px solid
-    rgba(0,160,255,.3);
+border:
+1px solid
+rgba(0,160,255,.4);
+
 }
 
 .preview-name{
 
-    margin-top:10px;
+margin-top:10px;
 
-    color:#91adc0;
+color:#91adc0;
 
-    word-break:break-word;
+word-break:break-word;
+
 }
-
-
-/* =====================================================
-   FORM
-===================================================== */
 
 .form-row{
 
-    display:grid;
+display:grid;
 
-    grid-template-columns:
-    repeat(2,1fr);
+grid-template-columns:
+repeat(2,1fr);
 
-    gap:16px;
+gap:16px;
 
-    margin-top:22px;
+margin-top:22px;
+
 }
 
 .form-group label{
 
-    display:block;
+display:block;
 
-    color:#9bb5c7;
+color:#9bb5c7;
 
-    font-weight:700;
+font-weight:700;
 
-    margin-bottom:9px;
+margin-bottom:9px;
+
 }
 
 select{
 
-    width:100%;
+width:100%;
 
-    height:58px;
+height:58px;
 
-    border-radius:16px;
+border-radius:16px;
 
-    border:
-    1px solid
-    rgba(0,150,220,.3);
+border:
+1px solid
+rgba(0,150,220,.35);
 
-    background:#032436;
+background:#032436;
 
-    color:#ffffff;
+color:white;
 
-    padding:0 15px;
+padding:0 15px;
 
-    font-size:17px;
+font-size:17px;
 
-    outline:none;
+outline:none;
+
 }
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
 
 .main-btn{
 
-    width:100%;
+width:100%;
 
-    height:62px;
+height:62px;
 
-    border:none;
+border:none;
 
-    border-radius:17px;
+border-radius:17px;
 
-    margin-top:20px;
+margin-top:20px;
 
-    color:#ffffff;
+color:white;
 
-    font-size:19px;
+font-size:19px;
 
-    font-weight:800;
+font-weight:800;
 
-    cursor:pointer;
+cursor:pointer;
 
-    background:
-    linear-gradient(
-        135deg,
-        #078dff,
-        #0063d4
-    );
+background:
+linear-gradient(
+135deg,
+#078dff,
+#0063d4
+);
+
 }
 
 .main-btn:disabled{
 
-    opacity:.4;
+opacity:.4;
 
-    cursor:not-allowed;
+cursor:not-allowed;
+
 }
 
 .clear-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #ff2447,
-        #ed002f
-    );
+background:
+linear-gradient(
+135deg,
+#ff2447,
+#e9002c
+);
+
 }
-
-
-/* =====================================================
-   PROGRESS
-===================================================== */
 
 .progress-box{
 
-    display:none;
+display:none;
 
-    margin-top:20px;
+margin-top:20px;
 
-    padding:18px;
+padding:18px;
 
-    border-radius:17px;
+border-radius:17px;
 
-    background:
-    rgba(0,0,0,.2);
+background:
+rgba(0,0,0,.25);
+
 }
 
 .progress-text{
 
-    text-align:center;
+text-align:center;
 
-    color:#a8c0d1;
+color:#a8c0d1;
 
-    margin-bottom:12px;
+margin-bottom:12px;
+
 }
 
 .progress{
 
-    width:100%;
+width:100%;
 
-    height:12px;
+height:12px;
 
-    background:#092538;
+background:#092538;
 
-    border-radius:20px;
+border-radius:20px;
 
-    overflow:hidden;
+overflow:hidden;
+
 }
 
 .progress-bar{
 
-    width:0%;
+width:0%;
 
-    height:100%;
+height:100%;
 
-    background:
-    linear-gradient(
-        90deg,
-        #078dff,
-        #00c6ff
-    );
+background:
+linear-gradient(
+90deg,
+#078dff,
+#00c6ff
+);
 
-    transition:.2s;
+transition:.2s;
+
 }
-
-
-/* =====================================================
-   STATUS
-===================================================== */
 
 .status{
 
-    display:none;
+display:none;
 
-    margin-top:18px;
+margin-top:18px;
 
-    padding:14px;
+padding:14px;
 
-    border-radius:13px;
+border-radius:13px;
 
-    text-align:center;
+text-align:center;
 
-    font-weight:700;
+font-weight:700;
+
 }
 
 .status.success{
 
-    display:block;
+display:block;
 
-    color:#54e39a;
+color:#54e39a;
 
-    background:
-    rgba(0,200,100,.1);
+background:
+rgba(0,200,100,.1);
+
 }
 
 .status.error{
 
-    display:block;
+display:block;
 
-    color:#ff7188;
+color:#ff7188;
 
-    background:
-    rgba(255,0,50,.1);
+background:
+rgba(255,0,50,.1);
+
 }
-
-
-/* =====================================================
-   RESULT
-===================================================== */
 
 .result-card{
 
-    display:none;
+display:none;
+
 }
 
 .result-info{
 
-    color:#8faec2;
+color:#8faec2;
 
-    margin:
-    15px 0 20px;
+margin:12px 0 20px;
 
-    line-height:1.6;
+line-height:1.6;
+
 }
-
-
-/* =====================================================
-   TABLE CONTAINER
-===================================================== */
 
 .table-wrap{
 
-    width:100%;
+width:100%;
 
-    overflow-x:auto;
+overflow:auto;
 
-    border-radius:16px;
+border-radius:15px;
 
-    background:#ffffff;
+border:
+2px solid
+#078dff;
 
-    border:
-    2px solid
-    #3f4b52;
+background:white;
 
-    -webkit-overflow-scrolling:touch;
 }
 
+table{
 
-/* =====================================================
-   TABLE
-===================================================== */
+border-collapse:collapse;
 
-#resultTable{
+width:100%;
 
-    width:100%;
+min-width:850px;
 
-    min-width:650px;
+background:white;
 
-    border-collapse:collapse;
+color:#111;
 
-    border-spacing:0;
+table-layout:fixed;
 
-    background:#ffffff;
-
-    color:#111111;
-
-    border:
-    2px solid
-    #3f4b52;
 }
 
+th{
 
-/* =====================================================
-   ALL TABLE BORDERS
-===================================================== */
+background:#d8f0fc;
 
-#resultTable th,
-#resultTable td{
+color:#092b3e;
 
-    border:
-    1px solid
-    #69757d !important;
+padding:14px 9px;
+
+border:
+2px solid
+#7fa6b8;
+
+white-space:normal;
+
+font-size:16px;
+
+font-weight:800;
+
+text-align:center;
+
 }
 
+td{
 
-/* =====================================================
-   TABLE HEADER
-===================================================== */
+padding:12px 9px;
 
-#resultTable th{
+border:
+2px solid
+#9aaeb8;
 
-    background:#d8f0fc;
+vertical-align:top;
 
-    color:#092b3e;
+font-size:16px;
 
-    padding:14px 12px;
+line-height:1.45;
 
-    font-size:17px;
+background:white;
 
-    font-weight:800;
+color:#111;
 
-    white-space:nowrap;
+min-height:45px;
 
-    text-align:left;
+word-break:break-word;
 
-    border-top:
-    2px solid
-    #3f4b52 !important;
-
-    border-bottom:
-    3px solid
-    #3f4b52 !important;
 }
 
+td[contenteditable="true"]{
 
-/* =====================================================
-   TABLE CELLS
-===================================================== */
+outline:none;
 
-#resultTable td{
-
-    min-width:130px;
-
-    padding:13px 12px;
-
-    vertical-align:top;
-
-    font-size:16px;
-
-    line-height:1.45;
-
-    background:#ffffff;
-
-    color:#111111;
-
-    border-top:
-    1px solid
-    #858f95 !important;
-
-    border-bottom:
-    1px solid
-    #858f95 !important;
 }
 
-
-/* =====================================================
-   CLEAR VERTICAL COLUMN LINES
-===================================================== */
-
-#resultTable th + th{
-
-    border-left:
-    2px solid
-    #4f5c64 !important;
-}
-
-#resultTable td + td{
-
-    border-left:
-    2px solid
-    #4f5c64 !important;
-}
-
-
-/* =====================================================
-   OUTER LEFT
-===================================================== */
-
-#resultTable th:first-child,
-#resultTable td:first-child{
-
-    border-left:
-    2px solid
-    #3f4b52 !important;
-}
-
-
-/* =====================================================
-   OUTER RIGHT
-===================================================== */
-
-#resultTable th:last-child,
-#resultTable td:last-child{
-
-    border-right:
-    2px solid
-    #3f4b52 !important;
-}
-
-
-/* =====================================================
-   BOTTOM
-===================================================== */
-
-#resultTable tbody tr:last-child td{
-
-    border-bottom:
-    2px solid
-    #3f4b52 !important;
-}
-
-
-/* =====================================================
-   EDIT CELL
-===================================================== */
-
-#resultTable td[contenteditable="true"]{
-
-    outline:none;
-
-    cursor:text;
-}
-
-#resultTable td[contenteditable="true"]:focus{
-
-    background:#f0f9ff;
-
-    box-shadow:
-    inset 0 0 0 2px
-    #078dff;
-}
-
-
-/* =====================================================
-   ROW HOVER
-===================================================== */
-
-#resultTable tbody tr:hover td{
-
-    background:#f7fbfd;
-}
-
-#resultTable tbody tr:hover
 td[contenteditable="true"]:focus{
 
-    background:#f0f9ff;
+box-shadow:
+inset 0 0 0 3px
+#078dff;
+
+background:#f0f9ff;
+
 }
-
-
-/* =====================================================
-   ACTION BUTTONS
-===================================================== */
 
 .action-grid{
 
-    display:grid;
+display:grid;
 
-    grid-template-columns:
-    repeat(2,1fr);
+grid-template-columns:
+repeat(2,1fr);
 
-    gap:14px;
+gap:13px;
 
-    margin-top:22px;
+margin-top:22px;
+
 }
 
 .action-btn{
 
-    min-height:60px;
+min-height:60px;
 
-    border:none;
+border:none;
 
-    border-radius:16px;
+border-radius:16px;
 
-    color:#ffffff;
+color:white;
 
-    font-size:17px;
+font-size:17px;
 
-    font-weight:800;
+font-weight:800;
 
-    cursor:pointer;
+cursor:pointer;
+
 }
 
 .excel-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #00c853,
-        #00a83e
-    );
+background:
+linear-gradient(
+135deg,
+#00c853,
+#00a83e
+);
+
 }
 
 .csv-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #078dff,
-        #0066d7
-    );
+background:
+linear-gradient(
+135deg,
+#078dff,
+#0066d7
+);
+
 }
 
 .add-row{
 
-    background:
-    linear-gradient(
-        135deg,
-        #a72cff,
-        #7b1fff
-    );
+background:
+linear-gradient(
+135deg,
+#a72cff,
+#7b1fff
+);
+
 }
 
 .add-col{
 
-    background:
-    linear-gradient(
-        135deg,
-        #ff9500,
-        #ff6500
-    );
+background:
+linear-gradient(
+135deg,
+#ff9500,
+#ff6500
+);
+
 }
 
 .copy-btn{
 
-    background:#08364d;
+background:#08364d;
+
 }
 
 .delete-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #ff2447,
-        #e9002c
-    );
+background:
+linear-gradient(
+135deg,
+#ff2447,
+#e9002c
+);
+
 }
-
-
-/* =====================================================
-   HELP
-===================================================== */
 
 .help{
 
-    color:#7898ac;
+color:#7898ac;
 
-    line-height:1.8;
+line-height:1.8;
 
-    font-size:16px;
+font-size:16px;
+
 }
 
 .help strong{
 
-    color:#c1d9e8;
+color:#c1d9e8;
+
 }
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media(max-width:700px){
 
-    .header-inner{
+.header-inner{
 
-        min-height:70px;
-
-        padding:
-        10px 13px;
-    }
-
-    .brand-icon{
-
-        width:42px;
-
-        height:42px;
-
-        font-size:19px;
-    }
-
-    .brand-text{
-
-        font-size:21px;
-    }
-
-    .back-btn{
-
-        padding:
-        9px 12px;
-
-        font-size:13px;
-    }
-
-    .container{
-
-        padding:
-        30px 12px 60px;
-    }
-
-    .form-row{
-
-        grid-template-columns:1fr;
-    }
-
-    .action-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .upload-box{
-
-        min-height:310px;
-    }
-
-    .hero h1{
-
-        letter-spacing:-2px;
-    }
+min-height:68px;
 
 }
 
+.brand-icon{
 
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
+width:42px;
 
-@media(max-width:400px){
+height:42px;
 
-    .brand-text{
+font-size:19px;
 
-        font-size:18px;
-    }
+}
 
-    .back-btn{
+.brand-text{
 
-        font-size:12px;
+font-size:21px;
 
-        padding:
-        8px 10px;
-    }
+}
 
-    .file-label{
+.back-btn{
 
-        width:100%;
+padding:9px 12px;
 
-        max-width:280px;
-    }
+font-size:13px;
+
+}
+
+.container{
+
+padding:
+28px 11px 60px;
+
+}
+
+.form-row{
+
+grid-template-columns:1fr;
+
+}
+
+.action-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.file-buttons{
+
+flex-direction:column;
+
+width:100%;
+
+}
+
+.file-label{
+
+width:100%;
+
+}
+
+.upload-box{
+
+min-height:300px;
+
+}
+
+table{
+
+min-width:900px;
+
+}
 
 }
 
@@ -1088,10 +947,6 @@ td[contenteditable="true"]:focus{
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header>
 
@@ -1109,7 +964,6 @@ ASIM<span>TECH</span>
 
 </div>
 
-
 <a
 href="../"
 class="back-btn">
@@ -1123,17 +977,8 @@ class="back-btn">
 </header>
 
 
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main class="container">
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <section class="hero">
 
@@ -1148,19 +993,13 @@ Image
 </h1>
 
 <p>
-Upload a list/table image and convert it into an editable Excel file.
+Bangla + English Image/Table OCR করে editable Excel তৈরি করুন।
 </p>
 
 </section>
 
 
-
-<!-- =====================================================
-     UPLOAD CARD
-===================================================== -->
-
 <section class="card">
-
 
 <h2 class="card-title">
 📷 Image to Excel
@@ -1169,42 +1008,49 @@ Upload a list/table image and convert it into an editable Excel file.
 
 <div class="upload-box">
 
-
 <div class="file-icon">
 📄
 </div>
-
 
 <h2>
 Upload List / Table Image
 </h2>
 
-
 <p>
-Select a photo or screenshot containing a table,
-list, names, numbers or other text.
+Camera দিয়ে সরাসরি ছবি তুলুন অথবা Gallery/File থেকে ছবি নির্বাচন করুন।
 </p>
+
+
+<div class="file-buttons">
+
+
+<label
+for="cameraInput"
+class="file-label camera-label">
+
+📷 Camera
+
+</label>
 
 
 <label
 for="imageInput"
 class="file-label">
 
-📁 Choose Image
+📁 Choose File
 
 </label>
 
 
-<!--
-==========================================================
-IMPORTANT
+</div>
 
-capture="environment" is NOT used.
 
-Therefore Android can show
-Gallery / Photos / Files picker.
-==========================================================
--->
+<input
+id="cameraInput"
+type="file"
+accept="image/*"
+capture="environment">
+
 
 <input
 id="imageInput"
@@ -1227,14 +1073,8 @@ class="preview-name">
 
 </div>
 
-
 </div>
 
-
-
-<!-- =====================================================
-     OPTIONS
-===================================================== -->
 
 <div class="form-row">
 
@@ -1256,7 +1096,7 @@ English
 </option>
 
 <option value="eng+ben">
-English + বাংলা
+বাংলা + English
 </option>
 
 </select>
@@ -1315,7 +1155,6 @@ Auto Detect
 </div>
 
 
-
 <button
 id="extractBtn"
 class="main-btn"
@@ -1334,11 +1173,6 @@ class="main-btn clear-btn">
 
 </button>
 
-
-
-<!-- =====================================================
-     PROGRESS
-===================================================== -->
 
 <div
 id="progressBox"
@@ -1364,24 +1198,13 @@ class="progress-bar">
 </div>
 
 
-
-<!-- =====================================================
-     STATUS
-===================================================== -->
-
 <div
 id="status"
 class="status">
 </div>
 
-
 </section>
 
-
-
-<!-- =====================================================
-     RESULT
-===================================================== -->
 
 <section
 id="resultCard"
@@ -1395,8 +1218,7 @@ class="card result-card">
 
 <p class="result-info">
 
-The extracted data is editable.
-Tap any cell and correct the text before downloading.
+প্রতিটি cell-এ tap করে OCR-এর ভুল ঠিক করতে পারবেন। তারপর Excel download করুন।
 
 </p>
 
@@ -1404,6 +1226,9 @@ Tap any cell and correct the text before downloading.
 <div class="table-wrap">
 
 <table id="resultTable">
+
+<colgroup id="columnGroup">
+</colgroup>
 
 <thead>
 
@@ -1419,11 +1244,6 @@ Tap any cell and correct the text before downloading.
 
 </div>
 
-
-
-<!-- =====================================================
-     ACTIONS
-===================================================== -->
 
 <div class="action-grid">
 
@@ -1484,14 +1304,8 @@ id="clearTable">
 
 </div>
 
-
 </section>
 
-
-
-<!-- =====================================================
-     HELP
-===================================================== -->
 
 <section class="card">
 
@@ -1503,48 +1317,53 @@ id="clearTable">
 
 <p>
 <strong>1.</strong>
-Tap Choose Image and select an image from Gallery / Files.
+Camera অথবা Choose File দিয়ে table-এর ছবি নিন।
 </p>
 
 <p>
 <strong>2.</strong>
-Select English, বাংলা or English + বাংলা.
+বাংলা + English থাকলে OCR Language → <strong>বাংলা + English</strong> নির্বাচন করুন।
 </p>
 
 <p>
 <strong>3.</strong>
-Select the expected number of columns.
+যদি 3 column-এর table হয় → <strong>3 Columns</strong> দিন।
 </p>
 
 <p>
 <strong>4.</strong>
-Tap Extract Table.
+যদি 7 column-এর table হয় → <strong>7 Columns</strong> দিন।
 </p>
 
 <p>
 <strong>5.</strong>
-Tap any cell to correct OCR mistakes.
+Extract Table চাপুন।
 </p>
 
 <p>
 <strong>6.</strong>
-Tap Download Excel.
+OCR result-এর cell-এ tap করে ভুল ঠিক করুন।
+</p>
+
+<p>
+<strong>7.</strong>
+Download Excel চাপুন।
 </p>
 
 </div>
 
 </section>
 
-
 </main>
-
 
 
 <script>
 
 /* =====================================================
-   VARIABLES
+   ASIM TECH IMAGE TO EXCEL
+   FINAL TABLE OCR ENGINE
 ===================================================== */
+
 
 let selectedFile = null;
 
@@ -1559,6 +1378,9 @@ let currentColumns = 1;
 
 const imageInput =
 document.getElementById("imageInput");
+
+const cameraInput =
+document.getElementById("cameraInput");
 
 const preview =
 document.getElementById("preview");
@@ -1602,6 +1424,9 @@ document.getElementById("headerRow");
 const tableBody =
 document.getElementById("tableBody");
 
+const columnGroup =
+document.getElementById("columnGroup");
+
 const downloadExcel =
 document.getElementById("downloadExcel");
 
@@ -1627,91 +1452,106 @@ document.getElementById("clearTable");
 
 function showStatus(message,type){
 
-    statusBox.textContent =
-        message;
+statusBox.textContent =
+message;
 
-    statusBox.className =
-        "status " + type;
+statusBox.className =
+"status " + type;
 
 }
 
 
 /* =====================================================
-   IMAGE SELECT
+   SELECT FILE
 ===================================================== */
+
+function handleFile(file){
+
+if(!file){
+
+return;
+
+}
+
+if(
+!file.type ||
+!file.type.startsWith("image/")
+){
+
+showStatus(
+"Please select an image file.",
+"error"
+);
+
+return;
+
+}
+
+selectedFile =
+file;
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e){
+
+previewImage.src =
+e.target.result;
+
+previewName.textContent =
+file.name;
+
+preview.style.display =
+"block";
+
+extractBtn.disabled =
+false;
+
+showStatus(
+"Image selected successfully.",
+"success"
+);
+
+};
+
+
+reader.onerror =
+function(){
+
+showStatus(
+"Could not read the image.",
+"error"
+);
+
+};
+
+
+reader.readAsDataURL(file);
+
+}
+
 
 imageInput.addEventListener(
 "change",
-function(event){
+function(e){
 
-    const file =
-        event.target.files &&
-        event.target.files[0];
+handleFile(
+e.target.files[0]
+);
 
-
-    if(!file){
-
-        return;
-    }
+});
 
 
-    if(
-        !file.type ||
-        !file.type.startsWith("image/")
-    ){
+cameraInput.addEventListener(
+"change",
+function(e){
 
-        showStatus(
-            "Please select an image file.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    selectedFile =
-        file;
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-    function(e){
-
-        previewImage.src =
-            e.target.result;
-
-        previewName.textContent =
-            file.name;
-
-        preview.style.display =
-            "block";
-
-        extractBtn.disabled =
-            false;
-
-        showStatus(
-            "Image selected successfully.",
-            "success"
-        );
-
-    };
-
-
-    reader.onerror =
-    function(){
-
-        showStatus(
-            "Could not read the image.",
-            "error"
-        );
-
-    };
-
-
-    reader.readAsDataURL(file);
+handleFile(
+e.target.files[0]
+);
 
 });
 
@@ -1724,47 +1564,50 @@ clearBtn.addEventListener(
 "click",
 function(){
 
-    selectedFile =
-        null;
+selectedFile =
+null;
 
-    imageInput.value =
-        "";
+imageInput.value =
+"";
 
-    preview.style.display =
-        "none";
+cameraInput.value =
+"";
 
-    previewImage.src =
-        "";
+preview.style.display =
+"none";
 
-    previewName.textContent =
-        "";
+previewImage.src =
+"";
 
-    extractBtn.disabled =
-        true;
+previewName.textContent =
+"";
 
-    resultCard.style.display =
-        "none";
+extractBtn.disabled =
+true;
 
-    tableData =
-        [];
+resultCard.style.display =
+"none";
 
-    currentColumns =
-        1;
+tableData =
+[];
 
-    headerRow.innerHTML =
-        "";
+currentColumns =
+1;
 
-    tableBody.innerHTML =
-        "";
+headerRow.innerHTML =
+"";
 
-    progressBox.style.display =
-        "none";
+tableBody.innerHTML =
+"";
 
-    progressBar.style.width =
-        "0%";
+columnGroup.innerHTML =
+"";
 
-    statusBox.className =
-        "status";
+progressBox.style.display =
+"none";
+
+statusBox.className =
+"status";
 
 });
 
@@ -1775,234 +1618,240 @@ function(){
 
 async function prepareImage(file){
 
-    return new Promise(
-    function(resolve,reject){
+return new Promise(
+function(resolve,reject){
 
-        const img =
-            new Image();
+const img =
+new Image();
 
-        const url =
-            URL.createObjectURL(
-                file
-            );
+const url =
+URL.createObjectURL(file);
 
 
-        img.onload =
-        function(){
+img.onload =
+function(){
 
-            try{
+try{
 
-                const maxWidth =
-                    3000;
+const maxWidth =
+3000;
 
+let width =
+img.naturalWidth;
 
-                let width =
-                    img.naturalWidth;
-
-                let height =
-                    img.naturalHeight;
-
-
-                if(
-                    !width ||
-                    !height
-                ){
-
-                    throw new Error(
-                        "Invalid image dimensions."
-                    );
-
-                }
+let height =
+img.naturalHeight;
 
 
-                if(
-                    width >
-                    maxWidth
-                ){
+if(width > maxWidth){
 
-                    const scale =
-                        maxWidth /
-                        width;
+const scale =
+maxWidth / width;
 
+width =
+Math.round(
+width * scale
+);
 
-                    width =
-                        Math.round(
-                            width *
-                            scale
-                        );
+height =
+Math.round(
+height * scale
+);
 
-
-                    height =
-                        Math.round(
-                            height *
-                            scale
-                        );
-
-                }
+}
 
 
-                const canvas =
-                    document.createElement(
-                        "canvas"
-                    );
+const canvas =
+document.createElement(
+"canvas"
+);
+
+canvas.width =
+width;
+
+canvas.height =
+height;
 
 
-                canvas.width =
-                    width;
-
-                canvas.height =
-                    height;
-
-
-                const ctx =
-                    canvas.getContext(
-                        "2d"
-                    );
+const ctx =
+canvas.getContext(
+"2d",
+{
+willReadFrequently:true
+}
+);
 
 
-                ctx.fillStyle =
-                    "#ffffff";
+ctx.fillStyle =
+"#ffffff";
 
 
-                ctx.fillRect(
-                    0,
-                    0,
-                    width,
-                    height
-                );
+ctx.fillRect(
+0,
+0,
+width,
+height
+);
 
 
-                ctx.drawImage(
-                    img,
-                    0,
-                    0,
-                    width,
-                    height
-                );
+ctx.drawImage(
+img,
+0,
+0,
+width,
+height
+);
 
 
-                canvas.toBlob(
-                function(blob){
+canvas.toBlob(
+function(blob){
 
-                    URL.revokeObjectURL(
-                        url
-                    );
+URL.revokeObjectURL(url);
 
 
-                    if(!blob){
+if(!blob){
 
-                        reject(
-                            new Error(
-                                "Image conversion failed."
-                            )
-                        );
+reject(
+new Error(
+"Image conversion failed."
+)
+);
 
-                        return;
-                    }
+return;
 
-
-                    resolve(blob);
-
-                },
-                "image/png",
-                1
-                );
-
-            }
-            catch(error){
-
-                URL.revokeObjectURL(
-                    url
-                );
-
-                reject(error);
-
-            }
-
-        };
+}
 
 
-        img.onerror =
-        function(){
+resolve(blob);
 
-            URL.revokeObjectURL(
-                url
-            );
+},
+"image/png",
+1
+);
 
-            reject(
-                new Error(
-                    "Could not load image."
-                )
-            );
+}
+catch(error){
 
-        };
+URL.revokeObjectURL(url);
+
+reject(error);
+
+}
+
+};
 
 
-        img.src =
-            url;
+img.onerror =
+function(){
 
-    });
+URL.revokeObjectURL(url);
+
+reject(
+new Error(
+"Could not load image."
+)
+);
+
+};
+
+
+img.src =
+url;
+
+});
 
 }
 
 
 /* =====================================================
-   VALID OCR WORD
+   VALID WORD
 ===================================================== */
 
 function validWord(word){
 
-    if(
-        !word ||
-        !word.text ||
-        !word.bbox
-    ){
+if(
+!word ||
+!word.text ||
+!word.bbox
+){
 
-        return false;
-    }
+return false;
 
-
-    const text =
-        String(
-            word.text
-        ).trim();
+}
 
 
-    if(!text){
-
-        return false;
-    }
-
-
-    const x0 =
-        Number(
-            word.bbox.x0
-        );
-
-    const x1 =
-        Number(
-            word.bbox.x1
-        );
-
-    const y0 =
-        Number(
-            word.bbox.y0
-        );
-
-    const y1 =
-        Number(
-            word.bbox.y1
-        );
+const text =
+String(
+word.text
+).trim();
 
 
-    return (
-        Number.isFinite(x0) &&
-        Number.isFinite(x1) &&
-        Number.isFinite(y0) &&
-        Number.isFinite(y1) &&
-        x1 > x0 &&
-        y1 > y0
-    );
+if(!text){
+
+return false;
+
+}
+
+
+const x0 =
+Number(word.bbox.x0);
+
+const x1 =
+Number(word.bbox.x1);
+
+const y0 =
+Number(word.bbox.y0);
+
+const y1 =
+Number(word.bbox.y1);
+
+
+return (
+
+Number.isFinite(x0) &&
+Number.isFinite(x1) &&
+Number.isFinite(y0) &&
+Number.isFinite(y1) &&
+
+x1 > x0 &&
+y1 > y0
+
+);
+
+}
+
+
+/* =====================================================
+   NORMALIZE WORDS
+===================================================== */
+
+function normalizeWords(words){
+
+return (words || [])
+.filter(validWord)
+.map(function(w){
+
+return {
+
+text:
+String(w.text)
+.trim(),
+
+bbox:{
+
+x0:Number(w.bbox.x0),
+
+x1:Number(w.bbox.x1),
+
+y0:Number(w.bbox.y0),
+
+y1:Number(w.bbox.y1)
+
+}
+
+};
+
+});
 
 }
 
@@ -2013,663 +1862,738 @@ function validWord(word){
 
 function makeRows(words){
 
-    const valid =
-        (words || [])
-        .filter(validWord)
-        .map(
-        function(w){
+const valid =
+normalizeWords(words);
 
-            return {
 
-                text:
-                    String(
-                        w.text
-                    ).trim(),
+if(!valid.length){
 
-                bbox:{
+return [];
 
-                    x0:
-                        Number(
-                            w.bbox.x0
-                        ),
+}
 
-                    x1:
-                        Number(
-                            w.bbox.x1
-                        ),
 
-                    y0:
-                        Number(
-                            w.bbox.y0
-                        ),
+const heights =
+valid
+.map(
+w =>
+w.bbox.y1 -
+w.bbox.y0
+)
+.sort(
+(a,b) =>
+a-b
+);
 
-                    y1:
-                        Number(
-                            w.bbox.y1
-                        )
 
-                }
+const medianHeight =
+heights[
+Math.floor(
+heights.length / 2
+)
+] || 20;
 
-            };
 
-        });
+const tolerance =
+Math.max(
+9,
+medianHeight * .60
+);
 
 
-    if(!valid.length){
+valid.sort(
+function(a,b){
 
-        return [];
-    }
+const ay =
+(
+a.bbox.y0 +
+a.bbox.y1
+) / 2;
 
+const by =
+(
+b.bbox.y0 +
+b.bbox.y1
+) / 2;
 
-    const heights =
-        valid
-        .map(
-            w =>
-            w.bbox.y1 -
-            w.bbox.y0
-        )
-        .sort(
-            (a,b) =>
-            a-b
-        );
+return ay - by;
 
+});
 
-    const medianHeight =
-        heights[
-            Math.floor(
-                heights.length / 2
-            )
-        ] || 20;
 
+const rows = [];
 
-    const tolerance =
-        Math.max(
-            8,
-            medianHeight * 0.55
-        );
 
+for(
+const word of valid
+){
 
-    valid.sort(
-    function(a,b){
+const centerY =
+(
+word.bbox.y0 +
+word.bbox.y1
+) / 2;
 
-        const ay =
-            (
-                a.bbox.y0 +
-                a.bbox.y1
-            ) / 2;
 
+let best =
+null;
 
-        const by =
-            (
-                b.bbox.y0 +
-                b.bbox.y1
-            ) / 2;
+let distance =
+Infinity;
 
 
-        return ay - by;
+for(
+const row of rows
+){
 
-    });
+const d =
+Math.abs(
+row.centerY -
+centerY
+);
 
 
-    const rows = [];
+if(
+d <= tolerance &&
+d < distance
+){
 
+distance =
+d;
 
-    for(
-        const word of valid
-    ){
+best =
+row;
 
-        const centerY =
-            (
-                word.bbox.y0 +
-                word.bbox.y1
-            ) / 2;
+}
 
+}
 
-        let bestRow =
-            null;
 
-        let bestDistance =
-            Infinity;
+if(!best){
 
+best = {
 
-        for(
-            const row of rows
-        ){
+centerY:centerY,
 
-            const distance =
-                Math.abs(
-                    row.centerY -
-                    centerY
-                );
+words:[]
 
+};
 
-            if(
-                distance <=
-                tolerance &&
-                distance <
-                bestDistance
-            ){
+rows.push(best);
 
-                bestRow =
-                    row;
+}
 
-                bestDistance =
-                    distance;
 
-            }
+best.words.push(word);
 
-        }
 
+best.centerY =
+best.words.reduce(
+function(sum,w){
 
-        if(!bestRow){
+return sum +
+(
+w.bbox.y0 +
+w.bbox.y1
+) / 2;
 
-            bestRow = {
+},
+0
+) /
+best.words.length;
 
-                centerY:
-                    centerY,
+}
 
-                words:
-                    []
 
-            };
+rows.sort(
+(a,b) =>
+a.centerY -
+b.centerY
+);
 
 
-            rows.push(
-                bestRow
-            );
+rows.forEach(
+function(row){
 
-        }
+row.words.sort(
+(a,b) =>
+a.bbox.x0 -
+b.bbox.x0
+);
 
+});
 
-        bestRow.words.push(
-            word
-        );
 
-
-        bestRow.centerY =
-            bestRow.words.reduce(
-            function(sum,w){
-
-                return sum +
-                    (
-                        w.bbox.y0 +
-                        w.bbox.y1
-                    ) / 2;
-
-            },
-            0
-            ) /
-            bestRow.words.length;
-
-    }
-
-
-    rows.sort(
-        (a,b) =>
-        a.centerY -
-        b.centerY
-    );
-
-
-    rows.forEach(
-    function(row){
-
-        row.words.sort(
-            (a,b) =>
-            a.bbox.x0 -
-            b.bbox.x0
-        );
-
-    });
-
-
-    return rows;
+return rows;
 
 }
 
 
 /* =====================================================
-   MAKE BLOCKS
+   IMAGE PIXEL ANALYSIS
+   FIND VERTICAL TABLE LINES
 ===================================================== */
 
-function makeBlocks(row){
+async function findVerticalLines(
+file,
+words,
+columnCount
+){
 
-    if(
-        !row ||
-        !row.words ||
-        !row.words.length
-    ){
+return new Promise(
+function(resolve){
 
-        return [];
-    }
+const img =
+new Image();
 
-
-    const words =
-        [...row.words].sort(
-            (a,b) =>
-            a.bbox.x0 -
-            b.bbox.x0
-        );
+const url =
+URL.createObjectURL(file);
 
 
-    const heights =
-        words
-        .map(
-            w =>
-            w.bbox.y1 -
-            w.bbox.y0
-        )
-        .sort(
-            (a,b) =>
-            a-b
-        );
+img.onload =
+function(){
+
+try{
+
+const canvas =
+document.createElement(
+"canvas"
+);
+
+const maxWidth =
+1800;
+
+let width =
+img.naturalWidth;
+
+let height =
+img.naturalHeight;
 
 
-    const medianHeight =
-        heights[
-            Math.floor(
-                heights.length / 2
-            )
-        ] || 20;
+if(width > maxWidth){
+
+const scale =
+maxWidth / width;
+
+width =
+Math.round(
+width * scale
+);
+
+height =
+Math.round(
+height * scale
+);
+
+}
 
 
-    const gapThreshold =
-        Math.max(
-            15,
-            medianHeight * 1.35
-        );
+canvas.width =
+width;
+
+canvas.height =
+height;
 
 
-    const blocks = [];
+const ctx =
+canvas.getContext(
+"2d",
+{
+willReadFrequently:true
+}
+);
 
 
-    for(
-        const word of words
-    ){
-
-        if(!blocks.length){
-
-            blocks.push({
-
-                words:
-                    [word],
-
-                x0:
-                    word.bbox.x0,
-
-                x1:
-                    word.bbox.x1
-
-            });
-
-            continue;
-        }
+ctx.drawImage(
+img,
+0,
+0,
+width,
+height
+);
 
 
-        const last =
-            blocks[
-                blocks.length - 1
-            ];
+const imageData =
+ctx.getImageData(
+0,
+0,
+width,
+height
+);
 
 
-        const gap =
-            word.bbox.x0 -
-            last.x1;
+const data =
+imageData.data;
 
 
-        if(
-            gap <=
-            gapThreshold
-        ){
+let minY =
+height;
 
-            last.words.push(
-                word
-            );
+let maxY =
+0;
 
 
-            last.x1 =
-                Math.max(
-                    last.x1,
-                    word.bbox.x1
-                );
+words.forEach(
+function(w){
 
-        }
-        else{
+minY =
+Math.min(
+minY,
+Math.floor(
+w.bbox.y0 *
+height /
+img.naturalHeight
+)
+);
 
-            blocks.push({
+maxY =
+Math.max(
+maxY,
+Math.ceil(
+w.bbox.y1 *
+height /
+img.naturalHeight
+)
+);
 
-                words:
-                    [word],
-
-                x0:
-                    word.bbox.x0,
-
-                x1:
-                    word.bbox.x1
-
-            });
-
-        }
-
-    }
+});
 
 
-    return blocks.map(
-    function(block){
+if(
+!Number.isFinite(minY) ||
+!Number.isFinite(maxY) ||
+maxY <= minY
+){
 
-        return {
+URL.revokeObjectURL(url);
 
-            text:
-                block.words
-                .map(
-                    w =>
-                    w.text
-                )
-                .join(" ")
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim(),
+resolve([]);
 
-            x0:
-                block.x0,
+return;
 
-            x1:
-                block.x1,
+}
 
-            centerX:
-                (
-                    block.x0 +
-                    block.x1
-                ) / 2
 
-        };
+const heightRange =
+maxY - minY;
 
-    });
+
+const scores =
+new Array(width)
+.fill(0);
+
+
+for(
+let x=0;
+x<width;
+x++
+){
+
+let dark =
+0;
+
+
+for(
+let y=minY;
+y<=maxY;
+y+=2
+){
+
+const index =
+(
+y *
+width +
+x
+) *
+4;
+
+
+const r =
+data[index];
+
+const g =
+data[index+1];
+
+const b =
+data[index+2];
+
+
+const gray =
+(
+r +
+g +
+b
+) / 3;
+
+
+if(
+gray < 110
+){
+
+dark++;
+
+}
+
+}
+
+
+scores[x] =
+dark;
+
+}
+
+
+const threshold =
+Math.max(
+8,
+heightRange *
+0.25 /
+2
+);
+
+
+const peaks = [];
+
+
+let start =
+-1;
+
+
+for(
+let x=0;
+x<width;
+x++
+){
+
+if(
+scores[x] >= threshold
+){
+
+if(start < 0){
+
+start =
+x;
+
+}
+
+}
+else{
+
+if(start >= 0){
+
+const end =
+x - 1;
+
+const center =
+Math.round(
+(
+start +
+end
+) / 2
+);
+
+peaks.push(
+center
+);
+
+start =
+-1;
+
+}
+
+}
+
+}
+
+
+if(start >= 0){
+
+peaks.push(
+Math.round(
+(
+start +
+width - 1
+) / 2
+)
+);
+
+}
+
+
+const merged = [];
+
+
+for(
+const p of peaks
+){
+
+if(
+!merged.length ||
+p -
+merged[
+merged.length-1
+] > 8
+){
+
+merged.push(p);
+
+}
+else{
+
+merged[
+merged.length-1
+] =
+Math.round(
+(
+merged[
+merged.length-1
+] +
+p
+) / 2
+);
+
+}
+
+}
+
+
+/*
+Convert back to OCR coordinate system.
+*/
+
+const converted =
+merged.map(
+x =>
+x *
+img.naturalWidth /
+width
+);
+
+
+URL.revokeObjectURL(url);
+
+resolve(
+converted
+);
+
+}
+catch(error){
+
+URL.revokeObjectURL(url);
+
+resolve([]);
+
+}
+
+};
+
+
+img.onerror =
+function(){
+
+URL.revokeObjectURL(url);
+
+resolve([]);
+
+};
+
+
+img.src =
+url;
+
+});
 
 }
 
 
 /* =====================================================
-   CLUSTER X
+   K-MEANS COLUMN CENTERS
 ===================================================== */
 
 function clusterX(values,k){
 
-    if(!values.length){
+if(!values.length){
 
-        return [];
-    }
-
-
-    if(k <= 1){
-
-        return [
-
-            values.reduce(
-                (a,b) =>
-                a+b,
-                0
-            ) /
-            values.length
-
-        ];
-
-    }
-
-
-    const sorted =
-        [...values].sort(
-            (a,b) =>
-            a-b
-        );
-
-
-    let centers = [];
-
-
-    for(
-        let i=0;
-        i<k;
-        i++
-    ){
-
-        const pos =
-            Math.round(
-                i *
-                (
-                    sorted.length -
-                    1
-                ) /
-                (
-                    k -
-                    1
-                )
-            );
-
-
-        centers.push(
-            sorted[pos]
-        );
-
-    }
-
-
-    for(
-        let iteration=0;
-        iteration<30;
-        iteration++
-    ){
-
-        const groups =
-            Array.from(
-            {
-                length:k
-            },
-            () => []
-            );
-
-
-        for(
-            const value of values
-        ){
-
-            let best =
-                0;
-
-            let distance =
-                Math.abs(
-                    value -
-                    centers[0]
-                );
-
-
-            for(
-                let i=1;
-                i<centers.length;
-                i++
-            ){
-
-                const d =
-                    Math.abs(
-                        value -
-                        centers[i]
-                    );
-
-
-                if(
-                    d <
-                    distance
-                ){
-
-                    distance =
-                        d;
-
-                    best =
-                        i;
-
-                }
-
-            }
-
-
-            groups[best].push(
-                value
-            );
-
-        }
-
-
-        let changed =
-            false;
-
-
-        for(
-            let i=0;
-            i<k;
-            i++
-        ){
-
-            if(
-                !groups[i].length
-            ){
-
-                continue;
-            }
-
-
-            const newCenter =
-                groups[i].reduce(
-                    (a,b) =>
-                    a+b,
-                    0
-                ) /
-                groups[i].length;
-
-
-            if(
-                Math.abs(
-                    newCenter -
-                    centers[i]
-                ) >
-                0.5
-            ){
-
-                changed =
-                    true;
-
-            }
-
-
-            centers[i] =
-                newCenter;
-
-        }
-
-
-        if(!changed){
-
-            break;
-        }
-
-    }
-
-
-    return centers.sort(
-        (a,b) =>
-        a-b
-    );
+return [];
 
 }
 
 
-/* =====================================================
-   ESTIMATE COLUMNS
-===================================================== */
+if(k <= 1){
 
-function estimateColumns(rows){
+return [
 
-    if(!rows.length){
+values.reduce(
+(a,b) =>
+a+b,
+0
+) /
+values.length
 
-        return 1;
-    }
+];
 
-
-    const counts =
-        rows
-        .map(
-            row =>
-            makeBlocks(row).length
-        )
-        .filter(
-            n =>
-            n > 0 &&
-            n <= 8
-        );
+}
 
 
-    if(!counts.length){
-
-        return 1;
-    }
-
-
-    const frequency = {};
-
-
-    counts.forEach(
-    function(n){
-
-        frequency[n] =
-            (
-                frequency[n] ||
-                0
-            ) + 1;
-
-    });
+const sorted =
+[...values]
+.sort(
+(a,b) =>
+a-b
+);
 
 
-    let best =
-        1;
-
-    let bestFrequency =
-        0;
+let centers = [];
 
 
-    Object.keys(
-        frequency
-    )
-    .forEach(
-    function(key){
+for(
+let i=0;
+i<k;
+i++
+){
 
-        const n =
-            Number(key);
-
-
-        if(
-            frequency[key] >
-            bestFrequency
-        ){
-
-            best =
-                n;
-
-            bestFrequency =
-                frequency[key];
-
-        }
-
-    });
+const pos =
+Math.round(
+i *
+(
+sorted.length - 1
+) /
+(
+k - 1
+)
+);
 
 
-    return Math.min(
-        8,
-        Math.max(
-            1,
-            best
-        )
-    );
+centers.push(
+sorted[pos]
+);
+
+}
+
+
+for(
+let iteration=0;
+iteration<40;
+iteration++
+){
+
+const groups =
+Array.from(
+{
+length:k
+},
+() =>
+[]
+);
+
+
+for(
+const value of values
+){
+
+let best =
+0;
+
+let distance =
+Math.abs(
+value -
+centers[0]
+);
+
+
+for(
+let i=1;
+i<k;
+i++
+){
+
+const d =
+Math.abs(
+value -
+centers[i]
+);
+
+
+if(d < distance){
+
+distance =
+d;
+
+best =
+i;
+
+}
+
+}
+
+
+groups[best].push(
+value
+);
+
+}
+
+
+let changed =
+false;
+
+
+for(
+let i=0;
+i<k;
+i++
+){
+
+if(
+!groups[i].length
+){
+
+continue;
+
+}
+
+
+const newCenter =
+groups[i].reduce(
+(a,b) =>
+a+b,
+0
+) /
+groups[i].length;
+
+
+if(
+Math.abs(
+newCenter -
+centers[i]
+) > .4
+){
+
+changed =
+true;
+
+}
+
+
+centers[i] =
+newCenter;
+
+}
+
+
+if(!changed){
+
+break;
+
+}
+
+}
+
+
+return centers.sort(
+(a,b) =>
+a-b
+);
 
 }
 
@@ -2679,92 +2603,146 @@ function estimateColumns(rows){
 ===================================================== */
 
 function findColumnCenters(
-    rows,
-    columnCount
+rows,
+columnCount,
+verticalLines
 ){
 
-    let anchors = [];
+/*
+If table borders are detected:
+use the spaces between vertical lines.
+*/
+
+if(
+verticalLines &&
+verticalLines.length >=
+columnCount + 1
+){
+
+const lines =
+[...verticalLines]
+.sort(
+(a,b) =>
+a-b
+);
 
 
-    rows.forEach(
-    function(row){
+/*
+Choose the largest useful sequence
+of columnCount + 1 lines.
+*/
 
-        const blocks =
-            makeBlocks(row);
+let bestSequence =
+null;
 
-
-        if(
-            blocks.length ===
-            columnCount
-        ){
-
-            blocks.forEach(
-                block =>
-                anchors.push(
-                    block.centerX
-                )
-            );
-
-        }
-
-    });
+let bestWidth =
+-1;
 
 
-    if(!anchors.length){
+for(
+let i=0;
+i<=lines.length -
+(
+columnCount + 1
+);
+i++
+){
 
-        rows.forEach(
-        function(row){
-
-            const blocks =
-                makeBlocks(row);
-
-
-            if(
-                blocks.length >=
-                columnCount
-            ){
-
-                blocks
-                .slice(
-                    0,
-                    columnCount
-                )
-                .forEach(
-                    block =>
-                    anchors.push(
-                        block.centerX
-                    )
-                );
-
-            }
-
-        });
-
-    }
+const seq =
+lines.slice(
+i,
+i +
+columnCount +
+1
+);
 
 
-    if(!anchors.length){
-
-        rows.forEach(
-        function(row){
-
-            makeBlocks(row)
-            .forEach(
-                block =>
-                anchors.push(
-                    block.centerX
-                )
-            );
-
-        });
-
-    }
+const total =
+seq[
+seq.length-1
+] -
+seq[0];
 
 
-    return clusterX(
-        anchors,
-        columnCount
-    );
+if(total > bestWidth){
+
+bestWidth =
+total;
+
+bestSequence =
+seq;
+
+}
+
+}
+
+
+if(bestSequence){
+
+const centers = [];
+
+
+for(
+let i=0;
+i<columnCount;
+i++
+){
+
+centers.push(
+(
+bestSequence[i] +
+bestSequence[i+1]
+) / 2
+);
+
+}
+
+
+return centers;
+
+}
+
+}
+
+
+/*
+No visible borders:
+use word positions.
+*/
+
+const values =
+[];
+
+
+rows.forEach(
+function(row){
+
+row.words.forEach(
+function(word){
+
+values.push(
+(
+word.bbox.x0 +
+word.bbox.x1
+) / 2
+);
+
+});
+
+});
+
+
+if(!values.length){
+
+return [];
+
+}
+
+
+return clusterX(
+values,
+columnCount
+);
 
 }
 
@@ -2773,568 +2751,698 @@ function findColumnCenters(
    BUILD TABLE
 ===================================================== */
 
-function buildTableFromRows(
-    rows,
-    columnCount
+function buildTable(
+rows,
+columnCount,
+centers
 ){
 
-    if(!rows.length){
-
-        return [];
-    }
+const result = [];
 
 
-    if(
-        columnCount ===
-        1
-    ){
+if(!rows.length){
 
-        return rows.map(
-        function(row){
+return result;
 
-            return [
+}
 
-                makeBlocks(row)
-                .map(
-                    block =>
-                    block.text
-                )
-                .join(" ")
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim()
 
-            ];
+rows.forEach(
+function(row){
 
-        });
+if(!row.words.length){
 
-    }
+return;
 
+}
 
-    let centers =
-        findColumnCenters(
-            rows,
-            columnCount
-        );
 
+const cells =
+Array.from(
+{
+length:columnCount
+},
+() =>
+[]
+);
 
-    if(
-        centers.length !==
-        columnCount
-    ){
 
-        const allBlocks =
-            rows.flatMap(
-                row =>
-                makeBlocks(row)
-            );
+row.words.forEach(
+function(word){
 
+const centerX =
+(
+word.bbox.x0 +
+word.bbox.x1
+) / 2;
 
-        if(
-            allBlocks.length
-        ){
 
-            const minX =
-                Math.min(
-                    ...allBlocks.map(
-                        b =>
-                        b.x0
-                    )
-                );
+let best =
+0;
 
+let distance =
+Infinity;
 
-            const maxX =
-                Math.max(
-                    ...allBlocks.map(
-                        b =>
-                        b.x1
-                    )
-                );
 
+centers.forEach(
+function(center,index){
 
-            const width =
-                Math.max(
-                    1,
-                    maxX -
-                    minX
-                );
+const d =
+Math.abs(
+centerX -
+center
+);
 
 
-            centers =
-                Array.from(
-                {
-                    length:
-                    columnCount
-                },
-                (_,i) =>
+if(d < distance){
 
-                    minX +
-                    width *
-                    (
-                        i +
-                        0.5
-                    ) /
-                    columnCount
-                );
+distance =
+d;
 
-        }
+best =
+index;
 
-    }
+}
 
+});
 
-    if(
-        centers.length !==
-        columnCount
-    ){
 
-        centers =
-            Array.from(
-            {
-                length:
-                columnCount
-            },
-            (_,i) =>
-            i
-            );
+cells[best].push(
+word
+);
 
-    }
+});
 
 
-    const result = [];
+const rowData =
+cells.map(
+function(cell){
 
+return cell
+.sort(
+(a,b) =>
+a.bbox.x0 -
+b.bbox.x0
+)
+.map(
+w =>
+w.text
+)
+.join(" ")
+.replace(
+/\s+/g,
+" "
+)
+.trim();
 
-    rows.forEach(
-    function(row){
+});
 
-        const blocks =
-            makeBlocks(row);
 
+if(
+rowData.some(
+x =>
+x.length > 0
+)
+){
 
-        if(!blocks.length){
+result.push(
+rowData
+);
 
-            return;
-        }
+}
 
+});
 
-        const cells =
-            Array.from(
-            {
-                length:
-                columnCount
-            },
-            () => []
-            );
 
-
-        blocks.forEach(
-        function(block){
-
-            let bestIndex =
-                0;
-
-            let bestDistance =
-                Infinity;
-
-
-            centers.forEach(
-            function(
-                center,
-                index
-            ){
-
-                const distance =
-                    Math.abs(
-                        block.centerX -
-                        center
-                    );
-
-
-                if(
-                    distance <
-                    bestDistance
-                ){
-
-                    bestDistance =
-                        distance;
-
-                    bestIndex =
-                        index;
-
-                }
-
-            });
-
-
-            cells[
-                bestIndex
-            ].push(
-                block
-            );
-
-        });
-
-
-        const rowData =
-            cells.map(
-            function(cell){
-
-                return cell
-                .sort(
-                    (a,b) =>
-                    a.x0 -
-                    b.x0
-                )
-                .map(
-                    block =>
-                    block.text
-                )
-                .join(" ")
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim();
-
-            });
-
-
-        result.push(
-            rowData
-        );
-
-    });
-
-
-    return result;
+return result;
 
 }
 
 
 /* =====================================================
-   OCR
+   AUTO COLUMN DETECTION
+===================================================== */
+
+function autoColumns(
+rows
+){
+
+if(!rows.length){
+
+return 1;
+
+}
+
+
+const counts =
+rows
+.map(
+row =>
+row.words.length
+)
+.filter(
+n =>
+n >= 1 &&
+n <= 8
+);
+
+
+if(!counts.length){
+
+return 1;
+
+}
+
+
+const frequency = {};
+
+
+counts.forEach(
+n => {
+
+frequency[n] =
+(
+frequency[n] || 0
+) + 1;
+
+});
+
+
+let best =
+1;
+
+let bestFreq =
+0;
+
+
+Object.keys(
+frequency
+).forEach(
+key => {
+
+const n =
+Number(key);
+
+
+if(
+frequency[key] >
+bestFreq
+){
+
+best =
+n;
+
+bestFreq =
+frequency[key];
+
+}
+
+});
+
+
+return Math.min(
+8,
+Math.max(
+1,
+best
+)
+);
+
+}
+
+
+/* =====================================================
+   EXTRACT OCR
 ===================================================== */
 
 extractBtn.addEventListener(
 "click",
 async function(){
 
-    if(!selectedFile){
+if(!selectedFile){
 
-        showStatus(
-            "Please choose an image first.",
-            "error"
-        );
+showStatus(
+"Please choose an image first.",
+"error"
+);
 
-        return;
-    }
+return;
 
+}
 
-    try{
 
-        extractBtn.disabled =
-            true;
+try{
 
+extractBtn.disabled =
+true;
 
-        progressBox.style.display =
-            "block";
+progressBox.style.display =
+"block";
 
+progressBar.style.width =
+"5%";
 
-        progressBar.style.width =
-            "5%";
+progressText.textContent =
+"Preparing image...";
 
 
-        progressText.textContent =
-            "Preparing image...";
+const image =
+await prepareImage(
+selectedFile
+);
 
 
-        const image =
-            await prepareImage(
-                selectedFile
-            );
+progressText.textContent =
+"Starting OCR...";
 
+progressBar.style.width =
+"10%";
 
-        if(
-            typeof Tesseract ===
-            "undefined"
-        ){
 
-            throw new Error(
-                "OCR library is not loaded. Check internet connection."
-            );
+let ocrResult;
 
-        }
 
+try{
 
-        progressText.textContent =
-            "Starting OCR...";
+ocrResult =
+await Tesseract.recognize(
+image,
+language.value,
+{
 
+logger:
+function(info){
 
-        progressBar.style.width =
-            "10%";
+if(
+info.status ===
+"recognizing text"
+){
 
+const p =
+Math.round(
+(
+info.progress ||
+0
+) *
+100
+);
 
-        const result =
-            await Tesseract.recognize(
-                image,
-                language.value,
-                {
+progressBar.style.width =
+(
+10 +
+p *
+.82
+) +
+"%";
 
-                    logger:
-                    function(info){
+progressText.textContent =
+"Reading image... " +
+p +
+"%";
 
-                        if(
-                            info.status ===
-                            "recognizing text"
-                        ){
+}
 
-                            const p =
-                                Math.round(
-                                    (
-                                        info.progress ||
-                                        0
-                                    ) *
-                                    100
-                                );
+},
 
+tessedit_pageseg_mode:
+"6",
 
-                            progressBar.style.width =
-                                (
-                                    10 +
-                                    p *
-                                    0.85
-                                ) +
-                                "%";
+preserve_interword_spaces:
+"1"
 
+}
+);
 
-                            progressText.textContent =
-                                "Reading image... " +
-                                p +
-                                "%";
+}
+catch(error){
 
-                        }
+/*
+If combined language is unavailable,
+try English and Bengali separately.
+*/
 
-                    }
+if(
+language.value ===
+"eng+ben"
+){
 
-                }
-            );
+progressText.textContent =
+"Trying Bengali + English OCR...";
 
+ocrResult =
+await Tesseract.recognize(
+image,
+"ben",
+{
 
-        progressText.textContent =
-            "Building table...";
+logger:
+function(info){
 
+if(
+info.status ===
+"recognizing text"
+){
 
-        progressBar.style.width =
-            "95%";
+const p =
+Math.round(
+(
+info.progress ||
+0
+) *
+100
+);
 
+progressBar.style.width =
+(
+10 +
+p *
+.82
+) +
+"%";
 
-        const words =
-            result.data.words ||
-            [];
+}
 
+}
 
-        const rows =
-            makeRows(
-                words
-            );
+}
+);
 
+}
+else{
 
-        let count;
+throw error;
 
+}
 
-        if(
-            columns.value ===
-            "auto"
-        ){
+}
 
-            count =
-                estimateColumns(
-                    rows
-                );
 
-        }
-        else{
+progressText.textContent =
+"Reconstructing table...";
 
-            count =
-                parseInt(
-                    columns.value,
-                    10
-                );
+progressBar.style.width =
+"92%";
 
-        }
 
+const words =
+normalizeWords(
+ocrResult.data.words || []
+);
 
-        if(
-            !Number.isFinite(count) ||
-            count < 1
-        ){
 
-            count =
-                1;
+const rows =
+makeRows(
+words
+);
 
-        }
 
+if(!rows.length){
 
-        currentColumns =
-            count;
+const text =
+ocrResult.data.text ||
+"";
 
 
-        if(
-            rows.length
-        ){
+const lines =
+text
+.split(/\r?\n/)
+.map(
+x =>
+x.trim()
+)
+.filter(Boolean);
 
-            tableData =
-                buildTableFromRows(
-                    rows,
-                    count
-                );
 
-        }
-        else{
+tableData =
+lines.map(
+line =>
+[line]
+);
 
-            const text =
-                result.data.text ||
-                "";
+currentColumns =
+1;
 
+}
+else{
 
-            tableData =
-                text
-                .split(
-                    /\r?\n/
-                )
-                .map(
-                    line =>
-                    line.trim()
-                )
-                .filter(
-                    Boolean
-                )
-                .map(
-                    line =>
-                    [line]
-                );
+let count;
 
-        }
 
+if(
+columns.value ===
+"auto"
+){
 
-        tableData =
-            tableData.filter(
-            row =>
-                row.some(
-                    cell =>
-                    String(
-                        cell ||
-                        ""
-                    ).trim() !== ""
-                )
-            );
+count =
+autoColumns(
+rows
+);
 
+}
+else{
 
-        if(
-            !tableData.length
-        ){
+count =
+parseInt(
+columns.value,
+10
+);
 
-            throw new Error(
-                "No readable text found. Please try a clearer image."
-            );
+}
 
-        }
 
+if(
+!Number.isFinite(count) ||
+count < 1
+){
 
-        /*
-           Keep requested column count.
-        */
+count =
+1;
 
-        tableData =
-            tableData.map(
-            function(row){
+}
 
-                return Array.from(
-                {
-                    length:
-                    count
-                },
-                (_,i) =>
-                    String(
-                        row[i] ||
-                        ""
-                    ).trim()
-                );
 
-            });
+currentColumns =
+count;
 
 
-        currentColumns =
-            count;
+/*
+Detect physical vertical table lines.
+*/
 
+let verticalLines =
+[];
 
-        renderTable();
 
+if(count > 1){
 
-        progressBar.style.width =
-            "100%";
+verticalLines =
+await findVerticalLines(
+selectedFile,
+words,
+count
+);
 
+}
 
-        progressText.textContent =
-            "Completed!";
 
+let centers =
+findColumnCenters(
+rows,
+count,
+verticalLines
+);
 
-        progressBox.style.display =
-            "none";
 
+/*
+If border detection fails,
+use equal-width geometry based on OCR.
+*/
 
-        resultCard.style.display =
-            "block";
+if(
+centers.length !==
+count
+){
 
+const allX =
+words.map(
+w =>
+(
+w.bbox.x0 +
+w.bbox.x1
+) / 2
+);
 
-        showStatus(
-            "Table extracted successfully.",
-            "success"
-        );
 
+const minX =
+Math.min(
+...allX
+);
 
-        setTimeout(
-        function(){
+const maxX =
+Math.max(
+...allX
+);
 
-            resultCard.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
 
-        },
-        200
-        );
+centers =
+Array.from(
+{
+length:count
+},
+function(_,i){
 
-    }
-    catch(error){
+return minX +
+(
+maxX -
+minX
+) *
+(
+i + .5
+) /
+count;
 
-        console.error(
-            "OCR ERROR:",
-            error
-        );
+}
+);
 
+}
 
-        progressBox.style.display =
-            "none";
 
+tableData =
+buildTable(
+rows,
+count,
+centers
+);
 
-        showStatus(
-            "OCR failed: " +
-            (
-                error.message ||
-                "Please try another image."
-            ),
-            "error"
-        );
+}
 
-    }
-    finally{
 
-        extractBtn.disabled =
-            !selectedFile;
+/*
+Remove completely empty rows.
+*/
 
-    }
+tableData =
+tableData.filter(
+row =>
+row.some(
+cell =>
+String(
+cell || ""
+).trim() !== ""
+)
+);
+
+
+if(!tableData.length){
+
+throw new Error(
+"No readable text found."
+);
+
+}
+
+
+/*
+Force exact number of columns.
+*/
+
+tableData =
+tableData.map(
+function(row){
+
+const newRow =
+Array.from(
+{
+length:currentColumns
+},
+function(_,i){
+
+return String(
+row[i] || ""
+).trim();
+
+});
+
+
+return newRow;
+
+});
+
+
+renderTable();
+
+
+progressBar.style.width =
+"100%";
+
+progressText.textContent =
+"Completed!";
+
+
+setTimeout(
+function(){
+
+progressBox.style.display =
+"none";
+
+},
+500
+);
+
+
+resultCard.style.display =
+"block";
+
+
+showStatus(
+"Table extracted successfully.",
+"success"
+);
+
+
+setTimeout(
+function(){
+
+resultCard.scrollIntoView(
+{
+behavior:"smooth",
+block:"start"
+}
+);
+
+},
+100
+);
+
+}
+catch(error){
+
+console.error(
+"OCR ERROR:",
+error
+);
+
+
+progressBox.style.display =
+"none";
+
+
+showStatus(
+"OCR failed: " +
+(
+error.message ||
+"Please try another image."
+),
+"error"
+);
+
+}
+finally{
+
+extractBtn.disabled =
+!selectedFile;
+
+}
 
 });
 
@@ -3345,127 +3453,157 @@ async function(){
 
 function renderTable(){
 
-    headerRow.innerHTML =
-        "";
+headerRow.innerHTML =
+"";
 
-    tableBody.innerHTML =
-        "";
+tableBody.innerHTML =
+"";
 
-
-    if(!tableData.length){
-
-        return;
-    }
+columnGroup.innerHTML =
+"";
 
 
-    const colCount =
-        currentColumns;
+if(!tableData.length){
+
+return;
+
+}
 
 
-    /*
-       HEADER
-    */
-
-    for(
-        let c=0;
-        c<colCount;
-        c++
-    ){
-
-        const th =
-            document.createElement(
-                "th"
-            );
+const count =
+currentColumns;
 
 
-        th.textContent =
-            "Column " +
-            (
-                c +
-                1
-            );
+/*
+Column widths.
+*/
+
+const widths =
+[];
 
 
-        headerRow.appendChild(
-            th
-        );
+if(count === 1){
 
-    }
+widths.push(100);
 
+}
+else{
 
-    /*
-       BODY
-    */
-
-    tableData.forEach(
-    function(
-        row,
-        rowIndex
-    ){
-
-        const tr =
-            document.createElement(
-                "tr"
-            );
+const first =
+100 / count;
 
 
-        for(
-            let c=0;
-            c<colCount;
-            c++
-        ){
+for(
+let i=0;
+i<count;
+i++
+){
 
-            const td =
-                document.createElement(
-                    "td"
-                );
+widths.push(first);
 
+}
 
-            td.contentEditable =
-                "true";
+}
 
 
-            td.spellcheck =
-                false;
+for(
+let i=0;
+i<count;
+i++
+){
+
+const col =
+document.createElement(
+"col"
+);
+
+col.style.width =
+widths[i] + "%";
+
+columnGroup.appendChild(
+col
+);
 
 
-            td.textContent =
-                row[c] ||
-                "";
+const th =
+document.createElement(
+"th"
+);
+
+th.textContent =
+"Column " +
+(
+i + 1
+);
+
+headerRow.appendChild(
+th
+);
+
+}
 
 
-            td.addEventListener(
-            "input",
-            function(){
+tableData.forEach(
+function(row,rowIndex){
 
-                if(
-                    tableData[
-                        rowIndex
-                    ]
-                ){
-
-                    tableData[
-                        rowIndex
-                    ][c] =
-                        td.innerText;
-
-                }
-
-            });
+const tr =
+document.createElement(
+"tr"
+);
 
 
-            tr.appendChild(
-                td
-            );
+for(
+let c=0;
+c<count;
+c++
+){
 
-        }
+const td =
+document.createElement(
+"td"
+);
 
 
-        tableBody.appendChild(
-            tr
-        );
+td.contentEditable =
+"true";
 
-    });
+td.spellcheck =
+false;
+
+td.textContent =
+row[c] || "";
+
+
+td.addEventListener(
+"input",
+function(){
+
+if(
+tableData[rowIndex]
+){
+
+tableData[
+rowIndex
+][c] =
+td.innerText;
+
+}
+
+});
+
+
+tr.appendChild(
+td
+);
+
+}
+
+
+tableBody.appendChild(
+tr
+);
+
+});
 
 }
 
@@ -3476,305 +3614,164 @@ function renderTable(){
 
 function getTableData(){
 
-    const rows = [];
+const rows = [];
 
 
-    const headerCells =
-        document.querySelectorAll(
-            "#resultTable thead th"
-        );
+const headers =
+document.querySelectorAll(
+"#resultTable thead th"
+);
 
 
-    if(
-        headerCells.length
-    ){
+if(headers.length){
 
-        rows.push(
-            Array.from(
-                headerCells
-            ).map(
-                cell =>
-                cell.innerText.trim()
-            )
-        );
+rows.push(
+Array.from(
+headers
+).map(
+cell =>
+cell.innerText.trim()
+)
+);
 
-    }
+}
 
 
-    const trs =
-        document.querySelectorAll(
-            "#resultTable tbody tr"
-        );
+const trs =
+document.querySelectorAll(
+"#resultTable tbody tr"
+);
 
 
-    trs.forEach(
-    function(tr){
+trs.forEach(
+function(tr){
 
-        rows.push(
-            Array.from(
-                tr.querySelectorAll(
-                    "td"
-                )
-            ).map(
-                cell =>
-                cell.innerText.trim()
-            )
-        );
+rows.push(
+Array.from(
+tr.querySelectorAll("td")
+).map(
+cell =>
+cell.innerText.trim()
+)
+);
 
-    });
+});
 
 
-    return rows;
+return rows;
 
 }
 
 
 /* =====================================================
-   EXCEL DOWNLOAD
+   DOWNLOAD EXCEL
 ===================================================== */
 
 downloadExcel.addEventListener(
 "click",
 function(){
 
-    try{
+try{
 
-        if(
-            typeof XLSX ===
-            "undefined"
-        ){
+if(
+typeof XLSX ===
+"undefined"
+){
 
-            alert(
-                "Excel library is not loaded."
-            );
+alert(
+"Excel library is not loaded. Please refresh the page."
+);
 
-            return;
-        }
+return;
 
-
-        const data =
-            getTableData();
+}
 
 
-        if(
-            !data.length
-        ){
-
-            alert(
-                "No table data available."
-            );
-
-            return;
-        }
+const data =
+getTableData();
 
 
-        const worksheet =
-            XLSX.utils.aoa_to_sheet(
-                data
-            );
+if(!data.length){
+
+alert(
+"No table data available."
+);
+
+return;
+
+}
 
 
-        /*
-           COLUMN WIDTH
-        */
-
-        const widths = [];
-
-
-        data.forEach(
-        function(row){
-
-            row.forEach(
-            function(
-                value,
-                index
-            ){
-
-                const length =
-                    String(
-                        value ||
-                        ""
-                    ).length;
+const worksheet =
+XLSX.utils.aoa_to_sheet(
+data
+);
 
 
-                widths[index] =
-                    Math.max(
-                        widths[index] ||
-                        10,
-                        Math.min(
-                            length +
-                            2,
-                            50
-                        )
-                    );
-
-            });
-
-        });
+const widths = [];
 
 
-        worksheet["!cols"] =
-            widths.map(
-                w => ({
-                    wch:w
-                })
-            );
+data.forEach(
+function(row){
+
+row.forEach(
+function(value,index){
+
+const length =
+String(
+value || ""
+).length;
 
 
-        /*
-           EXCEL CELL STYLE
+widths[index] =
+Math.max(
+widths[index] || 10,
+Math.min(
+length + 2,
+50
+)
+);
 
-           White cells
-           Clear borders
-           Bold header
-        */
+});
 
-        data.forEach(
-        function(row,rowIndex){
-
-            row.forEach(
-            function(
-                value,
-                colIndex
-            ){
-
-                const cellAddress =
-                    XLSX.utils.encode_cell({
-                        r:rowIndex,
-                        c:colIndex
-                    });
+});
 
 
-                if(
-                    !worksheet[
-                        cellAddress
-                    ]
-                ){
-
-                    worksheet[
-                        cellAddress
-                    ] = {
-                        v:
-                        value
-                    };
-
-                }
+worksheet["!cols"] =
+widths.map(
+w =>
+({
+wch:w
+})
+);
 
 
-                worksheet[
-                    cellAddress
-                ].s = {
-
-                    fill:{
-                        patternType:
-                            "solid",
-                        fgColor:{
-                            rgb:
-                            rowIndex === 0
-                            ? "D8F0FC"
-                            : "FFFFFF"
-                        }
-                    },
-
-                    font:{
-                        bold:
-                            rowIndex === 0
-                    },
-
-                    alignment:{
-                        vertical:
-                            "top",
-                        wrapText:
-                            true
-                    },
-
-                    border:{
-
-                        top:{
-                            style:
-                            rowIndex === 0
-                            ? "medium"
-                            : "thin",
-                            color:{
-                                rgb:
-                                "59666E"
-                            }
-                        },
-
-                        bottom:{
-                            style:
-                            rowIndex === 0
-                            ? "medium"
-                            : "thin",
-                            color:{
-                                rgb:
-                                "59666E"
-                            }
-                        },
-
-                        left:{
-                            style:
-                            "thin",
-                            color:{
-                                rgb:
-                                "59666E"
-                            }
-                        },
-
-                        right:{
-                            style:
-                            "thin",
-                            color:{
-                                rgb:
-                                "59666E"
-                            }
-                        }
-
-                    }
-
-                };
-
-            });
-
-        });
+const workbook =
+XLSX.utils.book_new();
 
 
-        const workbook =
-            XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(
+workbook,
+worksheet,
+"Image Data"
+);
 
 
-        XLSX.utils.book_append_sheet(
-            workbook,
-            worksheet,
-            "Image Data"
-        );
+XLSX.writeFile(
+workbook,
+"Asim_Tech_Image_to_Excel.xlsx"
+);
 
+}
+catch(error){
 
-        XLSX.writeFile(
-            workbook,
-            "Asim_Tech_Image_to_Excel.xlsx"
-        );
+console.error(error);
 
+alert(
+"Excel download failed."
+);
 
-        showStatus(
-            "Excel downloaded successfully.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        console.error(
-            "EXCEL ERROR:",
-            error
-        );
-
-
-        alert(
-            "Excel download failed. Please try again."
-        );
-
-    }
+}
 
 });
 
@@ -3787,90 +3784,60 @@ downloadCSV.addEventListener(
 "click",
 function(){
 
-    try{
-
-        const data =
-            getTableData();
+const data =
+getTableData();
 
 
-        if(
-            !data.length
-        ){
+if(!data.length){
 
-            alert(
-                "No table data available."
-            );
+alert(
+"No table data available."
+);
 
-            return;
-        }
+return;
 
-
-        const csv =
-            data
-            .map(
-            function(row){
-
-                return row
-                .map(
-                function(value){
-
-                    return '"' +
-                        String(
-                            value ||
-                            ""
-                        )
-                        .replace(
-                            /"/g,
-                            '""'
-                        ) +
-                        '"';
-
-                })
-                .join(",");
-
-            })
-            .join(
-                "\r\n"
-            );
+}
 
 
-        const blob =
-            new Blob(
-            [
-                "\uFEFF" +
-                csv
-            ],
-            {
-                type:
-                "text/csv;charset=utf-8"
-            }
-            );
+const csv =
+data
+.map(
+row =>
+row
+.map(
+value =>
+'"' +
+String(
+value || ""
+)
+.replace(
+/"/g,
+'""'
+) +
+'"'
+)
+.join(",")
+)
+.join("\r\n");
 
 
-        downloadBlob(
-            blob,
-            "Asim_Tech_Image_to_Excel.csv"
-        );
+const blob =
+new Blob(
+[
+"\uFEFF" +
+csv
+],
+{
+type:
+"text/csv;charset=utf-8"
+}
+);
 
 
-        showStatus(
-            "CSV downloaded successfully.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        console.error(
-            error
-        );
-
-
-        alert(
-            "CSV download failed."
-        );
-
-    }
+downloadBlob(
+blob,
+"Asim_Tech_Image_to_Excel.csv"
+);
 
 });
 
@@ -3880,63 +3847,60 @@ function(){
 ===================================================== */
 
 function downloadBlob(
-    blob,
-    filename
+blob,
+filename
 ){
 
-    const url =
-        URL.createObjectURL(
-            blob
-        );
+const url =
+URL.createObjectURL(
+blob
+);
 
 
-    const a =
-        document.createElement(
-            "a"
-        );
+const a =
+document.createElement(
+"a"
+);
 
 
-    a.href =
-        url;
+a.href =
+url;
+
+a.download =
+filename;
+
+a.style.display =
+"none";
 
 
-    a.download =
-        filename;
+document.body.appendChild(
+a
+);
 
 
-    a.style.display =
-        "none";
+a.click();
 
 
-    document.body.appendChild(
-        a
-    );
+setTimeout(
+function(){
 
+if(
+a.parentNode
+){
 
-    a.click();
+a.parentNode.removeChild(
+a
+);
 
+}
 
-    setTimeout(
-    function(){
+URL.revokeObjectURL(
+url
+);
 
-        if(
-            a.parentNode
-        ){
-
-            a.parentNode.removeChild(
-                a
-            );
-
-        }
-
-
-        URL.revokeObjectURL(
-            url
-        );
-
-    },
-    2000
-    );
+},
+1500
+);
 
 }
 
@@ -3949,14 +3913,14 @@ addRow.addEventListener(
 "click",
 function(){
 
-    tableData.push(
-        Array(
-            currentColumns
-        ).fill("")
-    );
+tableData.push(
+Array(
+currentColumns
+).fill("")
+);
 
 
-    renderTable();
+renderTable();
 
 });
 
@@ -3969,164 +3933,130 @@ addColumn.addEventListener(
 "click",
 function(){
 
-    if(
-        !tableData.length
-    ){
+if(!tableData.length){
 
-        tableData.push(
-            Array(
-                currentColumns
-            ).fill("")
-        );
+tableData.push(
+Array(
+currentColumns
+).fill("")
+);
 
-    }
+}
 
 
-    tableData.forEach(
-        row =>
-        row.push("")
-    );
+tableData.forEach(
+function(row){
+
+row.push("");
+
+});
 
 
-    currentColumns +=
-        1;
+currentColumns +=
+1;
 
 
-    renderTable();
+renderTable();
 
 });
 
 
 /* =====================================================
-   COPY TABLE
+   COPY
 ===================================================== */
 
 copyTable.addEventListener(
 "click",
 async function(){
 
-    const data =
-        getTableData();
+const data =
+getTableData();
 
 
-    if(
-        !data.length
-    ){
-
-        alert(
-            "No table data available."
-        );
-
-        return;
-    }
+const text =
+data
+.map(
+row =>
+row.join("\t")
+)
+.join("\n");
 
 
-    const text =
-        data
-        .map(
-            row =>
-            row.join("\t")
-        )
-        .join("\n");
+try{
+
+await navigator.clipboard.writeText(
+text
+);
 
 
-    try{
+showStatus(
+"Table copied successfully.",
+"success"
+);
 
-        await navigator.clipboard.writeText(
-            text
-        );
+}
+catch(error){
 
-
-        showStatus(
-            "Table copied successfully.",
-            "success"
-        );
-
-    }
-    catch(error){
-
-        const textarea =
-            document.createElement(
-                "textarea"
-            );
+const textarea =
+document.createElement(
+"textarea"
+);
 
 
-        textarea.value =
-            text;
+textarea.value =
+text;
 
 
-        textarea.style.position =
-            "fixed";
+document.body.appendChild(
+textarea
+);
+
+textarea.select();
+
+document.execCommand(
+"copy"
+);
+
+document.body.removeChild(
+textarea
+);
 
 
-        textarea.style.left =
-            "-9999px";
+showStatus(
+"Table copied.",
+"success"
+);
 
-
-        document.body.appendChild(
-            textarea
-        );
-
-
-        textarea.focus();
-
-        textarea.select();
-
-
-        try{
-
-            document.execCommand(
-                "copy"
-            );
-
-
-            showStatus(
-                "Table copied successfully.",
-                "success"
-            );
-
-        }
-        catch(e){
-
-            showStatus(
-                "Could not copy table.",
-                "error"
-            );
-
-        }
-
-
-        document.body.removeChild(
-            textarea
-        );
-
-    }
+}
 
 });
 
 
 /* =====================================================
-   CLEAR TABLE
+   CLEAR RESULT TABLE
 ===================================================== */
 
 clearTable.addEventListener(
 "click",
 function(){
 
-    tableData =
-        [];
+tableData =
+[];
 
-    currentColumns =
-        1;
+currentColumns =
+1;
 
-    headerRow.innerHTML =
-        "";
+headerRow.innerHTML =
+"";
 
-    tableBody.innerHTML =
-        "";
+tableBody.innerHTML =
+"";
 
-    resultCard.style.display =
-        "none";
+columnGroup.innerHTML =
+"";
+
+resultCard.style.display =
+"none";
 
 });
 
@@ -4136,43 +4066,43 @@ function(){
 ===================================================== */
 
 if(
-    "serviceWorker" in navigator
+"serviceWorker" in navigator
 ){
 
-    window.addEventListener(
-    "load",
-    function(){
+window.addEventListener(
+"load",
+function(){
 
-        navigator.serviceWorker
-        .register(
-            "./sw.js",
-            {
-                updateViaCache:
-                    "none"
-            }
-        )
-        .then(
-        function(registration){
+navigator.serviceWorker
+.register(
+"./sw.js",
+{
+updateViaCache:
+"none"
+}
+)
+.then(
+registration => {
 
-            registration.update();
+registration.update();
 
-        })
-        .catch(
-        function(error){
+}
+)
+.catch(
+error => {
 
-            console.log(
-                "Service Worker:",
-                error
-            );
+console.log(
+"Service Worker:",
+error
+);
 
-        });
+});
 
-    });
+});
 
 }
 
 </script>
-
 
 </body>
 
