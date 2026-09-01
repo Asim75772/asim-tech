@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -19,7 +18,9 @@ content="Asim Multimedia Studio - Audio, Video, Photo, Recording and Creative To
 
 <style>
 
-/* ================= RESET ================= */
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -39,10 +40,13 @@ body{
 }
 
 
-/* ================= HERO ================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     position:relative;
+
     background:
     radial-gradient(
         circle at top right,
@@ -55,20 +59,33 @@ body{
         #6525ff,
         #a126ff
     );
+
     color:white;
     text-align:center;
+
     padding:32px 15px 40px;
-    box-shadow:0 12px 35px rgba(70,40,200,.28);
+
+    box-shadow:
+    0 12px 35px rgba(70,40,200,.28);
+
+    overflow:hidden;
 }
 
 .logo{
     width:180px;
     max-width:65%;
     height:auto;
+
     display:block;
+
     margin:0 auto 14px;
+
     object-fit:contain;
-    filter:drop-shadow(0 8px 18px rgba(0,0,0,.2));
+
+    filter:
+    drop-shadow(
+        0 8px 18px rgba(0,0,0,.2)
+    );
 }
 
 .hero h1{
@@ -83,7 +100,9 @@ body{
 }
 
 
-/* ================= INSTALL ================= */
+/* =====================================================
+   INSTALL
+===================================================== */
 
 .install-area{
     text-align:center;
@@ -92,38 +111,67 @@ body{
 
 #installBtn{
     display:none;
+
     border:0;
     border-radius:14px;
+
     padding:13px 21px;
+
     color:white;
-    background:linear-gradient(135deg,#5425ff,#9225ff);
+
+    background:
+    linear-gradient(
+        135deg,
+        #5425ff,
+        #9225ff
+    );
+
     font-size:14px;
     font-weight:800;
+
     cursor:pointer;
-    box-shadow:0 8px 22px rgba(85,35,255,.25);
+
+    box-shadow:
+    0 8px 22px rgba(85,35,255,.25);
 }
 
 
-/* ================= NAVIGATION ================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .nav{
     width:94%;
     max-width:1050px;
+
     margin:15px auto 20px;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:12px;
 }
 
 .nav button{
     min-height:92px;
+
     border:0;
+
     border-radius:20px;
+
     background:white;
+
     color:#172033;
+
     cursor:pointer;
+
     padding:13px 8px;
-    box-shadow:0 8px 25px rgba(50,70,130,.11);
+
+    box-shadow:
+    0 8px 25px rgba(50,70,130,.11);
+
     transition:.22s;
 }
 
@@ -152,8 +200,16 @@ body{
 
 .nav button.active{
     color:white;
-    background:linear-gradient(135deg,#5035ee,#8a27ff);
-    box-shadow:0 12px 30px rgba(80,40,240,.28);
+
+    background:
+    linear-gradient(
+        135deg,
+        #5035ee,
+        #8a27ff
+    );
+
+    box-shadow:
+    0 12px 30px rgba(80,40,240,.28);
 }
 
 .nav button.active small{
@@ -161,25 +217,38 @@ body{
 }
 
 
-/* ================= MAIN ================= */
+/* =====================================================
+   MAIN
+===================================================== */
 
 main{
     width:94%;
     max-width:1050px;
+
     margin:20px auto 70px;
 }
 
 
-/* ================= PANEL ================= */
+/* =====================================================
+   PANEL
+===================================================== */
 
 .panel{
     display:none;
+
     background:white;
+
     border-radius:25px;
+
     padding:27px;
+
     margin-bottom:25px;
-    box-shadow:0 14px 45px rgba(45,60,120,.11);
-    animation:panelIn .25s ease;
+
+    box-shadow:
+    0 14px 45px rgba(45,60,120,.11);
+
+    animation:
+    panelIn .25s ease;
 }
 
 .panel.active{
@@ -202,44 +271,67 @@ main{
 
 .panel h2{
     color:#4032a5;
-    font-size:clamp(24px,5vw,37px);
+
+    font-size:
+    clamp(24px,5vw,37px);
+
     margin-bottom:8px;
 }
 
 .panel-description{
     color:#6c7890;
+
     font-size:13px;
+
     line-height:1.7;
+
     margin-bottom:20px;
 }
 
 
-/* ================= BADGES ================= */
+/* =====================================================
+   FEATURE BADGES
+===================================================== */
 
 .feature-row{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:7px;
+
     margin:12px 0 18px;
 }
 
 .feature-badge{
     padding:7px 11px;
+
     border-radius:20px;
+
     background:#f0efff;
+
     color:#5140b8;
+
     font-size:11px;
+
     font-weight:800;
 }
 
 
-/* ================= FILE ================= */
+/* =====================================================
+   FILE BOX
+===================================================== */
 
 .file-box{
-    border:2px dashed #aebaf0;
+    border:
+    2px dashed #aebaf0;
+
     border-radius:17px;
+
     padding:18px;
+
     background:#f8f9ff;
+
     margin:15px 0;
 }
 
@@ -249,7 +341,9 @@ main{
 }
 
 
-/* ================= MEDIA ================= */
+/* =====================================================
+   MEDIA
+===================================================== */
 
 audio,
 video{
@@ -264,17 +358,27 @@ video{
 }
 
 
-/* ================= BUTTONS ================= */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .btn{
     border:0;
+
     padding:12px 18px;
+
     border-radius:12px;
+
     color:white;
+
     font-size:13px;
+
     font-weight:800;
+
     cursor:pointer;
+
     margin:5px 3px;
+
     transition:.2s;
 }
 
@@ -290,7 +394,12 @@ video{
 }
 
 .primary{
-    background:linear-gradient(135deg,#5135ed,#8528ff);
+    background:
+    linear-gradient(
+        135deg,
+        #5135ed,
+        #8528ff
+    );
 }
 
 .success{
@@ -302,7 +411,12 @@ video{
 }
 
 .orange{
-    background:linear-gradient(135deg,#ff8a00,#ff3d4d);
+    background:
+    linear-gradient(
+        135deg,
+        #ff8a00,
+        #ff3d4d
+    );
 }
 
 .dark{
@@ -310,292 +424,546 @@ video{
 }
 
 
-/* ================= STATUS ================= */
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status{
     margin-top:15px;
+
     padding:12px;
+
     text-align:center;
+
     border-radius:12px;
+
     background:#f0f3fb;
+
     color:#52617b;
+
     font-size:13px;
 }
 
 
-/* ================= AUDIO STUDIO ================= */
+/* =====================================================
+   FINAL AUDIO STUDIO
+===================================================== */
 
-.audio-studio{
+.final-audio{
+    background:
+    linear-gradient(
+        145deg,
+        #0b1224,
+        #182443
+    );
+
+    border-radius:24px;
+
     padding:20px;
-    border-radius:20px;
-    background:linear-gradient(135deg,#101827,#1b2540);
+
     color:white;
-    box-shadow:0 12px 30px rgba(20,25,60,.15);
+
+    box-shadow:
+    0 15px 40px rgba(20,25,70,.25);
 }
 
-.audio-title{
-    font-size:18px;
-    font-weight:900;
+.final-audio-title{
     text-align:center;
-    margin-bottom:10px;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    margin-bottom:14px;
+
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 }
 
-.audio-time{
+.final-audio-time{
     display:flex;
+
     justify-content:space-between;
-    color:#b8c2d8;
+
     font-size:11px;
+
+    color:#bfc8dc;
+
+    margin-bottom:5px;
 }
 
-.audio-studio audio{
+.final-progress{
     width:100%;
-    margin:8px 0;
+
+    height:7px;
+
+    accent-color:#8b2cff;
+
+    cursor:pointer;
 }
 
-.audio-controls{
+.final-audio-player{
+    width:100%;
+
+    margin:10px 0;
+
+    height:45px;
+}
+
+.final-main-controls{
     display:flex;
+
     justify-content:center;
-    flex-wrap:wrap;
-}
 
-.audio-options{
-    display:flex;
     align-items:center;
-    justify-content:center;
+
+    gap:8px;
+
     flex-wrap:wrap;
-    gap:10px;
-    margin-top:12px;
-    padding-top:12px;
-    border-top:1px solid rgba(255,255,255,.1);
+
+    margin:15px 0;
 }
 
-.audio-options label{
-    font-size:11px;
-    font-weight:800;
-    color:#c8d0e2;
-}
-
-.audio-options input[type="range"]{
-    width:120px;
-}
-
-.audio-options select{
-    padding:7px 9px;
+.final-main-controls button{
     border:0;
-    border-radius:8px;
-    background:white;
-    color:#172033;
-    font-size:11px;
-    font-weight:700;
+
+    border-radius:13px;
+
+    padding:12px 16px;
+
+    color:white;
+
+    font-weight:900;
+
+    cursor:pointer;
 }
 
-
-/* ================= PLAYLIST ================= */
-
-.playlist-heading{
-    margin-top:22px;
-    margin-bottom:10px;
-    color:#302d83;
-    font-size:18px;
+.final-prev,
+.final-next{
+    background:#536b82;
 }
 
-.audio-playlist{
+.final-play{
+    background:
+    linear-gradient(
+        135deg,
+        #5425ff,
+        #a126ff
+    );
+
+    min-width:90px;
+}
+
+.final-pause{
+    background:#536b82;
+}
+
+.final-extra-controls{
     display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin:10px 0;
+}
+
+.final-extra-controls button{
+    border:0;
+
+    border-radius:12px;
+
+    padding:11px 14px;
+
+    color:white;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.final-shuffle{
+    background:
+    linear-gradient(
+        135deg,
+        #ff8a00,
+        #ff304d
+    );
+}
+
+.final-repeat{
+    background:#536b82;
+}
+
+.final-audio-options{
+    border-top:
+    1px solid rgba(255,255,255,.12);
+
+    margin-top:16px;
+
+    padding-top:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.final-audio-options label{
+    font-size:12px;
+
+    font-weight:800;
+
+    color:#d4dbea;
+}
+
+.final-audio-options input{
+    width:120px;
+
+    accent-color:#8b2cff;
+}
+
+.final-audio-options select{
+    padding:8px 10px;
+
+    border:0;
+
+    border-radius:9px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   PLAYLIST
+===================================================== */
+
+.final-playlist-title{
+    color:#4032a5;
+
+    font-size:20px;
+
+    margin:20px 0 10px;
+}
+
+.final-playlist{
+    display:flex;
+
     flex-direction:column;
+
     gap:7px;
 }
 
-.empty-playlist{
+.final-empty{
+    background:#f1f4ff;
+
+    color:#748097;
+
     padding:18px;
+
     text-align:center;
+
     border-radius:13px;
-    background:#f3f5ff;
-    color:#7b879c;
+
     font-size:12px;
 }
 
-.playlist-item{
+.final-song{
     display:flex;
+
     align-items:center;
+
     gap:8px;
+
     padding:11px;
+
     border-radius:12px;
+
     background:#f5f7ff;
-    border:1px solid #e2e6fa;
+
+    border:
+    1px solid #e1e6fa;
+
     cursor:pointer;
 }
 
-.playlist-item.active{
-    background:#e9e5ff;
-    border-color:#765cff;
+.final-song.active{
+    background:#e9e3ff;
+
+    border-color:#704cff;
 }
 
-.playlist-number{
-    min-width:25px;
-    height:25px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.final-song-number{
+    width:27px;
+
+    height:27px;
+
     border-radius:50%;
-    background:#6241ee;
+
+    background:#633cf0;
+
     color:white;
-    font-size:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:11px;
+
     font-weight:900;
+
+    flex-shrink:0;
 }
 
-.playlist-name{
+.final-song-name{
     flex:1;
+
     min-width:0;
+
+    color:#303950;
+
     font-size:12px;
-    font-weight:700;
-    color:#303a52;
+
+    font-weight:800;
+
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 }
 
-.playlist-remove{
+.final-remove{
     border:0;
-    background:#ffe8eb;
-    color:#ef233c;
+
     width:28px;
+
     height:28px;
+
     border-radius:8px;
+
+    background:#ffe8ed;
+
+    color:#ef233c;
+
+    font-size:18px;
+
     cursor:pointer;
-    font-weight:900;
 }
 
 
-/* ================= SLIDESHOW ================= */
+/* =====================================================
+   SLIDESHOW
+===================================================== */
 
 .slideshow{
     width:100%;
+
     min-height:280px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     overflow:hidden;
+
     border-radius:19px;
+
     background:#10131c;
 }
 
 .slideshow img{
     max-width:100%;
+
     max-height:500px;
+
     object-fit:contain;
 }
 
 .slide-controls{
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:7px;
+
     margin-top:12px;
 }
 
 .thumbs{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(90px,1fr));
+
     gap:8px;
+
     margin-top:15px;
 }
 
 .thumbs img{
     width:100%;
+
     height:80px;
+
     object-fit:cover;
+
     border-radius:10px;
+
     cursor:pointer;
 }
 
 
-/* ================= RECORDER ================= */
+/* =====================================================
+   RECORDER
+===================================================== */
 
 .recorder-box{
     padding:22px;
+
     border-radius:20px;
-    background:linear-gradient(135deg,#101827,#17223a);
+
+    background:
+    linear-gradient(
+        135deg,
+        #101827,
+        #17223a
+    );
+
     color:white;
+
     text-align:center;
 }
 
 .timer{
     font-size:38px;
+
     font-weight:900;
+
     margin:15px;
 }
 
 
-/* ================= CAMERA ================= */
+/* =====================================================
+   CAMERA
+===================================================== */
 
 .camera-preview{
     width:100%;
+
     background:#000;
+
     border-radius:20px;
+
     overflow:hidden;
 }
 
 .camera-preview video{
     display:block;
+
     width:100%;
+
     margin:0;
+
     max-height:600px;
 }
 
 
-/* ================= VIDEO MAKER ================= */
+/* =====================================================
+   VIDEO MAKER
+===================================================== */
 
 .video-maker-preview{
     width:100%;
+
     min-height:280px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     background:#000;
+
     border-radius:20px;
+
     overflow:hidden;
 }
 
 .video-maker-preview img{
     max-width:100%;
+
     max-height:420px;
+
     object-fit:contain;
 }
 
 .option-row{
     display:flex;
+
     flex-wrap:wrap;
+
     align-items:center;
+
     gap:8px;
+
     margin:13px 0;
 }
 
 .option-row label{
     font-size:12px;
+
     font-weight:700;
 }
 
 .option-row select{
     padding:9px;
-    border:1px solid #ccd4ed;
+
+    border:
+    1px solid #ccd4ed;
+
     border-radius:8px;
+
     background:white;
 }
 
 
-/* ================= DOWNLOAD ================= */
+/* =====================================================
+   DOWNLOAD
+===================================================== */
 
 .download-box{
     display:none;
+
     margin-top:18px;
+
     padding:16px;
+
     text-align:center;
+
     border-radius:15px;
+
     background:#effff5;
-    border:1px solid #a7e9c2;
+
+    border:
+    1px solid #a7e9c2;
 }
 
 .download-box.show{
@@ -604,77 +972,116 @@ video{
 
 .download-link{
     display:inline-block;
+
     margin-top:10px;
+
     padding:12px 20px;
+
     border-radius:11px;
+
     background:#00a95c;
+
     color:white;
+
     text-decoration:none;
+
     font-weight:800;
 }
 
 
-/* ================= TOOLS ================= */
+/* =====================================================
+   TOOLS
+===================================================== */
 
 .tool-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:14px;
+
     margin-top:20px;
 }
 
 .tool-card{
     padding:20px;
+
     border-radius:19px;
-    background:linear-gradient(135deg,#f7f8ff,#f0f3ff);
-    border:1px solid #e2e6fa;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f7f8ff,
+        #f0f3ff
+    );
+
+    border:
+    1px solid #e2e6fa;
 }
 
 .tool-card h3{
     margin-bottom:7px;
+
     color:#302d83;
 }
 
 .tool-card p{
     color:#738097;
+
     font-size:12px;
+
     line-height:1.6;
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     text-align:center;
+
     padding:30px 15px;
+
     color:#718098;
+
     font-size:12px;
 }
 
 .footer-brand{
     font-size:19px;
+
     font-weight:900;
+
     color:#352b91;
+
     margin-bottom:7px;
 }
 
 
-/* ================= MOBILE ================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:750px){
 
     .nav{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
+
         gap:9px;
     }
 
     .nav button{
         min-height:84px;
+
         border-radius:17px;
     }
 
     .panel{
         padding:18px;
+
         border-radius:20px;
     }
 
@@ -718,29 +1125,24 @@ footer{
         padding:15px;
     }
 
-    .audio-options{
+    .final-audio-options{
         flex-direction:column;
     }
 
 }
 
 
-/* ================= AUDIO EXTRA BUTTONS ================= */
+/* =====================================================
+   EXTRA
+===================================================== */
 
-.audio-extra{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:8px;
-}
-
-.shuffle-on{
-    background:linear-gradient(135deg,#00a95c,#00c875)!important;
-}
-
-.repeat-on{
-    background:linear-gradient(135deg,#00a95c,#00c875)!important;
+.on-button{
+    background:
+    linear-gradient(
+        135deg,
+        #00a95c,
+        #00c875
+    ) !important;
 }
 
 </style>
@@ -751,7 +1153,9 @@ footer{
 <body>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -772,7 +1176,9 @@ Audio • Video • Photos • Recording • Creative Tools
 </section>
 
 
-<!-- ================= INSTALL ================= -->
+<!-- =====================================================
+     INSTALL
+===================================================== -->
 
 <div class="install-area">
 
@@ -783,11 +1189,15 @@ Audio • Video • Photos • Recording • Creative Tools
 </div>
 
 
-<!-- ================= NAVIGATION ================= -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <div class="nav">
 
-<button class="active" data-panel="audio">
+<button
+class="active"
+data-panel="audio">
 
 <span>🎵</span>
 
@@ -798,7 +1208,8 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 
-<button data-panel="video">
+<button
+data-panel="video">
 
 <span>🎬</span>
 
@@ -809,7 +1220,8 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 
-<button data-panel="slideshow">
+<button
+data-panel="slideshow">
 
 <span>🖼️</span>
 
@@ -820,7 +1232,8 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 
-<button data-panel="videoMaker">
+<button
+data-panel="videoMaker">
 
 <span>🎞️</span>
 
@@ -831,7 +1244,8 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 
-<button data-panel="voice">
+<button
+data-panel="voice">
 
 <span>🎙️</span>
 
@@ -842,7 +1256,8 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 
-<button data-panel="camera">
+<button
+data-panel="camera">
 
 <span>📷</span>
 
@@ -853,7 +1268,8 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 
-<button data-panel="screen">
+<button
+data-panel="screen">
 
 <span>🖥️</span>
 
@@ -864,7 +1280,8 @@ Audio • Video • Photos • Recording • Creative Tools
 </button>
 
 
-<button data-panel="tools">
+<button
+data-panel="tools">
 
 <span>🛠️</span>
 
@@ -881,19 +1298,20 @@ Audio • Video • Photos • Recording • Creative Tools
 
 
 <!-- =====================================================
-     AUDIO
+     FINAL AUDIO STUDIO
 ===================================================== -->
 
-<section class="panel active" id="audio">
+<section
+class="panel active"
+id="audio">
 
 <h2>
-🎵 Audio Studio
+🎵 Final Audio Studio
 </h2>
 
 <p class="panel-description">
-Play your music and audio files with playlist,
-shuffle, repeat, volume and playback speed controls.
-Your files stay on your device.
+Play local music with playlist, shuffle, repeat,
+progress control, volume and playback speed.
 </p>
 
 
@@ -916,6 +1334,10 @@ Your files stay on your device.
 </span>
 
 <span class="feature-badge">
+🎚️ Progress
+</span>
+
+<span class="feature-badge">
 🔊 Volume
 </span>
 
@@ -930,94 +1352,105 @@ Your files stay on your device.
 
 <input
 type="file"
-id="audioFiles"
+id="finalAudioFiles"
 accept="audio/*"
 multiple>
 
 </div>
 
 
-<div class="audio-studio">
+<div class="final-audio">
 
 <div
-class="audio-title"
-id="audioTitle">
+class="final-audio-title"
+id="finalAudioTitle">
 
 No audio selected
 
 </div>
 
 
-<div class="audio-time">
+<div class="final-audio-time">
 
-<span id="audioCurrentTime">
+<span id="finalCurrent">
 00:00
 </span>
 
-<span id="audioDuration">
+<span id="finalDuration">
 00:00
 </span>
 
 </div>
 
 
+<input
+type="range"
+id="finalProgress"
+class="final-progress"
+min="0"
+max="100"
+value="0">
+
+
 <audio
-id="audioPlayer"
-controls>
+id="finalAudioPlayer"
+class="final-audio-player"
+controls
+preload="metadata">
 </audio>
 
 
-<div class="audio-controls">
+<div class="final-main-controls">
 
 <button
-class="btn dark"
-id="audioPrevious">
+class="final-prev"
+id="finalPrev">
 ⏮ Previous
 </button>
 
 
 <button
-class="btn primary"
-id="audioPlay">
+class="final-play"
+id="finalPlay">
 ▶ Play
 </button>
 
 
 <button
-class="btn dark"
-id="audioPause">
+class="final-pause"
+id="finalPause">
 ⏸ Pause
 </button>
 
 
 <button
-class="btn dark"
-id="audioNext">
+class="final-next"
+id="finalNext">
 Next ⏭
 </button>
 
 </div>
 
 
-<div class="audio-extra">
+<div class="final-extra-controls">
 
 <button
-class="btn orange"
-id="audioShuffle">
+class="final-shuffle"
+id="finalShuffle">
 🔀 Shuffle: OFF
 </button>
 
 
 <button
-class="btn dark"
-id="audioRepeat">
+class="final-repeat"
+id="finalRepeat">
 🔁 Repeat: OFF
 </button>
 
 </div>
 
 
-<div class="audio-options">
+<div class="final-audio-options">
 
 <label>
 🔊 Volume
@@ -1025,7 +1458,7 @@ id="audioRepeat">
 
 <input
 type="range"
-id="audioVolume"
+id="finalVolume"
 min="0"
 max="1"
 step="0.05"
@@ -1036,7 +1469,8 @@ value="1">
 ⚡ Speed
 </label>
 
-<select id="audioSpeed">
+<select
+id="finalSpeed">
 
 <option value="0.5">
 0.5×
@@ -1070,16 +1504,16 @@ selected>
 </div>
 
 
-<h3 class="playlist-heading">
+<h3 class="final-playlist-title">
 📋 Playlist
 </h3>
 
 
 <div
-id="audioPlaylist"
-class="audio-playlist">
+class="final-playlist"
+id="finalPlaylist">
 
-<div class="empty-playlist">
+<div class="final-empty">
 Select audio files to create playlist
 </div>
 
@@ -1088,7 +1522,7 @@ Select audio files to create playlist
 
 <div
 class="status"
-id="audioStatus">
+id="finalAudioStatus">
 Ready
 </div>
 
@@ -1099,7 +1533,9 @@ Ready
      VIDEO
 ===================================================== -->
 
-<section class="panel" id="video">
+<section
+class="panel"
+id="video">
 
 <h2>
 🎬 Video Player
@@ -1172,7 +1608,9 @@ Ready
      SLIDESHOW
 ===================================================== -->
 
-<section class="panel" id="slideshow">
+<section
+class="panel"
+id="slideshow">
 
 <h2>
 🖼️ Photo Slideshow
@@ -1249,7 +1687,9 @@ id="slideThumbs">
      VIDEO MAKER
 ===================================================== -->
 
-<section class="panel" id="videoMaker">
+<section
+class="panel"
+id="videoMaker">
 
 <h2>
 🎞️ Photo Video Maker
@@ -1312,13 +1752,15 @@ Duration:
 </label>
 
 
-<select id="imageDuration">
+<select
+id="imageDuration">
 
 <option value="2">
 2 seconds
 </option>
 
-<option value="3" selected>
+<option value="3"
+selected>
 3 seconds
 </option>
 
@@ -1338,7 +1780,9 @@ Duration:
 <button
 class="btn primary"
 onclick="createPhotoVideo()">
+
 🎬 Create Video
+
 </button>
 
 
@@ -1355,7 +1799,9 @@ Ready
      VOICE
 ===================================================== -->
 
-<section class="panel" id="voice">
+<section
+class="panel"
+id="voice">
 
 <h2>
 🎙️ Voice Recorder
@@ -1435,7 +1881,9 @@ download="asim-voice-recording.webm">
      CAMERA
 ===================================================== -->
 
-<section class="panel" id="camera">
+<section
+class="panel"
+id="camera">
 
 <h2>
 📷 Camera
@@ -1514,10 +1962,12 @@ download="asim-camera-photo.png">
 
 
 <!-- =====================================================
-     SCREEN RECORDER
+     SCREEN
 ===================================================== -->
 
-<section class="panel" id="screen">
+<section
+class="panel"
+id="screen">
 
 <h2>
 🖥️ Screen Recorder
@@ -1599,7 +2049,9 @@ download="asim-screen-recording.webm">
      TOOLS
 ===================================================== -->
 
-<section class="panel" id="tools">
+<section
+class="panel"
+id="tools">
 
 <h2>
 🛠️ Creative Tools
@@ -1725,7 +2177,9 @@ Your local media files are processed inside your browser.
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1825,112 +2279,127 @@ navButtons.forEach(function(button){
 
 
 /* =====================================================
-   AUDIO STUDIO
+   FINAL AUDIO STUDIO
 ===================================================== */
 
-const audioFiles =
+const finalAudioFiles =
 document.getElementById(
-    "audioFiles"
+    "finalAudioFiles"
 );
 
-const audioPlayer =
+const finalAudioPlayer =
 document.getElementById(
-    "audioPlayer"
+    "finalAudioPlayer"
 );
 
-const audioTitle =
+const finalAudioTitle =
 document.getElementById(
-    "audioTitle"
+    "finalAudioTitle"
 );
 
-const audioStatus =
+const finalAudioStatus =
 document.getElementById(
-    "audioStatus"
+    "finalAudioStatus"
 );
 
-const audioPlaylist =
+const finalPlaylist =
 document.getElementById(
-    "audioPlaylist"
+    "finalPlaylist"
 );
 
-const audioCurrentTime =
+const finalPlay =
 document.getElementById(
-    "audioCurrentTime"
+    "finalPlay"
 );
 
-const audioDuration =
+const finalPause =
 document.getElementById(
-    "audioDuration"
+    "finalPause"
 );
 
-const audioPlay =
+const finalPrev =
 document.getElementById(
-    "audioPlay"
+    "finalPrev"
 );
 
-const audioPause =
+const finalNext =
 document.getElementById(
-    "audioPause"
+    "finalNext"
 );
 
-const audioPrevious =
+const finalShuffle =
 document.getElementById(
-    "audioPrevious"
+    "finalShuffle"
 );
 
-const audioNext =
+const finalRepeat =
 document.getElementById(
-    "audioNext"
+    "finalRepeat"
 );
 
-const audioVolume =
+const finalVolume =
 document.getElementById(
-    "audioVolume"
+    "finalVolume"
 );
 
-const audioSpeed =
+const finalSpeed =
 document.getElementById(
-    "audioSpeed"
+    "finalSpeed"
 );
 
-const audioShuffle =
+const finalProgress =
 document.getElementById(
-    "audioShuffle"
+    "finalProgress"
 );
 
-const audioRepeat =
+const finalCurrent =
 document.getElementById(
-    "audioRepeat"
+    "finalCurrent"
+);
+
+const finalDuration =
+document.getElementById(
+    "finalDuration"
 );
 
 
-let audioPlaylistData = [];
+let finalSongs = [];
 
-let audioIndex = 0;
+let finalIndex = 0;
 
 let shuffleMode = false;
 
-let repeatMode = false;
+
+/*
+    Repeat:
+    0 = OFF
+    1 = ALL
+    2 = ONE
+*/
+
+let repeatMode = 0;
 
 
-/* ================= AUDIO FILES ================= */
+/* =====================================================
+   SELECT AUDIO
+===================================================== */
 
-audioFiles.addEventListener(
+finalAudioFiles.addEventListener(
     "change",
     function(){
 
-        audioPlaylistData.forEach(
-            function(item){
+        finalSongs.forEach(
+            function(song){
 
                 URL.revokeObjectURL(
-                    item.url
+                    song.url
                 );
 
             }
         );
 
 
-        audioPlaylistData =
+        finalSongs =
         Array.from(
             this.files
         ).map(
@@ -1951,28 +2420,38 @@ audioFiles.addEventListener(
         );
 
 
-        audioIndex = 0;
+        finalIndex = 0;
 
-        renderAudioPlaylist();
 
-        loadAudio(0);
+        renderFinalPlaylist();
+
+
+        if(
+            finalSongs.length
+        ){
+
+            loadFinalSong(0);
+
+        }
 
     }
 );
 
 
-/* ================= LOAD AUDIO ================= */
+/* =====================================================
+   LOAD SONG
+===================================================== */
 
-function loadAudio(index){
+function loadFinalSong(index){
 
     if(
-        !audioPlaylistData.length
+        !finalSongs.length
     ){
 
-        audioTitle.textContent =
+        finalAudioTitle.textContent =
         "No audio selected";
 
-        audioStatus.textContent =
+        finalAudioStatus.textContent =
         "Ready";
 
         return;
@@ -1983,14 +2462,14 @@ function loadAudio(index){
     if(index < 0){
 
         index =
-        audioPlaylistData.length - 1;
+        finalSongs.length - 1;
 
     }
 
 
     if(
         index >=
-        audioPlaylistData.length
+        finalSongs.length
     ){
 
         index = 0;
@@ -1998,44 +2477,69 @@ function loadAudio(index){
     }
 
 
-    audioIndex = index;
+    finalIndex = index;
 
 
-    const item =
-    audioPlaylistData[
-        audioIndex
+    const song =
+    finalSongs[
+        finalIndex
     ];
 
 
-    audioPlayer.src =
-    item.url;
+    finalAudioPlayer.src =
+    song.url;
 
 
-    audioPlayer.load();
+    finalAudioPlayer.load();
 
 
-    audioTitle.textContent =
-    item.file.name;
+    finalAudioPlayer.volume =
+    Number(
+        finalVolume.value
+    );
 
 
-    audioStatus.textContent =
+    finalAudioPlayer.playbackRate =
+    Number(
+        finalSpeed.value
+    );
+
+
+    finalAudioTitle.textContent =
+    song.file.name;
+
+
+    finalAudioStatus.textContent =
     "Loaded: " +
-    item.file.name;
+    song.file.name;
 
 
-    renderAudioPlaylist();
+    finalProgress.value = 0;
+
+
+    finalCurrent.textContent =
+    "00:00";
+
+
+    finalDuration.textContent =
+    "00:00";
+
+
+    renderFinalPlaylist();
 
 }
 
 
-/* ================= PLAY ================= */
+/* =====================================================
+   PLAY
+===================================================== */
 
-audioPlay.addEventListener(
+finalPlay.addEventListener(
     "click",
     function(){
 
         if(
-            !audioPlaylistData.length
+            !finalSongs.length
         ){
 
             alert(
@@ -2047,36 +2551,40 @@ audioPlay.addEventListener(
         }
 
 
-        audioPlayer.play()
-        .catch(function(){});
+        finalAudioPlayer
+        .play()
+        .catch(
+            function(){}
+        );
 
     }
 );
 
 
-/* ================= PAUSE ================= */
+/* =====================================================
+   PAUSE
+===================================================== */
 
-audioPause.addEventListener(
+finalPause.addEventListener(
     "click",
     function(){
 
-        audioPlayer.pause();
-
-        audioStatus.textContent =
-        "Paused";
+        finalAudioPlayer.pause();
 
     }
 );
 
 
-/* ================= PREVIOUS ================= */
+/* =====================================================
+   PREVIOUS
+===================================================== */
 
-audioPrevious.addEventListener(
+finalPrev.addEventListener(
     "click",
     function(){
 
         if(
-            !audioPlaylistData.length
+            !finalSongs.length
         ){
 
             return;
@@ -2084,45 +2592,43 @@ audioPrevious.addEventListener(
         }
 
 
-        if(shuffleMode){
-
-            playRandomAudio();
-
-            return;
-
-        }
-
-
-        loadAudio(
-            audioIndex - 1
+        loadFinalSong(
+            finalIndex - 1
         );
 
 
-        audioPlayer.play()
-        .catch(function(){});
+        finalAudioPlayer
+        .play()
+        .catch(
+            function(){}
+        );
 
     }
 );
 
 
-/* ================= NEXT ================= */
+/* =====================================================
+   NEXT
+===================================================== */
 
-audioNext.addEventListener(
+finalNext.addEventListener(
     "click",
     function(){
 
-        playNextAudio();
+        playNextFinalSong();
 
     }
 );
 
 
-/* ================= NEXT LOGIC ================= */
+/* =====================================================
+   NEXT LOGIC
+===================================================== */
 
-function playNextAudio(){
+function playNextFinalSong(){
 
     if(
-        !audioPlaylistData.length
+        !finalSongs.length
     ){
 
         return;
@@ -2130,183 +2636,134 @@ function playNextAudio(){
     }
 
 
-    if(shuffleMode){
-
-        playRandomAudio();
-
-        return;
-
-    }
+    let nextIndex;
 
 
     if(
-        audioIndex + 1 >=
-        audioPlaylistData.length
+        shuffleMode
     ){
 
-        if(repeatMode){
+        if(
+            finalSongs.length === 1
+        ){
 
-            loadAudio(0);
-
-            audioPlayer.play()
-            .catch(function(){});
+            nextIndex =
+            finalIndex;
 
         }
         else{
 
-            audioStatus.textContent =
-            "Playlist finished";
+            do{
+
+                nextIndex =
+                Math.floor(
+                    Math.random() *
+                    finalSongs.length
+                );
+
+            }
+            while(
+                nextIndex ===
+                finalIndex
+            );
 
         }
 
-        return;
+    }
+    else{
+
+        nextIndex =
+        finalIndex + 1;
+
+
+        if(
+            nextIndex >=
+            finalSongs.length
+        ){
+
+            nextIndex = 0;
+
+        }
 
     }
 
 
-    loadAudio(
-        audioIndex + 1
+    loadFinalSong(
+        nextIndex
     );
 
 
-    audioPlayer.play()
-    .catch(function(){});
+    finalAudioPlayer
+    .play()
+    .catch(
+        function(){}
+    );
 
 }
 
 
-/* ================= RANDOM ================= */
+/* =====================================================
+   SONG ENDED
+===================================================== */
 
-function playRandomAudio(){
-
-    if(
-        audioPlaylistData.length === 1
-    ){
-
-        loadAudio(0);
-
-        audioPlayer.play()
-        .catch(function(){});
-
-        return;
-
-    }
-
-
-    let randomIndex;
-
-
-    do{
-
-        randomIndex =
-        Math.floor(
-            Math.random() *
-            audioPlaylistData.length
-        );
-
-    }
-    while(
-        randomIndex === audioIndex
-    );
-
-
-    loadAudio(
-        randomIndex
-    );
-
-
-    audioPlayer.play()
-    .catch(function(){});
-
-}
-
-
-/* ================= AUDIO ENDED ================= */
-
-audioPlayer.addEventListener(
+finalAudioPlayer.addEventListener(
     "ended",
     function(){
 
-        /*
-          Repeat ON + Shuffle OFF
-          = repeat current song
-        */
+        /* Repeat ONE */
 
         if(
-            repeatMode &&
-            !shuffleMode
+            repeatMode === 2
         ){
 
-            audioPlayer.currentTime = 0;
-
-            audioPlayer.play()
-            .catch(function(){});
-
-            return;
-
-        }
+            finalAudioPlayer.currentTime =
+            0;
 
 
-        /*
-          Shuffle ON
-        */
-
-        if(shuffleMode){
-
-            playRandomAudio();
-
-            return;
-
-        }
-
-
-        /*
-          Normal playlist
-        */
-
-        if(
-            audioIndex + 1 <
-            audioPlaylistData.length
-        ){
-
-            loadAudio(
-                audioIndex + 1
+            finalAudioPlayer
+            .play()
+            .catch(
+                function(){}
             );
 
-            audioPlayer.play()
-            .catch(function(){});
 
             return;
 
         }
 
 
-        /*
-          Repeat playlist
-        */
+        /* Last song + Repeat OFF */
 
-        if(repeatMode){
+        if(
+            repeatMode === 0 &&
+            !shuffleMode &&
+            finalIndex ===
+            finalSongs.length - 1
+        ){
 
-            loadAudio(0);
+            finalAudioStatus.textContent =
+            "Playlist finished";
 
-            audioPlayer.play()
-            .catch(function(){});
+            finalProgress.value = 100;
 
             return;
 
         }
 
 
-        audioStatus.textContent =
-        "Playlist finished";
+        /* Next song */
+
+        playNextFinalSong();
 
     }
 );
 
 
-/* ================= SHUFFLE ================= */
+/* =====================================================
+   SHUFFLE
+===================================================== */
 
-audioShuffle.addEventListener(
+finalShuffle.addEventListener(
     "click",
     function(){
 
@@ -2314,29 +2771,31 @@ audioShuffle.addEventListener(
         !shuffleMode;
 
 
-        if(shuffleMode){
+        if(
+            shuffleMode
+        ){
 
-            audioShuffle.textContent =
+            finalShuffle.textContent =
             "🔀 Shuffle: ON";
 
-            audioShuffle.classList.add(
-                "shuffle-on"
+            finalShuffle.classList.add(
+                "on-button"
             );
 
-            audioStatus.textContent =
+            finalAudioStatus.textContent =
             "Shuffle ON";
 
         }
         else{
 
-            audioShuffle.textContent =
+            finalShuffle.textContent =
             "🔀 Shuffle: OFF";
 
-            audioShuffle.classList.remove(
-                "shuffle-on"
+            finalShuffle.classList.remove(
+                "on-button"
             );
 
-            audioStatus.textContent =
+            finalAudioStatus.textContent =
             "Shuffle OFF";
 
         }
@@ -2345,40 +2804,64 @@ audioShuffle.addEventListener(
 );
 
 
-/* ================= REPEAT ================= */
+/* =====================================================
+   REPEAT
+===================================================== */
 
-audioRepeat.addEventListener(
+finalRepeat.addEventListener(
     "click",
     function(){
 
-        repeatMode =
-        !repeatMode;
+        repeatMode++;
 
 
-        if(repeatMode){
+        if(
+            repeatMode > 2
+        ){
 
-            audioRepeat.textContent =
-            "🔁 Repeat: ON";
-
-            audioRepeat.classList.add(
-                "repeat-on"
-            );
-
-            audioStatus.textContent =
-            "Repeat ON";
+            repeatMode = 0;
 
         }
-        else{
 
-            audioRepeat.textContent =
+
+        if(
+            repeatMode === 0
+        ){
+
+            finalRepeat.textContent =
             "🔁 Repeat: OFF";
 
-            audioRepeat.classList.remove(
-                "repeat-on"
+            finalRepeat.classList.remove(
+                "on-button"
             );
 
-            audioStatus.textContent =
-            "Repeat OFF";
+        }
+
+
+        if(
+            repeatMode === 1
+        ){
+
+            finalRepeat.textContent =
+            "🔁 Repeat: ALL";
+
+            finalRepeat.classList.add(
+                "on-button"
+            );
+
+        }
+
+
+        if(
+            repeatMode === 2
+        ){
+
+            finalRepeat.textContent =
+            "🔂 Repeat: ONE";
+
+            finalRepeat.classList.add(
+                "on-button"
+            );
 
         }
 
@@ -2386,68 +2869,132 @@ audioRepeat.addEventListener(
 );
 
 
-/* ================= VOLUME ================= */
+/* =====================================================
+   VOLUME
+===================================================== */
 
-audioVolume.addEventListener(
+finalVolume.addEventListener(
     "input",
     function(){
 
-        audioPlayer.volume =
-        Number(this.value);
+        finalAudioPlayer.volume =
+        Number(
+            this.value
+        );
 
     }
 );
 
 
-/* ================= SPEED ================= */
+/* =====================================================
+   SPEED
+===================================================== */
 
-audioSpeed.addEventListener(
+finalSpeed.addEventListener(
     "change",
     function(){
 
-        audioPlayer.playbackRate =
-        Number(this.value);
+        finalAudioPlayer.playbackRate =
+        Number(
+            this.value
+        );
 
     }
 );
 
 
-/* ================= TIME ================= */
+/* =====================================================
+   PROGRESS
+===================================================== */
 
-audioPlayer.addEventListener(
+finalAudioPlayer.addEventListener(
     "timeupdate",
     function(){
 
-        audioCurrentTime.textContent =
-        formatAudioTime(
-            audioPlayer.currentTime
+        if(
+            finalAudioPlayer.duration
+        ){
+
+            const percent =
+            (
+                finalAudioPlayer.currentTime /
+                finalAudioPlayer.duration
+            ) * 100;
+
+
+            finalProgress.value =
+            percent;
+
+        }
+
+
+        finalCurrent.textContent =
+        formatFinalAudioTime(
+            finalAudioPlayer.currentTime
         );
 
     }
 );
 
 
-/* ================= DURATION ================= */
+/* =====================================================
+   DURATION
+===================================================== */
 
-audioPlayer.addEventListener(
+finalAudioPlayer.addEventListener(
     "loadedmetadata",
     function(){
 
-        audioDuration.textContent =
-        formatAudioTime(
-            audioPlayer.duration
+        finalDuration.textContent =
+        formatFinalAudioTime(
+            finalAudioPlayer.duration
         );
 
     }
 );
 
 
-/* ================= FORMAT TIME ================= */
+/* =====================================================
+   SEEK
+===================================================== */
 
-function formatAudioTime(seconds){
+finalProgress.addEventListener(
+    "input",
+    function(){
+
+        if(
+            !finalAudioPlayer.duration
+        ){
+
+            return;
+
+        }
+
+
+        finalAudioPlayer.currentTime =
+        (
+            Number(
+                this.value
+            ) / 100
+        )
+        *
+        finalAudioPlayer.duration;
+
+    }
+);
+
+
+/* =====================================================
+   TIME FORMAT
+===================================================== */
+
+function formatFinalAudioTime(
+    seconds
+){
 
     if(
-        !isFinite(seconds)
+        !isFinite(seconds) ||
+        seconds < 0
     ){
 
         return "00:00";
@@ -2460,7 +3007,10 @@ function formatAudioTime(seconds){
         seconds / 60
     )
     .toString()
-    .padStart(2,"0");
+    .padStart(
+        2,
+        "0"
+    );
 
 
     const secs =
@@ -2468,7 +3018,10 @@ function formatAudioTime(seconds){
         seconds % 60
     )
     .toString()
-    .padStart(2,"0");
+    .padStart(
+        2,
+        "0"
+    );
 
 
     return (
@@ -2480,20 +3033,23 @@ function formatAudioTime(seconds){
 }
 
 
-/* ================= PLAYLIST ================= */
+/* =====================================================
+   PLAYLIST RENDER
+===================================================== */
 
-function renderAudioPlaylist(){
+function renderFinalPlaylist(){
 
-    audioPlaylist.innerHTML = "";
+    finalPlaylist.innerHTML =
+    "";
 
 
     if(
-        !audioPlaylistData.length
+        !finalSongs.length
     ){
 
-        audioPlaylist.innerHTML =
+        finalPlaylist.innerHTML =
         `
-        <div class="empty-playlist">
+        <div class="final-empty">
         Select audio files to create playlist
         </div>
         `;
@@ -2503,8 +3059,8 @@ function renderAudioPlaylist(){
     }
 
 
-    audioPlaylistData.forEach(
-        function(item,index){
+    finalSongs.forEach(
+        function(song,index){
 
             const row =
             document.createElement(
@@ -2513,11 +3069,12 @@ function renderAudioPlaylist(){
 
 
             row.className =
-            "playlist-item";
+            "final-song";
 
 
             if(
-                index === audioIndex
+                index ===
+                finalIndex
             ){
 
                 row.classList.add(
@@ -2534,7 +3091,7 @@ function renderAudioPlaylist(){
 
 
             number.className =
-            "playlist-number";
+            "final-song-number";
 
 
             number.textContent =
@@ -2548,11 +3105,11 @@ function renderAudioPlaylist(){
 
 
             name.className =
-            "playlist-name";
+            "final-song-name";
 
 
             name.textContent =
-            item.file.name;
+            song.file.name;
 
 
             const remove =
@@ -2562,7 +3119,7 @@ function renderAudioPlaylist(){
 
 
             remove.className =
-            "playlist-remove";
+            "final-remove";
 
 
             remove.textContent =
@@ -2573,10 +3130,16 @@ function renderAudioPlaylist(){
                 "click",
                 function(){
 
-                    loadAudio(index);
+                    loadFinalSong(
+                        index
+                    );
 
-                    audioPlayer.play()
-                    .catch(function(){});
+
+                    finalAudioPlayer
+                    .play()
+                    .catch(
+                        function(){}
+                    );
 
                 }
             );
@@ -2588,19 +3151,32 @@ function renderAudioPlaylist(){
 
                     event.stopPropagation();
 
-                    removeAudio(index);
+                    removeFinalSong(
+                        index
+                    );
 
                 }
             );
 
 
-            row.appendChild(number);
+            row.appendChild(
+                number
+            );
 
-            row.appendChild(name);
 
-            row.appendChild(remove);
+            row.appendChild(
+                name
+            );
 
-            audioPlaylist.appendChild(row);
+
+            row.appendChild(
+                remove
+            );
+
+
+            finalPlaylist.appendChild(
+                row
+            );
 
         }
     );
@@ -2608,12 +3184,16 @@ function renderAudioPlaylist(){
 }
 
 
-/* ================= REMOVE AUDIO ================= */
+/* =====================================================
+   REMOVE SONG
+===================================================== */
 
-function removeAudio(index){
+function removeFinalSong(
+    index
+){
 
     if(
-        !audioPlaylistData[index]
+        !finalSongs[index]
     ){
 
         return;
@@ -2622,49 +3202,56 @@ function removeAudio(index){
 
 
     URL.revokeObjectURL(
-        audioPlaylistData[index].url
+        finalSongs[index].url
     );
 
 
-    audioPlaylistData.splice(
+    finalSongs.splice(
         index,
         1
     );
 
 
     if(
-        !audioPlaylistData.length
+        !finalSongs.length
     ){
 
-        audioPlayer.pause();
+        finalAudioPlayer.pause();
 
-        audioPlayer.removeAttribute(
+
+        finalAudioPlayer.removeAttribute(
             "src"
         );
 
-        audioPlayer.load();
+
+        finalAudioPlayer.load();
 
 
-        audioIndex = 0;
+        finalIndex = 0;
 
 
-        audioTitle.textContent =
+        finalAudioTitle.textContent =
         "No audio selected";
 
 
-        audioStatus.textContent =
+        finalAudioStatus.textContent =
         "Playlist empty";
 
 
-        audioCurrentTime.textContent =
+        finalCurrent.textContent =
         "00:00";
 
 
-        audioDuration.textContent =
+        finalDuration.textContent =
         "00:00";
 
 
-        renderAudioPlaylist();
+        finalProgress.value =
+        0;
+
+
+        renderFinalPlaylist();
+
 
         return;
 
@@ -2672,30 +3259,71 @@ function removeAudio(index){
 
 
     if(
-        index < audioIndex
+        index < finalIndex
     ){
 
-        audioIndex--;
+        finalIndex--;
 
     }
 
 
     if(
-        audioIndex >=
-        audioPlaylistData.length
+        finalIndex >=
+        finalSongs.length
     ){
 
-        audioIndex =
-        audioPlaylistData.length - 1;
+        finalIndex =
+        finalSongs.length - 1;
 
     }
 
 
-    loadAudio(
-        audioIndex
+    loadFinalSong(
+        finalIndex
     );
 
 }
+
+
+/* =====================================================
+   AUDIO PLAY / PAUSE STATUS
+===================================================== */
+
+finalAudioPlayer.addEventListener(
+    "play",
+    function(){
+
+        if(
+            finalSongs[finalIndex]
+        ){
+
+            finalAudioStatus.textContent =
+            "▶ Playing: " +
+            finalSongs[
+                finalIndex
+            ].file.name;
+
+        }
+
+    }
+);
+
+
+finalAudioPlayer.addEventListener(
+    "pause",
+    function(){
+
+        if(
+            finalAudioPlayer.currentTime > 0
+        ){
+
+            finalAudioStatus.textContent =
+            "⏸ Paused";
+
+        }
+
+    }
+);
 
 
 /* =====================================================
@@ -2749,8 +3377,11 @@ videoFile.addEventListener(
 
 function playVideo(){
 
-    videoPlayer.play()
-    .catch(function(){});
+    videoPlayer
+    .play()
+    .catch(
+        function(){}
+    );
 
 }
 
@@ -2766,7 +3397,8 @@ function stopVideo(){
 
     videoPlayer.pause();
 
-    videoPlayer.currentTime = 0;
+    videoPlayer.currentTime =
+    0;
 
 }
 
@@ -2780,7 +3412,6 @@ function fullscreenVideo(){
         videoPlayer.requestFullscreen();
 
     }
-
     else if(
         videoPlayer.webkitRequestFullscreen
     ){
@@ -2839,7 +3470,9 @@ slideFiles.addEventListener(
 
         slides = [];
 
-        slideThumbs.innerHTML = "";
+
+        slideThumbs.innerHTML =
+        "";
 
 
         Array.from(
@@ -2853,7 +3486,9 @@ slideFiles.addEventListener(
                 );
 
 
-                slides.push(url);
+                slides.push(
+                    url
+                );
 
 
                 const img =
@@ -2862,7 +3497,8 @@ slideFiles.addEventListener(
                 );
 
 
-                img.src = url;
+                img.src =
+                url;
 
 
                 img.addEventListener(
@@ -2873,6 +3509,7 @@ slideFiles.addEventListener(
                         slides.indexOf(
                             url
                         );
+
 
                         showSlide();
 
@@ -2890,6 +3527,7 @@ slideFiles.addEventListener(
 
         slideIndex = 0;
 
+
         showSlide();
 
     }
@@ -2898,7 +3536,9 @@ slideFiles.addEventListener(
 
 function showSlide(){
 
-    if(!slides.length){
+    if(
+        !slides.length
+    ){
 
         slideShow.innerHTML =
         '<span style="color:#aaa;">Select photos</span>';
@@ -2908,7 +3548,8 @@ function showSlide(){
     }
 
 
-    slideShow.innerHTML = "";
+    slideShow.innerHTML =
+    "";
 
 
     const img =
@@ -2918,7 +3559,9 @@ function showSlide(){
 
 
     img.src =
-    slides[slideIndex];
+    slides[
+        slideIndex
+    ];
 
 
     slideShow.appendChild(
@@ -2930,7 +3573,9 @@ function showSlide(){
 
 function nextSlide(){
 
-    if(!slides.length){
+    if(
+        !slides.length
+    ){
 
         return;
 
@@ -2951,7 +3596,9 @@ function nextSlide(){
 
 function previousSlide(){
 
-    if(!slides.length){
+    if(
+        !slides.length
+    ){
 
         return;
 
@@ -2974,7 +3621,9 @@ function previousSlide(){
 
 function startSlideshow(){
 
-    if(!slides.length){
+    if(
+        !slides.length
+    ){
 
         alert(
             "Please select photos first."
@@ -2999,13 +3648,17 @@ function startSlideshow(){
 
 function stopSlideshow(){
 
-    if(slideInterval){
+    if(
+        slideInterval
+    ){
 
         clearInterval(
             slideInterval
         );
 
-        slideInterval = null;
+
+        slideInterval =
+        null;
 
     }
 
@@ -3016,13 +3669,15 @@ function stopSlideshow(){
    VOICE RECORDER
 ===================================================== */
 
-let voiceRecorder = null;
+let voiceRecorder =
+null;
 
 let voiceChunks = [];
 
 let voiceSeconds = 0;
 
-let voiceInterval = null;
+let voiceInterval =
+null;
 
 
 const voiceStart =
@@ -3080,10 +3735,9 @@ voiceStart.addEventListener(
 
 
             const stream =
-            await navigator.mediaDevices.getUserMedia({
-
+            await navigator.mediaDevices
+            .getUserMedia({
                 audio:true
-
             });
 
 
@@ -3249,20 +3903,28 @@ voiceStop.addEventListener(
 );
 
 
-function formatTime(seconds){
+function formatTime(
+    seconds
+){
 
     const min =
     Math.floor(
         seconds / 60
     )
     .toString()
-    .padStart(2,"0");
+    .padStart(
+        2,
+        "0"
+    );
 
 
     const sec =
     (seconds % 60)
     .toString()
-    .padStart(2,"0");
+    .padStart(
+        2,
+        "0"
+    );
 
 
     return (
@@ -3278,7 +3940,8 @@ function formatTime(seconds){
    CAMERA
 ===================================================== */
 
-let cameraStream = null;
+let cameraStream =
+null;
 
 
 const cameraVideo =
@@ -3366,7 +4029,9 @@ cameraStop.addEventListener(
 
 function stopCamera(){
 
-    if(cameraStream){
+    if(
+        cameraStream
+    ){
 
         cameraStream
         .getTracks()
@@ -3376,7 +4041,9 @@ function stopCamera(){
         );
 
 
-        cameraStream = null;
+        cameraStream =
+        null;
+
 
         cameraVideo.srcObject =
         null;
@@ -3390,7 +4057,9 @@ takePhoto.addEventListener(
     "click",
     function(){
 
-        if(!cameraStream){
+        if(
+            !cameraStream
+        ){
 
             alert(
                 "Please start camera first."
@@ -3453,13 +4122,15 @@ takePhoto.addEventListener(
    SCREEN RECORDER
 ===================================================== */
 
-let screenRecorder = null;
+let screenRecorder =
+null;
 
 let screenChunks = [];
 
 let screenSeconds = 0;
 
-let screenInterval = null;
+let screenInterval =
+null;
 
 
 const screenStart =
@@ -3590,7 +4261,9 @@ screenStart.addEventListener(
             stream.getVideoTracks()[0];
 
 
-            if(videoTrack){
+            if(
+                videoTrack
+            ){
 
                 videoTrack.addEventListener(
                     "ended",
@@ -3944,7 +4617,8 @@ async function createPhotoVideo(){
         );
 
 
-        link.href = url;
+        link.href =
+        url;
 
 
         link.download =
@@ -4032,11 +4706,13 @@ function drawImageOnCanvas(
 
 
                 const width =
-                img.width * scale;
+                img.width *
+                scale;
 
 
                 const height =
-                img.height * scale;
+                img.height *
+                scale;
 
 
                 const x =
@@ -4090,7 +4766,8 @@ function drawImageOnCanvas(
    PWA INSTALL
 ===================================================== */
 
-let deferredPrompt = null;
+let deferredPrompt =
+null;
 
 
 const installBtn =
@@ -4142,7 +4819,8 @@ installBtn.addEventListener(
         catch(error){}
 
 
-        deferredPrompt = null;
+        deferredPrompt =
+        null;
 
 
         installBtn.style.display =
@@ -4176,7 +4854,9 @@ if(
         function(){
 
             navigator.serviceWorker
-            .register("./sw.js")
+            .register(
+                "./sw.js"
+            )
             .then(
                 function(){
 
@@ -4221,5 +4901,4 @@ window.addEventListener(
 </script>
 
 </body>
-
 </html>
