@@ -2,1076 +2,642 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#4f46e5">
-<meta name="description" content="Asim Tech Study - Learn, Practice and Improve">
-<title>Asim Tech Study</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ASIM TECH STUDY</title>
+
+<meta name="description" content="ASIM TECH STUDY - Learn Smart, Study Better">
 
 <style>
-:root{
---bg:#f4f7ff;
---card:#fff;
---primary:#4f46e5;
---primary2:#7c3aed;
---blue:#168cff;
---green:#12b76a;
---orange:#f79009;
---red:#f04438;
---text:#172033;
---muted:#718096;
---border:#e5e9f2;
---shadow:0 10px 30px rgba(35,45,90,.09);
-}
-
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-scroll-padding-top:80px;
+:root{
+    --primary:#4f46e5;
+    --primary2:#7c3aed;
+    --blue:#2563eb;
+    --green:#16a34a;
+    --orange:#f59e0b;
+    --red:#ef4444;
+    --dark:#111827;
+    --text:#1f2937;
+    --muted:#6b7280;
+    --light:#f5f7ff;
+    --white:#ffffff;
+    --border:#e5e7eb;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:
-radial-gradient(circle at 0 0,rgba(79,70,229,.10),transparent 28%),
-radial-gradient(circle at 100% 20%,rgba(22,140,255,.08),transparent 25%),
-var(--bg);
-color:var(--text);
-overflow-x:hidden;
-}
-
-button,input{
-font-family:inherit;
+    background:linear-gradient(135deg,#f5f7ff,#eef2ff);
+    color:var(--text);
+    line-height:1.6;
 }
 
 /* HEADER */
-
 header{
-height:68px;
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 5%;
-background:rgba(255,255,255,.94);
-border-bottom:1px solid var(--border);
-backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:8px;
-text-decoration:none;
-color:var(--text);
-font-size:20px;
-font-weight:900;
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    border-radius:50%;
 }
 
-.logo-icon{
-width:38px;
-height:38px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:12px;
-color:#fff;
-background:linear-gradient(135deg,var(--primary),var(--primary2));
-box-shadow:0 8px 22px rgba(79,70,229,.25);
+.logo-text{
+    font-size:19px;
+    font-weight:800;
+    color:var(--primary);
 }
 
-.logo span{
-color:var(--primary);
+.logo-text span{
+    display:block;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:1px;
 }
 
 nav{
-display:flex;
-gap:4px;
+    display:flex;
+    gap:18px;
 }
 
 nav a{
-padding:9px 12px;
-border-radius:9px;
-color:#5c6679;
-text-decoration:none;
-font-size:12px;
-font-weight:700;
+    text-decoration:none;
+    color:var(--text);
+    font-weight:600;
+    font-size:14px;
 }
 
 nav a:hover{
-color:var(--primary);
-background:#f0efff;
+    color:var(--primary);
 }
 
 .menu-btn{
-display:none;
-width:42px;
-height:40px;
-border:1px solid var(--border);
-border-radius:11px;
-background:#fff;
-font-size:21px;
-cursor:pointer;
+    display:none;
+    border:0;
+    background:var(--light);
+    padding:9px 12px;
+    border-radius:10px;
+    font-size:22px;
 }
 
 /* HERO */
-
 .hero{
-width:92%;
-max-width:1100px;
-margin:25px auto;
-padding:42px 25px;
-border-radius:28px;
-text-align:center;
-color:#fff;
-background:
-radial-gradient(circle at 10% 10%,rgba(255,255,255,.20),transparent 25%),
-radial-gradient(circle at 90% 90%,rgba(0,220,255,.20),transparent 30%),
-linear-gradient(135deg,#4038c9,#6941e8,#168cff);
-box-shadow:0 22px 55px rgba(70,60,210,.22);
+    max-width:1200px;
+    margin:25px auto;
+    padding:45px 25px;
+    border-radius:28px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-80px;
+    top:-80px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
 }
 
 .badge{
-display:inline-block;
-padding:8px 14px;
-border:1px solid rgba(255,255,255,.28);
-border-radius:999px;
-background:rgba(255,255,255,.12);
-font-size:10px;
-font-weight:900;
-letter-spacing:2px;
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:15px;
 }
 
 .hero h1{
-margin:18px 0 10px;
-font-size:clamp(37px,7vw,62px);
-line-height:1.05;
-}
-
-.hero h1 span{
-color:#d9f6ff;
+    font-size:clamp(32px,6vw,55px);
+    line-height:1.1;
+    margin-bottom:15px;
 }
 
 .hero p{
-max-width:730px;
-margin:auto;
-color:rgba(255,255,255,.88);
-font-size:14px;
-line-height:1.8;
+    font-size:17px;
+    opacity:.92;
+    max-width:650px;
 }
 
 .hero-buttons{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-margin-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
 }
 
-.hero-btn{
-padding:12px 20px;
-border-radius:11px;
-border:1px solid rgba(255,255,255,.25);
-background:rgba(255,255,255,.12);
-color:#fff;
-text-decoration:none;
-font-size:12px;
-font-weight:800;
+.btn{
+    border:0;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
+    text-decoration:none;
+    display:inline-block;
 }
 
-.hero-btn.primary{
-background:#fff;
-color:var(--primary);
+.btn-white{
+    background:white;
+    color:var(--primary);
+}
+
+.btn-dark{
+    background:rgba(0,0,0,.2);
+    color:white;
 }
 
 /* CONTAINER */
-
 .container{
-width:92%;
-max-width:1100px;
-margin:auto;
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 40px;
 }
 
-.section-head{
-text-align:center;
-margin:38px 0 20px;
+.section{
+    margin-top:35px;
 }
 
-.section-label{
-color:var(--primary);
-font-size:10px;
-font-weight:900;
-letter-spacing:2px;
+.section-title{
+    text-align:center;
+    margin-bottom:22px;
 }
 
-.section-head h2{
-margin-top:6px;
-font-size:30px;
+.section-title h2{
+    font-size:30px;
+    color:var(--dark);
 }
 
-.section-head p{
-margin-top:7px;
-color:var(--muted);
-font-size:12px;
-}
-
-/* SEARCH */
-
-.search{
-position:relative;
-margin-bottom:18px;
-}
-
-.search input{
-width:100%;
-height:50px;
-padding:0 48px 0 17px;
-border:1px solid var(--border);
-border-radius:14px;
-outline:none;
-background:#fff;
-font-size:13px;
-color:var(--text);
-box-shadow:var(--shadow);
-}
-
-.search input:focus{
-border-color:var(--primary);
-box-shadow:0 0 0 3px rgba(79,70,229,.08);
-}
-
-.search span{
-position:absolute;
-right:17px;
-top:50%;
-transform:translateY(-50%);
-color:var(--primary);
-font-size:20px;
+.section-title p{
+    color:var(--muted);
 }
 
 /* CLASS */
-
-.class-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
+.class-box{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(31,41,55,.06);
+    border:1px solid var(--border);
 }
 
-.class-card{
-padding:18px 10px;
-text-align:center;
-border:1px solid var(--border);
-border-radius:17px;
-background:#fff;
-box-shadow:var(--shadow);
-cursor:pointer;
-transition:.25s;
+.class-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
 }
 
-.class-card:hover{
-transform:translateY(-4px);
+.class-btn{
+    padding:10px 18px;
+    border:1px solid #dbe0ff;
+    background:#f8f9ff;
+    color:var(--primary);
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:700;
 }
 
-.class-card.active{
-color:#fff;
-border-color:var(--primary);
-background:linear-gradient(135deg,var(--primary),var(--primary2));
-box-shadow:0 12px 30px rgba(79,70,229,.25);
+.class-btn.active,
+.class-btn:hover{
+    background:var(--primary);
+    color:white;
 }
 
-.class-icon{
-font-size:27px;
-margin-bottom:7px;
+/* SEARCH */
+.search-box{
+    margin:20px 0;
 }
 
-.class-card strong{
-display:block;
-font-size:13px;
+.search-box input{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    outline:none;
+    font-size:15px;
 }
 
-.class-card small{
-display:block;
-margin-top:4px;
-color:var(--muted);
-font-size:9px;
+.search-box input:focus{
+    border-color:var(--primary);
 }
 
-.class-card.active small{
-color:#e9e7ff;
-}
-
-/* SELECTED */
-
-.selected{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-margin:25px 0 15px;
-padding:14px 16px;
-border-radius:14px;
-background:#eeedff;
-border:1px solid #dcd8ff;
-}
-
-.selected strong{
-color:#39318f;
-font-size:13px;
-}
-
-.selected span{
-color:#69618e;
-font-size:10px;
-}
-
-/* SUBJECT */
-
+/* SUBJECTS */
 .subject-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
 }
 
 .subject{
-padding:20px;
-border:1px solid var(--border);
-border-radius:20px;
-background:#fff;
-box-shadow:var(--shadow);
-transition:.25s;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:22px;
+    cursor:pointer;
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
 }
 
 .subject:hover{
-transform:translateY(-5px);
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(79,70,229,.12);
 }
 
-.subject.hide{
-display:none;
+.subject.active{
+    border:2px solid var(--primary);
 }
 
 .subject-icon{
-width:56px;
-height:56px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:16px;
-margin-bottom:13px;
-font-size:29px;
-background:#eeedff;
-}
-
-.subject:nth-child(2) .subject-icon{
-background:#e8f5ff;
-}
-
-.subject:nth-child(3) .subject-icon{
-background:#e8fbf2;
-}
-
-.subject:nth-child(4) .subject-icon{
-background:#fff3df;
-}
-
-.subject:nth-child(5) .subject-icon{
-background:#ffecee;
-}
-
-.subject:nth-child(6) .subject-icon{
-background:#eeeaff;
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    background:#eef2ff;
+    margin-bottom:12px;
 }
 
 .subject h3{
-font-size:17px;
-margin-bottom:7px;
+    margin-bottom:5px;
 }
 
 .subject p{
-min-height:48px;
-color:var(--muted);
-font-size:11px;
-line-height:1.6;
-}
-
-.subject button{
-width:100%;
-margin-top:13px;
-padding:10px;
-border:0;
-border-radius:10px;
-color:#fff;
-background:linear-gradient(135deg,var(--primary),var(--primary2));
-font-size:11px;
-font-weight:800;
-cursor:pointer;
+    color:var(--muted);
+    font-size:13px;
 }
 
 /* CHAPTER */
-
 .chapter-box{
-margin-top:25px;
-padding:20px;
-border:1px solid var(--border);
-border-radius:20px;
-background:#fff;
-box-shadow:var(--shadow);
-}
-
-.chapter-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-margin-bottom:15px;
-}
-
-.chapter-header h3{
-font-size:18px;
-}
-
-.chapter-header span{
-padding:6px 9px;
-border-radius:8px;
-background:#f0efff;
-color:var(--primary);
-font-size:9px;
-font-weight:900;
+    background:white;
+    border-radius:20px;
+    padding:22px;
+    border:1px solid var(--border);
+    margin-top:20px;
 }
 
 .chapter-list{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
 }
 
 .chapter{
-display:flex;
-align-items:center;
-gap:10px;
-padding:13px;
-border:1px solid #edf0f6;
-border-radius:12px;
-background:#fafbff;
-cursor:pointer;
-transition:.2s;
+    padding:14px;
+    background:#f8f9ff;
+    border-radius:12px;
+    cursor:pointer;
+    border:1px solid transparent;
 }
 
-.chapter:hover{
-background:#f1efff;
-border-color:#cec8ff;
-transform:translateY(-2px);
-}
-
-.chapter-number{
-width:31px;
-height:31px;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-shrink:0;
-border-radius:9px;
-background:var(--primary);
-color:#fff;
-font-size:10px;
-font-weight:900;
-}
-
-.chapter strong{
-display:block;
-font-size:12px;
-}
-
-.chapter small{
-display:block;
-margin-top:3px;
-color:var(--muted);
-font-size:9px;
+.chapter:hover,
+.chapter.active{
+    background:#eef2ff;
+    border-color:#c7d2fe;
+    color:var(--primary);
 }
 
 /* MATERIAL */
-
 .material{
-display:none;
-margin-top:20px;
-padding:23px;
-border-radius:21px;
-color:#fff;
-background:linear-gradient(135deg,#151d32,#273d63);
-box-shadow:0 16px 40px rgba(20,30,60,.18);
-}
-
-.material.show{
-display:block;
+    margin-top:20px;
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    border:1px solid var(--border);
 }
 
 .material-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
-.material-header h2{
-font-size:20px;
+.complete-btn{
+    border:0;
+    background:var(--green);
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
 }
-
-.back{
-padding:8px 12px;
-border:1px solid rgba(255,255,255,.2);
-border-radius:9px;
-background:rgba(255,255,255,.08);
-color:#fff;
-cursor:pointer;
-font-size:10px;
-font-weight:800;
-}
-
-.material p{
-color:#c2ccda;
-font-size:12px;
-line-height:1.8;
-}
-
-.material h3{
-margin:17px 0 8px;
-font-size:15px;
-}
-
-.material ul{
-padding-left:20px;
-color:#c2ccda;
-font-size:11px;
-line-height:2;
-}
-
-.material-buttons{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:18px;
-}
-
-.material-buttons button{
-padding:10px 14px;
-border:0;
-border-radius:9px;
-cursor:pointer;
-font-size:10px;
-font-weight:800;
-}
-
-.complete{
-background:#12b76a;
-color:#fff;
-}
-
-.print{
-background:#fff;
-color:#27386d;
-}
-
-.quiz-open{
-background:#168cff;
-color:#fff;
-}
-
-/* QUIZ */
-
-.quiz-section{
-margin:40px 0;
-}
-
-.quiz-card{
-padding:23px;
-border-radius:21px;
-background:#fff;
-border:1px solid var(--border);
-box-shadow:var(--shadow);
-}
-
-.quiz-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-margin-bottom:18px;
-}
-
-.quiz-top h3{
-font-size:18px;
-}
-
-.quiz-count{
-padding:6px 10px;
-border-radius:8px;
-background:#eeedff;
-color:var(--primary);
-font-size:9px;
-font-weight:900;
-}
-
-.question{
-padding:18px;
-margin-bottom:15px;
-border-radius:15px;
-background:#f7f8ff;
-border:1px solid #e7eaf5;
-}
-
-.question p{
-font-size:14px;
-font-weight:800;
-line-height:1.7;
-}
-
-.options{
-display:grid;
-gap:9px;
-}
-
-.option{
-width:100%;
-padding:13px 14px;
-text-align:left;
-border:1px solid #e1e5ef;
-border-radius:12px;
-background:#fff;
-color:var(--text);
-cursor:pointer;
-font-size:11px;
-font-weight:700;
-transition:.2s;
-}
-
-.option:hover{
-border-color:var(--primary);
-background:#f5f3ff;
-}
-
-.option.correct{
-border-color:#12b76a;
-background:#e9fbf2;
-color:#087443;
-}
-
-.option.wrong{
-border-color:#f04438;
-background:#fff0ef;
-color:#b42318;
-}
-
-.option:disabled{
-cursor:default;
-}
-
-.quiz-controls{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-margin-top:17px;
-}
-
-.score{
-color:var(--muted);
-font-size:10px;
-font-weight:800;
-}
-
-.next,
-.restart{
-padding:11px 17px;
-border:0;
-border-radius:10px;
-color:#fff;
-background:linear-gradient(135deg,var(--primary),var(--primary2));
-cursor:pointer;
-font-size:10px;
-font-weight:900;
-}
-
-.next:disabled{
-opacity:.45;
-cursor:not-allowed;
-}
-
-.result{
-display:none;
-text-align:center;
-padding:20px;
-}
-
-.result.show{
-display:block;
-}
-
-.result-icon{
-font-size:45px;
-margin-bottom:8px;
-}
-
-.result h3{
-font-size:23px;
-margin-bottom:7px;
-}
-
-.result p{
-color:var(--muted);
-font-size:11px;
-line-height:1.7;
-}
-
-/* PROGRESS */
 
 .progress{
-margin:35px 0;
-padding:23px;
-border-radius:21px;
-color:#fff;
-background:linear-gradient(135deg,#172033,#263e65);
-box-shadow:0 16px 40px rgba(20,30,60,.18);
-}
-
-.progress-head{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:12px;
-}
-
-.progress-head h3{
-font-size:18px;
-}
-
-.progress-head strong{
-font-size:20px;
+    height:12px;
+    background:#e5e7eb;
+    border-radius:20px;
+    margin-top:18px;
+    overflow:hidden;
 }
 
 .progress-bar{
-height:9px;
-overflow:hidden;
-border-radius:20px;
-background:rgba(255,255,255,.13);
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--primary),var(--primary2));
+    transition:.4s;
 }
 
-.progress-fill{
-width:0%;
-height:100%;
-border-radius:20px;
-background:linear-gradient(90deg,#55d6ff,#8b5cf6);
-transition:.4s;
+/* QUIZ */
+.quiz-box{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    border:1px solid var(--border);
 }
 
-.progress p{
-margin-top:10px;
-color:#aebdd1;
-font-size:10px;
+.question{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.options{
+    display:grid;
+    gap:10px;
+}
+
+.option{
+    border:1px solid var(--border);
+    background:#fafafa;
+    padding:13px;
+    border-radius:12px;
+    cursor:pointer;
+    text-align:left;
+}
+
+.option:hover{
+    border-color:var(--primary);
+    background:#eef2ff;
+}
+
+.option.correct{
+    background:#dcfce7;
+    border-color:#22c55e;
+}
+
+.option.wrong{
+    background:#fee2e2;
+    border-color:#ef4444;
+}
+
+.quiz-controls{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:20px;
+}
+
+.quiz-btn{
+    border:0;
+    padding:11px 18px;
+    border-radius:10px;
+    background:var(--primary);
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.result{
+    margin-top:18px;
+    padding:15px;
+    background:#eef2ff;
+    border-radius:12px;
+    text-align:center;
+    font-weight:bold;
 }
 
 /* TOOLS */
-
-.tool-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin-bottom:40px;
+.tools-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
 .tool{
-padding:18px 10px;
-text-align:center;
-border:1px solid var(--border);
-border-radius:17px;
-background:#fff;
-box-shadow:var(--shadow);
-cursor:pointer;
-transition:.25s;
-}
-
-.tool:hover{
-transform:translateY(-4px);
+    background:white;
+    padding:20px;
+    border-radius:18px;
+    border:1px solid var(--border);
+    text-align:center;
 }
 
 .tool-icon{
-font-size:27px;
-margin-bottom:7px;
+    font-size:32px;
+    margin-bottom:8px;
 }
 
-.tool strong{
-display:block;
-font-size:12px;
+.tool h3{
+    font-size:16px;
 }
 
-.tool span{
-display:block;
-margin-top:4px;
-color:var(--muted);
-font-size:9px;
-}
-
-/* ROUTINE */
-
-.routine{
-display:grid;
-gap:10px;
-}
-
-.routine-item{
-display:flex;
-align-items:center;
-gap:12px;
-padding:14px;
-border:1px solid #edf0f6;
-border-radius:13px;
-background:#fafbff;
-}
-
-.time{
-width:55px;
-padding:7px;
-text-align:center;
-border-radius:8px;
-color:#fff;
-background:var(--primary);
-font-size:10px;
-font-weight:900;
-}
-
-.routine-item strong{
-display:block;
-font-size:12px;
-}
-
-.routine-item small{
-display:block;
-margin-top:3px;
-color:var(--muted);
-font-size:9px;
-}
-
-/* TIP */
-
-.tip{
-margin:30px 0;
-padding:23px;
-border-radius:20px;
-border:1px solid #e4ddff;
-background:linear-gradient(135deg,#f8f5ff,#fff);
-}
-
-.tip h3{
-margin-bottom:7px;
-color:#3f35a5;
-font-size:18px;
-}
-
-.tip p{
-color:var(--muted);
-font-size:11px;
-line-height:1.7;
-}
-
-.tip button{
-margin-top:13px;
-padding:10px 15px;
-border:0;
-border-radius:9px;
-color:#fff;
-background:var(--primary);
-font-size:11px;
-font-weight:800;
-cursor:pointer;
+.tool p{
+    font-size:12px;
+    color:var(--muted);
 }
 
 /* NOTES */
-
 .notes{
-margin:35px 0;
-padding:22px;
-border-radius:20px;
-background:#fff;
-border:1px solid var(--border);
-box-shadow:var(--shadow);
+    background:white;
+    padding:22px;
+    border-radius:20px;
+    border:1px solid var(--border);
 }
 
 .notes textarea{
-width:100%;
-min-height:120px;
-resize:vertical;
-padding:13px;
-border:1px solid var(--border);
-border-radius:12px;
-outline:none;
-font-size:12px;
-line-height:1.7;
+    width:100%;
+    min-height:180px;
+    resize:vertical;
+    margin-top:12px;
+    padding:15px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    outline:none;
 }
 
-.notes button{
-margin-top:10px;
-padding:10px 15px;
-border:0;
-border-radius:9px;
-background:var(--green);
-color:#fff;
-font-size:10px;
-font-weight:800;
-cursor:pointer;
+.save-note{
+    margin-top:10px;
+    border:0;
+    background:var(--primary);
+    color:white;
+    padding:11px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-/* ABOUT */
-
-.about{
-margin:30px 0 45px;
-padding:25px;
-text-align:center;
-border:1px solid var(--border);
-border-radius:20px;
-background:#fff;
-box-shadow:var(--shadow);
+/* ROUTINE */
+.routine{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
-.about h2{
-margin-bottom:8px;
+.routine-card{
+    background:white;
+    padding:20px;
+    border-radius:18px;
+    border-left:5px solid var(--primary);
+    border-top:1px solid var(--border);
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
 }
 
-.about p{
-max-width:760px;
-margin:auto;
-color:var(--muted);
-font-size:12px;
-line-height:1.8;
+.routine-card strong{
+    color:var(--primary);
+}
+
+/* TIPS */
+.tips{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.tip{
+    background:white;
+    padding:20px;
+    border-radius:18px;
+    border:1px solid var(--border);
 }
 
 /* FOOTER */
-
 footer{
-padding:30px 15px;
-text-align:center;
-color:#8792a4;
-background:#111827;
-font-size:10px;
-line-height:1.8;
+    background:#111827;
+    color:white;
+    margin-top:40px;
+    padding:35px 20px;
+    text-align:center;
 }
 
-footer strong{
-color:#fff;
-font-size:18px;
+footer img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    border-radius:50%;
+    margin-bottom:10px;
 }
 
-/* TOAST */
-
-.toast{
-position:fixed;
-left:50%;
-bottom:20px;
-z-index:9999;
-padding:12px 18px;
-border-radius:12px;
-color:#fff;
-background:#172033;
-box-shadow:0 12px 35px rgba(0,0,0,.25);
-font-size:11px;
-opacity:0;
-transform:translate(-50%,80px);
-transition:.3s;
-}
-
-.toast.show{
-opacity:1;
-transform:translate(-50%,0);
+footer p{
+    color:#cbd5e1;
+    font-size:13px;
 }
 
 /* MOBILE */
+@media(max-width:850px){
+    .subject-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-@media(max-width:750px){
+    .tools-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-header{
-padding:0 4%;
+    .routine,
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        display:none;
+        position:absolute;
+        top:75px;
+        left:10px;
+        right:10px;
+        background:white;
+        padding:15px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,.12);
+        flex-direction:column;
+    }
+
+    nav.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
 }
 
-nav{
-display:none;
-position:absolute;
-top:67px;
-left:4%;
-right:4%;
-padding:8px;
-flex-direction:column;
-border:1px solid var(--border);
-border-radius:14px;
-background:#fff;
-box-shadow:var(--shadow);
-}
+@media(max-width:600px){
+    .nav{
+        padding:8px 12px;
+    }
 
-nav.open{
-display:flex;
-}
+    .logo{
+        width:48px;
+        height:48px;
+    }
 
-nav a{
-text-align:center;
-padding:12px;
-}
+    .hero{
+        margin:15px 10px;
+        padding:35px 20px;
+        border-radius:22px;
+    }
 
-.menu-btn{
-display:block;
-}
+    .container{
+        padding:0 12px 30px;
+    }
 
-.hero{
-width:94%;
-margin-top:18px;
-padding:32px 18px;
-border-radius:23px;
-}
+    .subject-grid{
+        grid-template-columns:1fr;
+    }
 
-.class-grid{
-grid-template-columns:repeat(2,1fr);
-}
+    .chapter-list{
+        grid-template-columns:1fr;
+    }
 
-.subject-grid{
-grid-template-columns:1fr;
-}
+    .tools-grid{
+        grid-template-columns:1fr 1fr;
+    }
 
-.chapter-list{
-grid-template-columns:1fr;
-}
-
-.tool-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.selected{
-align-items:flex-start;
-flex-direction:column;
-}
-
-.material-header{
-align-items:flex-start;
-flex-direction:column;
-}
-
-}
-
-@media(max-width:430px){
-
-.hero h1{
-font-size:34px;
-}
-
-.hero p{
-font-size:12px;
-}
-
-.section-head h2{
-font-size:25px;
-}
-
+    .hero h1{
+        font-size:36px;
+    }
 }
 </style>
 </head>
@@ -1079,61 +645,55 @@ font-size:25px;
 <body>
 
 <!-- HEADER -->
-
 <header>
+<div class="nav">
 
-<a href="../" class="logo">
+    <div class="logo-area">
+        <img src="study-logo.png" class="logo" alt="ASIM TECH STUDY Logo">
 
-<span class="logo-icon">📚</span>
+        <div class="logo-text">
+            ASIM TECH
+            <span>STUDY • LEARN • GROW</span>
+        </div>
+    </div>
 
-ASIM <span>TECH</span>
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#tools">Tools</a>
+        <a href="#notes">Notes</a>
+    </nav>
 
-</a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<button class="menu-btn" id="menuBtn">☰</button>
-
-<nav id="nav">
-
-<a href="../">Home</a>
-<a href="#classes">Classes</a>
-<a href="#subjects">Subjects</a>
-<a href="#quiz">Quiz</a>
-<a href="#tools">Tools</a>
-<a href="#notes">Notes</a>
-
-</nav>
-
+</div>
 </header>
 
 
 <!-- HERO -->
+<section class="hero" id="home">
 
-<section class="hero">
+<div class="hero-content">
 
-<div class="badge">
-ASIM TECH • STUDY
-</div>
+    <div class="badge">📚 ASIM TECH STUDY</div>
 
-<h1>
-Learn Smart.<br>
-<span>Study Better. 🎓</span>
-</h1>
+    <h1>Learn Smart.<br>Study Better.</h1>
 
-<p>
-Class নির্বাচন করুন, Subject বেছে নিন,
-Chapter পড়ুন এবং শেষে Quiz দিয়ে নিজের
-প্রস্তুতি পরীক্ষা করুন।
-</p>
+    <p>
+        আপনার পড়াশোনাকে আরও সহজ, সুন্দর ও organised করার জন্য
+        ASIM TECH STUDY।
+    </p>
 
-<div class="hero-buttons">
+    <div class="hero-buttons">
+        <a href="#subjects" class="btn btn-white">
+            📖 Start Studying
+        </a>
 
-<a href="#classes" class="hero-btn primary">
-📚 Start Studying
-</a>
-
-<a href="#quiz" class="hero-btn">
-❓ Take Quiz
-</a>
+        <a href="#quiz" class="btn btn-dark">
+            🧠 Take Quiz
+        </a>
+    </div>
 
 </div>
 
@@ -1142,442 +702,172 @@ Chapter পড়ুন এবং শেষে Quiz দিয়ে নিজের
 
 <div class="container">
 
-
 <!-- CLASS -->
+<section class="section">
 
-<section id="classes">
-
-<div class="section-head">
-
-<div class="section-label">
-STEP 1
+<div class="section-title">
+    <h2>🎓 Select Your Class</h2>
+    <p>আপনার Class নির্বাচন করুন</p>
 </div>
 
-<h2>
-Choose Your Class
-</h2>
+<div class="class-box">
 
-<p>
-আপনার Class নির্বাচন করুন।
+<div class="class-buttons">
+
+<button class="class-btn" onclick="selectClass(5)">Class 5</button>
+<button class="class-btn" onclick="selectClass(6)">Class 6</button>
+<button class="class-btn" onclick="selectClass(7)">Class 7</button>
+<button class="class-btn" onclick="selectClass(8)">Class 8</button>
+<button class="class-btn" onclick="selectClass(9)">Class 9</button>
+<button class="class-btn" onclick="selectClass(10)">Class 10</button>
+<button class="class-btn" onclick="selectClass(11)">Class 11</button>
+<button class="class-btn" onclick="selectClass(12)">Class 12</button>
+
+</div>
+
+<p id="selectedClass"
+style="text-align:center;margin-top:15px;font-weight:bold;color:#4f46e5;">
+Class 10 Selected
 </p>
 
 </div>
-
-
-<div class="class-grid">
-
-<div class="class-card active" data-class="5">
-<div class="class-icon">🎒</div>
-<strong>Class 5</strong>
-<small>Primary</small>
-</div>
-
-<div class="class-card" data-class="6">
-<div class="class-icon">📘</div>
-<strong>Class 6</strong>
-<small>Middle School</small>
-</div>
-
-<div class="class-card" data-class="7">
-<div class="class-icon">📗</div>
-<strong>Class 7</strong>
-<small>Middle School</small>
-</div>
-
-<div class="class-card" data-class="8">
-<div class="class-icon">📙</div>
-<strong>Class 8</strong>
-<small>Middle School</small>
-</div>
-
-<div class="class-card" data-class="9">
-<div class="class-icon">📕</div>
-<strong>Class 9</strong>
-<small>Secondary</small>
-</div>
-
-<div class="class-card" data-class="10">
-<div class="class-icon">🎯</div>
-<strong>Class 10</strong>
-<small>Madhyamik</small>
-</div>
-
-<div class="class-card" data-class="11">
-<div class="class-icon">📚</div>
-<strong>Class 11</strong>
-<small>Higher Secondary</small>
-</div>
-
-<div class="class-card" data-class="12">
-<div class="class-icon">🎓</div>
-<strong>Class 12</strong>
-<small>Higher Secondary</small>
-</div>
-
-</div>
-
 </section>
 
 
-<!-- SELECTED -->
+<!-- SUBJECTS -->
+<section class="section" id="subjects">
 
-<div class="selected">
-
-<strong id="selectedClass">
-🎓 Selected Class: Class 5
-</strong>
-
-<span>
-Step 2 → Choose Subject
-</span>
-
+<div class="section-title">
+    <h2>📚 Subjects</h2>
+    <p>Choose a subject to start learning</p>
 </div>
 
-
-<!-- SUBJECT -->
-
-<section id="subjects">
-
-<div class="section-head">
-
-<div class="section-label">
-STEP 2
-</div>
-
-<h2>
-Choose Subject
-</h2>
-
-<p id="subjectInfo">
-Class 5-এর জন্য একটি Subject নির্বাচন করুন।
-</p>
-
-</div>
-
-
-<div class="search">
-
+<div class="search-box">
 <input
+type="text"
 id="subjectSearch"
-type="search"
 placeholder="🔍 Search subject..."
-autocomplete="off">
-
-<span>⌕</span>
-
+onkeyup="searchSubjects()">
 </div>
 
+<div class="subject-grid" id="subjectGrid">
 
-<div class="subject-grid">
-
-
-<article class="subject"
-data-subject="বাংলা bangla">
-
-<div class="subject-icon">📖</div>
-
-<h3>বাংলা</h3>
-
-<p>
-সাহিত্য, ব্যাকরণ, রচনা ও গুরুত্বপূর্ণ প্রশ্ন।
-</p>
-
-<button onclick="selectSubject('বাংলা')">
-📚 Open বাংলা
-</button>
-
-</article>
-
-
-<article class="subject"
-data-subject="english ইংরেজি">
-
-<div class="subject-icon">🔤</div>
-
-<h3>English</h3>
-
-<p>
-Grammar, vocabulary, writing ও practice।
-</p>
-
-<button onclick="selectSubject('English')">
-📚 Open English
-</button>
-
-</article>
-
-
-<article class="subject"
-data-subject="গণিত math">
-
-<div class="subject-icon">🧮</div>
-
-<h3>গণিত</h3>
-
-<p>
-Arithmetic, geometry, formula ও problem solving।
-</p>
-
-<button onclick="selectSubject('গণিত')">
-📚 Open গণিত
-</button>
-
-</article>
-
-
-<article class="subject"
-data-subject="বিজ্ঞান science">
-
-<div class="subject-icon">🔬</div>
-
-<h3>বিজ্ঞান</h3>
-
-<p>
-Science concepts, diagrams ও practice।
-</p>
-
-<button onclick="selectSubject('বিজ্ঞান')">
-📚 Open বিজ্ঞান
-</button>
-
-</article>
-
-
-<article class="subject"
-data-subject="ইতিহাস history">
-
-<div class="subject-icon">🏛️</div>
-
-<h3>ইতিহাস</h3>
-
-<p>
-Events, dates, personalities ও revision।
-</p>
-
-<button onclick="selectSubject('ইতিহাস')">
-📚 Open ইতিহাস
-</button>
-
-</article>
-
-
-<article class="subject"
-data-subject="ভূগোল geography">
-
-<div class="subject-icon">🌍</div>
-
-<h3>ভূগোল</h3>
-
-<p>
-Maps, environment ও geography concepts।
-</p>
-
-<button onclick="selectSubject('ভূগোল')">
-📚 Open ভূগোল
-</button>
-
-</article>
-
-
+<div class="subject active" onclick="selectSubject('বাংলা',this)">
+    <div class="subject-icon">📕</div>
+    <h3>বাংলা</h3>
+    <p>ভাষা, সাহিত্য ও ব্যাকরণ</p>
 </div>
 
+<div class="subject" onclick="selectSubject('English',this)">
+    <div class="subject-icon">📘</div>
+    <h3>English</h3>
+    <p>Grammar, Literature & Writing</p>
+</div>
+
+<div class="subject" onclick="selectSubject('গণিত',this)">
+    <div class="subject-icon">🧮</div>
+    <h3>গণিত</h3>
+    <p>Mathematics & Problem Solving</p>
+</div>
+
+<div class="subject" onclick="selectSubject('বিজ্ঞান',this)">
+    <div class="subject-icon">🔬</div>
+    <h3>বিজ্ঞান</h3>
+    <p>Physics, Chemistry & Biology</p>
+</div>
+
+<div class="subject" onclick="selectSubject('ইতিহাস',this)">
+    <div class="subject-icon">🏛️</div>
+    <h3>ইতিহাস</h3>
+    <p>Past Events & Civilization</p>
+</div>
+
+<div class="subject" onclick="selectSubject('ভূগোল',this)">
+    <div class="subject-icon">🌍</div>
+    <h3>ভূগোল</h3>
+    <p>Earth, Environment & Maps</p>
+</div>
+
+</div>
 </section>
 
 
 <!-- CHAPTER -->
-
-<section>
-
-<div class="section-head">
-
-<div class="section-label">
-STEP 3
-</div>
-
-<h2>
-Choose Chapter
-</h2>
-
-<p>
-Subject নির্বাচন করে Chapter খুলুন।
-</p>
-
-</div>
-
+<section class="section">
 
 <div class="chapter-box">
 
-<div class="chapter-header">
-
-<h3>
-📑 <span id="chapterSubject">বাংলা</span>
-</h3>
-
-<span id="chapterClass">
-Class 5
-</span>
-
+<div class="material-header">
+    <div>
+        <h2 id="subjectTitle">বাংলা</h2>
+        <p style="color:#6b7280;">
+            Select a chapter
+        </p>
+    </div>
 </div>
-
 
 <div class="chapter-list">
 
-
-<div class="chapter"
-onclick="openChapter(1,'পরিচয় ও পাঠ')">
-
-<div class="chapter-number">01</div>
-
-<div>
-<strong>পরিচয় ও পাঠ</strong>
-<small>Basic Lesson</small>
+<div class="chapter active" onclick="selectChapter(this,'Chapter 1')">
+    📖 Chapter 1 — Introduction
 </div>
 
+<div class="chapter" onclick="selectChapter(this,'Chapter 2')">
+    📖 Chapter 2 — Important Topics
 </div>
 
+<div class="chapter" onclick="selectChapter(this,'Chapter 3')">
+    📖 Chapter 3 — Practice
+</div>
 
-<div class="chapter"
-onclick="openChapter(2,'গুরুত্বপূর্ণ বিষয়')">
+<div class="chapter" onclick="selectChapter(this,'Chapter 4')">
+    📖 Chapter 4 — Revision
+</div>
 
-<div class="chapter-number">02</div>
-
-<div>
-<strong>গুরুত্বপূর্ণ বিষয়</strong>
-<small>Important Topics</small>
 </div>
 
 </div>
 
 
-<div class="chapter"
-onclick="openChapter(3,'প্রশ্ন ও উত্তর')">
-
-<div class="chapter-number">03</div>
-
-<div>
-<strong>প্রশ্ন ও উত্তর</strong>
-<small>Question & Answer</small>
-</div>
-
-</div>
-
-
-<div class="chapter"
-onclick="openChapter(4,'Revision')">
-
-<div class="chapter-number">04</div>
-
-<div>
-<strong>Revision</strong>
-<small>Quick Revision</small>
-</div>
-
-</div>
-
-
-<div class="chapter"
-onclick="openChapter(5,'Practice')">
-
-<div class="chapter-number">05</div>
-
-<div>
-<strong>Practice</strong>
-<small>Practice Set</small>
-</div>
-
-</div>
-
-
-<div class="chapter"
-onclick="openChapter(6,'Model Questions')">
-
-<div class="chapter-number">06</div>
-
-<div>
-<strong>Model Questions</strong>
-<small>Exam Practice</small>
-</div>
-
-</div>
-
-
-</div>
-
-
-<!-- MATERIAL -->
-
-<div class="material" id="material">
+<div class="material">
 
 <div class="material-header">
 
-<h2 id="materialTitle">
-Chapter
-</h2>
+<div>
+<h2 id="chapterTitle">Chapter 1 — Introduction</h2>
 
-<button class="back" onclick="closeMaterial()">
-← Back
-</button>
-
+<p style="color:#6b7280;margin-top:5px;">
+Study material for your selected subject.
+</p>
 </div>
 
-
-<p id="materialIntro">
-Study material এখানে থাকবে।
-</p>
-
-
-<h3>
-📖 What You Will Learn
-</h3>
-
-
-<ul>
-<li>Chapter-এর মূল ধারণা বুঝুন।</li>
-<li>গুরুত্বপূর্ণ শব্দ ও সংজ্ঞা শিখুন।</li>
-<li>উদাহরণ দেখে practice করুন।</li>
-<li>শেষে Quiz দিয়ে নিজের preparation পরীক্ষা করুন।</li>
-</ul>
-
-
-<h3>
-⭐ Important Points
-</h3>
-
-
-<p id="importantText">
-এই অংশে Chapter-এর গুরুত্বপূর্ণ notes যোগ করা যাবে।
-</p>
-
-
-<div class="material-buttons">
-
-<button
-class="complete"
-onclick="markComplete()">
-
+<button class="complete-btn" onclick="completeChapter()">
 ✓ Mark Complete
-
-</button>
-
-
-<button
-class="print"
-onclick="window.print()">
-
-🖨️ Print / PDF
-
-</button>
-
-
-<button
-class="quiz-open"
-onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">
-
-❓ Take Quiz
-
 </button>
 
 </div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<p style="margin-top:8px;color:#6b7280;">
+Your Study Progress
+</p>
+
+<div style="margin-top:20px;line-height:1.9;">
+
+<h3>📚 Study Notes</h3>
+
+<p>
+এখানে আপনার নির্বাচিত Chapter-এর বিস্তারিত study material,
+notes এবং গুরুত্বপূর্ণ বিষয়গুলো রাখা যাবে।
+</p>
+
+<p>
+💡 নিয়মিত পড়ুন, গুরুত্বপূর্ণ বিষয়গুলো লিখে রাখুন এবং
+প্রতিদিন MCQ practice করুন।
+</p>
 
 </div>
 
@@ -1586,145 +876,37 @@ onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">
 </section>
 
 
-<!-- PROGRESS -->
-
-<div class="progress">
-
-<div class="progress-head">
-
-<h3>
-📊 My Study Progress
-</h3>
-
-<strong id="progressPercent">
-0%
-</strong>
-
-</div>
-
-
-<div class="progress-bar">
-
-<div
-class="progress-fill"
-id="progressFill">
-</div>
-
-</div>
-
-
-<p id="progressText">
-পড়াশোনা শুরু করুন এবং Chapter complete করুন।
-</p>
-
-</div>
-
-
 <!-- QUIZ -->
+<section class="section" id="quiz">
 
-<section id="quiz" class="quiz-section">
-
-<div class="section-head">
-
-<div class="section-label">
-PRACTICE
+<div class="section-title">
+    <h2>🧠 Quick MCQ Quiz</h2>
+    <p>Test your knowledge</p>
 </div>
 
-<h2>
-❓ MCQ Quiz
-</h2>
+<div class="quiz-box">
 
-<p>
-পড়া শেষ করে নিজের knowledge পরীক্ষা করুন।
-</p>
-
+<div class="question" id="question">
+Question loading...
 </div>
 
-
-<div class="quiz-card">
-
-
-<div class="quiz-top">
-
-<h3>
-🧠 General Study Quiz
-</h3>
-
-<span
-class="quiz-count"
-id="quizCount">
-Question 1 / 5
-</span>
-
-</div>
-
-
-<div
-class="question"
-id="questionBox">
-
-<p id="question">
-প্রশ্ন এখানে থাকবে।
-</p>
-
-</div>
-
-
-<div
-class="options"
-id="options">
-</div>
-
+<div class="options" id="options"></div>
 
 <div class="quiz-controls">
 
-<span
-class="score"
-id="score">
-Score: 0
-</span>
-
-
-<button
-class="next"
-id="next"
-disabled>
-
+<button class="quiz-btn" onclick="nextQuestion()">
 Next →
+</button>
 
+<button class="quiz-btn" onclick="restartQuiz()">
+Restart
 </button>
 
 </div>
 
-
-<div
-class="result"
-id="result">
-
-<div class="result-icon">
-🏆
+<div class="result" id="result">
+Score: 0 / 5
 </div>
-
-<h3 id="resultTitle">
-Quiz Complete!
-</h3>
-
-<p id="resultText">
-আপনার ফলাফল এখানে দেখা যাবে।
-</p>
-
-<br>
-
-<button
-class="restart"
-onclick="restartQuiz()">
-
-🔄 Try Again
-
-</button>
-
-</div>
-
 
 </div>
 
@@ -1732,132 +914,38 @@ onclick="restartQuiz()">
 
 
 <!-- TOOLS -->
+<section class="section" id="tools">
 
-<section id="tools">
-
-<div class="section-head">
-
-<div class="section-label">
-STUDY TOOLS
+<div class="section-title">
+    <h2>🛠️ Study Tools</h2>
+    <p>Useful tools for students</p>
 </div>
 
-<h2>
-Tools For Students
-</h2>
+<div class="tools-grid">
 
-<p>
-পড়াশোনাকে আরও সহজ করার জন্য।
-</p>
-
+<div class="tool">
+    <div class="tool-icon">🧮</div>
+    <h3>Calculator</h3>
+    <p>Quick calculations</p>
 </div>
 
-
-<div class="tool-grid">
-
-
-<div
-class="tool"
-onclick="toolMessage('MCQ Quiz')">
-
-<div class="tool-icon">❓</div>
-
-<strong>MCQ Quiz</strong>
-
-<span>Practice</span>
-
+<div class="tool">
+    <div class="tool-icon">📝</div>
+    <h3>Notes</h3>
+    <p>Write your notes</p>
 </div>
 
-
-<div
-class="tool"
-onclick="toolMessage('Study Timer')">
-
-<div class="tool-icon">⏱️</div>
-
-<strong>Study Timer</strong>
-
-<span>Focus Time</span>
-
+<div class="tool">
+    <div class="tool-icon">⏱️</div>
+    <h3>Study Timer</h3>
+    <p>Focus on your study</p>
 </div>
 
-
-<div
-class="tool"
-onclick="document.getElementById('notes').scrollIntoView({behavior:'smooth'})">
-
-<div class="tool-icon">📝</div>
-
-<strong>My Notes</strong>
-
-<span>Save Notes</span>
-
+<div class="tool">
+    <div class="tool-icon">📊</div>
+    <h3>Progress</h3>
+    <p>Track your learning</p>
 </div>
-
-
-<div
-class="tool"
-onclick="toolMessage('Calculator')">
-
-<div class="tool-icon">🧮</div>
-
-<strong>Calculator</strong>
-
-<span>Calculation</span>
-
-</div>
-
-
-<div
-class="tool"
-onclick="toolMessage('Important Questions')">
-
-<div class="tool-icon">⭐</div>
-
-<strong>Important</strong>
-
-<span>Questions</span>
-
-</div>
-
-
-<div
-class="tool"
-onclick="toolMessage('Exam Preparation')">
-
-<div class="tool-icon">🎯</div>
-
-<strong>Exam Prep</strong>
-
-<span>Preparation</span>
-
-</div>
-
-
-<div
-class="tool"
-onclick="toolMessage('Dictionary')">
-
-<div class="tool-icon">📚</div>
-
-<strong>Dictionary</strong>
-
-<span>Word Meaning</span>
-
-</div>
-
-
-<div
-class="tool"
-onclick="toolMessage('Progress Tracker')">
-
-<div class="tool-icon">📈</div>
-
-<strong>Progress</strong>
-
-<span>Track Learning</span>
-
-</div>
-
 
 </div>
 
@@ -1865,36 +953,25 @@ onclick="toolMessage('Progress Tracker')">
 
 
 <!-- NOTES -->
+<section class="section" id="notes">
 
-<section id="notes">
-
-<div class="section-head">
-
-<div class="section-label">
-MY NOTES
+<div class="section-title">
+    <h2>📝 Personal Notes</h2>
+    <p>Your notes are saved in this browser</p>
 </div>
-
-<h2>
-📝 Personal Notes
-</h2>
-
-<p>
-আপনার নিজের পড়ার notes এখানে লিখে save করুন।
-</p>
-
-</div>
-
 
 <div class="notes">
 
 <textarea
-id="notesArea"
-placeholder="আজ কী পড়লেন? গুরুত্বপূর্ণ notes এখানে লিখুন..."></textarea>
+id="personalNotes"
+placeholder="Write your personal study notes here..."></textarea>
 
-
-<button onclick="saveNotes()">
+<button class="save-note" onclick="saveNotes()">
 💾 Save Notes
 </button>
+
+<span id="noteStatus"
+style="margin-left:10px;color:#16a34a;"></span>
 
 </div>
 
@@ -1902,85 +979,28 @@ placeholder="আজ কী পড়লেন? গুরুত্বপূর্ণ
 
 
 <!-- ROUTINE -->
+<section class="section">
 
-<section>
-
-<div class="section-head">
-
-<div class="section-label">
-DAILY PLAN
+<div class="section-title">
+    <h2>📅 Daily Study Routine</h2>
+    <p>একটি সহজ study routine</p>
 </div>
-
-<h2>
-📅 Study Routine
-</h2>
-
-<p>
-প্রতিদিনের পড়াশোনাকে organised রাখুন।
-</p>
-
-</div>
-
-
-<div class="chapter-box">
 
 <div class="routine">
 
-<div class="routine-item">
-
-<div class="time">
-30m
+<div class="routine-card">
+<strong>🌅 Morning</strong>
+<p>30–45 minutes revision</p>
 </div>
 
-<div>
-<strong>🌅 Morning Revision</strong>
-<small>আগের দিনের পড়া revise করুন।</small>
+<div class="routine-card">
+<strong>☀️ Afternoon</strong>
+<p>1 hour new chapter</p>
 </div>
 
-</div>
-
-
-<div class="routine-item">
-
-<div class="time">
-60m
-</div>
-
-<div>
-<strong>📖 Main Study</strong>
-<small>একটি গুরুত্বপূর্ণ subject পড়ুন।</small>
-</div>
-
-</div>
-
-
-<div class="routine-item">
-
-<div class="time">
-45m
-</div>
-
-<div>
-<strong>✍️ Practice</strong>
-<small>MCQ ও written practice করুন।</small>
-</div>
-
-</div>
-
-
-<div class="routine-item">
-
-<div class="time">
-30m
-</div>
-
-<div>
-<strong>🔁 Night Revision</strong>
-<small>আজকের পড়া আবার revise করুন।</small>
-</div>
-
-</div>
-
+<div class="routine-card">
+<strong>🌙 Evening</strong>
+<p>MCQ + revision</p>
 </div>
 
 </div>
@@ -1988,1048 +1008,377 @@ DAILY PLAN
 </section>
 
 
-<!-- TIP -->
+<!-- TIPS -->
+<section class="section">
+
+<div class="section-title">
+    <h2>💡 Study Tips</h2>
+</div>
+
+<div class="tips">
 
 <div class="tip">
+<h3>🎯 Set Goals</h3>
+<p>প্রতিদিন ছোট ছোট study goal তৈরি করুন।</p>
+</div>
 
-<h3>
-💡 Today's Study Tip
-</h3>
+<div class="tip">
+<h3>📵 Avoid Distraction</h3>
+<p>পড়ার সময় অপ্রয়োজনীয় mobile usage কমান।</p>
+</div>
 
-<p id="tipText">
-একটি Chapter পড়ার পরে নিজের ভাষায় সেটি
-একবার বুঝিয়ে বলার চেষ্টা করুন।
-</p>
-
-<button onclick="newTip()">
-✨ New Study Tip
-</button>
+<div class="tip">
+<h3>🔁 Revise</h3>
+<p>নতুন পড়ার পাশাপাশি পুরনো বিষয় revise করুন।</p>
+</div>
 
 </div>
 
-
-<!-- ABOUT -->
-
-<section class="about">
-
-<h2>
-🎓 About Asim Tech Study
-</h2>
-
-<p>
-Asim Tech Study হলো students-এর জন্য একটি
-simple, সুন্দর এবং mobile-friendly learning platform।
-এখানে Class → Subject → Chapter → Study Material
-→ Quiz → Progress—এইভাবে পড়াশোনা করা যাবে।
-</p>
-
 </section>
-
 
 </div>
 
 
 <!-- FOOTER -->
-
 <footer>
 
-<strong>
-📚 ASIM TECH STUDY
-</strong>
+<img src="study-logo.png" alt="ASIM TECH STUDY">
 
-<br>
+<h2>ASIM TECH STUDY</h2>
 
-Learn • Practice • Improve
+<p>
+Learn • Practice • Grow
+</p>
 
-<br>
-
-© 2026 Asim Tech. All rights reserved.
+<p style="margin-top:12px;">
+© 2026 ASIM TECH — All Rights Reserved
+</p>
 
 </footer>
 
 
-<div
-class="toast"
-id="toast">
-</div>
-
-
 <script>
 
-/* =====================================================
-   MOBILE MENU
-===================================================== */
+/* MOBILE MENU */
 
-const menuBtn =
-document.getElementById("menuBtn");
+function toggleMenu(){
 
-const nav =
-document.getElementById("nav");
-
-menuBtn.addEventListener(
-"click",
-function(){
-
-nav.classList.toggle("open");
-
-menuBtn.textContent =
-nav.classList.contains("open")
-? "✕"
-: "☰";
-
-});
-
-
-nav.querySelectorAll("a")
-.forEach(function(link){
-
-link.addEventListener(
-"click",
-function(){
-
-nav.classList.remove("open");
-
-menuBtn.textContent="☰";
-
-});
-
-});
-
-
-/* =====================================================
-   CLASS
-===================================================== */
-
-let selectedClass=5;
-
-let selectedSubject="বাংলা";
-
-let completed=0;
-
-const totalChapters=6;
-
-
-const classCards =
-document.querySelectorAll(".class-card");
-
-
-classCards.forEach(
-function(card){
-
-card.addEventListener(
-"click",
-function(){
-
-classCards.forEach(
-function(item){
-
-item.classList.remove("active");
-
-});
-
-card.classList.add("active");
-
-selectedClass =
-Number(card.dataset.class);
-
-
-document.getElementById(
-"selectedClass"
-).textContent =
-"🎓 Selected Class: Class " +
-selectedClass;
-
-
-document.getElementById(
-"chapterClass"
-).textContent =
-"Class " +
-selectedClass;
-
-
-document.getElementById(
-"subjectInfo"
-).textContent =
-"Class " +
-selectedClass +
-"-এর জন্য একটি Subject নির্বাচন করুন।";
-
-
-showToast(
-"Class " +
-selectedClass +
-" selected 🎓"
-);
-
-
-localStorage.setItem(
-"asimStudyClass",
-selectedClass
-);
-
-});
-
-});
-
-
-/* =====================================================
-   SUBJECT SEARCH
-===================================================== */
-
-const subjectSearch =
-document.getElementById(
-"subjectSearch"
-);
-
-const subjects =
-document.querySelectorAll(
-".subject"
-);
-
-
-subjectSearch.addEventListener(
-"input",
-function(){
-
-const value =
-this.value
-.toLowerCase()
-.trim();
-
-
-subjects.forEach(
-function(subject){
-
-const text =
-(
-subject.dataset.subject ||
-""
-).toLowerCase();
-
-
-subject.classList.toggle(
-"hide",
-value !== "" &&
-!text.includes(value)
-);
-
-});
-
-});
-
-
-/* =====================================================
-   SUBJECT SELECT
-===================================================== */
-
-function selectSubject(subject){
-
-selectedSubject=subject;
-
-
-document.getElementById(
-"chapterSubject"
-).textContent =
-subject;
-
-
-document.getElementById(
-"subjectInfo"
-).textContent =
-"Class " +
-selectedClass +
-" → " +
-subject +
-" → Chapter নির্বাচন করুন।";
-
-
-localStorage.setItem(
-"asimStudySubject",
-subject
-);
-
-
-document.querySelector(
-".chapter-box"
-).scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-
-showToast(
-subject +
-" selected 📖"
-);
+    document.getElementById("navMenu")
+    .classList.toggle("show");
 
 }
 
 
-/* =====================================================
-   CHAPTER
-===================================================== */
+/* CLASS */
 
-function openChapter(number,title){
+function selectClass(classNo){
 
-document.getElementById(
-"materialTitle"
-).textContent =
-"Chapter " +
-number +
-" • " +
-title;
+    localStorage.setItem("studyClass",classNo);
 
+    document.getElementById("selectedClass").innerText =
+    "Class " + classNo + " Selected";
 
-document.getElementById(
-"materialIntro"
-).textContent =
-"Class " +
-selectedClass +
-" → " +
-selectedSubject +
-" → Chapter " +
-number +
-": " +
-title +
-".";
+    document.querySelectorAll(".class-btn")
+    .forEach(btn=>btn.classList.remove("active"));
 
-
-document.getElementById(
-"importantText"
-).textContent =
-selectedSubject +
-" বিষয়ের " +
-title +
-" chapter-এর গুরুত্বপূর্ণ notes, examples এবং questions এখানে যোগ করা যাবে।";
-
-
-document.getElementById(
-"material"
-).classList.add("show");
-
-
-document.getElementById(
-"material"
-).scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+    event.target.classList.add("active");
 
 }
 
 
-function closeMaterial(){
+/* SUBJECT */
 
-document.getElementById(
-"material"
-).classList.remove("show");
+function selectSubject(subject,element){
 
-}
+    document.querySelectorAll(".subject")
+    .forEach(x=>x.classList.remove("active"));
 
+    element.classList.add("active");
 
-/* =====================================================
-   PROGRESS
-===================================================== */
+    document.getElementById("subjectTitle")
+    .innerText=subject;
 
-function markComplete(){
-
-if(completed < totalChapters){
-
-completed++;
-
-}
-
-const percent =
-Math.round(
-(completed/totalChapters)*100
-);
-
-
-document.getElementById(
-"progressPercent"
-).textContent =
-percent+"%";
-
-
-document.getElementById(
-"progressFill"
-).style.width =
-percent+"%";
-
-
-document.getElementById(
-"progressText"
-).textContent =
-completed +
-" of " +
-totalChapters +
-" chapters completed. Keep going! 🎯";
-
-
-localStorage.setItem(
-"asimStudyProgress",
-completed
-);
-
-
-showToast(
-"Chapter completed ✓"
-);
+    localStorage.setItem("studySubject",subject);
 
 }
 
 
-/* =====================================================
-   QUIZ DATA
-===================================================== */
+/* SEARCH */
+
+function searchSubjects(){
+
+    let value=
+    document.getElementById("subjectSearch")
+    .value.toLowerCase();
+
+    document.querySelectorAll(".subject")
+    .forEach(subject=>{
+
+        let text=subject.innerText.toLowerCase();
+
+        subject.style.display=
+        text.includes(value) ? "block" : "none";
+
+    });
+
+}
+
+
+/* CHAPTER */
+
+function selectChapter(element,title){
+
+    document.querySelectorAll(".chapter")
+    .forEach(x=>x.classList.remove("active"));
+
+    element.classList.add("active");
+
+    document.getElementById("chapterTitle")
+    .innerText=title;
+
+    localStorage.setItem("studyChapter",title);
+
+}
+
+
+/* PROGRESS */
+
+function completeChapter(){
+
+    let bar=document.getElementById("progressBar");
+
+    let current=
+    parseInt(localStorage.getItem("studyProgress")||"0");
+
+    current+=25;
+
+    if(current>100){
+        current=100;
+    }
+
+    localStorage.setItem("studyProgress",current);
+
+    bar.style.width=current+"%";
+
+    alert("🎉 Chapter completed!");
+
+}
+
+
+/* QUIZ DATA */
 
 const questions=[
 
 {
-q:"বাংলা ভাষার প্রধান দুটি রূপ কী?",
-o:[
-"কথ্য ও সাধু",
-"দেশি ও বিদেশি",
-"ছোট ও বড়",
-"লিখিত ও অঙ্ক"
-],
-a:0
+q:"বাংলা ভাষার প্রধান লিপি কোনটি?",
+options:["বাংলা লিপি","রোমান","আরবি","গ্রিক"],
+answer:0
 },
 
 {
-q:"5 × 6 = কত?",
-o:[
-"20",
-"25",
-"30",
-"35"
-],
-a:2
+q:"2 + 2 = ?",
+options:["3","4","5","6"],
+answer:1
 },
 
 {
-q:"পৃথিবীর প্রাকৃতিক উপগ্রহ কোনটি?",
-o:[
-"সূর্য",
-"চাঁদ",
-"মঙ্গল",
-"শুক্র"
-],
-a:1
+q:"Water-এর chemical formula কোনটি?",
+options:["CO2","O2","H2O","NaCl"],
+answer:2
 },
 
 {
-q:"Water-এর বাংলা অর্থ কী?",
-o:[
-"আগুন",
-"বায়ু",
-"জল",
-"মাটি"
-],
-a:2
+q:"সূর্য কোন ধরনের নক্ষত্র?",
+options:["গ্রহ","নক্ষত্র","উপগ্রহ","ধূমকেতু"],
+answer:1
 },
 
 {
-q:"ভারতের রাজধানী কোনটি?",
-o:[
-"কলকাতা",
-"মুম্বাই",
-"নয়াদিল্লি",
-"চেন্নাই"
-],
-a:2
+q:"English alphabet-এ মোট কতটি letter?",
+options:["24","25","26","27"],
+answer:2
 }
 
 ];
 
-
-let quizIndex=0;
-
-let quizScore=0;
-
+let currentQuestion=0;
+let score=0;
 let answered=false;
 
 
-const question =
-document.getElementById("question");
-
-const options =
-document.getElementById("options");
-
-const quizCount =
-document.getElementById("quizCount");
-
-const score =
-document.getElementById("score");
-
-const next =
-document.getElementById("next");
-
-const result =
-document.getElementById("result");
-
+/* LOAD QUIZ */
 
 function loadQuestion(){
 
-answered=false;
+    let q=questions[currentQuestion];
 
-next.disabled=true;
+    document.getElementById("question")
+    .innerText=
+    (currentQuestion+1)+". "+q.q;
 
-const item =
-questions[quizIndex];
+    let options=
+    document.getElementById("options");
 
+    options.innerHTML="";
 
-quizCount.textContent =
-"Question " +
-(quizIndex+1) +
-" / " +
-questions.length;
+    answered=false;
 
+    q.options.forEach((option,index)=>{
 
-question.textContent =
-item.q;
+        let btn=document.createElement("button");
 
+        btn.className="option";
 
-score.textContent =
-"Score: " +
-quizScore;
+        btn.innerText=option;
 
+        btn.onclick=()=>checkAnswer(btn,index);
 
-options.innerHTML="";
+        options.appendChild(btn);
 
-
-item.o.forEach(
-function(text,index){
-
-const button =
-document.createElement("button");
-
-button.className="option";
-
-button.textContent =
-String.fromCharCode(65+index) +
-". " +
-text;
-
-
-button.onclick =
-function(){
-
-answerQuestion(index);
-
-};
-
-
-options.appendChild(
-button
-);
-
-});
+    });
 
 }
 
 
-function answerQuestion(selected){
+/* CHECK ANSWER */
 
-if(answered){
+function checkAnswer(button,index){
 
-return;
+    if(answered) return;
 
-}
+    answered=true;
 
-answered=true;
+    let correct=
+    questions[currentQuestion].answer;
 
+    let buttons=
+    document.querySelectorAll(".option");
 
-const item =
-questions[quizIndex];
+    if(index===correct){
 
+        button.classList.add("correct");
 
-const buttons =
-options.querySelectorAll(
-".option"
-);
+        score++;
 
+    }else{
 
-buttons.forEach(
-function(button,index){
+        button.classList.add("wrong");
 
-button.disabled=true;
+        buttons[correct]
+        .classList.add("correct");
 
+    }
 
-if(index === item.a){
-
-button.classList.add(
-"correct"
-);
-
-}
-
-
-if(
-index === selected &&
-selected !== item.a
-){
-
-button.classList.add(
-"wrong"
-);
-
-}
-
-});
-
-
-if(selected === item.a){
-
-quizScore++;
-
-showToast(
-"সঠিক উত্তর! 🎉"
-);
-
-}else{
-
-showToast(
-"ভুল উত্তর — আবার চেষ্টা করুন।"
-);
+    document.getElementById("result")
+    .innerText=
+    "Score: "+score+" / 5";
 
 }
 
 
-score.textContent =
-"Score: " +
-quizScore;
+/* NEXT */
 
+function nextQuestion(){
 
-next.disabled=false;
+    if(currentQuestion < questions.length-1){
 
-}
+        currentQuestion++;
 
+        loadQuestion();
 
-next.addEventListener(
-"click",
-function(){
+    }else{
 
-if(!answered){
+        document.getElementById("question")
+        .innerText="🎉 Quiz Completed!";
 
-return;
+        document.getElementById("options")
+        .innerHTML=
+        "<h3 style='text-align:center;color:#4f46e5;'>Your Final Score: "
+        +score+" / 5</h3>";
 
-}
+        localStorage.setItem("lastQuizScore",score);
 
-
-quizIndex++;
-
-
-if(
-quizIndex >=
-questions.length
-){
-
-finishQuiz();
-
-}else{
-
-loadQuestion();
-
-}
-
-});
-
-
-function finishQuiz(){
-
-document.getElementById(
-"questionBox"
-).style.display="none";
-
-
-options.style.display="none";
-
-
-document.querySelector(
-".quiz-controls"
-).style.display="none";
-
-
-result.classList.add("show");
-
-
-const percent =
-Math.round(
-(quizScore/questions.length)*100
-);
-
-
-if(percent >= 80){
-
-document.getElementById(
-"resultTitle"
-).textContent =
-"Excellent! 🎉";
-
-}else if(percent >= 50){
-
-document.getElementById(
-"resultTitle"
-).textContent =
-"Good Job! 👍";
-
-}else{
-
-document.getElementById(
-"resultTitle"
-).textContent =
-"Keep Practicing! 💪";
+    }
 
 }
 
 
-document.getElementById(
-"resultText"
-).textContent =
-"আপনি " +
-questions.length +
-"টির মধ্যে " +
-quizScore +
-"টি সঠিক উত্তর দিয়েছেন। আপনার Score: " +
-percent +
-"%";
-
-
-localStorage.setItem(
-"asimLastQuizScore",
-percent
-);
-
-}
-
+/* RESTART */
 
 function restartQuiz(){
 
-quizIndex=0;
+    currentQuestion=0;
 
-quizScore=0;
+    score=0;
 
-answered=false;
+    document.getElementById("result")
+    .innerText="Score: 0 / 5";
 
-
-result.classList.remove(
-"show"
-);
-
-
-document.getElementById(
-"questionBox"
-).style.display="block";
-
-
-options.style.display="grid";
-
-
-document.querySelector(
-".quiz-controls"
-).style.display="flex";
-
-
-loadQuestion();
+    loadQuestion();
 
 }
 
 
-/* START QUIZ */
-
-loadQuestion();
-
-
-/* =====================================================
-   NOTES
-===================================================== */
-
-const notesArea =
-document.getElementById(
-"notesArea"
-);
-
-
-notesArea.value =
-localStorage.getItem(
-"asimStudyNotes"
-) || "";
-
+/* NOTES */
 
 function saveNotes(){
 
-localStorage.setItem(
-"asimStudyNotes",
-notesArea.value
-);
+    let notes=
+    document.getElementById("personalNotes").value;
 
+    localStorage.setItem("personalNotes",notes);
 
-showToast(
-"Notes saved successfully ✓"
-);
+    document.getElementById("noteStatus")
+    .innerText="✓ Saved";
 
-}
+    setTimeout(()=>{
 
+        document.getElementById("noteStatus")
+        .innerText="";
 
-/* =====================================================
-   STUDY TIPS
-===================================================== */
-
-const tips=[
-
-"প্রতিদিন অন্তত ৩০ মিনিট revision করুন।",
-
-"শুধু পড়বেন না—নিজে লিখে practice করুন।",
-
-"একটি Chapter শেষ করে তারপর পরের Chapter শুরু করুন।",
-
-"পড়ার সময় unnecessary notifications বন্ধ রাখুন।",
-
-"প্রতিদিন একটি ছোট study goal ঠিক করুন।",
-
-"কঠিন বিষয়গুলো ছোট ছোট অংশে ভাগ করে পড়ুন।",
-
-"পরীক্ষার আগে revision-এর জন্য আলাদা সময় রাখুন।"
-
-];
-
-
-function newTip(){
-
-const index =
-Math.floor(
-Math.random()*tips.length
-);
-
-
-document.getElementById(
-"tipText"
-).textContent =
-tips[index];
+    },2000);
 
 }
 
 
-/* =====================================================
-   TOOLS
-===================================================== */
+/* LOAD SAVED DATA */
 
-function toolMessage(tool){
+window.onload=function(){
 
-showToast(
-tool +
-" খুব শীঘ্রই আসছে 🚀"
-);
+    let savedNotes=
+    localStorage.getItem("personalNotes");
 
-}
+    if(savedNotes){
 
+        document.getElementById("personalNotes")
+        .value=savedNotes;
 
-/* =====================================================
-   TOAST
-===================================================== */
+    }
 
-let toastTimer;
+    let savedClass=
+    localStorage.getItem("studyClass");
 
+    if(savedClass){
 
-function showToast(message){
+        document.getElementById("selectedClass")
+        .innerText=
+        "Class "+savedClass+" Selected";
 
-const toast =
-document.getElementById(
-"toast"
-);
+    }
 
+    let progress=
+    localStorage.getItem("studyProgress");
 
-toast.textContent =
-message;
+    if(progress){
 
+        document.getElementById("progressBar")
+        .style.width=progress+"%";
 
-toast.classList.add("show");
+    }
 
+    loadQuestion();
 
-clearTimeout(toastTimer);
-
-
-toastTimer =
-setTimeout(
-function(){
-
-toast.classList.remove("show");
-
-},
-2300
-);
-
-}
-
-
-/* =====================================================
-   LOAD SAVED DATA
-===================================================== */
-
-(function(){
-
-const savedClass =
-localStorage.getItem(
-"asimStudyClass"
-);
-
-
-if(savedClass){
-
-selectedClass =
-Number(savedClass);
-
-
-classCards.forEach(
-function(card){
-
-if(
-Number(card.dataset.class) ===
-selectedClass
-){
-
-classCards.forEach(
-function(item){
-
-item.classList.remove(
-"active"
-);
-
-});
-
-card.classList.add(
-"active"
-);
-
-}
-
-});
-
-
-document.getElementById(
-"selectedClass"
-).textContent =
-"🎓 Selected Class: Class " +
-selectedClass;
-
-
-document.getElementById(
-"chapterClass"
-).textContent =
-"Class " +
-selectedClass;
-
-}
-
-
-const savedSubject =
-localStorage.getItem(
-"asimStudySubject"
-);
-
-
-if(savedSubject){
-
-selectedSubject =
-savedSubject;
-
-
-document.getElementById(
-"chapterSubject"
-).textContent =
-savedSubject;
-
-}
-
-
-const savedProgress =
-localStorage.getItem(
-"asimStudyProgress"
-);
-
-
-if(savedProgress){
-
-completed =
-Math.min(
-Number(savedProgress),
-totalChapters
-);
-
-
-const percent =
-Math.round(
-(completed/totalChapters)*100
-);
-
-
-document.getElementById(
-"progressPercent"
-).textContent =
-percent+"%";
-
-
-document.getElementById(
-"progressFill"
-).style.width =
-percent+"%";
-
-
-document.getElementById(
-"progressText"
-).textContent =
-completed +
-" of " +
-totalChapters +
-" chapters completed.";
-
-}
-
-})();
-
-
-/* =====================================================
-   "/" SEARCH
-===================================================== */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(
-event.key === "/" &&
-document.activeElement !==
-subjectSearch
-){
-
-event.preventDefault();
-
-subjectSearch.focus();
-
-}
-
-});
-
-
-/* CLOSE MOBILE MENU */
-
-document.addEventListener(
-"click",
-function(event){
-
-if(
-!nav.contains(event.target) &&
-!menuBtn.contains(event.target)
-){
-
-nav.classList.remove("open");
-
-menuBtn.textContent="☰";
-
-}
-
-});
+};
 
 </script>
 
