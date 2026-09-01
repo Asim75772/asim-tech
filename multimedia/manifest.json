@@ -1,0 +1,25 @@
+{
+  "name": "Asim Multimedia Studio",
+  "short_name": "Asim Multimedia",
+  "description": "Audio, Video, Photo and Multimedia Tools by Asim Tech",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#02050b",
+  "theme_color": "#02050b",
+  "icons": [
+    {
+      "src": "./file_00000000845481fa8c577a57988ede22.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./file_00000000845481fa8c577a57988ede22.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
