@@ -1,8 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#020b18">
+<meta name="description" content="Asim Tech Image to Excel">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="./manifest.json">
+<title>Asim Tech - Image to Excel</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:radial-gradient(circle at top,#06243d 0%,#021525 45%,#010914 100%);
+color:#fff;
+min-height:100vh;
+overflow-x:hidden
+}
+
+header{
+position:sticky;
+top:0;
+z-index:99;
+background:rgba(1,10,22,.97);
+border-bottom:1px solid rgba(0,153,255,.25)
+}
+
+.header-inner{
+max-width:1100px;
+min-height:70px;
+margin:auto;
+padding:10px 16px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px
+}
+
+.brand-icon{
+width:44px;
+height:44px;
+border-radius:13px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(145deg,#0d8cff,#0065d8);
+font-size:20px;
+font-weight:bold
+}
+
+.brand-text{
+font-size:23px;
+font-weight:800
+}
+
+.brand-text span{color:#078dff}
+
+.back-btn{
+color:#fff;
+text-decoration:none;
+border:1px solid rgba(0,150,255,.4);
+background:#052238;
+border-radius:14px;
+padding:10px 15px;
+font-weight:bold
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:35px 14px 60px
+}
+
+.hero{
+text-align:center;
+margin-bottom:30px
+}
+
+.badge{
+display:inline-block;
+padding:9px 20px;
+border:1px solid rgba(0,153,255,.5);
+border-radius:30px;
+color:#36b4ff;
+font-weight:bold;
+letter-spacing:2px;
+margin-bottom:18px
+}
+
+.hero h1{
+font-size:clamp(42px,8vw,70px);
+line-height:1;
+font-weight:900
+}
+
+.hero h1 span{color:#078dff}
+
+.hero p{
+max-width:750px;
+margin:18px auto 0;
+color:#91adc0;
+font-size:18px;
+line-height:1.6
+}
+
+.card{
+background:linear-gradient(145deg,rgba(3,35,55,.94),rgba(1,20,34,.97));
+border:1px solid rgba(0,145,220,.28);
+border-radius:24px;
+padding:clamp(20px,4vw,34px);
+margin-bottom:22px;
+box-shadow:0 20px 70px rgba(0,0,0,.3)
+}
+
+.card-title{
+font-size:clamp(25px,5vw,34px);
+margin-bottom:22px
+}
+
+.upload-box{
+border:3px dashed rgba(0,145,220,.42);
+border-radius:22px;
+min-height:300px;
+padding:25px 15px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:rgba(0,30,48,.4)
+}
+
+.file-icon{
+font-size:65px;
+margin-bottom:12px
+}
+
+.upload-box h2{
+font-size:clamp(23px,5vw,32px);
+margin-bottom:10px
+}
+
+.upload-box p{
+color:#8ba9bf;
+max-width:650px;
+font-size:16px;
+line-height:1.6;
+margin-bottom:20px
+}
+
+.file-label{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+min-height:58px;
+padding:0 26px;
+border-radius:16px;
+background:linear-gradient(135deg,#078dff,#006bd9);
+font-size:18px;
+font-weight:800;
+cursor:pointer
+}
+
+#imageInput{display:none}
+
+.preview{
+display:none;
+width:100%;
+margin-top:18px;
+text-align:center
+}
+
+.preview img{
+max-width:100%;
+max-height:380px;
+border-radius:16px;
+border:1px solid rgba(0,160,255,.3)
+}
+
+.preview-name{
+margin-top:8px;
+color:#91adc0
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:20px
+}
+
+.form-group label{
+display:block;
+color:#9bb5c7;
+font-weight:bold;
+margin-bottom:8px
+}
+
+select{
+width:100%;
+height:56px;
+border-radius:15px;
+border:1px solid rgba(0,150,220,.3);
+background:#032436;
+color:#fff;
+padding:0 14px;
+font-size:16px
+}
+
+.main-btn{
+width:100%;
+height:60px;
+border:0;
+border-radius:16px;
+margin-top:18px;
+color:#fff;
+font-size:18px;
+font-weight:800;
+cursor:pointer;
+background:linear-gradient(135deg,#078dff,#0063d4)
+}
+
+.main-btn:disabled{
+opacity:.4;
+cursor:not-allowed
+}
+
+.clear-btn{
+background:linear-gradient(135deg,#ff2447,#ed002f)
+}
+
+.progress-box{
+display:none;
+margin-top:18px;
+padding:16px;
+border-radius:15px;
+background:rgba(0,0,0,.2)
+}
+
+.progress-text{
+text-align:center;
+color:#a8c0d1;
+margin-bottom:10px
+}
+
+.progress{
+width:100%;
+height:11px;
+background:#092538;
+border-radius:20px;
+overflow:hidden
+}
+
+.progress-bar{
+width:0;
+height:100%;
+background:linear-gradient(90deg,#078dff,#00c6ff);
+transition:.2s
+}
+
+.status{
+display:none;
+margin-top:15px;
+padding:13px;
+border-radius:12px;
+text-align:center;
+font-weight:bold
+}
+
+.status.success{
+display:block;
+color:#54e39a;
+background:rgba(0,200,100,.1)
+}
+
+.status.error{
+display:block;
+color:#ff7188;
+background:rgba(255,0,50,.1)
+}
+
+.result-card{display:none}
+
+.result-info{
+color:#8faec2;
+margin-bottom:18px;
+line-height:1.6
+}
+
+.table-wrap{
+width:100%;
+overflow-x:auto;
+border-radius:16px;
+background:#fff;
+border:1px solid rgba(0,150,220,.25)
+}
+
+table{
+border-collapse:collapse;
+width:100%;
+min-width:650px;
+background:#fff;
+color:#111
+}
+
+th{
+background:#d8f0fc;
+color:#092b3e;
+padding:13px;
+border:1px solid #b8ccd5;
+white-space:nowrap
+}
+
+td{
+min-width:130px;
+padding:12px;
+border:1px solid #c5d1d6;
+vertical-align:top;
+font-size:16px;
+line-height:1.45;
+background:#fff
+}
+
+td[contenteditable="true"]{outline:none}
+
+td[contenteditable="true"]:focus{
+box-shadow:inset 0 0 0 2px #078dff;
+background:#f0f9ff
+}
+
+.action-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:20px
+}
+
+.action-btn{
+min-height:58px;
+border:0;
+border-radius:15px;
+color:#fff;
+font-size:16px;
+font-weight:800;
+cursor:pointer
+}
+
+.excel-btn{background:linear-gradient(135deg,#00c853,#00a83e)}
+.csv-btn{background:linear-gradient(135deg,#078dff,#0066d7)}
+.add-row{background:linear-gradient(135deg,#a72cff,#7b1fff)}
+.add-col{background:linear-gradient(135deg,#ff9500,#ff6500)}
+.copy-btn{background:#08364d}
+.delete-btn{background:linear-gradient(135deg,#ff2447,#e9002c)}
+
+.help{
+color:#7898ac;
+line-height:1.8
+}
+
+.help strong{color:#c1d9e8}
+
+@media(max-width:700px){
+.form-row{grid-template-columns:1fr}
+.action-grid{grid-template-columns:1fr}
+.brand-text{font-size:20px}
+.back-btn{font-size:13px;padding:9px 11px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="header-inner">
+
+<div class="brand">
+<div class="brand-icon">▲</div>
+<div class="brand-text">ASIM<span>TECH</span></div>
+</div>
+
+<a href="../" class="back-btn">← Asim Tech</a>
+
+</div>
+</header>
+
+
+<main class="container">
+
+<section class="hero">
+
+<div class="badge">ASIM TECH TOOL</div>
+
+<h1>Image <span>→</span> <span>Excel</span></h1>
+
+<p>
+Upload a list or table image and convert it into an editable Excel file.
+</p>
+
+</section>
+
+
+<section class="card">
+
+<h2 class="card-title">📷 Image to Excel</h2>
+
+<div class="upload-box">
+
+<div class="file-icon">📄</div>
+
+<h2>Upload List / Table Image</h2>
+
+<p>
+Select a photo or screenshot containing a table,
+list, names, numbers or other text.
+</p>
+
+<label for="imageInput" class="file-label">
+📁 Choose Image
+</label>
+
+<input id="imageInput" type="file" accept="image/*">
+
+<div id="preview" class="preview">
+
+<img id="previewImage" alt="Selected image">
+
+<div id="previewName" class="preview-name"></div>
+
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>OCR Language</label>
+
+<select id="language">
+
+<option value="eng">English</option>
+<option value="ben">বাংলা</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Expected Columns</label>
+
+<select id="columns">
+
+<option value="auto">Auto Detect</option>
+<option value="1">1 Column</option>
+<option value="2">2 Columns</option>
+<option value="3">3 Columns</option>
+<option value="4">4 Columns</option>
+<option value="5">5 Columns</option>
+<option value="6">6 Columns</option>
+<option value="7">7 Columns</option>
+<option value="8">8 Columns</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button id="extractBtn" class="main-btn" disabled>
+🔍 Extract Table
+</button>
+
+<button id="clearBtn" class="main-btn clear-btn">
+✕ Clear
+</button>
+
+
+<div id="progressBox" class="progress-box">
+
+<div id="progressText" class="progress-text">
+Preparing OCR...
+</div>
+
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
+
+</div>
+
+
+<div id="status" class="status"></div>
+
+</section>
+
+
+<section id="resultCard" class="card result-card">
+
+<h2 class="card-title">📊 Extracted Table</h2>
+
+<p class="result-info">
+The extracted data is editable. Tap any cell and correct the text before downloading.
+</p>
+
+<div class="table-wrap">
+
+<table id="resultTable">
+
+<thead>
+<tr id="headerRow"></tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+</table>
+
+</div>
+
+
+<div class="action-grid">
+
+<button class="action-btn excel-btn" id="downloadExcel">
+📥 Download Excel
+</button>
+
+<button class="action-btn csv-btn" id="downloadCSV">
+📄 Download CSV
+</button>
+
+<button class="action-btn add-row" id="addRow">
+＋ Add Row
+</button>
+
+<button class="action-btn add-col" id="addColumn">
+＋ Add Column
+</button>
+
+<button class="action-btn copy-btn" id="copyTable">
+📋 Copy Table
+</button>
+
+<button class="action-btn delete-btn" id="clearTable">
+🗑️ Clear Table
+</button>
+
+</div>
+
+</section>
+
+
+<section class="card">
+
+<h2 class="card-title">ℹ️ How to use</h2>
+
+<div class="help">
+
+<p><strong>1.</strong> Tap Choose Image and select a photo.</p>
+<p><strong>2.</strong> Select English or বাংলা.</p>
+<p><strong>3.</strong> Select the number of columns if known.</p>
+<p><strong>4.</strong> Tap Extract Table.</p>
+<p><strong>5.</strong> Correct OCR mistakes in the cells.</p>
+<p><strong>6.</strong> Tap Download Excel.</p>
+
+</div>
+
+</section>
+
+</main>
+
+
 <script>
 
 /* =====================================================
-   ASIM TECH IMAGE TO EXCEL
-   IMPROVED TABLE RECONSTRUCTION
+   VARIABLES
 ===================================================== */
 
 let selectedFile = null;
@@ -53,11 +637,9 @@ function showStatus(message,type){
    IMAGE SELECT
 ===================================================== */
 
-imageInput.addEventListener("change",function(event){
+imageInput.addEventListener("change",function(e){
 
-    const file =
-        event.target.files &&
-        event.target.files[0];
+    const file = e.target.files && e.target.files[0];
 
     if(!file) return;
 
@@ -75,14 +657,11 @@ imageInput.addEventListener("change",function(event){
 
     const reader = new FileReader();
 
-    reader.onload = function(e){
+    reader.onload = function(event){
 
-        previewImage.src = e.target.result;
-
+        previewImage.src = event.target.result;
         previewName.textContent = file.name;
-
         preview.style.display = "block";
-
         extractBtn.disabled = false;
 
         showStatus(
@@ -117,9 +696,7 @@ clearBtn.addEventListener("click",function(){
     imageInput.value = "";
 
     preview.style.display = "none";
-
     previewImage.src = "";
-
     previewName.textContent = "";
 
     extractBtn.disabled = true;
@@ -127,11 +704,9 @@ clearBtn.addEventListener("click",function(){
     resultCard.style.display = "none";
 
     tableData = [];
-
     currentColumns = 1;
 
     headerRow.innerHTML = "";
-
     tableBody.innerHTML = "";
 
     progressBox.style.display = "none";
@@ -150,7 +725,6 @@ async function prepareImage(file){
     return new Promise(function(resolve,reject){
 
         const img = new Image();
-
         const url = URL.createObjectURL(file);
 
         img.onload = function(){
@@ -164,14 +738,11 @@ async function prepareImage(file){
 
                 if(width > maxWidth){
 
-                    const scale =
-                        maxWidth / width;
+                    const scale = maxWidth / width;
 
-                    width =
-                        Math.round(width * scale);
+                    width = Math.round(width * scale);
+                    height = Math.round(height * scale);
 
-                    height =
-                        Math.round(height * scale);
                 }
 
                 const canvas =
@@ -181,14 +752,9 @@ async function prepareImage(file){
                 canvas.height = height;
 
                 const ctx =
-                    canvas.getContext(
-                        "2d",
-                        {
-                            willReadFrequently:true
-                        }
-                    );
+                    canvas.getContext("2d");
 
-                ctx.fillStyle = "#ffffff";
+                ctx.fillStyle = "#fff";
 
                 ctx.fillRect(
                     0,
@@ -205,34 +771,29 @@ async function prepareImage(file){
                     height
                 );
 
-                canvas.toBlob(
-                    function(blob){
+                canvas.toBlob(function(blob){
 
-                        URL.revokeObjectURL(url);
+                    URL.revokeObjectURL(url);
 
-                        if(!blob){
+                    if(!blob){
 
-                            reject(
-                                new Error(
-                                    "Image conversion failed."
-                                )
-                            );
+                        reject(
+                            new Error(
+                                "Image conversion failed."
+                            )
+                        );
 
-                            return;
-                        }
+                        return;
+                    }
 
-                        resolve(blob);
+                    resolve(blob);
 
-                    },
-                    "image/png",
-                    1
-                );
+                },"image/png",1);
 
             }
             catch(error){
 
                 URL.revokeObjectURL(url);
-
                 reject(error);
 
             }
@@ -259,12 +820,16 @@ async function prepareImage(file){
 
 
 /* =====================================================
-   VALID OCR WORD
+   VALID WORD
 ===================================================== */
 
 function validWord(word){
 
-    if(!word || !word.text || !word.bbox){
+    if(
+        !word ||
+        !word.text ||
+        !word.bbox
+    ){
 
         return false;
     }
@@ -272,10 +837,7 @@ function validWord(word){
     const text =
         String(word.text).trim();
 
-    if(!text){
-
-        return false;
-    }
+    if(!text) return false;
 
     const x0 = Number(word.bbox.x0);
     const x1 = Number(word.bbox.x1);
@@ -307,16 +869,13 @@ function makeRows(words){
 
             return {
 
-                text:
-                    String(w.text).trim(),
+                text:String(w.text).trim(),
 
                 bbox:{
-
                     x0:Number(w.bbox.x0),
                     x1:Number(w.bbox.x1),
                     y0:Number(w.bbox.y0),
                     y1:Number(w.bbox.y1)
-
                 }
 
             };
@@ -324,10 +883,7 @@ function makeRows(words){
         });
 
 
-    if(!valid.length){
-
-        return [];
-    }
+    if(!valid.length) return [];
 
 
     const heights =
@@ -360,16 +916,12 @@ function makeRows(words){
     valid.sort(function(a,b){
 
         const ay =
-            (
-                a.bbox.y0 +
-                a.bbox.y1
-            ) / 2;
+            (a.bbox.y0 +
+             a.bbox.y1) / 2;
 
         const by =
-            (
-                b.bbox.y0 +
-                b.bbox.y1
-            ) / 2;
+            (b.bbox.y0 +
+             b.bbox.y1) / 2;
 
         return ay - by;
 
@@ -382,10 +934,8 @@ function makeRows(words){
     for(const word of valid){
 
         const centerY =
-            (
-                word.bbox.y0 +
-                word.bbox.y1
-            ) / 2;
+            (word.bbox.y0 +
+             word.bbox.y1) / 2;
 
 
         let bestRow = null;
@@ -417,11 +967,8 @@ function makeRows(words){
         if(!bestRow){
 
             bestRow = {
-
                 centerY:centerY,
-
                 words:[]
-
             };
 
             rows.push(bestRow);
@@ -434,15 +981,12 @@ function makeRows(words){
 
         bestRow.centerY =
             bestRow.words.reduce(
-                function(sum,w){
-
-                    return sum +
-                        (
-                            w.bbox.y0 +
-                            w.bbox.y1
-                        ) / 2;
-
-                },
+                (sum,w) =>
+                sum +
+                (
+                    w.bbox.y0 +
+                    w.bbox.y1
+                ) / 2,
                 0
             ) /
             bestRow.words.length;
@@ -474,7 +1018,7 @@ function makeRows(words){
 
 
 /* =====================================================
-   WORDS → CELL BLOCKS
+   WORDS TO CELL BLOCKS
 ===================================================== */
 
 function makeBlocks(row){
@@ -517,11 +1061,6 @@ function makeBlocks(row){
         ] || 20;
 
 
-    /*
-       Words with a small gap are considered
-       part of the same cell.
-    */
-
     const gapThreshold =
         Math.max(
             15,
@@ -539,9 +1078,7 @@ function makeBlocks(row){
             blocks.push({
 
                 words:[word],
-
                 x0:word.bbox.x0,
-
                 x1:word.bbox.x1
 
             });
@@ -577,9 +1114,7 @@ function makeBlocks(row){
             blocks.push({
 
                 words:[word],
-
                 x0:word.bbox.x0,
-
                 x1:word.bbox.x1
 
             });
@@ -596,15 +1131,13 @@ function makeBlocks(row){
             text:
                 block.words
                 .map(
-                    w =>
-                    w.text
+                    w => w.text
                 )
                 .join(" ")
                 .replace(/\s+/g," ")
                 .trim(),
 
             x0:block.x0,
-
             x1:block.x1,
 
             centerX:
@@ -621,27 +1154,21 @@ function makeBlocks(row){
 
 
 /* =====================================================
-   CLUSTER COLUMN POSITIONS
+   K-MEANS COLUMN CENTRES
 ===================================================== */
 
 function clusterX(values,k){
 
-    if(!values.length){
+    if(!values.length) return [];
 
-        return [];
-    }
-
-
-    if(k <= 1){
+    if(k === 1){
 
         return [
-
             values.reduce(
                 (a,b) => a+b,
                 0
             ) /
             values.length
-
         ];
 
     }
@@ -656,23 +1183,14 @@ function clusterX(values,k){
     let centers = [];
 
 
-    for(
-        let i=0;
-        i<k;
-        i++
-    ){
+    for(let i=0;i<k;i++){
 
         const pos =
             Math.round(
                 i *
-                (
-                    sorted.length - 1
-                ) /
-                (
-                    k - 1
-                )
+                (sorted.length - 1) /
+                (k - 1)
             );
-
 
         centers.push(
             sorted[pos]
@@ -681,17 +1199,11 @@ function clusterX(values,k){
     }
 
 
-    for(
-        let iteration=0;
-        iteration<30;
-        iteration++
-    ){
+    for(let iteration=0;iteration<25;iteration++){
 
         const groups =
             Array.from(
-                {
-                    length:k
-                },
+                {length:k},
                 () => []
             );
 
@@ -707,11 +1219,7 @@ function clusterX(values,k){
                 );
 
 
-            for(
-                let i=1;
-                i<centers.length;
-                i++
-            ){
+            for(let i=1;i<k;i++){
 
                 const d =
                     Math.abs(
@@ -723,7 +1231,6 @@ function clusterX(values,k){
                 if(d < distance){
 
                     distance = d;
-
                     best = i;
 
                 }
@@ -739,16 +1246,9 @@ function clusterX(values,k){
         let changed = false;
 
 
-        for(
-            let i=0;
-            i<k;
-            i++
-        ){
+        for(let i=0;i<k;i++){
 
-            if(!groups[i].length){
-
-                continue;
-            }
+            if(!groups[i].length) continue;
 
 
             const newCenter =
@@ -771,16 +1271,12 @@ function clusterX(values,k){
             }
 
 
-            centers[i] =
-                newCenter;
+            centers[i] = newCenter;
 
         }
 
 
-        if(!changed){
-
-            break;
-        }
+        if(!changed) break;
 
     }
 
@@ -798,10 +1294,7 @@ function clusterX(values,k){
 
 function estimateColumns(rows){
 
-    if(!rows.length){
-
-        return 1;
-    }
+    if(!rows.length) return 1;
 
 
     const counts =
@@ -812,15 +1305,12 @@ function estimateColumns(rows){
         )
         .filter(
             n =>
-            n > 0 &&
+            n >= 1 &&
             n <= 8
         );
 
 
-    if(!counts.length){
-
-        return 1;
-    }
+    if(!counts.length) return 1;
 
 
     const frequency = {};
@@ -841,8 +1331,7 @@ function estimateColumns(rows){
     Object.keys(frequency)
     .forEach(function(key){
 
-        const n =
-            Number(key);
+        const n = Number(key);
 
 
         if(
@@ -850,11 +1339,8 @@ function estimateColumns(rows){
             bestFrequency
         ){
 
-            best =
-                n;
-
-            bestFrequency =
-                frequency[key];
+            best = n;
+            bestFrequency = frequency[key];
 
         }
 
@@ -881,12 +1367,11 @@ function findColumnCenters(
     columnCount
 ){
 
-    let anchors = [];
+    let values = [];
 
 
     /*
-       First preference:
-       rows having exactly the expected
+       Use rows having exactly the expected
        number of blocks.
     */
 
@@ -903,7 +1388,7 @@ function findColumnCenters(
 
             blocks.forEach(
                 block =>
-                anchors.push(
+                values.push(
                     block.centerX
                 )
             );
@@ -914,55 +1399,18 @@ function findColumnCenters(
 
 
     /*
-       Second preference:
-       rows with more blocks than columns.
+       If no perfect rows are found,
+       use all blocks.
     */
 
-    if(!anchors.length){
-
-        rows.forEach(function(row){
-
-            const blocks =
-                makeBlocks(row);
-
-
-            if(
-                blocks.length >=
-                columnCount
-            ){
-
-                blocks
-                .slice(
-                    0,
-                    columnCount
-                )
-                .forEach(
-                    block =>
-                    anchors.push(
-                        block.centerX
-                    )
-                );
-
-            }
-
-        });
-
-    }
-
-
-    /*
-       Last fallback:
-       use every detected block.
-    */
-
-    if(!anchors.length){
+    if(!values.length){
 
         rows.forEach(function(row){
 
             makeBlocks(row)
             .forEach(
                 block =>
-                anchors.push(
+                values.push(
                     block.centerX
                 )
             );
@@ -973,7 +1421,7 @@ function findColumnCenters(
 
 
     return clusterX(
-        anchors,
+        values,
         columnCount
     );
 
@@ -989,10 +1437,7 @@ function buildTableFromRows(
     columnCount
 ){
 
-    if(!rows.length){
-
-        return [];
-    }
+    if(!rows.length) return [];
 
 
     if(columnCount === 1){
@@ -1000,15 +1445,12 @@ function buildTableFromRows(
         return rows.map(function(row){
 
             return [
-
                 makeBlocks(row)
                 .map(
-                    block =>
-                    block.text
+                    b => b.text
                 )
                 .join(" ")
                 .trim()
-
             ];
 
         });
@@ -1023,14 +1465,14 @@ function buildTableFromRows(
         );
 
 
+    /*
+       Safety fallback.
+    */
+
     if(
         centers.length !==
         columnCount
     ){
-
-        /*
-           Geometry fallback.
-        */
 
         const allBlocks =
             rows.flatMap(
@@ -1073,9 +1515,7 @@ function buildTableFromRows(
                     (_,i) =>
                     minX +
                     width *
-                    (
-                        i + 0.5
-                    ) /
+                    (i + .5) /
                     columnCount
                 );
 
@@ -1093,10 +1533,7 @@ function buildTableFromRows(
             makeBlocks(row);
 
 
-        if(!blocks.length){
-
-            return;
-        }
+        if(!blocks.length) return;
 
 
         const cells =
@@ -1110,51 +1547,51 @@ function buildTableFromRows(
 
 
         /*
-           Assign each BLOCK to nearest column.
+           IMPORTANT:
+           Every OCR block is assigned to the
+           nearest REAL column centre.
         */
 
         blocks.forEach(function(block){
 
-            let bestIndex = 0;
+            let best = 0;
 
-            let bestDistance =
-                Infinity;
+            let distance =
+                Math.abs(
+                    block.centerX -
+                    centers[0]
+                );
 
 
-            centers.forEach(
-            function(center,index){
+            for(
+                let i=1;
+                i<centers.length;
+                i++
+            ){
 
-                const distance =
+                const d =
                     Math.abs(
                         block.centerX -
-                        center
+                        centers[i]
                     );
 
 
-                if(
-                    distance <
-                    bestDistance
-                ){
+                if(d < distance){
 
-                    bestDistance =
-                        distance;
-
-                    bestIndex =
-                        index;
+                    distance = d;
+                    best = i;
 
                 }
 
-            });
+            }
 
 
-            cells[bestIndex].push(
-                block
-            );
+            cells[best].push(block);
 
         });
 
 
-        const rowData =
+        result.push(
             cells.map(
                 cell =>
                 cell
@@ -1164,16 +1601,13 @@ function buildTableFromRows(
                     b.x0
                 )
                 .map(
-                    block =>
-                    block.text
+                    b => b.text
                 )
                 .join(" ")
                 .replace(/\s+/g," ")
                 .trim()
-            );
-
-
-        result.push(rowData);
+            )
+        );
 
     });
 
@@ -1184,7 +1618,7 @@ function buildTableFromRows(
 
 
 /* =====================================================
-   OCR EXTRACTION
+   EXTRACT
 ===================================================== */
 
 extractBtn.addEventListener(
@@ -1206,11 +1640,9 @@ async function(){
 
         extractBtn.disabled = true;
 
-        progressBox.style.display =
-            "block";
+        progressBox.style.display = "block";
 
-        progressBar.style.width =
-            "5%";
+        progressBar.style.width = "5%";
 
         progressText.textContent =
             "Preparing image...";
@@ -1232,8 +1664,7 @@ async function(){
                 language.value,
                 {
 
-                    logger:
-                    function(info){
+                    logger:function(info){
 
                         if(
                             info.status ===
@@ -1252,7 +1683,7 @@ async function(){
                             progressBar.style.width =
                                 (
                                     10 +
-                                    p * 0.85
+                                    p * .85
                                 ) + "%";
 
 
@@ -1292,15 +1723,10 @@ async function(){
         let count;
 
 
-        if(
-            columns.value ===
-            "auto"
-        ){
+        if(columns.value === "auto"){
 
             count =
-                estimateColumns(
-                    rows
-                );
+                estimateColumns(rows);
 
         }
         else{
@@ -1323,8 +1749,7 @@ async function(){
         }
 
 
-        currentColumns =
-            count;
+        currentColumns = count;
 
 
         if(rows.length){
@@ -1346,21 +1771,15 @@ async function(){
                 text
                 .split(/\r?\n/)
                 .map(
-                    line =>
-                    line.trim()
+                    x => x.trim()
                 )
                 .filter(Boolean)
                 .map(
-                    line =>
-                    [line]
+                    x => [x]
                 );
 
         }
 
-
-        /*
-           Remove empty rows.
-        */
 
         tableData =
             tableData.filter(
@@ -1384,54 +1803,46 @@ async function(){
 
 
         /*
-           ALWAYS keep the requested
-           number of columns.
+           Force EXACT selected column count.
         */
 
         tableData =
             tableData.map(
-                row => {
-
-                    const newRow =
-                        Array.from(
-                            {
-                                length:
-                                count
-                            },
-                            (_,i) =>
-                            String(
-                                row[i] || ""
-                            ).trim()
-                        );
-
-
-                    return newRow;
-
-                }
+                row =>
+                Array.from(
+                    {
+                        length:count
+                    },
+                    (_,i) =>
+                    String(
+                        row[i] || ""
+                    ).trim()
+                )
             );
 
 
-        currentColumns =
-            count;
+        currentColumns = count;
 
 
         renderTable();
 
 
-        progressBar.style.width =
-            "100%";
-
+        progressBar.style.width = "100%";
 
         progressText.textContent =
             "Completed!";
 
 
+        setTimeout(function(){
+
+            progressBox.style.display =
+                "none";
+
+        },500);
+
+
         resultCard.style.display =
             "block";
-
-
-        progressBox.style.display =
-            "none";
 
 
         showStatus(
@@ -1448,11 +1859,7 @@ async function(){
     }
     catch(error){
 
-        console.error(
-            "OCR ERROR:",
-            error
-        );
-
+        console.error(error);
 
         progressBox.style.display =
             "none";
@@ -1479,29 +1886,21 @@ async function(){
 
 
 /* =====================================================
-   RENDER TABLE
+   RENDER
 ===================================================== */
 
 function renderTable(){
 
     headerRow.innerHTML = "";
-
     tableBody.innerHTML = "";
 
 
-    if(!tableData.length){
-
-        return;
-    }
-
-
-    const colCount =
-        currentColumns;
+    if(!tableData.length) return;
 
 
     for(
         let c=0;
-        c<colCount;
+        c<currentColumns;
         c++
     ){
 
@@ -1528,7 +1927,7 @@ function renderTable(){
 
         for(
             let c=0;
-            c<colCount;
+            c<currentColumns;
             c++
         ){
 
@@ -1536,13 +1935,9 @@ function renderTable(){
                 document.createElement("td");
 
 
-            td.contentEditable =
-                "true";
+            td.contentEditable = "true";
 
-
-            td.spellcheck =
-                false;
-
+            td.spellcheck = false;
 
             td.textContent =
                 row[c] || "";
@@ -1552,9 +1947,7 @@ function renderTable(){
             "input",
             function(){
 
-                if(
-                    tableData[rowIndex]
-                ){
+                if(tableData[rowIndex]){
 
                     tableData[rowIndex][c] =
                         td.innerText;
@@ -1577,7 +1970,7 @@ function renderTable(){
 
 
 /* =====================================================
-   CURRENT TABLE
+   GET TABLE
 ===================================================== */
 
 function getTableData(){
@@ -1585,20 +1978,19 @@ function getTableData(){
     const rows = [];
 
 
-    const headerCells =
+    const headers =
         document.querySelectorAll(
             "#resultTable thead th"
         );
 
 
-    if(headerCells.length){
+    if(headers.length){
 
         rows.push(
-            Array.from(
-                headerCells
-            ).map(
-                cell =>
-                cell.innerText.trim()
+            Array.from(headers)
+            .map(
+                h =>
+                h.innerText.trim()
             )
         );
 
@@ -1616,9 +2008,10 @@ function getTableData(){
         rows.push(
             Array.from(
                 tr.querySelectorAll("td")
-            ).map(
-                cell =>
-                cell.innerText.trim()
+            )
+            .map(
+                td =>
+                td.innerText.trim()
             )
         );
 
@@ -1640,10 +2033,7 @@ function(){
 
     try{
 
-        if(
-            typeof XLSX ===
-            "undefined"
-        ){
+        if(typeof XLSX === "undefined"){
 
             alert(
                 "Excel library is not loaded."
@@ -1678,8 +2068,7 @@ function(){
 
         data.forEach(function(row){
 
-            row.forEach(
-            function(value,index){
+            row.forEach(function(value,index){
 
                 const length =
                     String(
@@ -1808,15 +2197,10 @@ function(){
    DOWNLOAD
 ===================================================== */
 
-function downloadBlob(
-    blob,
-    filename
-){
+function downloadBlob(blob,filename){
 
     const url =
-        URL.createObjectURL(
-            blob
-        );
+        URL.createObjectURL(blob);
 
 
     const a =
@@ -1835,20 +2219,13 @@ function downloadBlob(
     a.click();
 
 
-    setTimeout(
-    function(){
+    setTimeout(function(){
 
-        if(a.parentNode){
-
-            a.parentNode.removeChild(a);
-
-        }
+        a.remove();
 
         URL.revokeObjectURL(url);
 
-    },
-    1500
-    );
+    },1500);
 
 }
 
@@ -1900,7 +2277,6 @@ function(){
 
     currentColumns += 1;
 
-
     renderTable();
 
 });
@@ -1950,23 +2326,17 @@ async function(){
 
         textarea.value = text;
 
-
         document.body.appendChild(
             textarea
         );
 
-
         textarea.select();
-
 
         document.execCommand(
             "copy"
         );
 
-
-        document.body.removeChild(
-            textarea
-        );
+        textarea.remove();
 
 
         showStatus(
@@ -2005,9 +2375,7 @@ function(){
    SERVICE WORKER
 ===================================================== */
 
-if(
-    "serviceWorker" in navigator
-){
+if("serviceWorker" in navigator){
 
     window.addEventListener(
     "load",
@@ -2021,21 +2389,15 @@ if(
             }
         )
         .then(
-            registration => {
-
-                registration.update();
-
-            }
+            registration =>
+            registration.update()
         )
         .catch(
-            error => {
-
-                console.log(
-                    "Service Worker:",
-                    error
-                );
-
-            }
+            error =>
+            console.log(
+                "Service Worker:",
+                error
+            )
         );
 
     });
@@ -2043,3 +2405,6 @@ if(
 }
 
 </script>
+
+</body>
+</html>
