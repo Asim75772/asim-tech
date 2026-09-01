@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name="theme-color" content="#5425ff">
-
-<meta name="description"
-content="Asim Multimedia Studio - Audio, Video, Photo, Recording and Creative Tools by Asim Tech">
+<meta name="description" content="Asim Multimedia Studio - Photo Video Maker and Multimedia Tools">
 
 <title>Asim Multimedia Studio</title>
 
 <link rel="manifest" href="./manifest.json">
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     box-sizing:border-box;
@@ -34,161 +25,85 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:
-    linear-gradient(180deg,#f3f6ff,#eef1ff);
+    background:linear-gradient(180deg,#f3f6ff,#eef1ff);
     color:#172033;
     overflow-x:hidden;
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .hero{
     position:relative;
-
     background:
-    radial-gradient(
-        circle at top right,
-        rgba(255,255,255,.20),
-        transparent 35%
-    ),
-    linear-gradient(
-        135deg,
-        #3920d8,
-        #6525ff,
-        #a126ff
-    );
-
+    radial-gradient(circle at top right,
+    rgba(255,255,255,.18),
+    transparent 35%),
+    linear-gradient(135deg,#3920d8,#6525ff,#a126ff);
     color:white;
     text-align:center;
-
-    padding:
-    32px 15px 40px;
-
-    box-shadow:
-    0 12px 35px rgba(70,40,200,.28);
-
-    overflow:hidden;
+    padding:32px 15px 40px;
+    box-shadow:0 12px 35px rgba(70,40,200,.28);
 }
 
 .logo{
     width:180px;
     max-width:65%;
     height:auto;
-
     display:block;
-
-    margin:
-    0 auto 14px;
-
+    margin:0 auto 14px;
     object-fit:contain;
-
-    filter:
-    drop-shadow(
-        0 8px 18px rgba(0,0,0,.20)
-    );
 }
 
 .hero h1{
-    font-size:
-    clamp(28px,7vw,50px);
-
+    font-size:clamp(28px,7vw,50px);
     font-weight:900;
-
     margin-bottom:9px;
 }
 
 .hero p{
-    font-size:
-    clamp(13px,3vw,18px);
-
+    font-size:clamp(13px,3vw,18px);
     opacity:.93;
 }
 
-
-/* =====================================================
-   INSTALL
-===================================================== */
+/* INSTALL */
 
 .install-area{
     text-align:center;
-
-    padding:
-    16px 10px 5px;
+    padding:16px 10px 5px;
 }
 
 #installBtn{
     display:none;
-
     border:0;
-
     border-radius:14px;
-
-    padding:
-    13px 21px;
-
+    padding:13px 21px;
     color:white;
-
-    background:
-    linear-gradient(
-        135deg,
-        #5425ff,
-        #9225ff
-    );
-
+    background:linear-gradient(135deg,#5425ff,#9225ff);
     font-size:14px;
-
     font-weight:800;
-
     cursor:pointer;
-
-    box-shadow:
-    0 8px 22px rgba(85,35,255,.25);
 }
 
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* NAV */
 
 .nav{
     width:94%;
     max-width:1050px;
-
-    margin:
-    15px auto 20px;
-
+    margin:15px auto 20px;
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
 .nav button{
-
     min-height:92px;
-
     border:0;
-
     border-radius:20px;
-
     background:white;
-
     color:#172033;
-
     cursor:pointer;
-
-    padding:
-    13px 8px;
-
-    box-shadow:
-    0 8px 25px
-    rgba(50,70,130,.11);
-
+    padding:13px 8px;
+    box-shadow:0 8px 25px rgba(50,70,130,.11);
     transition:.22s;
 }
 
@@ -198,263 +113,126 @@ body{
 
 .nav button span{
     display:block;
-
     font-size:27px;
-
     margin-bottom:6px;
 }
 
 .nav button strong{
     display:block;
-
     font-size:14px;
-
     font-weight:900;
 }
 
 .nav button small{
     display:block;
-
     margin-top:4px;
-
     font-size:10px;
-
     color:#7b879c;
 }
 
 .nav button.active{
-
     color:white;
-
-    background:
-    linear-gradient(
-        135deg,
-        #5035ee,
-        #8a27ff
-    );
-
-    box-shadow:
-    0 12px 30px
-    rgba(80,40,240,.28);
+    background:linear-gradient(135deg,#5035ee,#8a27ff);
 }
 
 .nav button.active small{
-    color:
-    rgba(255,255,255,.8);
+    color:rgba(255,255,255,.8);
 }
 
-
-/* =====================================================
-   MAIN
-===================================================== */
+/* MAIN */
 
 main{
     width:94%;
     max-width:1050px;
-
-    margin:
-    20px auto 70px;
+    margin:20px auto 70px;
 }
 
-
-/* =====================================================
-   PANEL
-===================================================== */
+/* PANEL */
 
 .panel{
     display:none;
-
     background:white;
-
     border-radius:25px;
-
     padding:27px;
-
     margin-bottom:25px;
-
-    box-shadow:
-    0 14px 45px
-    rgba(45,60,120,.11);
-
-    animation:
-    panelIn .25s ease;
+    box-shadow:0 14px 45px rgba(45,60,120,.11);
 }
 
 .panel.active{
     display:block;
 }
 
-@keyframes panelIn{
-
-    from{
-        opacity:0;
-        transform:translateY(8px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
 .panel h2{
-
     color:#4032a5;
-
-    font-size:
-    clamp(24px,5vw,37px);
-
+    font-size:clamp(24px,5vw,37px);
     margin-bottom:8px;
 }
 
 .panel-description{
-
     color:#6c7890;
-
     font-size:13px;
-
     line-height:1.7;
-
     margin-bottom:20px;
 }
 
-
-/* =====================================================
-   BADGES
-===================================================== */
+/* BADGES */
 
 .feature-row{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:7px;
-
-    margin:
-    12px 0 18px;
+    margin:12px 0 18px;
 }
 
 .feature-badge{
-
-    padding:
-    7px 11px;
-
+    padding:7px 11px;
     border-radius:20px;
-
     background:#f0efff;
-
     color:#5140b8;
-
     font-size:11px;
-
     font-weight:800;
 }
 
-
-/* =====================================================
-   FILE BOX
-===================================================== */
+/* FILE BOX */
 
 .file-box{
-
-    border:
-    2px dashed #aebaf0;
-
+    border:2px dashed #aebaf0;
     border-radius:17px;
-
     padding:18px;
-
     background:#f8f9ff;
-
-    margin:
-    15px 0;
+    margin:15px 0;
 }
 
 .file-box input{
-
     width:100%;
-
     font-size:14px;
 }
 
-
-/* =====================================================
-   MEDIA
-===================================================== */
-
-audio,
-video{
-
-    width:100%;
-
-    margin-top:15px;
-
-    border-radius:15px;
-}
-
-video{
-
-    background:#000;
-
-    max-height:480px;
-}
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
+/* BUTTON */
 
 .btn{
-
     border:0;
-
-    padding:
-    12px 18px;
-
+    padding:12px 18px;
     border-radius:12px;
-
     color:white;
-
     font-size:13px;
-
     font-weight:800;
-
     cursor:pointer;
-
-    margin:
-    5px 3px;
-
+    margin:5px 3px;
     transition:.2s;
 }
 
 .btn:hover{
-
-    transform:
-    translateY(-2px);
-
-    filter:
-    brightness(1.08);
+    transform:translateY(-2px);
 }
 
 .btn:disabled{
-
     opacity:.45;
-
     cursor:not-allowed;
-
-    transform:none;
 }
 
 .primary{
-
-    background:
-    linear-gradient(
-        135deg,
-        #5135ed,
-        #8528ff
-    );
+    background:linear-gradient(135deg,#5135ed,#8528ff);
 }
 
 .success{
@@ -466,617 +244,255 @@ video{
 }
 
 .orange{
-
-    background:
-    linear-gradient(
-        135deg,
-        #ff8a00,
-        #ff3d4d
-    );
+    background:linear-gradient(135deg,#ff8a00,#ff3d4d);
 }
 
 .dark{
     background:#53677c;
 }
 
-.pink{
-    background:
-    linear-gradient(
-        135deg,
-        #ec4899,
-        #8b5cf6
-    );
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
+/* STATUS */
 
 .status{
-
     margin-top:15px;
-
     padding:12px;
-
     text-align:center;
-
     border-radius:12px;
-
     background:#f0f3fb;
-
     color:#52617b;
-
     font-size:13px;
 }
 
+/* AUDIO */
 
-/* =====================================================
-   AUDIO STUDIO
-===================================================== */
-
-.audio-studio{
-
-    padding:22px;
-
-    border-radius:22px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #0b1220,
-        #17233e
-    );
-
-    color:white;
-
-    box-shadow:
-    0 15px 35px
-    rgba(20,25,60,.18);
-}
-
-.audio-title{
-
-    font-size:19px;
-
-    font-weight:900;
-
-    text-align:center;
-
-    margin-bottom:10px;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-}
-
-.audio-time{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    color:#b8c2d8;
-
-    font-size:11px;
-}
-
-.audio-studio audio{
-
+audio,video{
     width:100%;
-
-    margin:
-    8px 0;
+    margin-top:15px;
+    border-radius:15px;
 }
 
-.audio-controls{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
+video{
+    background:#000;
+    max-height:480px;
 }
 
-.audio-options{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:12px;
-
-    padding-top:12px;
-
-    border-top:
-    1px solid rgba(255,255,255,.10);
-}
-
-.audio-options label{
-
-    font-size:11px;
-
-    font-weight:800;
-
-    color:#c8d0e2;
-}
-
-.audio-options input[type="range"]{
-
-    width:140px;
-
-    accent-color:#8b5cf6;
-
-    cursor:pointer;
-}
-
-.audio-options select{
-
-    padding:
-    7px 9px;
-
-    border:0;
-
-    border-radius:8px;
-
-    background:white;
-
-    color:#172033;
-
-    font-size:11px;
-
-    font-weight:700;
-}
-
-
-/* =====================================================
-   AUDIO EXTRA CONTROLS
-===================================================== */
-
-.audio-extra{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:7px;
-
-    margin-top:10px;
-}
-
-.audio-extra button{
-
-    border:0;
-
-    border-radius:10px;
-
-    padding:
-    9px 13px;
-
-    color:white;
-
-    background:
-    rgba(255,255,255,.10);
-
-    cursor:pointer;
-
-    font-size:11px;
-
-    font-weight:800;
-}
-
-.audio-extra button.active{
-
-    background:
-    linear-gradient(
-        135deg,
-        #7c3aed,
-        #ec4899
-    );
-}
-
-
-/* =====================================================
-   PLAYLIST
-===================================================== */
-
-.playlist-heading{
-
-    margin-top:24px;
-
-    margin-bottom:10px;
-
-    color:#302d83;
-
-    font-size:19px;
-}
-
-.playlist-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:8px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:10px;
-}
-
-.song-count{
-
-    padding:
-    7px 11px;
-
-    border-radius:20px;
-
-    background:#ece9ff;
-
-    color:#5635bb;
-
-    font-size:11px;
-
-    font-weight:900;
-}
-
-.audio-playlist{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:7px;
-}
-
-.empty-playlist{
-
-    padding:20px;
-
-    text-align:center;
-
-    border-radius:13px;
-
-    background:#f3f5ff;
-
-    color:#7b879c;
-
-    font-size:12px;
-}
-
-.playlist-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:11px;
-
-    border-radius:13px;
-
-    background:#f5f7ff;
-
-    border:
-    1px solid #e2e6fa;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.playlist-item:hover{
-
-    background:#eceeff;
-}
-
-.playlist-item.active{
-
-    background:#e9e5ff;
-
-    border-color:#765cff;
-
-    box-shadow:
-    0 4px 15px
-    rgba(100,70,230,.10);
-}
-
-.playlist-number{
-
-    min-width:28px;
-
-    height:28px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#6241ee;
-
-    color:white;
-
-    font-size:10px;
-
-    font-weight:900;
-}
-
-.playlist-name{
-
-    flex:1;
-
-    min-width:0;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    color:#303a52;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-}
-
-.playlist-remove{
-
-    border:0;
-
-    background:#ffe8eb;
-
-    color:#ef233c;
-
-    width:30px;
-
-    height:30px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-weight:900;
-
-    font-size:16px;
-}
-
-
-/* =====================================================
-   SLIDESHOW
-===================================================== */
+/* SLIDESHOW */
 
 .slideshow{
-
     width:100%;
-
     min-height:280px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     overflow:hidden;
-
     border-radius:19px;
-
     background:#10131c;
 }
 
 .slideshow img{
-
     max-width:100%;
-
     max-height:500px;
-
     object-fit:contain;
 }
 
 .slide-controls{
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:7px;
-
     margin-top:12px;
 }
 
 .thumbs{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fill,
-        minmax(90px,1fr)
-    );
-
+    grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
     gap:8px;
-
     margin-top:15px;
 }
 
 .thumbs img{
-
     width:100%;
-
     height:80px;
-
     object-fit:cover;
-
     border-radius:10px;
-
     cursor:pointer;
 }
 
-
-/* =====================================================
-   RECORDER
-===================================================== */
+/* RECORDER */
 
 .recorder-box{
-
     padding:22px;
-
     border-radius:20px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #101827,
-        #17223a
-    );
-
+    background:linear-gradient(135deg,#101827,#17223a);
     color:white;
-
     text-align:center;
 }
 
 .timer{
-
     font-size:38px;
-
     font-weight:900;
-
     margin:15px;
 }
 
-
-/* =====================================================
-   CAMERA
-===================================================== */
+/* CAMERA */
 
 .camera-preview{
-
     width:100%;
-
     background:#000;
-
     border-radius:20px;
-
     overflow:hidden;
 }
 
 .camera-preview video{
-
     display:block;
-
     width:100%;
-
     margin:0;
-
     max-height:600px;
 }
 
+/* =========================================
+   PHOTO VIDEO MAKER
+========================================= */
 
-/* =====================================================
-   VIDEO MAKER
-===================================================== */
+.maker-box{
+    background:linear-gradient(135deg,#101827,#1b2540);
+    padding:20px;
+    border-radius:22px;
+    color:white;
+    margin-top:18px;
+}
 
-.video-maker-preview{
-
+.maker-preview{
     width:100%;
-
-    min-height:280px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
+    aspect-ratio:16/9;
     background:#000;
-
-    border-radius:20px;
-
-    overflow:hidden;
-}
-
-.video-maker-preview img{
-
-    max-width:100%;
-
-    max-height:420px;
-
-    object-fit:contain;
-}
-
-.option-row{
-
+    border-radius:18px;
     display:flex;
-
-    flex-wrap:wrap;
-
     align-items:center;
-
-    gap:8px;
-
-    margin:
-    13px 0;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
 }
 
-.option-row label{
+.maker-preview canvas{
+    width:100%;
+    height:100%;
+    display:block;
+}
 
+.maker-empty{
+    color:#9ba6bb;
+    font-size:14px;
+}
+
+.maker-controls{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.control-box{
+    background:#f7f8ff;
+    border:1px solid #e1e5f6;
+    border-radius:15px;
+    padding:14px;
+}
+
+.control-box label{
+    display:block;
+    color:#454f68;
     font-size:12px;
-
-    font-weight:700;
+    font-weight:900;
+    margin-bottom:7px;
 }
 
-.option-row select{
-
-    padding:9px;
-
-    border:
-    1px solid #ccd4ed;
-
-    border-radius:8px;
-
+.control-box select,
+.control-box input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccd4ed;
+    border-radius:9px;
     background:white;
+    font-size:13px;
 }
 
+.maker-buttons{
+    margin-top:15px;
+    text-align:center;
+}
 
-/* =====================================================
-   DOWNLOAD
-===================================================== */
+.photo-list{
+    margin-top:20px;
+}
+
+.photo-list h3{
+    color:#302d83;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.photo-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#f6f7ff;
+    border:1px solid #e1e5f6;
+    padding:8px;
+    border-radius:12px;
+    margin-bottom:7px;
+}
+
+.photo-item img{
+    width:60px;
+    height:50px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.photo-item span{
+    flex:1;
+    min-width:0;
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.photo-item button{
+    border:0;
+    background:#ffe8eb;
+    color:#ef233c;
+    border-radius:8px;
+    padding:7px 10px;
+    cursor:pointer;
+    font-weight:900;
+}
+
+/* TRANSITION BADGE */
+
+.transition-info{
+    margin-top:15px;
+    padding:12px;
+    background:#f0efff;
+    border-radius:12px;
+    color:#5140b8;
+    font-size:12px;
+    text-align:center;
+    font-weight:800;
+}
+
+/* DOWNLOAD */
 
 .download-box{
-
     display:none;
-
     margin-top:18px;
-
     padding:16px;
-
     text-align:center;
-
     border-radius:15px;
-
     background:#effff5;
-
-    border:
-    1px solid #a7e9c2;
+    border:1px solid #a7e9c2;
 }
 
 .download-box.show{
@@ -1084,148 +500,83 @@ video{
 }
 
 .download-link{
-
     display:inline-block;
-
     margin-top:10px;
-
-    padding:
-    12px 20px;
-
+    padding:12px 20px;
     border-radius:11px;
-
     background:#00a95c;
-
     color:white;
-
     text-decoration:none;
-
     font-weight:800;
 }
 
-
-/* =====================================================
-   TOOLS
-===================================================== */
+/* TOOLS */
 
 .tool-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:14px;
-
     margin-top:20px;
 }
 
 .tool-card{
-
     padding:20px;
-
     border-radius:19px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #f7f8ff,
-        #f0f3ff
-    );
-
-    border:
-    1px solid #e2e6fa;
+    background:linear-gradient(135deg,#f7f8ff,#f0f3ff);
+    border:1px solid #e2e6fa;
 }
 
 .tool-card h3{
-
     margin-bottom:7px;
-
     color:#302d83;
 }
 
 .tool-card p{
-
     color:#738097;
-
     font-size:12px;
-
     line-height:1.6;
 }
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 footer{
-
     text-align:center;
-
-    padding:
-    30px 15px;
-
+    padding:30px 15px;
     color:#718098;
-
     font-size:12px;
 }
 
 .footer-brand{
-
     font-size:19px;
-
     font-weight:900;
-
     color:#352b91;
-
     margin-bottom:7px;
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
+/* MOBILE */
 
 @media(max-width:750px){
 
     .nav{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
         gap:9px;
     }
 
     .nav button{
-
         min-height:84px;
-
-        border-radius:17px;
     }
 
     .panel{
-
         padding:18px;
-
         border-radius:20px;
     }
 
     .tool-grid{
-
         grid-template-columns:1fr;
     }
 
-    .audio-studio{
-
-        padding:16px;
-    }
-
-    .audio-controls .btn{
-
-        padding:
-        10px 12px;
-
-        font-size:11px;
+    .maker-controls{
+        grid-template-columns:1fr;
     }
 
 }
@@ -1260,35 +611,14 @@ footer{
         font-size:8px;
     }
 
-    .panel{
-        padding:15px;
-    }
-
-    .audio-options{
-
-        flex-direction:column;
-
-    }
-
-    .audio-options input[type="range"]{
-
-        width:100%;
-
-    }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -1298,9 +628,7 @@ alt="Asim Multimedia"
 class="logo"
 onerror="this.style.display='none';">
 
-<h1>
-Asim Multimedia Studio
-</h1>
+<h1>Asim Multimedia Studio</h1>
 
 <p>
 Audio • Video • Photos • Recording • Creative Tools
@@ -1308,10 +636,7 @@ Audio • Video • Photos • Recording • Creative Tools
 
 </section>
 
-
-<!-- =====================================================
-     INSTALL
-===================================================== -->
+<!-- INSTALL -->
 
 <div class="install-area">
 
@@ -1321,185 +646,71 @@ Audio • Video • Photos • Recording • Creative Tools
 
 </div>
 
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+<!-- NAV -->
 
 <div class="nav">
 
-<button
-class="active"
-data-panel="audio">
-
+<button class="active" data-panel="audio">
 <span>🎵</span>
-
 <strong>Audio</strong>
-
-<small>
-Music & Sound
-</small>
-
+<small>Music & Sound</small>
 </button>
 
-
-<button
-data-panel="video">
-
+<button data-panel="video">
 <span>🎬</span>
-
 <strong>Video</strong>
-
-<small>
-Video Player
-</small>
-
+<small>Video Player</small>
 </button>
 
-
-<button
-data-panel="slideshow">
-
+<button data-panel="slideshow">
 <span>🖼️</span>
-
 <strong>Photos</strong>
-
-<small>
-Slideshow
-</small>
-
+<small>Slideshow</small>
 </button>
 
-
-<button
-data-panel="videoMaker">
-
+<button data-panel="videoMaker">
 <span>🎞️</span>
-
 <strong>Video Maker</strong>
-
-<small>
-Photo to Video
-</small>
-
+<small>Photo to Video</small>
 </button>
 
-
-<button
-data-panel="voice">
-
+<button data-panel="voice">
 <span>🎙️</span>
-
 <strong>Voice</strong>
-
-<small>
-Recorder
-</small>
-
+<small>Recorder</small>
 </button>
 
-
-<button
-data-panel="camera">
-
+<button data-panel="camera">
 <span>📷</span>
-
 <strong>Camera</strong>
-
-<small>
-Take Photo
-</small>
-
+<small>Take Photo</small>
 </button>
 
-
-<button
-data-panel="screen">
-
+<button data-panel="screen">
 <span>🖥️</span>
-
 <strong>Screen</strong>
-
-<small>
-Recorder
-</small>
-
+<small>Recorder</small>
 </button>
 
-
-<button
-data-panel="tools">
-
+<button data-panel="tools">
 <span>🛠️</span>
-
 <strong>Tools</strong>
-
-<small>
-Creative Tools
-</small>
-
+<small>Creative Tools</small>
 </button>
 
 </div>
-
 
 <main>
 
+<!-- AUDIO -->
 
-<!-- =====================================================
-     AUDIO STUDIO
-===================================================== -->
+<section class="panel active" id="audio">
 
-<section
-class="panel active"
-id="audio">
-
-<h2>
-🎵 Audio Studio
-</h2>
+<h2>🎵 Audio Studio</h2>
 
 <p class="panel-description">
-
-Play multiple songs with playlist,
-volume, mute, speed, shuffle and repeat.
-
-Your music files stay on your device.
-
+Play your local audio files.
 </p>
-
-
-<div class="feature-row">
-
-<span class="feature-badge">
-🔒 Private
-</span>
-
-<span class="feature-badge">
-🎧 Multiple Songs
-</span>
-
-<span class="feature-badge">
-🔊 Volume
-</span>
-
-<span class="feature-badge">
-🔇 Mute
-</span>
-
-<span class="feature-badge">
-🔀 Shuffle
-</span>
-
-<span class="feature-badge">
-🔁 Repeat
-</span>
-
-</div>
-
-
-<!-- IMPORTANT:
-     multiple MUST remain here
--->
 
 <div class="file-box">
 
@@ -1511,239 +722,26 @@ multiple>
 
 </div>
 
-
-<button
-class="btn primary"
-id="addMoreAudio">
-
-➕ Add More Songs
-
-</button>
-
-
-<div class="audio-studio">
-
-
-<div
-class="audio-title"
-id="audioTitle">
-
-No audio selected
-
-</div>
-
-
-<div class="audio-time">
-
-<span id="audioCurrentTime">
-00:00
-</span>
-
-<span id="audioDuration">
-00:00
-</span>
-
-</div>
-
-
 <audio
 id="audioPlayer"
-controls
-preload="metadata">
+controls>
 </audio>
 
-
-<div class="audio-controls">
-
-
-<button
-class="btn dark"
-id="audioPrevious">
-
-⏮ Previous
-
-</button>
-
-
-<button
-class="btn primary"
-id="audioPlay">
-
-▶ Play
-
-</button>
-
-
-<button
-class="btn dark"
-id="audioPause">
-
-⏸ Pause
-
-</button>
-
-
-<button
-class="btn dark"
-id="audioNext">
-
-Next ⏭
-
-</button>
-
+<div class="status" id="audioStatus">
+Select audio files
 </div>
-
-
-<div class="audio-options">
-
-
-<label>
-🔊 Volume
-</label>
-
-
-<input
-type="range"
-id="audioVolume"
-min="0"
-max="1"
-step="0.01"
-value="1">
-
-
-<button
-class="btn dark"
-id="audioMute"
-style="margin:0;">
-
-🔇 Mute
-
-</button>
-
-
-<label>
-⚡ Speed
-</label>
-
-
-<select
-id="audioSpeed">
-
-<option value="0.5">
-0.5×
-</option>
-
-<option value="0.75">
-0.75×
-</option>
-
-<option value="1"
-selected>
-1× Normal
-</option>
-
-<option value="1.25">
-1.25×
-</option>
-
-<option value="1.5">
-1.5×
-</option>
-
-<option value="2">
-2×
-</option>
-
-</select>
-
-</div>
-
-
-<div class="audio-extra">
-
-
-<button
-id="shuffleBtn">
-
-🔀 Shuffle OFF
-
-</button>
-
-
-<button
-id="repeatBtn">
-
-🔁 Repeat OFF
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-<div class="playlist-top">
-
-<h3 class="playlist-heading">
-📋 Playlist
-</h3>
-
-<span
-class="song-count"
-id="songCount">
-
-0 Songs
-
-</span>
-
-</div>
-
-
-<div
-id="audioPlaylist"
-class="audio-playlist">
-
-<div class="empty-playlist">
-
-Select multiple audio files to create playlist
-
-</div>
-
-</div>
-
-
-<div
-class="status"
-id="audioStatus">
-
-Ready — Select multiple songs
-
-</div>
-
 
 </section>
 
+<!-- VIDEO -->
 
-<!-- =====================================================
-     VIDEO
-===================================================== -->
+<section class="panel" id="video">
 
-<section
-class="panel"
-id="video">
-
-<h2>
-🎬 Video Player
-</h2>
+<h2>🎬 Video Player</h2>
 
 <p class="panel-description">
-
-Open and play video files stored on your phone.
-
+Open and play video files stored on your device.
 </p>
-
 
 <div class="file-box">
 
@@ -1754,85 +752,47 @@ accept="video/*">
 
 </div>
 
-
 <video
 id="videoPlayer"
 controls
 playsinline>
 </video>
 
-
 <div>
 
-
-<button
-class="btn primary"
-onclick="playVideo()">
-
+<button class="btn primary" onclick="playVideo()">
 ▶ Play
-
 </button>
 
-
-<button
-class="btn dark"
-onclick="pauseVideo()">
-
+<button class="btn dark" onclick="pauseVideo()">
 ⏸ Pause
-
 </button>
 
-
-<button
-class="btn danger"
-onclick="stopVideo()">
-
+<button class="btn danger" onclick="stopVideo()">
 ⏹ Stop
-
 </button>
 
-
-<button
-class="btn orange"
-onclick="fullscreenVideo()">
-
+<button class="btn orange" onclick="fullscreenVideo()">
 ⛶ Fullscreen
-
 </button>
 
 </div>
 
-
-<div
-class="status"
-id="videoStatus">
-
+<div class="status" id="videoStatus">
 Ready
-
 </div>
 
 </section>
 
+<!-- SLIDESHOW -->
 
-<!-- =====================================================
-     SLIDESHOW
-===================================================== -->
+<section class="panel" id="slideshow">
 
-<section
-class="panel"
-id="slideshow">
-
-<h2>
-🖼️ Photo Slideshow
-</h2>
+<h2>🖼️ Photo Slideshow</h2>
 
 <p class="panel-description">
-
-Select multiple photos and create
-a simple slideshow.
-
+Select multiple photos and view them as a slideshow.
 </p>
-
 
 <div class="file-box">
 
@@ -1844,10 +804,7 @@ multiple>
 
 </div>
 
-
-<div
-class="slideshow"
-id="slideShow">
+<div class="slideshow" id="slideShow">
 
 <span style="color:#aaa;">
 Select photos
@@ -1855,92 +812,49 @@ Select photos
 
 </div>
 
-
 <div class="slide-controls">
 
-
-<button
-class="btn primary"
-onclick="previousSlide()">
-
+<button class="btn primary" onclick="previousSlide()">
 ⬅ Previous
-
 </button>
 
-
-<button
-class="btn primary"
-onclick="nextSlide()">
-
+<button class="btn primary" onclick="nextSlide()">
 Next ➡
-
 </button>
 
-
-<button
-class="btn orange"
-onclick="startSlideshow()">
-
+<button class="btn orange" onclick="startSlideshow()">
 ▶ Auto Play
-
 </button>
 
-
-<button
-class="btn danger"
-onclick="stopSlideshow()">
-
+<button class="btn danger" onclick="stopSlideshow()">
 ⏹ Stop
-
 </button>
 
 </div>
 
-
-<div
-class="thumbs"
-id="slideThumbs">
-</div>
+<div class="thumbs" id="slideThumbs"></div>
 
 </section>
 
+<!-- PHOTO VIDEO MAKER -->
 
-<!-- =====================================================
-     VIDEO MAKER
-===================================================== -->
+<section class="panel" id="videoMaker">
 
-<section
-class="panel"
-id="videoMaker">
-
-<h2>
-🎞️ Photo Video Maker
-</h2>
+<h2>🎞️ Photo Video Maker</h2>
 
 <p class="panel-description">
-
-Create a simple video from selected photos.
-Everything is processed inside your browser.
-
+Create a video from multiple photos with beautiful transitions.
+Everything runs inside your browser.
 </p>
-
 
 <div class="feature-row">
 
-<span class="feature-badge">
-📸 Photos
-</span>
-
-<span class="feature-badge">
-🎬 WebM Video
-</span>
-
-<span class="feature-badge">
-🔒 Local
-</span>
+<span class="feature-badge">📸 Multiple Photos</span>
+<span class="feature-badge">✨ Transitions</span>
+<span class="feature-badge">🎬 WebM</span>
+<span class="feature-badge">🔒 Local Processing</span>
 
 </div>
-
 
 <div class="file-box">
 
@@ -1952,159 +866,204 @@ multiple>
 
 </div>
 
+<div class="maker-box">
 
-<div class="video-maker-preview">
+<div class="maker-preview" id="makerPreview">
 
-<img
-id="makerPreview"
-alt="Preview"
-style="display:none;">
+<canvas id="makerCanvas"
+width="1280"
+height="720">
+</canvas>
 
-<span
-id="makerEmpty"
-style="color:#aaa;">
-
-Select photos
-
-</span>
+<div class="maker-empty" id="makerEmpty">
+Select photos to start
+</div>
 
 </div>
 
+<div class="transition-info" id="transitionInfo">
+Transition: Fade
+</div>
 
-<div class="option-row">
+</div>
+
+<div class="maker-controls">
+
+<div class="control-box">
 
 <label>
-Duration:
+⏱️ Photo Duration
 </label>
 
+<select id="imageDuration">
 
-<select
-id="imageDuration">
+<option value="1">1 second</option>
+<option value="2">2 seconds</option>
+<option value="3" selected>3 seconds</option>
+<option value="5">5 seconds</option>
+<option value="7">7 seconds</option>
+<option value="10">10 seconds</option>
 
-<option value="2">
-2 seconds
+</select>
+
+</div>
+
+<div class="control-box">
+
+<label>
+✨ Transition
+</label>
+
+<select id="transitionType">
+
+<option value="fade">
+Fade
 </option>
 
-<option
-value="3"
-selected>
-
-3 seconds
-
+<option value="crossfade">
+Cross Fade
 </option>
 
-<option value="5">
-5 seconds
+<option value="slideLeft">
+Slide Left
 </option>
 
-<option value="10">
-10 seconds
+<option value="slideRight">
+Slide Right
+</option>
+
+<option value="slideUp">
+Slide Up
+</option>
+
+<option value="slideDown">
+Slide Down
+</option>
+
+<option value="zoomIn">
+Zoom In
+</option>
+
+<option value="zoomOut">
+Zoom Out
 </option>
 
 </select>
 
 </div>
 
+</div>
+
+<div class="maker-buttons">
 
 <button
 class="btn primary"
-onclick="createPhotoVideo()">
-
-🎬 Create Video
-
+id="previewMakerBtn">
+▶ Preview
 </button>
 
+<button
+class="btn orange"
+id="createMakerBtn">
+🎬 Create Video
+</button>
+
+<button
+class="btn danger"
+id="stopMakerBtn">
+⏹ Stop
+</button>
+
+</div>
 
 <div
 class="status"
 id="makerStatus">
+Ready — Select photos
+</div>
 
-Ready
+<div class="photo-list">
+
+<h3>
+📋 Selected Photos
+</h3>
+
+<div id="makerPhotoList">
+
+<div class="empty-playlist">
+No photos selected
+</div>
+
+</div>
+
+</div>
+
+<div
+class="download-box"
+id="makerDownload">
+
+<strong>
+🎬 Video Ready
+</strong>
+
+<br>
+
+<a
+id="makerDownloadLink"
+class="download-link"
+download="asim-photo-video.webm">
+
+⬇ Download Created Video
+
+</a>
 
 </div>
 
 </section>
 
+<!-- VOICE -->
 
-<!-- =====================================================
-     VOICE
-===================================================== -->
+<section class="panel" id="voice">
 
-<section
-class="panel"
-id="voice">
-
-<h2>
-🎙️ Voice Recorder
-</h2>
+<h2>🎙️ Voice Recorder</h2>
 
 <p class="panel-description">
-
 Record voice using your device microphone.
-
 </p>
-
 
 <div class="recorder-box">
 
-
-<div
-class="timer"
-id="voiceTimer">
-
+<div class="timer" id="voiceTimer">
 00:00
-
 </div>
 
-
-<button
-class="btn primary"
-id="voiceStart">
-
+<button class="btn primary" id="voiceStart">
 🔴 Start Recording
-
 </button>
 
-
-<button
-class="btn danger"
-id="voiceStop"
-disabled>
-
+<button class="btn danger" id="voiceStop" disabled>
 ⏹ Stop
-
 </button>
 
-
-<div
-class="status"
-id="voiceStatus">
-
+<div class="status" id="voiceStatus">
 Ready
-
 </div>
 
 </div>
-
 
 <audio
 id="voicePreview"
 controls
 style="display:none;">
-
 </audio>
 
-
-<div
-class="download-box"
-id="voiceDownload">
+<div class="download-box" id="voiceDownload">
 
 <strong>
 Recording Ready
 </strong>
 
 <br>
-
 
 <a
 id="voiceDownloadLink"
@@ -2119,26 +1078,15 @@ download="asim-voice-recording.webm">
 
 </section>
 
+<!-- CAMERA -->
 
-<!-- =====================================================
-     CAMERA
-===================================================== -->
+<section class="panel" id="camera">
 
-<section
-class="panel"
-id="camera">
-
-<h2>
-📷 Camera
-</h2>
+<h2>📷 Camera</h2>
 
 <p class="panel-description">
-
-Use your device camera directly
-from the browser.
-
+Use your device camera to take photos.
 </p>
-
 
 <div class="camera-preview">
 
@@ -2150,56 +1098,27 @@ playsinline>
 
 </div>
 
-
-<div>
-
-
-<button
-class="btn primary"
-id="cameraStart">
-
+<button class="btn primary" id="cameraStart">
 📷 Start Camera
-
 </button>
 
-
-<button
-class="btn danger"
-id="cameraStop">
-
+<button class="btn danger" id="cameraStop">
 ⏹ Stop Camera
-
 </button>
 
-
-<button
-class="btn success"
-id="takePhoto">
-
+<button class="btn success" id="takePhoto">
 📸 Take Photo
-
 </button>
 
-</div>
+<canvas id="cameraCanvas" style="display:none;"></canvas>
 
-
-<canvas
-id="cameraCanvas"
-style="display:none;">
-
-</canvas>
-
-
-<div
-class="download-box"
-id="photoDownload">
+<div class="download-box" id="photoDownload">
 
 <strong>
 Photo Ready
 </strong>
 
 <br>
-
 
 <a
 id="photoDownloadLink"
@@ -2214,88 +1133,50 @@ download="asim-camera-photo.png">
 
 </section>
 
+<!-- SCREEN -->
 
-<!-- =====================================================
-     SCREEN
-===================================================== -->
+<section class="panel" id="screen">
 
-<section
-class="panel"
-id="screen">
-
-<h2>
-🖥️ Screen Recorder
-</h2>
+<h2>🖥️ Screen Recorder</h2>
 
 <p class="panel-description">
-
-Record your screen using your browser's
-built-in screen capture feature.
-
+Record your device screen using browser screen capture.
 </p>
-
 
 <div class="recorder-box">
 
-
-<div
-class="timer"
-id="screenTimer">
-
+<div class="timer" id="screenTimer">
 00:00
-
 </div>
 
-
-<button
-class="btn primary"
-id="screenStart">
-
+<button class="btn primary" id="screenStart">
 🔴 Start Screen Recording
-
 </button>
 
-
-<button
-class="btn danger"
-id="screenStop"
-disabled>
-
+<button class="btn danger" id="screenStop" disabled>
 ⏹ Stop Recording
-
 </button>
 
-
-<div
-class="status"
-id="screenStatus">
-
+<div class="status" id="screenStatus">
 Ready
-
 </div>
 
 </div>
-
 
 <video
 id="screenPreview"
 controls
 playsinline
 style="display:none;">
-
 </video>
 
-
-<div
-class="download-box"
-id="screenDownload">
+<div class="download-box" id="screenDownload">
 
 <strong>
 Screen Recording Ready
 </strong>
 
 <br>
-
 
 <a
 id="screenDownloadLink"
@@ -2310,159 +1191,64 @@ download="asim-screen-recording.webm">
 
 </section>
 
+<!-- TOOLS -->
 
-<!-- =====================================================
-     TOOLS
-===================================================== -->
+<section class="panel" id="tools">
 
-<section
-class="panel"
-id="tools">
-
-<h2>
-🛠️ Creative Tools
-</h2>
-
-<p class="panel-description">
-
-Useful multimedia tools for everyday work.
-
-</p>
-
+<h2>🛠️ Creative Tools</h2>
 
 <div class="tool-grid">
 
-
 <div class="tool-card">
-
-<h3>
-🎵 Audio Studio
-</h3>
-
-<p>
-Multiple songs, playlist, volume,
-speed, shuffle and repeat.
-</p>
-
+<h3>🎵 Audio</h3>
+<p>Play local audio files.</p>
 </div>
 
-
 <div class="tool-card">
-
-<h3>
-🎬 Video Player
-</h3>
-
-<p>
-Play local video files with
-fullscreen support.
-</p>
-
+<h3>🎬 Video</h3>
+<p>Play local video files.</p>
 </div>
 
-
 <div class="tool-card">
-
-<h3>
-🖼️ Photo Slideshow
-</h3>
-
-<p>
-View multiple photos and create
-automatic slideshows.
-</p>
-
+<h3>🖼️ Slideshow</h3>
+<p>View multiple photos.</p>
 </div>
 
-
 <div class="tool-card">
-
-<h3>
-🎞️ Photo Video Maker
-</h3>
-
-<p>
-Turn selected photos into
-a simple video.
-</p>
-
+<h3>🎞️ Video Maker</h3>
+<p>Create videos with photo transitions.</p>
 </div>
 
-
 <div class="tool-card">
-
-<h3>
-🎙️ Voice Recorder
-</h3>
-
-<p>
-Record voice through your
-device microphone.
-</p>
-
+<h3>🎙️ Voice</h3>
+<p>Record voice from microphone.</p>
 </div>
 
-
 <div class="tool-card">
-
-<h3>
-📷 Camera
-</h3>
-
-<p>
-Capture photos directly from
-your device camera.
-</p>
-
+<h3>📷 Camera</h3>
+<p>Take photos from your camera.</p>
 </div>
 
-
 <div class="tool-card">
-
-<h3>
-🖥️ Screen Recorder
-</h3>
-
-<p>
-Record your screen using
-browser screen capture.
-</p>
-
+<h3>🖥️ Screen Recorder</h3>
+<p>Record your screen.</p>
 </div>
 
-
 <div class="tool-card">
-
-<h3>
-🔒 Privacy
-</h3>
-
-<p>
-Your local media files are
-processed inside your browser.
-</p>
-
+<h3>🔒 Privacy</h3>
+<p>Your media stays inside your browser.</p>
 </div>
-
 
 </div>
 
 </section>
 
-
 </main>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
 
 <div class="footer-brand">
-
 🎬 Asim Multimedia Studio
-
 </div>
 
 Audio • Video • Photos • Recorder • Creative Tools
@@ -2473,9 +1259,7 @@ Audio • Video • Photos • Recorder • Creative Tools
 
 </footer>
 
-
 <script>
-
 
 /* =====================================================
    NAVIGATION
@@ -2487,1121 +1271,84 @@ document.querySelectorAll(".nav button");
 const panels =
 document.querySelectorAll(".panel");
 
+navButtons.forEach(button => {
 
-navButtons.forEach(function(button){
+    button.addEventListener("click",() => {
 
-    button.addEventListener(
-        "click",
-        function(){
+        const target =
+        button.dataset.panel;
 
-            const target =
-            button.dataset.panel;
+        navButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
 
-            navButtons.forEach(
-                function(btn){
+        button.classList.add("active");
 
-                    btn.classList.remove(
-                        "active"
-                    );
+        panels.forEach(panel =>
+            panel.classList.remove("active")
+        );
 
-                }
-            );
+        const selected =
+        document.getElementById(target);
 
-            button.classList.add(
-                "active"
-            );
-
-
-            panels.forEach(
-                function(panel){
-
-                    panel.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            const selected =
-            document.getElementById(target);
-
-
-            if(selected){
-
-                selected.classList.add(
-                    "active"
-                );
-
-            }
-
-
-            window.scrollTo({
-
-                top:
-                document.querySelector(
-                    ".nav"
-                ).offsetTop - 10,
-
-                behavior:"smooth"
-
-            });
-
+        if(selected){
+            selected.classList.add("active");
         }
-    );
+
+        window.scrollTo({
+            top:
+            document.querySelector(".nav").offsetTop - 10,
+            behavior:"smooth"
+        });
+
+    });
 
 });
 
 
 /* =====================================================
-   AUDIO STUDIO
+   AUDIO
 ===================================================== */
 
 const audioFiles =
-document.getElementById(
-    "audioFiles"
-);
-
-const addMoreAudio =
-document.getElementById(
-    "addMoreAudio"
-);
+document.getElementById("audioFiles");
 
 const audioPlayer =
-document.getElementById(
-    "audioPlayer"
-);
-
-const audioTitle =
-document.getElementById(
-    "audioTitle"
-);
+document.getElementById("audioPlayer");
 
 const audioStatus =
-document.getElementById(
-    "audioStatus"
-);
+document.getElementById("audioStatus");
 
-const audioPlaylist =
-document.getElementById(
-    "audioPlaylist"
-);
+let audioURLs=[];
 
-const audioCurrentTime =
-document.getElementById(
-    "audioCurrentTime"
-);
+audioFiles.addEventListener("change",function(){
 
-const audioDuration =
-document.getElementById(
-    "audioDuration"
-);
-
-const audioPlay =
-document.getElementById(
-    "audioPlay"
-);
-
-const audioPause =
-document.getElementById(
-    "audioPause"
-);
-
-const audioPrevious =
-document.getElementById(
-    "audioPrevious"
-);
-
-const audioNext =
-document.getElementById(
-    "audioNext"
-);
-
-const audioVolume =
-document.getElementById(
-    "audioVolume"
-);
-
-const audioMute =
-document.getElementById(
-    "audioMute"
-);
-
-const audioSpeed =
-document.getElementById(
-    "audioSpeed"
-);
-
-const shuffleBtn =
-document.getElementById(
-    "shuffleBtn"
-);
-
-const repeatBtn =
-document.getElementById(
-    "repeatBtn"
-);
-
-const songCount =
-document.getElementById(
-    "songCount"
-);
-
-
-/* =====================================================
-   AUDIO VARIABLES
-===================================================== */
-
-let audioPlaylistData = [];
-
-let audioIndex = 0;
-
-let shuffleMode = false;
-
-let repeatMode = false;
-
-let previousVolume = 1;
-
-
-/* =====================================================
-   AUDIO FILE INPUT
-===================================================== */
-
-audioFiles.addEventListener(
-    "change",
-    function(){
-
-        addAudioFiles(
-            Array.from(this.files)
-        );
-
-        /*
-         * Reset input so the same files
-         * can be selected again later.
-         */
-
-        this.value = "";
-
-    }
-);
-
-
-/* =====================================================
-   ADD MORE BUTTON
-===================================================== */
-
-addMoreAudio.addEventListener(
-    "click",
-    function(){
-
-        audioFiles.click();
-
-    }
-);
-
-
-/* =====================================================
-   ADD AUDIO FILES
-===================================================== */
-
-function addAudioFiles(files){
-
-    if(!files || !files.length){
-
-        return;
-
-    }
-
-
-    let added = 0;
-
-
-    files.forEach(
-        function(file){
-
-            /*
-             * Check duplicate by
-             * name + size + lastModified
-             */
-
-            const exists =
-            audioPlaylistData.some(
-                function(item){
-
-                    return (
-
-                        item.file.name ===
-                        file.name
-
-                        &&
-
-                        item.file.size ===
-                        file.size
-
-                        &&
-
-                        item.file.lastModified ===
-                        file.lastModified
-
-                    );
-
-                }
-            );
-
-
-            if(!exists){
-
-                audioPlaylistData.push({
-
-                    file:file,
-
-                    url:
-                    URL.createObjectURL(
-                        file
-                    )
-
-                });
-
-                added++;
-
-            }
-
-        }
+    audioURLs.forEach(url =>
+        URL.revokeObjectURL(url)
     );
 
+    audioURLs=[];
 
-    if(
-        audioPlaylistData.length &&
-        audioPlayer.src === ""
-    ){
+    const files =
+    Array.from(this.files);
 
-        audioIndex = 0;
-
-    }
-
-
-    renderAudioPlaylist();
-
-
-    if(
-        audioPlaylistData.length === 1
-    ){
-
-        loadAudio(0);
-
-    }
-
-    else if(
-        added > 0 &&
-        audioTitle.textContent ===
-        "No audio selected"
-    ){
-
-        loadAudio(0);
-
-    }
-
-
-    audioStatus.textContent =
-    added +
-    " new song(s) added • " +
-    audioPlaylistData.length +
-    " total song(s)";
-
-}
-
-
-/* =====================================================
-   LOAD AUDIO
-===================================================== */
-
-function loadAudio(index){
-
-    if(
-        !audioPlaylistData.length
-    ){
-
-        audioTitle.textContent =
-        "No audio selected";
-
-        audioStatus.textContent =
-        "Ready";
-
+    if(!files.length){
         return;
-
     }
 
-
-    if(index < 0){
-
-        index =
-        audioPlaylistData.length - 1;
-
-    }
-
-
-    if(
-        index >=
-        audioPlaylistData.length
-    ){
-
-        index = 0;
-
-    }
-
-
-    audioIndex = index;
-
-
-    const item =
-    audioPlaylistData[
-        audioIndex
-    ];
-
+    audioURLs =
+    files.map(file =>
+        URL.createObjectURL(file)
+    );
 
     audioPlayer.src =
-    item.url;
-
-
-    audioPlayer.load();
-
-
-    audioPlayer.volume =
-    Number(
-        audioVolume.value
-    );
-
-
-    audioPlayer.playbackRate =
-    Number(
-        audioSpeed.value
-    );
-
-
-    audioTitle.textContent =
-    item.file.name;
-
+    audioURLs[0];
 
     audioStatus.textContent =
-    "Loaded: " +
-    item.file.name;
+    files.length +
+    " audio file(s) selected.";
 
-
-    renderAudioPlaylist();
-
-}
-
-
-/* =====================================================
-   PLAY
-===================================================== */
-
-audioPlay.addEventListener(
-    "click",
-    function(){
-
-        if(
-            !audioPlaylistData.length
-        ){
-
-            alert(
-                "Please select audio files first."
-            );
-
-            return;
-
-        }
-
-
-        audioPlayer.play()
-        .catch(
-            function(){}
-        );
-
-    }
-);
-
-
-/* =====================================================
-   PAUSE
-===================================================== */
-
-audioPause.addEventListener(
-    "click",
-    function(){
-
-        audioPlayer.pause();
-
-    }
-);
-
-
-/* =====================================================
-   PREVIOUS
-===================================================== */
-
-audioPrevious.addEventListener(
-    "click",
-    function(){
-
-        if(
-            !audioPlaylistData.length
-        ){
-
-            return;
-
-        }
-
-
-        loadAudio(
-            audioIndex - 1
-        );
-
-
-        audioPlayer.play()
-        .catch(
-            function(){}
-        );
-
-    }
-);
-
-
-/* =====================================================
-   NEXT
-===================================================== */
-
-audioNext.addEventListener(
-    "click",
-    function(){
-
-        if(
-            !audioPlaylistData.length
-        ){
-
-            return;
-
-        }
-
-
-        playNextAudio();
-
-    }
-);
-
-
-/* =====================================================
-   NEXT AUDIO FUNCTION
-===================================================== */
-
-function playNextAudio(){
-
-    if(
-        !audioPlaylistData.length
-    ){
-
-        return;
-
-    }
-
-
-    let nextIndex;
-
-
-    if(shuffleMode){
-
-        if(
-            audioPlaylistData.length === 1
-        ){
-
-            nextIndex = 0;
-
-        }
-
-        else{
-
-            do{
-
-                nextIndex =
-                Math.floor(
-                    Math.random() *
-                    audioPlaylistData.length
-                );
-
-            }
-
-            while(
-                nextIndex ===
-                audioIndex
-            );
-
-        }
-
-    }
-
-    else{
-
-        nextIndex =
-        audioIndex + 1;
-
-    }
-
-
-    loadAudio(nextIndex);
-
-
-    audioPlayer.play()
-    .catch(
-        function(){}
-    );
-
-}
-
-
-/* =====================================================
-   AUDIO ENDED
-===================================================== */
-
-audioPlayer.addEventListener(
-    "ended",
-    function(){
-
-        if(repeatMode){
-
-            audioPlayer.currentTime =
-            0;
-
-            audioPlayer.play()
-            .catch(
-                function(){}
-            );
-
-            return;
-
-        }
-
-
-        if(
-            audioPlaylistData.length > 1
-        ){
-
-            playNextAudio();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   VOLUME
-===================================================== */
-
-audioVolume.addEventListener(
-    "input",
-    function(){
-
-        const value =
-        Number(this.value);
-
-
-        audioPlayer.volume =
-        value;
-
-
-        if(value > 0){
-
-            previousVolume =
-            value;
-
-            audioPlayer.muted =
-            false;
-
-            audioMute.textContent =
-            "🔇 Mute";
-
-        }
-
-        else{
-
-            audioPlayer.muted =
-            true;
-
-            audioMute.textContent =
-            "🔊 Unmute";
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   MUTE
-===================================================== */
-
-audioMute.addEventListener(
-    "click",
-    function(){
-
-        if(
-            audioPlayer.muted ||
-            audioPlayer.volume === 0
-        ){
-
-            audioPlayer.muted =
-            false;
-
-
-            if(
-                previousVolume <= 0
-            ){
-
-                previousVolume =
-                1;
-
-            }
-
-
-            audioPlayer.volume =
-            previousVolume;
-
-
-            audioVolume.value =
-            previousVolume;
-
-
-            audioMute.textContent =
-            "🔇 Mute";
-
-        }
-
-        else{
-
-            previousVolume =
-            audioPlayer.volume;
-
-
-            audioPlayer.muted =
-            true;
-
-
-            audioMute.textContent =
-            "🔊 Unmute";
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   SPEED
-===================================================== */
-
-audioSpeed.addEventListener(
-    "change",
-    function(){
-
-        audioPlayer.playbackRate =
-        Number(this.value);
-
-    }
-);
-
-
-/* =====================================================
-   SHUFFLE
-===================================================== */
-
-shuffleBtn.addEventListener(
-    "click",
-    function(){
-
-        shuffleMode =
-        !shuffleMode;
-
-
-        if(shuffleMode){
-
-            shuffleBtn.textContent =
-            "🔀 Shuffle ON";
-
-            shuffleBtn.classList.add(
-                "active"
-            );
-
-        }
-
-        else{
-
-            shuffleBtn.textContent =
-            "🔀 Shuffle OFF";
-
-            shuffleBtn.classList.remove(
-                "active"
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   REPEAT
-===================================================== */
-
-repeatBtn.addEventListener(
-    "click",
-    function(){
-
-        repeatMode =
-        !repeatMode;
-
-
-        if(repeatMode){
-
-            repeatBtn.textContent =
-            "🔁 Repeat ON";
-
-            repeatBtn.classList.add(
-                "active"
-            );
-
-        }
-
-        else{
-
-            repeatBtn.textContent =
-            "🔁 Repeat OFF";
-
-            repeatBtn.classList.remove(
-                "active"
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   AUDIO TIME
-===================================================== */
-
-audioPlayer.addEventListener(
-    "timeupdate",
-    function(){
-
-        audioCurrentTime.textContent =
-        formatAudioTime(
-            audioPlayer.currentTime
-        );
-
-    }
-);
-
-
-audioPlayer.addEventListener(
-    "loadedmetadata",
-    function(){
-
-        audioDuration.textContent =
-        formatAudioTime(
-            audioPlayer.duration
-        );
-
-    }
-);
-
-
-/* =====================================================
-   FORMAT AUDIO TIME
-===================================================== */
-
-function formatAudioTime(seconds){
-
-    if(
-        !isFinite(seconds)
-    ){
-
-        return "00:00";
-
-    }
-
-
-    const minutes =
-    Math.floor(
-        seconds / 60
-    )
-    .toString()
-    .padStart(2,"0");
-
-
-    const secs =
-    Math.floor(
-        seconds % 60
-    )
-    .toString()
-    .padStart(2,"0");
-
-
-    return (
-        minutes +
-        ":" +
-        secs
-    );
-
-}
-
-
-/* =====================================================
-   RENDER PLAYLIST
-===================================================== */
-
-function renderAudioPlaylist(){
-
-    audioPlaylist.innerHTML =
-    "";
-
-
-    songCount.textContent =
-    audioPlaylistData.length +
-    (
-        audioPlaylistData.length === 1
-        ? " Song"
-        : " Songs"
-    );
-
-
-    if(
-        !audioPlaylistData.length
-    ){
-
-        audioPlaylist.innerHTML =
-
-        `
-        <div class="empty-playlist">
-
-        🎵 No songs in playlist
-
-        <br><br>
-
-        Tap "Add More Songs" to select music.
-
-        </div>
-        `;
-
-        return;
-
-    }
-
-
-    audioPlaylistData.forEach(
-        function(item,index){
-
-            const row =
-            document.createElement(
-                "div"
-            );
-
-
-            row.className =
-            "playlist-item";
-
-
-            if(
-                index === audioIndex
-            ){
-
-                row.classList.add(
-                    "active"
-                );
-
-            }
-
-
-            const number =
-            document.createElement(
-                "div"
-            );
-
-
-            number.className =
-            "playlist-number";
-
-
-            number.textContent =
-            index + 1;
-
-
-            const name =
-            document.createElement(
-                "div"
-            );
-
-
-            name.className =
-            "playlist-name";
-
-
-            name.textContent =
-            item.file.name;
-
-
-            const remove =
-            document.createElement(
-                "button"
-            );
-
-
-            remove.className =
-            "playlist-remove";
-
-
-            remove.textContent =
-            "×";
-
-
-            row.addEventListener(
-                "click",
-                function(){
-
-                    loadAudio(index);
-
-                    audioPlayer.play()
-                    .catch(
-                        function(){}
-                    );
-
-                }
-            );
-
-
-            remove.addEventListener(
-                "click",
-                function(event){
-
-                    event.stopPropagation();
-
-                    removeAudio(index);
-
-                }
-            );
-
-
-            row.appendChild(
-                number
-            );
-
-
-            row.appendChild(
-                name
-            );
-
-
-            row.appendChild(
-                remove
-            );
-
-
-            audioPlaylist.appendChild(
-                row
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   REMOVE AUDIO
-===================================================== */
-
-function removeAudio(index){
-
-    if(
-        !audioPlaylistData[index]
-    ){
-
-        return;
-
-    }
-
-
-    URL.revokeObjectURL(
-        audioPlaylistData[index].url
-    );
-
-
-    audioPlaylistData.splice(
-        index,
-        1
-    );
-
-
-    if(
-        !audioPlaylistData.length
-    ){
-
-        audioPlayer.pause();
-
-        audioPlayer.removeAttribute(
-            "src"
-        );
-
-        audioPlayer.load();
-
-
-        audioIndex = 0;
-
-
-        audioTitle.textContent =
-        "No audio selected";
-
-
-        audioStatus.textContent =
-        "Playlist empty";
-
-
-        audioCurrentTime.textContent =
-        "00:00";
-
-
-        audioDuration.textContent =
-        "00:00";
-
-
-        renderAudioPlaylist();
-
-        return;
-
-    }
-
-
-    if(index < audioIndex){
-
-        audioIndex--;
-
-    }
-
-
-    if(
-        audioIndex >=
-        audioPlaylistData.length
-    ){
-
-        audioIndex =
-        audioPlaylistData.length - 1;
-
-    }
-
-
-    loadAudio(audioIndex);
-
-}
+});
 
 
 /* =====================================================
@@ -3609,93 +1356,51 @@ function removeAudio(index){
 ===================================================== */
 
 const videoFile =
-document.getElementById(
-    "videoFile"
-);
+document.getElementById("videoFile");
 
 const videoPlayer =
-document.getElementById(
-    "videoPlayer"
-);
+document.getElementById("videoPlayer");
 
 const videoStatus =
-document.getElementById(
-    "videoStatus"
-);
+document.getElementById("videoStatus");
 
+videoFile.addEventListener("change",function(){
 
-videoFile.addEventListener(
-    "change",
-    function(){
+    const file=this.files[0];
 
-        const file =
-        this.files[0];
-
-
-        if(!file){
-
-            return;
-
-        }
-
-
-        videoPlayer.src =
-        URL.createObjectURL(
-            file
-        );
-
-
-        videoStatus.textContent =
-        "Loaded: " +
-        file.name;
-
+    if(!file){
+        return;
     }
-);
 
+    videoPlayer.src =
+    URL.createObjectURL(file);
+
+    videoStatus.textContent =
+    "Loaded: " + file.name;
+
+});
 
 function playVideo(){
-
-    videoPlayer.play()
-    .catch(
-        function(){}
-    );
-
+    videoPlayer.play().catch(()=>{});
 }
-
 
 function pauseVideo(){
-
     videoPlayer.pause();
-
 }
-
 
 function stopVideo(){
-
     videoPlayer.pause();
-
-    videoPlayer.currentTime =
-    0;
-
+    videoPlayer.currentTime=0;
 }
-
 
 function fullscreenVideo(){
 
-    if(
-        videoPlayer.requestFullscreen
-    ){
-
+    if(videoPlayer.requestFullscreen){
         videoPlayer.requestFullscreen();
-
     }
 
-    else if(
-        videoPlayer.webkitRequestFullscreen
-    ){
-
+    else if(videoPlayer.webkitRequestFullscreen){
         videoPlayer.webkitRequestFullscreen();
-
     }
 
 }
@@ -3706,107 +1411,60 @@ function fullscreenVideo(){
 ===================================================== */
 
 const slideFiles =
-document.getElementById(
-    "slideFiles"
-);
+document.getElementById("slideFiles");
 
 const slideShow =
-document.getElementById(
-    "slideShow"
-);
+document.getElementById("slideShow");
 
 const slideThumbs =
-document.getElementById(
-    "slideThumbs"
-);
+document.getElementById("slideThumbs");
 
-let slides = [];
+let slides=[];
+let slideIndex=0;
+let slideInterval=null;
 
-let slideIndex = 0;
+slideFiles.addEventListener("change",function(){
 
-let slideInterval = null;
+    stopSlideshow();
 
+    slides.forEach(url =>
+        URL.revokeObjectURL(url)
+    );
 
-slideFiles.addEventListener(
-    "change",
-    function(){
+    slides=[];
 
-        stopSlideshow();
+    slideThumbs.innerHTML="";
 
+    Array.from(this.files).forEach(file => {
 
-        slides.forEach(
-            function(url){
+        const url =
+        URL.createObjectURL(file);
 
-                URL.revokeObjectURL(
-                    url
-                );
+        slides.push(url);
 
-            }
-        );
+        const img =
+        document.createElement("img");
 
+        img.src=url;
 
-        slides = [];
+        img.onclick=()=>{
 
-        slideThumbs.innerHTML =
-        "";
+            slideIndex =
+            slides.indexOf(url);
 
+            showSlide();
 
-        Array.from(
-            this.files
-        ).forEach(
-            function(file){
+        };
 
-                const url =
-                URL.createObjectURL(
-                    file
-                );
+        slideThumbs.appendChild(img);
 
+    });
 
-                slides.push(
-                    url
-                );
+    slideIndex=0;
 
+    showSlide();
 
-                const img =
-                document.createElement(
-                    "img"
-                );
-
-
-                img.src =
-                url;
-
-
-                img.addEventListener(
-                    "click",
-                    function(){
-
-                        slideIndex =
-                        slides.indexOf(
-                            url
-                        );
-
-                        showSlide();
-
-                    }
-                );
-
-
-                slideThumbs.appendChild(
-                    img
-                );
-
-            }
-        );
-
-
-        slideIndex = 0;
-
-        showSlide();
-
-    }
-);
-
+});
 
 function showSlide(){
 
@@ -3819,75 +1477,742 @@ function showSlide(){
 
     }
 
-
-    slideShow.innerHTML =
-    "";
-
+    slideShow.innerHTML="";
 
     const img =
-    document.createElement(
-        "img"
-    );
-
+    document.createElement("img");
 
     img.src =
     slides[slideIndex];
 
+    slideShow.appendChild(img);
 
-    slideShow.appendChild(
-        img
+}
+
+function nextSlide(){
+
+    if(!slides.length){
+        return;
+    }
+
+    slideIndex =
+    (slideIndex+1)%slides.length;
+
+    showSlide();
+
+}
+
+function previousSlide(){
+
+    if(!slides.length){
+        return;
+    }
+
+    slideIndex =
+    (slideIndex-1+slides.length)%slides.length;
+
+    showSlide();
+
+}
+
+function startSlideshow(){
+
+    if(!slides.length){
+
+        alert("Please select photos first.");
+
+        return;
+
+    }
+
+    stopSlideshow();
+
+    slideInterval =
+    setInterval(nextSlide,3000);
+
+}
+
+function stopSlideshow(){
+
+    if(slideInterval){
+
+        clearInterval(slideInterval);
+
+        slideInterval=null;
+
+    }
+
+}
+
+
+/* =====================================================
+   PHOTO VIDEO MAKER
+===================================================== */
+
+const makerImages =
+document.getElementById("makerImages");
+
+const makerCanvas =
+document.getElementById("makerCanvas");
+
+const makerCtx =
+makerCanvas.getContext("2d");
+
+const makerEmpty =
+document.getElementById("makerEmpty");
+
+const makerStatus =
+document.getElementById("makerStatus");
+
+const makerPhotoList =
+document.getElementById("makerPhotoList");
+
+const transitionType =
+document.getElementById("transitionType");
+
+const transitionInfo =
+document.getElementById("transitionInfo");
+
+const imageDuration =
+document.getElementById("imageDuration");
+
+const previewMakerBtn =
+document.getElementById("previewMakerBtn");
+
+const createMakerBtn =
+document.getElementById("createMakerBtn");
+
+const stopMakerBtn =
+document.getElementById("stopMakerBtn");
+
+const makerDownload =
+document.getElementById("makerDownload");
+
+const makerDownloadLink =
+document.getElementById("makerDownloadLink");
+
+let makerFiles=[];
+
+let makerURLs=[];
+
+let makerImagesLoaded=[];
+
+let makerRunning=false;
+
+let makerAnimation=null;
+
+
+/* TRANSITION NAME */
+
+function transitionName(type){
+
+    const names={
+
+        fade:"Fade",
+
+        crossfade:"Cross Fade",
+
+        slideLeft:"Slide Left",
+
+        slideRight:"Slide Right",
+
+        slideUp:"Slide Up",
+
+        slideDown:"Slide Down",
+
+        zoomIn:"Zoom In",
+
+        zoomOut:"Zoom Out"
+
+    };
+
+    return names[type] || "Fade";
+
+}
+
+transitionType.addEventListener("change",function(){
+
+    transitionInfo.textContent =
+    "Transition: " +
+    transitionName(this.value);
+
+});
+
+
+/* SELECT PHOTOS */
+
+makerImages.addEventListener("change",async function(){
+
+    stopMaker();
+
+    makerURLs.forEach(url =>
+        URL.revokeObjectURL(url)
+    );
+
+    makerURLs=[];
+
+    makerImagesLoaded=[];
+
+    makerFiles =
+    Array.from(this.files);
+
+    if(!makerFiles.length){
+
+        makerEmpty.style.display="block";
+
+        makerStatus.textContent =
+        "Ready — Select photos";
+
+        renderMakerList();
+
+        return;
+
+    }
+
+    makerEmpty.style.display="none";
+
+    makerStatus.textContent =
+    "Loading photos...";
+
+    for(const file of makerFiles){
+
+        const url =
+        URL.createObjectURL(file);
+
+        makerURLs.push(url);
+
+        const img =
+        await loadImage(url);
+
+        makerImagesLoaded.push(img);
+
+    }
+
+    renderMakerList();
+
+    drawNormalImage(
+        makerImagesLoaded[0]
+    );
+
+    makerStatus.textContent =
+    makerFiles.length +
+    " photo(s) selected.";
+
+});
+
+
+function loadImage(url){
+
+    return new Promise(resolve => {
+
+        const img =
+        new Image();
+
+        img.onload=()=>{
+            resolve(img);
+        };
+
+        img.onerror=()=>{
+            resolve(null);
+        };
+
+        img.src=url;
+
+    });
+
+}
+
+
+/* PHOTO LIST */
+
+function renderMakerList(){
+
+    makerPhotoList.innerHTML="";
+
+    if(!makerFiles.length){
+
+        makerPhotoList.innerHTML=
+        '<div class="empty-playlist">No photos selected</div>';
+
+        return;
+
+    }
+
+    makerFiles.forEach((file,index)=>{
+
+        const row =
+        document.createElement("div");
+
+        row.className="photo-item";
+
+        const img =
+        document.createElement("img");
+
+        img.src =
+        makerURLs[index];
+
+        const name =
+        document.createElement("span");
+
+        name.textContent =
+        (index+1)+". "+file.name;
+
+        const remove =
+        document.createElement("button");
+
+        remove.textContent="×";
+
+        remove.title="Remove photo";
+
+        remove.onclick=function(){
+
+            removeMakerPhoto(index);
+
+        };
+
+        row.appendChild(img);
+        row.appendChild(name);
+        row.appendChild(remove);
+
+        makerPhotoList.appendChild(row);
+
+    });
+
+}
+
+
+/* REMOVE */
+
+function removeMakerPhoto(index){
+
+    if(makerURLs[index]){
+
+        URL.revokeObjectURL(
+            makerURLs[index]
+        );
+
+    }
+
+    makerFiles.splice(index,1);
+
+    makerURLs.splice(index,1);
+
+    makerImagesLoaded.splice(index,1);
+
+    renderMakerList();
+
+    if(makerFiles.length){
+
+        drawNormalImage(
+            makerImagesLoaded[0]
+        );
+
+        makerStatus.textContent =
+        makerFiles.length+
+        " photo(s) selected.";
+
+    }
+
+    else{
+
+        makerEmpty.style.display="block";
+
+        makerCtx.clearRect(
+            0,
+            0,
+            makerCanvas.width,
+            makerCanvas.height
+        );
+
+        makerStatus.textContent =
+        "No photos selected.";
+
+    }
+
+}
+
+
+/* FIT IMAGE */
+
+function getFit(img){
+
+    if(!img){
+        return {
+            x:0,
+            y:0,
+            width:1280,
+            height:720
+        };
+    }
+
+    const scale =
+    Math.min(
+        1280/img.width,
+        720/img.height
+    );
+
+    const width =
+    img.width*scale;
+
+    const height =
+    img.height*scale;
+
+    return {
+
+        x:(1280-width)/2,
+        y:(720-height)/2,
+        width:width,
+        height:height
+
+    };
+
+}
+
+
+/* DRAW NORMAL */
+
+function drawNormalImage(img){
+
+    makerCtx.fillStyle="#000";
+
+    makerCtx.fillRect(
+        0,
+        0,
+        1280,
+        720
+    );
+
+    if(!img){
+        return;
+    }
+
+    const fit =
+    getFit(img);
+
+    makerCtx.drawImage(
+        img,
+        fit.x,
+        fit.y,
+        fit.width,
+        fit.height
     );
 
 }
 
 
-function nextSlide(){
+/* DRAW WITH TRANSITION */
 
-    if(!slides.length){
+function drawTransition(
+    current,
+    next,
+    progress,
+    type
+){
+
+    makerCtx.fillStyle="#000";
+
+    makerCtx.fillRect(
+        0,
+        0,
+        1280,
+        720
+    );
+
+    if(!current){
+        return;
+    }
+
+    const a =
+    Math.max(0,Math.min(1,progress));
+
+    const fitCurrent =
+    getFit(current);
+
+    const fitNext =
+    getFit(next);
+
+    /* FADE */
+
+    if(type==="fade"){
+
+        makerCtx.globalAlpha =
+        1-a;
+
+        makerCtx.drawImage(
+            current,
+            fitCurrent.x,
+            fitCurrent.y,
+            fitCurrent.width,
+            fitCurrent.height
+        );
+
+        makerCtx.globalAlpha=1;
 
         return;
 
     }
 
 
-    slideIndex =
-    (
-        slideIndex + 1
-    ) %
-    slides.length;
+    /* CROSS FADE */
 
+    if(type==="crossfade"){
 
-    showSlide();
+        makerCtx.globalAlpha=1-a;
 
-}
+        makerCtx.drawImage(
+            current,
+            fitCurrent.x,
+            fitCurrent.y,
+            fitCurrent.width,
+            fitCurrent.height
+        );
 
+        if(next){
 
-function previousSlide(){
+            makerCtx.globalAlpha=a;
 
-    if(!slides.length){
+            makerCtx.drawImage(
+                next,
+                fitNext.x,
+                fitNext.y,
+                fitNext.width,
+                fitNext.height
+            );
+
+        }
+
+        makerCtx.globalAlpha=1;
 
         return;
 
     }
 
 
-    slideIndex =
-    (
-        slideIndex -
-        1 +
-        slides.length
-    ) %
-    slides.length;
+    /* SLIDE LEFT */
+
+    if(type==="slideLeft"){
+
+        makerCtx.drawImage(
+            current,
+            fitCurrent.x - 1280*a,
+            fitCurrent.y,
+            fitCurrent.width,
+            fitCurrent.height
+        );
+
+        if(next){
+
+            makerCtx.drawImage(
+                next,
+                fitNext.x + 1280*(1-a),
+                fitNext.y,
+                fitNext.width,
+                fitNext.height
+            );
+
+        }
+
+        return;
+
+    }
 
 
-    showSlide();
+    /* SLIDE RIGHT */
+
+    if(type==="slideRight"){
+
+        makerCtx.drawImage(
+            current,
+            fitCurrent.x + 1280*a,
+            fitCurrent.y,
+            fitCurrent.width,
+            fitCurrent.height
+        );
+
+        if(next){
+
+            makerCtx.drawImage(
+                next,
+                fitNext.x - 1280*(1-a),
+                fitNext.y,
+                fitNext.width,
+                fitNext.height
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    /* SLIDE UP */
+
+    if(type==="slideUp"){
+
+        makerCtx.drawImage(
+            current,
+            fitCurrent.x,
+            fitCurrent.y - 720*a,
+            fitCurrent.width,
+            fitCurrent.height
+        );
+
+        if(next){
+
+            makerCtx.drawImage(
+                next,
+                fitNext.x,
+                fitNext.y + 720*(1-a),
+                fitNext.width,
+                fitNext.height
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    /* SLIDE DOWN */
+
+    if(type==="slideDown"){
+
+        makerCtx.drawImage(
+            current,
+            fitCurrent.x,
+            fitCurrent.y + 720*a,
+            fitCurrent.width,
+            fitCurrent.height
+        );
+
+        if(next){
+
+            makerCtx.drawImage(
+                next,
+                fitNext.x,
+                fitNext.y - 720*(1-a),
+                fitNext.width,
+                fitNext.height
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    /* ZOOM IN */
+
+    if(type==="zoomIn"){
+
+        const scale =
+        1 + a*0.25;
+
+        const width =
+        fitCurrent.width*scale;
+
+        const height =
+        fitCurrent.height*scale;
+
+        const x =
+        640-width/2;
+
+        const y =
+        360-height/2;
+
+        makerCtx.globalAlpha =
+        1-a;
+
+        makerCtx.drawImage(
+            current,
+            x,
+            y,
+            width,
+            height
+        );
+
+        makerCtx.globalAlpha=1;
+
+        if(next){
+
+            makerCtx.drawImage(
+                next,
+                fitNext.x,
+                fitNext.y,
+                fitNext.width,
+                fitNext.height
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    /* ZOOM OUT */
+
+    if(type==="zoomOut"){
+
+        const scale =
+        1.25-a*0.25;
+
+        const width =
+        fitCurrent.width*scale;
+
+        const height =
+        fitCurrent.height*scale;
+
+        const x =
+        640-width/2;
+
+        const y =
+        360-height/2;
+
+        makerCtx.globalAlpha =
+        1-a;
+
+        makerCtx.drawImage(
+            current,
+            x,
+            y,
+            width,
+            height
+        );
+
+        makerCtx.globalAlpha=1;
+
+        if(next){
+
+            makerCtx.drawImage(
+                next,
+                fitNext.x,
+                fitNext.y,
+                fitNext.width,
+                fitNext.height
+            );
+
+        }
+
+        return;
+
+    }
 
 }
 
 
-function startSlideshow(){
+/* =====================================================
+   PREVIEW
+===================================================== */
 
-    if(!slides.length){
+previewMakerBtn.addEventListener(
+"click",
+async function(){
+
+    if(!makerImagesLoaded.length){
 
         alert(
             "Please select photos first."
@@ -3897,29 +2222,402 @@ function startSlideshow(){
 
     }
 
+    stopMaker();
 
-    stopSlideshow();
+    makerRunning=true;
+
+    makerStatus.textContent =
+    "Preview playing...";
+
+    const duration =
+    Number(imageDuration.value)*1000;
+
+    const transitionDuration =
+    Math.min(800,duration/2);
+
+    for(
+        let i=0;
+        i<makerImagesLoaded.length &&
+        makerRunning;
+        i++
+    ){
+
+        const current =
+        makerImagesLoaded[i];
+
+        const next =
+        makerImagesLoaded[
+            (i+1) %
+            makerImagesLoaded.length
+        ];
+
+        drawNormalImage(current);
+
+        await waitWithStop(
+            duration-transitionDuration
+        );
+
+        if(!makerRunning){
+            break;
+        }
+
+        const start =
+        performance.now();
+
+        await new Promise(resolve=>{
+
+            function frame(now){
+
+                if(!makerRunning){
+
+                    resolve();
+
+                    return;
+
+                }
+
+                const progress =
+                Math.min(
+                    1,
+                    (now-start)/
+                    transitionDuration
+                );
+
+                drawTransition(
+                    current,
+                    next,
+                    progress,
+                    transitionType.value
+                );
+
+                if(progress<1){
+
+                    makerAnimation =
+                    requestAnimationFrame(frame);
+
+                }
+
+                else{
+
+                    resolve();
+
+                }
+
+            }
+
+            makerAnimation =
+            requestAnimationFrame(frame);
+
+        });
+
+    }
+
+    if(makerRunning){
+
+        makerRunning=false;
+
+        makerStatus.textContent =
+        "Preview finished.";
+
+    }
+
+});
 
 
-    slideInterval =
-    setInterval(
-        nextSlide,
-        3000
-    );
+function waitWithStop(ms){
+
+    return new Promise(resolve=>{
+
+        const start =
+        Date.now();
+
+        function check(){
+
+            if(!makerRunning){
+
+                resolve();
+
+                return;
+
+            }
+
+            if(
+                Date.now()-start >= ms
+            ){
+
+                resolve();
+
+                return;
+
+            }
+
+            requestAnimationFrame(check);
+
+        }
+
+        check();
+
+    });
 
 }
 
 
-function stopSlideshow(){
+/* =====================================================
+   CREATE VIDEO
+===================================================== */
 
-    if(slideInterval){
+createMakerBtn.addEventListener(
+"click",
+async function(){
 
-        clearInterval(
-            slideInterval
+    if(!makerImagesLoaded.length){
+
+        alert(
+            "Please select photos first."
         );
 
-        slideInterval =
-        null;
+        return;
+
+    }
+
+    stopMaker();
+
+    makerDownload.classList.remove("show");
+
+    makerStatus.textContent =
+    "🎬 Creating video... Please wait.";
+
+    createMakerBtn.disabled=true;
+
+    previewMakerBtn.disabled=true;
+
+    makerRunning=true;
+
+    const stream =
+    makerCanvas.captureStream(30);
+
+    let recorder;
+
+    try{
+
+        recorder =
+        new MediaRecorder(
+            stream,
+            {
+                mimeType:"video/webm;codecs=vp9"
+            }
+        );
+
+    }
+
+    catch(error){
+
+        recorder =
+        new MediaRecorder(stream);
+
+    }
+
+    const chunks=[];
+
+    recorder.ondataavailable =
+    function(event){
+
+        if(event.data.size>0){
+
+            chunks.push(event.data);
+
+        }
+
+    };
+
+    const recordingStopped =
+    new Promise(resolve=>{
+
+        recorder.onstop=resolve;
+
+    });
+
+    recorder.start();
+
+    const duration =
+    Number(imageDuration.value)*1000;
+
+    const transitionDuration =
+    Math.min(800,duration/2);
+
+    try{
+
+        for(
+            let i=0;
+            i<makerImagesLoaded.length &&
+            makerRunning;
+            i++
+        ){
+
+            const current =
+            makerImagesLoaded[i];
+
+            const next =
+            makerImagesLoaded[
+                (i+1) %
+                makerImagesLoaded.length
+            ];
+
+            /* SHOW PHOTO */
+
+            drawNormalImage(current);
+
+            await waitWithStop(
+                duration-transitionDuration
+            );
+
+            if(!makerRunning){
+                break;
+            }
+
+            /* TRANSITION */
+
+            const start =
+            performance.now();
+
+            await new Promise(resolve=>{
+
+                function frame(now){
+
+                    if(!makerRunning){
+
+                        resolve();
+
+                        return;
+
+                    }
+
+                    const progress =
+                    Math.min(
+                        1,
+                        (now-start)/
+                        transitionDuration
+                    );
+
+                    drawTransition(
+                        current,
+                        next,
+                        progress,
+                        transitionType.value
+                    );
+
+                    if(progress<1){
+
+                        requestAnimationFrame(frame);
+
+                    }
+
+                    else{
+
+                        resolve();
+
+                    }
+
+                }
+
+                requestAnimationFrame(frame);
+
+            });
+
+        }
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+    makerRunning=false;
+
+    recorder.stop();
+
+    await recordingStopped;
+
+    stream.getTracks().forEach(
+        track=>track.stop()
+    );
+
+    createMakerBtn.disabled=false;
+
+    previewMakerBtn.disabled=false;
+
+    if(chunks.length){
+
+        const blob =
+        new Blob(
+            chunks,
+            {type:"video/webm"}
+        );
+
+        const url =
+        URL.createObjectURL(blob);
+
+        makerDownloadLink.href=url;
+
+        makerDownload.classList.add("show");
+
+        makerStatus.textContent =
+        "✅ Video created successfully.";
+
+    }
+
+    else{
+
+        makerStatus.textContent =
+        "Video creation stopped.";
+
+    }
+
+});
+
+
+/* STOP */
+
+stopMakerBtn.addEventListener(
+"click",
+function(){
+
+    stopMaker();
+
+});
+
+
+function stopMaker(){
+
+    makerRunning=false;
+
+    if(makerAnimation){
+
+        cancelAnimationFrame(
+            makerAnimation
+        );
+
+        makerAnimation=null;
+
+    }
+
+    if(
+        typeof createMakerBtn !==
+        "undefined"
+    ){
+
+        createMakerBtn.disabled=false;
+
+    }
+
+    if(
+        typeof previewMakerBtn !==
+        "undefined"
+    ){
+
+        previewMakerBtn.disabled=false;
 
     }
 
@@ -3930,266 +2628,154 @@ function stopSlideshow(){
    VOICE RECORDER
 ===================================================== */
 
-let voiceRecorder =
-null;
-
-let voiceChunks =
-[];
-
-let voiceSeconds =
-0;
-
-let voiceInterval =
-null;
-
+let voiceRecorder=null;
+let voiceChunks=[];
+let voiceSeconds=0;
+let voiceInterval=null;
 
 const voiceStart =
-document.getElementById(
-    "voiceStart"
-);
+document.getElementById("voiceStart");
 
 const voiceStop =
-document.getElementById(
-    "voiceStop"
-);
+document.getElementById("voiceStop");
 
 const voiceTimer =
-document.getElementById(
-    "voiceTimer"
-);
+document.getElementById("voiceTimer");
 
 const voiceStatus =
-document.getElementById(
-    "voiceStatus"
-);
+document.getElementById("voiceStatus");
 
 const voicePreview =
-document.getElementById(
-    "voicePreview"
-);
+document.getElementById("voicePreview");
 
 const voiceDownload =
-document.getElementById(
-    "voiceDownload"
-);
+document.getElementById("voiceDownload");
 
 const voiceDownloadLink =
-document.getElementById(
-    "voiceDownloadLink"
-);
-
+document.getElementById("voiceDownloadLink");
 
 voiceStart.addEventListener(
-    "click",
-    async function(){
+"click",
+async function(){
 
-        try{
+    try{
 
-            if(
-                !navigator.mediaDevices ||
-                !navigator.mediaDevices.getUserMedia
-            ){
+        const stream =
+        await navigator.mediaDevices.getUserMedia({
+            audio:true
+        });
 
-                throw new Error(
-                    "Microphone unavailable"
-                );
+        voiceChunks=[];
 
+        voiceRecorder =
+        new MediaRecorder(stream);
+
+        voiceRecorder.ondataavailable =
+        event=>{
+
+            if(event.data.size){
+                voiceChunks.push(event.data);
             }
 
+        };
 
-            const stream =
-            await navigator.mediaDevices
-            .getUserMedia({
+        voiceRecorder.onstop =
+        ()=>{
 
-                audio:true
-
-            });
-
-
-            voiceChunks = [];
-
-
-            voiceRecorder =
-            new MediaRecorder(
-                stream
+            const blob =
+            new Blob(
+                voiceChunks,
+                {type:"audio/webm"}
             );
 
+            const url =
+            URL.createObjectURL(blob);
 
-            voiceRecorder.ondataavailable =
-            function(event){
+            voicePreview.src=url;
 
-                if(
-                    event.data.size > 0
-                ){
+            voicePreview.style.display=
+            "block";
 
-                    voiceChunks.push(
-                        event.data
-                    );
+            voiceDownloadLink.href=url;
 
-                }
+            voiceDownload.classList.add("show");
 
-            };
+            stream.getTracks().forEach(
+                track=>track.stop()
+            );
 
+        };
 
-            voiceRecorder.onstop =
-            function(){
+        voiceRecorder.start();
 
-                const blob =
-                new Blob(
-                    voiceChunks,
-                    {
-                        type:
-                        "audio/webm"
-                    }
-                );
+        voiceStart.disabled=true;
+        voiceStop.disabled=false;
 
+        voiceSeconds=0;
 
-                const url =
-                URL.createObjectURL(
-                    blob
-                );
+        clearInterval(voiceInterval);
 
+        voiceInterval =
+        setInterval(()=>{
 
-                voicePreview.src =
-                url;
-
-
-                voicePreview.style.display =
-                "block";
-
-
-                voiceDownloadLink.href =
-                url;
-
-
-                voiceDownload.classList.add(
-                    "show"
-                );
-
-
-                stream.getTracks()
-                .forEach(
-                    track =>
-                    track.stop()
-                );
-
-            };
-
-
-            voiceRecorder.start();
-
-
-            voiceStart.disabled =
-            true;
-
-
-            voiceStop.disabled =
-            false;
-
-
-            voiceSeconds = 0;
-
+            voiceSeconds++;
 
             voiceTimer.textContent =
-            "00:00";
+            formatTime(voiceSeconds);
 
-
-            clearInterval(
-                voiceInterval
-            );
-
-
-            voiceInterval =
-            setInterval(
-                function(){
-
-                    voiceSeconds++;
-
-                    voiceTimer.textContent =
-                    formatTime(
-                        voiceSeconds
-                    );
-
-                },
-                1000
-            );
-
-
-            voiceStatus.textContent =
-            "Recording...";
-
-        }
-
-
-        catch(error){
-
-            voiceStatus.textContent =
-            "Microphone permission denied.";
-
-        }
-
-    }
-);
-
-
-voiceStop.addEventListener(
-    "click",
-    function(){
-
-        if(
-            voiceRecorder &&
-            voiceRecorder.state !==
-            "inactive"
-        ){
-
-            voiceRecorder.stop();
-
-        }
-
-
-        clearInterval(
-            voiceInterval
-        );
-
-
-        voiceStart.disabled =
-        false;
-
-
-        voiceStop.disabled =
-        true;
-
+        },1000);
 
         voiceStatus.textContent =
-        "Recording stopped.";
+        "Recording...";
 
     }
-);
+
+    catch(error){
+
+        voiceStatus.textContent =
+        "Microphone permission denied.";
+
+    }
+
+});
+
+voiceStop.addEventListener(
+"click",
+function(){
+
+    if(
+        voiceRecorder &&
+        voiceRecorder.state!=="inactive"
+    ){
+
+        voiceRecorder.stop();
+
+    }
+
+    clearInterval(voiceInterval);
+
+    voiceStart.disabled=false;
+    voiceStop.disabled=true;
+
+    voiceStatus.textContent =
+    "Recording stopped.";
+
+});
 
 
 function formatTime(seconds){
 
     const min =
-    Math.floor(
-        seconds / 60
-    )
+    Math.floor(seconds/60)
     .toString()
     .padStart(2,"0");
-
 
     const sec =
-    (
-        seconds % 60
-    )
+    (seconds%60)
     .toString()
     .padStart(2,"0");
 
-
-    return (
-        min +
-        ":" +
-        sec
-    );
+    return min+":"+sec;
 
 }
 
@@ -4198,941 +2784,347 @@ function formatTime(seconds){
    CAMERA
 ===================================================== */
 
-let cameraStream =
-null;
-
+let cameraStream=null;
 
 const cameraVideo =
-document.getElementById(
-    "cameraVideo"
-);
+document.getElementById("cameraVideo");
 
 const cameraCanvas =
-document.getElementById(
-    "cameraCanvas"
-);
+document.getElementById("cameraCanvas");
 
 const cameraStart =
-document.getElementById(
-    "cameraStart"
-);
+document.getElementById("cameraStart");
 
 const cameraStop =
-document.getElementById(
-    "cameraStop"
-);
+document.getElementById("cameraStop");
 
 const takePhoto =
-document.getElementById(
-    "takePhoto"
-);
+document.getElementById("takePhoto");
 
 const photoDownload =
-document.getElementById(
-    "photoDownload"
-);
+document.getElementById("photoDownload");
 
 const photoDownloadLink =
-document.getElementById(
-    "photoDownloadLink"
-);
-
+document.getElementById("photoDownloadLink");
 
 cameraStart.addEventListener(
-    "click",
-    async function(){
+"click",
+async function(){
 
-        try{
+    try{
 
-            cameraStream =
-            await navigator.mediaDevices
-            .getUserMedia({
+        cameraStream =
+        await navigator.mediaDevices.getUserMedia({
 
-                video:{
-                    facingMode:
-                    "environment"
-                },
+            video:{
+                facingMode:"environment"
+            },
 
-                audio:false
+            audio:false
 
-            });
+        });
 
-
-            cameraVideo.srcObject =
-            cameraStream;
-
-        }
-
-        catch(error){
-
-            alert(
-                "Camera permission is required."
-            );
-
-        }
+        cameraVideo.srcObject =
+        cameraStream;
 
     }
-);
 
+    catch(error){
+
+        alert(
+            "Camera permission is required."
+        );
+
+    }
+
+});
 
 cameraStop.addEventListener(
-    "click",
-    function(){
+"click",
+function(){
 
-        stopCamera();
+    stopCamera();
 
-    }
-);
-
+});
 
 function stopCamera(){
 
     if(cameraStream){
 
-        cameraStream
-        .getTracks()
-        .forEach(
-            track =>
-            track.stop()
+        cameraStream.getTracks().forEach(
+            track=>track.stop()
         );
 
+        cameraStream=null;
 
-        cameraStream =
-        null;
-
-
-        cameraVideo.srcObject =
-        null;
+        cameraVideo.srcObject=null;
 
     }
 
 }
 
-
 takePhoto.addEventListener(
-    "click",
-    function(){
+"click",
+function(){
 
-        if(!cameraStream){
+    if(!cameraStream){
 
-            alert(
-                "Please start camera first."
-            );
-
-            return;
-
-        }
-
-
-        cameraCanvas.width =
-        cameraVideo.videoWidth;
-
-
-        cameraCanvas.height =
-        cameraVideo.videoHeight;
-
-
-        const ctx =
-        cameraCanvas.getContext(
-            "2d"
+        alert(
+            "Please start camera first."
         );
 
-
-        ctx.drawImage(
-            cameraVideo,
-            0,
-            0,
-            cameraCanvas.width,
-            cameraCanvas.height
-        );
-
-
-        cameraCanvas.toBlob(
-            function(blob){
-
-                const url =
-                URL.createObjectURL(
-                    blob
-                );
-
-
-                photoDownloadLink.href =
-                url;
-
-
-                photoDownload.classList.add(
-                    "show"
-                );
-
-            },
-            "image/png"
-        );
+        return;
 
     }
-);
+
+    cameraCanvas.width =
+    cameraVideo.videoWidth;
+
+    cameraCanvas.height =
+    cameraVideo.videoHeight;
+
+    const ctx =
+    cameraCanvas.getContext("2d");
+
+    ctx.drawImage(
+        cameraVideo,
+        0,
+        0,
+        cameraCanvas.width,
+        cameraCanvas.height
+    );
+
+    cameraCanvas.toBlob(
+    function(blob){
+
+        const url =
+        URL.createObjectURL(blob);
+
+        photoDownloadLink.href=url;
+
+        photoDownload.classList.add("show");
+
+    },
+    "image/png");
+
+});
 
 
 /* =====================================================
    SCREEN RECORDER
 ===================================================== */
 
-let screenRecorder =
-null;
-
-let screenChunks =
-[];
-
-let screenSeconds =
-0;
-
-let screenInterval =
-null;
-
+let screenRecorder=null;
+let screenChunks=[];
+let screenSeconds=0;
+let screenInterval=null;
 
 const screenStart =
-document.getElementById(
-    "screenStart"
-);
+document.getElementById("screenStart");
 
 const screenStop =
-document.getElementById(
-    "screenStop"
-);
+document.getElementById("screenStop");
 
 const screenTimer =
-document.getElementById(
-    "screenTimer"
-);
+document.getElementById("screenTimer");
 
 const screenStatus =
-document.getElementById(
-    "screenStatus"
-);
+document.getElementById("screenStatus");
 
 const screenPreview =
-document.getElementById(
-    "screenPreview"
-);
+document.getElementById("screenPreview");
 
 const screenDownload =
-document.getElementById(
-    "screenDownload"
-);
+document.getElementById("screenDownload");
 
 const screenDownloadLink =
-document.getElementById(
-    "screenDownloadLink"
-);
-
+document.getElementById("screenDownloadLink");
 
 screenStart.addEventListener(
-    "click",
-    async function(){
-
-        try{
-
-            const stream =
-            await navigator.mediaDevices
-            .getDisplayMedia({
-
-                video:true,
-
-                audio:true
-
-            });
-
-
-            screenChunks = [];
-
-
-            screenRecorder =
-            new MediaRecorder(
-                stream
-            );
-
-
-            screenRecorder.ondataavailable =
-            function(event){
-
-                if(
-                    event.data.size > 0
-                ){
-
-                    screenChunks.push(
-                        event.data
-                    );
-
-                }
-
-            };
-
-
-            screenRecorder.onstop =
-            function(){
-
-                const blob =
-                new Blob(
-                    screenChunks,
-                    {
-                        type:
-                        "video/webm"
-                    }
-                );
-
-
-                const url =
-                URL.createObjectURL(
-                    blob
-                );
-
-
-                screenPreview.src =
-                url;
-
-
-                screenPreview.style.display =
-                "block";
-
-
-                screenDownloadLink.href =
-                url;
-
-
-                screenDownload.classList.add(
-                    "show"
-                );
-
-
-                stream.getTracks()
-                .forEach(
-                    track =>
-                    track.stop()
-                );
-
-            };
-
-
-            const videoTrack =
-            stream.getVideoTracks()[0];
-
-
-            if(videoTrack){
-
-                videoTrack.addEventListener(
-                    "ended",
-                    function(){
-
-                        if(
-                            screenRecorder &&
-                            screenRecorder.state !==
-                            "inactive"
-                        ){
-
-                            screenRecorder.stop();
-
-                        }
-
-
-                        clearInterval(
-                            screenInterval
-                        );
-
-
-                        screenStart.disabled =
-                        false;
-
-
-                        screenStop.disabled =
-                        true;
-
-
-                        screenStatus.textContent =
-                        "Screen sharing stopped.";
-
-                    }
-                );
-
-            }
-
-
-            screenRecorder.start();
-
-
-            screenStart.disabled =
-            true;
-
-
-            screenStop.disabled =
-            false;
-
-
-            screenSeconds =
-            0;
-
-
-            screenTimer.textContent =
-            "00:00";
-
-
-            clearInterval(
-                screenInterval
-            );
-
-
-            screenInterval =
-            setInterval(
-                function(){
-
-                    screenSeconds++;
-
-
-                    screenTimer.textContent =
-                    formatTime(
-                        screenSeconds
-                    );
-
-                },
-                1000
-            );
-
-
-            screenStatus.textContent =
-            "Screen recording...";
-
-        }
-
-
-        catch(error){
-
-            screenStatus.textContent =
-            "Screen recording cancelled.";
-
-        }
-
-    }
-);
-
-
-screenStop.addEventListener(
-    "click",
-    function(){
-
-        if(
-            screenRecorder &&
-            screenRecorder.state !==
-            "inactive"
-        ){
-
-            screenRecorder.stop();
-
-        }
-
-
-        clearInterval(
-            screenInterval
-        );
-
-
-        screenStart.disabled =
-        false;
-
-
-        screenStop.disabled =
-        true;
-
-
-        screenStatus.textContent =
-        "Recording stopped.";
-
-    }
-);
-
-
-/* =====================================================
-   PHOTO VIDEO MAKER
-===================================================== */
-
-const makerImages =
-document.getElementById(
-    "makerImages"
-);
-
-const makerPreview =
-document.getElementById(
-    "makerPreview"
-);
-
-const makerEmpty =
-document.getElementById(
-    "makerEmpty"
-);
-
-const makerStatus =
-document.getElementById(
-    "makerStatus"
-);
-
-let makerFiles = [];
-
-
-makerImages.addEventListener(
-    "change",
-    function(){
-
-        makerFiles =
-        Array.from(
-            this.files
-        );
-
-
-        if(
-            makerFiles.length
-        ){
-
-            makerPreview.src =
-            URL.createObjectURL(
-                makerFiles[0]
-            );
-
-
-            makerPreview.style.display =
-            "block";
-
-
-            makerEmpty.style.display =
-            "none";
-
-
-            makerStatus.textContent =
-            makerFiles.length +
-            " photos selected.";
-
-        }
-
-    }
-);
-
-
-async function createPhotoVideo(){
-
-    if(
-        !makerFiles.length
-    ){
-
-        alert(
-            "Please select photos first."
-        );
-
-        return;
-
-    }
-
-
-    if(
-        !HTMLCanvasElement
-        .prototype
-        .captureStream
-    ){
-
-        makerStatus.textContent =
-        "Video creation is not supported in this browser.";
-
-        return;
-
-    }
-
-
-    makerStatus.textContent =
-    "Preparing video...";
-
-
-    const canvas =
-    document.createElement(
-        "canvas"
-    );
-
-
-    canvas.width =
-    1280;
-
-
-    canvas.height =
-    720;
-
-
-    const ctx =
-    canvas.getContext(
-        "2d"
-    );
-
-
-    const stream =
-    canvas.captureStream(
-        30
-    );
-
-
-    let recorder;
-
+"click",
+async function(){
 
     try{
 
-        recorder =
-        new MediaRecorder(
-            stream,
-            {
-                mimeType:
-                "video/webm"
+        const stream =
+        await navigator.mediaDevices.getDisplayMedia({
+
+            video:true,
+            audio:true
+
+        });
+
+        screenChunks=[];
+
+        screenRecorder =
+        new MediaRecorder(stream);
+
+        screenRecorder.ondataavailable =
+        event=>{
+
+            if(event.data.size){
+                screenChunks.push(event.data);
             }
-        );
+
+        };
+
+        screenRecorder.onstop =
+        ()=>{
+
+            const blob =
+            new Blob(
+                screenChunks,
+                {type:"video/webm"}
+            );
+
+            const url =
+            URL.createObjectURL(blob);
+
+            screenPreview.src=url;
+
+            screenPreview.style.display=
+            "block";
+
+            screenDownloadLink.href=url;
+
+            screenDownload.classList.add("show");
+
+            stream.getTracks().forEach(
+                track=>track.stop()
+            );
+
+        };
+
+        screenRecorder.start();
+
+        screenStart.disabled=true;
+        screenStop.disabled=false;
+
+        screenSeconds=0;
+
+        clearInterval(screenInterval);
+
+        screenInterval =
+        setInterval(()=>{
+
+            screenSeconds++;
+
+            screenTimer.textContent =
+            formatTime(screenSeconds);
+
+        },1000);
+
+        screenStatus.textContent =
+        "Screen recording...";
 
     }
 
     catch(error){
 
-        recorder =
-        new MediaRecorder(
-            stream
-        );
+        screenStatus.textContent =
+        "Screen recording cancelled.";
 
     }
 
+});
 
-    const chunks = [];
+screenStop.addEventListener(
+"click",
+function(){
 
-
-    recorder.ondataavailable =
-    function(event){
-
-        if(
-            event.data.size
-        ){
-
-            chunks.push(
-                event.data
-            );
-
-        }
-
-    };
-
-
-    recorder.start();
-
-
-    const duration =
-    Number(
-        document.getElementById(
-            "imageDuration"
-        ).value
-    ) * 1000;
-
-
-    for(
-        const file of makerFiles
+    if(
+        screenRecorder &&
+        screenRecorder.state!=="inactive"
     ){
 
-        await drawImageOnCanvas(
-            ctx,
-            canvas,
-            file
-        );
-
-
-        await sleep(
-            duration
-        );
+        screenRecorder.stop();
 
     }
 
+    clearInterval(screenInterval);
 
-    recorder.stop();
+    screenStart.disabled=false;
+    screenStop.disabled=true;
 
+    screenStatus.textContent =
+    "Recording stopped.";
 
-    recorder.onstop =
-    function(){
-
-        const blob =
-        new Blob(
-            chunks,
-            {
-                type:
-                "video/webm"
-            }
-        );
-
-
-        const url =
-        URL.createObjectURL(
-            blob
-        );
-
-
-        const link =
-        document.createElement(
-            "a"
-        );
-
-
-        link.href =
-        url;
-
-
-        link.download =
-        "asim-photo-video.webm";
-
-
-        link.textContent =
-        "⬇ Download Created Video";
-
-
-        link.className =
-        "download-link";
-
-
-        makerStatus.innerHTML =
-        "";
-
-
-        makerStatus.appendChild(
-            link
-        );
-
-
-        stream.getTracks()
-        .forEach(
-            track =>
-            track.stop()
-        );
-
-    };
-
-}
-
-
-function sleep(ms){
-
-    return new Promise(
-        resolve =>
-        setTimeout(
-            resolve,
-            ms
-        )
-    );
-
-}
-
-
-function drawImageOnCanvas(
-    ctx,
-    canvas,
-    file
-){
-
-    return new Promise(
-        function(resolve){
-
-            const img =
-            new Image();
-
-
-            img.onload =
-            function(){
-
-                ctx.fillStyle =
-                "#000";
-
-
-                ctx.fillRect(
-                    0,
-                    0,
-                    canvas.width,
-                    canvas.height
-                );
-
-
-                const scale =
-                Math.min(
-                    canvas.width /
-                    img.width,
-
-                    canvas.height /
-                    img.height
-                );
-
-
-                const width =
-                img.width *
-                scale;
-
-
-                const height =
-                img.height *
-                scale;
-
-
-                const x =
-                (
-                    canvas.width -
-                    width
-                ) / 2;
-
-
-                const y =
-                (
-                    canvas.height -
-                    height
-                ) / 2;
-
-
-                ctx.drawImage(
-                    img,
-                    x,
-                    y,
-                    width,
-                    height
-                );
-
-
-                resolve();
-
-            };
-
-
-            img.onerror =
-            function(){
-
-                resolve();
-
-            };
-
-
-            img.src =
-            URL.createObjectURL(
-                file
-            );
-
-        }
-    );
-
-}
+});
 
 
 /* =====================================================
    PWA INSTALL
 ===================================================== */
 
-let deferredPrompt =
-null;
-
+let deferredPrompt=null;
 
 const installBtn =
-document.getElementById(
-    "installBtn"
-);
-
+document.getElementById("installBtn");
 
 window.addEventListener(
-    "beforeinstallprompt",
-    function(event){
+"beforeinstallprompt",
+function(event){
 
-        event.preventDefault();
+    event.preventDefault();
 
+    deferredPrompt=event;
 
-        deferredPrompt =
-        event;
+    installBtn.style.display=
+    "inline-block";
 
-
-        installBtn.style.display =
-        "inline-block";
-
-    }
-);
-
+});
 
 installBtn.addEventListener(
-    "click",
-    async function(){
+"click",
+async function(){
 
-        if(!deferredPrompt){
-
-            return;
-
-        }
-
-
-        deferredPrompt.prompt();
-
-
-        try{
-
-            await deferredPrompt.userChoice;
-
-        }
-
-        catch(error){}
-
-
-        deferredPrompt =
-        null;
-
-
-        installBtn.style.display =
-        "none";
-
+    if(!deferredPrompt){
+        return;
     }
-);
 
+    deferredPrompt.prompt();
+
+    try{
+        await deferredPrompt.userChoice;
+    }
+    catch(error){}
+
+    deferredPrompt=null;
+
+    installBtn.style.display=
+    "none";
+
+});
 
 window.addEventListener(
-    "appinstalled",
-    function(){
+"appinstalled",
+function(){
 
-        installBtn.style.display =
-        "none";
+    installBtn.style.display=
+    "none";
 
-    }
-);
+});
 
 
 /* =====================================================
    SERVICE WORKER
 ===================================================== */
 
-if(
-    "serviceWorker" in navigator
-){
+if("serviceWorker" in navigator){
 
     window.addEventListener(
-        "load",
-        function(){
+    "load",
+    function(){
 
-            navigator.serviceWorker
-            .register(
-                "./sw.js"
-            )
-            .then(
-                function(){
+        navigator.serviceWorker
+        .register("./sw.js")
+        .catch(
+        error=>console.log(
+            "Service Worker error:",
+            error
+        ));
 
-                    console.log(
-                        "Asim Multimedia Service Worker registered."
-                    );
-
-                }
-            )
-            .catch(
-                function(error){
-
-                    console.log(
-                        "Service Worker error:",
-                        error
-                    );
-
-                }
-            );
-
-        }
-    );
+    });
 
 }
 
@@ -5142,26 +3134,18 @@ if(
 ===================================================== */
 
 window.addEventListener(
-    "beforeunload",
-    function(){
+"beforeunload",
+function(){
 
-        stopSlideshow();
+    stopSlideshow();
 
-        stopCamera();
+    stopCamera();
 
+    makerURLs.forEach(url =>
+        URL.revokeObjectURL(url)
+    );
 
-        audioPlaylistData.forEach(
-            function(item){
-
-                URL.revokeObjectURL(
-                    item.url
-                );
-
-            }
-        );
-
-    }
-);
+});
 
 </script>
 
