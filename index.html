@@ -39,16 +39,8 @@ body{
     overflow-x:hidden;
 
     background:
-    radial-gradient(
-        circle at 10% 5%,
-        rgba(0,170,255,.15),
-        transparent 28%
-    ),
-    radial-gradient(
-        circle at 90% 30%,
-        rgba(130,50,255,.12),
-        transparent 28%
-    ),
+    radial-gradient(circle at 10% 5%,rgba(0,170,255,.15),transparent 28%),
+    radial-gradient(circle at 90% 30%,rgba(130,50,255,.12),transparent 28%),
     #02050b;
 }
 
@@ -61,15 +53,8 @@ body::before{
     opacity:.13;
 
     background-image:
-    linear-gradient(
-        rgba(255,255,255,.025) 1px,
-        transparent 1px
-    ),
-    linear-gradient(
-        90deg,
-        rgba(255,255,255,.025) 1px,
-        transparent 1px
-    );
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
 
     background-size:55px 55px;
 }
@@ -77,15 +62,23 @@ body::before{
 body::after{
     content:"";
     position:fixed;
+
     width:420px;
     height:420px;
+
     left:-250px;
     top:250px;
+
     border-radius:50%;
+
     background:rgba(0,150,255,.12);
+
     filter:blur(90px);
+
     z-index:-4;
+
     pointer-events:none;
+
     animation:bgMove 10s ease-in-out infinite;
 }
 
@@ -102,14 +95,16 @@ body::after{
 }
 
 
-/* ================= HEADER ================= */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     position:sticky;
     top:0;
     z-index:9999;
 
-    min-height:68px;
+    height:68px;
 
     padding:0 5%;
 
@@ -117,7 +112,7 @@ header{
     align-items:center;
     justify-content:space-between;
 
-    background:rgba(2,8,16,.88);
+    background:rgba(2,8,16,.86);
 
     border-bottom:1px solid var(--border);
 
@@ -137,27 +132,22 @@ header{
 }
 
 .logo-mark{
-    width:37px;
-    height:37px;
+    width:35px;
+    height:35px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    margin-right:9px;
+    margin-right:8px;
 
     border-radius:10px;
 
     background:
-    linear-gradient(
-        135deg,
-        #009eff,
-        #005de5
-    );
+    linear-gradient(135deg,#009eff,#005de5);
 
     box-shadow:
-    0 0 25px
-    rgba(0,160,255,.25);
+    0 0 25px rgba(0,160,255,.25);
 }
 
 .logo-blue{
@@ -187,9 +177,7 @@ nav a{
 
 nav a:hover{
     color:#fff;
-
-    background:
-    rgba(0,160,255,.10);
+    background:rgba(0,160,255,.10);
 }
 
 .menu-btn{
@@ -198,13 +186,11 @@ nav a:hover{
     width:42px;
     height:40px;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:11px;
 
-    background:
-    rgba(255,255,255,.04);
+    background:rgba(255,255,255,.04);
 
     color:#fff;
 
@@ -214,7 +200,9 @@ nav a:hover{
 }
 
 
-/* ================= HERO ================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     width:92%;
@@ -233,18 +221,15 @@ nav a:hover{
 
     padding:8px 14px;
 
-    border:
-    1px solid rgba(0,180,255,.30);
+    border:1px solid rgba(0,180,255,.30);
 
     border-radius:999px;
 
-    background:
-    rgba(0,160,255,.07);
+    background:rgba(0,160,255,.07);
 
     color:#6ed7ff;
 
     font-size:10px;
-
     font-weight:900;
 
     letter-spacing:2px;
@@ -258,8 +243,7 @@ nav a:hover{
 
     background:var(--cyan);
 
-    box-shadow:
-    0 0 14px var(--cyan);
+    box-shadow:0 0 14px var(--cyan);
 
     animation:pulse 1.7s infinite;
 }
@@ -281,8 +265,7 @@ nav a:hover{
 .hero h1{
     margin:24px auto 16px;
 
-    font-size:
-    clamp(43px,8vw,78px);
+    font-size:clamp(43px,8vw,78px);
 
     line-height:1.03;
 
@@ -295,8 +278,7 @@ nav a:hover{
     color:var(--blue);
 
     text-shadow:
-    0 0 35px
-    rgba(0,160,255,.30);
+    0 0 35px rgba(0,160,255,.30);
 }
 
 .hero-description{
@@ -343,23 +325,16 @@ nav a:hover{
 
 .primary-btn{
     background:
-    linear-gradient(
-        135deg,
-        #009fff,
-        #0069f0
-    );
+    linear-gradient(135deg,#009fff,#0069f0);
 
     box-shadow:
-    0 12px 30px
-    rgba(0,140,255,.20);
+    0 12px 30px rgba(0,140,255,.20);
 }
 
 .secondary-btn{
-    border:
-    1px solid #29465e;
+    border:1px solid #29465e;
 
-    background:
-    rgba(255,255,255,.035);
+    background:rgba(255,255,255,.035);
 }
 
 .hero-btn:hover{
@@ -367,7 +342,9 @@ nav a:hover{
 }
 
 
-/* ================= STATS ================= */
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats{
     width:92%;
@@ -377,8 +354,7 @@ nav a:hover{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:10px;
 }
@@ -386,13 +362,11 @@ nav a:hover{
 .stat{
     padding:15px 8px;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:14px;
 
-    background:
-    rgba(255,255,255,.025);
+    background:rgba(255,255,255,.025);
 }
 
 .stat strong{
@@ -414,7 +388,9 @@ nav a:hover{
 }
 
 
-/* ================= PHONE ================= */
+/* =====================================================
+   PHONE
+===================================================== */
 
 .hero-phone-area{
     display:flex;
@@ -434,8 +410,7 @@ nav a:hover{
 
     padding:9px;
 
-    border:
-    5px solid #4d687b;
+    border:5px solid #4d687b;
 
     border-radius:43px;
 
@@ -444,28 +419,20 @@ nav a:hover{
     transform:rotate(5deg);
 
     box-shadow:
-    0 0 45px
-    rgba(0,160,255,.18),
+    0 0 45px rgba(0,160,255,.18),
+    0 30px 70px rgba(0,0,0,.60);
 
-    0 30px 70px
-    rgba(0,0,0,.60);
-
-    animation:
-    phoneFloat 4.5s ease-in-out infinite;
+    animation:phoneFloat 4.5s ease-in-out infinite;
 }
 
 @keyframes phoneFloat{
 
     0%,100%{
-        transform:
-        rotate(5deg)
-        translateY(0);
+        transform:rotate(5deg) translateY(0);
     }
 
     50%{
-        transform:
-        rotate(5deg)
-        translateY(-10px);
+        transform:rotate(5deg) translateY(-10px);
     }
 
 }
@@ -498,24 +465,9 @@ nav a:hover{
     border-radius:33px;
 
     background:
-    radial-gradient(
-        circle at 15% 5%,
-        rgba(0,180,255,.25),
-        transparent 35%
-    ),
-
-    radial-gradient(
-        circle at 90% 80%,
-        rgba(100,50,255,.18),
-        transparent 35%
-    ),
-
-    linear-gradient(
-        155deg,
-        #062a45,
-        #03131f 55%,
-        #020912
-    );
+    radial-gradient(circle at 15% 5%,rgba(0,180,255,.25),transparent 35%),
+    radial-gradient(circle at 90% 80%,rgba(100,50,255,.18),transparent 35%),
+    linear-gradient(155deg,#062a45,#03131f 55%,#020912);
 }
 
 .phone-brand{
@@ -553,8 +505,7 @@ nav a:hover{
 .phone-grid{
     display:grid;
 
-    grid-template-columns:
-    repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:9px;
 
@@ -574,13 +525,11 @@ nav a:hover{
 
     gap:4px;
 
-    border:
-    1px solid rgba(66,175,230,.22);
+    border:1px solid rgba(66,175,230,.22);
 
     border-radius:14px;
 
-    background:
-    rgba(0,157,255,.08);
+    background:rgba(0,157,255,.08);
 
     color:#dce8f2;
 
@@ -592,7 +541,9 @@ nav a:hover{
 }
 
 
-/* ================= SECTION ================= */
+/* =====================================================
+   SECTION
+===================================================== */
 
 .section-head{
     width:92%;
@@ -616,8 +567,7 @@ nav a:hover{
 }
 
 .section-head h2{
-    font-size:
-    clamp(28px,5vw,42px);
+    font-size:clamp(28px,5vw,42px);
 
     margin-bottom:9px;
 }
@@ -635,13 +585,15 @@ nav a:hover{
 }
 
 
-/* ================= SEARCH ================= */
+/* =====================================================
+   SEARCH
+===================================================== */
 
 .app-tools{
     width:92%;
     max-width:1100px;
 
-    margin:0 auto 28px;
+    margin:0 auto 24px;
 
     display:flex;
 
@@ -663,22 +615,19 @@ nav a:hover{
 .search-box input{
     width:100%;
 
-    height:52px;
+    height:50px;
 
-    padding:
-    0 50px 0 17px;
+    padding:0 50px 0 17px;
 
     outline:none;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:13px;
 
     color:#fff;
 
-    background:
-    rgba(8,22,36,.85);
+    background:rgba(8,22,36,.85);
 
     font-size:13px;
 }
@@ -687,8 +636,7 @@ nav a:hover{
     border-color:var(--blue);
 
     box-shadow:
-    0 0 0 3px
-    rgba(0,160,255,.08);
+    0 0 0 3px rgba(0,160,255,.08);
 }
 
 .search-box input::placeholder{
@@ -699,7 +647,6 @@ nav a:hover{
     position:absolute;
 
     right:17px;
-
     top:50%;
 
     transform:translateY(-50%);
@@ -720,16 +667,13 @@ nav a:hover{
 }
 
 .filter-btn{
-    padding:
-    8px 13px;
+    padding:8px 13px;
 
-    border:
-    1px solid #26445b;
+    border:1px solid #26445b;
 
     border-radius:999px;
 
-    background:
-    rgba(255,255,255,.025);
+    background:rgba(255,255,255,.025);
 
     color:#a9bdca;
 
@@ -753,8 +697,7 @@ nav a:hover{
 
     border-color:var(--blue);
 
-    background:
-    rgba(0,160,255,.15);
+    background:rgba(0,160,255,.15);
 }
 
 .search-status{
@@ -764,69 +707,129 @@ nav a:hover{
 }
 
 
-/* ================= APP GRID ================= */
+/* =====================================================
+   APP GRID
+===================================================== */
 
 .apps{
     width:92%;
     max-width:1100px;
 
-    margin:
-    0 auto 75px;
+    margin:0 auto 75px;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
 
-    gap:22px;
+    gap:16px;
 }
 
 
-/* ================= APP CARD ================= */
+/* =====================================================
+   APP CARD
+===================================================== */
 
 .app-card{
-
     position:relative;
 
     overflow:hidden;
 
-    padding:10px;
+    padding:8px;
 
-    min-width:0;
+    border:1px solid var(--border);
 
-    border:
-    1px solid var(--border);
-
-    border-radius:19px;
+    border-radius:17px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(10,28,45,.88),
-        rgba(4,13,23,.96)
+        rgba(10,28,45,.82),
+        rgba(4,13,23,.95)
     );
 
     box-shadow:
-    0 15px 42px
-    rgba(0,0,0,.25);
+    0 12px 38px rgba(0,0,0,.22);
 
     transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+
+    animation:cardIn .6s ease both;
+}
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+
+        transform:
+        translateY(18px)
+        scale(.97);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+
+}
+
+.app-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+    left:-65%;
+
+    width:45%;
+    height:300%;
+
+    transform:rotate(25deg);
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.17),
+        rgba(255,255,255,.04),
+        transparent
+    );
+
+    pointer-events:none;
+
+    z-index:5;
+
+    opacity:0;
+
+    transition:
+    left .8s ease,
+    opacity .3s ease;
+}
+
+.app-card:hover::before{
+    left:125%;
+    opacity:1;
 }
 
 .app-card:hover{
 
     transform:
-    translateY(-7px);
+    translateY(-6px)
+    scale(1.012);
 
     border-color:
     rgba(30,190,255,.65);
 
     box-shadow:
-    0 25px 55px
-    rgba(0,120,220,.20);
+    0 22px 50px rgba(0,120,220,.18),
+    0 0 25px rgba(0,170,255,.07);
 }
 
 .app-card.hidden{
@@ -834,13 +837,15 @@ nav a:hover{
 }
 
 
-/* ================= CARD IMAGE ================= */
+/* =====================================================
+   APP IMAGE
+===================================================== */
 
 .app-image{
 
     position:relative;
 
-    height:220px;
+    height:180px;
 
     display:flex;
 
@@ -850,7 +855,7 @@ nav a:hover{
 
     overflow:hidden;
 
-    border-radius:14px;
+    border-radius:13px;
 
     background:
     linear-gradient(
@@ -859,6 +864,44 @@ nav a:hover{
         #10152c,
         #331060
     );
+}
+
+.app-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:140px;
+    height:140px;
+
+    left:-30px;
+    top:-30px;
+
+    border-radius:50%;
+
+    background:rgba(0,180,255,.24);
+
+    filter:blur(40px);
+}
+
+.app-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:140px;
+    height:140px;
+
+    right:-30px;
+    bottom:-40px;
+
+    border-radius:50%;
+
+    background:rgba(150,50,255,.22);
+
+    filter:blur(40px);
 }
 
 .app-image img{
@@ -872,62 +915,22 @@ nav a:hover{
 
     object-fit:contain;
 
-    border-radius:12px;
+    border-radius:11px;
 
     display:block;
 
     transition:
-    transform .4s ease,
-    filter .4s ease;
+    transform .5s ease,
+    filter .5s ease;
 }
 
 .app-card:hover .app-image img{
 
-    transform:scale(1.045);
+    transform:scale(1.06);
 
     filter:
     brightness(1.08)
     saturate(1.08);
-}
-
-.app-image::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:150px;
-    height:150px;
-
-    left:-30px;
-    top:-30px;
-
-    border-radius:50%;
-
-    background:
-    rgba(0,180,255,.24);
-
-    filter:blur(40px);
-}
-
-.app-image::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:150px;
-    height:150px;
-
-    right:-30px;
-    bottom:-40px;
-
-    border-radius:50%;
-
-    background:
-    rgba(150,50,255,.22);
-
-    filter:blur(40px);
 }
 
 .fallback-icon{
@@ -936,119 +939,67 @@ nav a:hover{
 
     z-index:2;
 
-    width:92px;
-    height:92px;
+    width:90px;
+    height:90px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    border:
-    1px solid rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.18);
 
     border-radius:23px;
 
-    background:
-    rgba(255,255,255,.08);
+    background:rgba(255,255,255,.08);
 
     font-size:46px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.35);
 }
 
 
-/* ================= CARD COLORS ================= */
+/* CARD BACKGROUNDS */
 
 .barcode .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #063a66,
-        #071b2d,
-        #321060
-    );
+    background:linear-gradient(135deg,#063a66,#071b2d,#321060);
 }
 
 .office .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #006fd3,
-        #087ff5
-    );
+    background:linear-gradient(135deg,#006fd3,#087ff5);
 }
 
 .pdf .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #510006,
-        #e9162a
-    );
+    background:linear-gradient(135deg,#510006,#e9162a);
 }
 
 .photo .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #40005c,
-        #aa00cc
-    );
+    background:linear-gradient(135deg,#40005c,#aa00cc);
 }
 
 .signature .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #180044,
-        #5100a8,
-        #001f55
-    );
+    background:linear-gradient(135deg,#180044,#5100a8,#001f55);
 }
 
 .idphoto .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #003b5c,
-        #007c9e,
-        #0046a8
-    );
+    background:linear-gradient(135deg,#003b5c,#007c9e,#0046a8);
 }
 
 .devotional .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #5b0000,
-        #c00000
-    );
+    background:linear-gradient(135deg,#5b0000,#c00000);
 }
 
 .oldies .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #542900,
-        #b55c00
-    );
+    background:linear-gradient(135deg,#542900,#b55c00);
 }
 
 .madhu .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #32105c,
-        #7c12c9
-    );
+    background:linear-gradient(135deg,#32105c,#7c12c9);
 }
 
 .sangit .app-image{
-    background:
-    linear-gradient(
-        135deg,
-        #402000,
-        #9a3900
-    );
+    background:linear-gradient(135deg,#402000,#9a3900);
 }
 
 .multimedia .app-image{
@@ -1062,11 +1013,12 @@ nav a:hover{
 }
 
 
-/* ================= CONTENT ================= */
+/* =====================================================
+   CONTENT
+===================================================== */
 
 .app-content{
-    padding:
-    16px 7px 7px;
+    padding:13px 6px 6px;
 }
 
 .app-title-row{
@@ -1077,13 +1029,13 @@ nav a:hover{
 
     align-items:flex-start;
 
-    gap:10px;
+    gap:8px;
 
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
 
 .app-content h3{
-    font-size:18px;
+    font-size:16px;
 
     line-height:1.3;
 }
@@ -1092,18 +1044,15 @@ nav a:hover{
 
     flex-shrink:0;
 
-    padding:
-    5px 7px;
+    padding:4px 6px;
 
     border-radius:6px;
 
     color:#6fd0ff;
 
-    background:
-    rgba(0,157,255,.08);
+    background:rgba(0,157,255,.08);
 
-    border:
-    1px solid rgba(0,157,255,.18);
+    border:1px solid rgba(0,157,255,.18);
 
     font-size:7px;
 
@@ -1112,28 +1061,30 @@ nav a:hover{
 
 .app-content p{
 
-    min-height:42px;
+    min-height:40px;
 
     color:var(--muted);
 
-    font-size:12px;
+    font-size:11px;
 
-    line-height:1.6;
+    line-height:1.55;
 }
 
 .tags{
 
-    margin-top:9px;
+    margin-top:8px;
 
-    min-height:17px;
+    min-height:15px;
 
     color:#7891a4;
 
-    font-size:10px;
+    font-size:9px;
 }
 
 
-/* ================= BUTTONS ================= */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .app-btn{
 
@@ -1149,30 +1100,58 @@ nav a:hover{
 
     justify-content:center;
 
-    margin-top:12px;
+    margin-top:10px;
 
-    padding:12px;
+    padding:10px;
 
-    border-radius:10px;
+    border-radius:9px;
 
     color:#fff;
 
     text-decoration:none;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:800;
 
     transition:.25s;
+
+    z-index:6;
+}
+
+.app-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:70%;
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+
+    transition:left .6s ease;
+}
+
+.app-btn:hover::before{
+    left:140%;
 }
 
 .app-btn:hover{
+    transform:translateY(-2px);
 
-    transform:
-    translateY(-2px);
-
-    filter:
-    brightness(1.1);
+    filter:brightness(1.1);
 }
 
 .blue-btn{
@@ -1211,7 +1190,9 @@ nav a:hover{
 }
 
 
-/* ================= NO RESULT ================= */
+/* =====================================================
+   NO RESULTS
+===================================================== */
 
 .no-results{
 
@@ -1220,20 +1201,17 @@ nav a:hover{
     width:92%;
     max-width:650px;
 
-    margin:
-    20px auto 70px;
+    margin:20px auto 70px;
 
     padding:25px;
 
     text-align:center;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:16px;
 
-    background:
-    rgba(8,22,36,.65);
+    background:rgba(8,22,36,.65);
 
     color:var(--muted);
 }
@@ -1254,35 +1232,33 @@ nav a:hover{
 }
 
 
-/* ================= FEATURES ================= */
+/* =====================================================
+   FEATURES
+===================================================== */
 
 .features{
 
     width:92%;
     max-width:1100px;
 
-    margin:
-    0 auto 70px;
+    margin:0 auto 70px;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap:18px;
+    gap:16px;
 }
 
 .feature{
 
-    padding:
-    28px 20px;
+    padding:25px 18px;
 
     text-align:center;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:17px;
 
     background:
     linear-gradient(
@@ -1296,8 +1272,7 @@ nav a:hover{
 
 .feature:hover{
 
-    transform:
-    translateY(-5px);
+    transform:translateY(-5px);
 
     border-color:
     rgba(40,180,255,.55);
@@ -1313,16 +1288,13 @@ nav a:hover{
     align-items:center;
     justify-content:center;
 
-    margin:
-    0 auto 13px;
+    margin:0 auto 13px;
 
     border-radius:15px;
 
-    background:
-    rgba(0,157,255,.08);
+    background:rgba(0,157,255,.08);
 
-    border:
-    1px solid rgba(0,157,255,.18);
+    border:1px solid rgba(0,157,255,.18);
 
     font-size:25px;
 }
@@ -1344,25 +1316,24 @@ nav a:hover{
 }
 
 
-/* ================= INFO ================= */
+/* =====================================================
+   INFO BOX
+===================================================== */
 
 .info-box{
 
     width:92%;
     max-width:1100px;
 
-    margin:
-    0 auto 20px;
+    margin:0 auto 18px;
 
-    padding:
-    28px 20px;
+    padding:28px 20px;
 
     text-align:center;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:17px;
 
     background:
     linear-gradient(
@@ -1393,22 +1364,21 @@ nav a:hover{
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
 
     margin-top:60px;
 
-    padding:
-    35px 20px;
+    padding:35px 20px;
 
     text-align:center;
 
-    border-top:
-    1px solid var(--border);
+    border-top:1px solid var(--border);
 
-    background:
-    rgba(1,6,12,.92);
+    background:rgba(1,6,12,.92);
 
     color:#6f8799;
 
@@ -1438,11 +1408,9 @@ footer{
 
     margin-top:12px;
 
-    padding:
-    7px 12px;
+    padding:7px 12px;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:8px;
 
@@ -1452,7 +1420,255 @@ footer{
 }
 
 
-/* ================= MOBILE ================= */
+/* =====================================================
+   UPDATE NOTIFICATION
+===================================================== */
+
+.update-notification{
+
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    z-index:99999;
+
+    width:320px;
+
+    max-width:calc(100% - 30px);
+
+    padding:15px 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    border:1px solid rgba(0,190,255,.40);
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(8,27,45,.97),
+        rgba(3,12,23,.98)
+    );
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,.50),
+    0 0 25px rgba(0,170,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    animation:
+    notificationIn .7s ease both,
+    notificationGlow 3s ease-in-out 1s infinite;
+}
+
+@keyframes notificationIn{
+
+    0%{
+        opacity:0;
+
+        transform:
+        translateY(50px)
+        translateX(30px)
+        scale(.88);
+    }
+
+    60%{
+        opacity:1;
+
+        transform:
+        translateY(-6px)
+        translateX(0)
+        scale(1.02);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+        translateY(0)
+        translateX(0)
+        scale(1);
+    }
+
+}
+
+@keyframes notificationGlow{
+
+    0%,100%{
+        box-shadow:
+        0 15px 45px rgba(0,0,0,.50),
+        0 0 25px rgba(0,170,255,.12);
+    }
+
+    50%{
+        box-shadow:
+        0 18px 50px rgba(0,0,0,.55),
+        0 0 38px rgba(0,190,255,.28);
+    }
+
+}
+
+.update-icon{
+
+    width:43px;
+    height:43px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #009fff,
+        #0065e8
+    );
+
+    font-size:21px;
+
+    box-shadow:
+    0 0 20px rgba(0,160,255,.25);
+
+    animation:
+    notificationBell 1.8s ease-in-out infinite;
+}
+
+@keyframes notificationBell{
+
+    0%,100%{
+        transform:rotate(0deg);
+    }
+
+    10%{
+        transform:rotate(12deg);
+    }
+
+    20%{
+        transform:rotate(-12deg);
+    }
+
+    30%{
+        transform:rotate(8deg);
+    }
+
+    40%{
+        transform:rotate(-6deg);
+    }
+
+    50%{
+        transform:rotate(0deg);
+    }
+
+}
+
+.update-content{
+    flex:1;
+
+    min-width:0;
+}
+
+.update-label{
+
+    color:#51d7ff;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:1.8px;
+
+    margin-bottom:4px;
+}
+
+.update-title{
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    margin-bottom:4px;
+}
+
+.update-text{
+
+    color:#8fa9bb;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+.update-link{
+
+    display:inline-flex;
+
+    margin-top:7px;
+
+    color:#6bdcff;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    text-decoration:none;
+}
+
+.update-link:hover{
+    color:#fff;
+}
+
+.update-close{
+
+    position:absolute;
+
+    right:8px;
+    top:7px;
+
+    width:23px;
+    height:23px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    color:#8ca4b5;
+
+    font-size:13px;
+
+    cursor:pointer;
+}
+
+.update-close:hover{
+
+    color:#fff;
+
+    background:rgba(255,255,255,.12);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px){
 
@@ -1481,13 +1697,11 @@ footer{
 
         padding:7px;
 
-        border:
-        1px solid var(--border);
+        border:1px solid var(--border);
 
         border-radius:14px;
 
-        background:
-        rgba(2,9,18,.98);
+        background:rgba(2,9,18,.98);
     }
 
     nav.open{
@@ -1510,11 +1724,11 @@ footer{
 
         grid-template-columns:1fr;
 
-        gap:18px;
+        gap:14px;
     }
 
     .app-image{
-        height:225px;
+        height:195px;
     }
 
     .features{
@@ -1528,8 +1742,16 @@ footer{
         width:94%;
     }
 
-    .info-box{
-        width:94%;
+    .update-notification{
+
+        right:12px;
+        bottom:12px;
+
+        width:calc(100% - 24px);
+
+        padding:13px 14px;
+
+        border-radius:14px;
     }
 
 }
@@ -1563,11 +1785,11 @@ footer{
     }
 
     .app-image{
-        height:210px;
+        height:185px;
     }
 
     .app-content h3{
-        font-size:16px;
+        font-size:15px;
     }
 
 }
@@ -1593,13 +1815,13 @@ footer{
 <body id="top">
 
 
-<!-- ================= HEADER ================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
-<a
-href="./"
-class="logo">
+<a href="./" class="logo">
 
 <span class="logo-mark">
 ▲
@@ -1627,36 +1849,26 @@ aria-label="Open menu">
 
 <nav id="mainNav">
 
-<a href="./">
-Home
-</a>
+<a href="./">Home</a>
 
-<a href="#apps">
-Apps
-</a>
+<a href="#apps">Apps</a>
 
-<a href="#features">
-Tools
-</a>
+<a href="#features">Tools</a>
 
-<a href="#updates">
-Updates
-</a>
+<a href="#updates">Updates</a>
 
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -1750,7 +1962,9 @@ Applications
 </section>
 
 
-<!-- ================= PHONE ================= -->
+<!-- =====================================================
+     PHONE
+===================================================== -->
 
 <div class="hero-phone-area">
 
@@ -1829,7 +2043,9 @@ Apps
 </div>
 
 
-<!-- ================= APPS ================= -->
+<!-- =====================================================
+     APPS
+===================================================== -->
 
 <section id="apps">
 
@@ -1931,7 +2147,9 @@ Showing 12 applications
 </div>
 
 
-<!-- ================= APP GRID ================= -->
+<!-- =====================================================
+     APP GRID
+===================================================== -->
 
 <div
 class="apps"
@@ -2673,7 +2891,6 @@ data-name="Asim Multimedia Studio">
 <img
 src="images/12-multimedia.png"
 alt="Asim Multimedia Studio"
-loading="lazy"
 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
 
 
@@ -2704,7 +2921,8 @@ WEB APP
 
 
 <p>
-Audio, video, slideshow, voice recorder, camera and screen recorder in one place.
+Audio, video, photo, voice recorder,
+camera and screen recorder in one place.
 </p>
 
 
@@ -2729,7 +2947,7 @@ class="app-btn purple-btn">
 </div>
 
 
-<!-- ================= NO RESULT ================= -->
+<!-- NO RESULT -->
 
 <div
 class="no-results"
@@ -2746,7 +2964,9 @@ Try another search term or category.
 </section>
 
 
-<!-- ================= FEATURES ================= -->
+<!-- =====================================================
+     FEATURES
+===================================================== -->
 
 <section id="features">
 
@@ -2756,9 +2976,11 @@ Try another search term or category.
 WHY ASIM TECH
 </div>
 
+
 <h2>
 Built For Everyday Use
 </h2>
+
 
 <p>
 Simple ideas, useful tools and practical applications.
@@ -2775,9 +2997,11 @@ Simple ideas, useful tools and practical applications.
 ⚡
 </div>
 
+
 <h3>
 Fast & Simple
 </h3>
+
 
 <p>
 Clean and straightforward applications designed to be easy to use.
@@ -2792,9 +3016,11 @@ Clean and straightforward applications designed to be easy to use.
 🔒
 </div>
 
+
 <h3>
 Privacy Minded
 </h3>
+
 
 <p>
 Applications are designed with sensible privacy in mind.
@@ -2809,9 +3035,11 @@ Applications are designed with sensible privacy in mind.
 📱
 </div>
 
+
 <h3>
 Mobile Friendly
 </h3>
+
 
 <p>
 Responsive experiences designed for phones, tablets and computers.
@@ -2824,7 +3052,9 @@ Responsive experiences designed for phones, tablets and computers.
 </section>
 
 
-<!-- ================= UPDATES ================= -->
+<!-- =====================================================
+     UPDATES
+===================================================== -->
 
 <section
 id="updates"
@@ -2834,6 +3064,7 @@ class="info-box">
 🆕 Latest Updates
 </h2>
 
+
 <p>
 New applications and useful digital tools are being added
 to Asim Tech regularly. Check back for new releases and improvements.
@@ -2842,7 +3073,9 @@ to Asim Tech regularly. Check back for new releases and improvements.
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
 <section
 id="about"
@@ -2851,6 +3084,7 @@ class="info-box">
 <h2>
 About Asim Tech
 </h2>
+
 
 <p>
 Welcome to Asim Tech. I create useful Android applications,
@@ -2861,7 +3095,9 @@ tasks simpler and easier.
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section
 id="contact"
@@ -2871,6 +3107,7 @@ class="info-box">
 Contact Asim Tech
 </h2>
 
+
 <p>
 For application information, support and other enquiries,
 please contact Asim Tech.
@@ -2879,7 +3116,9 @@ please contact Asim Tech.
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -2889,6 +3128,7 @@ please contact Asim Tech.
 
 </div>
 
+
 Apps • Tools • Innovation
 
 <br>
@@ -2896,6 +3136,7 @@ Apps • Tools • Innovation
 © 2026 Asim Tech. All rights reserved.
 
 <br>
+
 
 <a
 href="#top"
@@ -2908,7 +3149,67 @@ class="back-top">
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- =====================================================
+     UPDATE NOTIFICATION
+===================================================== -->
+
+<div
+class="update-notification"
+id="updateNotification">
+
+
+<div class="update-icon">
+🔔
+</div>
+
+
+<div class="update-content">
+
+
+<div class="update-label">
+NEW UPDATE
+</div>
+
+
+<div class="update-title">
+Asim Tech Updated
+</div>
+
+
+<div class="update-text">
+নতুন App ও উন্নত features এখন available।
+</div>
+
+
+<a
+href="#updates"
+class="update-link"
+id="updateLink">
+
+View Updates →
+
+</a>
+
+
+</div>
+
+
+<button
+class="update-close"
+id="updateClose"
+aria-label="Close notification">
+
+✕
+
+</button>
+
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
@@ -2917,7 +3218,9 @@ class="back-top">
 "use strict";
 
 
-/* MOBILE MENU */
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
 const menuBtn =
 document.getElementById("menuBtn");
@@ -2935,10 +3238,12 @@ function(){
 const open =
 nav.classList.toggle("open");
 
+
 menuBtn.setAttribute(
 "aria-expanded",
 String(open)
 );
+
 
 menuBtn.setAttribute(
 "aria-label",
@@ -2946,6 +3251,7 @@ open
 ? "Close menu"
 : "Open menu"
 );
+
 
 menuBtn.textContent =
 open
@@ -2985,7 +3291,9 @@ menuBtn.textContent="☰";
 }
 
 
-/* SEARCH */
+/* =====================================================
+   SEARCH + FILTER
+===================================================== */
 
 const searchInput =
 document.getElementById("appSearch");
@@ -3091,26 +3399,35 @@ status.textContent =
 visible +
 " application" +
 (
-visible === 1
+visible===1
 ? ""
 : "s"
 );
 
-}else{
+}else if(
+currentFilter==="all"
+){
 
 status.textContent =
 "Showing " +
 visible +
 " applications";
 
-}
+}else{
+
+status.textContent =
+"Showing " +
+visible +
+" matching applications";
 
 }
 
 }
 
+}
 
-/* SEARCH INPUT */
+
+/* SEARCH */
 
 if(searchInput){
 
@@ -3122,7 +3439,7 @@ filterApps
 }
 
 
-/* FILTER BUTTONS */
+/* FILTERS */
 
 filterButtons.forEach(function(button){
 
@@ -3180,7 +3497,9 @@ searchInput.focus();
 });
 
 
-/* CLOSE MOBILE MENU */
+/* =====================================================
+   CLOSE MENU OUTSIDE
+===================================================== */
 
 document.addEventListener(
 "click",
@@ -3200,10 +3519,12 @@ if(
 
 nav.classList.remove("open");
 
+
 menuBtn.setAttribute(
 "aria-expanded",
 "false"
 );
+
 
 menuBtn.textContent="☰";
 
@@ -3212,7 +3533,9 @@ menuBtn.textContent="☰";
 });
 
 
-/* IMAGE FALLBACK */
+/* =====================================================
+   IMAGE FALLBACK
+===================================================== */
 
 document.querySelectorAll(
 ".app-image img"
@@ -3242,7 +3565,9 @@ fallback.style.display="flex";
 });
 
 
-/* CARD CLICK */
+/* =====================================================
+   CARD CLICK
+===================================================== */
 
 appCards.forEach(function(card){
 
@@ -3275,12 +3600,119 @@ link.click();
 });
 
 
+/* =====================================================
+   UPDATE NOTIFICATION
+===================================================== */
+
+const updateNotification =
+document.getElementById(
+"updateNotification"
+);
+
+
+const updateClose =
+document.getElementById(
+"updateClose"
+);
+
+
+const updateLink =
+document.getElementById(
+"updateLink"
+);
+
+
+if(updateClose){
+
+updateClose.addEventListener(
+"click",
+function(){
+
+updateNotification.style.animation =
+"notificationOut .35s ease both";
+
+
+setTimeout(
+function(){
+
+updateNotification.style.display =
+"none";
+
+},
+330
+);
+
+}
+);
+
+}
+
+
+if(updateLink){
+
+updateLink.addEventListener(
+"click",
+function(){
+
+updateNotification.style.animation =
+"notificationOut .35s ease both";
+
+
+setTimeout(
+function(){
+
+updateNotification.style.display =
+"none";
+
+},
+330
+);
+
+}
+);
+
+}
+
+
 /* INITIAL LOAD */
 
 filterApps();
 
 
 })();
+
+
+/* =====================================================
+   NOTIFICATION CLOSE ANIMATION
+===================================================== */
+
+const closeStyle =
+document.createElement("style");
+
+closeStyle.textContent = `
+
+@keyframes notificationOut{
+
+from{
+    opacity:1;
+    transform:
+    translateY(0)
+    translateX(0)
+    scale(1);
+}
+
+to{
+    opacity:0;
+    transform:
+    translateY(35px)
+    translateX(25px)
+    scale(.90);
+}
+
+}
+`;
+
+document.head.appendChild(closeStyle);
 
 </script>
 
