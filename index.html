@@ -5,35 +5,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 
-<meta name="theme-color" content="#050914">
-<meta name="description" content="Asim Tech - Apps, Tools and Innovation">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Asim Tech - Apps, Tools, Multimedia and Innovation">
 
 <title>ASIM TECH | Apps • Tools • Innovation</title>
+
+<link rel="manifest" href="./manifest.json">
 
 <style>
 
 /* =====================================================
-   ASIM TECH V2
+   RESET
 ===================================================== */
-
-:root{
-    --bg:#040710;
-    --bg2:#080d19;
-    --card:#0b1321;
-    --card2:#101b2b;
-
-    --blue:#00b7ff;
-    --cyan:#48e7ff;
-    --purple:#7857ff;
-    --pink:#e94cff;
-
-    --white:#f7fbff;
-    --text:#dceaf5;
-    --muted:#7890a4;
-
-    --line:rgba(82,190,255,.14);
-    --glow:rgba(0,183,255,.20);
-}
 
 *{
     box-sizing:border-box;
@@ -43,59 +26,49 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top:85px;
+    scroll-padding-top:80px;
 }
 
 body{
     min-height:100vh;
-
-    color:var(--text);
-
-    font-family:
-    Inter,
-    Arial,
-    Helvetica,
-    sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
+    color:#f7fbff;
+    background:#02060d;
     overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    pointer-events:none;
 
     background:
     radial-gradient(
-        circle at 15% 0%,
-        rgba(0,183,255,.16),
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 90% 12%,
-        rgba(120,87,255,.15),
+        circle at 10% 5%,
+        rgba(0,170,255,.18),
         transparent 28%
     ),
     radial-gradient(
-        circle at 50% 100%,
-        rgba(233,76,255,.07),
-        transparent 35%
+        circle at 90% 25%,
+        rgba(135,45,255,.14),
+        transparent 30%
     ),
-    var(--bg);
+    radial-gradient(
+        circle at 50% 90%,
+        rgba(0,100,255,.08),
+        transparent 35%
+    );
 }
 
-
-/* =====================================================
-   BACKGROUND GRID
-===================================================== */
-
-body::before{
-
+body::after{
     content:"";
-
     position:fixed;
-
     inset:0;
-
+    z-index:-9;
     pointer-events:none;
-
-    z-index:-10;
-
-    opacity:.20;
+    opacity:.10;
 
     background-image:
     linear-gradient(
@@ -108,49 +81,27 @@ body::before{
         transparent 1px
     );
 
-    background-size:
-    55px 55px;
-
+    background-size:50px 50px;
 }
 
-body::after{
 
-    content:"";
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-    position:fixed;
+:root{
+    --blue:#00a8ff;
+    --cyan:#42dcff;
+    --purple:#7b2cff;
 
-    width:500px;
-    height:500px;
+    --bg:#02060d;
+    --panel:#071321;
+    --panel2:#0a1929;
 
-    left:-300px;
-    top:300px;
+    --border:rgba(80,190,255,.18);
 
-    border-radius:50%;
-
-    background:
-    rgba(0,183,255,.10);
-
-    filter:blur(100px);
-
-    pointer-events:none;
-
-    z-index:-9;
-
-    animation:
-    bgFloat 12s ease-in-out infinite;
-
-}
-
-@keyframes bgFloat{
-
-    0%,100%{
-        transform:translate(0,0);
-    }
-
-    50%{
-        transform:translate(300px,-100px);
-    }
-
+    --text:#f7fbff;
+    --muted:#8da5b8;
 }
 
 
@@ -159,81 +110,58 @@ body::after{
 ===================================================== */
 
 header{
-
     position:sticky;
-
     top:0;
-
     z-index:9999;
 
-    height:72px;
+    height:68px;
 
-    padding:
-    0 5%;
+    padding:0 5%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
-    background:
-    rgba(3,7,15,.80);
+    background:rgba(2,8,16,.88);
 
-    border-bottom:
-    1px solid var(--line);
+    border-bottom:1px solid var(--border);
 
-    backdrop-filter:
-    blur(25px);
-
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
 }
 
 .logo{
-
     display:flex;
-
     align-items:center;
 
     color:#fff;
-
     text-decoration:none;
 
     font-size:21px;
-
-    font-weight:1000;
-
-    letter-spacing:.5px;
-
+    font-weight:900;
 }
 
 .logo-mark{
-
-    width:39px;
-    height:39px;
+    width:36px;
+    height:36px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    margin-right:9px;
+    margin-right:8px;
 
-    border-radius:12px;
-
-    color:#fff;
+    border-radius:11px;
 
     background:
     linear-gradient(
         135deg,
-        #00baff,
-        #0069f5
+        #00aaff,
+        #0063ed
     );
 
     box-shadow:
-    0 0 28px
-    rgba(0,180,255,.28);
-
+    0 0 25px rgba(0,160,255,.25);
 }
 
 .logo-blue{
@@ -241,64 +169,47 @@ header{
 }
 
 nav{
-
     display:flex;
-
     align-items:center;
-
-    gap:4px;
-
+    gap:3px;
 }
 
 nav a{
-
-    color:#a9bfce;
+    color:#bcd0dd;
 
     text-decoration:none;
 
-    padding:
-    10px 13px;
+    padding:10px 12px;
 
-    border-radius:10px;
+    border-radius:9px;
 
-    font-size:11px;
-
+    font-size:12px;
     font-weight:800;
 
     transition:.25s;
-
 }
 
 nav a:hover{
-
     color:#fff;
-
-    background:
-    rgba(0,183,255,.10);
-
+    background:rgba(0,160,255,.10);
 }
 
 .menu-btn{
-
     display:none;
 
-    width:43px;
+    width:42px;
     height:40px;
 
-    border:
-    1px solid var(--line);
-
+    border:1px solid var(--border);
     border-radius:11px;
 
-    background:
-    rgba(255,255,255,.04);
+    background:rgba(255,255,255,.04);
 
     color:#fff;
 
-    font-size:20px;
+    font-size:21px;
 
     cursor:pointer;
-
 }
 
 
@@ -307,101 +218,36 @@ nav a:hover{
 ===================================================== */
 
 .hero{
-
     width:92%;
+    max-width:1100px;
 
-    max-width:1150px;
+    margin:65px auto 0;
 
-    min-height:510px;
-
-    margin:
-    45px auto 0;
-
-    padding:
-    60px 55px;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    overflow:hidden;
-
-    border:
-    1px solid rgba(65,190,255,.16);
-
-    border-radius:32px;
-
-    background:
-
-    radial-gradient(
-        circle at 80% 40%,
-        rgba(0,183,255,.17),
-        transparent 28%
-    ),
-
-    radial-gradient(
-        circle at 95% 90%,
-        rgba(120,87,255,.18),
-        transparent 30%
-    ),
-
-    linear-gradient(
-        135deg,
-        #071421,
-        #08101d 55%,
-        #0c0b1d
-    );
-
-    box-shadow:
-    0 30px 90px
-    rgba(0,0,0,.45);
-
+    text-align:center;
 }
 
-.hero-content{
-
-    position:relative;
-
-    z-index:3;
-
-    max-width:650px;
-
-}
-
-.hero-badge{
-
+.badge{
     display:inline-flex;
-
     align-items:center;
-
     gap:8px;
 
-    padding:
-    8px 13px;
+    padding:8px 15px;
 
-    border:
-    1px solid
-    rgba(0,183,255,.30);
+    border:1px solid rgba(0,180,255,.30);
 
     border-radius:999px;
 
-    background:
-    rgba(0,183,255,.07);
+    background:rgba(0,160,255,.07);
 
-    color:#65dcff;
+    color:#6ed7ff;
 
-    font-size:9px;
-
-    font-weight:1000;
+    font-size:10px;
+    font-weight:900;
 
     letter-spacing:2px;
-
 }
 
 .badge-dot{
-
     width:7px;
     height:7px;
 
@@ -409,278 +255,106 @@ nav a:hover{
 
     background:var(--cyan);
 
-    box-shadow:
-    0 0 14px var(--cyan);
+    box-shadow:0 0 14px var(--cyan);
 
-    animation:
-    badgePulse 1.7s infinite;
-
+    animation:pulse 1.7s infinite;
 }
 
-@keyframes badgePulse{
+@keyframes pulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
 
     50%{
-        opacity:.35;
+        opacity:.45;
         transform:scale(1.5);
     }
 
 }
 
 .hero h1{
+    margin:24px auto 17px;
 
-    margin-top:24px;
+    font-size:clamp(42px,8vw,76px);
 
-    font-size:
-    clamp(48px,7vw,78px);
+    line-height:1.04;
 
-    line-height:1.01;
+    letter-spacing:-3px;
 
-    letter-spacing:-4px;
-
-    font-weight:1000;
-
+    font-weight:900;
 }
 
 .hero h1 span{
-
-    background:
-    linear-gradient(
-        90deg,
-        #00c8ff,
-        #65e8ff,
-        #9a7cff
-    );
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
+    color:var(--blue);
 
     text-shadow:
-    0 0 35px
-    rgba(0,180,255,.18);
-
+    0 0 35px rgba(0,160,255,.30);
 }
 
 .hero-description{
+    max-width:700px;
 
-    max-width:620px;
-
-    margin-top:18px;
+    margin:auto;
 
     color:var(--muted);
 
-    font-size:14px;
+    font-size:15px;
 
     line-height:1.8;
-
 }
 
 .hero-buttons{
-
     display:flex;
+
+    justify-content:center;
 
     flex-wrap:wrap;
 
-    gap:10px;
+    gap:11px;
 
-    margin-top:27px;
-
+    margin-top:29px;
 }
 
 .hero-btn{
+    min-width:160px;
 
-    min-width:155px;
+    padding:14px 20px;
 
-    padding:
-    13px 20px;
+    border-radius:12px;
 
-    border-radius:11px;
-
-    text-align:center;
+    color:#fff;
 
     text-decoration:none;
 
-    font-size:12px;
+    font-size:13px;
 
     font-weight:900;
 
     transition:.3s;
-
 }
 
 .primary-btn{
-
-    color:#fff;
-
     background:
     linear-gradient(
         135deg,
-        #00b7ff,
-        #006ef5
+        #009fff,
+        #0069f0
     );
 
     box-shadow:
-    0 13px 35px
-    rgba(0,150,255,.20);
-
+    0 12px 30px rgba(0,140,255,.20);
 }
 
 .secondary-btn{
+    border:1px solid #29465e;
 
-    color:#c3d5e1;
-
-    border:
-    1px solid
-    rgba(255,255,255,.13);
-
-    background:
-    rgba(255,255,255,.035);
-
+    background:rgba(255,255,255,.035);
 }
 
 .hero-btn:hover{
-
-    transform:
-    translateY(-4px);
-
-}
-
-
-/* =====================================================
-   HERO ORBIT
-===================================================== */
-
-.hero-visual{
-
-    position:absolute;
-
-    right:35px;
-
-    top:50%;
-
-    transform:
-    translateY(-50%);
-
-    width:400px;
-    height:400px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-}
-
-.orbit{
-
-    position:absolute;
-
-    width:360px;
-    height:360px;
-
-    border:
-    1px solid
-    rgba(0,190,255,.15);
-
-    border-radius:50%;
-
-    animation:
-    orbitSpin 18s linear infinite;
-
-}
-
-.orbit::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:10px;
-    height:10px;
-
-    top:25px;
-    left:75px;
-
-    border-radius:50%;
-
-    background:var(--cyan);
-
-    box-shadow:
-    0 0 25px
-    var(--cyan);
-
-}
-
-.orbit2{
-
-    width:280px;
-    height:280px;
-
-    border-color:
-    rgba(120,87,255,.18);
-
-    animation-direction:
-    reverse;
-
-}
-
-.orbit2::before{
-
-    top:auto;
-    bottom:30px;
-    left:auto;
-    right:45px;
-
-    background:#9a7cff;
-
-    box-shadow:
-    0 0 25px
-    #9a7cff;
-
-}
-
-@keyframes orbitSpin{
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-.hero-logo{
-
-    position:relative;
-
-    z-index:3;
-
-    width:175px;
-    height:175px;
-
-    object-fit:contain;
-
-    filter:
-    drop-shadow(
-        0 0 35px
-        rgba(0,190,255,.25)
-    );
-
-    animation:
-    logoFloat 4s ease-in-out infinite;
-
-}
-
-@keyframes logoFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
+    transform:translateY(-4px);
 }
 
 
@@ -689,121 +363,253 @@ nav a:hover{
 ===================================================== */
 
 .stats{
+    width:92%;
+    max-width:720px;
+
+    margin:42px auto 0;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap:9px;
-
-    max-width:590px;
-
-    margin-top:35px;
-
+    gap:10px;
 }
 
 .stat{
+    padding:17px 8px;
 
-    padding:
-    14px 10px;
+    border:1px solid var(--border);
 
-    border:
-    1px solid var(--line);
+    border-radius:15px;
 
-    border-radius:13px;
-
-    background:
-    rgba(255,255,255,.025);
-
+    background:rgba(255,255,255,.025);
 }
 
 .stat strong{
-
     display:block;
 
-    color:#fff;
+    font-size:22px;
 
-    font-size:20px;
-
-    margin-bottom:4px;
-
+    margin-bottom:5px;
 }
 
 .stat span{
+    color:#71899b;
 
-    color:#688194;
-
-    font-size:8px;
+    font-size:9px;
 
     text-transform:uppercase;
 
     letter-spacing:1px;
-
 }
 
 
 /* =====================================================
-   SECTION
+   HERO PHONE
 ===================================================== */
 
-section.app-section{
+.hero-phone-area{
+    display:flex;
 
-    padding-top:90px;
+    justify-content:center;
+
+    margin:55px auto 85px;
+
+    perspective:1200px;
+}
+
+.phone{
+    position:relative;
+
+    width:260px;
+    height:475px;
+
+    padding:9px;
+
+    border:5px solid #4d687b;
+
+    border-radius:43px;
+
+    background:#01050a;
+
+    transform:rotate(4deg);
+
+    box-shadow:
+    0 0 45px rgba(0,160,255,.18),
+    0 30px 70px rgba(0,0,0,.60);
+
+    animation:phoneFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes phoneFloat{
+
+    0%,100%{
+        transform:rotate(4deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(4deg) translateY(-10px);
+    }
 
 }
 
-.section-head{
+.phone-camera{
+    position:absolute;
 
-    width:92%;
+    top:8px;
+    left:50%;
 
-    max-width:1100px;
+    transform:translateX(-50%);
 
-    margin:
-    0 auto 25px;
+    width:78px;
+    height:18px;
 
-    text-align:center;
+    border-radius:20px;
 
+    background:#010207;
+
+    z-index:5;
 }
 
-.section-label{
+.phone-screen{
+    height:100%;
 
-    color:#52d5ff;
+    padding:45px 18px 20px;
 
-    font-size:9px;
+    overflow:hidden;
 
-    font-weight:1000;
+    border-radius:33px;
 
-    letter-spacing:3px;
-
-    margin-bottom:9px;
-
+    background:
+    radial-gradient(
+        circle at 15% 5%,
+        rgba(0,180,255,.25),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 90% 80%,
+        rgba(100,50,255,.18),
+        transparent 35%
+    ),
+    linear-gradient(
+        155deg,
+        #062a45,
+        #03131f 55%,
+        #020912
+    );
 }
 
-.section-head h2{
+.phone-brand{
+    color:var(--blue);
 
+    font-weight:900;
+
+    font-size:14px;
+
+    margin-bottom:38px;
+}
+
+.phone-brand span{
     color:#fff;
-
-    font-size:
-    clamp(28px,5vw,44px);
-
-    font-weight:1000;
-
 }
 
-.section-head p{
+.phone-screen h2{
+    font-size:26px;
 
-    max-width:650px;
+    margin-bottom:8px;
+}
 
-    margin:
-    10px auto 0;
-
-    color:var(--muted);
+.phone-screen p{
+    color:#91aabd;
 
     font-size:12px;
 
     line-height:1.7;
+}
 
+.phone-screen strong{
+    color:#fff;
+}
+
+.phone-grid{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:9px;
+
+    margin-top:25px;
+}
+
+.phone-box{
+    height:68px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:4px;
+
+    border:1px solid rgba(66,175,230,.22);
+
+    border-radius:14px;
+
+    background:rgba(0,157,255,.08);
+
+    color:#dce8f2;
+
+    font-size:11px;
+}
+
+.phone-box span{
+    font-size:24px;
+}
+
+
+/* =====================================================
+   SECTION HEAD
+===================================================== */
+
+.section-head{
+    width:92%;
+    max-width:1100px;
+
+    margin:0 auto 24px;
+
+    text-align:center;
+}
+
+.section-label{
+    color:#52c2ff;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:2.7px;
+
+    margin-bottom:8px;
+}
+
+.section-head h2{
+    font-size:clamp(28px,5vw,42px);
+
+    margin-bottom:9px;
+}
+
+.section-head p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
 }
 
 
@@ -812,13 +618,10 @@ section.app-section{
 ===================================================== */
 
 .app-tools{
-
     width:92%;
-
     max-width:1100px;
 
-    margin:
-    0 auto 25px;
+    margin:0 auto 25px;
 
     display:flex;
 
@@ -826,174 +629,126 @@ section.app-section{
 
     align-items:center;
 
-    gap:13px;
-
+    gap:14px;
 }
 
 .search-box{
-
     position:relative;
 
     width:100%;
-
-    max-width:650px;
-
+    max-width:620px;
 }
 
 .search-box input{
-
     width:100%;
 
-    height:54px;
+    height:52px;
 
-    padding:
-    0 52px 0 19px;
-
-    border:
-    1px solid
-    rgba(80,190,255,.18);
+    padding:0 50px 0 18px;
 
     outline:none;
 
-    border-radius:15px;
+    border:1px solid var(--border);
+
+    border-radius:14px;
 
     color:#fff;
 
-    background:
-    rgba(8,22,36,.85);
+    background:rgba(8,22,36,.88);
 
-    box-shadow:
-    0 10px 35px
-    rgba(0,0,0,.15);
-
-    font-size:12px;
-
+    font-size:13px;
 }
 
 .search-box input:focus{
-
-    border-color:
-    rgba(0,190,255,.65);
+    border-color:var(--blue);
 
     box-shadow:
-    0 0 0 3px
-    rgba(0,180,255,.07),
-    0 15px 40px
-    rgba(0,0,0,.20);
-
+    0 0 0 3px rgba(0,160,255,.08);
 }
 
 .search-box input::placeholder{
-    color:#637c8e;
+    color:#71899c;
 }
 
 .search-icon{
-
     position:absolute;
 
-    right:18px;
-
+    right:17px;
     top:50%;
 
-    transform:
-    translateY(-50%);
+    transform:translateY(-50%);
 
-    color:#55d8ff;
+    color:#69caff;
 
-    font-size:21px;
-
+    font-size:20px;
 }
 
 .filters{
-
     display:flex;
-
-    flex-wrap:wrap;
 
     justify-content:center;
 
-    gap:7px;
+    flex-wrap:wrap;
 
+    gap:7px;
 }
 
 .filter-btn{
+    padding:9px 14px;
 
-    border:
-    1px solid
-    rgba(80,160,210,.20);
+    border:1px solid #26445b;
 
     border-radius:999px;
 
-    padding:
-    8px 14px;
+    background:rgba(255,255,255,.025);
 
-    background:
-    rgba(255,255,255,.025);
+    color:#a9bdca;
 
-    color:#91a8b8;
+    font-size:10px;
 
-    font-size:9px;
-
-    font-weight:900;
+    font-weight:800;
 
     cursor:pointer;
 
     transition:.25s;
-
 }
 
 .filter-btn:hover{
-
     color:#fff;
 
     border-color:var(--blue);
-
 }
 
 .filter-btn.active{
-
     color:#fff;
 
     border-color:var(--blue);
 
-    background:
-    rgba(0,180,255,.13);
-
-    box-shadow:
-    0 0 20px
-    rgba(0,180,255,.08);
-
+    background:rgba(0,160,255,.15);
 }
 
 .search-status{
+    color:#71899c;
 
-    color:#617a8d;
-
-    font-size:9px;
-
+    font-size:10px;
 }
 
 
 /* =====================================================
-   APP GRID
+   APPS GRID
 ===================================================== */
 
 .apps{
-
     width:92%;
-
     max-width:1100px;
 
-    margin:
-    0 auto 80px;
+    margin:0 auto 80px;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
 
     gap:17px;
-
 }
 
 
@@ -1002,51 +757,47 @@ section.app-section{
 ===================================================== */
 
 .app-card{
-
     position:relative;
 
     overflow:hidden;
 
-    padding:7px;
+    padding:8px;
 
-    border:
-    1px solid
-    rgba(75,180,235,.13);
+    border:1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:18px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(13,29,46,.90),
-        rgba(5,13,23,.96)
+        rgba(10,28,45,.82),
+        rgba(4,13,23,.96)
     );
 
     box-shadow:
-    0 15px 45px
-    rgba(0,0,0,.25);
+    0 12px 38px rgba(0,0,0,.22);
 
     transition:
-    transform .3s,
-    border-color .3s,
-    box-shadow .3s;
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
 
-    animation:
-    cardIn .6s ease both;
-
+    animation:cardIn .6s ease both;
 }
 
 @keyframes cardIn{
 
     from{
         opacity:0;
+
         transform:
-        translateY(20px)
+        translateY(18px)
         scale(.97);
     }
 
     to{
         opacity:1;
+
         transform:
         translateY(0)
         scale(1);
@@ -1057,17 +808,14 @@ section.app-section{
 .app-card:hover{
 
     transform:
-    translateY(-7px);
+    translateY(-6px)
+    scale(1.012);
 
     border-color:
-    rgba(0,190,255,.55);
+    rgba(30,190,255,.65);
 
     box-shadow:
-    0 25px 60px
-    rgba(0,0,0,.35),
-    0 0 30px
-    rgba(0,170,255,.08);
-
+    0 22px 50px rgba(0,120,220,.18);
 }
 
 .app-card.hidden{
@@ -1080,74 +828,65 @@ section.app-section{
 ===================================================== */
 
 .app-image{
-
-    height:185px;
-
     position:relative;
 
-    overflow:hidden;
+    height:190px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
+    overflow:hidden;
+
     border-radius:14px;
 
     background:
     linear-gradient(
         135deg,
-        #07375b,
-        #0c1830,
-        #321066
+        #06345c,
+        #10152c,
+        #331060
     );
-
 }
 
 .app-image::before{
-
     content:"";
 
     position:absolute;
 
-    width:180px;
-    height:180px;
+    width:150px;
+    height:150px;
 
-    left:-70px;
-    top:-70px;
+    left:-35px;
+    top:-35px;
 
     border-radius:50%;
 
-    background:
-    rgba(0,190,255,.23);
+    background:rgba(0,180,255,.24);
 
-    filter:blur(45px);
-
+    filter:blur(40px);
 }
 
 .app-image::after{
-
     content:"";
 
     position:absolute;
 
-    width:180px;
-    height:180px;
+    width:150px;
+    height:150px;
 
-    right:-70px;
-    bottom:-70px;
+    right:-35px;
+    bottom:-45px;
 
     border-radius:50%;
 
-    background:
-    rgba(160,50,255,.23);
+    background:rgba(150,50,255,.22);
 
-    filter:blur(45px);
-
+    filter:blur(40px);
 }
 
 .app-image img{
-
     position:relative;
 
     z-index:2;
@@ -1157,131 +896,173 @@ section.app-section{
 
     object-fit:contain;
 
-    border-radius:11px;
+    border-radius:12px;
 
     transition:
-    transform .5s,
-    filter .5s;
-
+    transform .5s ease,
+    filter .5s ease;
 }
 
 .app-card:hover .app-image img{
-
-    transform:scale(1.07);
+    transform:scale(1.06);
 
     filter:
     brightness(1.08)
     saturate(1.08);
-
 }
 
 .fallback-icon{
-
     position:relative;
 
     z-index:2;
 
-    width:85px;
-    height:85px;
+    width:90px;
+    height:90px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    border:
-    1px solid
-    rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.18);
 
-    border-radius:22px;
+    border-radius:23px;
 
-    background:
-    rgba(255,255,255,.08);
+    background:rgba(255,255,255,.08);
 
-    font-size:43px;
+    font-size:46px;
 
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.35);
 }
 
 
 /* =====================================================
-   APP CONTENT
+   CARD BACKGROUNDS
+===================================================== */
+
+.barcode .app-image{
+    background:linear-gradient(135deg,#063a66,#071b2d,#321060);
+}
+
+.office .app-image{
+    background:linear-gradient(135deg,#006fd3,#087ff5);
+}
+
+.pdf .app-image{
+    background:linear-gradient(135deg,#510006,#e9162a);
+}
+
+.photo .app-image{
+    background:linear-gradient(135deg,#40005c,#aa00cc);
+}
+
+.signature .app-image{
+    background:linear-gradient(135deg,#180044,#5100a8,#001f55);
+}
+
+.idphoto .app-image{
+    background:linear-gradient(135deg,#003b5c,#007c9e,#0046a8);
+}
+
+.devotional .app-image{
+    background:linear-gradient(135deg,#5b0000,#c00000);
+}
+
+.oldies .app-image{
+    background:linear-gradient(135deg,#542900,#b55c00);
+}
+
+.madhu .app-image{
+    background:linear-gradient(135deg,#32105c,#7c12c9);
+}
+
+.sangit .app-image{
+    background:linear-gradient(135deg,#402000,#9a3900);
+}
+
+.multimedia .app-image{
+    background:
+    linear-gradient(
+        135deg,
+        #071d5c,
+        #5420c9,
+        #007fc9
+    );
+}
+
+.banner .app-image{
+    background:
+    linear-gradient(
+        135deg,
+        #5b1a8e,
+        #0066cc,
+        #00a2ff
+    );
+}
+
+
+/* =====================================================
+   CARD CONTENT
 ===================================================== */
 
 .app-content{
-
-    padding:
-    14px 7px 7px;
-
+    padding:14px 6px 6px;
 }
 
 .app-title-row{
-
     display:flex;
 
-    align-items:flex-start;
-
     justify-content:space-between;
+    align-items:flex-start;
 
     gap:8px;
 
+    margin-bottom:7px;
 }
 
 .app-content h3{
+    font-size:16px;
 
-    color:#fff;
-
-    font-size:15px;
-
-    line-height:1.35;
-
+    line-height:1.3;
 }
 
 .app-type{
-
     flex-shrink:0;
 
-    padding:
-    4px 6px;
-
-    border:
-    1px solid
-    rgba(0,190,255,.18);
+    padding:4px 7px;
 
     border-radius:6px;
 
-    background:
-    rgba(0,180,255,.07);
+    color:#6fd0ff;
 
-    color:#62d8ff;
+    background:rgba(0,157,255,.08);
 
-    font-size:6px;
+    border:1px solid rgba(0,157,255,.18);
 
-    font-weight:1000;
+    font-size:7px;
 
+    font-weight:900;
 }
 
 .app-content p{
+    min-height:40px;
 
-    min-height:39px;
+    color:var(--muted);
 
-    margin-top:7px;
-
-    color:#7890a3;
-
-    font-size:10px;
+    font-size:11px;
 
     line-height:1.6;
-
 }
 
 .tags{
+    margin-top:8px;
 
-    margin-top:7px;
+    min-height:15px;
 
-    color:#587387;
+    color:#7891a4;
 
-    font-size:8px;
-
+    font-size:9px;
 }
 
 
@@ -1290,97 +1071,113 @@ section.app-section{
 ===================================================== */
 
 .app-btn{
-
     position:relative;
 
     overflow:hidden;
 
+    width:100%;
+
     display:flex;
 
     align-items:center;
-
     justify-content:center;
-
-    width:100%;
 
     margin-top:11px;
 
-    padding:10px;
+    padding:11px;
 
-    border-radius:9px;
+    border-radius:10px;
 
     color:#fff;
 
     text-decoration:none;
 
-    font-size:10px;
+    font-size:11px;
 
     font-weight:900;
 
     transition:.25s;
-
 }
 
 .app-btn:hover{
+    transform:translateY(-2px);
 
-    transform:
-    translateY(-2px);
-
-    filter:brightness(1.12);
-
+    filter:brightness(1.1);
 }
 
 .blue-btn{
-
     background:
     linear-gradient(
         135deg,
-        #009eff,
-        #0068ec
+        #087ff5,
+        #006fe6
     );
-
 }
 
 .red-btn{
-    background:
-    linear-gradient(
-        135deg,
-        #ff3449,
-        #cf1029
-    );
+    background:#ef3041;
 }
 
 .green-btn{
-
-    background:
-    linear-gradient(
-        135deg,
-        #00c875,
-        #009c58
-    );
-
+    background:#00b956;
 }
 
 .orange-btn{
-
     background:
     linear-gradient(
-        135deg,
-        #ff9a22,
-        #f23b46
+        90deg,
+        #ff8a00,
+        #ff3040
     );
-
 }
 
 .purple-btn{
-
     background:
     linear-gradient(
-        135deg,
-        #753aff,
-        #dc2bca
+        90deg,
+        #7b2cff,
+        #ff2390
     );
+}
 
+
+/* =====================================================
+   NO RESULTS
+===================================================== */
+
+.no-results{
+    display:none;
+
+    width:92%;
+    max-width:650px;
+
+    margin:20px auto 70px;
+
+    padding:25px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:rgba(8,22,36,.65);
+
+    color:var(--muted);
+}
+
+.no-results.show{
+    display:block;
+}
+
+.no-results strong{
+    display:block;
+
+    color:#fff;
+
+    font-size:17px;
+
+    margin-bottom:5px;
 }
 
 
@@ -1389,157 +1186,163 @@ section.app-section{
 ===================================================== */
 
 .features{
-
     width:92%;
-
     max-width:1100px;
 
-    margin:
-    0 auto 80px;
+    margin:0 auto 75px;
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap:15px;
-
+    gap:16px;
 }
 
 .feature{
-
-    padding:
-    27px 19px;
+    padding:26px 18px;
 
     text-align:center;
 
-    border:
-    1px solid var(--line);
+    border:1px solid var(--border);
 
-    border-radius:19px;
+    border-radius:18px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(10,28,45,.78),
-        rgba(4,13,23,.94)
+        rgba(7,25,41,.75),
+        rgba(3,14,24,.90)
     );
 
     transition:.3s;
-
 }
 
 .feature:hover{
-
-    transform:
-    translateY(-6px);
+    transform:translateY(-5px);
 
     border-color:
-    rgba(0,190,255,.45);
-
+    rgba(40,180,255,.55);
 }
 
 .feature-icon{
-
-    width:55px;
-    height:55px;
+    width:54px;
+    height:54px;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    margin:
-    0 auto 14px;
+    margin:0 auto 14px;
 
-    border:
-    1px solid
-    rgba(0,180,255,.18);
+    border-radius:15px;
 
-    border-radius:16px;
+    background:rgba(0,157,255,.08);
 
-    background:
-    rgba(0,180,255,.07);
+    border:1px solid rgba(0,157,255,.18);
 
-    font-size:26px;
-
+    font-size:25px;
 }
 
 .feature h3{
-
-    color:#fff;
-
-    font-size:15px;
+    font-size:16px;
 
     margin-bottom:7px;
-
 }
 
 .feature p{
+    color:var(--muted);
 
-    color:#71899b;
+    font-size:11px;
 
-    font-size:10px;
-
-    line-height:1.7;
-
+    line-height:1.65;
 }
 
 
 /* =====================================================
-   INFO SECTIONS
+   INFO BOX
 ===================================================== */
 
 .info-box{
-
     width:92%;
-
     max-width:1100px;
 
-    margin:
-    0 auto 18px;
+    margin:0 auto 18px;
 
-    padding:
-    35px 25px;
+    padding:30px 20px;
 
     text-align:center;
 
-    border:
-    1px solid var(--line);
+    border:1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:18px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(8,25,41,.75),
-        rgba(3,13,23,.92)
+        rgba(7,25,41,.72),
+        rgba(3,14,24,.88)
     );
-
 }
 
 .info-box h2{
-
-    color:#fff;
-
     font-size:24px;
 
     margin-bottom:10px;
-
 }
 
 .info-box p{
-
-    max-width:800px;
+    max-width:820px;
 
     margin:auto;
 
-    color:#758da0;
+    color:var(--muted);
 
-    font-size:11px;
+    font-size:12px;
 
     line-height:1.8;
+}
 
+
+/* =====================================================
+   CONTACT BUTTON
+===================================================== */
+
+.email-button{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-top:18px;
+
+    padding:12px 22px;
+
+    border-radius:11px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    background:
+    linear-gradient(
+        135deg,
+        #009fff,
+        #0068ef
+    );
+
+    box-shadow:
+    0 10px 25px rgba(0,140,255,.20);
+
+    transition:.25s;
+}
+
+.email-button:hover{
+    transform:translateY(-3px);
 }
 
 
@@ -1548,38 +1351,31 @@ section.app-section{
 ===================================================== */
 
 footer{
+    margin-top:60px;
 
-    margin-top:75px;
-
-    padding:
-    38px 20px;
+    padding:38px 20px;
 
     text-align:center;
 
-    border-top:
-    1px solid var(--line);
+    border-top:1px solid var(--border);
 
-    background:
-    rgba(2,7,13,.94);
+    background:rgba(1,6,12,.95);
 
-    color:#61798b;
+    color:#6f8799;
 
-    font-size:10px;
+    font-size:11px;
 
-    line-height:1.9;
-
+    line-height:1.8;
 }
 
 .footer-brand{
+    font-size:19px;
+
+    font-weight:900;
 
     color:#fff;
 
-    font-size:20px;
-
-    font-weight:1000;
-
     margin-bottom:5px;
-
 }
 
 .footer-brand strong{
@@ -1587,105 +1383,67 @@ footer{
 }
 
 .back-top{
-
-    display:inline-block;
+    display:inline-flex;
 
     margin-top:12px;
 
-    padding:
-    7px 13px;
+    padding:8px 13px;
 
-    border:
-    1px solid var(--line);
+    border:1px solid var(--border);
 
     border-radius:8px;
 
-    color:#8ba3b4;
+    color:#a7bdcc;
 
     text-decoration:none;
-
 }
 
 
 /* =====================================================
-   UPDATE POPUP
+   UPDATE NOTIFICATION
 ===================================================== */
 
 .update-notification{
-
     position:fixed;
 
-    right:18px;
-
-    bottom:18px;
+    right:20px;
+    bottom:20px;
 
     z-index:99999;
 
     width:330px;
 
-    max-width:
-    calc(100% - 30px);
+    max-width:calc(100% - 30px);
+
+    padding:15px 16px;
 
     display:flex;
 
     align-items:center;
 
-    gap:11px;
+    gap:12px;
 
-    padding:
-    14px;
+    border:1px solid rgba(0,190,255,.40);
 
-    border:
-    1px solid
-    rgba(0,190,255,.35);
-
-    border-radius:17px;
+    border-radius:16px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(8,29,47,.97),
+        rgba(8,27,45,.97),
         rgba(3,12,23,.98)
     );
 
     box-shadow:
-    0 20px 60px
-    rgba(0,0,0,.55),
-    0 0 35px
-    rgba(0,180,255,.10);
+    0 15px 45px rgba(0,0,0,.50),
+    0 0 25px rgba(0,170,255,.12);
 
-    backdrop-filter:
-    blur(20px);
-
-    animation:
-    popupIn .65s ease both;
-
-}
-
-@keyframes popupIn{
-
-    from{
-        opacity:0;
-
-        transform:
-        translateY(50px)
-        scale(.90);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-    }
-
+    backdrop-filter:blur(18px);
 }
 
 .update-icon{
-
-    width:44px;
-    height:44px;
+    width:43px;
+    height:43px;
 
     flex-shrink:0;
 
@@ -1699,91 +1457,87 @@ footer{
     background:
     linear-gradient(
         135deg,
-        #00b7ff,
-        #0068ee
+        #009fff,
+        #0065e8
     );
 
     font-size:21px;
-
 }
 
 .update-content{
     flex:1;
+    min-width:0;
 }
 
 .update-label{
+    color:#51d7ff;
 
-    color:#55dcff;
-
-    font-size:7px;
-
-    font-weight:1000;
-
-    letter-spacing:2px;
-
-}
-
-.update-title{
-
-    color:#fff;
-
-    font-size:13px;
+    font-size:8px;
 
     font-weight:900;
 
-    margin-top:3px;
+    letter-spacing:1.8px;
 
+    margin-bottom:4px;
+}
+
+.update-title{
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    margin-bottom:4px;
 }
 
 .update-text{
+    color:#8fa9bb;
 
-    color:#7f9aac;
-
-    font-size:9px;
+    font-size:10px;
 
     line-height:1.5;
-
-    margin-top:3px;
-
 }
 
 .update-link{
+    display:inline-flex;
 
-    display:inline-block;
+    margin-top:7px;
 
-    margin-top:5px;
+    color:#6bdcff;
 
-    color:#5fdcff;
-
-    font-size:9px;
+    font-size:10px;
 
     font-weight:900;
 
     text-decoration:none;
-
 }
 
 .update-close{
-
     position:absolute;
 
-    top:6px;
-    right:7px;
+    right:8px;
+    top:7px;
 
-    width:22px;
-    height:22px;
+    width:23px;
+    height:23px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     border:0;
 
     border-radius:50%;
 
-    color:#8198a8;
+    background:rgba(255,255,255,.06);
 
-    background:
-    rgba(255,255,255,.06);
+    color:#8ca4b5;
+
+    font-size:13px;
 
     cursor:pointer;
-
 }
 
 
@@ -1791,43 +1545,10 @@ footer{
    MOBILE
 ===================================================== */
 
-@media(max-width:900px){
-
-    .hero{
-
-        min-height:450px;
-
-        padding:
-        50px 35px;
-
-    }
-
-    .hero-visual{
-
-        right:-80px;
-
-        opacity:.35;
-
-    }
-
-    .apps{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-    }
-
-}
-
 @media(max-width:700px){
 
     header{
-
-        height:65px;
-
-        padding:
-        0 4%;
-
+        padding:0 4%;
     }
 
     .menu-btn{
@@ -1835,34 +1556,26 @@ footer{
     }
 
     nav{
-
         display:none;
 
         position:absolute;
 
+        top:67px;
+
         left:4%;
         right:4%;
-
-        top:64px;
-
-        padding:7px;
 
         flex-direction:column;
 
         align-items:stretch;
 
-        border:
-        1px solid var(--line);
+        padding:7px;
 
-        border-radius:15px;
+        border:1px solid var(--border);
 
-        background:
-        rgba(3,10,19,.98);
+        border-radius:14px;
 
-        box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.45);
-
+        background:rgba(2,9,18,.98);
     }
 
     nav.open{
@@ -1871,192 +1584,78 @@ footer{
 
     nav a{
         text-align:center;
+
         padding:12px;
     }
 
     .hero{
-
-        width:94%;
-
-        margin-top:25px;
-
-        min-height:520px;
-
-        padding:
-        45px 22px;
-
-        border-radius:25px;
-
-    }
-
-    .hero h1{
-
-        font-size:43px;
-
-        letter-spacing:-2.5px;
-
-    }
-
-    .hero-description{
-
-        font-size:12px;
-
-    }
-
-    .hero-visual{
-
-        width:300px;
-        height:300px;
-
-        right:-90px;
-
-        bottom:-40px;
-
-        top:auto;
-
-        transform:none;
-
-        opacity:.25;
-
-    }
-
-    .hero-logo{
-
-        width:125px;
-        height:125px;
-
-    }
-
-    .orbit{
-
-        width:260px;
-        height:260px;
-
-    }
-
-    .orbit2{
-
-        width:205px;
-        height:205px;
-
-    }
-
-    .stats{
-
-        width:100%;
-
-        margin-top:25px;
-
-    }
-
-    .stat strong{
-        font-size:17px;
+        margin-top:50px;
     }
 
     .apps{
-
         width:94%;
 
         grid-template-columns:1fr;
 
         gap:14px;
-
     }
 
     .app-image{
-
-        height:210px;
-
+        height:200px;
     }
 
     .features{
-
         width:94%;
 
         grid-template-columns:1fr;
-
     }
 
-    .section-head{
-
+    .stats{
         width:94%;
-
-    }
-
-    .info-box{
-
-        width:94%;
-
     }
 
     .update-notification{
-
-        width:
-        calc(100% - 24px);
-
         right:12px;
-
         bottom:12px;
 
+        width:calc(100% - 24px);
+
+        border-radius:14px;
     }
 
 }
 
-@media(max-width:400px){
-
-    .logo{
-
-        font-size:18px;
-
-    }
-
-    .logo-mark{
-
-        width:34px;
-        height:34px;
-
-    }
+@media(max-width:430px){
 
     .hero h1{
-
         font-size:37px;
+    }
 
+    .hero-description{
+        font-size:13px;
     }
 
     .hero-buttons{
-
         flex-direction:column;
 
+        align-items:center;
     }
 
     .hero-btn{
-
-        width:100%;
-
+        width:220px;
     }
 
-    .stats{
-
-        gap:6px;
-
+    .phone{
+        width:225px;
+        height:420px;
     }
 
-    .stat{
-
-        padding:11px 5px;
-
+    .app-image{
+        height:185px;
     }
 
-    .stat strong{
-
+    .app-content h3{
         font-size:15px;
-
-    }
-
-    .stat span{
-
-        font-size:7px;
-
     }
 
 }
@@ -2068,9 +1667,7 @@ footer{
     *::after{
 
         animation:none !important;
-
         transition:none !important;
-
     }
 
 }
@@ -2084,31 +1681,27 @@ footer{
 
 
 <!-- =====================================================
-HEADER
+     HEADER
 ===================================================== -->
 
 <header>
 
-<a
-href="./"
-class="logo">
+<a href="./" class="logo">
 
-<span class="logo-mark">
-▲
-</span>
+<span class="logo-mark">▲</span>
 
 ASIM
 
-<span class="logo-blue">
-TECH
-</span>
+<span class="logo-blue">TECH</span>
 
 </a>
 
 
 <button
 class="menu-btn"
-id="menuBtn">
+id="menuBtn"
+aria-expanded="false"
+aria-label="Open menu">
 
 ☰
 
@@ -2117,29 +1710,17 @@ id="menuBtn">
 
 <nav id="mainNav">
 
-<a href="./">
-Home
-</a>
+<a href="./">Home</a>
 
-<a href="#apps">
-Apps
-</a>
+<a href="#apps">Apps</a>
 
-<a href="#features">
-Tools
-</a>
+<a href="#features">Tools</a>
 
-<a href="#updates">
-Updates
-</a>
+<a href="#updates">Updates</a>
 
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
@@ -2147,18 +1728,16 @@ Contact
 
 
 <!-- =====================================================
-HERO
+     HERO
 ===================================================== -->
 
 <section class="hero">
 
-<div class="hero-content">
-
-<div class="hero-badge">
+<div class="badge">
 
 <span class="badge-dot"></span>
 
-ASIM TECH • DIGITAL STUDIO
+WELCOME TO ASIM TECH
 
 </div>
 
@@ -2177,8 +1756,8 @@ Useful Apps.
 <p class="hero-description">
 
 Explore useful Android applications,
-web applications and practical digital
-tools created by Asim Tech for everyday life.
+web tools, multimedia utilities and
+digital solutions created by Asim Tech.
 
 </p>
 
@@ -2198,7 +1777,7 @@ class="hero-btn primary-btn">
 href="#about"
 class="hero-btn secondary-btn">
 
-✦ Discover Asim Tech
+✦ About Asim Tech
 
 </a>
 
@@ -2209,58 +1788,29 @@ class="hero-btn secondary-btn">
 
 <div class="stat">
 
-<strong>
-12+
-</strong>
+<strong>12+</strong>
 
-<span>
-Apps & Tools
-</span>
+<span>Apps & Tools</span>
 
 </div>
 
 
 <div class="stat">
 
-<strong>
-Web
-</strong>
+<strong>Web</strong>
 
-<span>
-Browser Apps
-</span>
+<span>Browser Tools</span>
 
 </div>
 
 
 <div class="stat">
 
-<strong>
-Android
-</strong>
+<strong>Android</strong>
 
-<span>
-Mobile Apps
-</span>
+<span>Applications</span>
 
 </div>
-
-</div>
-
-</div>
-
-
-<div class="hero-visual">
-
-<div class="orbit"></div>
-
-<div class="orbit orbit2"></div>
-
-<img
-src="images/12-multimedia.png"
-class="hero-logo"
-alt="Asim Tech"
-onerror="this.style.display='none';">
 
 </div>
 
@@ -2268,18 +1818,96 @@ onerror="this.style.display='none';">
 
 
 <!-- =====================================================
-APPLICATIONS
+     PHONE PREVIEW
 ===================================================== -->
 
-<section
-id="apps"
-class="app-section">
+<div class="hero-phone-area">
+
+<div class="phone">
+
+<div class="phone-camera"></div>
+
+
+<div class="phone-screen">
+
+<div class="phone-brand">
+
+▲ ASIM <span>TECH</span>
+
+</div>
+
+
+<h2>Hello 👋</h2>
+
+
+<p>
+
+Building useful digital experiences for
+
+<br>
+
+<strong>everyday life</strong>
+
+</p>
+
+
+<div class="phone-grid">
+
+<div class="phone-box">
+
+<span>📻</span>
+
+Radio
+
+</div>
+
+
+<div class="phone-box">
+
+<span>🎵</span>
+
+Music
+
+</div>
+
+
+<div class="phone-box">
+
+<span>🛠️</span>
+
+Tools
+
+</div>
+
+
+<div class="phone-box">
+
+<span>📱</span>
+
+Apps
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     APPS
+===================================================== -->
+
+<section id="apps">
 
 
 <div class="section-head">
 
 <div class="section-label">
-APPLICATION HUB
+MY APPLICATIONS
 </div>
 
 
@@ -2289,8 +1917,7 @@ Explore Asim Tech
 
 
 <p>
-Find web apps, Android apps, music applications
-and useful tools in one place.
+Search and filter applications to quickly find what you need.
 </p>
 
 </div>
@@ -2298,18 +1925,15 @@ and useful tools in one place.
 
 <div class="app-tools">
 
-
 <div class="search-box">
 
 <input
 type="search"
 id="appSearch"
-placeholder="Search apps, tools, music..."
+placeholder="🔎 Search apps and tools..."
 autocomplete="off">
 
-<span class="search-icon">
-⌕
-</span>
+<span class="search-icon">⌕</span>
 
 </div>
 
@@ -2319,31 +1943,45 @@ autocomplete="off">
 <button
 class="filter-btn active"
 data-filter="all">
+
 All
+
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="web">
+
 🌐 Web Apps
+
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="android">
+
 📱 Android
+
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="music">
+
 🎵 Music
+
 </button>
+
 
 <button
 class="filter-btn"
 data-filter="tools">
+
 🛠️ Tools
+
 </button>
 
 </div>
@@ -2366,14 +2004,13 @@ id="appsGrid">
 
 
 <!-- =====================================================
-01 BARCODE
+     01 BARCODE
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card barcode"
 data-category="web tools"
 data-name="Asim Barcode QR Scanner">
-
 
 <div class="app-image">
 
@@ -2385,7 +2022,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 ▥
+
 </div>
 
 </div>
@@ -2430,14 +2069,13 @@ class="app-btn blue-btn">
 
 
 <!-- =====================================================
-02 OFFICE
+     02 OFFICE
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card office"
 data-category="web tools"
 data-name="Asim Office Suite V5">
-
 
 <div class="app-image">
 
@@ -2449,7 +2087,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📄
+
 </div>
 
 </div>
@@ -2494,14 +2134,13 @@ class="app-btn blue-btn">
 
 
 <!-- =====================================================
-03 PDF
+     03 PDF
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card pdf"
 data-category="web tools"
 data-name="Asim PDF Tools">
-
 
 <div class="app-image">
 
@@ -2513,7 +2152,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📕
+
 </div>
 
 </div>
@@ -2558,14 +2199,13 @@ class="app-btn red-btn">
 
 
 <!-- =====================================================
-04 PHOTO
+     04 PHOTO
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card photo"
 data-category="web tools"
 data-name="Asim Tech Photo Resizer">
-
 
 <div class="app-image">
 
@@ -2577,7 +2217,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📸
+
 </div>
 
 </div>
@@ -2622,14 +2264,13 @@ class="app-btn purple-btn">
 
 
 <!-- =====================================================
-05 SIGNATURE
+     05 SIGNATURE
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card signature"
 data-category="web tools"
 data-name="Asim Tech Signature Maker">
-
 
 <div class="app-image">
 
@@ -2641,7 +2282,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 ✍️
+
 </div>
 
 </div>
@@ -2686,14 +2329,13 @@ class="app-btn purple-btn">
 
 
 <!-- =====================================================
-06 ID PHOTO
+     06 ID PHOTO
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card idphoto"
 data-category="web tools"
 data-name="Asim ID Photo Maker">
-
 
 <div class="app-image">
 
@@ -2705,7 +2347,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🪪
+
 </div>
 
 </div>
@@ -2750,14 +2394,13 @@ class="app-btn blue-btn">
 
 
 <!-- =====================================================
-07 DEVOTIONAL
+     07 DEVOTIONAL
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card devotional"
 data-category="android music"
 data-name="Devotional Radio">
-
 
 <div class="app-image">
 
@@ -2769,7 +2412,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 📻
+
 </div>
 
 </div>
@@ -2805,7 +2450,7 @@ href="Devotional_Radio_com_asim75772_devotionalradio_PlayStore.apk"
 download
 class="app-btn green-btn">
 
-↓ Download APK
+⬇ Download APK
 
 </a>
 
@@ -2815,14 +2460,13 @@ class="app-btn green-btn">
 
 
 <!-- =====================================================
-08 OLD IS GOLD
+     08 OLD IS GOLD
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card oldies"
 data-category="android music"
 data-name="80s 90s Old Is Gold">
-
 
 <div class="app-image">
 
@@ -2834,7 +2478,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🎵
+
 </div>
 
 </div>
@@ -2870,7 +2516,7 @@ href="80s___90s_Old_Is_Gold_com_oldisgold_radio_PlayStore%20%281%29.apk"
 download
 class="app-btn green-btn">
 
-↓ Download APK
+⬇ Download APK
 
 </a>
 
@@ -2880,14 +2526,13 @@ class="app-btn green-btn">
 
 
 <!-- =====================================================
-09 MADHU
+     09 MADHU
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card madhu"
 data-category="android music"
 data-name="Madhu Music World">
-
 
 <div class="app-image">
 
@@ -2899,7 +2544,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🎙️
+
 </div>
 
 </div>
@@ -2935,7 +2582,7 @@ href="Madhu_Music_World_com_asimtech_madhumusicworld_PlayStore.apk"
 download
 class="app-btn orange-btn">
 
-↓ Download APK
+⬇ Download APK
 
 </a>
 
@@ -2945,14 +2592,13 @@ class="app-btn orange-btn">
 
 
 <!-- =====================================================
-10 SANGIT
+     10 SANGIT
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card sangit"
 data-category="android music"
 data-name="Sangit">
-
 
 <div class="app-image">
 
@@ -2964,7 +2610,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🎧
+
 </div>
 
 </div>
@@ -3000,7 +2648,7 @@ href="Sangit.apk"
 download
 class="app-btn green-btn">
 
-↓ Download APK
+⬇ Download APK
 
 </a>
 
@@ -3010,26 +2658,15 @@ class="app-btn green-btn">
 
 
 <!-- =====================================================
-11 BANGLA BANNER
+     11 BANGLA BANNER
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card banner"
 data-category="web tools"
 data-name="Asim Tech Bangla Banner Maker">
 
-
-<div
-class="app-image"
-style="
-background:
-linear-gradient(
-135deg,
-#511a86,
-#0069cc,
-#00a5ff
-);
-">
+<div class="app-image">
 
 <img
 src="images/11-bangla-banner-maker.png"
@@ -3038,12 +2675,7 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 
 <div
 class="fallback-icon"
-style="
-display:none;
-font-family:serif;
-font-size:29px;
-font-weight:700;
-">
+style="display:none;font-family:serif;font-size:30px;font-weight:700;">
 
 বাংলা
 
@@ -3091,17 +2723,15 @@ class="app-btn purple-btn">
 
 
 <!-- =====================================================
-12 MULTIMEDIA
+     12 MULTIMEDIA
 ===================================================== -->
 
 <article
-class="app-card"
+class="app-card multimedia"
 data-category="web tools"
 data-name="Asim Multimedia Studio">
 
-
-<div
-class="app-image">
+<div class="app-image">
 
 <img
 src="images/12-multimedia.png"
@@ -3111,7 +2741,9 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div
 class="fallback-icon"
 style="display:none">
+
 🎬
+
 </div>
 
 </div>
@@ -3133,12 +2765,12 @@ WEB APP
 
 
 <p>
-Audio, video, photo, music, camera and recording tools.
+Audio, video, photo, voice recorder, camera and screen recorder.
 </p>
 
 
 <div class="tags">
-Audio • Video • Photo • Music • Recorder
+Audio • Video • Photo • Recorder
 </div>
 
 
@@ -3160,42 +2792,19 @@ class="app-btn purple-btn">
 
 <div
 class="no-results"
-id="noResults"
-style="
-display:none;
-width:92%;
-max-width:600px;
-margin:20px auto 70px;
-padding:25px;
-text-align:center;
-border:1px solid var(--line);
-border-radius:16px;
-background:rgba(8,22,36,.7);
-color:var(--muted);
-">
+id="noResults">
 
-<strong
-style="
-display:block;
-color:#fff;
-font-size:17px;
-margin-bottom:5px;
-">
-
-No app found
-
-</strong>
+<strong>No app found</strong>
 
 Try another search term or category.
 
 </div>
 
-
 </section>
 
 
 <!-- =====================================================
-WHY ASIM TECH
+     FEATURES
 ===================================================== -->
 
 <section id="features">
@@ -3211,7 +2820,7 @@ Built For Everyday Use
 </h2>
 
 <p>
-Simple ideas transformed into practical digital experiences.
+Simple ideas, useful tools and practical applications.
 </p>
 
 </div>
@@ -3230,7 +2839,7 @@ Fast & Simple
 </h3>
 
 <p>
-Clean and straightforward applications designed for everyday use.
+Clean and straightforward applications designed to be easy to use.
 </p>
 
 </div>
@@ -3247,7 +2856,7 @@ Privacy Minded
 </h3>
 
 <p>
-Tools are designed with sensible privacy and local processing in mind.
+Applications are designed with sensible privacy in mind.
 </p>
 
 </div>
@@ -3275,7 +2884,7 @@ Responsive experiences designed for phones, tablets and computers.
 
 
 <!-- =====================================================
-UPDATES
+     UPDATES
 ===================================================== -->
 
 <section
@@ -3287,16 +2896,15 @@ class="info-box">
 </h2>
 
 <p>
-New applications, improvements and useful digital tools
-are being added to Asim Tech regularly. Keep checking
-the Application Hub for new releases.
+New applications and useful digital tools are being added
+to Asim Tech regularly. Check back for new releases and improvements.
 </p>
 
 </section>
 
 
 <!-- =====================================================
-ABOUT
+     ABOUT
 ===================================================== -->
 
 <section
@@ -3309,15 +2917,15 @@ class="info-box">
 
 <p>
 Welcome to Asim Tech. I create useful Android applications,
-web applications and digital tools designed to make everyday
-tasks simpler, faster and more enjoyable.
+web applications, multimedia tools and digital solutions
+designed to make everyday tasks simpler and easier.
 </p>
 
 </section>
 
 
 <!-- =====================================================
-CONTACT
+     CONTACT
 ===================================================== -->
 
 <section
@@ -3325,19 +2933,35 @@ id="contact"
 class="info-box">
 
 <h2>
-📩 Contact Asim Tech
+📧 Contact Asim Tech
 </h2>
 
 <p>
-For application information, support, suggestions and
-other enquiries, please contact Asim Tech.
+For application information, support, feedback and other enquiries,
+please contact Asim Tech by email.
+</p>
+
+
+<a
+href="mailto:asimkanjilal@gmail.com"
+class="email-button">
+
+✉️ Email Asim Tech
+
+</a>
+
+
+<p style="margin-top:12px;color:#6f8799;">
+
+asimkanjilal@gmail.com
+
 </p>
 
 </section>
 
 
 <!-- =====================================================
-FOOTER
+     FOOTER
 ===================================================== -->
 
 <footer>
@@ -3368,7 +2992,7 @@ class="back-top">
 
 
 <!-- =====================================================
-UPDATE NOTIFICATION
+     UPDATE NOTIFICATION
 ===================================================== -->
 
 <div
@@ -3378,6 +3002,7 @@ id="updateNotification">
 <div class="update-icon">
 🔔
 </div>
+
 
 <div class="update-content">
 
@@ -3390,7 +3015,7 @@ Asim Tech Updated
 </div>
 
 <div class="update-text">
-নতুন interface ও improved experience এখন available।
+নতুন App ও উন্নত features এখন available।
 </div>
 
 <a
@@ -3404,9 +3029,11 @@ View Updates →
 
 </div>
 
+
 <button
 class="update-close"
-id="updateClose">
+id="updateClose"
+aria-label="Close notification">
 
 ✕
 
@@ -3415,372 +3042,457 @@ id="updateClose">
 </div>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
+(function(){
+
+"use strict";
+
+
 /* =====================================================
-MOBILE MENU
+   MOBILE MENU
 ===================================================== */
 
-const menuBtn=
+const menuBtn =
 document.getElementById("menuBtn");
 
-const mainNav=
+const nav =
 document.getElementById("mainNav");
 
 
-menuBtn.addEventListener(
-"click",
-function(){
+if(menuBtn && nav){
 
-const open=
-mainNav.classList.toggle("open");
+    menuBtn.addEventListener(
+        "click",
+        function(){
 
-menuBtn.textContent=
-open ? "✕" : "☰";
+            const open =
+            nav.classList.toggle("open");
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                String(open)
+            );
+
+            menuBtn.setAttribute(
+                "aria-label",
+                open
+                ? "Close menu"
+                : "Open menu"
+            );
+
+            menuBtn.textContent =
+            open ? "✕" : "☰";
+
+        }
+    );
+
+
+    nav.querySelectorAll("a")
+    .forEach(function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                nav.classList.remove("open");
+
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuBtn.setAttribute(
+                    "aria-label",
+                    "Open menu"
+                );
+
+                menuBtn.textContent="☰";
+
+            }
+        );
+
+    });
 
 }
-);
-
-
-mainNav.querySelectorAll("a")
-.forEach(
-link=>{
-
-link.addEventListener(
-"click",
-function(){
-
-mainNav.classList.remove("open");
-
-menuBtn.textContent="☰";
-
-}
-);
-
-});
 
 
 /* =====================================================
-SEARCH
+   SEARCH + FILTER
 ===================================================== */
 
-const searchInput=
-document.getElementById(
-"appSearch"
-);
+const searchInput =
+document.getElementById("appSearch");
 
-const filterButtons=
-document.querySelectorAll(
-".filter-btn"
-);
+const filterButtons =
+document.querySelectorAll(".filter-btn");
 
-const cards=
-document.querySelectorAll(
-".app-card"
-);
+const appCards =
+document.querySelectorAll(".app-card");
 
-const searchStatus=
-document.getElementById(
-"searchStatus"
-);
+const status =
+document.getElementById("searchStatus");
 
-const noResults=
-document.getElementById(
-"noResults"
-);
+const noResults =
+document.getElementById("noResults");
 
-let activeFilter="all";
+
+let currentFilter = "all";
 
 
 function filterApps(){
 
-const term=
-searchInput.value
-.trim()
-.toLowerCase();
+    const searchTerm =
+    searchInput
+    ? searchInput.value.trim().toLowerCase()
+    : "";
 
-let count=0;
-
-
-cards.forEach(
-card=>{
-
-const name=
-(
-card.dataset.name||""
-).toLowerCase();
-
-const category=
-(
-card.dataset.category||""
-).toLowerCase();
-
-const text=
-(
-card.innerText||""
-).toLowerCase();
+    let visible = 0;
 
 
-const matchesSearch=
-!term ||
-name.includes(term) ||
-category.includes(term) ||
-text.includes(term);
+    appCards.forEach(function(card){
+
+        const name =
+        (
+            card.dataset.name || ""
+        ).toLowerCase();
 
 
-const matchesFilter=
-activeFilter==="all" ||
-category.includes(
-activeFilter
-);
+        const category =
+        (
+            card.dataset.category || ""
+        ).toLowerCase();
 
 
-if(
-matchesSearch &&
-matchesFilter
-){
-
-card.classList.remove(
-"hidden"
-);
-
-count++;
-
-}
-else{
-
-card.classList.add(
-"hidden"
-);
-
-}
-
-});
+        const text =
+        (
+            card.innerText || ""
+        ).toLowerCase();
 
 
-searchStatus.textContent=
-term
-? "Found "+
-count+
-" application"+
-(count===1?"":"s")
-: "Showing "+
-count+
-" applications";
+        const searchMatch =
+        searchTerm === "" ||
+        name.includes(searchTerm) ||
+        category.includes(searchTerm) ||
+        text.includes(searchTerm);
 
 
-noResults.style.display=
-count===0
-? "block"
-: "none";
-
-}
+        const filterMatch =
+        currentFilter === "all" ||
+        category.includes(currentFilter);
 
 
-searchInput.addEventListener(
-"input",
-filterApps
-);
+        if(searchMatch && filterMatch){
+
+            card.classList.remove("hidden");
+
+            visible++;
+
+        }else{
+
+            card.classList.add("hidden");
+
+        }
+
+    });
 
 
-filterButtons.forEach(
-button=>{
+    if(noResults){
 
-button.addEventListener(
-"click",
-function(){
+        noResults.classList.toggle(
+            "show",
+            visible === 0
+        );
 
-filterButtons.forEach(
-btn=>
-btn.classList.remove(
-"active"
-)
-);
+    }
 
-this.classList.add("active");
 
-activeFilter=
-this.dataset.filter;
+    if(status){
 
-filterApps();
+        if(searchTerm){
+
+            status.textContent =
+            "Found " +
+            visible +
+            " application" +
+            (visible === 1 ? "" : "s");
+
+        }else if(currentFilter === "all"){
+
+            status.textContent =
+            "Showing " +
+            visible +
+            " applications";
+
+        }else{
+
+            status.textContent =
+            "Showing " +
+            visible +
+            " matching applications";
+
+        }
+
+    }
 
 }
-);
+
+
+/* SEARCH */
+
+if(searchInput){
+
+    searchInput.addEventListener(
+        "input",
+        filterApps
+    );
+
+}
+
+
+/* FILTERS */
+
+filterButtons.forEach(function(button){
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            filterButtons.forEach(
+                function(btn){
+
+                    btn.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            button.classList.add("active");
+
+
+            currentFilter =
+            button.dataset.filter || "all";
+
+
+            filterApps();
+
+        }
+    );
 
 });
 
 
 /* =====================================================
-SEARCH SHORTCUT
+   "/" SEARCH SHORTCUT
 ===================================================== */
 
 document.addEventListener(
-"keydown",
-function(event){
+    "keydown",
+    function(event){
 
-if(
-event.key==="/" &&
-document.activeElement!==searchInput
-){
+        if(
+            event.key === "/" &&
+            document.activeElement !== searchInput
+        ){
 
-event.preventDefault();
+            event.preventDefault();
 
-searchInput.focus();
+            if(searchInput){
 
-}
+                searchInput.focus();
 
-}
+            }
+
+        }
+
+    }
 );
 
 
 /* =====================================================
-IMAGE FALLBACK
+   CLOSE MOBILE MENU OUTSIDE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(!nav || !menuBtn){
+
+            return;
+
+        }
+
+
+        if(
+            !nav.contains(event.target) &&
+            !menuBtn.contains(event.target)
+        ){
+
+            nav.classList.remove("open");
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuBtn.textContent="☰";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   IMAGE FALLBACK
 ===================================================== */
 
 document.querySelectorAll(
-".app-image img"
+    ".app-image img"
 )
-.forEach(
-img=>{
+.forEach(function(img){
 
-img.addEventListener(
-"error",
-function(){
+    img.addEventListener(
+        "error",
+        function(){
 
-this.style.display="none";
+            this.style.display="none";
 
-if(this.nextElementSibling){
+            const fallback =
+            this.nextElementSibling;
 
-this.nextElementSibling.style.display=
-"flex";
+            if(fallback){
 
-}
+                fallback.style.display="flex";
 
-}
-);
+            }
 
-});
-
-
-/* =====================================================
-CARD CLICK
-===================================================== */
-
-cards.forEach(
-card=>{
-
-card.addEventListener(
-"click",
-function(event){
-
-if(
-event.target.closest("a")
-){
-
-return;
-
-}
-
-const link=
-card.querySelector(
-".app-btn"
-);
-
-if(link){
-
-link.click();
-
-}
-
-}
-);
+        }
+    );
 
 });
 
 
 /* =====================================================
-UPDATE POPUP
+   CARD CLICK
 ===================================================== */
 
-const updateNotification=
+appCards.forEach(function(card){
+
+    card.addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target.closest("a")
+            ){
+
+                return;
+
+            }
+
+
+            const link =
+            card.querySelector(".app-btn");
+
+
+            if(link){
+
+                link.click();
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   UPDATE NOTIFICATION
+===================================================== */
+
+const updateNotification =
 document.getElementById(
-"updateNotification"
+    "updateNotification"
 );
 
-const updateClose=
+const updateClose =
 document.getElementById(
-"updateClose"
+    "updateClose"
 );
 
-const updateLink=
+const updateLink =
 document.getElementById(
-"updateLink"
+    "updateLink"
 );
 
 
-function closeUpdate(){
+function hideNotification(){
 
-updateNotification.style.opacity="0";
+    if(!updateNotification){
 
-updateNotification.style.transform=
-"translateY(25px) scale(.94)";
+        return;
 
-setTimeout(
-function(){
+    }
 
-updateNotification.style.display=
-"none";
+    updateNotification.style.opacity="0";
 
-},
-300
-);
+    updateNotification.style.transform=
+    "translateY(30px) scale(.92)";
+
+    updateNotification.style.transition=
+    "all .3s ease";
+
+
+    setTimeout(function(){
+
+        updateNotification.style.display =
+        "none";
+
+    },300);
 
 }
 
 
-updateClose.addEventListener(
-"click",
-closeUpdate
-);
+if(updateClose){
+
+    updateClose.addEventListener(
+        "click",
+        hideNotification
+    );
+
+}
 
 
-updateLink.addEventListener(
-"click",
-closeUpdate
-);
+if(updateLink){
+
+    updateLink.addEventListener(
+        "click",
+        hideNotification
+    );
+
+}
 
 
 /* =====================================================
-INITIAL
+   INITIAL LOAD
 ===================================================== */
 
 filterApps();
 
 
-/* =====================================================
-CLOSE MOBILE MENU OUTSIDE
-===================================================== */
-
-document.addEventListener(
-"click",
-function(event){
-
-if(
-!mainNav.contains(event.target) &&
-!menuBtn.contains(event.target)
-){
-
-mainNav.classList.remove(
-"open"
-);
-
-menuBtn.textContent="☰";
-
-}
-
-});
+})();
 
 </script>
+
 
 </body>
 </html>
