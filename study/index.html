@@ -3,670 +3,473 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#4f46e5">
+<meta name="theme-color" content="#2563eb">
 <title>ASIM TECH STUDY</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-
-:root{
---p:#4f46e5;
---p2:#7c3aed;
---green:#16a34a;
---red:#dc2626;
---dark:#111827;
---muted:#6b7280;
---bg:#f5f7ff;
---bd:#e5e7eb;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
 }
 
 body{
-background:var(--bg);
-color:#1f2937;
-line-height:1.6;
+  background:#f5f7ff;
+  color:#172033;
+  line-height:1.6;
 }
 
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-
 header{
-position:sticky;
-top:0;
-z-index:1000;
-background:#fff;
-border-bottom:1px solid var(--bd);
+  background:linear-gradient(135deg,#172554,#2563eb);
+  color:white;
+  padding:14px 5%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 5px 20px #0002;
 }
 
 .nav{
-max-width:1200px;
-margin:auto;
-min-height:70px;
-padding:8px 18px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.logo-area{
-display:flex;
-align-items:center;
-gap:10px;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-width:52px;
-height:52px;
-object-fit:contain;
-border-radius:50%;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:bold;
+  font-size:19px;
 }
 
-.logo-text{
-font-size:18px;
-font-weight:800;
-color:var(--p);
+.logo img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+  background:white;
 }
 
-.logo-text span{
-display:block;
-font-size:10px;
-color:var(--muted);
-letter-spacing:1px;
+.nav button{
+  background:#ffffff20;
+  color:white;
+  border:1px solid #ffffff40;
+  padding:9px 14px;
+  border-radius:10px;
+  cursor:pointer;
 }
-
-nav{
-display:flex;
-gap:18px;
-}
-
-nav a{
-text-decoration:none;
-color:#1f2937;
-font-size:14px;
-font-weight:bold;
-}
-
-nav a:hover{
-color:var(--p);
-}
-
-.menu{
-display:none;
-border:0;
-background:#eef2ff;
-padding:8px 12px;
-border-radius:10px;
-font-size:21px;
-}
-
-/* HERO */
 
 .hero{
-max-width:1200px;
-margin:20px auto;
-padding:48px 25px;
-border-radius:28px;
-color:#fff;
-background:linear-gradient(135deg,var(--p),var(--p2));
+  max-width:1200px;
+  margin:25px auto;
+  padding:35px 25px;
+  border-radius:25px;
+  color:white;
+  background:
+  linear-gradient(135deg,#1e3a8a,#2563eb,#7c3aed);
+  box-shadow:0 15px 40px #1e3a8a30;
 }
 
 .hero h1{
-font-size:clamp(35px,6vw,58px);
-line-height:1.1;
-margin:12px 0;
+  font-size:38px;
+  margin-bottom:8px;
 }
 
 .hero p{
-max-width:700px;
-font-size:17px;
+  opacity:.9;
 }
-
-.badge{
-display:inline-block;
-background:#ffffff22;
-padding:7px 14px;
-border-radius:30px;
-}
-
-.hero-buttons{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:22px;
-}
-
-.btn{
-padding:12px 20px;
-border-radius:12px;
-border:0;
-font-weight:bold;
-text-decoration:none;
-display:inline-block;
-}
-
-.white{
-background:#fff;
-color:var(--p);
-}
-
-.dark{
-background:#0003;
-color:#fff;
-}
-
-/* GENERAL */
 
 .container{
-max-width:1200px;
-margin:auto;
-padding:0 18px 40px;
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px 50px;
 }
 
-.section{
-margin-top:32px;
+.controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin:20px 0;
 }
 
-.title{
-text-align:center;
-margin-bottom:18px;
+select,input,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #d9def0;
+  border-radius:12px;
+  outline:none;
+  background:white;
+  font-size:15px;
 }
 
-.title h2{
-font-size:29px;
+select:focus,input:focus,textarea:focus{
+  border-color:#2563eb;
 }
 
-.title p{
-color:var(--muted);
+.section-title{
+  margin:25px 0 15px;
+  font-size:23px;
 }
 
-.card{
-background:#fff;
-border:1px solid var(--bd);
-border-radius:20px;
-padding:20px;
-box-shadow:0 8px 25px #00000008;
-}
-
-/* CLASS */
-
-.class-buttons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:9px;
-}
-
-.class-btn{
-border:1px solid #c7d2fe;
-background:#f8f9ff;
-color:var(--p);
-padding:10px 17px;
-border-radius:11px;
-font-weight:bold;
-}
-
-.class-btn.active,
-.class-btn:hover{
-background:var(--p);
-color:#fff;
-}
-
-/* SUBJECT */
-
-.search input{
-width:100%;
-border:1px solid var(--bd);
-padding:14px;
-border-radius:13px;
-outline:none;
-margin-bottom:15px;
-}
-
-.subject-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+.subjects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;
 }
 
 .subject{
-background:#fff;
-padding:20px;
-border:2px solid transparent;
-border-radius:18px;
-cursor:pointer;
-}
-
-.subject.active{
-border-color:var(--p);
-background:#f8f9ff;
+  background:white;
+  border:2px solid transparent;
+  border-radius:18px;
+  padding:20px 12px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 5px 20px #17255410;
+  transition:.2s;
 }
 
 .subject:hover{
-transform:translateY(-2px);
+  transform:translateY(-3px);
 }
 
-.icon{
-font-size:34px;
-margin-bottom:8px;
+.subject.active{
+  border-color:#2563eb;
+  background:#eff6ff;
 }
 
-.subject p{
-color:var(--muted);
-font-size:13px;
+.subject .icon{
+  font-size:32px;
+  margin-bottom:5px;
 }
 
-/* CHAPTER */
-
-.chapter-head{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
-}
-
-.chapter-list{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin-top:15px;
+.chapter-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:15px;
 }
 
 .chapter{
-padding:14px;
-border:1px solid var(--bd);
-background:#f8f9ff;
-border-radius:12px;
-cursor:pointer;
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 5px 20px #17255410;
+  cursor:pointer;
+  border-left:5px solid #2563eb;
+  transition:.2s;
 }
 
-.chapter.active,
 .chapter:hover{
-background:#eef2ff;
-color:var(--p);
-border-color:#c7d2fe;
+  transform:translateY(-3px);
 }
 
-.chapter-content{
-margin-top:18px;
-padding:20px;
-background:#f8f9ff;
-border-radius:15px;
+.chapter.done{
+  border-left-color:#16a34a;
 }
 
-.chapter-content h3{
-margin:12px 0 5px;
+.chapter-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 
-.complete{
-background:var(--green);
-color:#fff;
-border:0;
-padding:10px 15px;
-border-radius:10px;
-font-weight:bold;
+.chapter h3{
+  font-size:17px;
+}
+
+.badge{
+  background:#e0edff;
+  color:#1d4ed8;
+  padding:4px 8px;
+  border-radius:20px;
+  font-size:11px;
+  white-space:nowrap;
+}
+
+.done .badge{
+  background:#dcfce7;
+  color:#15803d;
+}
+
+.progress-box{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  margin:20px 0;
+  box-shadow:0 5px 20px #17255410;
 }
 
 .progress{
-height:13px;
-background:#e5e7eb;
-border-radius:20px;
-overflow:hidden;
-margin-top:18px;
+  height:12px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:10px;
 }
 
 .progress-bar{
-height:100%;
-width:0;
-background:linear-gradient(90deg,var(--p),var(--p2));
-transition:.4s;
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#2563eb,#7c3aed);
+  transition:.3s;
 }
 
-/* QUIZ */
-
-.quiz-options{
-display:grid;
-gap:10px;
+.study-panel{
+  background:white;
+  border-radius:22px;
+  margin-top:25px;
+  padding:25px;
+  box-shadow:0 8px 30px #17255415;
+  display:none;
 }
 
-.option{
-width:100%;
-text-align:left;
-border:1px solid var(--bd);
-background:#fff;
-padding:13px;
-border-radius:12px;
+.study-panel.show{
+  display:block;
 }
 
-.option:hover{
-background:#eef2ff;
+.study-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  margin-bottom:20px;
 }
 
-.option.correct{
-background:#dcfce7;
-border-color:#22c55e;
-}
-
-.option.wrong{
-background:#fee2e2;
-border-color:#ef4444;
-}
-
-.quiz-buttons{
-display:flex;
-gap:10px;
-margin-top:18px;
-}
-
-.primary{
-background:var(--p);
-color:#fff;
-border:0;
-padding:10px 15px;
-border-radius:10px;
-font-weight:bold;
-}
-
-.secondary{
-background:#e5e7eb;
-border:0;
-padding:10px 15px;
-border-radius:10px;
-font-weight:bold;
-}
-
-/* TOOLS */
-
-.tools{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-}
-
-.tool{
-text-align:center;
-background:#fff;
-padding:22px;
-border-radius:18px;
-border:1px solid var(--bd);
-cursor:pointer;
-}
-
-.tool:hover{
-border-color:#c7d2fe;
-}
-
-/* NOTES */
-
-textarea{
-width:100%;
-min-height:150px;
-border:1px solid var(--bd);
-border-radius:13px;
-padding:14px;
-resize:vertical;
-outline:none;
-}
-
-.note-actions{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:12px;
-}
-
-.note-btn{
-border:0;
-padding:11px 16px;
-border-radius:10px;
-font-weight:bold;
-}
-
-.camera{
-background:#111827;
-color:#fff;
-}
-
-.gallery{
-background:#2563eb;
-color:#fff;
-}
-
-.save{
-background:#16a34a;
-color:#fff;
-}
-
-input[type=file]{
-display:none;
-}
-
-.preview{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:15px;
-}
-
-.preview-item{
-position:relative;
-width:110px;
-height:110px;
-}
-
-.preview-item img{
-width:100%;
-height:100%;
-object-fit:cover;
-border-radius:12px;
-}
-
-.remove-img{
-position:absolute;
-right:-6px;
-top:-6px;
-border:0;
-border-radius:50%;
-background:#dc2626;
-color:#fff;
-width:25px;
-height:25px;
-}
-
-.saved-notes{
-display:grid;
-gap:15px;
-margin-top:20px;
-}
-
-.note-card{
-background:#f8f9ff;
-padding:16px;
-border-radius:15px;
-border:1px solid var(--bd);
-}
-
-.note-card img{
-width:120px;
-height:120px;
-object-fit:cover;
-border-radius:10px;
-margin:8px 8px 0 0;
-}
-
-.delete{
-margin-top:10px;
-background:#dc2626;
-color:#fff;
-border:0;
-padding:8px 13px;
-border-radius:8px;
-}
-
-/* ROUTINE */
-
-.routine,
-.tips{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-}
-
-.routine>div,
-.tips>div{
-background:#fff;
-padding:20px;
-border-radius:16px;
-border:1px solid var(--bd);
-}
-
-/* MODAL */
-
-.modal{
-position:fixed;
-inset:0;
-background:#000a;
-display:none;
-align-items:center;
-justify-content:center;
-z-index:2000;
-padding:15px;
-}
-
-.modal.show{
-display:flex;
-}
-
-.modal-box{
-width:min(450px,100%);
-background:#fff;
-border-radius:20px;
-padding:22px;
+.study-top h2{
+  color:#1e3a8a;
 }
 
 .close{
-float:right;
-border:0;
-background:#fee2e2;
-color:#dc2626;
-width:35px;
-height:35px;
-border-radius:50%;
-font-weight:bold;
+  border:0;
+  background:#fee2e2;
+  color:#b91c1c;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.material{
+  margin-top:18px;
+}
+
+.material h3{
+  color:#1d4ed8;
+  margin:20px 0 8px;
+}
+
+.material p{
+  background:#f8faff;
+  padding:15px;
+  border-radius:12px;
+}
+
+.points{
+  padding:15px 20px;
+  background:#eff6ff;
+  border-radius:14px;
+}
+
+.points li{
+  margin:7px 0;
+}
+
+.remember{
+  background:#fff7ed;
+  border-left:5px solid #f97316;
+  padding:15px;
+  border-radius:10px;
+  margin-top:15px;
+}
+
+.action-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.btn{
+  border:0;
+  padding:12px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.primary{
+  background:#2563eb;
+  color:white;
+}
+
+.success{
+  background:#16a34a;
+  color:white;
+}
+
+.dark{
+  background:#172033;
+  color:white;
+}
+
+.quiz{
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid #e5e7eb;
+}
+
+.question{
+  background:#f8faff;
+  padding:17px;
+  border-radius:14px;
+  margin:12px 0;
+}
+
+.option{
+  display:block;
+  background:white;
+  padding:10px;
+  border:1px solid #ddd;
+  margin-top:8px;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+.option:hover{
+  border-color:#2563eb;
+}
+
+.result{
+  margin-top:15px;
+  padding:15px;
+  border-radius:12px;
+  background:#ecfdf5;
+  color:#166534;
+  font-weight:bold;
+}
+
+.tools{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+
+.tool{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 5px 20px #17255410;
+  text-align:center;
+  cursor:pointer;
+}
+
+.tool .big{
+  font-size:35px;
+}
+
+.notes{
+  background:white;
+  padding:20px;
+  border-radius:18px;
+  margin-top:25px;
+  box-shadow:0 5px 20px #17255410;
+}
+
+.note-list{
+  margin-top:15px;
+}
+
+.note{
+  background:#f8faff;
+  padding:12px;
+  margin:10px 0;
+  border-radius:12px;
+}
+
+.note img{
+  max-width:180px;
+  margin-top:10px;
+  border-radius:10px;
+}
+
+footer{
+  background:#172033;
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:40px;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#0008;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  width:min(500px,100%);
+  padding:25px;
+  border-radius:20px;
+  max-height:90vh;
+  overflow:auto;
 }
 
 .calc-display{
-width:100%;
-padding:15px;
-font-size:28px;
-text-align:right;
-border:1px solid var(--bd);
-border-radius:10px;
-margin:15px 0;
+  width:100%;
+  padding:15px;
+  font-size:24px;
+  text-align:right;
+  margin-bottom:10px;
 }
 
 .calc-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
 }
 
 .calc-grid button{
-padding:16px 5px;
-border:0;
-border-radius:10px;
-background:#eef2ff;
-font-weight:bold;
+  padding:15px;
+  border:0;
+  border-radius:10px;
+  background:#eef2ff;
+  cursor:pointer;
+  font-size:17px;
 }
 
 .timer-display{
-text-align:center;
-font-size:55px;
-font-weight:bold;
-margin:20px 0;
-color:var(--p);
+  font-size:55px;
+  text-align:center;
+  margin:20px;
+  color:#1e3a8a;
 }
 
-/* FOOTER */
+@media(max-width:650px){
+  .hero h1{
+    font-size:29px;
+  }
 
-footer{
-margin-top:40px;
-background:#111827;
-color:#fff;
-text-align:center;
-padding:35px 15px;
-}
+  .controls{
+    grid-template-columns:1fr;
+  }
 
-footer img{
-width:70px;
-height:70px;
-object-fit:contain;
-}
-
-footer p{
-color:#cbd5e1;
-font-size:13px;
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-.subject-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.tools{
-grid-template-columns:repeat(2,1fr);
-}
-
-.routine,
-.tips{
-grid-template-columns:1fr;
-}
-
-nav{
-display:none;
-position:absolute;
-left:10px;
-right:10px;
-top:70px;
-padding:15px;
-background:#fff;
-border-radius:15px;
-box-shadow:0 10px 30px #0002;
-flex-direction:column;
-}
-
-nav.show{
-display:flex;
-}
-
-.menu{
-display:block;
-}
-
-}
-
-@media(max-width:600px){
-
-.hero{
-margin:12px;
-padding:35px 20px;
-}
-
-.container{
-padding:0 12px 30px;
-}
-
-.subject-grid,
-.chapter-list{
-grid-template-columns:1fr;
-}
-
-.tools{
-grid-template-columns:1fr 1fr;
-}
-
+  .study-top{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
@@ -674,910 +477,547 @@ grid-template-columns:1fr 1fr;
 <body>
 
 <header>
-
-<div class="nav">
-
-<div class="logo-area">
-
-<img src="study-logo.png"
-class="logo"
-alt="ASIM TECH STUDY">
-
-<div class="logo-text">
-ASIM TECH
-<span>STUDY • LEARN • GROW</span>
-</div>
-
-</div>
-
-<nav id="nav">
-
-<a href="#home">Home</a>
-<a href="#subjects">Subjects</a>
-<a href="#chapters">Chapters</a>
-<a href="#quiz">Quiz</a>
-<a href="#notes">Notes</a>
-
-</nav>
-
-<button class="menu"
-onclick="document.getElementById('nav').classList.toggle('show')">
-☰
-</button>
-
-</div>
-
+  <div class="nav">
+    <div class="logo">
+      <img src="study-logo.png" alt="ASIM TECH STUDY">
+      <span>ASIM TECH STUDY</span>
+    </div>
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})">🏠 Home</button>
+  </div>
 </header>
 
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<div class="hero-content">
-
-<div class="badge">
-📚 ASIM TECH STUDY
-</div>
-
-<h1>
-Learn Smart.<br>
-Study Better.
-</h1>
-
-<p>
-West Bengal school students-এর জন্য Class,
-Subject, Chapter, Notes, MCQ এবং Study Tools
-এক জায়গায়।
-</p>
-
-<div class="hero-buttons">
-
-<a href="#subjects" class="btn white">
-📖 Start Studying
-</a>
-
-<a href="#quiz" class="btn dark">
-🧠 Take Quiz
-</a>
-
-</div>
-
-</div>
-
+<section class="hero">
+  <div class="container">
+    <h1>Learn Smart. Study Better. 📚</h1>
+    <p>Class নির্বাচন করুন → Subject নির্বাচন করুন → Chapter খুলে পড়ুন → Quiz দিন → Progress দেখুন</p>
+  </div>
 </section>
 
+<main class="container">
 
-<div class="container">
+  <h2 class="section-title">🎓 Select Class</h2>
 
+  <div class="controls">
+    <select id="classSelect" onchange="changeClass()">
+      <option value="5">Class 5</option>
+      <option value="6">Class 6</option>
+      <option value="7">Class 7</option>
+      <option value="8">Class 8</option>
+      <option value="9">Class 9</option>
+      <option value="10">Class 10</option>
+      <option value="11">Class 11</option>
+      <option value="12">Class 12</option>
+    </select>
 
-<!-- CLASS -->
+    <input id="chapterSearch"
+           placeholder="🔍 Chapter search..."
+           oninput="searchChapter()">
+  </div>
 
-<section class="section">
+  <h2 class="section-title">📚 Subjects</h2>
 
-<div class="title">
+  <div id="subjects" class="subjects"></div>
 
-<h2>🎓 Select Your Class</h2>
+  <div class="progress-box">
+    <b id="progressTitle">Subject Progress</b>
+    <div class="progress">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+    <small id="progressText">0% Complete</small>
+  </div>
 
-<p>Class 5–12</p>
+  <h2 class="section-title">📖 Chapters</h2>
 
-</div>
+  <div id="chapters" class="chapter-grid"></div>
 
-<div class="card">
+  <!-- STUDY PANEL -->
 
-<div class="class-buttons" id="classButtons"></div>
+  <section id="studyPanel" class="study-panel">
 
-<p id="selectedClass"
-style="text-align:center;margin-top:15px;color:#4f46e5;font-weight:bold">
-</p>
+    <div class="study-top">
+      <div>
+        <small id="studySubject"></small>
+        <h2 id="studyTitle"></h2>
+      </div>
 
-</div>
+      <button class="close" onclick="closeStudy()">✕</button>
+    </div>
 
-</section>
+    <div class="material">
 
+      <h3>📖 Chapter Overview</h3>
+      <p id="overview"></p>
 
-<!-- SUBJECT -->
+      <h3>🎯 Learning Goals</h3>
+      <ul id="goals" class="points"></ul>
 
-<section class="section" id="subjects">
+      <h3>💡 Important Points</h3>
+      <ul id="important" class="points"></ul>
 
-<div class="title">
+      <div class="remember">
+        <b>🧠 মনে রাখবে</b>
+        <p id="remember"></p>
+      </div>
 
-<h2>📚 Subjects</h2>
+      <h3>📝 সহজ ভাষায় Study Note</h3>
+      <p id="studyNote"></p>
 
-<p id="subjectHint">
-Class অনুযায়ী subject নির্বাচন করুন
-</p>
+    </div>
 
-</div>
+    <div class="action-row">
+      <button class="btn success" id="completeBtn" onclick="completeChapter()">
+        ✅ Chapter Complete
+      </button>
 
-<div class="search">
+      <button class="btn primary" onclick="startQuiz()">
+        📝 Chapter Quiz
+      </button>
+    </div>
 
-<input
-id="subjectSearch"
-placeholder="🔍 Search subject..."
-oninput="renderSubjects()">
+    <div id="quizBox" class="quiz"></div>
 
-</div>
+  </section>
 
-<div class="subject-grid"
-id="subjectGrid">
-</div>
+  <!-- TOOLS -->
 
-</section>
+  <h2 class="section-title">🛠 Study Tools</h2>
 
+  <div class="tools">
 
-<!-- CHAPTER -->
+    <div class="tool" onclick="openCalculator()">
+      <div class="big">🧮</div>
+      <b>Calculator</b>
+      <p>Quick calculation</p>
+    </div>
 
-<section class="section" id="chapters">
+    <div class="tool" onclick="openTimer()">
+      <div class="big">⏱️</div>
+      <b>Study Timer</b>
+      <p>Focus timer</p>
+    </div>
 
-<div class="title">
+    <div class="tool" onclick="document.getElementById('notesBox').scrollIntoView({behavior:'smooth'})">
+      <div class="big">📝</div>
+      <b>My Notes</b>
+      <p>Save your notes</p>
+    </div>
 
-<h2>📖 Chapters</h2>
+  </div>
 
-<p>
-Subject অনুযায়ী chapter নির্বাচন করুন
-</p>
+  <!-- NOTES -->
 
-</div>
+  <section class="notes" id="notesBox">
 
-<div class="card">
+    <h2>📝 My Study Notes</h2>
 
-<div class="chapter-head">
+    <textarea id="noteText"
+      rows="4"
+      placeholder="এখানে নিজের Study Note লিখুন..."></textarea>
 
-<div>
+    <div class="action-row">
 
-<h2 id="subjectTitle"></h2>
+      <label class="btn dark">
+        📷 Camera
+        <input
+          type="file"
+          accept="image/*"
+          capture="environment"
+          hidden
+          onchange="addNoteImage(this)">
+      </label>
 
-<p id="chapterCount"
-style="color:#6b7280">
-</p>
+      <label class="btn dark">
+        🖼️ Gallery
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          hidden
+          onchange="addNoteImage(this)">
+      </label>
 
-</div>
+      <button class="btn primary" onclick="saveNote()">
+        💾 Save Note
+      </button>
 
-</div>
+    </div>
 
+    <div id="noteImagePreview"></div>
+    <div id="noteList" class="note-list"></div>
 
-<div class="chapter-list"
-id="chapterList">
-</div>
+  </section>
 
+</main>
 
-<div class="chapter-content"
-id="chapterContent">
-</div>
-
-</div>
-
-</section>
-
-
-<!-- QUIZ -->
-
-<section class="section"
-id="quiz">
-
-<div class="title">
-
-<h2>🧠 Chapter MCQ</h2>
-
-<p>
-Selected chapter-এর practice
-</p>
-
-</div>
-
-<div class="card">
-
-<div id="question"
-style="font-size:19px;font-weight:bold;margin-bottom:15px">
-</div>
-
-<div id="options"
-class="quiz-options">
-</div>
-
-<div class="quiz-buttons">
-
-<button class="primary"
-onclick="nextQuestion()">
-Next →
-</button>
-
-<button class="secondary"
-onclick="restartQuiz()">
-Restart
-</button>
-
-</div>
-
-<div id="score"
-style="margin-top:15px;background:#eef2ff;padding:12px;border-radius:10px;text-align:center;font-weight:bold">
-Score: 0 / 5
-</div>
-
-</div>
-
-</section>
-
-
-<!-- TOOLS -->
-
-<section class="section"
-id="tools">
-
-<div class="title">
-
-<h2>🛠️ Study Tools</h2>
-
-</div>
-
-<div class="tools">
-
-<div class="tool"
-onclick="openCalculator()">
-
-<div class="icon">
-🧮
-</div>
-
-<h3>
-Calculator
-</h3>
-
-<p>
-Working calculator
-</p>
-
-</div>
-
-
-<div class="tool"
-onclick="openTimer()">
-
-<div class="icon">
-⏱️
-</div>
-
-<h3>
-Study Timer
-</h3>
-
-<p>
-25 minute focus
-</p>
-
-</div>
-
-
-<div class="tool"
-onclick="document.getElementById('notes').scrollIntoView()">
-
-<div class="icon">
-📝
-</div>
-
-<h3>
-Notes
-</h3>
-
-<p>
-Text + Photo
-</p>
-
-</div>
-
-
-<div class="tool"
-onclick="alert('Study Progress: '+getProgress()+'%')">
-
-<div class="icon">
-📊
-</div>
-
-<h3>
-Progress
-</h3>
-
-<p id="progressTool">
-0%
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- NOTES -->
-
-<section class="section"
-id="notes">
-
-<div class="title">
-
-<h2>
-📝 Personal Notes
-</h2>
-
-<p>
-Text + Camera + Gallery
-</p>
-
-</div>
-
-
-<div class="card">
-
-<textarea
-id="noteText"
-placeholder="এখানে study note লিখুন...">
-</textarea>
-
-
-<div class="note-actions">
-
-
-<label class="note-btn camera">
-
-📷 Take Photo
-
-<input
-type="file"
-accept="image/*"
-capture="environment"
-onchange="handleImages(this.files)">
-
-</label>
-
-
-<label class="note-btn gallery">
-
-🖼️ Gallery
-
-<input
-type="file"
-accept="image/*"
-multiple
-onchange="handleImages(this.files)">
-
-</label>
-
-
-<button
-class="note-btn save"
-onclick="saveNote()">
-
-💾 Save Note
-
-</button>
-
-</div>
-
-
-<div id="preview"
-class="preview">
-</div>
-
-
-<div id="savedNotes"
-class="saved-notes">
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ROUTINE -->
-
-<section class="section">
-
-<div class="title">
-
-<h2>
-📅 Daily Study Routine
-</h2>
-
-</div>
-
-<div class="routine">
-
-<div>
-
-<b>
-🌅 Morning
-</b>
-
-<p>
-30–45 minutes revision
-</p>
-
-</div>
-
-
-<div>
-
-<b>
-☀️ Afternoon
-</b>
-
-<p>
-1 hour new chapter
-</p>
-
-</div>
-
-
-<div>
-
-<b>
-🌙 Evening
-</b>
-
-<p>
-MCQ + revision
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- TIPS -->
-
-<section class="section">
-
-<div class="title">
-
-<h2>
-💡 Study Tips
-</h2>
-
-</div>
-
-<div class="tips">
-
-<div>
-
-<h3>
-🎯 Set Goals
-</h3>
-
-<p>
-প্রতিদিন ছোট লক্ষ্য তৈরি করুন।
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-📵 Avoid Distraction
-</h3>
-
-<p>
-পড়ার সময় অপ্রয়োজনীয় mobile কমান।
-</p>
-
-</div>
-
-
-<div>
-
-<h3>
-🔁 Revise
-</h3>
-
-<p>
-পুরনো বিষয় নিয়মিত revise করুন।
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
+<footer>
+  <b>ASIM TECH STUDY</b>
+  <p>Learn • Practice • Improve • Succeed 🚀</p>
+</footer>
 
 
 <!-- CALCULATOR -->
 
-<div class="modal"
-id="calculatorModal">
+<div id="calculator" class="modal">
 
-<div class="modal-box">
+  <div class="modal-box">
 
-<button class="close"
-onclick="closeCalculator()">
-×
-</button>
+    <h2>🧮 Calculator</h2>
 
-<h2>
-🧮 Calculator
-</h2>
+    <input id="calcDisplay"
+           class="calc-display"
+           readonly>
 
-<input
-id="calcDisplay"
-class="calc-display"
-readonly>
+    <div class="calc-grid">
 
+      <button onclick="calc('7')">7</button>
+      <button onclick="calc('8')">8</button>
+      <button onclick="calc('9')">9</button>
+      <button onclick="calc('/')">÷</button>
 
-<div class="calc-grid">
+      <button onclick="calc('4')">4</button>
+      <button onclick="calc('5')">5</button>
+      <button onclick="calc('6')">6</button>
+      <button onclick="calc('*')">×</button>
 
-<button onclick="calcClear()">
-C
-</button>
+      <button onclick="calc('1')">1</button>
+      <button onclick="calc('2')">2</button>
+      <button onclick="calc('3')">3</button>
+      <button onclick="calc('-')">−</button>
 
-<button onclick="calcInput('(')">
-(
-</button>
+      <button onclick="calc('0')">0</button>
+      <button onclick="calc('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="calc('+')">+</button>
 
-<button onclick="calcInput(')')">
-)
-</button>
+      <button onclick="clearCalc()">C</button>
 
-<button onclick="calcBack()">
-⌫
-</button>
+    </div>
 
+    <button class="btn dark"
+            style="width:100%;margin-top:15px"
+            onclick="closeCalculator()">
+      Close
+    </button>
 
-<button onclick="calcInput('7')">
-7
-</button>
-
-<button onclick="calcInput('8')">
-8
-</button>
-
-<button onclick="calcInput('9')">
-9
-</button>
-
-<button onclick="calcInput('/')">
-÷
-</button>
-
-
-<button onclick="calcInput('4')">
-4
-</button>
-
-<button onclick="calcInput('5')">
-5
-</button>
-
-<button onclick="calcInput('6')">
-6
-</button>
-
-<button onclick="calcInput('*')">
-×
-</button>
-
-
-<button onclick="calcInput('1')">
-1
-</button>
-
-<button onclick="calcInput('2')">
-2
-</button>
-
-<button onclick="calcInput('3')">
-3
-</button>
-
-<button onclick="calcInput('-')">
-−
-</button>
-
-
-<button onclick="calcInput('0')">
-0
-</button>
-
-<button onclick="calcInput('.')">
-.
-</button>
-
-<button onclick="calculate()">
-=
-</button>
-
-<button onclick="calcInput('+')">
-+
-</button>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- TIMER -->
 
-<div class="modal"
-id="timerModal">
+<div id="timerModal" class="modal">
 
-<div class="modal-box">
+  <div class="modal-box">
 
-<button class="close"
-onclick="closeTimer()">
-×
-</button>
+    <h2>⏱️ Study Timer</h2>
 
-<h2>
-⏱️ Study Timer
-</h2>
+    <div id="timerDisplay" class="timer-display">
+      25:00
+    </div>
 
-<div id="timerDisplay"
-class="timer-display">
-25:00
-</div>
+    <div class="action-row">
 
-<div
-style="display:flex;justify-content:center;gap:10px">
+      <button class="btn primary" onclick="startTimer()">
+        ▶ Start
+      </button>
 
-<button
-class="primary"
-onclick="startTimer()">
-▶ Start
-</button>
+      <button class="btn dark" onclick="pauseTimer()">
+        ⏸ Pause
+      </button>
 
-<button
-class="secondary"
-onclick="pauseTimer()">
-⏸ Pause
-</button>
+      <button class="btn success" onclick="resetTimer()">
+        🔄 Reset
+      </button>
 
-<button
-class="secondary"
-onclick="resetTimer()">
-↻ Reset
-</button>
+    </div>
+
+    <button class="btn dark"
+            style="width:100%;margin-top:15px"
+            onclick="closeTimer()">
+      Close
+    </button>
+
+  </div>
 
 </div>
-
-</div>
-
-</div>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<img
-src="study-logo.png"
-alt="ASIM TECH STUDY">
-
-<h2>
-ASIM TECH STUDY
-</h2>
-
-<p>
-Learn • Practice • Grow
-</p>
-
-<p>
-© 2026 ASIM TECH
-</p>
-
-</footer>
 
 
 <script>
 
-/* =====================================
-   WEST BENGAL STYLE CHAPTER DATABASE
-===================================== */
+/* =========================
+   SUBJECT DATABASE
+========================= */
 
-const DB={
+const subjectsDB={
 
-5:{
+5:[
+["বাংলা","📕"],
+["English","📘"],
+["গণিত","➗"],
+["পরিবেশ ও বিজ্ঞান","🌱"],
+["ইতিহাস","🏛️"],
+["ভূগোল","🌍"]
+],
 
-"বাংলা":[
+6:[
+["বাংলা","📕"],
+["English","📘"],
+["গণিত","➗"],
+["পরিবেশ ও বিজ্ঞান","🔬"],
+["ইতিহাস","🏛️"],
+["ভূগোল","🌍"]
+],
+
+7:[
+["বাংলা","📕"],
+["English","📘"],
+["গণিত","➗"],
+["পরিবেশ ও বিজ্ঞান","🔬"],
+["ইতিহাস","🏛️"],
+["ভূগোল","🌍"]
+],
+
+8:[
+["বাংলা","📕"],
+["English","📘"],
+["গণিত","➗"],
+["পরিবেশ ও বিজ্ঞান","🔬"],
+["ইতিহাস","🏛️"],
+["ভূগোল","🌍"]
+],
+
+9:[
+["বাংলা","📕"],
+["English","📘"],
+["গণিত","➗"],
+["ভৌতবিজ্ঞান","⚛️"],
+["জীবনবিজ্ঞান","🧬"],
+["ইতিহাস","🏛️"],
+["ভূগোল","🌍"]
+],
+
+10:[
+["বাংলা","📕"],
+["English","📘"],
+["গণিত","➗"],
+["ভৌতবিজ্ঞান","⚛️"],
+["জীবনবিজ্ঞান","🧬"],
+["ইতিহাস","🏛️"],
+["ভূগোল","🌍"]
+],
+
+11:[
+["বাংলা","📕"],
+["English","📘"],
+["Physics","⚛️"],
+["Chemistry","🧪"],
+["Mathematics","➗"],
+["Biological Science","🧬"],
+["Geography","🌍"],
+["History","🏛️"]
+],
+
+12:[
+["বাংলা","📕"],
+["English","📘"],
+["Physics","⚛️"],
+["Chemistry","🧪"],
+["Mathematics","➗"],
+["Biological Science","🧬"],
+["Geography","🌍"],
+["History","🏛️"]
+]
+
+};
+
+
+/* =========================
+   CHAPTER DATABASE
+========================= */
+
+const chapterDB={
+
+"5-বাংলা":[
 "পাঠ ও গল্প",
 "কবিতা",
 "ব্যাকরণ",
 "রচনা ও অনুচ্ছেদ"
 ],
 
-"English":[
+"5-English":[
 "Reading",
 "Grammar",
 "Writing",
 "Literature"
 ],
 
-"গণিত":[
+"5-গণিত":[
 "সংখ্যা",
 "ভগ্নাংশ",
 "দশমিক",
 "জ্যামিতির প্রাথমিক ধারণা"
 ],
 
-"পরিবেশ ও বিজ্ঞান":[
+"5-পরিবেশ ও বিজ্ঞান":[
 "উদ্ভিদ ও প্রাণী",
 "আমাদের পরিবেশ",
 "পদার্থ ও শক্তি"
 ],
 
-"ইতিহাস":[
+"5-ইতিহাস":[
 "অতীতের পরিচয়",
 "প্রাচীন ভারত",
 "ঐতিহাসিক স্থান"
 ],
 
-"ভূগোল":[
+"5-ভূগোল":[
 "পৃথিবী",
 "মানচিত্র",
 "ভারতের পরিচয়"
-]
-
-},
+],
 
 
-6:{
-
-"বাংলা":[
+"6-বাংলা":[
 "গদ্য",
 "পদ্য",
 "ব্যাকরণ",
 "রচনা"
 ],
 
-"English":[
+"6-English":[
 "Prose",
 "Poetry",
 "Grammar",
 "Writing"
 ],
 
-"গণিত":[
+"6-গণিত":[
 "সংখ্যা",
 "ভগ্নাংশ ও দশমিক",
 "অনুপাত",
 "জ্যামিতি"
 ],
 
-"পরিবেশ ও বিজ্ঞান":[
+"6-পরিবেশ ও বিজ্ঞান":[
 "জীবজগৎ",
 "পদার্থ",
 "শক্তি",
 "পরিবেশ"
 ],
 
-"ইতিহাস":[
+"6-ইতিহাস":[
 "প্রাচীন ভারত",
 "মধ্যযুগের ভারত",
 "সমাজ ও সংস্কৃতি"
 ],
 
-"ভূগোল":[
+"6-ভূগোল":[
 "পৃথিবীর গঠন",
 "জলবায়ু",
 "ভারতের ভূপ্রকৃতি"
-]
-
-},
+],
 
 
-7:{
-
-"বাংলা":[
+"7-বাংলা":[
 "গদ্য",
 "পদ্য",
 "ব্যাকরণ",
 "রচনা"
 ],
 
-"English":[
+"7-English":[
 "Prose",
 "Poetry",
 "Grammar",
 "Writing"
 ],
 
-"গণিত":[
+"7-গণিত":[
 "পূর্ণসংখ্যা",
 "ভগ্নাংশ",
 "বীজগণিতের প্রাথমিক ধারণা",
 "জ্যামিতি"
 ],
 
-"পরিবেশ ও বিজ্ঞান":[
+"7-পরিবেশ ও বিজ্ঞান":[
 "উদ্ভিদ",
 "প্রাণী",
 "পদার্থ ও তাপ",
 "পরিবেশ"
 ],
 
-"ইতিহাস":[
+"7-ইতিহাস":[
 "মধ্যযুগ",
 "আঞ্চলিক রাজ্য",
 "সংস্কৃতি"
 ],
 
-"ভূগোল":[
+"7-ভূগোল":[
 "বায়ুমণ্ডল",
 "জলবায়ু",
 "মহাদেশ",
 "ভারত"
-]
-
-},
+],
 
 
-8:{
-
-"বাংলা":[
+"8-বাংলা":[
 "গদ্য",
 "পদ্য",
 "ব্যাকরণ",
 "রচনা"
 ],
 
-"English":[
+"8-English":[
 "Prose",
 "Poetry",
 "Grammar",
 "Writing"
 ],
 
-"গণিত":[
+"8-গণিত":[
 "মূলদ সংখ্যা",
 "বীজগণিত",
 "সমীকরণ",
 "জ্যামিতি"
 ],
 
-"পরিবেশ ও বিজ্ঞান":[
+"8-পরিবেশ ও বিজ্ঞান":[
 "কোষ",
 "পদার্থ",
 "শক্তি",
 "পরিবেশ"
 ],
 
-"ইতিহাস":[
+"8-ইতিহাস":[
 "ঔপনিবেশিক ভারত",
 "জাতীয়তাবাদ",
 "সংস্কৃতি"
 ],
 
-"ভূগোল":[
+"8-ভূগোল":[
 "ভূমিরূপ",
 "জলবায়ু",
 "জনসংখ্যা",
 "সম্পদ"
-]
-
-},
+],
 
 
-9:{
-
-"বাংলা":[
+"9-বাংলা":[
 "গদ্য",
 "পদ্য",
 "নাটক",
 "ব্যাকরণ ও নির্মিতি"
 ],
 
-"English":[
+"9-English":[
 "Reading",
 "Grammar",
 "Writing",
 "Literature"
 ],
 
-"গণিত":[
+"9-গণিত":[
 "Real Numbers",
 "Polynomials",
 "Coordinate Geometry",
@@ -1586,7 +1026,7 @@ const DB={
 "Statistics"
 ],
 
-"ভৌতবিজ্ঞান":[
+"9-ভৌতবিজ্ঞান":[
 "পরিমাপ",
 "গতি",
 "বল ও শক্তি",
@@ -1594,47 +1034,43 @@ const DB={
 "আলো"
 ],
 
-"জীবনবিজ্ঞান":[
+"9-জীবনবিজ্ঞান":[
 "জীবনের সংগঠন",
 "জীবন প্রক্রিয়া",
 "জীববৈচিত্র্য",
 "পরিবেশ"
 ],
 
-"ইতিহাস":[
+"9-ইতিহাস":[
 "ঔপনিবেশিকতা",
 "আধুনিক ভারত",
 "জাতীয়তাবাদ",
 "বিশ্ব ইতিহাস"
 ],
 
-"ভূগোল":[
+"9-ভূগোল":[
 "ভূমিরূপ",
 "বায়ুমণ্ডল",
 "জলবায়ু",
 "ভারত"
-]
-
-},
+],
 
 
-10:{
-
-"বাংলা":[
+"10-বাংলা":[
 "গদ্য",
 "পদ্য",
 "নাটক",
 "ভাষা ও নির্মিতি"
 ],
 
-"English":[
+"10-English":[
 "Reading",
 "Grammar",
 "Writing",
 "Literature"
 ],
 
-"গণিত":[
+"10-গণিত":[
 "Real Numbers",
 "Polynomials",
 "Pair of Linear Equations",
@@ -1647,7 +1083,7 @@ const DB={
 "Probability"
 ],
 
-"ভৌতবিজ্ঞান":[
+"10-ভৌতবিজ্ঞান":[
 "ভৌত রাশি ও পরিমাপ",
 "গতি",
 "বল",
@@ -1658,7 +1094,7 @@ const DB={
 "পরমাণুর গঠন"
 ],
 
-"জীবনবিজ্ঞান":[
+"10-জীবনবিজ্ঞান":[
 "জীবনের বৈচিত্র্য",
 "বংশগতি",
 "অভিযোজন",
@@ -1666,7 +1102,7 @@ const DB={
 "পরিবেশ"
 ],
 
-"ইতিহাস":[
+"10-ইতিহাস":[
 "ইতিহাসের ধারণা",
 "সংস্কার ও আন্দোলন",
 "প্রতিরোধ ও বিদ্রোহ",
@@ -1674,35 +1110,31 @@ const DB={
 "স্বাধীনতা"
 ],
 
-"ভূগোল":[
+"10-ভূগোল":[
 "ভূমিরূপ",
 "বায়ুমণ্ডল",
 "জলবায়ু",
 "ভারত",
 "সম্পদ",
 "অর্থনৈতিক কার্যকলাপ"
-]
-
-},
+],
 
 
-11:{
-
-"বাংলা":[
+"11-বাংলা":[
 "ভাষা",
 "গদ্য",
 "পদ্য",
 "রচনা"
 ],
 
-"English":[
+"11-English":[
 "Language",
 "Prose",
 "Poetry",
 "Writing"
 ],
 
-"Physics":[
+"11-Physics":[
 "Units and Measurements",
 "Motion",
 "Laws of Motion",
@@ -1710,7 +1142,7 @@ const DB={
 "Gravitation"
 ],
 
-"Chemistry":[
+"11-Chemistry":[
 "Basic Concepts",
 "Atomic Structure",
 "Periodic Table",
@@ -1718,7 +1150,7 @@ const DB={
 "Thermodynamics"
 ],
 
-"Mathematics":[
+"11-Mathematics":[
 "Sets",
 "Relations and Functions",
 "Trigonometry",
@@ -1727,7 +1159,7 @@ const DB={
 "Straight Lines"
 ],
 
-"Biological Science":[
+"11-Biological Science":[
 "Diversity of Life",
 "Cell",
 "Biomolecules",
@@ -1735,40 +1167,36 @@ const DB={
 "Human Physiology"
 ],
 
-"Geography":[
+"11-Geography":[
 "Physical Geography",
 "Geomorphology",
 "Climatology",
 "Oceanography"
 ],
 
-"History":[
+"11-History":[
 "Early Societies",
 "States and Empires",
 "Culture",
 "Colonialism"
-]
-
-},
+],
 
 
-12:{
-
-"বাংলা":[
+"12-বাংলা":[
 "ভাষা",
 "গদ্য",
 "পদ্য",
 "রচনা"
 ],
 
-"English":[
+"12-English":[
 "Language",
 "Prose",
 "Poetry",
 "Writing"
 ],
 
-"Physics":[
+"12-Physics":[
 "Electrostatics",
 "Current Electricity",
 "Magnetism",
@@ -1777,7 +1205,7 @@ const DB={
 "Modern Physics"
 ],
 
-"Chemistry":[
+"12-Chemistry":[
 "Solutions",
 "Electrochemistry",
 "Chemical Kinetics",
@@ -1785,7 +1213,7 @@ const DB={
 "Organic Chemistry"
 ],
 
-"Mathematics":[
+"12-Mathematics":[
 "Relations and Functions",
 "Matrices",
 "Determinants",
@@ -1795,7 +1223,7 @@ const DB={
 "Probability"
 ],
 
-"Biological Science":[
+"12-Biological Science":[
 "Reproduction",
 "Genetics",
 "Evolution",
@@ -1803,1258 +1231,973 @@ const DB={
 "Ecology"
 ],
 
-"Geography":[
+"12-Geography":[
 "Human Geography",
 "Resources",
 "Population",
 "Economic Geography"
 ],
 
-"History":[
+"12-History":[
 "Modern India",
 "Nationalism",
 "Partition",
 "Post-Independence India"
 ]
 
+};
+
+
+/* =========================
+   SAMPLE STUDY CONTENT
+========================= */
+
+const contentDB={
+
+"সংখ্যা":{
+overview:"এই অধ্যায়ে বিভিন্ন ধরনের সংখ্যা, সংখ্যার ব্যবহার এবং দৈনন্দিন জীবনে সংখ্যার প্রয়োগ সম্পর্কে ধারণা তৈরি করা হবে।",
+goals:[
+"সংখ্যার ধারণা পরিষ্কার করা",
+"সংখ্যা চিনতে শেখা",
+"দৈনন্দিন জীবনে সংখ্যার ব্যবহার বোঝা"
+],
+important:[
+"সংখ্যা গণনা ও পরিমাপের জন্য ব্যবহার করা হয়",
+"বিভিন্ন ধরনের সংখ্যার আলাদা বৈশিষ্ট্য রয়েছে",
+"সংখ্যা সঠিকভাবে পড়া ও লেখা গুরুত্বপূর্ণ"
+],
+remember:"প্রশ্ন করার সময় সংখ্যার স্থানমান এবং সংখ্যার মান ভালোভাবে লক্ষ্য করবে।",
+note:"সংখ্যা আমাদের দৈনন্দিন জীবনের একটি গুরুত্বপূর্ণ অংশ। টাকা, সময়, দূরত্ব, বয়স এবং হিসাব—সব ক্ষেত্রেই সংখ্যার প্রয়োজন হয়।"
+},
+
+"ভগ্নাংশ":{
+overview:"ভগ্নাংশ ব্যবহার করে কোনো সম্পূর্ণ বস্তুর অংশ প্রকাশ করা হয়।",
+goals:[
+"ভগ্নাংশ চিনতে পারা",
+"লব ও হর বুঝতে পারা",
+"সহজ ভগ্নাংশের হিসাব করা"
+],
+important:[
+"উপরের সংখ্যাকে লব বলে",
+"নিচের সংখ্যাকে হর বলে",
+"হর কখনও শূন্য হতে পারে না"
+],
+remember:"ভগ্নাংশ দেখলে প্রথমে লব এবং হর শনাক্ত করবে।",
+note:"যেমন 3/4 একটি ভগ্নাংশ। এখানে 3 হলো লব এবং 4 হলো হর।"
+},
+
+"Real Numbers":{
+overview:"Real Numbers বা বাস্তব সংখ্যা হলো সংখ্যার একটি বিস্তৃত শ্রেণি, যার মধ্যে rational ও irrational উভয় সংখ্যাই অন্তর্ভুক্ত।",
+goals:[
+"বাস্তব সংখ্যার ধারণা বোঝা",
+"Rational ও irrational number চেনা",
+"সংখ্যার বিভিন্ন বৈশিষ্ট্য বোঝা"
+],
+important:[
+"Rational number p/q আকারে প্রকাশ করা যায়",
+"Irrational number সাধারণত p/q আকারে প্রকাশ করা যায় না",
+"বাস্তব সংখ্যার মধ্যে উভয় ধরনের সংখ্যা রয়েছে"
+],
+remember:"√2 এবং √3-এর মতো সংখ্যা irrational-এর উদাহরণ।",
+note:"বাস্তব সংখ্যা গণিতের একটি মৌলিক ধারণা। বিভিন্ন গণনা এবং বীজগাণিতিক সমস্যায় বাস্তব সংখ্যার ব্যবহার হয়।"
+},
+
+"ভাষা":{
+overview:"ভাষা মানুষের ভাব, অনুভূতি ও চিন্তা প্রকাশের প্রধান মাধ্যম।",
+goals:[
+"ভাষার গুরুত্ব বোঝা",
+"শুদ্ধ ভাষা ব্যবহারের অভ্যাস করা",
+"লিখিত ও মৌখিক ভাষার পার্থক্য বোঝা"
+],
+important:[
+"ভাষা যোগাযোগের মাধ্যম",
+"শুদ্ধ উচ্চারণ ও বানান গুরুত্বপূর্ণ",
+"প্রসঙ্গ অনুযায়ী ভাষার ব্যবহার পরিবর্তিত হতে পারে"
+],
+remember:"ভাষা শেখার সবচেয়ে ভালো উপায় হলো নিয়মিত পড়া, লেখা ও অনুশীলন।",
+note:"ভাষার মাধ্যমে আমরা অন্যের সঙ্গে ভাব বিনিময় করি। শিক্ষা ও যোগাযোগের ক্ষেত্রে ভাষার ভূমিকা অত্যন্ত গুরুত্বপূর্ণ।"
 }
 
 };
 
 
-/* SUBJECT ICONS */
+/* =========================
+   STATE
+========================= */
 
-const icons={
+let currentClass=5;
+let currentSubject="বাংলা";
+let currentChapter="";
+let currentQuiz=[];
+let selectedImage=null;
 
-"বাংলা":"📕",
-"English":"📘",
-"গণিত":"🧮",
-"ভৌতবিজ্ঞান":"⚛️",
-"জীবনবিজ্ঞান":"🔬",
-"পরিবেশ ও বিজ্ঞান":"🌱",
-"ইতিহাস":"🏛️",
-"ভূগোল":"🌍",
-"Physics":"⚛️",
-"Chemistry":"🧪",
-"Mathematics":"📐",
-"Biological Science":"🧬",
-"Geography":"🌍",
-"History":"🏛️"
-
-};
+let completed=
+JSON.parse(localStorage.getItem("asimStudyCompleted")||"[]");
 
 
-let selectedClass=
-parseInt(
-localStorage.getItem("studyClass") || "10"
-);
+/* =========================
+   INIT
+========================= */
 
-let selectedSubject=
-localStorage.getItem("studySubject") || "";
+function init(){
 
-let selectedChapter=
-localStorage.getItem("studyChapter") || "";
+  const savedClass=localStorage.getItem("asimClass");
 
-let currentImages=[];
+  if(savedClass){
+    currentClass=Number(savedClass);
+    document.getElementById("classSelect").value=currentClass;
+  }
+
+  renderSubjects();
+
+  renderChapters();
+
+  renderNotes();
+
+}
+
+init();
 
 
-/* =====================================
+/* =========================
    CLASS
-===================================== */
+========================= */
 
-function renderClasses(){
+function changeClass(){
 
-let box=
-document.getElementById("classButtons");
+  currentClass=Number(
+    document.getElementById("classSelect").value
+  );
 
-box.innerHTML="";
+  localStorage.setItem("asimClass",currentClass);
 
-for(let c=5;c<=12;c++){
+  currentSubject=subjectsDB[currentClass][0][0];
 
-let b=
-document.createElement("button");
-
-b.className=
-"class-btn"+
-(c===selectedClass?" active":"");
-
-b.textContent=
-"Class "+c;
-
-b.onclick=function(){
-
-selectedClass=c;
-
-localStorage.setItem(
-"studyClass",
-c
-);
-
-selectedSubject="";
-
-selectedChapter="";
-
-localStorage.removeItem(
-"studySubject"
-);
-
-localStorage.removeItem(
-"studyChapter"
-);
-
-renderAll();
-
-};
-
-box.appendChild(b);
-
-}
-
-document.getElementById(
-"selectedClass"
-).textContent=
-"Class "+selectedClass+" Selected";
+  renderSubjects();
+  renderChapters();
 
 }
 
 
-/* =====================================
-   SUBJECT
-===================================== */
+/* =========================
+   SUBJECTS
+========================= */
 
 function renderSubjects(){
 
-let box=
-document.getElementById("subjectGrid");
+  const box=document.getElementById("subjects");
 
-let search=
-document.getElementById("subjectSearch")
-.value.toLowerCase();
+  box.innerHTML="";
 
-box.innerHTML="";
+  subjectsDB[currentClass].forEach(item=>{
 
-let subjects=
-Object.keys(DB[selectedClass]);
+    const name=item[0];
+    const icon=item[1];
 
-if(
-!selectedSubject ||
-!DB[selectedClass][selectedSubject]
-){
+    const div=document.createElement("div");
 
-selectedSubject=
-subjects[0];
+    div.className=
+      "subject "+
+      (name===currentSubject?"active":"");
 
-localStorage.setItem(
-"studySubject",
-selectedSubject
-);
+    div.innerHTML=`
+      <div class="icon">${icon}</div>
+      <b>${name}</b>
+    `;
 
-}
+    div.onclick=()=>{
 
-subjects
-.filter(
-s=>s.toLowerCase().includes(search)
-)
-.forEach(s=>{
+      currentSubject=name;
 
-let d=
-document.createElement("div");
+      renderSubjects();
+      renderChapters();
 
-d.className=
-"subject"+
-(s===selectedSubject?" active":"");
+      document
+      .getElementById("studyPanel")
+      .classList.remove("show");
 
-d.onclick=function(){
+    };
 
-selectedSubject=s;
+    box.appendChild(div);
 
-selectedChapter="";
-
-localStorage.setItem(
-"studySubject",
-s
-);
-
-localStorage.removeItem(
-"studyChapter"
-);
-
-renderAll();
-
-document.getElementById(
-"chapters"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-};
-
-d.innerHTML=
-
-"<div class='icon'>"+
-(icons[s]||"📚")+
-"</div>"+
-
-"<h3>"+s+"</h3>"+
-
-"<p>"+
-DB[selectedClass][s].length+
-" chapters available</p>";
-
-box.appendChild(d);
-
-});
+  });
 
 }
 
 
-/* =====================================
-   CHAPTER LIST
-===================================== */
+/* =========================
+   CHAPTERS
+========================= */
 
 function renderChapters(){
 
-let list=
-document.getElementById("chapterList");
+  const box=document.getElementById("chapters");
 
-let chapters=
-DB[selectedClass][selectedSubject] || [];
+  box.innerHTML="";
 
-list.innerHTML="";
+  const key=currentClass+"-"+currentSubject;
 
-document.getElementById(
-"subjectTitle"
-).textContent=
-selectedSubject;
+  const list=chapterDB[key]||[];
 
-document.getElementById(
-"chapterCount"
-).textContent=
-chapters.length+
-" chapters available";
+  const search=
+    document
+    .getElementById("chapterSearch")
+    .value
+    .toLowerCase();
 
+  let count=0;
 
-if(
-!selectedChapter ||
-!chapters.includes(selectedChapter)
-){
+  list.forEach((chapter,index)=>{
 
-selectedChapter=
-chapters[0] || "";
+    if(
+      search &&
+      !chapter.toLowerCase().includes(search)
+    ){
+      return;
+    }
 
-localStorage.setItem(
-"studyChapter",
-selectedChapter
-);
+    count++;
 
-}
+    const id=
+      currentClass+"|"+
+      currentSubject+"|"+
+      chapter;
 
+    const done=
+      completed.includes(id);
 
-chapters.forEach(
-(ch,index)=>{
+    const div=document.createElement("div");
 
-let d=
-document.createElement("div");
+    div.className=
+      "chapter "+
+      (done?"done":"");
 
-d.className=
-"chapter"+
-(ch===selectedChapter?" active":"");
+    div.innerHTML=`
 
-d.innerHTML=
-"📖 Chapter "+
-(index+1)+
-" — "+
-ch;
+      <div class="chapter-head">
 
-d.onclick=function(){
+        <h3>
+          ${index+1}. ${chapter}
+        </h3>
 
-selectedChapter=ch;
+        <span class="badge">
+          ${done?"Completed":"Start"}
+        </span>
 
-localStorage.setItem(
-"studyChapter",
-ch
-);
+      </div>
 
-renderChapters();
+      <p>
+        ${done
+          ?"✅ এই Chapter সম্পন্ন হয়েছে"
+          :"📖 পড়া শুরু করতে ক্লিক করুন"}
+      </p>
 
-};
+    `;
 
-list.appendChild(d);
+    div.onclick=()=>openChapter(chapter);
 
-}
-);
+    box.appendChild(div);
 
-renderChapterContent();
+  });
 
-}
+  if(count===0){
 
+    box.innerHTML=`
+      <div class="chapter">
+        🔍 কোনো Chapter পাওয়া যায়নি।
+      </div>
+    `;
 
-/* =====================================
-   CHAPTER CONTENT
-===================================== */
+  }
 
-function renderChapterContent(){
-
-let box=
-document.getElementById(
-"chapterContent"
-);
-
-if(!selectedChapter){
-
-box.innerHTML=
-"<p>একটি chapter নির্বাচন করুন।</p>";
-
-return;
-
-}
-
-let done=
-localStorage.getItem(
-"done_"+
-selectedClass+"_"+
-selectedSubject+"_"+
-selectedChapter
-)==="1";
-
-
-box.innerHTML=
-
-"<h2>📖 "+
-selectedChapter+
-"</h2>"+
-
-"<p><b>Class "+
-selectedClass+
-" • "+
-selectedSubject+
-"</b></p>"+
-
-"<h3>📌 Chapter Overview</h3>"+
-
-"<p>"+
-selectedChapter+
-" chapter-এর গুরুত্বপূর্ণ ধারণা, সংজ্ঞা, উদাহরণ এবং পরীক্ষার প্রস্তুতি এখানে দেওয়া থাকবে।"+
-"</p>"+
-
-"<h3>📝 Quick Notes</h3>"+
-
-"<p>"+
-"প্রথমে chapter-এর মূল concept বুঝুন। তারপর example ও exercise practice করুন। শেষে MCQ দিয়ে নিজের প্রস্তুতি যাচাই করুন।"+
-"</p>"+
-
-"<h3>⭐ Important Questions</h3>"+
-
-"<p>"+
-"সংজ্ঞা, কারণ/ব্যাখ্যা, পার্থক্য, সূত্র এবং প্রয়োগভিত্তিক প্রশ্ন অনুশীলন করুন।"+
-"</p>"+
-
-"<h3>🎯 Study Method</h3>"+
-
-"<p>"+
-"Read → Understand → Write → Practice → Revise"+
-"</p>"+
-
-"<button class='complete' onclick='completeChapter()'>"+
-(done?"✓ Completed":"✓ Mark Complete")+
-"</button>"+
-
-"<div class='progress'>"+
-"<div class='progress-bar' id='progressBar'></div>"+
-"</div>"+
-
-"<p id='progressText' style='margin-top:6px;color:#6b7280'></p>";
-
-renderProgress();
+  updateProgress();
 
 }
 
 
-/* =====================================
-   PROGRESS
-===================================== */
+/* =========================
+   SEARCH
+========================= */
 
-function progressKey(){
+function searchChapter(){
 
-return selectedClass+
-"_"+selectedSubject;
-
-}
-
-
-function getProgress(){
-
-return parseInt(
-localStorage.getItem(
-"progress_"+progressKey()
-)||"0"
-);
+  renderChapters();
 
 }
 
 
-function setProgress(value){
+/* =========================
+   OPEN CHAPTER
+========================= */
 
-value=
-Math.max(
-0,
-Math.min(100,value)
-);
+function openChapter(chapter){
 
-localStorage.setItem(
-"progress_"+progressKey(),
-value
-);
+  currentChapter=chapter;
 
-renderProgress();
+  const data=
+    contentDB[chapter] ||
+    createGenericContent(chapter);
+
+  document.getElementById("studySubject").textContent=
+    `Class ${currentClass} • ${currentSubject}`;
+
+  document.getElementById("studyTitle").textContent=
+    chapter;
+
+  document.getElementById("overview").textContent=
+    data.overview;
+
+  document.getElementById("studyNote").textContent=
+    data.note;
+
+  document.getElementById("remember").textContent=
+    data.remember;
+
+  document.getElementById("goals").innerHTML=
+    data.goals
+    .map(x=>`<li>${x}</li>`)
+    .join("");
+
+  document.getElementById("important").innerHTML=
+    data.important
+    .map(x=>`<li>${x}</li>`)
+    .join("");
+
+  const id=
+    currentClass+"|"+
+    currentSubject+"|"+
+    chapter;
+
+  const done=
+    completed.includes(id);
+
+  document.getElementById("completeBtn").textContent=
+    done
+      ?"✅ Completed"
+      :"✅ Chapter Complete";
+
+  document
+    .getElementById("studyPanel")
+    .classList.add("show");
+
+  document
+    .getElementById("quizBox")
+    .innerHTML="";
+
+  document
+    .getElementById("studyPanel")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
 
 }
 
 
-function renderProgress(){
+/* =========================
+   GENERIC CONTENT
+========================= */
 
-let p=
-getProgress();
+function createGenericContent(chapter){
 
-let bar=
-document.getElementById(
-"progressBar"
-);
+  return {
 
-if(bar){
+    overview:
+      `এই Chapter-এ "${chapter}" বিষয়টি ধাপে ধাপে বোঝানো হবে। বিষয়টির মূল ধারণা বুঝে নিয়মিত অনুশীলন করলে প্রস্তুতি আরও ভালো হবে।`,
 
-bar.style.width=
-p+"%";
+    goals:[
+      "Chapter-এর মূল ধারণা বোঝা",
+      "গুরুত্বপূর্ণ বিষয়গুলো চিহ্নিত করা",
+      "প্রশ্নোত্তর ও অনুশীলনের মাধ্যমে ধারণা শক্ত করা"
+    ],
 
-}
+    important:[
+      "মূল সংজ্ঞা ও ধারণাগুলো ভালোভাবে পড়বে",
+      "উদাহরণগুলো নিজে করার চেষ্টা করবে",
+      "প্রয়োজনে নিজের Note তৈরি করবে"
+    ],
 
-let text=
-document.getElementById(
-"progressText"
-);
+    remember:
+      "শুধু মুখস্থ না করে বিষয়টি বুঝে পড়ার চেষ্টা করবে।",
 
-if(text){
+    note:
+      `"${chapter}" অধ্যায়টি ভালোভাবে আয়ত্ত করার জন্য প্রথমে মূল ধারণা পড়বে। তারপর গুরুত্বপূর্ণ পয়েন্ট লিখে রাখবে এবং শেষে Quiz দিয়ে নিজেকে যাচাই করবে।`
 
-text.textContent=
-"Subject Progress: "+
-p+"%";
-
-}
-
-let tool=
-document.getElementById(
-"progressTool"
-);
-
-if(tool){
-
-tool.textContent=
-p+"%";
+  };
 
 }
 
-}
 
+/* =========================
+   COMPLETE
+========================= */
 
 function completeChapter(){
 
-localStorage.setItem(
+  const id=
+    currentClass+"|"+
+    currentSubject+"|"+
+    currentChapter;
 
-"done_"+
-selectedClass+"_"+
-selectedSubject+"_"+
-selectedChapter,
+  if(!completed.includes(id)){
 
-"1"
+    completed.push(id);
 
-);
+    localStorage.setItem(
+      "asimStudyCompleted",
+      JSON.stringify(completed)
+    );
 
+  }
 
-let chapters=
-DB[selectedClass][selectedSubject];
+  document.getElementById("completeBtn").textContent=
+    "✅ Completed";
 
-let completed=0;
+  renderChapters();
 
-
-chapters.forEach(
-ch=>{
-
-if(
-localStorage.getItem(
-"done_"+
-selectedClass+"_"+
-selectedSubject+"_"+
-ch
-)==="1"
-){
-
-completed++;
-
-}
-
-});
-
-
-let percentage=
-Math.round(
-completed/
-chapters.length*
-100
-);
-
-setProgress(
-percentage
-);
-
-renderChapters();
-
-alert(
-"🎉 Chapter completed!"
-);
+  alert("🎉 Chapter Completed!");
 
 }
 
 
-/* =====================================
+/* =========================
+   PROGRESS
+========================= */
+
+function updateProgress(){
+
+  const key=currentClass+"-"+currentSubject;
+
+  const list=chapterDB[key]||[];
+
+  if(!list.length){
+    return;
+  }
+
+  let done=0;
+
+  list.forEach(chapter=>{
+
+    const id=
+      currentClass+"|"+
+      currentSubject+"|"+
+      chapter;
+
+    if(completed.includes(id)){
+      done++;
+    }
+
+  });
+
+  const percent=
+    Math.round((done/list.length)*100);
+
+  document.getElementById("progressBar")
+    .style.width=percent+"%";
+
+  document.getElementById("progressText")
+    .textContent=
+      `${done}/${list.length} Chapter Complete • ${percent}%`;
+
+  document.getElementById("progressTitle")
+    .textContent=
+      `${currentSubject} Progress`;
+
+}
+
+
+/* =========================
+   CLOSE STUDY
+========================= */
+
+function closeStudy(){
+
+  document
+    .getElementById("studyPanel")
+    .classList.remove("show");
+
+}
+
+
+/* =========================
    QUIZ
-===================================== */
+========================= */
 
-const questions=[
+function startQuiz(){
 
-{
-q:"Chapter পড়ার সঠিক প্রথম ধাপ কোনটি?",
-o:[
-"শুধু MCQ মুখস্থ করা",
-"মূল ধারণা বোঝা",
-"শুধু উত্তর দেখা",
-"পড়া বাদ দেওয়া"
-],
-a:1
-},
+  const questions=[
 
-{
-q:"Revision-এর ভালো পদ্ধতি কোনটি?",
-o:[
-"একবার পড়া",
-"নিয়মিত পুনরাবৃত্তি",
-"শুধু পরীক্ষা আগে পড়া",
-"কিছুই নয়"
-],
-a:1
-},
+    {
+      q:`"${currentChapter}" Chapter পড়ার মূল উদ্দেশ্য কী?`,
+      a:[
+        "শুধু মুখস্থ করা",
+        "বিষয়টি বুঝে শেখা",
+        "কিছু না পড়া",
+        "শুধু পরীক্ষা দেওয়া"
+      ],
+      c:1
+    },
 
-{
-q:"Mathematics-এ problem solving-এর জন্য কী প্রয়োজন?",
-o:[
-"Practice",
-"শুধু মুখস্থ",
-"শুধু ভিডিও",
-"কিছুই নয়"
-],
-a:0
-},
+    {
+      q:"ভালোভাবে পড়ার জন্য কোনটি সবচেয়ে গুরুত্বপূর্ণ?",
+      a:[
+        "নিয়মিত অনুশীলন",
+        "শুধু শেষ দিনে পড়া",
+        "কিছুই না লেখা",
+        "শুধু উত্তর মুখস্থ করা"
+      ],
+      c:0
+    },
 
-{
-q:"Science পড়ার সময় কোনটি গুরুত্বপূর্ণ?",
-o:[
-"Concept বোঝা",
-"শুধু শব্দ মুখস্থ",
-"প্রশ্ন না করা",
-"Revision না করা"
-],
-a:0
-},
+    {
+      q:"নিজের Note তৈরি করলে কী সুবিধা হয়?",
+      a:[
+        "সময় নষ্ট হয়",
+        "পড়া মনে রাখতে সাহায্য করে",
+        "পড়া বন্ধ হয়ে যায়",
+        "কোনো সুবিধা নেই"
+      ],
+      c:1
+    },
 
-{
-q:"Chapter complete করার পর কী করা ভালো?",
-o:[
-"Revision ও MCQ",
-"পড়া বন্ধ",
-"Notes delete",
-"কিছু নয়"
-],
-a:0
-}
+    {
+      q:"Quiz দেওয়ার প্রধান উদ্দেশ্য কী?",
+      a:[
+        "নিজের জ্ঞান যাচাই করা",
+        "সময় নষ্ট করা",
+        "শুধু নম্বর পাওয়া",
+        "পড়া এড়িয়ে যাওয়া"
+      ],
+      c:0
+    },
 
-];
+    {
+      q:"Chapter শেখার ভালো পদ্ধতি কোনটি?",
+      a:[
+        "পড়া + অনুশীলন + Revision",
+        "শুধু বই দেখা",
+        "শুধু উত্তর দেখা",
+        "কিছু না করা"
+      ],
+      c:0
+    }
 
+  ];
 
-let qIndex=0;
+  currentQuiz=questions;
 
-let score=0;
+  let html="<h3>📝 Chapter Quiz</h3>";
 
-let answered=false;
+  questions.forEach((item,i)=>{
 
+    html+=`
+      <div class="question">
 
-function loadQuiz(){
+        <b>${i+1}. ${item.q}</b>
 
-let q=
-questions[qIndex];
+        ${item.a.map((option,j)=>`
 
-document.getElementById(
-"question"
-).textContent=
-(qIndex+1)+
-". "+
-q.q;
+          <label class="option">
 
-let box=
-document.getElementById(
-"options"
-);
+            <input
+              type="radio"
+              name="q${i}"
+              value="${j}">
 
-box.innerHTML="";
+            ${option}
 
-answered=false;
+          </label>
 
+        `).join("")}
 
-q.o.forEach(
-(x,i)=>{
+      </div>
+    `;
 
-let b=
-document.createElement("button");
+  });
 
-b.className=
-"option";
+  html+=`
+    <button class="btn primary"
+            onclick="submitQuiz()">
+      ✅ Submit Quiz
+    </button>
 
-b.textContent=x;
+    <div id="quizResult"></div>
+  `;
 
-b.onclick=function(){
-
-if(answered)return;
-
-answered=true;
-
-if(i===q.a){
-
-b.classList.add(
-"correct"
-);
-
-score++;
-
-}else{
-
-b.classList.add(
-"wrong"
-);
-
-box.children[
-q.a
-].classList.add(
-"correct"
-);
-
-}
-
-document.getElementById(
-"score"
-).textContent=
-"Score: "+
-score+
-" / 5";
-
-};
-
-box.appendChild(b);
-
-}
-);
+  document.getElementById("quizBox").innerHTML=html;
 
 }
 
 
-function nextQuestion(){
+/* =========================
+   SUBMIT QUIZ
+========================= */
 
-if(!answered){
+function submitQuiz(){
 
-alert(
-"একটি answer নির্বাচন করুন।"
-);
+  let score=0;
 
-return;
+  currentQuiz.forEach((q,i)=>{
 
-}
+    const selected=
+      document.querySelector(
+        `input[name="q${i}"]:checked`
+      );
 
+    if(selected &&
+       Number(selected.value)===q.c){
 
-if(qIndex<4){
+      score++;
 
-qIndex++;
+    }
 
-loadQuiz();
+  });
 
-}else{
+  const total=currentQuiz.length;
 
-alert(
-"🎉 Final Score: "+
-score+
-" / 5"
-);
+  const percent=
+    Math.round((score/total)*100);
 
-}
+  document.getElementById("quizResult").innerHTML=`
+    <div class="result">
+      🎉 Your Score: ${score}/${total}
+      <br>
+      📊 ${percent}%
+    </div>
+  `;
 
-}
-
-
-function restartQuiz(){
-
-qIndex=0;
-
-score=0;
-
-document.getElementById(
-"score"
-).textContent=
-"Score: 0 / 5";
-
-loadQuiz();
+  localStorage.setItem(
+    "lastQuizScore",
+    percent
+  );
 
 }
 
 
-/* =====================================
+/* =========================
+   CALCULATOR
+========================= */
+
+function openCalculator(){
+
+  document
+    .getElementById("calculator")
+    .classList.add("show");
+
+}
+
+function closeCalculator(){
+
+  document
+    .getElementById("calculator")
+    .classList.remove("show");
+
+}
+
+function calc(value){
+
+  document.getElementById("calcDisplay").value+=value;
+
+}
+
+function clearCalc(){
+
+  document.getElementById("calcDisplay").value="";
+
+}
+
+function calculate(){
+
+  const display=
+    document.getElementById("calcDisplay");
+
+  try{
+
+    display.value=
+      Function(
+        '"use strict";return ('+
+        display.value+
+        ')'
+      )();
+
+  }catch{
+
+    display.value="Error";
+
+  }
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+let timerSeconds=25*60;
+let timerInterval=null;
+
+function openTimer(){
+
+  document
+    .getElementById("timerModal")
+    .classList.add("show");
+
+  updateTimer();
+
+}
+
+function closeTimer(){
+
+  document
+    .getElementById("timerModal")
+    .classList.remove("show");
+
+}
+
+function updateTimer(){
+
+  const min=
+    Math.floor(timerSeconds/60)
+    .toString()
+    .padStart(2,"0");
+
+  const sec=
+    (timerSeconds%60)
+    .toString()
+    .padStart(2,"0");
+
+  document.getElementById("timerDisplay")
+    .textContent=
+      `${min}:${sec}`;
+
+}
+
+function startTimer(){
+
+  if(timerInterval)return;
+
+  timerInterval=setInterval(()=>{
+
+    if(timerSeconds>0){
+
+      timerSeconds--;
+      updateTimer();
+
+    }else{
+
+      clearInterval(timerInterval);
+      timerInterval=null;
+
+      alert("🎉 Study Time Finished!");
+
+    }
+
+  },1000);
+
+}
+
+function pauseTimer(){
+
+  clearInterval(timerInterval);
+  timerInterval=null;
+
+}
+
+function resetTimer(){
+
+  pauseTimer();
+
+  timerSeconds=25*60;
+
+  updateTimer();
+
+}
+
+
+/* =========================
    NOTES
-===================================== */
+========================= */
 
-function handleImages(files){
+function addNoteImage(input){
 
-Array.from(files)
-.forEach(file=>{
+  if(!input.files.length)return;
 
-if(
-!file.type.startsWith(
-"image/"
-)
-)return;
+  selectedImage=input.files[0];
 
-let reader=
-new FileReader();
+  const reader=new FileReader();
 
-reader.onload=function(e){
+  reader.onload=function(e){
 
-currentImages.push(
-e.target.result
-);
+    document.getElementById(
+      "noteImagePreview"
+    ).innerHTML=`
+      <div style="margin-top:15px">
+        <b>Selected Image:</b><br>
+        <img
+          src="${e.target.result}"
+          style="max-width:180px;border-radius:12px;margin-top:8px">
+      </div>
+    `;
 
-renderPreview();
+  };
 
-};
-
-reader.readAsDataURL(
-file
-);
-
-});
-
-}
-
-
-function renderPreview(){
-
-let box=
-document.getElementById(
-"preview"
-);
-
-box.innerHTML="";
-
-
-currentImages.forEach(
-(src,index)=>{
-
-let div=
-document.createElement(
-"div"
-);
-
-div.className=
-"preview-item";
-
-div.innerHTML=
-
-"<img src='"+src+"'>"+
-"<button class='remove-img' onclick='removeImage("+
-index+
-")'>×</button>";
-
-box.appendChild(div);
-
-}
-);
-
-}
-
-
-function removeImage(index){
-
-currentImages.splice(
-index,
-1
-);
-
-renderPreview();
+  reader.readAsDataURL(selectedImage);
 
 }
 
 
 function saveNote(){
 
-let text=
-document.getElementById(
-"noteText"
-).value.trim();
+  const text=
+    document.getElementById("noteText").value.trim();
+
+  if(!text && !selectedImage){
+
+    alert("আগে Note লিখুন বা Image দিন।");
+
+    return;
+
+  }
+
+  const saveNoteData=(image)=>{
+
+    const notes=
+      JSON.parse(
+        localStorage.getItem("asimNotes")||"[]"
+      );
+
+    notes.unshift({
+
+      text:text,
+
+      image:image||"",
+
+      date:new Date().toLocaleString()
+
+    });
+
+    localStorage.setItem(
+      "asimNotes",
+      JSON.stringify(notes)
+    );
+
+    document.getElementById("noteText").value="";
+
+    document.getElementById(
+      "noteImagePreview"
+    ).innerHTML="";
+
+    selectedImage=null;
+
+    renderNotes();
+
+    alert("✅ Note Saved!");
+
+  };
 
 
-if(
-!text &&
-currentImages.length===0
-){
+  if(selectedImage){
 
-alert(
-"Note লিখুন অথবা ছবি যোগ করুন।"
-);
+    const reader=new FileReader();
 
-return;
+    reader.onload=
+      e=>saveNoteData(e.target.result);
 
-}
+    reader.readAsDataURL(selectedImage);
 
+  }else{
 
-let notes=
-JSON.parse(
-localStorage.getItem(
-"studyNotes"
-)||"[]"
-);
+    saveNoteData("");
 
-
-notes.unshift({
-
-id:Date.now(),
-
-text:text,
-
-images:[
-...currentImages
-],
-
-date:
-new Date().toLocaleString()
-
-});
-
-
-try{
-
-localStorage.setItem(
-"studyNotes",
-JSON.stringify(notes)
-);
-
-}catch(e){
-
-alert(
-"Storage full হয়ে গেছে। ছোট ছবি ব্যবহার করুন।"
-);
-
-return;
-
-}
-
-
-document.getElementById(
-"noteText"
-).value="";
-
-currentImages=[];
-
-renderPreview();
-
-loadNotes();
-
-alert(
-"✅ Note saved successfully!"
-);
+  }
 
 }
 
 
-function loadNotes(){
+function renderNotes(){
 
-let notes=
-JSON.parse(
-localStorage.getItem(
-"studyNotes"
-)||"[]"
-);
+  const notes=
+    JSON.parse(
+      localStorage.getItem("asimNotes")||"[]"
+    );
 
-let box=
-document.getElementById(
-"savedNotes"
-);
+  const box=
+    document.getElementById("noteList");
 
-box.innerHTML="";
+  box.innerHTML="";
 
+  if(!notes.length){
 
-if(notes.length===0){
+    box.innerHTML=
+      "<p>এখনও কোনো Note save করা হয়নি।</p>";
 
-box.innerHTML=
-"<p style='color:#6b7280'>এখনও কোনো saved note নেই।</p>";
+    return;
 
-return;
+  }
 
-}
+  notes.forEach((note,index)=>{
 
+    box.innerHTML+=`
 
-notes.forEach(
-note=>{
+      <div class="note">
 
-let div=
-document.createElement(
-"div"
-);
+        <small>${note.date}</small>
 
-div.className=
-"note-card";
+        <p>${escapeHTML(note.text)}</p>
 
+        ${
+          note.image
+          ? `<img src="${note.image}">`
+          :""
+        }
 
-let html=
-"<b>📝 "+
-note.date+
-"</b>";
+        <br>
 
+        <button
+          class="btn"
+          style="background:#fee2e2;color:#b91c1c;margin-top:8px"
+          onclick="deleteNote(${index})">
+          🗑️ Delete
+        </button>
 
-if(note.text){
+      </div>
 
-html+=
-"<p style='white-space:pre-wrap;margin-top:8px'>"+
-escapeHTML(note.text)+
-"</p>";
+    `;
 
-}
-
-
-if(
-note.images &&
-note.images.length
-){
-
-note.images.forEach(
-src=>{
-
-html+=
-"<img src='"+
-src+
-"' alt='Note image'>";
-
-}
-);
+  });
 
 }
 
 
-html+=
-"<br><button class='delete' onclick='deleteNote("+
-note.id+
-")'>🗑️ Delete</button>";
+function deleteNote(index){
 
+  const notes=
+    JSON.parse(
+      localStorage.getItem("asimNotes")||"[]"
+    );
 
-div.innerHTML=
-html;
+  notes.splice(index,1);
 
-box.appendChild(
-div
-);
+  localStorage.setItem(
+    "asimNotes",
+    JSON.stringify(notes)
+  );
 
-}
-
-);
-
-}
-
-
-function deleteNote(id){
-
-if(
-!confirm(
-"এই note delete করবেন?"
-)
-)return;
-
-
-let notes=
-JSON.parse(
-localStorage.getItem(
-"studyNotes"
-)||"[]"
-);
-
-
-notes=
-notes.filter(
-n=>n.id!==id
-);
-
-
-localStorage.setItem(
-"studyNotes",
-JSON.stringify(notes)
-);
-
-
-loadNotes();
+  renderNotes();
 
 }
 
 
 function escapeHTML(text){
 
-let div=
-document.createElement(
-"div"
-);
-
-div.textContent=
-text;
-
-return div.innerHTML;
+  return text
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
-
-
-/* =====================================
-   CALCULATOR
-===================================== */
-
-function openCalculator(){
-
-document.getElementById(
-"calculatorModal"
-).classList.add(
-"show"
-);
-
-}
-
-
-function closeCalculator(){
-
-document.getElementById(
-"calculatorModal"
-).classList.remove(
-"show"
-);
-
-}
-
-
-function calcInput(value){
-
-document.getElementById(
-"calcDisplay"
-).value+=value;
-
-}
-
-
-function calcClear(){
-
-document.getElementById(
-"calcDisplay"
-).value="";
-
-}
-
-
-function calcBack(){
-
-let d=
-document.getElementById(
-"calcDisplay"
-);
-
-d.value=
-d.value.slice(
-0,
--1
-);
-
-}
-
-
-function calculate(){
-
-let d=
-document.getElementById(
-"calcDisplay"
-);
-
-try{
-
-if(
-! /^[0-9+\-*/().\s]+$/.test(
-d.value
-)
-){
-
-throw new Error();
-
-}
-
-d.value=
-Function(
-'"use strict";return ('+
-d.value+
-')'
-)();
-
-}catch(e){
-
-d.value=
-"Error";
-
-}
-
-}
-
-
-/* =====================================
-   TIMER
-===================================== */
-
-let seconds=25*60;
-
-let timerInterval=null;
-
-
-function openTimer(){
-
-document.getElementById(
-"timerModal"
-).classList.add(
-"show"
-);
-
-updateTimer();
-
-}
-
-
-function closeTimer(){
-
-document.getElementById(
-"timerModal"
-).classList.remove(
-"show"
-);
-
-}
-
-
-function updateTimer(){
-
-let min=
-Math.floor(
-seconds/60
-);
-
-let sec=
-seconds%60;
-
-
-document.getElementById(
-"timerDisplay"
-).textContent=
-
-String(min)
-.padStart(2,"0")+
-":"+
-String(sec)
-.padStart(2,"0");
-
-}
-
-
-function startTimer(){
-
-if(timerInterval)return;
-
-
-timerInterval=
-setInterval(
-function(){
-
-if(seconds>0){
-
-seconds--;
-
-updateTimer();
-
-}else{
-
-clearInterval(
-timerInterval
-);
-
-timerInterval=null;
-
-alert(
-"🎉 Study session complete!"
-);
-
-}
-
-},
-1000
-);
-
-}
-
-
-function pauseTimer(){
-
-clearInterval(
-timerInterval
-);
-
-timerInterval=null;
-
-}
-
-
-function resetTimer(){
-
-pauseTimer();
-
-seconds=
-25*60;
-
-updateTimer();
-
-}
-
-
-/* =====================================
-   START APP
-===================================== */
-
-function renderAll(){
-
-renderClasses();
-
-renderSubjects();
-
-renderChapters();
-
-}
-
-
-renderAll();
-
-loadQuiz();
-
-loadNotes();
-
-updateTimer();
 
 </script>
 
