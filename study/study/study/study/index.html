@@ -1,0 +1,4402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+
+<meta name="theme-color" content="#6d35e8">
+
+<meta name="description"
+content="Asim Study - Your All-in-One Study Companion">
+
+<title>Asim Study | Study Companion</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#202338;
+    background:
+    linear-gradient(180deg,#f7f5ff,#f1f4ff);
+    overflow-x:hidden;
+    transition:.3s;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.hidden{
+    display:none!important;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --primary:#6d35e8;
+    --primary2:#8b3df0;
+    --purple:#7645e8;
+
+    --text:#202338;
+    --muted:#7b8297;
+
+    --card:#ffffff;
+    --soft:#f4f2ff;
+    --border:#e6e1fa;
+
+    --green:#20b56b;
+    --red:#ef476f;
+    --orange:#ff9d32;
+    --blue:#3b8eea;
+
+    --shadow:
+    0 12px 35px rgba(61,46,130,.10);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark{
+
+    --text:#f5f4ff;
+    --muted:#a9acc0;
+
+    --card:#151522;
+    --soft:#202031;
+    --border:#302e46;
+
+    background:
+    radial-gradient(
+        circle at 20% 0%,
+        rgba(111,52,232,.18),
+        transparent 30%
+    ),
+    #0c0c15;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app{
+    min-height:100vh;
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.topbar{
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:68px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5%;
+
+    background:rgba(255,255,255,.88);
+
+    border-bottom:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+}
+
+.dark .topbar{
+    background:rgba(12,12,21,.88);
+}
+
+.brand{
+
+    display:flex;
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--text);
+
+    font-size:19px;
+    font-weight:900;
+}
+
+.brand-icon{
+
+    width:38px;
+    height:38px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #6734df,
+        #9b42f4
+    );
+
+    box-shadow:
+    0 7px 20px rgba(109,53,232,.25);
+}
+
+.brand span{
+    color:var(--primary);
+}
+
+.top-actions{
+    display:flex;
+    gap:7px;
+}
+
+.icon-btn{
+
+    width:40px;
+    height:40px;
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:18px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+
+    width:92%;
+    max-width:1100px;
+
+    margin:28px auto 100px;
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
+
+.screen{
+    display:none;
+    animation:screenIn .3s ease;
+}
+
+.screen.active{
+    display:block;
+}
+
+@keyframes screenIn{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   DASHBOARD HERO
+========================================================= */
+
+.welcome{
+
+    padding:24px;
+
+    border-radius:25px;
+
+    color:white;
+
+    background:
+    radial-gradient(
+        circle at 90% 10%,
+        rgba(255,255,255,.18),
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #6230dc,
+        #8140ea,
+        #9d3cf0
+    );
+
+    box-shadow:
+    0 18px 40px rgba(108,48,225,.22);
+}
+
+.welcome small{
+    opacity:.8;
+}
+
+.welcome h1{
+
+    margin-top:7px;
+
+    font-size:28px;
+
+    line-height:1.2;
+}
+
+.welcome p{
+
+    margin-top:7px;
+
+    font-size:13px;
+
+    opacity:.88;
+}
+
+.goal-box{
+
+    margin-top:20px;
+
+    display:flex;
+    align-items:center;
+
+    gap:18px;
+}
+
+.progress-circle{
+
+    width:82px;
+    height:82px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+        #ffffff 75%,
+        rgba(255,255,255,.22) 0
+    );
+
+    position:relative;
+}
+
+.progress-circle::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:66px;
+    height:66px;
+
+    border-radius:50%;
+
+    background:#7539e3;
+}
+
+.progress-circle strong{
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:18px;
+}
+
+.goal-text strong{
+
+    display:block;
+
+    font-size:18px;
+}
+
+.goal-text span{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:11px;
+
+    opacity:.8;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:11px;
+
+    margin:18px 0;
+}
+
+.stat-card{
+
+    padding:16px 10px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    background:var(--card);
+
+    box-shadow:var(--shadow);
+}
+
+.stat-icon{
+    font-size:23px;
+    margin-bottom:7px;
+}
+
+.stat-card strong{
+
+    display:block;
+
+    font-size:19px;
+
+    color:var(--text);
+}
+
+.stat-card span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin:25px 0 12px;
+}
+
+.section-title h2{
+
+    color:var(--text);
+
+    font-size:20px;
+}
+
+.section-title button{
+
+    border:0;
+
+    background:none;
+
+    color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   QUICK ACCESS
+========================================================= */
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:10px;
+}
+
+.quick{
+
+    padding:17px 8px;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
+}
+
+.quick:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#a78ae9;
+}
+
+.quick-icon{
+
+    width:43px;
+    height:43px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 7px;
+
+    border-radius:13px;
+
+    background:var(--soft);
+
+    font-size:21px;
+}
+
+.quick strong{
+
+    display:block;
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    border:1px solid var(--border);
+
+    border-radius:21px;
+
+    background:var(--card);
+
+    box-shadow:var(--shadow);
+}
+
+.card h2{
+
+    color:var(--text);
+
+    font-size:22px;
+
+    margin-bottom:7px;
+}
+
+.description{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    margin-bottom:17px;
+}
+
+
+/* =========================================================
+   SUBJECTS
+========================================================= */
+
+.subject-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:11px;
+}
+
+.subject{
+
+    padding:15px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:var(--soft);
+
+    cursor:pointer;
+}
+
+.subject-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:9px;
+}
+
+.subject-icon{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:var(--card);
+
+    font-size:21px;
+}
+
+.subject-percent{
+
+    color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.subject h3{
+
+    color:var(--text);
+
+    font-size:14px;
+
+    margin-bottom:4px;
+}
+
+.subject p{
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+.progress{
+
+    height:6px;
+
+    margin-top:11px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:#e5e5ed;
+}
+
+.dark .progress{
+    background:#303043;
+}
+
+.progress span{
+
+    display:block;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #6734df,
+        #a042ef
+    );
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group{
+
+    margin-bottom:12px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    color:var(--text);
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    outline:none;
+
+    color:var(--text);
+
+    background:var(--card);
+
+    font-size:12px;
+}
+
+textarea{
+
+    min-height:120px;
+
+    resize:vertical;
+}
+
+.input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:
+    0 0 0 3px rgba(109,53,232,.08);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+
+    border:0;
+
+    border-radius:11px;
+
+    padding:11px 16px;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.primary{
+
+    background:
+    linear-gradient(
+        135deg,
+        #6734df,
+        #913cf0
+    );
+}
+
+.green{
+    background:#19ad68;
+}
+
+.red{
+    background:#ed3d61;
+}
+
+.orange{
+    background:#f5962f;
+}
+
+.gray{
+
+    color:var(--text);
+
+    background:var(--soft);
+}
+
+.button-row{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search{
+
+    margin-bottom:13px;
+}
+
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.note-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+}
+
+.note{
+
+    padding:14px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:var(--soft);
+}
+
+.note-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.note h3{
+
+    color:var(--text);
+
+    font-size:14px;
+}
+
+.note p{
+
+    margin-top:7px;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    white-space:pre-wrap;
+}
+
+.note-actions{
+
+    display:flex;
+
+    gap:5px;
+}
+
+.mini-btn{
+
+    width:29px;
+    height:29px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   TODO
+========================================================= */
+
+.task{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px;
+
+    margin-bottom:8px;
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+
+    background:var(--soft);
+}
+
+.task-check{
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    border:2px solid #aaa;
+
+    background:transparent;
+
+    color:white;
+}
+
+.task.done .task-check{
+
+    border-color:var(--green);
+
+    background:var(--green);
+}
+
+.task-text{
+
+    flex:1;
+
+    color:var(--text);
+
+    font-size:12px;
+}
+
+.task.done .task-text{
+
+    text-decoration:line-through;
+
+    opacity:.5;
+}
+
+.task-delete{
+
+    border:0;
+
+    background:none;
+
+    color:var(--red);
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.timer-card{
+
+    text-align:center;
+
+    padding:28px 20px;
+
+    border-radius:23px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        145deg,
+        #121224,
+        #25203b
+    );
+}
+
+.timer-mode{
+
+    display:inline-block;
+
+    padding:7px 13px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    color:#cdbfff;
+
+    font-size:10px;
+
+    font-weight:800;
+}
+
+.timer{
+
+    margin:25px 0;
+
+    font-size:57px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.timer-help{
+
+    color:#aaa6bb;
+
+    font-size:11px;
+
+    margin-bottom:17px;
+}
+
+.timer-progress{
+
+    height:7px;
+
+    margin-bottom:20px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.1);
+}
+
+.timer-progress span{
+
+    display:block;
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:#a77cff;
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-question{
+
+    padding:18px;
+
+    border-radius:17px;
+
+    background:var(--soft);
+
+    margin-bottom:13px;
+}
+
+.quiz-question h3{
+
+    color:var(--text);
+
+    font-size:16px;
+
+    line-height:1.5;
+}
+
+.quiz-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin-top:13px;
+}
+
+.quiz-option{
+
+    padding:13px;
+
+    text-align:left;
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:11px;
+}
+
+.quiz-option.correct{
+
+    border-color:#24b875;
+
+    background:#e8fff3;
+
+    color:#07844a;
+}
+
+.quiz-option.wrong{
+
+    border-color:#ef476f;
+
+    background:#fff0f3;
+
+    color:#d5274f;
+}
+
+.dark .quiz-option.correct{
+
+    background:#123426;
+
+    color:#5de3a4;
+}
+
+.dark .quiz-option.wrong{
+
+    background:#3b1824;
+
+    color:#ff7998;
+}
+
+.quiz-result{
+
+    padding:17px;
+
+    text-align:center;
+
+    border-radius:14px;
+
+    background:var(--soft);
+
+    color:var(--text);
+}
+
+.quiz-result strong{
+
+    display:block;
+
+    font-size:28px;
+
+    color:var(--primary);
+
+    margin-bottom:5px;
+}
+
+
+/* =========================================================
+   EXAM
+========================================================= */
+
+.exam{
+
+    padding:14px;
+
+    margin-bottom:9px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    background:var(--soft);
+}
+
+.exam-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.exam h3{
+
+    color:var(--text);
+
+    font-size:14px;
+}
+
+.exam p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-top:4px;
+}
+
+.countdown{
+
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:900;
+
+    text-align:right;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-box{
+
+    padding:17px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    background:var(--soft);
+
+    margin-bottom:10px;
+}
+
+.progress-box-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:8px;
+}
+
+.progress-box strong{
+
+    color:var(--text);
+
+    font-size:12px;
+}
+
+.progress-box span{
+
+    color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   CALCULATOR
+========================================================= */
+
+.calculator{
+
+    max-width:400px;
+
+    margin:auto;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #171729,
+        #25233a
+    );
+}
+
+.calc-display{
+
+    width:100%;
+
+    height:75px;
+
+    margin-bottom:12px;
+
+    padding:10px 14px;
+
+    border:0;
+
+    outline:0;
+
+    border-radius:13px;
+
+    background:#0d0d18;
+
+    color:white;
+
+    text-align:right;
+
+    font-size:29px;
+}
+
+.calc-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:7px;
+}
+
+.calc-btn{
+
+    height:54px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:#303047;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+}
+
+.calc-btn:hover{
+    background:#464462;
+}
+
+.calc-btn.operator{
+    background:#6d35e8;
+}
+
+.calc-btn.equal{
+    background:#21b76c;
+}
+
+.calc-btn.zero{
+    grid-column:span 2;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    color:var(--muted);
+
+    background:var(--soft);
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    z-index:2000;
+
+    height:72px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    border-top:1px solid var(--border);
+
+    background:rgba(255,255,255,.93);
+
+    backdrop-filter:blur(20px);
+
+    padding-bottom:
+    env(safe-area-inset-bottom);
+}
+
+.dark .bottom-nav{
+
+    background:rgba(15,15,25,.94);
+}
+
+.bottom-btn{
+
+    border:0;
+
+    background:transparent;
+
+    color:#9297aa;
+
+    font-size:9px;
+
+    font-weight:700;
+}
+
+.bottom-btn span{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    font-size:21px;
+}
+
+.bottom-btn.active{
+
+    color:var(--primary);
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:90px;
+
+    z-index:5000;
+
+    transform:
+    translateX(-50%)
+    translateY(20px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    padding:11px 16px;
+
+    border-radius:11px;
+
+    background:#20202e;
+
+    color:white;
+
+    font-size:11px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:750px){
+
+    main{
+        width:94%;
+        margin-top:18px;
+    }
+
+    .stats-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .quick-grid{
+
+        grid-template-columns:
+        repeat(4,1fr);
+    }
+
+    .quick{
+
+        padding:13px 4px;
+    }
+
+    .quick-icon{
+
+        width:38px;
+        height:38px;
+
+        font-size:18px;
+    }
+
+    .quick strong{
+        font-size:9px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .topbar{
+        padding:0 4%;
+    }
+
+    .brand{
+        font-size:17px;
+    }
+
+    .brand-icon{
+        width:34px;
+        height:34px;
+    }
+
+    .welcome{
+        padding:20px;
+    }
+
+    .welcome h1{
+        font-size:24px;
+    }
+
+    .subject-grid{
+        grid-template-columns:1fr;
+    }
+
+    .timer{
+        font-size:49px;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<header class="topbar">
+
+<div class="brand">
+
+<div class="brand-icon">
+🎓
+</div>
+
+ASIM <span>STUDY</span>
+
+</div>
+
+<div class="top-actions">
+
+<button
+class="icon-btn"
+id="themeBtn"
+title="Dark Mode">
+
+🌙
+
+</button>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HOME / DASHBOARD
+===================================================== -->
+
+<section
+class="screen active"
+id="homeScreen">
+
+<div class="welcome">
+
+<small>WELCOME BACK 👋</small>
+
+<h1>Good Morning, Asim!</h1>
+
+<p>
+Keep studying, keep growing.
+</p>
+
+<div class="goal-box">
+
+<div class="progress-circle">
+
+<strong>75%</strong>
+
+</div>
+
+<div class="goal-text">
+
+<strong>Today's Study</strong>
+
+<span>
+3h 45m studied • Daily Goal 5h
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<div class="stat-icon">✅</div>
+
+<strong id="completedStat">0</strong>
+
+<span>Completed</span>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">📝</div>
+
+<strong id="pendingStat">0</strong>
+
+<span>Pending Tasks</span>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">🔥</div>
+
+<strong id="streakStat">1</strong>
+
+<span>Day Streak</span>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">⭐</div>
+
+<strong id="pointsStat">0</strong>
+
+<span>Points</span>
+
+</div>
+
+</div>
+
+
+<div class="section-title">
+
+<h2>Quick Access</h2>
+
+<button onclick="openScreen('subjectsScreen')">
+See All
+</button>
+
+</div>
+
+
+<div class="quick-grid">
+
+<button
+class="quick"
+onclick="openScreen('subjectsScreen')">
+
+<div class="quick-icon">
+📚
+</div>
+
+<strong>Subjects</strong>
+
+</button>
+
+
+<button
+class="quick"
+onclick="openScreen('notesScreen')">
+
+<div class="quick-icon">
+📝
+</div>
+
+<strong>Notes</strong>
+
+</button>
+
+
+<button
+class="quick"
+onclick="openScreen('tasksScreen')">
+
+<div class="quick-icon">
+✅
+</div>
+
+<strong>To-Do</strong>
+
+</button>
+
+
+<button
+class="quick"
+onclick="openScreen('timerScreen')">
+
+<div class="quick-icon">
+⏱️
+</div>
+
+<strong>Timer</strong>
+
+</button>
+
+
+<button
+class="quick"
+onclick="openScreen('quizScreen')">
+
+<div class="quick-icon">
+🧠
+</div>
+
+<strong>Quiz</strong>
+
+</button>
+
+
+<button
+class="quick"
+onclick="openScreen('examScreen')">
+
+<div class="quick-icon">
+📅
+</div>
+
+<strong>Exam</strong>
+
+</button>
+
+
+<button
+class="quick"
+onclick="openScreen('progressScreen')">
+
+<div class="quick-icon">
+📊
+</div>
+
+<strong>Progress</strong>
+
+</button>
+
+
+<button
+class="quick"
+onclick="openScreen('calculatorScreen')">
+
+<div class="quick-icon">
+🔢
+</div>
+
+<strong>Calculator</strong>
+
+</button>
+
+</div>
+
+
+<div class="section-title">
+
+<h2>Today's Plan</h2>
+
+<button onclick="openScreen('tasksScreen')">
+Manage
+</button>
+
+</div>
+
+
+<div
+class="card"
+id="homeTaskPreview">
+
+<div class="empty">
+No study tasks yet.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SUBJECTS
+===================================================== -->
+
+<section
+class="screen"
+id="subjectsScreen">
+
+<div class="card">
+
+<h2>📚 Subjects</h2>
+
+<p class="description">
+Manage your subjects and track your study progress.
+</p>
+
+
+<div class="subject-grid">
+
+
+<div class="subject">
+
+<div class="subject-top">
+
+<div class="subject-icon">
+📖
+</div>
+
+<div class="subject-percent">
+75%
+</div>
+
+</div>
+
+<h3>বাংলা</h3>
+
+<p>12 Notes • 8 Topics</p>
+
+<div class="progress">
+<span style="width:75%"></span>
+</div>
+
+</div>
+
+
+<div class="subject">
+
+<div class="subject-top">
+
+<div class="subject-icon">
+📕
+</div>
+
+<div class="subject-percent">
+60%
+</div>
+
+</div>
+
+<h3>English</h3>
+
+<p>15 Notes • 10 Topics</p>
+
+<div class="progress">
+<span style="width:60%"></span>
+</div>
+
+</div>
+
+
+<div class="subject">
+
+<div class="subject-top">
+
+<div class="subject-icon">
+➗
+</div>
+
+<div class="subject-percent">
+80%
+</div>
+
+</div>
+
+<h3>Math</h3>
+
+<p>20 Notes • 15 Topics</p>
+
+<div class="progress">
+<span style="width:80%"></span>
+</div>
+
+</div>
+
+
+<div class="subject">
+
+<div class="subject-top">
+
+<div class="subject-icon">
+🧪
+</div>
+
+<div class="subject-percent">
+65%
+</div>
+
+</div>
+
+<h3>Science</h3>
+
+<p>18 Notes • 12 Topics</p>
+
+<div class="progress">
+<span style="width:65%"></span>
+</div>
+
+</div>
+
+
+<div class="subject">
+
+<div class="subject-top">
+
+<div class="subject-icon">
+🏛️
+</div>
+
+<div class="subject-percent">
+70%
+</div>
+
+</div>
+
+<h3>History</h3>
+
+<p>10 Notes • 7 Topics</p>
+
+<div class="progress">
+<span style="width:70%"></span>
+</div>
+
+</div>
+
+
+<div class="subject">
+
+<div class="subject-top">
+
+<div class="subject-icon">
+🌍
+</div>
+
+<div class="subject-percent">
+55%
+</div>
+
+</div>
+
+<h3>Geography</h3>
+
+<p>8 Notes • 6 Topics</p>
+
+<div class="progress">
+<span style="width:55%"></span>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     NOTES
+===================================================== -->
+
+<section
+class="screen"
+id="notesScreen">
+
+<div class="card">
+
+<h2>📝 Notes</h2>
+
+<p class="description">
+Create and save your study notes. Notes remain on this device.
+</p>
+
+
+<div class="form-group">
+
+<label>Note Title</label>
+
+<input
+class="input"
+id="noteTitle"
+placeholder="Example: বাংলা কবিতা">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Subject</label>
+
+<select id="noteSubject">
+
+<option>বাংলা</option>
+<option>English</option>
+<option>Math</option>
+<option>Science</option>
+<option>History</option>
+<option>Geography</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Note</label>
+
+<textarea
+id="noteText"
+placeholder="Write your note here..."></textarea>
+
+</div>
+
+
+<div class="button-row">
+
+<button
+class="btn primary"
+onclick="saveNote()">
+
+➕ Save Note
+
+</button>
+
+<button
+class="btn gray"
+onclick="clearNoteForm()">
+
+Clear
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📋 My Notes</h2>
+
+<input
+class="input search"
+id="noteSearch"
+placeholder="🔎 Search notes..."
+oninput="renderNotes()">
+
+
+<div
+class="note-list"
+id="noteList">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TASKS
+===================================================== -->
+
+<section
+class="screen"
+id="tasksScreen">
+
+<div class="card">
+
+<h2>✅ Study Plan</h2>
+
+<p class="description">
+Add homework, study topics and daily tasks.
+</p>
+
+
+<div class="form-group">
+
+<label>Task</label>
+
+<input
+class="input"
+id="taskInput"
+placeholder="Example: Math Chapter 5">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Time</label>
+
+<input
+class="input"
+id="taskTime"
+type="time">
+
+</div>
+
+
+<button
+class="btn primary"
+onclick="addTask()">
+
+➕ Add Task
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>📋 Today's Tasks</h2>
+
+<div id="taskList"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TIMER
+===================================================== -->
+
+<section
+class="screen"
+id="timerScreen">
+
+<div class="card">
+
+<h2>⏱️ Study Timer</h2>
+
+<p class="description">
+Use focused study sessions to improve concentration.
+</p>
+
+
+<div class="timer-card">
+
+<div class="timer-mode">
+POMODORO
+</div>
+
+
+<div
+class="timer"
+id="timerDisplay">
+
+25:00
+
+</div>
+
+
+<div class="timer-help">
+Focus for 25 minutes, then take a short break.
+</div>
+
+
+<div class="timer-progress">
+
+<span id="timerProgress"></span>
+
+</div>
+
+
+<div class="button-row"
+style="justify-content:center;">
+
+<button
+class="btn primary"
+id="timerStart"
+onclick="startTimer()">
+
+▶ Start
+
+</button>
+
+
+<button
+class="btn gray"
+onclick="pauseTimer()">
+
+⏸ Pause
+
+</button>
+
+
+<button
+class="btn red"
+onclick="resetTimer()">
+
+⏹ Reset
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ
+===================================================== -->
+
+<section
+class="screen"
+id="quizScreen">
+
+<div class="card">
+
+<h2>🧠 Quick Quiz</h2>
+
+<p class="description">
+Test your knowledge with simple practice questions.
+</p>
+
+
+<div
+id="quizArea">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     EXAM
+===================================================== -->
+
+<section
+class="screen"
+id="examScreen">
+
+<div class="card">
+
+<h2>📅 Exam Planner</h2>
+
+<p class="description">
+Add your exams and see how many days are remaining.
+</p>
+
+
+<div class="form-group">
+
+<label>Exam Name</label>
+
+<input
+class="input"
+id="examName"
+placeholder="Example: Final Exam">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Subject</label>
+
+<input
+class="input"
+id="examSubject"
+placeholder="Example: Math">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Exam Date</label>
+
+<input
+class="input"
+id="examDate"
+type="date">
+
+</div>
+
+
+<button
+class="btn primary"
+onclick="addExam()">
+
+➕ Add Exam
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>📋 Upcoming Exams</h2>
+
+<div id="examList"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<section
+class="screen"
+id="progressScreen">
+
+<div class="card">
+
+<h2>📊 My Progress</h2>
+
+<p class="description">
+Track your subject-wise study progress.
+</p>
+
+
+<div class="progress-box">
+
+<div class="progress-box-top">
+
+<strong>Math</strong>
+
+<span>75%</span>
+
+</div>
+
+<div class="progress">
+<span style="width:75%"></span>
+</div>
+
+</div>
+
+
+<div class="progress-box">
+
+<div class="progress-box-top">
+
+<strong>Science</strong>
+
+<span>60%</span>
+
+</div>
+
+<div class="progress">
+<span style="width:60%"></span>
+</div>
+
+</div>
+
+
+<div class="progress-box">
+
+<div class="progress-box-top">
+
+<strong>English</strong>
+
+<span>80%</span>
+
+</div>
+
+<div class="progress">
+<span style="width:80%"></span>
+</div>
+
+</div>
+
+
+<div class="progress-box">
+
+<div class="progress-box-top">
+
+<strong>বাংলা</strong>
+
+<span>75%</span>
+
+</div>
+
+<div class="progress">
+<span style="width:75%"></span>
+</div>
+
+</div>
+
+
+<div class="progress-box">
+
+<div class="progress-box-top">
+
+<strong>History</strong>
+
+<span>70%</span>
+
+</div>
+
+<div class="progress">
+<span style="width:70%"></span>
+</div>
+
+</div>
+
+
+<div class="progress-box">
+
+<div class="progress-box-top">
+
+<strong>Geography</strong>
+
+<span>55%</span>
+
+</div>
+
+<div class="progress">
+<span style="width:55%"></span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🏆 Achievement</h2>
+
+<div class="empty">
+
+🔥 Keep your study streak going!
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CALCULATOR
+===================================================== -->
+
+<section
+class="screen"
+id="calculatorScreen">
+
+<div class="card">
+
+<h2>🔢 Calculator</h2>
+
+<p class="description">
+Useful calculator for everyday study calculations.
+</p>
+
+
+<div class="calculator">
+
+<input
+class="calc-display"
+id="calcDisplay"
+readonly
+value="0">
+
+
+<div class="calc-grid">
+
+
+<button
+class="calc-btn"
+onclick="calcClear()">
+AC
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcDelete()">
+⌫
+</button>
+
+
+<button
+class="calc-btn operator"
+onclick="calcInput('%')">
+%
+</button>
+
+
+<button
+class="calc-btn operator"
+onclick="calcInput('/')">
+÷
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('7')">
+7
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('8')">
+8
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('9')">
+9
+</button>
+
+
+<button
+class="calc-btn operator"
+onclick="calcInput('*')">
+×
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('4')">
+4
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('5')">
+5
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('6')">
+6
+</button>
+
+
+<button
+class="calc-btn operator"
+onclick="calcInput('-')">
+−
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('1')">
+1
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('2')">
+2
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('3')">
+3
+</button>
+
+
+<button
+class="calc-btn operator"
+onclick="calcInput('+')">
++
+</button>
+
+
+<button
+class="calc-btn zero"
+onclick="calcInput('0')">
+0
+</button>
+
+
+<button
+class="calc-btn"
+onclick="calcInput('.')">
+.
+</button>
+
+
+<button
+class="calc-btn equal"
+onclick="calcResult()">
+=
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     BOTTOM NAV
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+<button
+class="bottom-btn active"
+data-screen="homeScreen"
+onclick="openScreen('homeScreen')">
+
+<span>🏠</span>
+Home
+
+</button>
+
+
+<button
+class="bottom-btn"
+data-screen="subjectsScreen"
+onclick="openScreen('subjectsScreen')">
+
+<span>📚</span>
+Subjects
+
+</button>
+
+
+<button
+class="bottom-btn"
+data-screen="notesScreen"
+onclick="openScreen('notesScreen')">
+
+<span>📝</span>
+Notes
+
+</button>
+
+
+<button
+class="bottom-btn"
+data-screen="tasksScreen"
+onclick="openScreen('tasksScreen')">
+
+<span>✅</span>
+Tasks
+
+</button>
+
+
+<button
+class="bottom-btn"
+data-screen="progressScreen"
+onclick="openScreen('progressScreen')">
+
+<span>📊</span>
+Progress
+
+</button>
+
+
+</nav>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+class="toast"
+id="toast">
+
+Saved
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   GLOBAL DATA
+========================================================= */
+
+let notes =
+JSON.parse(
+localStorage.getItem("asimStudyNotes") || "[]"
+);
+
+let tasks =
+JSON.parse(
+localStorage.getItem("asimStudyTasks") || "[]"
+);
+
+let exams =
+JSON.parse(
+localStorage.getItem("asimStudyExams") || "[]"
+);
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function openScreen(id){
+
+    document
+    .querySelectorAll(".screen")
+    .forEach(function(screen){
+
+        screen.classList.remove("active");
+
+    });
+
+
+    const selected =
+    document.getElementById(id);
+
+    if(selected){
+
+        selected.classList.add("active");
+
+    }
+
+
+    document
+    .querySelectorAll(".bottom-btn")
+    .forEach(function(btn){
+
+        btn.classList.remove("active");
+
+        if(btn.dataset.screen === id){
+
+            btn.classList.add("active");
+
+        }
+
+    });
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function showToast(message){
+
+    const toast =
+    document.getElementById("toast");
+
+    toast.textContent =
+    message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },1800);
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+
+const savedTheme =
+localStorage.getItem("asimStudyTheme");
+
+
+if(savedTheme === "dark"){
+
+    document.body.classList.add("dark");
+
+    themeBtn.textContent="☀️";
+
+}
+
+
+themeBtn.addEventListener(
+"click",
+function(){
+
+    document.body.classList.toggle("dark");
+
+    const dark =
+    document.body.classList.contains("dark");
+
+
+    themeBtn.textContent =
+    dark ? "☀️" : "🌙";
+
+
+    localStorage.setItem(
+        "asimStudyTheme",
+        dark ? "dark" : "light"
+    );
+
+});
+
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+function saveNote(){
+
+    const title =
+    document
+    .getElementById("noteTitle")
+    .value
+    .trim();
+
+
+    const subject =
+    document
+    .getElementById("noteSubject")
+    .value;
+
+
+    const text =
+    document
+    .getElementById("noteText")
+    .value
+    .trim();
+
+
+    if(!title || !text){
+
+        alert(
+            "Please enter note title and note."
+        );
+
+        return;
+
+    }
+
+
+    notes.unshift({
+
+        id:Date.now(),
+
+        title:title,
+
+        subject:subject,
+
+        text:text,
+
+        date:new Date().toLocaleString()
+
+    });
+
+
+    saveNotes();
+
+    clearNoteForm();
+
+    renderNotes();
+
+    showToast("Note saved successfully!");
+
+}
+
+
+function saveNotes(){
+
+    localStorage.setItem(
+        "asimStudyNotes",
+        JSON.stringify(notes)
+    );
+
+}
+
+
+function clearNoteForm(){
+
+    document.getElementById(
+        "noteTitle"
+    ).value="";
+
+
+    document.getElementById(
+        "noteText"
+    ).value="";
+
+}
+
+
+function renderNotes(){
+
+    const list =
+    document.getElementById(
+        "noteList"
+    );
+
+
+    const search =
+    (
+        document
+        .getElementById("noteSearch")
+        .value || ""
+    )
+    .toLowerCase()
+    .trim();
+
+
+    const filtered =
+    notes.filter(function(note){
+
+        return (
+
+            note.title
+            .toLowerCase()
+            .includes(search)
+
+            ||
+
+            note.subject
+            .toLowerCase()
+            .includes(search)
+
+            ||
+
+            note.text
+            .toLowerCase()
+            .includes(search)
+
+        );
+
+    });
+
+
+    if(!filtered.length){
+
+        list.innerHTML =
+        `
+        <div class="empty">
+        ${search
+        ? "No matching notes found."
+        : "No notes yet. Create your first note."}
+        </div>
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML="";
+
+
+    filtered.forEach(function(note){
+
+        const div =
+        document.createElement("div");
+
+        div.className="note";
+
+
+        div.innerHTML=
+        `
+
+        <div class="note-head">
+
+            <div>
+
+                <h3>
+                ${escapeHtml(note.title)}
+                </h3>
+
+                <div
+                style="
+                color:var(--primary);
+                font-size:9px;
+                margin-top:4px;
+                font-weight:800;
+                ">
+
+                ${escapeHtml(note.subject)}
+
+                </div>
+
+            </div>
+
+            <div class="note-actions">
+
+                <button
+                class="mini-btn"
+                onclick="editNote(${note.id})">
+
+                ✏️
+
+                </button>
+
+                <button
+                class="mini-btn"
+                onclick="deleteNote(${note.id})">
+
+                🗑️
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <p>
+        ${escapeHtml(note.text)}
+        </p>
+
+        <div
+        style="
+        margin-top:7px;
+        color:var(--muted);
+        font-size:8px;
+        ">
+
+        ${escapeHtml(note.date)}
+
+        </div>
+
+        `;
+
+
+        list.appendChild(div);
+
+    });
+
+}
+
+
+function editNote(id){
+
+    const note =
+    notes.find(
+        item => item.id === id
+    );
+
+
+    if(!note){
+        return;
+    }
+
+
+    document.getElementById(
+        "noteTitle"
+    ).value=note.title;
+
+
+    document.getElementById(
+        "noteSubject"
+    ).value=note.subject;
+
+
+    document.getElementById(
+        "noteText"
+    ).value=note.text;
+
+
+    deleteNote(id,false);
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+
+    showToast(
+        "Edit the note and save again."
+    );
+
+}
+
+
+function deleteNote(id,notify=true){
+
+    notes =
+    notes.filter(
+        item => item.id !== id
+    );
+
+
+    saveNotes();
+
+    renderNotes();
+
+
+    if(notify){
+
+        showToast("Note deleted.");
+
+    }
+
+}
+
+
+/* =========================================================
+   TASKS
+========================================================= */
+
+function addTask(){
+
+    const input =
+    document.getElementById(
+        "taskInput"
+    );
+
+
+    const timeInput =
+    document.getElementById(
+        "taskTime"
+    );
+
+
+    const text =
+    input.value.trim();
+
+
+    if(!text){
+
+        alert("Please enter a task.");
+
+        return;
+
+    }
+
+
+    tasks.push({
+
+        id:Date.now(),
+
+        text:text,
+
+        time:timeInput.value || "",
+
+        done:false
+
+    });
+
+
+    saveTasks();
+
+    input.value="";
+
+    timeInput.value="";
+
+    renderTasks();
+
+    updateStats();
+
+    showToast("Task added!");
+
+}
+
+
+function saveTasks(){
+
+    localStorage.setItem(
+        "asimStudyTasks",
+        JSON.stringify(tasks)
+    );
+
+}
+
+
+function toggleTask(id){
+
+    tasks =
+    tasks.map(function(task){
+
+        if(task.id === id){
+
+            task.done =
+            !task.done;
+
+        }
+
+        return task;
+
+    });
+
+
+    saveTasks();
+
+    renderTasks();
+
+    updateStats();
+
+}
+
+
+function deleteTask(id){
+
+    tasks =
+    tasks.filter(
+        task => task.id !== id
+    );
+
+
+    saveTasks();
+
+    renderTasks();
+
+    updateStats();
+
+    showToast("Task deleted.");
+
+}
+
+
+function renderTasks(){
+
+    const list =
+    document.getElementById(
+        "taskList"
+    );
+
+
+    if(!tasks.length){
+
+        list.innerHTML=
+        `
+        <div class="empty">
+        No tasks yet. Add your first study task.
+        </div>
+        `;
+
+        renderHomeTasks();
+
+        return;
+
+    }
+
+
+    list.innerHTML="";
+
+
+    tasks.forEach(function(task){
+
+        const div =
+        document.createElement("div");
+
+        div.className =
+        "task" +
+        (task.done ? " done" : "");
+
+
+        div.innerHTML=
+        `
+
+        <button
+        class="task-check"
+        onclick="toggleTask(${task.id})">
+
+        ${task.done ? "✓" : ""}
+
+        </button>
+
+
+        <div class="task-text">
+
+        ${escapeHtml(task.text)}
+
+        ${
+            task.time
+            ?
+            `<div
+            style="
+            margin-top:3px;
+            color:var(--muted);
+            font-size:9px;
+            ">
+            ⏰ ${escapeHtml(task.time)}
+            </div>`
+            :
+            ""
+        }
+
+        </div>
+
+
+        <button
+        class="task-delete"
+        onclick="deleteTask(${task.id})">
+
+        ×
+
+        </button>
+
+        `;
+
+
+        list.appendChild(div);
+
+    });
+
+
+    renderHomeTasks();
+
+}
+
+
+function renderHomeTasks(){
+
+    const box =
+    document.getElementById(
+        "homeTaskPreview"
+    );
+
+
+    if(!tasks.length){
+
+        box.innerHTML=
+        `
+        <div class="empty">
+        No study tasks yet.
+        </div>
+        `;
+
+        return;
+
+    }
+
+
+    const pending =
+    tasks
+    .filter(task => !task.done)
+    .slice(0,4);
+
+
+    if(!pending.length){
+
+        box.innerHTML=
+        `
+        <div class="empty">
+        🎉 All today's tasks completed!
+        </div>
+        `;
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+    pending
+    .map(function(task){
+
+        return `
+
+        <div
+        style="
+        padding:10px 0;
+        border-bottom:1px solid var(--border);
+        color:var(--text);
+        font-size:11px;
+        ">
+
+        ⭕ ${escapeHtml(task.text)}
+
+        ${
+            task.time
+            ?
+            `<span
+            style="
+            float:right;
+            color:var(--muted);
+            font-size:9px;
+            ">
+            ${escapeHtml(task.time)}
+            </span>`
+            :
+            ""
+        }
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+function updateStats(){
+
+    const completed =
+    tasks.filter(
+        task => task.done
+    ).length;
+
+
+    const pending =
+    tasks.filter(
+        task => !task.done
+    ).length;
+
+
+    document.getElementById(
+        "completedStat"
+    ).textContent =
+    completed;
+
+
+    document.getElementById(
+        "pendingStat"
+    ).textContent =
+    pending;
+
+
+    document.getElementById(
+        "pointsStat"
+    ).textContent =
+    completed * 10;
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+let timerSeconds = 25 * 60;
+
+let timerInterval = null;
+
+let timerRunning = false;
+
+
+function updateTimerDisplay(){
+
+    const min =
+    Math.floor(
+        timerSeconds / 60
+    )
+    .toString()
+    .padStart(2,"0");
+
+
+    const sec =
+    (
+        timerSeconds % 60
+    )
+    .toString()
+    .padStart(2,"0");
+
+
+    document.getElementById(
+        "timerDisplay"
+    ).textContent =
+    min + ":" + sec;
+
+
+    const progress =
+    ((25*60 - timerSeconds)/(25*60))*100;
+
+
+    document.getElementById(
+        "timerProgress"
+    ).style.width =
+    progress + "%";
+
+}
+
+
+function startTimer(){
+
+    if(timerRunning){
+        return;
+    }
+
+
+    timerRunning=true;
+
+
+    document.getElementById(
+        "timerStart"
+    ).textContent =
+    "▶ Running...";
+
+
+    timerInterval =
+    setInterval(function(){
+
+        if(timerSeconds > 0){
+
+            timerSeconds--;
+
+            updateTimerDisplay();
+
+        }
+
+        else{
+
+            clearInterval(timerInterval);
+
+            timerInterval=null;
+
+            timerRunning=false;
+
+            document.getElementById(
+                "timerStart"
+            ).textContent =
+            "▶ Start";
+
+            showToast(
+                "🎉 Study session complete!"
+            );
+
+            alert(
+                "🎉 Great job! Your 25-minute study session is complete."
+            );
+
+        }
+
+    },1000);
+
+}
+
+
+function pauseTimer(){
+
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
+    timerRunning=false;
+
+
+    document.getElementById(
+        "timerStart"
+    ).textContent =
+    "▶ Start";
+
+}
+
+
+function resetTimer(){
+
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
+    timerRunning=false;
+
+    timerSeconds=25*60;
+
+    updateTimerDisplay();
+
+
+    document.getElementById(
+        "timerStart"
+    ).textContent =
+    "▶ Start";
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+const quizQuestions=[
+
+    {
+        q:"বাংলা ভাষার বর্ণমালায় স্বরবর্ণ কয়টি?",
+        options:["১০টি","১১টি","১২টি","১৩টি"],
+        answer:1
+    },
+
+    {
+        q:"2 + 5 × 2 = কত?",
+        options:["14","12","10","9"],
+        answer:0
+    },
+
+    {
+        q:"Water-এর রাসায়নিক সংকেত কী?",
+        options:["CO2","O2","H2O","NaCl"],
+        answer:2
+    },
+
+    {
+        q:"The opposite of 'Hot' is:",
+        options:["Warm","Cold","Heat","Fire"],
+        answer:1
+    },
+
+    {
+        q:"পৃথিবীর একমাত্র প্রাকৃতিক উপগ্রহ কোনটি?",
+        options:["সূর্য","মঙ্গল","চাঁদ","শুক্র"],
+        answer:2
+    }
+
+];
+
+
+let quizIndex=0;
+
+let quizScore=0;
+
+let quizAnswered=false;
+
+
+function renderQuiz(){
+
+    const area =
+    document.getElementById(
+        "quizArea"
+    );
+
+
+    if(quizIndex >= quizQuestions.length){
+
+        area.innerHTML=
+        `
+
+        <div class="quiz-result">
+
+            <strong>
+            ${quizScore} / ${quizQuestions.length}
+            </strong>
+
+            Quiz Complete!
+
+            <div
+            style="
+            color:var(--muted);
+            margin-top:6px;
+            font-size:11px;
+            ">
+
+            ${
+                quizScore === quizQuestions.length
+                ? "🏆 Excellent!"
+                : quizScore >= 3
+                ? "👏 Very Good!"
+                : "📚 Keep Practising!"
+            }
+
+            </div>
+
+            <br>
+
+            <button
+            class="btn primary"
+            onclick="restartQuiz()">
+
+            🔄 Try Again
+
+            </button>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const question =
+    quizQuestions[quizIndex];
+
+
+    quizAnswered=false;
+
+
+    area.innerHTML=
+    `
+
+    <div
+    style="
+    margin-bottom:10px;
+    color:var(--muted);
+    font-size:10px;
+    font-weight:800;
+    ">
+
+    QUESTION ${quizIndex+1}
+    /
+    ${quizQuestions.length}
+
+    </div>
+
+
+    <div class="quiz-question">
+
+        <h3>
+        ${escapeHtml(question.q)}
+        </h3>
+
+
+        <div
+        class="quiz-options"
+        id="quizOptions">
+
+        ${
+
+            question.options
+            .map(function(option,index){
+
+                return `
+
+                <button
+                class="quiz-option"
+                onclick="answerQuiz(${index})">
+
+                ${String.fromCharCode(65+index)}.
+                ${escapeHtml(option)}
+
+                </button>
+
+                `;
+
+            })
+            .join("")
+
+        }
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+function answerQuiz(index){
+
+    if(quizAnswered){
+        return;
+    }
+
+
+    quizAnswered=true;
+
+
+    const question =
+    quizQuestions[quizIndex];
+
+
+    const buttons =
+    document.querySelectorAll(
+        ".quiz-option"
+    );
+
+
+    buttons.forEach(function(button,i){
+
+        if(i === question.answer){
+
+            button.classList.add(
+                "correct"
+            );
+
+        }
+
+        if(
+            i === index &&
+            index !== question.answer
+        ){
+
+            button.classList.add(
+                "wrong"
+            );
+
+        }
+
+        button.disabled=true;
+
+    });
+
+
+    if(index === question.answer){
+
+        quizScore++;
+
+        showToast("✅ Correct!");
+
+    }
+    else{
+
+        showToast("❌ Wrong answer.");
+
+    }
+
+
+    setTimeout(function(){
+
+        quizIndex++;
+
+        renderQuiz();
+
+    },900);
+
+}
+
+
+function restartQuiz(){
+
+    quizIndex=0;
+
+    quizScore=0;
+
+    renderQuiz();
+
+}
+
+
+/* =========================================================
+   EXAMS
+========================================================= */
+
+function addExam(){
+
+    const name =
+    document
+    .getElementById("examName")
+    .value
+    .trim();
+
+
+    const subject =
+    document
+    .getElementById("examSubject")
+    .value
+    .trim();
+
+
+    const date =
+    document
+    .getElementById("examDate")
+    .value;
+
+
+    if(!name || !subject || !date){
+
+        alert(
+            "Please enter exam name, subject and date."
+        );
+
+        return;
+
+    }
+
+
+    exams.push({
+
+        id:Date.now(),
+
+        name:name,
+
+        subject:subject,
+
+        date:date
+
+    });
+
+
+    saveExams();
+
+    document.getElementById(
+        "examName"
+    ).value="";
+
+
+    document.getElementById(
+        "examSubject"
+    ).value="";
+
+
+    document.getElementById(
+        "examDate"
+    ).value="";
+
+
+    renderExams();
+
+    showToast("Exam added!");
+
+}
+
+
+function saveExams(){
+
+    localStorage.setItem(
+        "asimStudyExams",
+        JSON.stringify(exams)
+    );
+
+}
+
+
+function getDaysLeft(date){
+
+    const today =
+    new Date();
+
+    today.setHours(
+        0,0,0,0
+    );
+
+
+    const exam =
+    new Date(date);
+
+    exam.setHours(
+        0,0,0,0
+    );
+
+
+    const diff =
+    exam.getTime() -
+    today.getTime();
+
+
+    return Math.ceil(
+        diff / 86400000
+    );
+
+}
+
+
+function renderExams(){
+
+    const list =
+    document.getElementById(
+        "examList"
+    );
+
+
+    if(!exams.length){
+
+        list.innerHTML=
+        `
+        <div class="empty">
+        No exams added yet.
+        </div>
+        `;
+
+        return;
+
+    }
+
+
+    exams.sort(function(a,b){
+
+        return a.date.localeCompare(
+            b.date
+        );
+
+    });
+
+
+    list.innerHTML="";
+
+
+    exams.forEach(function(exam){
+
+        const days =
+        getDaysLeft(
+            exam.date
+        );
+
+
+        let countdown;
+
+
+        if(days < 0){
+
+            countdown="Completed";
+
+        }
+        else if(days === 0){
+
+            countdown="Today!";
+
+        }
+        else if(days === 1){
+
+            countdown="1 Day Left";
+
+        }
+        else{
+
+            countdown=
+            days + " Days Left";
+
+        }
+
+
+        const div =
+        document.createElement("div");
+
+        div.className="exam";
+
+
+        div.innerHTML=
+        `
+
+        <div class="exam-top">
+
+            <div>
+
+                <h3>
+                ${escapeHtml(exam.name)}
+                </h3>
+
+                <p>
+                ${escapeHtml(exam.subject)}
+                </p>
+
+                <p>
+                📅 ${escapeHtml(exam.date)}
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="countdown">
+                ${countdown}
+                </div>
+
+                <button
+                class="mini-btn"
+                style="margin-top:8px;"
+                onclick="deleteExam(${exam.id})">
+
+                🗑️
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+
+        list.appendChild(div);
+
+    });
+
+}
+
+
+function deleteExam(id){
+
+    exams =
+    exams.filter(
+        exam => exam.id !== id
+    );
+
+
+    saveExams();
+
+    renderExams();
+
+    showToast("Exam deleted.");
+
+}
+
+
+/* =========================================================
+   CALCULATOR
+========================================================= */
+
+let calcValue="0";
+
+
+function calcInput(value){
+
+    if(calcValue==="0"){
+
+        if(
+            value === "." ||
+            /[0-9]/.test(value)
+        ){
+
+            calcValue=value;
+
+        }
+        else{
+
+            calcValue += value;
+
+        }
+
+    }
+    else{
+
+        calcValue += value;
+
+    }
+
+
+    document.getElementById(
+        "calcDisplay"
+    ).value =
+    calcValue;
+
+}
+
+
+function calcClear(){
+
+    calcValue="0";
+
+    document.getElementById(
+        "calcDisplay"
+    ).value="0";
+
+}
+
+
+function calcDelete(){
+
+    calcValue =
+    calcValue.length > 1
+    ? calcValue.slice(0,-1)
+    : "0";
+
+
+    document.getElementById(
+        "calcDisplay"
+    ).value =
+    calcValue;
+
+}
+
+
+function calcResult(){
+
+    try{
+
+        let expression =
+        calcValue
+        .replace(/%/g,"/100");
+
+
+        if(!/^[0-9+\-*/.() ]+$/.test(expression)){
+
+            throw new Error();
+
+        }
+
+
+        const result =
+        Function(
+            '"use strict";return (' +
+            expression +
+            ')'
+        )();
+
+
+        if(!isFinite(result)){
+
+            throw new Error();
+
+        }
+
+
+        calcValue =
+        String(
+            Math.round(
+                result * 100000000
+            ) / 100000000
+        );
+
+
+        document.getElementById(
+            "calcDisplay"
+        ).value =
+        calcValue;
+
+    }
+
+    catch(error){
+
+        calcValue="0";
+
+        document.getElementById(
+            "calcDisplay"
+        ).value="Error";
+
+        setTimeout(function(){
+
+            calcClear();
+
+        },800);
+
+    }
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value){
+
+    return String(value)
+
+    .replace(/&/g,"&amp;")
+
+    .replace(/</g,"&lt;")
+
+    .replace(/>/g,"&gt;")
+
+    .replace(/"/g,"&quot;")
+
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderNotes();
+
+renderTasks();
+
+renderExams();
+
+renderQuiz();
+
+updateStats();
+
+updateTimerDisplay();
+
+
+/* =========================================================
+   KEYBOARD CALCULATOR
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    const active =
+    document
+    .querySelector(".screen.active");
+
+
+    if(
+        active &&
+        active.id === "calculatorScreen"
+    ){
+
+        if(
+            /[0-9+\-*/.%]/.test(event.key)
+        ){
+
+            calcInput(event.key);
+
+        }
+
+        else if(event.key === "Enter"){
+
+            calcResult();
+
+        }
+
+        else if(event.key === "Backspace"){
+
+            calcDelete();
+
+        }
+
+        else if(event.key === "Escape"){
+
+            calcClear();
+
+        }
+
+    }
+
+});
+
+
+/* =========================================================
+   UPDATE EXAM COUNTDOWN
+========================================================= */
+
+setInterval(
+    renderExams,
+    60000
+);
+
+
+</script>
+
+</body>
+</html>
