@@ -6,36 +6,41 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-      content="#020b18">
+content="#020b18">
 
 <meta name="description"
-      content="Asim Tech Image to Excel">
+content="Asim Tech Image to Excel">
 
 <meta name="mobile-web-app-capable"
-      content="yes">
+content="yes">
 
 <meta name="apple-mobile-web-app-capable"
-      content="yes">
+content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+content="black-translucent">
 
 <meta name="apple-mobile-web-app-title"
-      content="Image to Excel">
+content="Image to Excel">
 
 <link rel="manifest"
-      href="./manifest.json">
+href="./manifest.json">
 
 <title>Asim Tech - Image to Excel</title>
 
 
-<!-- XLSX -->
+<!-- EXCEL -->
+
 <script
-src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
+src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js">
 </script>
 
 
-<!-- Tesseract OCR -->
+<!-- OCR -->
+
 <script
 src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
 </script>
@@ -44,829 +49,907 @@ src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js">
 <style>
 
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
 
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+font-family:
+Arial,
+Helvetica,
+sans-serif;
 
-    background:
-    radial-gradient(
-        circle at top,
-        #06243d 0%,
-        #021525 45%,
-        #010914 100%
-    );
+background:
+radial-gradient(
+circle at top,
+#06243d 0%,
+#021525 45%,
+#010914 100%
+);
 
-    color:#fff;
+color:#fff;
 
-    min-height:100vh;
+min-height:100vh;
 
-    overflow-x:hidden;
+overflow-x:hidden;
+
 }
 
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
 
-    position:sticky;
-    top:0;
-    z-index:1000;
+position:sticky;
+top:0;
+z-index:999;
 
-    background:
-    rgba(1,10,22,.97);
+background:
+rgba(1,10,22,.97);
 
-    border-bottom:
-    1px solid
-    rgba(0,153,255,.25);
+border-bottom:
+1px solid
+rgba(0,153,255,.25);
 
-    backdrop-filter:blur(12px);
+backdrop-filter:
+blur(12px);
+
 }
 
 .header-inner{
 
-    max-width:1100px;
+max-width:1100px;
 
-    min-height:78px;
+min-height:78px;
 
-    margin:auto;
+margin:auto;
 
-    padding:12px 18px;
+padding:
+12px 18px;
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    gap:15px;
+gap:15px;
+
 }
 
 .brand{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    gap:12px;
+gap:12px;
+
 }
 
 .brand-icon{
 
-    width:46px;
-    height:46px;
+width:46px;
+height:46px;
 
-    border-radius:14px;
+border-radius:14px;
 
-    display:flex;
+display:flex;
 
-    align-items:center;
-    justify-content:center;
+align-items:center;
 
-    background:
-    linear-gradient(
-        145deg,
-        #0d8cff,
-        #0065d8
-    );
+justify-content:center;
 
-    font-size:22px;
+background:
+linear-gradient(
+145deg,
+#0d8cff,
+#0065d8
+);
 
-    font-weight:bold;
+font-size:22px;
 
-    box-shadow:
-    0 8px 25px
-    rgba(0,130,255,.35);
+font-weight:bold;
+
+box-shadow:
+0 8px 25px
+rgba(0,130,255,.35);
+
 }
 
 .brand-text{
 
-    font-size:24px;
+font-size:24px;
 
-    font-weight:800;
+font-weight:800;
+
 }
 
 .brand-text span{
 
-    color:#078dff;
+color:#078dff;
+
 }
 
 .back-btn{
 
-    text-decoration:none;
+text-decoration:none;
 
-    color:white;
+color:white;
 
-    border:
-    1px solid
-    rgba(0,150,255,.4);
+border:
+1px solid
+rgba(0,150,255,.4);
 
-    background:
-    rgba(5,25,42,.7);
+background:
+rgba(5,25,42,.7);
 
-    border-radius:16px;
+border-radius:16px;
 
-    padding:11px 17px;
+padding:
+11px 17px;
 
-    font-weight:700;
+font-weight:700;
 
-    white-space:nowrap;
+white-space:nowrap;
+
 }
 
 
-/* ================= MAIN ================= */
+/* MAIN */
 
 .container{
 
-    max-width:1000px;
+max-width:1000px;
 
-    margin:auto;
+margin:auto;
 
-    padding:40px 15px 70px;
+padding:
+40px 15px 70px;
+
 }
 
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
 
-    text-align:center;
+text-align:center;
 
-    margin-bottom:35px;
+margin-bottom:35px;
+
 }
 
 .badge{
 
-    display:inline-block;
+display:inline-block;
 
-    padding:10px 22px;
+padding:
+10px 22px;
 
-    border-radius:30px;
+border-radius:30px;
 
-    border:
-    1px solid
-    rgba(0,153,255,.5);
+border:
+1px solid
+rgba(0,153,255,.5);
 
-    color:#36b4ff;
+color:#36b4ff;
 
-    font-weight:700;
+font-weight:700;
 
-    letter-spacing:3px;
+letter-spacing:3px;
 
-    margin-bottom:20px;
+margin-bottom:20px;
+
 }
 
 .hero h1{
 
-    font-size:
-    clamp(42px,8vw,70px);
+font-size:
+clamp(42px,8vw,70px);
 
-    line-height:1;
+line-height:1;
 
-    font-weight:900;
+font-weight:900;
 
-    letter-spacing:-3px;
+letter-spacing:-3px;
+
 }
 
-.hero h1 .blue{
+.hero h1 span{
 
-    color:#078dff;
+color:#078dff;
+
 }
 
 .hero p{
 
-    max-width:800px;
+max-width:800px;
 
-    margin:22px auto 0;
+margin:
+22px auto 0;
 
-    color:#91adc0;
+color:#91adc0;
 
-    font-size:
-    clamp(17px,3vw,23px);
+font-size:
+clamp(17px,3vw,23px);
 
-    line-height:1.6;
+line-height:1.6;
+
 }
 
 
-/* ================= CARD ================= */
+/* CARD */
 
 .card{
 
-    background:
-    linear-gradient(
-        145deg,
-        rgba(3,35,55,.93),
-        rgba(1,20,34,.96)
-    );
+background:
+linear-gradient(
+145deg,
+rgba(3,35,55,.93),
+rgba(1,20,34,.96)
+);
 
-    border:
-    1px solid
-    rgba(0,145,220,.28);
+border:
+1px solid
+rgba(0,145,220,.28);
 
-    border-radius:26px;
+border-radius:26px;
 
-    padding:
-    clamp(20px,4vw,35px);
+padding:
+clamp(20px,4vw,35px);
 
-    margin-bottom:25px;
+margin-bottom:25px;
 
-    box-shadow:
-    0 20px 70px
-    rgba(0,0,0,.3);
+box-shadow:
+0 20px 70px
+rgba(0,0,0,.3);
+
 }
 
 .card-title{
 
-    font-size:
-    clamp(26px,5vw,36px);
+font-size:
+clamp(26px,5vw,36px);
 
-    margin-bottom:25px;
+margin-bottom:25px;
+
 }
 
 
-/* ================= UPLOAD ================= */
+/* UPLOAD */
 
 .upload-box{
 
-    border:
-    3px dashed
-    rgba(0,145,220,.42);
+border:
+3px dashed
+rgba(0,145,220,.42);
 
-    border-radius:25px;
+border-radius:25px;
 
-    min-height:320px;
+min-height:320px;
 
-    padding:30px 15px;
+padding:30px 15px;
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:center;
+justify-content:center;
 
-    text-align:center;
+text-align:center;
 
-    background:
-    rgba(0,30,48,.4);
+background:
+rgba(0,30,48,.4);
+
 }
 
 .file-icon{
 
-    font-size:70px;
+font-size:70px;
 
-    margin-bottom:15px;
+margin-bottom:15px;
+
 }
 
 .upload-box h2{
 
-    font-size:
-    clamp(24px,5vw,35px);
+font-size:
+clamp(24px,5vw,35px);
 
-    margin-bottom:12px;
+margin-bottom:12px;
+
 }
 
 .upload-box p{
 
-    color:#8ba9bf;
+color:#8ba9bf;
 
-    max-width:650px;
+max-width:650px;
 
-    font-size:17px;
+font-size:17px;
 
-    line-height:1.6;
+line-height:1.6;
 
-    margin-bottom:22px;
+margin-bottom:22px;
+
 }
+
+
+/* FILE */
 
 .file-label{
 
-    display:inline-flex;
+display:inline-flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:center;
+justify-content:center;
 
-    min-height:62px;
+min-height:62px;
 
-    padding:0 28px;
+padding:
+0 28px;
 
-    border-radius:17px;
+border-radius:17px;
 
-    background:
-    linear-gradient(
-        135deg,
-        #078dff,
-        #006bd9
-    );
+background:
+linear-gradient(
+135deg,
+#078dff,
+#006bd9
+);
 
-    color:#fff;
+color:#fff;
 
-    font-size:19px;
+font-size:19px;
 
-    font-weight:800;
+font-weight:800;
 
-    cursor:pointer;
+cursor:pointer;
 
-    box-shadow:
-    0 10px 30px
-    rgba(0,120,255,.25);
+box-shadow:
+0 10px 30px
+rgba(0,120,255,.25);
+
 }
 
 #imageInput{
 
-    display:none;
+display:none;
+
 }
 
 
-/* ================= PREVIEW ================= */
+/* PREVIEW */
 
 .preview{
 
-    display:none;
+display:none;
 
-    width:100%;
+width:100%;
 
-    margin-top:20px;
+margin-top:20px;
 
-    text-align:center;
+text-align:center;
+
 }
 
 .preview img{
 
-    max-width:100%;
+max-width:100%;
 
-    max-height:400px;
+max-height:400px;
 
-    border-radius:18px;
+border-radius:18px;
 
-    border:
-    1px solid
-    rgba(0,160,255,.3);
+border:
+1px solid
+rgba(0,160,255,.3);
+
 }
 
 .preview-name{
 
-    margin-top:10px;
+margin-top:10px;
 
-    color:#91adc0;
+color:#91adc0;
+
 }
 
 
-/* ================= FORM ================= */
+/* FORM */
 
 .form-row{
 
-    display:grid;
+display:grid;
 
-    grid-template-columns:
-    repeat(2,1fr);
+grid-template-columns:
+repeat(2,1fr);
 
-    gap:16px;
+gap:16px;
 
-    margin-top:22px;
+margin-top:22px;
+
 }
 
 .form-group label{
 
-    display:block;
+display:block;
 
-    color:#9bb5c7;
+color:#9bb5c7;
 
-    font-weight:700;
+font-weight:700;
 
-    margin-bottom:9px;
+margin-bottom:9px;
+
 }
 
 select{
 
-    width:100%;
+width:100%;
 
-    height:58px;
+height:58px;
 
-    border-radius:16px;
+border-radius:16px;
 
-    border:
-    1px solid
-    rgba(0,150,220,.3);
+border:
+1px solid
+rgba(0,150,220,.3);
 
-    background:#032436;
+background:#032436;
 
-    color:#fff;
+color:#fff;
 
-    padding:0 15px;
+padding:0 15px;
 
-    font-size:17px;
+font-size:17px;
 
-    outline:none;
+outline:none;
+
 }
 
 
-/* ================= BUTTONS ================= */
+/* BUTTON */
 
 .main-btn{
 
-    width:100%;
+width:100%;
 
-    height:62px;
+height:62px;
 
-    border:none;
+border:none;
 
-    border-radius:17px;
+border-radius:17px;
 
-    margin-top:20px;
+margin-top:20px;
 
-    color:#fff;
+color:#fff;
 
-    font-size:19px;
+font-size:19px;
 
-    font-weight:800;
+font-weight:800;
 
-    cursor:pointer;
+cursor:pointer;
 
-    background:
-    linear-gradient(
-        135deg,
-        #078dff,
-        #0063d4
-    );
+background:
+linear-gradient(
+135deg,
+#078dff,
+#0063d4
+);
+
 }
 
 .main-btn:disabled{
 
-    opacity:.4;
+opacity:.4;
 
-    cursor:not-allowed;
+cursor:not-allowed;
+
 }
 
 .clear-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #ff2447,
-        #ed002f
-    );
+background:
+linear-gradient(
+135deg,
+#ff2447,
+#ed002f
+);
+
 }
 
 
-/* ================= PROGRESS ================= */
+/* PROGRESS */
 
 .progress-box{
 
-    display:none;
+display:none;
 
-    margin-top:20px;
+margin-top:20px;
 
-    padding:18px;
+padding:18px;
 
-    border-radius:17px;
+border-radius:17px;
 
-    background:
-    rgba(0,0,0,.2);
+background:
+rgba(0,0,0,.2);
+
 }
 
 .progress-text{
 
-    text-align:center;
+text-align:center;
 
-    color:#a8c0d1;
+color:#a8c0d1;
 
-    margin-bottom:12px;
+margin-bottom:12px;
+
 }
 
 .progress{
 
-    width:100%;
+width:100%;
 
-    height:12px;
+height:12px;
 
-    background:#092538;
+background:#092538;
 
-    border-radius:20px;
+border-radius:20px;
 
-    overflow:hidden;
+overflow:hidden;
+
 }
 
 .progress-bar{
 
-    width:0%;
+width:0%;
 
-    height:100%;
+height:100%;
 
-    background:
-    linear-gradient(
-        90deg,
-        #078dff,
-        #00c6ff
-    );
+background:
+linear-gradient(
+90deg,
+#078dff,
+#00c6ff
+);
 
-    transition:.2s;
+transition:.2s;
+
 }
 
 
-/* ================= STATUS ================= */
+/* STATUS */
 
 .status{
 
-    display:none;
+display:none;
 
-    margin-top:18px;
+margin-top:18px;
 
-    padding:14px;
+padding:14px;
 
-    border-radius:13px;
+border-radius:13px;
 
-    text-align:center;
+text-align:center;
 
-    font-weight:700;
+font-weight:700;
+
 }
 
 .status.success{
 
-    display:block;
+display:block;
 
-    color:#54e39a;
+color:#54e39a;
 
-    background:
-    rgba(0,200,100,.1);
+background:
+rgba(0,200,100,.1);
+
 }
 
 .status.error{
 
-    display:block;
+display:block;
 
-    color:#ff7188;
+color:#ff7188;
 
-    background:
-    rgba(255,0,50,.1);
+background:
+rgba(255,0,50,.1);
+
 }
 
 
-/* ================= RESULT ================= */
+/* RESULT */
 
 .result-card{
 
-    display:none;
+display:none;
+
 }
 
 .result-info{
 
-    color:#8faec2;
+color:#8faec2;
 
-    margin-bottom:20px;
+margin-bottom:20px;
 
-    line-height:1.6;
+line-height:1.6;
+
 }
 
 
-/* ================= TABLE ================= */
+/* TABLE */
 
 .table-wrap{
 
-    width:100%;
+width:100%;
 
-    overflow-x:auto;
+overflow-x:auto;
 
-    border-radius:18px;
+border-radius:18px;
 
-    border:
-    1px solid
-    rgba(0,150,220,.25);
+border:
+1px solid
+rgba(0,150,220,.25);
 
-    background:white;
+background:white;
+
 }
 
 table{
 
-    border-collapse:collapse;
+border-collapse:collapse;
 
-    width:100%;
+width:100%;
 
-    min-width:650px;
+min-width:650px;
 
-    background:white;
+background:white;
 
-    color:#111;
+color:#111;
+
 }
 
 th{
 
-    background:#d8f0fc;
+background:#d8f0fc;
 
-    color:#092b3e;
+color:#092b3e;
 
-    padding:14px;
+padding:14px;
 
-    border:
-    1px solid
-    #b8ccd5;
+border:
+1px solid
+#b8ccd5;
 
-    white-space:nowrap;
+white-space:nowrap;
 
-    font-size:17px;
+font-size:17px;
+
 }
 
 td{
 
-    min-width:130px;
+min-width:130px;
 
-    padding:13px;
+padding:13px;
 
-    border:
-    1px solid
-    #c5d1d6;
+border:
+1px solid
+#c5d1d6;
 
-    vertical-align:top;
+vertical-align:top;
 
-    font-size:16px;
+font-size:16px;
 
-    line-height:1.45;
+line-height:1.45;
 
-    background:white;
+background:white;
+
 }
 
 td[contenteditable="true"]{
 
-    outline:none;
+outline:none;
+
 }
 
 td[contenteditable="true"]:focus{
 
-    box-shadow:
-    inset 0 0 0 2px
-    #078dff;
+box-shadow:
+inset 0 0 0 2px
+#078dff;
 
-    background:#f0f9ff;
+background:#f0f9ff;
+
 }
 
 
-/* ================= ACTIONS ================= */
+/* ACTIONS */
 
 .action-grid{
 
-    display:grid;
+display:grid;
 
-    grid-template-columns:
-    repeat(2,1fr);
+grid-template-columns:
+repeat(2,1fr);
 
-    gap:14px;
+gap:14px;
 
-    margin-top:22px;
+margin-top:22px;
+
 }
 
 .action-btn{
 
-    min-height:60px;
+min-height:60px;
 
-    border:none;
+border:none;
 
-    border-radius:16px;
+border-radius:16px;
 
-    color:#fff;
+color:#fff;
 
-    font-size:17px;
+font-size:17px;
 
-    font-weight:800;
+font-weight:800;
 
-    cursor:pointer;
+cursor:pointer;
+
 }
 
 .excel-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #00c853,
-        #00a83e
-    );
+background:
+linear-gradient(
+135deg,
+#00c853,
+#00a83e
+);
+
 }
 
 .csv-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #078dff,
-        #0066d7
-    );
+background:
+linear-gradient(
+135deg,
+#078dff,
+#0066d7
+);
+
 }
 
 .add-row{
 
-    background:
-    linear-gradient(
-        135deg,
-        #a72cff,
-        #7b1fff
-    );
+background:
+linear-gradient(
+135deg,
+#a72cff,
+#7b1fff
+);
+
 }
 
 .add-col{
 
-    background:
-    linear-gradient(
-        135deg,
-        #ff9500,
-        #ff6500
-    );
+background:
+linear-gradient(
+135deg,
+#ff9500,
+#ff6500
+);
+
 }
 
 .copy-btn{
 
-    background:#08364d;
+background:#08364d;
+
 }
 
 .delete-btn{
 
-    background:
-    linear-gradient(
-        135deg,
-        #ff2447,
-        #e9002c
-    );
+background:
+linear-gradient(
+135deg,
+#ff2447,
+#e9002c
+);
+
 }
 
 
-/* ================= HELP ================= */
+/* HELP */
 
 .help{
 
-    color:#7898ac;
+color:#7898ac;
 
-    line-height:1.8;
+line-height:1.8;
 
-    font-size:16px;
+font-size:16px;
+
 }
 
 .help strong{
 
-    color:#c1d9e8;
+color:#c1d9e8;
+
 }
 
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:700px){
 
-    .header-inner{
+.header-inner{
 
-        min-height:70px;
+min-height:70px;
 
-        padding:10px 13px;
-    }
+padding:
+10px 13px;
 
-    .brand-icon{
+}
 
-        width:42px;
-        height:42px;
+.brand-icon{
 
-        font-size:19px;
-    }
+width:42px;
+height:42px;
 
-    .brand-text{
+font-size:19px;
 
-        font-size:21px;
-    }
+}
 
-    .back-btn{
+.brand-text{
 
-        padding:9px 12px;
+font-size:21px;
 
-        font-size:13px;
-    }
+}
 
-    .container{
+.back-btn{
 
-        padding:30px 12px 60px;
-    }
+padding:
+9px 12px;
 
-    .form-row{
+font-size:13px;
 
-        grid-template-columns:1fr;
-    }
+}
 
-    .action-grid{
+.container{
 
-        grid-template-columns:1fr;
-    }
+padding:
+30px 12px 60px;
 
-    .upload-box{
+}
 
-        min-height:310px;
-    }
+.form-row{
+
+grid-template-columns:1fr;
+
+}
+
+.action-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.upload-box{
+
+min-height:310px;
+
+}
 
 }
 
@@ -894,6 +977,7 @@ ASIM<span>TECH</span>
 
 </div>
 
+
 <a
 href="../"
 class="back-btn">
@@ -918,8 +1002,8 @@ ASIM TECH TOOL
 
 <h1>
 Image
-<span class="blue">→</span>
-<span class="blue">Excel</span>
+<span>→</span>
+<span>Excel</span>
 </h1>
 
 <p>
@@ -951,8 +1035,8 @@ Upload List / Table Image
 
 
 <p>
-Select a photo or screenshot containing a table,
-list, names, numbers or other text.
+Select a photo or screenshot containing
+Bangla, English, numbers or a table.
 </p>
 
 
@@ -968,7 +1052,8 @@ class="file-label">
 <input
 id="imageInput"
 type="file"
-accept="image/*">
+accept="image/*"
+capture="environment">
 
 
 <div
@@ -1009,7 +1094,7 @@ English
 বাংলা
 </option>
 
-<option value="eng+ben">
+<option value="eng+ben" selected>
 বাংলা + English
 </option>
 
@@ -1038,7 +1123,7 @@ Auto Detect
 2 Columns
 </option>
 
-<option value="3">
+<option value="3" selected>
 3 Columns
 </option>
 
@@ -1231,18 +1316,18 @@ id="clearTable">
 
 <p>
 <strong>1.</strong>
-Tap Choose Image and select a photo from your phone.
+Tap Choose Image and select a photo.
 </p>
 
 <p>
 <strong>2.</strong>
-Select English, বাংলা or বাংলা + English.
+Select <strong>বাংলা + English</strong> for mixed text.
 </p>
 
 <p>
 <strong>3.</strong>
-If you know the number of columns, select it.
-For example, a 3-column table → select <strong>3 Columns</strong>.
+If your image has 3 columns, select
+<strong>3 Columns</strong>.
 </p>
 
 <p>
@@ -1252,7 +1337,7 @@ Tap Extract Table.
 
 <p>
 <strong>5.</strong>
-Correct OCR mistakes by tapping cells.
+Correct OCR mistakes directly in the table.
 </p>
 
 <p>
@@ -1272,11 +1357,11 @@ Tap Download Excel.
 
 /* =====================================================
    ASIM TECH IMAGE TO EXCEL
-   FINAL VERSION
+   FINAL OCR + TABLE VERSION
 ===================================================== */
 
 
-/* ================= VARIABLES ================= */
+/* VARIABLES */
 
 let selectedFile = null;
 
@@ -1285,7 +1370,7 @@ let tableData = [];
 let currentColumns = 1;
 
 
-/* ================= ELEMENTS ================= */
+/* ELEMENTS */
 
 const imageInput =
 document.getElementById("imageInput");
@@ -1351,1061 +1436,1131 @@ const clearTable =
 document.getElementById("clearTable");
 
 
-/* ================= STATUS ================= */
+/* =====================================================
+   STATUS
+===================================================== */
 
 function showStatus(message,type){
 
-    statusBox.textContent =
-        message;
+statusBox.textContent = message;
 
-    statusBox.className =
-        "status " + type;
+statusBox.className =
+"status " + type;
 
 }
 
 
-/* ================= IMAGE SELECT ================= */
+/* =====================================================
+   IMAGE SELECT
+===================================================== */
 
 imageInput.addEventListener(
 "change",
 function(event){
 
-    const file =
-        event.target.files &&
-        event.target.files[0];
+const file =
+event.target.files &&
+event.target.files[0];
 
-    if(!file){
+if(!file){
 
-        return;
-    }
+return;
 
-    if(!file.type.startsWith("image/")){
-
-        showStatus(
-            "Please select an image file.",
-            "error"
-        );
-
-        return;
-    }
-
-    selectedFile =
-        file;
+}
 
 
-    const reader =
-        new FileReader();
+if(!file.type.startsWith("image/")){
+
+showStatus(
+"Please select an image file.",
+"error"
+);
+
+return;
+
+}
 
 
-    reader.onload =
-        function(e){
-
-            previewImage.src =
-                e.target.result;
-
-            previewName.textContent =
-                file.name;
-
-            preview.style.display =
-                "block";
-
-            extractBtn.disabled =
-                false;
-
-            showStatus(
-                "Image selected successfully.",
-                "success"
-            );
-
-        };
+selectedFile = file;
 
 
-    reader.onerror =
-        function(){
-
-            showStatus(
-                "Could not read the image.",
-                "error"
-            );
-
-        };
+const reader =
+new FileReader();
 
 
-    reader.readAsDataURL(file);
+reader.onload =
+function(e){
+
+previewImage.src =
+e.target.result;
+
+previewName.textContent =
+file.name;
+
+preview.style.display =
+"block";
+
+extractBtn.disabled =
+false;
+
+showStatus(
+"Image selected successfully.",
+"success"
+);
+
+};
+
+
+reader.onerror =
+function(){
+
+showStatus(
+"Could not read the image.",
+"error"
+);
+
+};
+
+
+reader.readAsDataURL(file);
 
 });
 
 
-/* ================= CLEAR ================= */
+/* =====================================================
+   CLEAR
+===================================================== */
 
 clearBtn.addEventListener(
 "click",
 function(){
 
-    selectedFile = null;
+selectedFile = null;
 
-    imageInput.value = "";
+imageInput.value = "";
 
-    preview.style.display =
-        "none";
+preview.style.display =
+"none";
 
-    previewImage.src = "";
+previewImage.src = "";
 
-    previewName.textContent = "";
+previewName.textContent = "";
 
-    extractBtn.disabled =
-        true;
+extractBtn.disabled =
+true;
 
-    resultCard.style.display =
-        "none";
+resultCard.style.display =
+"none";
 
-    tableData = [];
+tableData = [];
 
-    currentColumns = 1;
+currentColumns = 1;
 
-    headerRow.innerHTML = "";
+headerRow.innerHTML = "";
 
-    tableBody.innerHTML = "";
+tableBody.innerHTML = "";
 
-    progressBox.style.display =
-        "none";
+progressBox.style.display =
+"none";
 
-    statusBox.className =
-        "status";
+statusBox.className =
+"status";
 
 });
 
 
 /* =====================================================
-   PREPARE IMAGE
+   IMAGE PREPARATION
 ===================================================== */
 
 async function prepareImage(file){
 
-    return new Promise(
-    function(resolve,reject){
+return new Promise(
+function(resolve,reject){
 
-        const img =
-            new Image();
+const img =
+new Image();
 
-        const url =
-            URL.createObjectURL(file);
-
-
-        img.onload =
-            function(){
-
-                try{
-
-                    /*
-                       Large images are resized
-                       to make mobile OCR faster.
-                    */
-
-                    const maxWidth = 2800;
-
-                    let width =
-                        img.naturalWidth;
-
-                    let height =
-                        img.naturalHeight;
+const url =
+URL.createObjectURL(file);
 
 
-                    if(width > maxWidth){
+img.onload =
+function(){
 
-                        const scale =
-                            maxWidth / width;
+try{
 
-                        width =
-                            Math.round(
-                                width * scale
-                            );
+const maxWidth = 3000;
 
-                        height =
-                            Math.round(
-                                height * scale
-                            );
+let width =
+img.naturalWidth;
 
-                    }
+let height =
+img.naturalHeight;
 
 
-                    const canvas =
-                        document.createElement(
-                            "canvas"
-                        );
+if(width > maxWidth){
+
+const scale =
+maxWidth / width;
+
+width =
+Math.round(
+width * scale
+);
+
+height =
+Math.round(
+height * scale
+);
+
+}
 
 
-                    canvas.width =
-                        width;
+const canvas =
+document.createElement("canvas");
 
-                    canvas.height =
-                        height;
+canvas.width =
+width;
 
-
-                    const ctx =
-                        canvas.getContext(
-                            "2d",
-                            {
-                                willReadFrequently:true
-                            }
-                        );
+canvas.height =
+height;
 
 
-                    /*
-                       White background helps
-                       OCR with screenshots.
-                    */
-
-                    ctx.fillStyle =
-                        "#ffffff";
-
-                    ctx.fillRect(
-                        0,
-                        0,
-                        width,
-                        height
-                    );
+const ctx =
+canvas.getContext(
+"2d",
+{
+willReadFrequently:true
+}
+);
 
 
-                    ctx.drawImage(
-                        img,
-                        0,
-                        0,
-                        width,
-                        height
-                    );
+ctx.fillStyle =
+"#ffffff";
+
+ctx.fillRect(
+0,
+0,
+width,
+height
+);
 
 
-                    canvas.toBlob(
-                    function(blob){
-
-                        URL.revokeObjectURL(url);
-
-
-                        if(!blob){
-
-                            reject(
-                                new Error(
-                                    "Image conversion failed."
-                                )
-                            );
-
-                            return;
-                        }
+ctx.drawImage(
+img,
+0,
+0,
+width,
+height
+);
 
 
-                        resolve(blob);
+canvas.toBlob(
+function(blob){
 
-                    },
-                    "image/png",
-                    1
-                    );
-
-                }
-                catch(error){
-
-                    URL.revokeObjectURL(url);
-
-                    reject(error);
-
-                }
-
-            };
+URL.revokeObjectURL(url);
 
 
-        img.onerror =
-            function(){
+if(!blob){
 
-                URL.revokeObjectURL(url);
+reject(
+new Error(
+"Image conversion failed."
+)
+);
 
-                reject(
-                    new Error(
-                        "Could not load image."
-                    )
-                );
+return;
 
-            };
+}
 
 
-        img.src =
-            url;
+resolve(blob);
 
-    });
+},
+"image/png",
+1
+);
+
+
+}
+catch(error){
+
+URL.revokeObjectURL(url);
+
+reject(error);
+
+}
+
+};
+
+
+img.onerror =
+function(){
+
+URL.revokeObjectURL(url);
+
+reject(
+new Error(
+"Could not load image."
+)
+);
+
+};
+
+
+img.src = url;
+
+});
 
 }
 
 
 /* =====================================================
-   VALID OCR WORD
+   VALID WORD
 ===================================================== */
 
 function validWord(word){
 
-    if(
-        !word ||
-        !word.text ||
-        !word.bbox
-    ){
+if(
+!word ||
+!word.text ||
+!word.bbox
+){
 
-        return false;
-    }
+return false;
 
-
-    const text =
-        String(
-            word.text
-        ).trim();
+}
 
 
-    if(!text){
-
-        return false;
-    }
+const text =
+String(word.text).trim();
 
 
-    const x0 =
-        Number(word.bbox.x0);
+if(!text){
 
-    const x1 =
-        Number(word.bbox.x1);
+return false;
 
-    const y0 =
-        Number(word.bbox.y0);
-
-    const y1 =
-        Number(word.bbox.y1);
+}
 
 
-    return (
+const x0 =
+Number(word.bbox.x0);
 
-        Number.isFinite(x0) &&
+const x1 =
+Number(word.bbox.x1);
 
-        Number.isFinite(x1) &&
+const y0 =
+Number(word.bbox.y0);
 
-        Number.isFinite(y0) &&
+const y1 =
+Number(word.bbox.y1);
 
-        Number.isFinite(y1) &&
 
-        x1 > x0 &&
+return (
 
-        y1 > y0
+Number.isFinite(x0) &&
+Number.isFinite(x1) &&
+Number.isFinite(y0) &&
+Number.isFinite(y1) &&
+x1 > x0 &&
+y1 > y0
 
-    );
+);
 
 }
 
 
 /* =====================================================
-   MAKE ROWS
+   MAKE OCR ROWS
 ===================================================== */
 
 function makeRows(words){
 
-    const valid =
-        (words || [])
-        .filter(validWord)
-        .map(
-        function(word){
+const valid =
+(words || [])
+.filter(validWord)
+.map(function(w){
 
-            return {
+return {
 
-                text:
-                    String(
-                        word.text
-                    ).trim(),
+text:
+String(w.text).trim(),
 
-                bbox:{
+bbox:{
 
-                    x0:
-                        Number(
-                            word.bbox.x0
-                        ),
+x0:Number(w.bbox.x0),
 
-                    x1:
-                        Number(
-                            word.bbox.x1
-                        ),
+x1:Number(w.bbox.x1),
 
-                    y0:
-                        Number(
-                            word.bbox.y0
-                        ),
+y0:Number(w.bbox.y0),
 
-                    y1:
-                        Number(
-                            word.bbox.y1
-                        )
+y1:Number(w.bbox.y1)
 
-                }
+}
 
-            };
+};
 
-        });
+});
 
 
-    if(!valid.length){
+if(!valid.length){
 
-        return [];
-    }
+return [];
 
+}
 
-    /*
-       Estimate normal text height.
-    */
 
-    const heights =
-        valid
-        .map(
-            w =>
-            w.bbox.y1 -
-            w.bbox.y0
-        )
-        .sort(
-            (a,b) =>
-            a-b
-        );
+const heights =
+valid
+.map(
+w =>
+w.bbox.y1 -
+w.bbox.y0
+)
+.sort(
+(a,b) =>
+a-b
+);
 
 
-    const medianHeight =
-        heights[
-            Math.floor(
-                heights.length / 2
-            )
-        ] || 20;
+const medianHeight =
+heights[
+Math.floor(
+heights.length / 2
+)
+] || 20;
 
 
-    /*
-       Dynamic row tolerance.
-    */
+/*
+   Adaptive row tolerance.
+*/
 
-    const tolerance =
-        Math.max(
-            8,
-            Math.min(
-                30,
-                medianHeight * 0.60
-            )
-        );
+const tolerance =
+Math.max(
+10,
+medianHeight * 0.60
+);
 
 
-    valid.sort(
-    function(a,b){
+valid.sort(function(a,b){
 
-        const ay =
-            (
-                a.bbox.y0 +
-                a.bbox.y1
-            ) / 2;
+const ay =
+(
+a.bbox.y0 +
+a.bbox.y1
+) / 2;
 
-        const by =
-            (
-                b.bbox.y0 +
-                b.bbox.y1
-            ) / 2;
+const by =
+(
+b.bbox.y0 +
+b.bbox.y1
+) / 2;
 
-        return ay - by;
+return ay - by;
 
-    });
+});
 
 
-    const rows = [];
+const rows = [];
 
 
-    for(const word of valid){
+for(const word of valid){
 
-        const centerY =
-            (
-                word.bbox.y0 +
-                word.bbox.y1
-            ) / 2;
+const centerY =
+(
+word.bbox.y0 +
+word.bbox.y1
+) / 2;
 
 
-        let bestRow =
-            null;
+let bestRow = null;
 
-        let bestDistance =
-            Infinity;
+let bestDistance =
+Infinity;
 
 
-        for(const row of rows){
+for(const row of rows){
 
-            const distance =
-                Math.abs(
-                    row.centerY -
-                    centerY
-                );
+const distance =
+Math.abs(
+row.centerY -
+centerY
+);
 
 
-            if(
-                distance <= tolerance &&
-                distance < bestDistance
-            ){
+if(
+distance <= tolerance &&
+distance < bestDistance
+){
 
-                bestRow =
-                    row;
+bestRow =
+row;
 
-                bestDistance =
-                    distance;
+bestDistance =
+distance;
 
-            }
+}
 
-        }
+}
 
 
-        if(!bestRow){
+if(!bestRow){
 
-            bestRow = {
+bestRow = {
 
-                centerY:
-                    centerY,
+centerY:centerY,
 
-                words:[]
+words:[]
 
-            };
+};
 
-            rows.push(
-                bestRow
-            );
+rows.push(bestRow);
 
-        }
+}
 
 
-        bestRow.words.push(
-            word
-        );
+bestRow.words.push(word);
 
 
-        /*
-           Recalculate row center.
-        */
+bestRow.centerY =
+bestRow.words.reduce(
+function(sum,w){
 
-        bestRow.centerY =
-            bestRow.words.reduce(
-            function(sum,w){
+return sum +
+(
+w.bbox.y0 +
+w.bbox.y1
+) / 2;
 
-                return sum +
-                    (
-                        w.bbox.y0 +
-                        w.bbox.y1
-                    ) / 2;
+},
+0
+) /
+bestRow.words.length;
 
-            },
-            0
-            )
-            /
-            bestRow.words.length;
+}
 
-    }
 
+rows.sort(
+(a,b) =>
+a.centerY -
+b.centerY
+);
 
-    rows.sort(
-        (a,b) =>
-        a.centerY -
-        b.centerY
-    );
 
+rows.forEach(function(row){
 
-    rows.forEach(
-    function(row){
+row.words.sort(
+(a,b) =>
+a.bbox.x0 -
+b.bbox.x0
+);
 
-        row.words.sort(
-            (a,b) =>
-            a.bbox.x0 -
-            b.bbox.x0
-        );
+});
 
-    });
 
-
-    return rows;
+return rows;
 
 }
 
 
 /* =====================================================
-   MAKE CELL BLOCKS
+   WORDS INTO BLOCKS
 ===================================================== */
 
 function makeBlocks(row){
 
-    if(
-        !row ||
-        !row.words ||
-        !row.words.length
-    ){
-
-        return [];
-    }
-
-
-    const words =
-        [...row.words].sort(
-            (a,b) =>
-            a.bbox.x0 -
-            b.bbox.x0
-        );
-
-
-    const heights =
-        words
-        .map(
-            w =>
-            w.bbox.y1 -
-            w.bbox.y0
-        )
-        .sort(
-            (a,b) =>
-            a-b
-        );
-
-
-    const medianHeight =
-        heights[
-            Math.floor(
-                heights.length / 2
-            )
-        ] || 20;
-
-
-    /*
-       Conservative threshold.
-
-       This prevents words from different
-       columns being incorrectly joined.
-    */
-
-    const gapThreshold =
-        Math.max(
-            10,
-            Math.min(
-                35,
-                medianHeight * 0.90
-            )
-        );
-
-
-    const blocks = [];
-
-
-    for(const word of words){
-
-        if(!blocks.length){
-
-            blocks.push({
-
-                words:[
-                    word
-                ],
-
-                x0:
-                    word.bbox.x0,
-
-                x1:
-                    word.bbox.x1
-
-            });
-
-            continue;
-        }
-
-
-        const last =
-            blocks[
-                blocks.length - 1
-            ];
-
-
-        const gap =
-            word.bbox.x0 -
-            last.x1;
-
-
-        if(
-            gap <= gapThreshold
-        ){
-
-            last.words.push(
-                word
-            );
-
-            last.x1 =
-                Math.max(
-                    last.x1,
-                    word.bbox.x1
-                );
-
-        }
-        else{
-
-            blocks.push({
-
-                words:[
-                    word
-                ],
-
-                x0:
-                    word.bbox.x0,
-
-                x1:
-                    word.bbox.x1
-
-            });
-
-        }
-
-    }
-
-
-    return blocks.map(
-    function(block){
-
-        return {
-
-            text:
-                block.words
-                .map(
-                    w =>
-                    w.text
-                )
-                .join(" ")
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim(),
-
-            x0:
-                block.x0,
-
-            x1:
-                block.x1,
-
-            centerX:
-                (
-                    block.x0 +
-                    block.x1
-                ) / 2
-
-        };
-
-    });
-
-}
-
-
-/* =====================================================
-   K-MEANS COLUMN CENTERS
-===================================================== */
-
-function clusterX(values,k){
-
-    if(!values.length){
-
-        return [];
-    }
-
-
-    if(k <= 1){
-
-        return [
-
-            values.reduce(
-                (a,b) =>
-                a+b,
-                0
-            )
-            /
-            values.length
-
-        ];
-
-    }
-
-
-    /*
-       If there are fewer points than
-       requested columns, create geometry
-       centers instead.
-    */
-
-    const sorted =
-        [...values].sort(
-            (a,b) =>
-            a-b
-        );
-
-
-    let centers = [];
-
-
-    for(
-        let i=0;
-        i<k;
-        i++
-    ){
-
-        const pos =
-            Math.round(
-                i *
-                (
-                    sorted.length - 1
-                )
-                /
-                (
-                    k - 1
-                )
-            );
-
-
-        centers.push(
-            sorted[
-                Math.max(
-                    0,
-                    pos
-                )
-            ]
-        );
-
-    }
-
-
-    /*
-       K-means refinement.
-    */
-
-    for(
-        let iteration=0;
-        iteration<40;
-        iteration++
-    ){
-
-        const groups =
-            Array.from(
-                {
-                    length:k
-                },
-                () => []
-            );
-
-
-        for(
-            const value
-            of values
-        ){
-
-            let best =
-                0;
-
-            let distance =
-                Math.abs(
-                    value -
-                    centers[0]
-                );
-
-
-            for(
-                let i=1;
-                i<k;
-                i++
-            ){
-
-                const d =
-                    Math.abs(
-                        value -
-                        centers[i]
-                    );
-
-
-                if(
-                    d < distance
-                ){
-
-                    distance =
-                        d;
-
-                    best =
-                        i;
-
-                }
-
-            }
-
-
-            groups[
-                best
-            ].push(
-                value
-            );
-
-        }
-
-
-        let changed =
-            false;
-
-
-        for(
-            let i=0;
-            i<k;
-            i++
-        ){
-
-            if(
-                !groups[i].length
-            ){
-
-                continue;
-            }
-
-
-            const newCenter =
-                groups[i].reduce(
-                    (a,b) =>
-                    a+b,
-                    0
-                )
-                /
-                groups[i].length;
-
-
-            if(
-                Math.abs(
-                    newCenter -
-                    centers[i]
-                ) > 0.5
-            ){
-
-                changed =
-                    true;
-
-            }
-
-
-            centers[i] =
-                newCenter;
-
-        }
-
-
-        if(!changed){
-
-            break;
-        }
-
-    }
-
-
-    return centers.sort(
-        (a,b) =>
-        a-b
-    );
-
-}
-
-
-/* =====================================================
-   FIND COLUMN CENTERS
-===================================================== */
-
-function findColumnCenters(
-    rows,
-    columnCount
+if(
+!row ||
+!row.words ||
+!row.words.length
 ){
 
-    /*
-       BEST METHOD:
-       Use rows that have exactly
-       the requested number of blocks.
+return [];
 
-       Example:
-       3-column table
-       Row has 3 blocks
-       → those 3 X positions become anchors.
-    */
-
-    let exactAnchors = [];
+}
 
 
-    rows.forEach(
-    function(row){
-
-        const blocks =
-            makeBlocks(row);
-
-
-        if(
-            blocks.length ===
-            columnCount
-        ){
-
-            blocks.forEach(
-                block =>
-                exactAnchors.push(
-                    block.centerX
-                )
-            );
-
-        }
-
-    });
+const words =
+[...row.words].sort(
+(a,b) =>
+a.bbox.x0 -
+b.bbox.x0
+);
 
 
-    if(
-        exactAnchors.length >=
-        columnCount
-    ){
-
-        return clusterX(
-            exactAnchors,
-            columnCount
-        );
-
-    }
-
-
-    /*
-       SECOND METHOD:
-       Collect all blocks.
-
-       This works well when OCR
-       has missing cells.
-    */
-
-    const allBlocks =
-        rows.flatMap(
-            row =>
-            makeBlocks(row)
-        );
+const heights =
+words
+.map(
+w =>
+w.bbox.y1 -
+w.bbox.y0
+)
+.sort(
+(a,b) =>
+a-b
+);
 
 
-    if(
-        allBlocks.length >=
-        columnCount
-    ){
-
-        const centers =
-            clusterX(
-                allBlocks.map(
-                    block =>
-                    block.centerX
-                ),
-                columnCount
-            );
+const medianHeight =
+heights[
+Math.floor(
+heights.length / 2
+)
+] || 20;
 
 
-        if(
-            centers.length ===
-            columnCount
-        ){
+/*
+   Join normal words belonging to
+   the same cell.
 
-            return centers;
+   Keep large gaps separate.
+*/
 
-        }
+const gapThreshold =
+Math.max(
+18,
+medianHeight * 1.8
+);
 
-    }
+
+const blocks = [];
 
 
-    return [];
+for(const word of words){
+
+if(!blocks.length){
+
+blocks.push({
+
+words:[word],
+
+x0:word.bbox.x0,
+
+x1:word.bbox.x1
+
+});
+
+continue;
+
+}
+
+
+const last =
+blocks[
+blocks.length - 1
+];
+
+
+const gap =
+word.bbox.x0 -
+last.x1;
+
+
+if(gap <= gapThreshold){
+
+last.words.push(word);
+
+last.x1 =
+Math.max(
+last.x1,
+word.bbox.x1
+);
+
+}
+else{
+
+blocks.push({
+
+words:[word],
+
+x0:word.bbox.x0,
+
+x1:word.bbox.x1
+
+});
+
+}
+
+}
+
+
+return blocks.map(
+function(block){
+
+return {
+
+text:
+block.words
+.map(
+w =>
+w.text
+)
+.join(" ")
+.replace(
+/\s+/g,
+" "
+)
+.trim(),
+
+x0:
+block.x0,
+
+x1:
+block.x1,
+
+centerX:
+(
+block.x0 +
+block.x1
+) / 2
+
+};
+
+});
+
+}
+
+
+/* =====================================================
+   AUTO COLUMN ESTIMATION
+===================================================== */
+
+function estimateColumns(rows){
+
+if(!rows.length){
+
+return 1;
+
+}
+
+
+const counts =
+rows
+.map(
+row =>
+makeBlocks(row).length
+)
+.filter(
+n =>
+n >= 1 &&
+n <= 8
+);
+
+
+if(!counts.length){
+
+return 1;
+
+}
+
+
+const frequency = {};
+
+
+counts.forEach(
+n => {
+
+frequency[n] =
+(
+frequency[n] || 0
+) + 1;
+
+});
+
+
+let best = 1;
+
+let bestFrequency = 0;
+
+
+Object.keys(frequency)
+.forEach(
+key => {
+
+const n =
+Number(key);
+
+
+if(
+frequency[key] >
+bestFrequency
+){
+
+best = n;
+
+bestFrequency =
+frequency[key];
+
+}
+
+});
+
+
+return Math.min(
+8,
+Math.max(
+1,
+best
+)
+);
+
+}
+
+
+/* =====================================================
+   FIND COLUMN BOUNDARIES
+===================================================== */
+
+/*
+   This method uses the actual OCR word positions.
+
+   Instead of clustering every word,
+   it searches for empty vertical gaps.
+
+   This prevents words inside the same
+   column from becoming separate columns.
+*/
+
+function findColumnBoundaries(
+rows,
+columnCount
+){
+
+const allWords =
+rows.flatMap(
+row =>
+row.words
+);
+
+
+if(
+!allWords.length ||
+columnCount <= 1
+){
+
+return [];
+
+}
+
+
+let minX =
+Infinity;
+
+let maxX =
+-Infinity;
+
+
+allWords.forEach(
+word => {
+
+minX =
+Math.min(
+minX,
+word.bbox.x0
+);
+
+maxX =
+Math.max(
+maxX,
+word.bbox.x1
+);
+
+});
+
+
+if(
+!Number.isFinite(minX) ||
+!Number.isFinite(maxX) ||
+maxX <= minX
+){
+
+return [];
+
+}
+
+
+const range =
+maxX - minX;
+
+
+/*
+   500 bins gives good resolution.
+*/
+
+const bins =
+Math.min(
+600,
+Math.max(
+200,
+Math.round(range / 5)
+)
+);
+
+
+const occupancy =
+new Array(bins)
+.fill(0);
+
+
+/*
+   Mark horizontal OCR occupation.
+*/
+
+allWords.forEach(
+word => {
+
+let a =
+Math.floor(
+(
+word.bbox.x0 -
+minX
+) /
+range *
+bins
+);
+
+let b =
+Math.ceil(
+(
+word.bbox.x1 -
+minX
+) /
+range *
+bins
+);
+
+
+a =
+Math.max(
+0,
+Math.min(
+bins - 1,
+a
+)
+);
+
+b =
+Math.max(
+a + 1,
+Math.min(
+bins,
+b
+)
+);
+
+
+for(
+let i=a;
+i<b;
+i++
+){
+
+occupancy[i] += 1;
+
+}
+
+});
+
+
+/*
+   Smooth occupancy.
+*/
+
+const smooth =
+new Array(bins)
+.fill(0);
+
+const radius = 5;
+
+
+for(
+let i=0;
+i<bins;
+i++
+){
+
+let sum = 0;
+
+let count = 0;
+
+
+for(
+let j=
+Math.max(0,i-radius);
+j<=
+Math.min(
+bins-1,
+i+radius
+);
+j++
+){
+
+sum += occupancy[j];
+
+count++;
+
+}
+
+
+smooth[i] =
+sum / count;
+
+}
+
+
+/*
+   Find low-occupancy valleys.
+*/
+
+const candidates = [];
+
+
+for(
+let i=10;
+i<bins-10;
+i++
+){
+
+let left =
+smooth[i];
+
+let right =
+smooth[i];
+
+
+for(
+let j=1;
+j<=8;
+j++
+){
+
+left =
+Math.max(
+left,
+smooth[i-j]
+);
+
+right =
+Math.max(
+right,
+smooth[i+j]
+);
+
+}
+
+
+const valley =
+smooth[i];
+
+const score =
+(
+left +
+right
+) -
+2 * valley;
+
+
+if(score > 0){
+
+candidates.push({
+
+index:i,
+
+score:score,
+
+value:valley
+
+});
+
+}
+
+}
+
+
+/*
+   Keep valleys separated.
+
+   This is important because text itself
+   creates many small gaps.
+*/
+
+candidates.sort(
+(a,b) =>
+b.score -
+a.score
+);
+
+
+const selected = [];
+
+
+/*
+   Minimum distance between column
+   boundaries = 10% of image width.
+*/
+
+const minDistance =
+Math.max(
+20,
+bins * 0.10
+);
+
+
+for(
+const candidate of candidates
+){
+
+if(
+selected.every(
+item =>
+Math.abs(
+item.index -
+candidate.index
+) >=
+minDistance
+)
+){
+
+selected.push(
+candidate
+);
+
+}
+
+
+if(
+selected.length >=
+columnCount - 1
+){
+
+break;
+
+}
+
+}
+
+
+selected.sort(
+(a,b) =>
+a.index -
+b.index
+);
+
+
+/*
+   Convert valley positions into X.
+*/
+
+return selected.map(
+item =>
+minX +
+(
+item.index /
+bins
+) *
+range
+);
 
 }
 
@@ -2415,784 +2570,565 @@ function findColumnCenters(
 ===================================================== */
 
 function buildTableFromRows(
-    rows,
-    columnCount
+rows,
+columnCount
 ){
 
-    if(!rows.length){
+if(!rows.length){
+
+return [];
+
+}
 
-        return [];
-    }
 
+if(columnCount <= 1){
 
-    /*
-       Single column:
-       Keep complete row text.
-    */
+return rows.map(
+row => [
 
-    if(
-        columnCount === 1
-    ){
+row.words
+.map(
+w =>
+w.text
+)
+.join(" ")
+.replace(
+/\s+/g,
+" "
+)
+.trim()
+
+]
+);
+
+}
+
+
+/*
+   Try to find true blank vertical
+   separators first.
+*/
+
+let boundaries =
+findColumnBoundaries(
+rows,
+columnCount
+);
 
-        return rows.map(
-        function(row){
 
-            return [
+/*
+   If insufficient boundaries,
+   use equal geometry.
 
-                makeBlocks(row)
-                .map(
-                    block =>
-                    block.text
-                )
-                .join(" ")
-                .trim()
+   This guarantees the requested
+   number of columns.
+*/
+
+if(
+boundaries.length !==
+columnCount - 1
+){
 
-            ];
+const allWords =
+rows.flatMap(
+row =>
+row.words
+);
 
-        });
+
+let minX =
+Math.min(
+...allWords.map(
+w =>
+w.bbox.x0
+)
+);
 
-    }
 
+let maxX =
+Math.max(
+...allWords.map(
+w =>
+w.bbox.x1
+)
+);
 
-    let centers =
-        findColumnCenters(
-            rows,
-            columnCount
-        );
 
+const width =
+Math.max(
+1,
+maxX - minX
+);
 
-    /*
-       Geometry fallback.
-    */
 
-    if(
-        centers.length !==
-        columnCount
-    ){
+boundaries =
+Array.from(
+{
+length:
+columnCount - 1
+},
+(_,i) =>
+minX +
+width *
+(
+i + 1
+) /
+columnCount
+);
 
-        const blocks =
-            rows.flatMap(
-                row =>
-                makeBlocks(row)
-            );
+}
 
 
-        if(blocks.length){
+/*
+   Convert boundaries into column ranges.
+*/
 
-            const minX =
-                Math.min(
-                    ...blocks.map(
-                        b =>
-                        b.x0
-                    )
-                );
+const allWords =
+rows.flatMap(
+row =>
+row.words
+);
 
 
-            const maxX =
-                Math.max(
-                    ...blocks.map(
-                        b =>
-                        b.x1
-                    )
-                );
+const minX =
+Math.min(
+...allWords.map(
+w =>
+w.bbox.x0
+)
+);
 
+const maxX =
+Math.max(
+...allWords.map(
+w =>
+w.bbox.x1
+)
+);
 
-            const width =
-                Math.max(
-                    1,
-                    maxX - minX
-                );
 
+/*
+   Slight overlap tolerance around
+   boundaries prevents lost words.
+*/
 
-            centers =
-                Array.from(
-                {
-                    length:
-                    columnCount
-                },
-                function(_,i){
+const result = [];
 
-                    return (
-                        minX +
-                        width *
-                        (
-                            i + 0.5
-                        )
-                        /
-                        columnCount
-                    );
 
-                });
+rows.forEach(
+function(row){
 
-        }
+const cells =
+Array.from(
+{
+length:
+columnCount
+},
+() => []
+);
 
-    }
 
+row.words.forEach(
+function(word){
 
-    const result = [];
+const centerX =
+(
+word.bbox.x0 +
+word.bbox.x1
+) / 2;
 
 
-    rows.forEach(
-    function(row){
+let columnIndex = 0;
 
-        const blocks =
-            makeBlocks(row);
 
+while(
+columnIndex <
+boundaries.length &&
+centerX >=
+boundaries[columnIndex]
+){
 
-        if(!blocks.length){
+columnIndex++;
 
-            return;
-        }
+}
 
 
-        const cells =
-            Array.from(
-            {
-                length:
-                columnCount
-            },
-            () => []
-            );
+columnIndex =
+Math.max(
+0,
+Math.min(
+columnCount - 1,
+columnIndex
+)
+);
 
 
-        /*
-           Assign each OCR block to
-           the nearest column center.
-        */
+cells[
+columnIndex
+].push(word);
 
-        blocks.forEach(
-        function(block){
+});
 
-            let bestIndex =
-                0;
 
-            let bestDistance =
-                Infinity;
+const rowData =
+cells.map(
+cell =>
 
+cell
+.sort(
+(a,b) =>
+a.bbox.x0 -
+b.bbox.x0
+)
+.map(
+w =>
+w.text
+)
+.join(" ")
+.replace(
+/\s+/g,
+" "
+)
+.trim()
 
-            centers.forEach(
-            function(
-                center,
-                index
-            ){
+);
 
-                const distance =
-                    Math.abs(
-                        block.centerX -
-                        center
-                    );
 
+if(
+rowData.some(
+cell =>
+cell.length > 0
+)
+){
 
-                if(
-                    distance <
-                    bestDistance
-                ){
+result.push(
+rowData
+);
 
-                    bestDistance =
-                        distance;
+}
 
-                    bestIndex =
-                        index;
+});
 
-                }
 
-            });
-
-
-            cells[
-                bestIndex
-            ].push(
-                block
-            );
-
-        });
-
-
-        const rowData =
-            cells.map(
-            function(cell){
-
-                return cell
-                .sort(
-                    (a,b) =>
-                    a.x0 -
-                    b.x0
-                )
-                .map(
-                    block =>
-                    block.text
-                )
-                .join(" ")
-                .replace(
-                    /\s+/g,
-                    " "
-                )
-                .trim();
-
-            });
-
-
-        /*
-           Always return requested
-           number of columns.
-        */
-
-        while(
-            rowData.length <
-            columnCount
-        ){
-
-            rowData.push("");
-
-        }
-
-
-        result.push(
-            rowData.slice(
-                0,
-                columnCount
-            )
-        );
-
-    });
-
-
-    return result;
+return result;
 
 }
 
 
 /* =====================================================
-   FALLBACK TEXT TABLE
-===================================================== */
-
-function buildFallbackTable(
-    text,
-    columnCount
-){
-
-    const lines =
-        String(
-            text || ""
-        )
-        .split(/\r?\n/)
-        .map(
-            line =>
-            line.trim()
-        )
-        .filter(Boolean);
-
-
-    if(!lines.length){
-
-        return [];
-    }
-
-
-    /*
-       If one column requested,
-       simply use one line per row.
-    */
-
-    if(
-        columnCount === 1
-    ){
-
-        return lines.map(
-            line =>
-            [line]
-        );
-
-    }
-
-
-    /*
-       Try TAB separated OCR text.
-    */
-
-    return lines.map(
-    function(line){
-
-        const parts =
-            line
-            .split(/\t+/)
-            .map(
-                x =>
-                x.trim()
-            );
-
-
-        const row =
-            Array.from(
-            {
-                length:
-                columnCount
-            },
-            (_,i) =>
-            parts[i] || ""
-            );
-
-
-        /*
-           If OCR has not detected tabs,
-           keep the complete line in
-           the first cell rather than
-           losing text.
-        */
-
-        if(
-            parts.length === 1
-        ){
-
-            row[0] =
-                parts[0];
-
-        }
-
-
-        return row;
-
-    });
-
-}
-
-
-/* =====================================================
-   OCR EXTRACTION
+   OCR
 ===================================================== */
 
 extractBtn.addEventListener(
 "click",
 async function(){
 
-    if(!selectedFile){
+if(!selectedFile){
 
-        showStatus(
-            "Please choose an image first.",
-            "error"
-        );
+showStatus(
+"Please choose an image first.",
+"error"
+);
 
-        return;
-    }
+return;
 
+}
 
-    try{
 
-        extractBtn.disabled =
-            true;
+try{
 
-        progressBox.style.display =
-            "block";
+extractBtn.disabled =
+true;
 
-        progressBar.style.width =
-            "5%";
+progressBox.style.display =
+"block";
 
-        progressText.textContent =
-            "Preparing image...";
+progressBar.style.width =
+"5%";
 
+progressText.textContent =
+"Preparing image...";
 
-        const image =
-            await prepareImage(
-                selectedFile
-            );
 
+const image =
+await prepareImage(
+selectedFile
+);
 
-        progressText.textContent =
-            "Starting OCR...";
 
+progressText.textContent =
+"Starting OCR...";
 
-        progressBar.style.width =
-            "10%";
+progressBar.style.width =
+"10%";
 
 
-        /*
-           Tesseract configuration.
+/*
+   IMPORTANT:
+   eng+ben loads both languages.
+*/
 
-           PSM 6 is useful for tables and
-           blocks of text.
-        */
+const result =
+await Tesseract.recognize(
+image,
+language.value,
+{
 
-        const result =
-            await Tesseract.recognize(
-                image,
-                language.value,
-                {
+logger:
+function(info){
 
-                    logger:
-                    function(info){
+if(
+info.status ===
+"recognizing text"
+){
 
-                        if(
-                            info.status ===
-                            "recognizing text"
-                        ){
+const p =
+Math.round(
+(
+info.progress ||
+0
+) * 100
+);
 
-                            const p =
-                                Math.round(
-                                    (
-                                        info.progress ||
-                                        0
-                                    ) * 100
-                                );
 
+progressBar.style.width =
+(
+10 +
+p * 0.85
+) + "%";
 
-                            progressBar.style.width =
-                                (
-                                    10 +
-                                    p * 0.85
-                                ) + "%";
 
+progressText.textContent =
+"Reading image... " +
+p +
+"%";
 
-                            progressText.textContent =
-                                "Reading image... " +
-                                p +
-                                "%";
+}
 
-                        }
+},
 
+tessedit_pageseg_mode:
+"6",
 
-                        else if(
-                            info.status
-                        ){
+preserve_interword_spaces:
+"1"
 
-                            progressText.textContent =
-                                info.status;
+}
+);
 
-                        }
 
-                    },
+progressText.textContent =
+"Reconstructing table...";
 
-                    tessedit_pageseg_mode:
-                        "6",
+progressBar.style.width =
+"95%";
 
-                    preserve_interword_spaces:
-                        "1"
 
-                }
-            );
+const words =
+result.data.words || [];
 
 
-        progressText.textContent =
-            "Building table...";
+const rows =
+makeRows(words);
 
 
-        progressBar.style.width =
-            "95%";
+let count;
 
 
-        const rows =
-            makeRows(
-                result.data.words || []
-            );
+if(
+columns.value ===
+"auto"
+){
 
+count =
+estimateColumns(
+rows
+);
 
-        let count;
+}
+else{
 
+count =
+parseInt(
+columns.value,
+10
+);
 
-        if(
-            columns.value ===
-            "auto"
-        ){
+}
 
-            /*
-               Auto mode:
-               estimate from rows.
-            */
 
-            count =
-                estimateColumns(
-                    rows
-                );
+if(
+!Number.isFinite(count) ||
+count < 1
+){
 
-        }
-        else{
+count = 1;
 
-            count =
-                parseInt(
-                    columns.value,
-                    10
-                );
+}
 
-        }
 
+currentColumns =
+count;
 
-        if(
-            !Number.isFinite(count) ||
-            count < 1
-        ){
 
-            count = 1;
-        }
+if(rows.length){
 
+tableData =
+buildTableFromRows(
+rows,
+count
+);
 
-        /*
-           Limit maximum columns.
-        */
+}
+else{
 
-        count =
-            Math.min(
-                8,
-                count
-            );
+const text =
+result.data.text || "";
 
 
-        currentColumns =
-            count;
+tableData =
+text
+.split(
+/\r?\n/
+)
+.map(
+line =>
+line.trim()
+)
+.filter(
+Boolean
+)
+.map(
+line =>
+[ line ]
+);
 
+}
 
-        let extracted;
 
+/*
+   Remove empty rows.
+*/
 
-        if(rows.length){
+tableData =
+tableData.filter(
+row =>
+row.some(
+cell =>
+String(
+cell || ""
+).trim() !== ""
+)
+);
 
-            extracted =
-                buildTableFromRows(
-                    rows,
-                    count
-                );
 
-        }
-        else{
+if(!tableData.length){
 
-            extracted =
-                buildFallbackTable(
-                    result.data.text,
-                    count
-                );
+throw new Error(
+"No readable text found."
+);
 
-        }
+}
 
 
-        /*
-           If reconstruction produced
-           nothing useful, use text fallback.
-        */
+/*
+   ALWAYS exactly requested
+   number of columns.
+*/
 
-        if(
-            !extracted ||
-            !extracted.length
-        ){
+tableData =
+tableData.map(
+row => {
 
-            extracted =
-                buildFallbackTable(
-                    result.data.text,
-                    count
-                );
+const newRow =
+Array.from(
+{
+length:
+count
+},
+(_,i) =>
+String(
+row[i] || ""
+).trim()
+);
 
-        }
-
-
-        /*
-           Remove completely empty rows.
-        */
-
-        tableData =
-            extracted.filter(
-            function(row){
-
-                return row.some(
-                    cell =>
-                    String(
-                        cell || ""
-                    ).trim() !== ""
-                );
-
-            });
-
-
-        if(!tableData.length){
-
-            throw new Error(
-                "No readable text found."
-            );
-
-        }
-
-
-        /*
-           IMPORTANT:
-           Every row has EXACTLY the
-           requested number of columns.
-        */
-
-        tableData =
-            tableData.map(
-            function(row){
-
-                return Array.from(
-                {
-                    length:
-                    count
-                },
-                (_,i) =>
-                String(
-                    row[i] || ""
-                ).trim()
-                );
-
-            });
-
-
-        currentColumns =
-            count;
-
-
-        renderTable();
-
-
-        progressBar.style.width =
-            "100%";
-
-        progressText.textContent =
-            "Completed!";
-
-
-        setTimeout(
-        function(){
-
-            progressBox.style.display =
-                "none";
-
-        },
-        400
-        );
-
-
-        resultCard.style.display =
-            "block";
-
-
-        showStatus(
-            "Table extracted successfully.",
-            "success"
-        );
-
-
-        resultCard.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-    }
-    catch(error){
-
-        console.error(
-            "OCR ERROR:",
-            error
-        );
-
-
-        progressBox.style.display =
-            "none";
-
-
-        showStatus(
-            "OCR failed: " +
-            (
-                error.message ||
-                "Please try another image."
-            ),
-            "error"
-        );
-
-    }
-    finally{
-
-        extractBtn.disabled =
-            !selectedFile;
-
-    }
+return newRow;
 
 });
 
 
-/* =====================================================
-   ESTIMATE COLUMNS
-===================================================== */
-
-function estimateColumns(rows){
-
-    if(!rows.length){
-
-        return 1;
-    }
+currentColumns =
+count;
 
 
-    const counts =
-        rows
-        .map(
-            row =>
-            makeBlocks(row).length
-        )
-        .filter(
-            n =>
-            n >= 1 &&
-            n <= 8
-        );
+renderTable();
 
 
-    if(!counts.length){
+progressBar.style.width =
+"100%";
 
-        return 1;
-    }
-
-
-    const frequency = {};
+progressText.textContent =
+"Completed!";
 
 
-    counts.forEach(
-    function(n){
+setTimeout(
+function(){
 
-        frequency[n] =
-            (
-                frequency[n] ||
-                0
-            ) + 1;
+progressBox.style.display =
+"none";
 
-    });
-
-
-    let best =
-        1;
-
-    let bestFrequency =
-        0;
+},
+500
+);
 
 
-    Object.keys(
-        frequency
-    )
-    .forEach(
-    function(key){
-
-        const n =
-            Number(key);
+resultCard.style.display =
+"block";
 
 
-        if(
-            frequency[key] >
-            bestFrequency
-        ){
-
-            best =
-                n;
-
-            bestFrequency =
-                frequency[key];
-
-        }
-
-    });
+showStatus(
+"Table extracted successfully.",
+"success"
+);
 
 
-    return Math.min(
-        8,
-        Math.max(
-            1,
-            best
-        )
-    );
+resultCard.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
 
 }
+catch(error){
+
+console.error(
+"OCR ERROR:",
+error
+);
+
+
+progressBox.style.display =
+"none";
+
+
+showStatus(
+"OCR failed: " +
+(
+error.message ||
+"Please try another image."
+),
+"error"
+);
+
+}
+finally{
+
+extractBtn.disabled =
+!selectedFile;
+
+}
+
+});
 
 
 /* =====================================================
@@ -3201,179 +3137,161 @@ function estimateColumns(rows){
 
 function renderTable(){
 
-    headerRow.innerHTML =
-        "";
+headerRow.innerHTML =
+"";
 
-    tableBody.innerHTML =
-        "";
-
-
-    if(!tableData.length){
-
-        return;
-    }
+tableBody.innerHTML =
+"";
 
 
-    const colCount =
-        currentColumns;
+if(!tableData.length){
+
+return;
+
+}
 
 
-    /*
-       Header.
-    */
-
-    for(
-        let c=0;
-        c<colCount;
-        c++
-    ){
-
-        const th =
-            document.createElement(
-                "th"
-            );
+const colCount =
+currentColumns;
 
 
-        th.textContent =
-            "Column " +
-            (
-                c + 1
-            );
+for(
+let c=0;
+c<colCount;
+c++
+){
+
+const th =
+document.createElement(
+"th"
+);
+
+th.textContent =
+"Column " +
+(c + 1);
+
+headerRow.appendChild(
+th
+);
+
+}
 
 
-        headerRow.appendChild(
-            th
-        );
+tableData.forEach(
+function(row,rowIndex){
 
-    }
-
-
-    /*
-       Body.
-    */
-
-    tableData.forEach(
-    function(row,rowIndex){
-
-        const tr =
-            document.createElement(
-                "tr"
-            );
+const tr =
+document.createElement(
+"tr"
+);
 
 
-        for(
-            let c=0;
-            c<colCount;
-            c++
-        ){
+for(
+let c=0;
+c<colCount;
+c++
+){
 
-            const td =
-                document.createElement(
-                    "td"
-                );
-
-
-            td.contentEditable =
-                "true";
+const td =
+document.createElement(
+"td"
+);
 
 
-            td.spellcheck =
-                false;
+td.contentEditable =
+"true";
+
+td.spellcheck =
+false;
 
 
-            td.textContent =
-                row[c] || "";
+td.textContent =
+row[c] || "";
 
 
-            td.addEventListener(
-            "input",
-            function(){
+td.addEventListener(
+"input",
+function(){
 
-                if(
-                    tableData[rowIndex]
-                ){
+if(
+tableData[rowIndex]
+){
 
-                    tableData[
-                        rowIndex
-                    ][c] =
-                        td.innerText;
+tableData[rowIndex][c] =
+td.innerText;
 
-                }
+}
 
-            });
+});
 
 
-            tr.appendChild(
-                td
-            );
+tr.appendChild(
+td
+);
 
-        }
+}
 
 
-        tableBody.appendChild(
-            tr
-        );
+tableBody.appendChild(
+tr
+);
 
-    });
+});
 
 }
 
 
 /* =====================================================
-   GET CURRENT TABLE
+   GET TABLE DATA
 ===================================================== */
 
 function getTableData(){
 
-    const rows = [];
+const rows = [];
 
 
-    const headerCells =
-        document.querySelectorAll(
-            "#resultTable thead th"
-        );
+const headers =
+document.querySelectorAll(
+"#resultTable thead th"
+);
 
 
-    if(
-        headerCells.length
-    ){
+if(headers.length){
 
-        rows.push(
-            Array.from(
-                headerCells
-            ).map(
-                cell =>
-                cell.innerText.trim()
-            )
-        );
+rows.push(
+Array.from(headers)
+.map(
+cell =>
+cell.innerText.trim()
+)
+);
 
-    }
+}
 
 
-    const trs =
-        document.querySelectorAll(
-            "#resultTable tbody tr"
-        );
+const trs =
+document.querySelectorAll(
+"#resultTable tbody tr"
+);
 
 
-    trs.forEach(
-    function(tr){
+trs.forEach(
+function(tr){
 
-        rows.push(
-            Array.from(
-                tr.querySelectorAll(
-                    "td"
-                )
-            ).map(
-                cell =>
-                cell.innerText.trim()
-            )
-        );
+rows.push(
+Array.from(
+tr.querySelectorAll("td")
+)
+.map(
+cell =>
+cell.innerText.trim()
+)
+);
 
-    });
+});
 
 
-    return rows;
+return rows;
 
 }
 
@@ -3386,110 +3304,197 @@ downloadExcel.addEventListener(
 "click",
 function(){
 
-    try{
+try{
 
-        if(
-            typeof XLSX ===
-            "undefined"
-        ){
+if(
+typeof XLSX ===
+"undefined"
+){
 
-            alert(
-                "Excel library is not loaded. Please refresh the page."
-            );
+alert(
+"Excel library load হয়নি। Internet ON করে আবার চেষ্টা করুন।"
+);
 
-            return;
-        }
+return;
 
-
-        const data =
-            getTableData();
+}
 
 
-        if(!data.length){
-
-            alert(
-                "No table data available."
-            );
-
-            return;
-        }
+const data =
+getTableData();
 
 
-        const worksheet =
-            XLSX.utils.aoa_to_sheet(
-                data
-            );
+if(
+!data.length
+){
+
+alert(
+"No table data available."
+);
+
+return;
+
+}
 
 
-        /*
-           Automatic column widths.
-        */
-
-        const widths = [];
-
-
-        data.forEach(
-        function(row){
-
-            row.forEach(
-            function(value,index){
-
-                const length =
-                    String(
-                        value || ""
-                    ).length;
+const worksheet =
+XLSX.utils.aoa_to_sheet(
+data
+);
 
 
-                widths[index] =
-                    Math.max(
-                        widths[index] || 10,
-                        Math.min(
-                            length + 2,
-                            50
-                        )
-                    );
+/*
+   Column widths.
+*/
 
-            });
-
-        });
+const widths = [];
 
 
-        worksheet["!cols"] =
-            widths.map(
-                w => ({
-                    wch:w
-                })
-            );
+data.forEach(
+row => {
+
+row.forEach(
+(value,index) => {
+
+const length =
+String(
+value || ""
+).length;
 
 
-        const workbook =
-            XLSX.utils.book_new();
+widths[index] =
+Math.max(
+widths[index] || 10,
+Math.min(
+length + 2,
+50
+)
+);
+
+});
+
+});
 
 
-        XLSX.utils.book_append_sheet(
-            workbook,
-            worksheet,
-            "Image Data"
-        );
+worksheet["!cols"] =
+widths.map(
+width => ({
+wch:
+width
+})
+);
 
 
-        XLSX.writeFile(
-            workbook,
-            "Asim_Tech_Image_to_Excel.xlsx"
-        );
+const workbook =
+XLSX.utils.book_new();
 
-    }
-    catch(error){
 
-        console.error(
-            error
-        );
+XLSX.utils.book_append_sheet(
+workbook,
+worksheet,
+"Image Data"
+);
 
-        alert(
-            "Excel download failed. Please try again."
-        );
 
-    }
+/*
+   Mobile-safe XLSX generation.
+*/
+
+const excelArray =
+XLSX.write(
+workbook,
+{
+bookType:
+"xlsx",
+type:
+"array"
+}
+);
+
+
+const blob =
+new Blob(
+[excelArray],
+{
+type:
+"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+}
+);
+
+
+const url =
+URL.createObjectURL(
+blob
+);
+
+
+const a =
+document.createElement(
+"a"
+);
+
+
+a.href =
+url;
+
+a.download =
+"Asim_Tech_Image_to_Excel.xlsx";
+
+a.style.position =
+"fixed";
+
+a.style.left =
+"-9999px";
+
+
+document.body.appendChild(
+a
+);
+
+a.click();
+
+
+setTimeout(
+function(){
+
+if(a.parentNode){
+
+a.parentNode.removeChild(
+a
+);
+
+}
+
+URL.revokeObjectURL(
+url
+);
+
+},
+5000
+);
+
+
+showStatus(
+"✅ Excel download started.",
+"success"
+);
+
+
+}
+catch(error){
+
+console.error(
+"EXCEL ERROR:",
+error
+);
+
+
+alert(
+"Excel download failed: " +
+error.message
+);
+
+}
 
 });
 
@@ -3502,77 +3507,74 @@ downloadCSV.addEventListener(
 "click",
 function(){
 
-    try{
+try{
 
-        const data =
-            getTableData();
-
-
-        if(!data.length){
-
-            alert(
-                "No table data available."
-            );
-
-            return;
-        }
+const data =
+getTableData();
 
 
-        const csv =
-            data
-            .map(
-            function(row){
+if(!data.length){
 
-                return row
-                .map(
-                function(value){
+alert(
+"No table data available."
+);
 
-                    return '"' +
-                        String(
-                            value || ""
-                        )
-                        .replace(
-                            /"/g,
-                            '""'
-                        ) +
-                        '"';
+return;
 
-                })
-                .join(",");
-
-            })
-            .join("\r\n");
+}
 
 
-        const blob =
-            new Blob(
-            [
-                "\uFEFF" +
-                csv
-            ],
-            {
-                type:
-                "text/csv;charset=utf-8"
-            });
+const csv =
+data
+.map(
+row =>
+row
+.map(
+value =>
+'"' +
+String(
+value || ""
+)
+.replace(
+/"/g,
+'""'
+) +
+'"'
+)
+.join(",")
+)
+.join("\r\n");
 
 
-        downloadBlob(
-            blob,
-            "Asim_Tech_Image_to_Excel.csv"
-        );
+const blob =
+new Blob(
+[
+"\uFEFF" +
+csv
+],
+{
+type:
+"text/csv;charset=utf-8"
+}
+);
 
-    }
-    catch(error){
 
-        console.error(
-            error
-        );
+downloadBlob(
+blob,
+"Asim_Tech_Image_to_Excel.csv"
+);
 
-        alert(
-            "CSV download failed."
-        );
 
-    }
+}
+catch(error){
+
+console.error(error);
+
+alert(
+"CSV download failed."
+);
+
+}
 
 });
 
@@ -3582,64 +3584,60 @@ function(){
 ===================================================== */
 
 function downloadBlob(
-    blob,
-    filename
+blob,
+filename
 ){
 
-    const url =
-        URL.createObjectURL(
-            blob
-        );
+const url =
+URL.createObjectURL(
+blob
+);
 
 
-    const a =
-        document.createElement(
-            "a"
-        );
+const a =
+document.createElement(
+"a"
+);
 
 
-    a.href =
-        url;
+a.href =
+url;
 
-    a.download =
-        filename;
+a.download =
+filename;
 
-    a.rel =
-        "noopener";
+a.style.position =
+"fixed";
 
-    a.style.display =
-        "none";
-
-
-    document.body.appendChild(
-        a
-    );
+a.style.left =
+"-9999px";
 
 
-    a.click();
+document.body.appendChild(
+a
+);
+
+a.click();
 
 
-    setTimeout(
-    function(){
+setTimeout(
+function(){
 
-        if(
-            a.parentNode
-        ){
+if(a.parentNode){
 
-            a.parentNode.removeChild(
-                a
-            );
+a.parentNode.removeChild(
+a
+);
 
-        }
+}
 
+URL.revokeObjectURL(
+url
+);
 
-        URL.revokeObjectURL(
-            url
-        );
-
-    },
-    1500
-    );
+},
+5000
+);
 
 }
 
@@ -3652,14 +3650,13 @@ addRow.addEventListener(
 "click",
 function(){
 
-    tableData.push(
-        Array(
-            currentColumns
-        ).fill("")
-    );
+tableData.push(
+Array(
+currentColumns
+).fill("")
+);
 
-
-    renderTable();
+renderTable();
 
 });
 
@@ -3672,28 +3669,27 @@ addColumn.addEventListener(
 "click",
 function(){
 
-    if(!tableData.length){
+if(!tableData.length){
 
-        tableData.push(
-            Array(
-                currentColumns
-            ).fill("")
-        );
+tableData.push(
+Array(
+currentColumns
+).fill("")
+);
 
-    }
-
-
-    tableData.forEach(
-        row =>
-        row.push("")
-    );
+}
 
 
-    currentColumns +=
-        1;
+tableData.forEach(
+row =>
+row.push("")
+);
 
 
-    renderTable();
+currentColumns += 1;
+
+
+renderTable();
 
 });
 
@@ -3706,114 +3702,68 @@ copyTable.addEventListener(
 "click",
 async function(){
 
-    const data =
-        getTableData();
+const data =
+getTableData();
 
 
-    if(!data.length){
-
-        showStatus(
-            "No table data to copy.",
-            "error"
-        );
-
-        return;
-    }
+const text =
+data
+.map(
+row =>
+row.join("\t")
+)
+.join("\n");
 
 
-    const text =
-        data
-        .map(
-            row =>
-            row.join("\t")
-        )
-        .join("\n");
+try{
+
+await navigator.clipboard.writeText(
+text
+);
 
 
-    try{
-
-        if(
-            navigator.clipboard &&
-            navigator.clipboard.writeText
-        ){
-
-            await navigator.clipboard.writeText(
-                text
-            );
-
-        }
-        else{
-
-            throw new Error(
-                "Clipboard unavailable"
-            );
-
-        }
+showStatus(
+"Table copied successfully.",
+"success"
+);
 
 
-        showStatus(
-            "Table copied successfully.",
-            "success"
-        );
+}
+catch(error){
 
-    }
-    catch(error){
-
-        /*
-           Mobile fallback.
-        */
-
-        const textarea =
-            document.createElement(
-                "textarea"
-            );
+const textarea =
+document.createElement(
+"textarea"
+);
 
 
-        textarea.value =
-            text;
-
-        textarea.style.position =
-            "fixed";
-
-        textarea.style.left =
-            "-9999px";
+textarea.value =
+text;
 
 
-        document.body.appendChild(
-            textarea
-        );
+document.body.appendChild(
+textarea
+);
+
+textarea.select();
 
 
-        textarea.focus();
-
-        textarea.select();
-
-
-        try{
-
-            document.execCommand(
-                "copy"
-            );
-
-        }
-        catch(e){
-
-            console.error(e);
-
-        }
+document.execCommand(
+"copy"
+);
 
 
-        document.body.removeChild(
-            textarea
-        );
+document.body.removeChild(
+textarea
+);
 
 
-        showStatus(
-            "Table copied.",
-            "success"
-        );
+showStatus(
+"Table copied.",
+"success"
+);
 
-    }
+}
 
 });
 
@@ -3826,24 +3776,67 @@ clearTable.addEventListener(
 "click",
 function(){
 
-    tableData = [];
+tableData = [];
 
-    currentColumns =
-        1;
+currentColumns = 1;
 
-    headerRow.innerHTML =
-        "";
+headerRow.innerHTML =
+"";
 
-    tableBody.innerHTML =
-        "";
+tableBody.innerHTML =
+"";
 
-    resultCard.style.display =
-        "none";
+resultCard.style.display =
+"none";
 
 });
 
 
+/* =====================================================
+   SERVICE WORKER
+===================================================== */
+
+if(
+"serviceWorker" in navigator
+){
+
+window.addEventListener(
+"load",
+function(){
+
+navigator.serviceWorker
+.register(
+"./sw.js",
+{
+updateViaCache:
+"none"
+}
+)
+.then(
+registration => {
+
+registration.update();
+
+}
+)
+.catch(
+error => {
+
+console.log(
+"Service Worker:",
+error
+);
+
+}
+);
+
+});
+
+}
+
 </script>
 
+
 </body>
+
 </html>
