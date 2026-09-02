@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 8 Study Hub</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:linear-gradient(135deg,#07111f,#101827,#17112b);
+  color:#fff;
+  min-height:100vh;
+}
+.container{max-width:1050px;margin:auto;padding:18px}
+header{
+  text-align:center;
+  padding:28px 10px;
+}
+.logo{
+  width:72px;height:72px;border-radius:22px;
+  background:linear-gradient(135deg,#6d5dfc,#00c6ff);
+  display:flex;align-items:center;justify-content:center;
+  margin:auto;font-size:34px;font-weight:bold;
+  box-shadow:0 15px 40px #0008;
+}
+h1{margin:14px 0 5px;font-size:30px}
+.subtitle{color:#aeb8ca}
+.glass{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(14px);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 15px 40px #0005;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.subject{
+  padding:20px;
+  border-radius:20px;
+  cursor:pointer;
+  background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.12);
+  transition:.2s;
+}
+.subject:hover{transform:translateY(-3px)}
+.subject .icon{font-size:32px}
+.subject h3{margin:10px 0 5px}
+.small{color:#aeb8ca;font-size:14px}
+
+button{
+  border:0;
+  border-radius:13px;
+  padding:12px 18px;
+  cursor:pointer;
+  font-weight:bold;
+  background:linear-gradient(135deg,#695cff,#00aeea);
+  color:#fff;
+}
+.back{
+  background:rgba(255,255,255,.1);
+  margin-bottom:15px;
+}
+.topic-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.topic{
+  padding:17px;
+  border-radius:17px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  cursor:pointer;
+}
+.topic:hover{background:rgba(255,255,255,.1)}
+
+.section{margin-top:18px}
+.section h3{margin-bottom:10px}
+.points{
+  padding-left:20px;
+  line-height:1.8;
+}
+.revision{
+  background:rgba(0,200,255,.08);
+  border-left:4px solid #00c6ff;
+  padding:15px;
+  border-radius:10px;
+  line-height:1.7;
+}
+.question{
+  font-size:20px;
+  font-weight:bold;
+  line-height:1.5;
+}
+.options{
+  display:grid;
+  gap:10px;
+  margin-top:16px;
+}
+.option{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  padding:14px;
+  border-radius:13px;
+  cursor:pointer;
+}
+.option:hover{background:rgba(255,255,255,.13)}
+.option.selected{border-color:#00c6ff}
+.option.correct{border-color:#35d07f;background:rgba(53,208,127,.12)}
+.option.wrong{border-color:#ff5c75;background:rgba(255,92,117,.12)}
+.explanation{
+  margin-top:15px;
+  padding:14px;
+  background:rgba(255,255,255,.06);
+  border-radius:12px;
+  line-height:1.6;
+}
+.score{
+  text-align:center;
+  font-size:42px;
+  font-weight:bold;
+  margin:20px;
+}
+.center{text-align:center}
+.hidden{display:none}
+.recent{
+  margin-top:25px;
+}
+.recent-item{
+  display:inline-block;
+  padding:9px 13px;
+  margin:5px;
+  border-radius:20px;
+  background:rgba(255,255,255,.08);
+  cursor:pointer;
+  font-size:14px;
+}
+
+@media(max-width:650px){
+  .grid,.topic-grid{grid-template-columns:1fr}
+  h1{font-size:25px}
+  .container{padding:12px}
+  .glass{padding:15px}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="logo">৮</div>
+  <h1>Class 8 Study Hub</h1>
+  <div class="subtitle">সহজভাবে পড়ো • বুঝে শেখো • MCQ দিয়ে যাচাই করো</div>
+</header>
+
+<!-- HOME -->
+<div id="home" class="glass">
+  <h2>📚 Subjects</h2>
+  <div id="subjects" class="grid"></div>
+
+  <div class="recent">
+    <h3>🕘 Recently Studied</h3>
+    <div id="recentList"></div>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<div id="topicsPage" class="glass hidden">
+  <button class="back" onclick="goHome()">← Subjects</button>
+  <h2 id="subjectTitle"></h2>
+  <p class="small">একটি Topic নির্বাচন করুন</p>
+  <div id="topics" class="topic-grid"></div>
+</div>
+
+<!-- STUDY -->
+<div id="studyPage" class="glass hidden">
+  <button class="back" onclick="backTopics()">← Topics</button>
+  <h2 id="studyTitle"></h2>
+
+  <div class="section">
+    <h3>📖 Study Note</h3>
+    <div id="summary"></div>
+  </div>
+
+  <div class="section">
+    <h3>⭐ Important Points</h3>
+    <ul id="points" class="points"></ul>
+  </div>
+
+  <div class="section">
+    <h3>🔄 Revision Note</h3>
+    <div id="revision" class="revision"></div>
+  </div>
+
+  <div class="center" style="margin-top:20px">
+    <button onclick="startQuiz()">📝 Start MCQ Quiz</button>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="quizPage" class="glass hidden">
+  <button class="back" onclick="backStudy()">← Study Note</button>
+
+  <div class="small" id="quizCount"></div>
+  <div class="question" id="question"></div>
+  <div id="options" class="options"></div>
+  <div id="explanation" class="explanation hidden"></div>
+
+  <div class="center" style="margin-top:18px">
+    <button id="nextBtn" class="hidden" onclick="nextQuestion()">Next →</button>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="resultPage" class="glass hidden">
+  <h2 class="center">🎉 Quiz Complete</h2>
+  <div class="score" id="score"></div>
+  <div class="center" id="resultText"></div>
+
+  <div class="center" style="margin-top:20px">
+    <button onclick="startQuiz()">🔁 Try Again</button>
+    <button onclick="backStudy()">📖 Study Again</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+const data = {
+
+"বাংলা":{
+icon:"📕",
+topics:{
+"পত্র রচনা":{
+summary:"পত্র রচনা হল নির্দিষ্ট ব্যক্তি বা প্রতিষ্ঠানের কাছে নিজের বক্তব্য, অনুভূতি, প্রয়োজন বা তথ্য সুন্দরভাবে লিখে প্রকাশ করার পদ্ধতি। পত্র সাধারণত ব্যক্তিগত ও প্রাতিষ্ঠানিক—এই দুই ধরনের হতে পারে।",
+points:[
+"পত্রের শুরুতে প্রেরকের ঠিকানা ও তারিখ লেখা হয়।",
+"প্রাপক অনুযায়ী সম্বোধন ব্যবহার করতে হয়।",
+"মূল বক্তব্য সংক্ষিপ্ত ও পরিষ্কার হওয়া উচিত।",
+"শেষে উপযুক্ত সম্ভাষণ ও নাম লেখা হয়।",
+"প্রাতিষ্ঠানিক পত্রে বিষয় স্পষ্টভাবে উল্লেখ করা ভালো।"
+],
+revision:"পত্র লেখার সময় ঠিকানা → তারিখ → সম্বোধন → মূল বক্তব্য → সমাপ্তি—এই ধারাটি মনে রাখো।",
+mcq:[
+["পত্রের মূল উদ্দেশ্য কী?","বক্তব্য বা তথ্য প্রকাশ","ছবি আঁকা","হিসাব করা","গান লেখা",0,"পত্রের মাধ্যমে বক্তব্য, অনুভূতি বা তথ্য প্রকাশ করা হয়।"],
+["পত্র সাধারণত কত ধরনের?","এক ধরনের","দুই ধরনের","তিন ধরনের","চার ধরনের",1,"ব্যক্তিগত ও প্রাতিষ্ঠানিক—দুই ধরনের পত্র প্রচলিত।"],
+["পত্রে তারিখ কোথায় থাকে?","শুরু অংশে","মাঝে","শেষে","কোথাও নয়",0,"সাধারণত পত্রের শুরুতেই তারিখ লেখা হয়।"],
+["প্রাতিষ্ঠানিক পত্রের ভাষা কেমন হওয়া উচিত?","অস্পষ্ট","অশালীন","সুস্পষ্ট ও মার্জিত","অতি দীর্ঘ",2,"প্রাতিষ্ঠানিক পত্রে সংক্ষিপ্ত, স্পষ্ট ও মার্জিত ভাষা ব্যবহার করা উচিত।"],
+["পত্রের শেষে কী থাকে?","সমাপ্তি ও নাম","শুধু ছবি","প্রশ্ন","শিরোনাম মাত্র",0,"পত্রের শেষে উপযুক্ত সম্ভাষণ ও লেখকের নাম থাকে।"],
+["ব্যক্তিগত পত্র কাকে লেখা হতে পারে?","বন্ধুকে","শুধু অফিসকে","শুধু আদালতকে","শুধু সংবাদপত্রকে",0,"বন্ধু বা আত্মীয়কে ব্যক্তিগত পত্র লেখা যায়।"],
+["পত্রের বক্তব্য কেমন হওয়া উচিত?","অপ্রাসঙ্গিক","পরিষ্কার","অসংলগ্ন","গোপন",1,"বক্তব্য পরিষ্কার ও বিষয়ভিত্তিক হওয়া উচিত।"],
+["সম্বোধন কেন ব্যবহার করা হয়?","প্রাপককে উদ্দেশ করে","ছবি আঁকতে","হিসাব করতে","শিরোনাম বানাতে",0,"সম্বোধন প্রাপককে উদ্দেশ করে লেখা হয়।"],
+["পত্রের ভাষা কী হওয়া উচিত?","পরিস্থিতি অনুযায়ী","সবসময় একই","অশালীন","অস্পষ্ট",0,"পত্রের ধরন ও প্রাপক অনুযায়ী ভাষা নির্বাচন করা হয়।"],
+["ভালো পত্রের অন্যতম গুণ কী?","অপ্রয়োজনীয় দীর্ঘতা","স্পষ্টতা","ভুল বানান","অসংগতি",1,"ভালো পত্রে স্পষ্টতা ও সংক্ষিপ্ততা গুরুত্বপূর্ণ।"]
+]
+},
+
+"চিরদিনের কবিতা":{
+summary:"কবিতা মানুষের অনুভূতি, চিন্তা, প্রকৃতি ও জীবনের নানা অভিজ্ঞতাকে ছন্দ ও ভাষার সৌন্দর্যে প্রকাশ করে। কবিতা পড়ার সময় ভাব, শব্দচয়ন ও কল্পনার দিকে নজর দেওয়া প্রয়োজন।",
+points:[
+"কবিতায় ভাব ও অনুভূতি গুরুত্বপূর্ণ।",
+"কবির শব্দচয়ন কবিতাকে সুন্দর করে।",
+"প্রকৃতি ও মানুষের জীবন কবিতার গুরুত্বপূর্ণ বিষয়।",
+"কবিতার ভাষায় কল্পনা ও অলংকার থাকতে পারে।",
+"কবিতার মূলভাব বুঝে পড়া প্রয়োজন।"
+],
+revision:"কবিতা বুঝতে হলে কবির মূল ভাব, অনুভূতি, শব্দচয়ন ও কল্পনার দিকে মনোযোগ দাও।",
+mcq:[
+["কবিতায় কী প্রকাশ পেতে পারে?","ভাব ও অনুভূতি","শুধু সংখ্যা","শুধু হিসাব","শুধু নিয়ম",0,"কবিতা মানুষের ভাব ও অনুভূতি প্রকাশ করে।"],
+["কবিতার সৌন্দর্যে কী ভূমিকা রাখে?","শব্দচয়ন","ভুল বানান","অস্পষ্টতা","অপ্রাসঙ্গিকতা",0,"সুন্দর শব্দচয়ন কবিতার সৌন্দর্য বাড়ায়।"],
+["কবিতা বুঝতে কী দরকার?","মূলভাব বোঝা","শুধু মুখস্থ করা","শুধু দ্রুত পড়া","শুধু শিরোনাম দেখা",0,"মূলভাব বোঝা কবিতা উপলব্ধির জন্য গুরুত্বপূর্ণ।"],
+["কবিতায় কোন বিষয় থাকতে পারে?","প্রকৃতি","শুধু অঙ্ক","শুধু রান্না","শুধু মানচিত্র",0,"প্রকৃতি কবিতার একটি গুরুত্বপূর্ণ বিষয় হতে পারে।"],
+["কবিতার ভাষায় কী থাকতে পারে?","কল্পনা","শুধু সংখ্যা","শুধু সূত্র","শুধু তালিকা",0,"কবিতায় কল্পনার ব্যবহার দেখা যায়।"],
+["কবিতা কোন শিল্পের অংশ?","সাহিত্য","গণিত","ভূগোল","পদার্থবিদ্যা",0,"কবিতা সাহিত্যের একটি প্রধান রূপ।"],
+["কবিতার মূলভাব কী বোঝায়?","প্রধান বক্তব্য","শুধু শেষ শব্দ","শুধু ছন্দ","শুধু নাম",0,"মূলভাব হলো কবিতার প্রধান বক্তব্য বা ভাব।"],
+["কবিতা পাঠে কী প্রয়োজন?","অনুভব","অমনোযোগ","তাড়াহুড়ো","অসংলগ্নতা",0,"কবিতার ভাব উপলব্ধি করতে অনুভব জরুরি।"],
+["শব্দচয়ন বলতে কী বোঝায়?","উপযুক্ত শব্দ নির্বাচন","ছবি আঁকা","হিসাব করা","মানচিত্র আঁকা",0,"শব্দচয়ন হলো উপযুক্ত শব্দ বেছে নেওয়া।"],
+["কবিতার বিষয় হতে পারে—","জীবন ও প্রকৃতি","শুধু সংখ্যা","শুধু সূত্র","শুধু রাস্তা",0,"জীবন ও প্রকৃতি কবিতার সাধারণ বিষয়।"]
+]
+},
+
+"কুতুব মিনারের কথা":{
+summary:"কুতুব মিনার দিল্লির একটি ঐতিহাসিক স্থাপত্য। এটি মধ্যযুগীয় ভারতীয় স্থাপত্যের গুরুত্বপূর্ণ নিদর্শন। এর নির্মাণ ও ইতিহাসের সঙ্গে দিল্লির প্রাচীন সুলতানি যুগের সম্পর্ক রয়েছে।",
+points:[
+"কুতুব মিনার দিল্লিতে অবস্থিত।",
+"এটি একটি ঐতিহাসিক মিনার।",
+"মধ্যযুগীয় স্থাপত্যের গুরুত্বপূর্ণ নিদর্শন।",
+"কুতুব কমপ্লেক্স একটি গুরুত্বপূর্ণ ঐতিহাসিক স্থান।",
+"ঐতিহাসিক স্থাপত্য অতীত সম্পর্কে ধারণা দেয়।"
+],
+revision:"কুতুব মিনার—দিল্লি—ঐতিহাসিক স্থাপত্য—মধ্যযুগ—কুতুব কমপ্লেক্স: এই শব্দগুলি মনে রাখো।",
+mcq:[
+["কুতুব মিনার কোথায়?","দিল্লি","কলকাতা","মুম্বই","চেন্নাই",0,"কুতুব মিনার দিল্লিতে অবস্থিত।"],
+["কুতুব মিনার কী?","ঐতিহাসিক স্থাপত্য","নদী","পর্বত","দ্বীপ",0,"এটি একটি বিখ্যাত ঐতিহাসিক স্থাপত্য।"],
+["কুতুব মিনার কোন যুগের স্থাপত্যের সঙ্গে যুক্ত?","মধ্যযুগ","আধুনিক যুগ","প্রাগৈতিহাসিক যুগ","ভবিষ্যৎ যুগ",0,"এর ইতিহাস মধ্যযুগীয় দিল্লির সঙ্গে যুক্ত।"],
+["কুতুব কমপ্লেক্স কী?","ঐতিহাসিক স্থাপত্যসমষ্টি","উদ্যান মাত্র","বন্দর","কারখানা",0,"কুতুব কমপ্লেক্সে বিভিন্ন ঐতিহাসিক স্থাপত্য রয়েছে।"],
+["ঐতিহাসিক স্থাপত্য কী জানায়?","অতীত সম্পর্কে","শুধু আবহাওয়া","শুধু গণিত","শুধু খেলাধুলা",0,"ঐতিহাসিক স্থাপত্য অতীতের সমাজ ও সংস্কৃতি সম্পর্কে ধারণা দেয়।"],
+["কুতুব মিনার কোন শহরের পরিচিত নিদর্শন?","দিল্লি","পাটনা","জয়পুর","ভুবনেশ্বর",0,"দিল্লির অন্যতম পরিচিত ঐতিহাসিক নিদর্শন এটি।"],
+["কুতুব মিনার কোন বিষয়ের সঙ্গে সম্পর্কিত?","ইতিহাস ও স্থাপত্য","শুধু জীববিদ্যা","শুধু রসায়ন","শুধু অঙ্ক",0,"এর সঙ্গে ইতিহাস ও স্থাপত্য জড়িত।"],
+["ঐতিহাসিক নিদর্শন সংরক্ষণ কেন দরকার?","ঐতিহ্য রক্ষার জন্য","ধ্বংস করার জন্য","অবহেলার জন্য","শুধু ব্যবসার জন্য",0,"ঐতিহ্য ও ইতিহাস রক্ষায় সংরক্ষণ জরুরি।"],
+["কুতুব মিনার কোন দেশের ঐতিহাসিক নিদর্শন?","ভারত","নেপাল","ভুটান","শ্রীলঙ্কা",0,"কুতুব মিনার ভারতের ঐতিহাসিক নিদর্শন।"],
+["কুতুব মিনার পর্যটকদের কাছে কেন গুরুত্বপূর্ণ?","ইতিহাস ও স্থাপত্যের জন্য","শুধু খেলাধুলার জন্য","শুধু কৃষির জন্য","শুধু মাছ ধরার জন্য",0,"ঐতিহাসিক ও স্থাপত্যগত গুরুত্বের কারণে এটি আকর্ষণীয়।"]
+]
+},
+
+"নোট বই":{
+summary:"নোট বইয়ে পড়াশোনার গুরুত্বপূর্ণ তথ্য, সংক্ষিপ্ত বক্তব্য ও নিজের তৈরি নোট লেখা হয়। ভালো নোট পড়াকে সহজ করে এবং পরীক্ষার আগে দ্রুত পুনরাবৃত্তিতে সাহায্য করে।",
+points:[
+"নোট সংক্ষিপ্ত ও পরিষ্কার হওয়া উচিত।",
+"গুরুত্বপূর্ণ তথ্য আলাদা করে লেখা যায়।",
+"নিজের ভাষায় নোট করলে মনে রাখা সহজ হয়।",
+"শিরোনাম ও পয়েন্ট ব্যবহার করা ভালো।",
+"নোট বই নিয়মিত সংশোধন করা উচিত।"
+],
+revision:"ভালো নোট = সংক্ষিপ্ত + পরিষ্কার + নিজের ভাষা + গুরুত্বপূর্ণ তথ্য।",
+mcq:[
+["নোট বইয়ের উদ্দেশ্য কী?","গুরুত্বপূর্ণ বিষয় সংরক্ষণ","গান লেখা","ছবি আঁকা","খেলা",0,"নোট বইয়ে গুরুত্বপূর্ণ বিষয় সংরক্ষণ করা হয়।"],
+["ভালো নোট কেমন?","সংক্ষিপ্ত ও পরিষ্কার","অগোছালো","অস্পষ্ট","অপ্রাসঙ্গিক",0,"ভালো নোট সংক্ষিপ্ত ও পরিষ্কার হয়।"],
+["নিজের ভাষায় নোট করলে কী সুবিধা?","মনে রাখা সহজ","ভুল বাড়ে","সময় নষ্ট হয়","কিছুই নয়",0,"নিজের ভাষায় লিখলে বিষয় বোঝা ও মনে রাখা সহজ হয়।"],
+["নোটে কী ব্যবহার করা যায়?","শিরোনাম ও পয়েন্ট","শুধু ছবি","শুধু সংখ্যা","শুধু রং",0,"শিরোনাম ও পয়েন্ট নোটকে গোছানো করে।"],
+["নোট কিসে সাহায্য করে?","পুনরাবৃত্তিতে","শুধু খেলায়","শুধু ভ্রমণে","শুধু রান্নায়",0,"পরীক্ষার আগে দ্রুত revision করতে নোট সাহায্য করে।"],
+["নোট কেমন হওয়া উচিত নয়?","অগোছালো","পরিষ্কার","সংক্ষিপ্ত","গুরুত্বপূর্ণ",0,"অগোছালো নোট পড়তে অসুবিধা হয়।"],
+["গুরুত্বপূর্ণ তথ্য কী করা যায়?","আলাদা করে লেখা","বাদ দেওয়া","লুকানো","মুছে ফেলা",0,"গুরুত্বপূর্ণ তথ্য আলাদা করে লিখলে দ্রুত দেখা যায়।"],
+["নোটের ভাষা কেমন হতে পারে?","নিজের ভাষা","শুধু কঠিন ভাষা","অস্পষ্ট ভাষা","ভুল ভাষা",0,"নিজের ভাষায় নোট করা কার্যকর।"],
+["নোট বইয়ের ব্যবহার কখন বেশি?","Revision-এর সময়","শুধু খেলায়","শুধু ঘুমের সময়","শুধু ভ্রমণে",0,"Revision-এর সময় নোট বই খুব উপকারী।"],
+["নোট নিয়মিত কী করা উচিত?","সংশোধন","ফেলে রাখা","ছিঁড়ে ফেলা","লুকানো",0,"নোটে ভুল থাকলে নিয়মিত সংশোধন করা উচিত।"]
+]
+},
+
+"খোকনের প্রথম ছবি":{
+summary:"‘খোকনের প্রথম ছবি’ একটি সাহিত্যিক রচনা যেখানে শিশুর জগৎ, কল্পনা ও সরলতার দিকটি গুরুত্ব পায়। শিশুর দৃষ্টিভঙ্গি থেকে পৃথিবীকে দেখার মধ্যে বিশেষ সৌন্দর্য থাকে।",
+points:[
+"শিশুর সরলতা সাহিত্যে সুন্দরভাবে ফুটে উঠতে পারে।",
+"শিশুর কল্পনাশক্তি অত্যন্ত গুরুত্বপূর্ণ।",
+"শিশুর দৃষ্টিতে পৃথিবী ভিন্নভাবে ধরা দেয়।",
+"সাহিত্য মানুষের অনুভূতি প্রকাশ করে।",
+"রচনার মূলভাব বুঝে পড়া উচিত।"
+],
+revision:"শিশু + সরলতা + কল্পনা + অনুভূতি—এই চারটি বিষয় মনে রেখে রচনাটি পড়ো।",
+mcq:[
+["শিশুর অন্যতম বৈশিষ্ট্য কী?","সরলতা","জটিলতা","অভিমানহীনতা","অজ্ঞতা মাত্র",0,"শিশুর সরলতা তার অন্যতম বৈশিষ্ট্য।"],
+["শিশুর কোন গুণ গুরুত্বপূর্ণ?","কল্পনাশক্তি","শুধু শক্তি","শুধু গতি","শুধু স্মৃতি",0,"শিশুর কল্পনাশক্তি খুব গুরুত্বপূর্ণ।"],
+["শিশুর দৃষ্টিতে পৃথিবী কেমন হতে পারে?","ভিন্ন ও কল্পনাময়","শুধু কঠিন","শুধু অন্ধকার","শুধু সংখ্যাময়",0,"শিশুর কল্পনায় পৃথিবী নতুনভাবে ধরা দেয়।"],
+["সাহিত্য কী প্রকাশ করে?","অনুভূতি","শুধু সংখ্যা","শুধু সূত্র","শুধু মানচিত্র",0,"সাহিত্য মানুষের অনুভূতি ও ভাব প্রকাশ করে।"],
+["রচনা পড়ার সময় কী বোঝা দরকার?","মূলভাব","শুধু নাম","শুধু প্রথম শব্দ","শুধু শেষ শব্দ",0,"রচনার মূলভাব বোঝা গুরুত্বপূর্ণ।"],
+["শিশুর কল্পনা কেমন?","সৃজনশীল","অপ্রয়োজনীয়","শূন্য","স্থির",0,"শিশুর কল্পনা সৃজনশীল হতে পারে।"],
+["শিশুর জগতে কী থাকে?","কৌতূহল","শুধু ভয়","শুধু হিসাব","শুধু নিয়ম",0,"শিশুর জগতে কৌতূহল একটি গুরুত্বপূর্ণ বৈশিষ্ট্য।"],
+["সাহিত্য পাঠের উদ্দেশ্য কী?","ভাব উপলব্ধি","শুধু মুখস্থ","শুধু দ্রুত পড়া","শুধু বানান দেখা",0,"সাহিত্য পাঠে ভাব ও অনুভূতি উপলব্ধি করা গুরুত্বপূর্ণ।"],
+["শিশুর ছবি আঁকা কী প্রকাশ করতে পারে?","কল্পনা","শুধু গণিত","শুধু ইতিহাস","শুধু বিজ্ঞান",0,"ছবির মাধ্যমে শিশুর কল্পনা প্রকাশ পেতে পারে।"],
+["শিশুর প্রতি বড়দের কী করা উচিত?","উৎসাহ দেওয়া","অবহেলা করা","ভয় দেখানো","চুপ করানো",0,"শিশুর সৃজনশীলতাকে উৎসাহ দেওয়া উচিত।"]
+]
+}
+},
+
+"English":{
+icon:"📘",
+topics:{
+"Where the Mind is Without Fear":{
+summary:"This poem expresses the dream of a free and enlightened country where people live without fear, knowledge is free, and reason guides people towards progress.",
+points:[
+"Freedom from fear is important.",
+"Knowledge should be free and accessible.",
+"People should speak truthfully.",
+"Reason should guide human thinking.",
+"The poem presents a vision of an ideal country."
+],
+revision:"Remember: freedom + knowledge + truth + reason + progress.",
+mcq:[
+["What does the poem wish for?","A free and fearless country","A rich palace","A battlefield","A silent village",0,"The poem presents a vision of a free and fearless country."],
+["What should be free?","Knowledge","Money only","Buildings","Games",0,"The poem says knowledge should be free."],
+["What should guide people?","Reason","Fear","Anger","Rumour",0,"Reason should guide people towards progress."],
+["The poem values—","Truth","Fear","Ignorance","Superstition",0,"Truth is an important value in the poem."],
+["The poem presents an—","Ideal vision","Adventure story","Comedy","Science experiment",0,"It presents an ideal vision of a nation."],
+["Freedom from what is desired?","Fear","Knowledge","Truth","Reason",0,"Freedom from fear is central to the poem."],
+["What helps progress?","Reason and knowledge","Fear","Ignorance","Silence",0,"Reason and knowledge help society progress."],
+["The tone is mainly—","Hopeful","Hopeless","Angry","Comic",0,"The poem expresses a hopeful vision."],
+["The poem is about—","A better society","A game","A journey","A machine",0,"It imagines a better society."],
+["A free mind needs—","Knowledge and reason","Fear","Ignorance","Silence",0,"Knowledge and reason help create a free mind."]
+]
+},
+
+"On the Grasshopper and Cricket":{
+summary:"This poem celebrates the continuous music of nature. It presents the songs of the grasshopper and cricket as signs that nature's poetry never stops.",
+points:[
+"Nature is always alive with music.",
+"The grasshopper represents summer.",
+"The cricket represents winter.",
+"Nature's poetry continues throughout the year.",
+"The poem celebrates beauty in ordinary natural sounds."
+],
+revision:"Grasshopper → summer; Cricket → winter; Nature's poetry → never-ending.",
+mcq:[
+["What does the poem celebrate?","Nature's music","War","City life","Machines",0,"The poem celebrates the music of nature."],
+["The grasshopper is associated with—","Summer","Winter","Rainy season only","Autumn only",0,"The grasshopper's song represents summer."],
+["The cricket is associated with—","Winter","Summer","Spring only","Autumn only",0,"The cricket's song represents winter."],
+["Nature's poetry is—","Continuous","Temporary","Silent","Absent",0,"The poem suggests nature's poetry never stops."],
+["What creates natural music?","Grasshopper and cricket","Cars","Factories","Trains",0,"The sounds of insects create natural music."],
+["The poem finds beauty in—","Ordinary natural sounds","Buildings","Machines","Noise",0,"It finds beauty in simple sounds of nature."],
+["The grasshopper sings in—","Summer","Winter","Night only","Rain only",0,"The grasshopper is linked with summer."],
+["The cricket sings in—","Winter","Summer","Spring only","Autumn only",0,"The cricket is linked with winter."],
+["The central idea is—","Nature's endless music","Human war","Travel","Technology",0,"Nature's music continues through the seasons."],
+["The poem creates a feeling of—","Harmony with nature","Fear","Anger","Confusion",0,"The poem creates a harmonious feeling."]
+]
+},
+
+"Grammar: Noun":{
+summary:"A noun is a word used as the name of a person, place, animal, thing or idea. Nouns can be classified into common, proper, collective, material and abstract nouns.",
+points:[
+"A noun names a person, place, animal or thing.",
+"Proper nouns name particular persons or places.",
+"Common nouns name general classes.",
+"Abstract nouns name ideas or qualities.",
+"Collective nouns refer to groups."
+],
+revision:"Noun = name. Remember Proper, Common, Collective, Material and Abstract nouns.",
+mcq:[
+["Which is a noun?","Teacher","Quickly","Beautiful","Run",0,"Teacher names a person."],
+["Which is a proper noun?","India","Country","River","Boy",0,"India is the particular name of a country."],
+["Which is a common noun?","City","Kolkata","Ravi","Monday",0,"City is a general name."],
+["Which is an abstract noun?","Honesty","Table","Dog","School",0,"Honesty names a quality."],
+["Which is a collective noun?","Team","Boy","Book","Water",0,"Team refers to a group."],
+["A noun names a—","Person, place, thing or idea","Only action","Only quality","Only colour",0,"Nouns can name persons, places, things and ideas."],
+["Which is a proper noun?","Rabindranath","Poet","Writer","Man",0,"Rabindranath is a particular name."],
+["Which is abstract?","Kindness","Chair","Pen","Tree",0,"Kindness names a quality."],
+["Which is collective?","Army","Soldier","Gun","Country",0,"Army refers to a group."],
+["Which is material noun?","Gold","Honesty","Team","Boy",0,"Gold names a material."]
+]
+},
+
+"Grammar: Pronoun":{
+summary:"A pronoun is a word used in place of a noun. Pronouns help avoid repetition. Examples include I, we, you, he, she, it, they and them.",
+points:[
+"Pronouns replace nouns.",
+"They reduce repetition.",
+"I and we are first-person pronouns.",
+"He and she are third-person pronouns.",
+"They can show person and number."
+],
+revision:"Pronoun = word used instead of a noun.",
+mcq:[
+["What is a pronoun?","A word used instead of a noun","A verb","An adjective","An adverb",0,"A pronoun replaces a noun."],
+["Which is a pronoun?","He","Book","Run","Beautiful",0,"He is a pronoun."],
+["Which pronoun is first person singular?","I","He","They","You",0,"I is first-person singular."],
+["Which is third person?","She","I","We","You",0,"She is third person."],
+["Which pronoun refers to a group?","They","He","She","It",0,"They can refer to more than one person or thing."],
+["Why use pronouns?","To avoid repetition","To add numbers","To show colour","To name places",0,"Pronouns make sentences less repetitive."],
+["Which is plural pronoun?","We","He","She","It",0,"We is plural."],
+["Which can replace 'Rahul'?","He","They","It","We",0,"He can replace Rahul."],
+["Which can replace 'the girls'?","They","He","It","I",0,"They can replace the girls."],
+["Which is an object pronoun?","Them","He","She","I",0,"Them is an object pronoun."]
+]
+},
+
+"Grammar: Verb":{
+summary:"A verb is a word that shows an action, occurrence or state. Examples include run, write, eat, is and have.",
+points:[
+"Verbs can show actions.",
+"Verbs can show states.",
+"Every complete sentence generally needs a verb.",
+"Verb forms can change with tense.",
+"Helping verbs support main verbs."
+],
+revision:"Verb = action, occurrence or state.",
+mcq:[
+["Which is a verb?","Run","Book","Beautiful","Quick",0,"Run shows an action."],
+["Which word is a verb?","Write","Pen","School","Tall",0,"Write shows an action."],
+["'Is' is a—","Verb","Noun","Pronoun","Adjective",0,"Is is a verb."],
+["A verb can show—","Action","Only colour","Only place","Only person",0,"Verbs commonly show actions or states."],
+["Which is a helping verb?","Have","Book","Red","Boy",0,"Have can work as a helping verb."],
+["Which is a verb?","Eat","Food","Plate","Hungry",0,"Eat shows an action."],
+["Verbs can change according to—","Tense","Colour","Shape","Size",0,"Verb forms change with tense."],
+["Which is a verb?","Sing","Song","Singer","Beautiful",0,"Sing shows an action."],
+["Which is a state verb?","Know","Run","Jump","Write",0,"Know can express a state."],
+["Which is a verb in 'She reads'?","Reads","She","None","The",0,"Reads is the verb."]
+]
+},
+
+"Grammar: Adjective":{
+summary:"An adjective is a word that describes or qualifies a noun or pronoun. It can tell us about quality, quantity, number, size or colour.",
+points:[
+"Adjectives describe nouns.",
+"They may show quality.",
+"They may show quantity or number.",
+"They can describe size or colour.",
+"Adjectives make sentences more descriptive."
+],
+revision:"Adjective = describing word for a noun or pronoun.",
+mcq:[
+["Which is an adjective?","Beautiful","Run","Boy","Quickly",0,"Beautiful describes a noun."],
+["In 'a tall boy', tall is—","Adjective","Noun","Verb","Pronoun",0,"Tall describes boy."],
+["Which word describes colour?","Red","Run","Slowly","Teacher",0,"Red is an adjective describing colour."],
+["Adjectives describe—","Nouns or pronouns","Only verbs","Only adverbs","Only conjunctions",0,"Adjectives qualify nouns or pronouns."],
+["Which is an adjective?","Large","Eat","School","They",0,"Large describes size."],
+["Which is an adjective?","Three","Run","Quickly","Teacher",0,"Three can describe number."],
+["Which is an adjective?","Honest","Honesty","Run","Quickly",0,"Honest describes a person."],
+["Adjectives make sentences—","More descriptive","Less meaningful","Incorrect","Silent",0,"They add descriptive information."],
+["Which describes quantity?","Some","Run","He","Quickly",0,"Some can describe quantity."],
+["In 'a red flower', red describes—","Flower","A","None","The",0,"Red describes the flower."]
+]
+},
+
+"Tense":{
+summary:"Tense shows the time of an action or state. The three basic tenses are present, past and future. Each may have different forms.",
+points:[
+"Present tense relates to present time.",
+"Past tense relates to completed or earlier actions.",
+"Future tense relates to actions yet to happen.",
+"Verb forms often indicate tense.",
+"Context also helps identify tense."
+],
+revision:"Present = now; Past = before; Future = later.",
+mcq:[
+["Which tense shows present time?","Present","Past","Future","None",0,"Present tense refers to present time."],
+["Which tense shows an earlier action?","Past","Present","Future","None",0,"Past tense refers to earlier time."],
+["Which tense shows an action yet to happen?","Future","Past","Present","None",0,"Future tense refers to later time."],
+["'I play' is—","Present","Past","Future","Perfect only",0,"Play is in the simple present form."],
+["'I played' is—","Past","Present","Future","None",0,"Played indicates past tense."],
+["'I will play' is—","Future","Past","Present","None",0,"Will play indicates future time."],
+["Tense mainly indicates—","Time","Colour","Place","Size",0,"Tense indicates time of an action or state."],
+["Past tense often refers to—","Earlier action","Current action only","Future action","No action",0,"Past tense refers to earlier actions."],
+["Future tense refers to—","Later action","Earlier action","Present only","None",0,"Future tense refers to later actions."],
+["Which helps identify tense?","Verb form and context","Colour","Font","Page size",0,"Verb form and context help identify tense."]
+]
+}
+},
+
+"গণিত":{
+icon:"📐",
+topics:{
+"মূলদ ও অমূলদ সংখ্যা":{
+summary:"যে সংখ্যাকে p/q আকারে প্রকাশ করা যায়, যেখানে p ও q পূর্ণসংখ্যা এবং q ≠ 0, তাকে মূলদ সংখ্যা বলা হয়। যে সংখ্যা এইভাবে প্রকাশ করা যায় না তাকে অমূলদ সংখ্যা বলা হয়।",
+points:[
+"মূলদ সংখ্যা p/q আকারে লেখা যায়।",
+"q শূন্য হতে পারে না।",
+"পূর্ণসংখ্যাও মূলদ সংখ্যা।",
+"√2 একটি অমূলদ সংখ্যা।",
+"মূলদ ও অমূলদ মিলিয়ে বাস্তব সংখ্যা পাওয়া যায়।"
+],
+revision:"Rational = p/q, q≠0. √2-এর মতো সংখ্যা irrational.",
+mcq:[
+["মূলদ সংখ্যার সাধারণ রূপ কী?","p/q","p×q","p+q","p-q",0,"মূলদ সংখ্যা p/q আকারে প্রকাশযোগ্য।"],
+["q-এর মান কী হতে পারে না?","0","1","2","5",0,"ভাগের হর শূন্য হতে পারে না।"],
+["নিচের কোনটি মূলদ?","1/2","√2","π","√3",0,"1/2 একটি মূলদ সংখ্যা।"],
+["√2 কেমন সংখ্যা?","অমূলদ","মূলদ","পূর্ণসংখ্যা","স্বাভাবিক",0,"√2 অমূলদ সংখ্যা।"],
+["পূর্ণসংখ্যা কি মূলদ?","হ্যাঁ","না","কখনও নয়","শুধু ঋণাত্মক",0,"যেমন 5 = 5/1, তাই পূর্ণসংখ্যা মূলদ।"],
+["মূলদ ও অমূলদ মিলে কী পাওয়া যায়?","বাস্তব সংখ্যা","শুধু পূর্ণসংখ্যা","শুধু ভগ্নাংশ","শুধু স্বাভাবিক সংখ্যা",0,"বাস্তব সংখ্যার মধ্যে মূলদ ও অমূলদ উভয়ই থাকে।"],
+["3/4 কী?","মূলদ","অমূলদ","অপূর্ণ সংখ্যা","কোনোটিই নয়",0,"3/4 p/q আকারে আছে।"],
+["√9 কী?","3","√3","9/2","অমূলদ",0,"√9 = 3।"],
+["π সাধারণত কী ধরনের?","অমূলদ","পূর্ণসংখ্যা","স্বাভাবিক","মূলদ",0,"π একটি অমূলদ সংখ্যা।"],
+["0 কি মূলদ?","হ্যাঁ","না","শুধু কখনও","কোনোটিই নয়",0,"0 = 0/1, তাই মূলদ।"]
+]
+},
+
+"ঘনমূল":{
+summary:"কোনো সংখ্যার ঘনমূল হলো এমন একটি সংখ্যা যাকে তিনবার গুণ করলে মূল সংখ্যাটি পাওয়া যায়। যেমন 2×2×2=8, তাই 8-এর ঘনমূল 2।",
+points:[
+"∛8 = 2।",
+"∛27 = 3।",
+"∛64 = 4।",
+"ঘনমূলের ক্ষেত্রে তিনবার গুণ করা হয়।",
+"পূর্ণঘন সংখ্যার ঘনমূল পূর্ণসংখ্যা হতে পারে।"
+],
+revision:"a³ = N হলে ∛N = a.",
+mcq:[
+["∛8 কত?","2","3","4","8",0,"2×2×2=8।"],
+["∛27 কত?","3","2","9","6",0,"3×3×3=27।"],
+["∛64 কত?","4","8","2","6",0,"4×4×4=64।"],
+["ঘনমূলের ক্ষেত্রে কয়বার গুণ করা হয়?","3","2","4","1",0,"একটি সংখ্যাকে তিনবার গুণ করলে ঘন পাওয়া যায়।"],
+["5³ কত?","125","25","15","100",0,"5×5×5=125।"],
+["∛125 কত?","5","25","15","10",0,"5×5×5=125।"],
+["3³ কত?","27","9","6","12",0,"3×3×3=27।"],
+["∛1 কত?","1","0","3","-1",0,"1×1×1=1।"],
+["2³ কত?","8","4","6","12",0,"2×2×2=8।"],
+["পূর্ণঘন সংখ্যা কোনটি?","216","20","30","50",0,"6³=216, তাই 216 একটি পূর্ণঘন সংখ্যা।"]
+]
+},
+
+"সূচক":{
+summary:"সূচক বা exponent দ্বারা কোনো সংখ্যাকে কতবার গুণ করা হয়েছে তা বোঝানো হয়। যেমন 2³ = 2×2×2। সূচকের কিছু নিয়ম গণিতের হিসাব সহজ করে।",
+points:[
+"a² মানে a×a।",
+"a³ মানে a×a×a।",
+"a^m × a^n = a^(m+n)।",
+"a^m ÷ a^n = a^(m-n), a≠0।",
+"(a^m)^n = a^(mn)।"
+],
+revision:"একই ভিত্তির গুণে সূচক যোগ, ভাগে সূচক বিয়োগ।",
+mcq:[
+["2³ কত?","8","6","9","12",0,"2×2×2=8।"],
+["a² মানে কী?","a×a","a+a","a÷a","a-a",0,"a² = a×a।"],
+["a³ মানে কী?","a×a×a","3a","a+3","a÷3",0,"a³ = a×a×a।"],
+["a²×a³ = ?","a⁵","a⁶","a","a⁹",0,"একই ভিত্তির গুণে সূচক যোগ হয়।"],
+["a⁵÷a² = ?","a³","a⁷","a²","a¹⁰",0,"সূচক বিয়োগ হয়: 5−2=3।"],
+["(a²)³ = ?","a⁶","a⁵","a⁸","a⁹",0,"সূচক গুণ হয়: 2×3=6।"],
+["10² কত?","100","20","12","1000",0,"10×10=100।"],
+["5² কত?","25","10","15","20",0,"5×5=25।"],
+["3⁴ কত?","81","12","27","64",0,"3×3×3×3=81।"],
+["সূচক কী নির্দেশ করে?","গুণের সংখ্যা","ভাগের সংখ্যা","শূন্যের সংখ্যা","যোগের সংখ্যা",0,"সূচক পুনরাবৃত্ত গুণের সংখ্যা নির্দেশ করে।"]
+]
+},
+
+"পূর্ণ সংখ্যার গুণ ও ভাগ":{
+summary:"পূর্ণ সংখ্যা হলো 0 এবং ধনাত্মক স্বাভাবিক সংখ্যাগুলির সমষ্টি। পূর্ণ সংখ্যার গুণ ও ভাগে গুণের নিয়ম, শূন্যের নিয়ম এবং ভাগশেষের ধারণা গুরুত্বপূর্ণ।",
+points:[
+"0 একটি পূর্ণ সংখ্যা।",
+"যেকোনো সংখ্যাকে 0 দিয়ে গুণ করলে ফল 0।",
+"1 দিয়ে গুণ করলে সংখ্যা অপরিবর্তিত থাকে।",
+"শূন্য দিয়ে ভাগ করা যায় না।",
+"ভাগে ভাজ্য = ভাজক × ভাগফল + ভাগশেষ।"
+],
+revision:"0×a=0, 1×a=a; কিন্তু a÷0 সংজ্ঞায়িত নয়।",
+mcq:[
+["0×25 কত?","0","25","1","250",0,"যেকোনো সংখ্যাকে 0 দিয়ে গুণ করলে 0।"],
+["25×1 কত?","25","1","0","26",0,"1 দিয়ে গুণ করলে সংখ্যা অপরিবর্তিত থাকে।"],
+["10÷2 কত?","5","2","20","8",0,"10 ভাগ 2 = 5।"],
+["0 কি পূর্ণ সংখ্যা?","হ্যাঁ","না","শুধু কখনও","কোনোটিই নয়",0,"0 পূর্ণ সংখ্যার অন্তর্ভুক্ত।"],
+["কোনটি সম্ভব নয়?","5÷0","10÷2","8÷4","9÷3",0,"শূন্য দিয়ে ভাগ সংজ্ঞায়িত নয়।"],
+["20÷5 কত?","4","5","10","25",0,"20/5=4।"],
+["7×8 কত?","56","54","64","48",0,"7×8=56।"],
+["36÷6 কত?","6","5","7","8",0,"36/6=6।"],
+["ভাগশেষ সবসময় ভাজকের তুলনায়—","ছোট","বড়","সমান","দ্বিগুণ",0,"ভাগশেষ ভাজকের চেয়ে ছোট হয়।"],
+["12×0 কত?","0","12","1","120",0,"শূন্য দিয়ে গুণের ফল শূন্য।"]
+]
+},
+
+"বীজগাণিতিক সূত্রাবলী":{
+summary:"বীজগণিতে কিছু পরিচিত সূত্র ব্যবহার করে রাশি সরল করা ও গুণনীয়কে বিশ্লেষণ করা যায়। যেমন (a+b)² = a²+2ab+b² এবং (a-b)² = a²-2ab+b²।",
+points:[
+"(a+b)² = a²+2ab+b²।",
+"(a-b)² = a²-2ab+b²।",
+"a²-b² = (a+b)(a-b)।",
+"সূত্র মুখস্থের পাশাপাশি বুঝে প্রয়োগ করা জরুরি।",
+"সূত্র ব্যবহার করলে হিসাব দ্রুত হয়।"
+],
+revision:"তিনটি গুরুত্বপূর্ণ সূত্র: (a+b)², (a-b)², a²-b².",
+mcq:[
+["(a+b)² = ?","a²+2ab+b²","a²+b²","a²-2ab+b²","a²-b²",0,"এটি বর্গের যোগের সূত্র।"],
+["(a-b)² = ?","a²-2ab+b²","a²+2ab+b²","a²-b²","a²+b²",0,"এটি বর্গের বিয়োগের সূত্র।"],
+["a²-b² = ?","(a+b)(a-b)","(a-b)²","(a+b)²","a²+b²",0,"বর্গের অন্তরের সূত্র।"],
+["(x+2)²-এ 2ab অংশ কত?","4x","2x","4","x²",0,"a=x,b=2 হলে 2ab=4x।"],
+["(x+3)² = ?","x²+6x+9","x²+3x+9","x²+9","x²-6x+9",0,"সূত্র প্রয়োগ করলে x²+6x+9।"],
+["(x-2)² = ?","x²-4x+4","x²+4x+4","x²-2x+4","x²-4",0,"সূত্রে a=x,b=2।"],
+["x²-9 = ?","(x+3)(x-3)","(x-3)²","(x+9)(x-9)","x²+9",0,"9=3², তাই বর্গের অন্তর।"],
+["সূত্রের সুবিধা কী?","দ্রুত হিসাব","সময় বাড়ায়","ভুল বাড়ায়","কোনো সুবিধা নেই",0,"সূত্র ব্যবহার করলে হিসাব দ্রুত হয়।"],
+["(a+b)²-এ মধ্যপদ কী?","2ab","ab","a+b","a²+b²",0,"মধ্যপদ 2ab।"],
+["a²-b²-এ কোন সূত্র?","বর্গের অন্তর","বর্গের যোগ","ঘনমূল","সূচক",0,"এটি difference of squares."]
+]
+},
+
+"ভগ্নাংশ ও দশমিক":{
+summary:"ভগ্নাংশে লব ও হর থাকে। দশমিক সংখ্যা দশের ঘাতের ভিত্তিতে লেখা হয়। ভগ্নাংশকে দশমিকে এবং দশমিককে ভগ্নাংশে রূপান্তর করা যায়।",
+points:[
+"ভগ্নাংশ = লব/হর।",
+"হর শূন্য হতে পারে না।",
+"1/2 = 0.5।",
+"1/4 = 0.25।",
+"দশমিক সংখ্যাকে ভগ্নাংশে রূপান্তর করা যায়।"
+],
+revision:"ভগ্নাংশে লব উপরে, হর নিচে। 1/2=0.5 এবং 1/4=0.25.",
+mcq:[
+["1/2 = ?","0.5","0.2","0.25","2",0,"1÷2=0.5।"],
+["1/4 = ?","0.25","0.4","0.5","0.75",0,"1÷4=0.25।"],
+["ভগ্নাংশের নিচের সংখ্যা কী?","হর","লব","ভাগফল","গুণক",0,"নিচের সংখ্যা হর।"],
+["ভগ্নাংশের উপরের সংখ্যা কী?","লব","হর","ভাজক","ভাগশেষ",0,"উপরের সংখ্যা লব।"],
+["0.75 = ?","3/4","1/4","2/5","7/5",0,"0.75=75/100=3/4।"],
+["0.5 = ?","1/2","1/5","2/5","5/2",0,"0.5=1/2।"],
+["হর কি 0 হতে পারে?","না","হ্যাঁ","সবসময়","শুধু পূর্ণসংখ্যায়",0,"শূন্য দিয়ে ভাগ করা যায় না।"],
+["2/5 = ?","0.4","0.2","0.5","0.25",0,"2÷5=0.4।"],
+["0.2 = ?","1/5","1/2","2/5","1/4",0,"0.2=2/10=1/5।"],
+["দশমিক 1.25 = ?","5/4","4/5","1/4","3/2",0,"1.25=125/100=5/4।"]
+]
+},
+
+"জ্যামিতিক আকৃতি":{
+summary:"জ্যামিতিতে বিভিন্ন সমতল ও ঘন আকৃতি নিয়ে আলোচনা করা হয়। ত্রিভুজ, চতুর্ভুজ, বৃত্ত এবং ঘনক, ঘনআয়ত প্রভৃতি গুরুত্বপূর্ণ আকৃতি।",
+points:[
+"ত্রিভুজের তিনটি বাহু থাকে।",
+"চতুর্ভুজের চারটি বাহু থাকে।",
+"বৃত্তের কোনো সরল বাহু নেই।",
+"ঘনকের 6টি তল থাকে।",
+"জ্যামিতিক আকৃতির পরিমাপ নির্ণয় করা যায়।"
+],
+revision:"Triangle=3 sides, Quadrilateral=4 sides, Cube=6 faces.",
+mcq:[
+["ত্রিভুজের বাহু কয়টি?","3","4","5","6",0,"ত্রিভুজের তিনটি বাহু।"],
+["চতুর্ভুজের বাহু কয়টি?","4","3","5","6",0,"চতুর্ভুজের চারটি বাহু।"],
+["ঘনকের তল কয়টি?","6","4","8","12",0,"ঘনকের 6টি তল।"],
+["বৃত্তের সরল বাহু কয়টি?","0","1","2","4",0,"বৃত্তের সরল বাহু নেই।"],
+["আয়তের বিপরীত বাহু—","সমান","সব অসমান","তিনটি","একটি",0,"আয়তের বিপরীত বাহু সমান।"],
+["বর্গের সব বাহু—","সমান","অসমান","তিনটি","দুটি",0,"বর্গের চার বাহুই সমান।"],
+["ঘনকের আকৃতি কেমন?","ঘন আকৃতি","সমতল রেখা","বৃত্ত","ত্রিভুজ",0,"ঘনক একটি ঘনবস্তু।"],
+["চতুর্ভুজে কোণ কয়টি?","4","3","5","6",0,"চারটি কোণ থাকে।"],
+["ত্রিভুজের কোণের সমষ্টি কত?","180°","90°","360°","270°",0,"ত্রিভুজের তিন কোণের সমষ্টি 180°।"],
+["পূর্ণ কোণের মান কত?","360°","180°","90°","45°",0,"পূর্ণ কোণ 360°।"]
+]
+}
+},
+
+"Geography":{
+icon:"🌍",
+topics:{
+"মাটি দূষণ":{
+summary:"মাটিতে ক্ষতিকর পদার্থ অতিরিক্ত জমে মাটির স্বাভাবিক গুণ নষ্ট হলে তাকে মাটি দূষণ বলা হয়। শিল্পবর্জ্য, প্লাস্টিক, অতিরিক্ত রাসায়নিক সার ও কীটনাশক এর কারণ হতে পারে।",
+points:[
+"প্লাস্টিক মাটি দূষণের একটি কারণ।",
+"শিল্পবর্জ্য মাটিকে দূষিত করতে পারে।",
+"অতিরিক্ত রাসায়নিক সার ক্ষতিকর।",
+"মাটি দূষণে কৃষি উৎপাদন ক্ষতিগ্রস্ত হতে পারে।",
+"বর্জ্য সঠিকভাবে ব্যবস্থাপনা করা প্রয়োজন।"
+],
+revision:"প্লাস্টিক + শিল্পবর্জ্য + রাসায়নিক = মাটি দূষণের প্রধান কারণগুলির উদাহরণ।",
+mcq:[
+["মাটি দূষণের কারণ কোনটি?","প্লাস্টিক বর্জ্য","বৃষ্টির জল","পরিষ্কার মাটি","গাছ",0,"প্লাস্টিক বর্জ্য মাটিতে দূষণ সৃষ্টি করতে পারে।"],
+["অতিরিক্ত কী ক্ষতিকর?","রাসায়নিক সার","জৈব সার","পরিষ্কার জল","বায়ু",0,"অতিরিক্ত রাসায়নিক সার মাটির গুণ নষ্ট করতে পারে।"],
+["মাটি দূষণে কী ক্ষতিগ্রস্ত হয়?","উর্বরতা","সূর্য","চাঁদ","নক্ষত্র",0,"মাটির উর্বরতা ক্ষতিগ্রস্ত হতে পারে।"],
+["শিল্পবর্জ্য কোথায় ফেললে সমস্যা?","মাটিতে","সঠিক শোধনাগারে","পুনর্ব্যবহারে","নিরাপদ স্থানে",0,"অপরিশোধিত শিল্পবর্জ্য মাটিকে দূষিত করতে পারে।"],
+["মাটি রক্ষায় কী দরকার?","বর্জ্য ব্যবস্থাপনা","বর্জ্য ছড়িয়ে দেওয়া","প্লাস্টিক পোড়ানো","অতিরিক্ত সার",0,"সঠিক বর্জ্য ব্যবস্থাপনা জরুরি।"],
+["মাটি দূষণের প্রভাব কী?","কৃষির ক্ষতি","বৃষ্টি বৃদ্ধি","সূর্য বড় হওয়া","সমুদ্র শুকানো",0,"মাটির গুণ নষ্ট হলে কৃষি ক্ষতিগ্রস্ত হতে পারে।"],
+["প্লাস্টিকের সমস্যা কী?","সহজে পচে না","খুব দ্রুত পচে","মাটিকে পরিষ্কার করে","সার হয়",0,"প্লাস্টিক সহজে পচে না।"],
+["মাটি কোন সম্পদ?","প্রাকৃতিক সম্পদ","কৃত্রিম বস্তু","যন্ত্র","জ্বালানি",0,"মাটি একটি গুরুত্বপূর্ণ প্রাকৃতিক সম্পদ।"],
+["মাটির উর্বরতা কী?","ফসল উৎপাদনের ক্ষমতা","জলের গতি","বাতাসের চাপ","তাপমাত্রা",0,"উর্বরতা মাটির ফসল উৎপাদনের ক্ষমতার সঙ্গে যুক্ত।"],
+["মাটি দূষণ কমাতে—","বর্জ্য কমাতে হবে","বর্জ্য ছড়াতে হবে","প্লাস্টিক বাড়াতে হবে","সার বাড়াতে হবে",0,"দূষণ কমাতে বর্জ্য হ্রাস ও সঠিক ব্যবস্থাপনা দরকার।"]
+]
+},
+
+"জল দূষণ":{
+summary:"জলে ক্ষতিকর পদার্থ মিশে জলের গুণমান নষ্ট হলে জল দূষণ ঘটে। শিল্পবর্জ্য, নর্দমার জল, প্লাস্টিক ও কৃষিক্ষেত্রের রাসায়নিক জল দূষণের কারণ হতে পারে।",
+points:[
+"শিল্পবর্জ্য জল দূষণ করতে পারে।",
+"নর্দমার অপরিশোধিত জল ক্ষতিকর।",
+"প্লাস্টিক জলজ পরিবেশের ক্ষতি করে।",
+"দূষিত জল মানুষের জন্য বিপজ্জনক হতে পারে।",
+"জল শোধন ও বর্জ্য ব্যবস্থাপনা জরুরি।"
+],
+revision:"Clean water is essential for life; pollution reduces water quality.",
+mcq:[
+["জল দূষণের কারণ কী?","শিল্পবর্জ্য","পরিষ্কার জল","বৃষ্টি","বাষ্প",0,"শিল্পবর্জ্য জল দূষণ করতে পারে।"],
+["দূষিত জল কী করতে পারে?","রোগ ছড়াতে পারে","জল পরিষ্কার করে","বৃষ্টি বাড়ায়","মাটি তৈরি করে",0,"দূষিত জল রোগের কারণ হতে পারে।"],
+["জল দূষণে কী ক্ষতিগ্রস্ত হয়?","জলজ প্রাণী","সূর্য","চাঁদ","পর্বত",0,"জলজ প্রাণীরা দূষণের দ্বারা ক্ষতিগ্রস্ত হয়।"],
+["নর্দমার জল কী করা উচিত?","শোধন করা","সরাসরি নদীতে ফেলা","সমুদ্রে ফেলা","খেতে দেওয়া",0,"নর্দমার জল শোধন করা প্রয়োজন।"],
+["জল কোন সম্পদ?","প্রাকৃতিক সম্পদ","শুধু কৃত্রিম","যন্ত্র","ধাতু",0,"জল একটি প্রাকৃতিক সম্পদ।"],
+["জল সংরক্ষণ কেন দরকার?","জীবনের জন্য","শুধু খেলায়","শুধু ভ্রমণে","শুধু শিল্পে",0,"জীবনের জন্য জল অপরিহার্য।"],
+["প্লাস্টিক জলকে—","দূষিত করতে পারে","শোধন করে","বাষ্প বানায়","বরফ বানায়",0,"প্লাস্টিক জল দূষণ করতে পারে।"],
+["জল দূষণ কমাতে কী দরকার?","বর্জ্য শোধন","বর্জ্য ফেলা","প্লাস্টিক বাড়ানো","রাসায়নিক বাড়ানো",0,"বর্জ্য শোধন করা গুরুত্বপূর্ণ।"],
+["দূষিত জল পান করলে—","স্বাস্থ্যঝুঁকি হয়","স্বাস্থ্য সবসময় ভালো হয়","কিছুই হয় না","জল মিষ্টি হয়",0,"দূষিত জল স্বাস্থ্যঝুঁকি সৃষ্টি করতে পারে।"],
+["জলজ প্রাণীর বাসস্থান—","জল","মাটি মাত্র","আকাশ","মরুভূমি",0,"অনেক প্রাণীর বাসস্থান জল।"]
+]
+},
+
+"পৃথিবীর আবর্তন ও পরিক্রমণ":{
+summary:"পৃথিবী নিজের অক্ষের চারদিকে ঘোরে—একে আবর্তন বলে। পৃথিবী সূর্যের চারদিকে ঘোরে—একে পরিক্রমণ বলে। আবর্তনের ফলে দিন-রাত্রি এবং পরিক্রমণের সঙ্গে ঋতু পরিবর্তনের সম্পর্ক রয়েছে।",
+points:[
+"নিজ অক্ষের চারদিকে ঘূর্ণন = আবর্তন।",
+"সূর্যের চারদিকে ঘূর্ণন = পরিক্রমণ।",
+"আবর্তনের সময় প্রায় 24 ঘণ্টা।",
+"পরিক্রমণের সময় প্রায় 365¼ দিন।",
+"দিন-রাত্রির সঙ্গে আবর্তনের সম্পর্ক আছে।"
+],
+revision:"Rotation → 24 hours → day/night. Revolution → 365¼ days → year/seasonal cycle.",
+mcq:[
+["পৃথিবীর নিজের অক্ষের চারদিকে ঘোরা কী?","আবর্তন","পরিক্রমণ","বিপ্লব","পরিবহন",0,"নিজ অক্ষের চারদিকে ঘূর্ণনকে আবর্তন বলে।"],
+["সূর্যের চারদিকে পৃথিবীর ঘোরা কী?","পরিক্রমণ","আবর্তন","ঘূর্ণিঝড়","জোয়ার",0,"সূর্যের চারদিকে ঘোরা হলো পরিক্রমণ।"],
+["আবর্তনের সময় প্রায় কত?","24 ঘণ্টা","12 ঘণ্টা","30 দিন","365 দিন",0,"পৃথিবীর আবর্তন প্রায় 24 ঘণ্টা।"],
+["পরিক্রমণের সময় প্রায় কত?","365¼ দিন","24 ঘণ্টা","7 দিন","30 দিন",0,"একবার পরিক্রমণে প্রায় 365¼ দিন লাগে।"],
+["দিন-রাত্রির কারণ কী?","পৃথিবীর আবর্তন","পরিক্রমণ মাত্র","বৃষ্টি","জোয়ার",0,"পৃথিবীর আবর্তনের ফলে দিন-রাত্রি হয়।"],
+["পৃথিবী কীকে কেন্দ্র করে পরিক্রমণ করে?","সূর্য","চাঁদ","মঙ্গল","পৃথিবী",0,"পৃথিবী সূর্যকে কেন্দ্র করে পরিক্রমণ করে।"],
+["পৃথিবীর অক্ষ কী?","কাল্পনিক রেখা","নদী","পাহাড়","বাস্তব দণ্ড",0,"অক্ষ একটি কাল্পনিক রেখা।"],
+["এক বছর প্রায় কত দিনের?","365¼","24","30","100",0,"এক বছর প্রায় 365¼ দিন।"],
+["ঋতু পরিবর্তনের সঙ্গে কী যুক্ত?","পৃথিবীর পরিক্রমণ ও অক্ষের হেলন","শুধু আবর্তন","শুধু বৃষ্টি","শুধু চাঁদ",0,"পরিক্রমণ ও অক্ষের হেলনের সঙ্গে ঋতুচক্র যুক্ত।"],
+["সূর্যকে কেন্দ্র করে ঘোরে—","পৃথিবী","চাঁদ মাত্র","নদী","মেঘ",0,"পৃথিবী সূর্যকে কেন্দ্র করে ঘোরে।"]
+]
+},
+
+"ভূ-আকৃতি":{
+summary:"পৃথিবীর পৃষ্ঠে বিভিন্ন ধরনের প্রাকৃতিক উঁচু-নিচু ভূমিরূপকে ভূ-আকৃতি বলা হয়। পাহাড়, মালভূমি ও সমভূমি প্রধান ভূ-আকৃতির উদাহরণ।",
+points:[
+"পাহাড় উঁচু ভূমিরূপ।",
+"মালভূমি তুলনামূলক উঁচু সমতল ভূমি।",
+"সমভূমি অপেক্ষাকৃত সমতল ভূমি।",
+"নদী ভূমিরূপ গঠনে ভূমিকা রাখে।",
+"ভূ-আকৃতি মানুষের জীবন ও কৃষিতে প্রভাব ফেলে।"
+],
+revision:"Mountain = high land; Plateau = elevated flat land; Plain = relatively flat land.",
+mcq:[
+["পাহাড় কেমন ভূমিরূপ?","উঁচু","সমুদ্রের নিচে","শুধু সমতল","জলীয়",0,"পাহাড় উঁচু ভূমিরূপ।"],
+["মালভূমি কী?","উঁচু সমতল ভূমি","নিচু জলাভূমি","সমুদ্র","নদী",0,"মালভূমি elevated flat land।"],
+["সমভূমি কেমন?","তুলনামূলক সমতল","অত্যন্ত খাড়া","জলীয়","বরফময়",0,"সমভূমি অপেক্ষাকৃত সমতল।"],
+["নদী কী করতে পারে?","ভূ-আকৃতি গঠন","শুধু বৃষ্টি","সূর্য তৈরি","পাহাড় উড়িয়ে দেওয়া",0,"ক্ষয় ও সঞ্চয়ের মাধ্যমে নদী ভূমিরূপ গঠন করে।"],
+["ভূ-আকৃতি কী প্রভাবিত করে?","মানুষের জীবন","শুধু আকাশ","শুধু সূর্য","শুধু চাঁদ",0,"ভূ-আকৃতি বসতি ও জীবিকায় প্রভাব ফেলে।"],
+["সমভূমিতে কৃষি কেন সুবিধাজনক?","সমতল ভূমি","অত্যন্ত খাড়া","জল নেই","বরফ",0,"সমতল ভূমি কৃষির জন্য সুবিধাজনক।"],
+["মালভূমি কোন ধরনের ভূমি?","উঁচু সমতল","নিচু সমতল","সমুদ্র","দ্বীপ",0,"মালভূমি উঁচু সমতল ভূমি।"],
+["পাহাড়ের উচ্চতা—","সাধারণত বেশি","সবসময় শূন্য","সবসময় সমুদ্রপৃষ্ঠের নিচে","একই",0,"পাহাড় সাধারণত আশেপাশের ভূমির তুলনায় উঁচু।"],
+["ভূ-আকৃতি সৃষ্টি করে—","প্রাকৃতিক প্রক্রিয়া","শুধু মানুষ","শুধু বই","শুধু যন্ত্র",0,"ক্ষয়, সঞ্চয় ও ভূ-অভ্যন্তরীণ প্রক্রিয়া ভূমিরূপ গঠন করে।"],
+["ভূ-আকৃতির উদাহরণ—","পাহাড়","বায়ু","মেঘ","বৃষ্টি",0,"পাহাড় একটি ভূ-আকৃতি।"]
+]
+},
+
+"নদী":{
+summary:"নদী হলো প্রাকৃতিক জলপ্রবাহ যা সাধারণত উচ্চভূমি থেকে নিম্নভূমির দিকে প্রবাহিত হয়ে সমুদ্র, হ্রদ বা অন্য নদীতে মিশে যায়। নদী কৃষি, পরিবহন ও সভ্যতার বিকাশে গুরুত্বপূর্ণ।",
+points:[
+"নদী সাধারণত উচ্চভূমি থেকে নিম্নভূমিতে প্রবাহিত হয়।",
+"নদীর উৎস ও মোহনা থাকে।",
+"নদী সেচে সাহায্য করে।",
+"নদী পলি বহন করে।",
+"নদী বহু সভ্যতার বিকাশে সহায়ক।"
+],
+revision:"Source → river course → mouth; নদী জল ও পলি বহন করে।",
+mcq:[
+["নদী সাধারণত কোন দিকে প্রবাহিত হয়?","উচ্চ থেকে নিম্ন","নিম্ন থেকে উচ্চ","শুধু পূর্বে","শুধু পশ্চিমে",0,"মাধ্যাকর্ষণের কারণে জল উচ্চভূমি থেকে নিম্নভূমিতে যায়।"],
+["নদীর শুরু কোথায়?","উৎসে","মোহনায়","সমুদ্রে","বাঁধে",0,"নদীর শুরুস্থলকে উৎস বলে।"],
+["নদী যেখানে গিয়ে মেশে তাকে কী বলে?","মোহনা","উৎস","শিখর","ঢাল",0,"নদীর শেষ বা মিলনস্থল মোহনা।"],
+["নদী কৃষিতে কী দেয়?","সেচের জল","শুধু বালি","শুধু পাথর","শুধু লবণ",0,"নদীর জল সেচে ব্যবহৃত হয়।"],
+["নদী কী বহন করে?","পলি","শুধু বাতাস","শুধু আগুন","শুধু ধোঁয়া",0,"নদী পলি বহন ও সঞ্চয় করে।"],
+["নদীর জল কোন কাজে লাগে?","সেচ","শুধু খেলায়","শুধু আলোতে","শুধু শব্দে",0,"কৃষিতে সেচের জন্য নদীর জল গুরুত্বপূর্ণ।"],
+["নদী সভ্যতায় কী ভূমিকা রাখে?","সহায়ক","কোনো ভূমিকা নেই","শুধু ক্ষতিকর","শুধু মরুভূমি তৈরি",0,"নদী প্রাচীন সভ্যতার বিকাশে সহায়ক ছিল।"],
+["নদীর উৎস হতে পারে—","হিমবাহ বা ঝরনা","শুধু মরুভূমি","শুধু শহর","শুধু সমুদ্র",0,"অনেক নদীর উৎস হিমবাহ, ঝরনা বা বৃষ্টিজল।"],
+["নদীর গতিপথকে কী বলা হয়?","নদীখাত/প্রবাহপথ","মোহনা","উৎস","পাহাড়",0,"নদীর প্রবাহপথ নদীখাতের মধ্য দিয়ে যায়।"],
+["নদী কী ধরনের জলপ্রবাহ?","প্রাকৃতিক","কৃত্রিম সবসময়","যান্ত্রিক","স্থির",0,"নদী একটি প্রাকৃতিক জলপ্রবাহ।"]
+]
+},
+
+"জলবায়ু ও আবহাওয়া":{
+summary:"কোনো স্থানের স্বল্প সময়ের বায়ুমণ্ডলীয় অবস্থা হলো আবহাওয়া। দীর্ঘ সময় ধরে কোনো অঞ্চলের আবহাওয়ার গড় বৈশিষ্ট্যকে জলবায়ু বলা হয়।",
+points:[
+"আবহাওয়া দ্রুত পরিবর্তিত হতে পারে।",
+"জলবায়ু দীর্ঘ সময়ের গড় অবস্থা।",
+"তাপমাত্রা আবহাওয়ার উপাদান।",
+"বৃষ্টিপাত আবহাওয়ার গুরুত্বপূর্ণ উপাদান।",
+"বায়ুপ্রবাহও আবহাওয়াকে প্রভাবিত করে।"
+],
+revision:"Weather = short-term condition; Climate = long-term average pattern.",
+mcq:[
+["আবহাওয়া কী?","স্বল্প সময়ের বায়ুমণ্ডলীয় অবস্থা","দীর্ঘ সময়ের গড়","ভূ-আকৃতি","নদী",0,"আবহাওয়া স্বল্প সময়ের অবস্থা।"],
+["জলবায়ু কী?","দীর্ঘ সময়ের গড় আবহাওয়ার বৈশিষ্ট্য","এক দিনের অবস্থা","এক ঘণ্টার বৃষ্টি","নদীর গতি",0,"জলবায়ু দীর্ঘ সময়ের গড় বৈশিষ্ট্য।"],
+["আবহাওয়ার উপাদান কোনটি?","তাপমাত্রা","মাটি","পাহাড়","শিলা",0,"তাপমাত্রা আবহাওয়ার উপাদান।"],
+["বৃষ্টিপাত কী?","আবহাওয়ার উপাদান","ভূ-আকৃতি","নদীর উৎস","মাটির ধরন",0,"বৃষ্টিপাত আবহাওয়ার গুরুত্বপূর্ণ উপাদান।"],
+["আবহাওয়া কেমন পরিবর্তনশীল?","দ্রুত","কখনও নয়","শত বছরে একবার","শুধু শীতে",0,"আবহাওয়া দ্রুত পরিবর্তিত হতে পারে।"],
+["জলবায়ু বোঝার জন্য লাগে—","দীর্ঘ সময়ের তথ্য","এক ঘণ্টা","এক মিনিট","এক দিন",0,"দীর্ঘ সময়ের তথ্য প্রয়োজন।"],
+["বায়ুপ্রবাহ কীকে প্রভাবিত করে?","আবহাওয়া","শুধু নদী","শুধু মাটি","শুধু পাহাড়",0,"বায়ুপ্রবাহ আবহাওয়ার পরিবর্তনে ভূমিকা রাখে।"],
+["তাপমাত্রা মাপার যন্ত্র—","থার্মোমিটার","ব্যারোমিটার","কম্পাস","বৃষ্টিমাপক",0,"থার্মোমিটার তাপমাত্রা মাপে।"],
+["জলবায়ু ও আবহাওয়ার প্রধান পার্থক্য—","সময়কাল","রং","আকার","গন্ধ",0,"সময়কালই প্রধান পার্থক্য।"],
+["আবহাওয়া কোন স্তরের সঙ্গে যুক্ত?","বায়ুমণ্ডল","ভূগর্ভ","শিলা","সমুদ্রতল",0,"আবহাওয়া বায়ুমণ্ডলের অবস্থা।"]
+]
+},
+
+"শব্দ দূষণ":{
+summary:"অতিরিক্ত ও বিরক্তিকর শব্দ মানুষের স্বাস্থ্য ও পরিবেশের ক্ষতি করলে তাকে শব্দ দূষণ বলা হয়। যানবাহন, মাইক, কারখানা ইত্যাদি শব্দ দূষণের উৎস হতে পারে।",
+points:[
+"অতিরিক্ত শব্দ শব্দ দূষণ ঘটায়।",
+"যানবাহন একটি বড় উৎস।",
+"অতিরিক্ত শব্দ শ্রবণশক্তির ক্ষতি করতে পারে।",
+"হাসপাতাল ও বিদ্যালয়ের কাছে শব্দ নিয়ন্ত্রণ জরুরি।",
+"সচেতনতা ও শব্দ নিয়ন্ত্রণ প্রয়োজন।"
+],
+revision:"Noise pollution = unwanted/excessive sound that harms people or environment.",
+mcq:[
+["শব্দ দূষণ কী?","অতিরিক্ত ক্ষতিকর শব্দ","মিষ্টি শব্দ","নীরবতা","বৃষ্টির শব্দ মাত্র",0,"অতিরিক্ত ও বিরক্তিকর শব্দ শব্দ দূষণ ঘটায়।"],
+["শব্দ দূষণের উৎস কোনটি?","যানবাহন","গাছ","নদী","মাটি",0,"যানবাহন শব্দ দূষণের গুরুত্বপূর্ণ উৎস।"],
+["অতিরিক্ত শব্দ কী ক্ষতি করতে পারে?","শ্রবণশক্তি","চাঁদ","পাহাড়","মাটি",0,"অতিরিক্ত শব্দ শ্রবণশক্তির ক্ষতি করতে পারে।"],
+["কোথায় শব্দ নিয়ন্ত্রণ জরুরি?","হাসপাতালের কাছে","মরুভূমিতে","সমুদ্রের মাঝে","জঙ্গলের গভীরে",0,"হাসপাতাল ও বিদ্যালয়ের কাছে শব্দ নিয়ন্ত্রণ প্রয়োজন।"],
+["শব্দ দূষণ কমাতে—","হর্ন কম ব্যবহার","অতিরিক্ত হর্ন","লাউডস্পিকার বাড়ানো","কারখানা খোলা",0,"অপ্রয়োজনীয় হর্ন কমানো দরকার।"],
+["মাইক বেশি জোরে বাজালে—","শব্দ দূষণ বাড়ে","দূষণ কমে","জল পরিষ্কার হয়","মাটি উর্বর হয়",0,"অতিরিক্ত শব্দ দূষণ বাড়ায়।"],
+["শব্দ দূষণ কোন ধরনের দূষণ?","পরিবেশ দূষণ","জল দূষণ","মাটি দূষণ","কোনোটিই নয়",0,"এটি পরিবেশের একটি দূষণ।"],
+["শব্দ দূষণে কী সমস্যা হতে পারে?","ঘুমের ব্যাঘাত","ফসল বৃদ্ধি","জল বৃদ্ধি","বৃষ্টি",0,"অতিরিক্ত শব্দ ঘুমের ব্যাঘাত ঘটাতে পারে।"],
+["শব্দ নিয়ন্ত্রণে কী দরকার?","সচেতনতা","অসচেতনতা","অতিরিক্ত হর্ন","অতিরিক্ত মাইক",0,"সচেতনতা শব্দ দূষণ কমাতে সাহায্য করে।"],
+["শব্দের মাত্রা মাপার একক—","ডেসিবেল","মিটার","কেজি","লিটার",0,"শব্দের মাত্রা সাধারণত ডেসিবেলে প্রকাশ করা হয়।"]
+]
+}
+},
+
+"Environment & Science":{
+icon:"🔬",
+topics:{
+"তাপ":{
+summary:"তাপ এক ধরনের শক্তি যা উষ্ণ বস্তু থেকে শীতল বস্তুর দিকে সঞ্চালিত হয়। তাপের ফলে পদার্থের তাপমাত্রা পরিবর্তিত হতে পারে এবং অবস্থার পরিবর্তন ঘটতে পারে।",
+points:[
+"তাপ শক্তির একটি রূপ।",
+"তাপ উষ্ণ বস্তু থেকে শীতল বস্তুর দিকে যায়।",
+"তাপমাত্রা উষ্ণতা বা শীতলতার মাত্রা নির্দেশ করে।",
+"গলনের সময় পদার্থ কঠিন থেকে তরল হয়।",
+"অবস্থার পরিবর্তনে তাপ গুরুত্বপূর্ণ।"
+],
+revision:"Heat flows from hotter to colder body. Melting = solid → liquid.",
+mcq:[
+["তাপ কোন দিকে যায়?","উষ্ণ থেকে শীতল","শীতল থেকে উষ্ণ","সবসময় নিচে","সবসময় উপরে",0,"তাপ স্বাভাবিকভাবে উষ্ণ বস্তু থেকে শীতল বস্তুর দিকে যায়।"],
+["তাপ কী?","শক্তির রূপ","পদার্থ","আলো মাত্র","শব্দ",0,"তাপ শক্তির একটি রূপ।"],
+["গলনে কঠিন পদার্থ—","তরলে পরিণত হয়","গ্যাসে পরিণত হয়","অপরিবর্তিত থাকে","অদৃশ্য হয়",0,"গলনের সময় কঠিন তরলে পরিণত হয়।"],
+["তাপমাত্রা কী বোঝায়?","উষ্ণতা/শীতলতার মাত্রা","ওজন","আয়তন","দৈর্ঘ্য",0,"তাপমাত্রা উষ্ণতা বা শীতলতার মাত্রা বোঝায়।"],
+["বরফ গললে কী হয়?","কঠিন থেকে তরল","তরল থেকে কঠিন","গ্যাস থেকে তরল","কঠিন থেকে গ্যাস",0,"বরফ গলে জলে পরিণত হয়।"],
+["তাপের SI একক কী?","জুল","মিটার","কিলোগ্রাম","লিটার",0,"তাপ শক্তি; শক্তির SI একক জুল।"],
+["তাপমাত্রার সাধারণ একক—","ডিগ্রি সেলসিয়াস","মিটার","কেজি","লিটার",0,"সেলসিয়াস তাপমাত্রা প্রকাশে ব্যবহৃত হয়।"],
+["অবস্থার পরিবর্তনে কী ভূমিকা রাখে?","তাপ","শুধু শব্দ","শুধু আলো","শুধু চাপ সবসময়",0,"তাপ পদার্থের অবস্থার পরিবর্তনে গুরুত্বপূর্ণ।"],
+["গরম চা ঠান্ডা হয় কারণ—","তাপ বাইরে যায়","তাপ ভিতরে আসে","জল তৈরি হয়","বাতাস বন্ধ হয়",0,"চা থেকে আশেপাশে তাপ সঞ্চালিত হয়।"],
+["তাপমাত্রা মাপার যন্ত্র—","থার্মোমিটার","কম্পাস","দাঁড়িপাল্লা","ঘড়ি",0,"থার্মোমিটার তাপমাত্রা মাপে।"]
+]
+},
+
+"চুম্বক ও তড়িৎ":{
+summary:"চুম্বক কিছু পদার্থকে আকর্ষণ করে এবং চুম্বকের উত্তর ও দক্ষিণ মেরু থাকে। তড়িৎ হলো বৈদ্যুতিক চার্জের প্রবাহের সঙ্গে সম্পর্কিত একটি গুরুত্বপূর্ণ শক্তির রূপ।",
+points:[
+"চুম্বকের দুটি মেরু থাকে।",
+"সমমেরু পরস্পরকে বিকর্ষণ করে।",
+"বিপরীত মেরু আকর্ষণ করে।",
+"লোহা চুম্বক দ্বারা আকৃষ্ট হয়।",
+"তড়িৎ বর্তনী সম্পূর্ণ হলে তড়িৎ প্রবাহিত হতে পারে।"
+],
+revision:"Like poles repel; unlike poles attract. A complete circuit allows current to flow.",
+mcq:[
+["চুম্বকের মেরু কয়টি?","2","1","3","4",0,"উত্তর ও দক্ষিণ—দুটি মেরু থাকে।"],
+["সমমেরু কী করে?","বিকর্ষণ","আকর্ষণ","স্থির থাকে","গলে যায়",0,"সমমেরু পরস্পরকে বিকর্ষণ করে।"],
+["বিপরীত মেরু কী করে?","আকর্ষণ","বিকর্ষণ","অদৃশ্য","ভেঙে যায়",0,"বিপরীত মেরু আকর্ষণ করে।"],
+["কোনটি চুম্বক দ্বারা আকৃষ্ট হয়?","লোহা","কাঠ","কাগজ","কাচ",0,"লোহা চুম্বকীয় পদার্থ।"],
+["তড়িৎ প্রবাহের জন্য কী দরকার?","সম্পূর্ণ বর্তনী","খোলা বর্তনী","শুধু আলো","শুধু বাতাস",0,"সম্পূর্ণ বর্তনীতে তড়িৎ প্রবাহিত হতে পারে।"],
+["চুম্বকের উত্তর মেরু কোনটি?","North","South","East","West",0,"North হলো উত্তর মেরু।"],
+["ব্যাটারি কী দিতে পারে?","বৈদ্যুতিক শক্তি","জল","বায়ু","মাটি",0,"ব্যাটারি বৈদ্যুতিক শক্তির উৎস হিসেবে কাজ করতে পারে।"],
+["সুইচ খোলা থাকলে বর্তনী—","অসম্পূর্ণ","সম্পূর্ণ","গরম","চুম্বকীয়",0,"খোলা সুইচে বর্তনী সম্পূর্ণ থাকে না।"],
+["চুম্বক কী সৃষ্টি করে?","চৌম্বক ক্ষেত্র","জল","শব্দ","বৃষ্টি",0,"চুম্বকের চারপাশে চৌম্বক ক্ষেত্র থাকে।"],
+["তড়িৎ নিরাপত্তায় কী দরকার?","সতর্কতা","ভেজা হাতে তার ধরা","ক্ষতিগ্রস্ত তার ব্যবহার","অতিরিক্ত সংযোগ",0,"তড়িৎ ব্যবহারে সতর্কতা জরুরি।"]
+]
+},
+
+"সময় ও গতি":{
+summary:"কোনো বস্তু সময়ের সঙ্গে অবস্থান পরিবর্তন করলে তাকে গতি বলা হয়। দ্রুতি হলো একক সময়ে অতিক্রান্ত দূরত্ব। সময়, দূরত্ব ও গতির সম্পর্ক পদার্থবিদ্যার মৌলিক ধারণা।",
+points:[
+"গতি হলো অবস্থানের পরিবর্তন।",
+"দ্রুতি = দূরত্ব/সময়।",
+"SI একক হিসেবে দ্রুতি m/s।",
+"সময় পরিমাপের SI একক সেকেন্ড।",
+"নিউটনের গতিসূত্র গতি বোঝাতে সাহায্য করে।"
+],
+revision:"Speed = Distance ÷ Time. SI unit of speed = m/s.",
+mcq:[
+["গতি কী?","অবস্থানের পরিবর্তন","স্থির থাকা","শুধু শব্দ","শুধু তাপ",0,"সময় অনুযায়ী অবস্থান পরিবর্তন হলো গতি।"],
+["দ্রুতির সূত্র কী?","দূরত্ব/সময়","সময়/দূরত্ব","দূরত্ব×সময়","দূরত্ব+সময়",0,"Speed = Distance ÷ Time."],
+["দ্রুতির SI একক—","m/s","kg","m","s",0,"দ্রুতির SI একক মিটার/সেকেন্ড।"],
+["সময়ের SI একক—","সেকেন্ড","মিটার","কেজি","নিউটন",0,"সময়ের SI একক সেকেন্ড।"],
+["100 m 10 s-এ গেলে দ্রুতি কত?","10 m/s","100 m/s","1 m/s","110 m/s",0,"100÷10=10 m/s।"],
+["স্থির বস্তুতে অবস্থানের পরিবর্তন—","নেই","আছে","সবসময় দ্বিগুণ","অজানা",0,"স্থির বস্তুর অবস্থান পরিবর্তন হয় না।"],
+["নিউটনের সূত্র কোন বিষয়ের?","গতি","তাপ","আলো","শব্দ",0,"নিউটনের গতিসূত্র motion নিয়ে।"],
+["দূরত্বের SI একক—","মিটার","সেকেন্ড","কেজি","জুল",0,"দৈর্ঘ্য/দূরত্বের SI একক মিটার।"],
+["সময় দ্বিগুণ হলে একই দূরত্বে দ্রুতি—","অর্ধেক","দ্বিগুণ","একই","চারগুণ",0,"v=d/t; t দ্বিগুণ হলে v অর্ধেক।"],
+["গতি মাপতে কী প্রয়োজন?","দূরত্ব ও সময়","শুধু ওজন","শুধু তাপমাত্রা","শুধু আলো",0,"দ্রুতি নির্ণয়ে দূরত্ব ও সময় দরকার।"]
+]
+},
+
+"আলো":{
+summary:"আলো আমাদের বস্তু দেখতে সাহায্য করে। আলো সাধারণত সরলরেখায় চলতে পারে এবং আয়না থেকে প্রতিফলিত হয়। স্বচ্ছ, অস্বচ্ছ ও অর্ধস্বচ্ছ বস্তু আলোর সঙ্গে ভিন্নভাবে আচরণ করে।",
+points:[
+"আলো ছাড়া আমরা সাধারণত বস্তু দেখতে পাই না।",
+"আলো সরলরেখায় চলতে পারে।",
+"আয়নায় আলো প্রতিফলিত হয়।",
+"স্বচ্ছ বস্তু আলো সহজে পার হতে দেয়।",
+"অস্বচ্ছ বস্তু আলো আটকায়।"
+],
+revision:"Transparent → lets light pass; Opaque → blocks light; Mirror → reflection.",
+mcq:[
+["আলো কী করতে সাহায্য করে?","বস্তু দেখতে","শুধু শুনতে","শুধু গন্ধ পেতে","শুধু হাঁটতে",0,"আলো চোখে পৌঁছালে আমরা বস্তু দেখতে পারি।"],
+["আলো কীভাবে চলতে পারে?","সরলরেখায়","শুধু বৃত্তে","শুধু নিচে","শুধু উপরে",0,"সমজাতীয় মাধ্যমে আলো সরলরেখায় চলতে পারে।"],
+["আয়নায় কী ঘটে?","প্রতিফলন","গলন","বাষ্পীভবন","দহন",0,"আয়না আলো প্রতিফলিত করে।"],
+["স্বচ্ছ বস্তু কী করে?","আলো পার হতে দেয়","সব আলো আটকায়","শব্দ আটকায়","তাপ তৈরি করে",0,"স্বচ্ছ বস্তু দিয়ে আলো অনেকটা পার হতে পারে।"],
+["অস্বচ্ছ বস্তু—","আলো আটকায়","আলো সব পার করে","শুধু শব্দ পার করে","আলো তৈরি করে",0,"অস্বচ্ছ বস্তু আলো বাধা দেয়।"],
+["ছায়া তৈরি হয় যখন—","আলো বাধাপ্রাপ্ত হয়","আলো বাড়ে","বস্তু অদৃশ্য হয়","শব্দ হয়",0,"অস্বচ্ছ বস্তু আলো আটকালে ছায়া তৈরি হয়।"],
+["সূর্য কী?","প্রাকৃতিক আলোর উৎস","আয়না","অস্বচ্ছ বস্তু","চুম্বক",0,"সূর্য একটি প্রাকৃতিক আলোর উৎস।"],
+["টর্চ কী?","কৃত্রিম আলোর উৎস","প্রতিফলক মাত্র","চুম্বক","অন্ধকার",0,"টর্চ কৃত্রিম আলোর উৎস।"],
+["আলোর প্রতিফলন কোথায় দেখা যায়?","আয়নায়","কাঠে শুধু","মাটিতে শুধু","বাতাসে",0,"আয়না আলো প্রতিফলিত করে।"],
+["আলো কোন ধরনের শক্তির সঙ্গে যুক্ত?","বিকিরণ শক্তি","শুধু যান্ত্রিক","শুধু রাসায়নিক","শুধু শব্দ",0,"আলো তড়িৎচৌম্বক বিকিরণের একটি রূপ।"]
+]
+},
+
+"পরিবেশবান্ধব শক্তি":{
+summary:"যে শক্তির উৎস পরিবেশের ওপর তুলনামূলক কম ক্ষতিকর প্রভাব ফেলে এবং অনেক ক্ষেত্রে পুনর্নবীকরণযোগ্য, সেগুলিকে পরিবেশবান্ধব শক্তির উৎস হিসেবে ব্যবহার করা হয়। সৌর, বায়ু ও জলবিদ্যুৎ গুরুত্বপূর্ণ উদাহরণ।",
+points:[
+"সৌরশক্তি সূর্য থেকে পাওয়া যায়।",
+"বায়ুশক্তি বাতাসের গতিশক্তি ব্যবহার করে।",
+"জলবিদ্যুৎ প্রবাহমান জলের শক্তি ব্যবহার করে।",
+"নবীকরণযোগ্য শক্তির উৎস বারবার পাওয়া যায়।",
+"পরিবেশবান্ধব শক্তি দূষণ কমাতে সাহায্য করে।"
+],
+revision:"Solar + Wind + Hydro = important renewable/clean energy examples.",
+mcq:[
+["সৌরশক্তির উৎস কী?","সূর্য","চাঁদ","মাটি","নদী",0,"সূর্য থেকে সৌরশক্তি পাওয়া যায়।"],
+["বায়ুশক্তির উৎস—","বাতাস","সূর্য","মাটি","কয়লা",0,"বাতাসের গতিশক্তি থেকে বায়ুশক্তি পাওয়া যায়।"],
+["জলবিদ্যুৎ কী ব্যবহার করে?","জলের শক্তি","বাতাসের গন্ধ","মাটির রং","সূর্যের আলো মাত্র",0,"প্রবাহমান জলের শক্তি থেকে জলবিদ্যুৎ উৎপন্ন হয়।"],
+["নবীকরণযোগ্য শক্তি—","পুনরায় পাওয়া যায়","একবারেই শেষ","সবসময় দূষিত","শুধু কয়লা",0,"নবীকরণযোগ্য উৎস প্রকৃতিতে পুনরায় পাওয়া যায়।"],
+["পরিবেশবান্ধব শক্তির সুবিধা—","দূষণ কমাতে সাহায্য","দূষণ বাড়ায়","জল নষ্ট করে","মাটি ধ্বংস করে",0,"পরিষ্কার শক্তি দূষণ কমাতে সাহায্য করে।"],
+["সৌর প্যানেল কী গ্রহণ করে?","সূর্যের আলো","বৃষ্টি","মাটি","শব্দ",0,"সৌর প্যানেল সূর্যের আলো ব্যবহার করে।"],
+["কয়লা কি নবীকরণযোগ্য?","না","হ্যাঁ","সবসময়","শুধু বর্ষায়",0,"কয়লা সীমিত জীবাশ্ম জ্বালানি।"],
+["বায়ু শক্তি কেমন?","নবীকরণযোগ্য","শেষ হয়ে যায় দ্রুত","ধাতব","জলীয়",0,"বাতাস পুনর্নবীকরণযোগ্য উৎস।"],
+["জলবিদ্যুৎ কী ধরনের শক্তি?","নবীকরণযোগ্য","শুধু জীবাশ্ম","পারমাণবিক","রাসায়নিক",0,"জলবিদ্যুৎ নবীকরণযোগ্য শক্তির উদাহরণ।"],
+["পরিবেশবান্ধব শক্তি ব্যবহারের লক্ষ্য—","দূষণ কমানো","দূষণ বাড়ানো","জল নষ্ট করা","বন ধ্বংস করা",0,"পরিবেশ রক্ষায় দূষণ কমানো গুরুত্বপূর্ণ।"]
+]
+},
+
+"ফুল, ফল ও বীজ":{
+summary:"ফুল উদ্ভিদের প্রজননে গুরুত্বপূর্ণ ভূমিকা পালন করে। নিষেকের পর ডিম্বক থেকে বীজ এবং অনেক ক্ষেত্রে গর্ভাশয় থেকে ফল তৈরি হয়। বীজ থেকে নতুন উদ্ভিদ জন্মাতে পারে।",
+points:[
+"ফুল উদ্ভিদের প্রজনন অঙ্গে গুরুত্বপূর্ণ।",
+"পরাগায়ন ফুলের প্রজননে গুরুত্বপূর্ণ ধাপ।",
+"নিষেকের পর বীজ গঠিত হয়।",
+"ফল বীজকে রক্ষা করতে সাহায্য করে।",
+"বীজ অঙ্কুরিত হয়ে নতুন উদ্ভিদ তৈরি করতে পারে।"
+],
+revision:"Flower → pollination → fertilisation → seed/fruit formation → new plant.",
+mcq:[
+["ফুলের প্রধান ভূমিকা কী?","প্রজনন","শুধু ছায়া","শুধু খাদ্য","শুধু জল",0,"ফুল উদ্ভিদের যৌন প্রজননে গুরুত্বপূর্ণ।"],
+["পরাগায়ন কী?","পরাগরেণুর স্থানান্তর","বীজ খাওয়া","ফল কাটা","পাতা ঝরা",0,"পরাগরেণু উপযুক্ত স্থানে পৌঁছানোকে পরাগায়ন বলে।"],
+["নিষেকের পর কী গঠিত হয়?","বীজ","পাতা","মূল","কাণ্ড",0,"নিষেকের পরে ডিম্বক বীজে পরিণত হয়।"],
+["ফল কী করে?","বীজ রক্ষা করে","বীজ ধ্বংস করে","শুধু জল দেয়","শুধু পাতা তৈরি",0,"ফল বীজকে রক্ষা করতে সাহায্য করে।"],
+["বীজ থেকে কী হয়?","নতুন উদ্ভিদ","শুধু ফল","শুধু ফুল","পাথর",0,"উপযুক্ত পরিবেশে বীজ অঙ্কুরিত হয়ে নতুন উদ্ভিদ হয়।"],
+["অঙ্কুরোদগম কী?","বীজ থেকে চারা বের হওয়া","ফুল ঝরা","ফল পাকা","পাতা শুকানো",0,"বীজের অঙ্কুর বের হয়ে চারায় পরিণত হওয়াই অঙ্কুরোদগম।"],
+["পরাগরেণু কোথায় তৈরি হয়?","পরাগধানীতে","মূলেতে","পাতায়","ফলে",0,"পুংকেশরের পরাগধানীতে পরাগরেণু তৈরি হয়।"],
+["বীজের গুরুত্ব কী?","বংশবিস্তার","শুধু খাদ্য","শুধু রং","শুধু গন্ধ",0,"বীজ উদ্ভিদের বংশবিস্তারে সাহায্য করে।"],
+["ফুল থেকে কী তৈরি হতে পারে?","ফল ও বীজ","শুধু পাতা","শুধু মূল","শুধু কাণ্ড",0,"নিষেকের পরে ফল ও বীজ গঠিত হতে পারে।"],
+["উদ্ভিদের জীবনচক্রে বীজ—","গুরুত্বপূর্ণ","অপ্রয়োজনীয়","ক্ষতিকর","শুধু রং",0,"নতুন উদ্ভিদ তৈরিতে বীজ গুরুত্বপূর্ণ।"]
+]
+}
+},
+
+"History":{
+icon:"🏛️",
+topics:{
+"ইউরোপীয়দের আগমন ও বাংলায় বাণিজ্য":{
+summary:"ভারতে ইউরোপীয় বণিকদের আগমন মূলত বাণিজ্যিক উদ্দেশ্যে শুরু হয়। পরবর্তীকালে বিভিন্ন ইউরোপীয় শক্তি বাংলাসহ ভারতের বিভিন্ন অঞ্চলে রাজনৈতিক প্রভাব বিস্তার করতে শুরু করে।",
+points:[
+"ইউরোপীয়রা প্রথমে বাণিজ্যের উদ্দেশ্যে আসে।",
+"পর্তুগিজ, ডাচ, ইংরেজ ও ফরাসিরা ভারতে আসে।",
+"বাণিজ্যকেন্দ্র ও কারখানা স্থাপন করা হয়।",
+"ইংরেজ ইস্ট ইন্ডিয়া কোম্পানি ক্রমে রাজনৈতিক শক্তি অর্জন করে।",
+"বাণিজ্য থেকে রাজনৈতিক নিয়ন্ত্রণে পরিবর্তন ঘটে।"
+],
+revision:"Trade → factories/settlements → political influence: এই পরিবর্তনটি গুরুত্বপূর্ণ।",
+mcq:[
+["ইউরোপীয়দের প্রাথমিক উদ্দেশ্য কী ছিল?","বাণিজ্য","কৃষি","শিক্ষা","পর্যটন",0,"প্রাথমিকভাবে তারা বাণিজ্যের জন্য ভারতে আসে।"],
+["কোন ইউরোপীয় শক্তি ভারতে এসেছিল?","পর্তুগিজ","জাপানি","চীনা","মিশরীয়",0,"পর্তুগিজরা ইউরোপীয় বণিকদের মধ্যে অন্যতম।"],
+["ইংরেজদের বাণিজ্যিক সংস্থা—","East India Company","UNESCO","UNO","NATO",0,"ইস্ট ইন্ডিয়া কোম্পানি ইংরেজ বাণিজ্যিক সংস্থা ছিল।"],
+["ইউরোপীয়রা কী স্থাপন করেছিল?","বাণিজ্যকেন্দ্র","শুধু বিদ্যালয়","শুধু হাসপাতাল","শুধু মন্দির",0,"তারা বিভিন্ন বাণিজ্যকেন্দ্র স্থাপন করেছিল।"],
+["বাণিজ্যের সঙ্গে পরে কী যুক্ত হয়?","রাজনৈতিক প্রভাব","শুধু খেলাধুলা","শুধু সাহিত্য","শুধু কৃষি",0,"ক্রমে রাজনৈতিক প্রভাব ও নিয়ন্ত্রণ বাড়ে।"],
+["ফরাসিরা কোন দেশের?","France","Spain","Russia","Japan",0,"ফরাসিরা France-এর।"],
+["ডাচরা কোন দেশের?","Netherlands","India","China","Portugal",0,"ডাচদের দেশ Netherlands।"],
+["পর্তুগিজরা কোন মহাদেশের?","Europe","Asia","Africa","Australia",0,"পর্তুগাল ইউরোপের দেশ।"],
+["ইউরোপীয়দের আগমন ভারতীয় ইতিহাসে কেন গুরুত্বপূর্ণ?","রাজনৈতিক পরিবর্তনের জন্য","শুধু আবহাওয়ার জন্য","শুধু কৃষির জন্য","শুধু খেলাধুলার জন্য",0,"তাদের আগমন পরে বড় রাজনৈতিক পরিবর্তনের দিকে নিয়ে যায়।"],
+["ইস্ট ইন্ডিয়া কোম্পানি প্রথমে কী ছিল?","বাণিজ্যিক সংস্থা","রাজনৈতিক দল","সামরিক জোট","বিদ্যালয়",0,"প্রথমে এটি বাণিজ্যিক কোম্পানি ছিল।"]
+]
+},
+
+"মুঘল সাম্রাজ্য":{
+summary:"মুঘল সাম্রাজ্য ভারতীয় উপমহাদেশের একটি গুরুত্বপূর্ণ সাম্রাজ্য। বাবর 1526 সালে প্রথম পানিপথের যুদ্ধে জয়ী হয়ে ভারতে মুঘল শাসনের ভিত্তি স্থাপন করেন। আকবরের সময়ে সাম্রাজ্য শক্তিশালী ও বিস্তৃত হয়।",
+points:[
+"বাবর মুঘল সাম্রাজ্যের প্রতিষ্ঠাতা।",
+"1526 সালের প্রথম পানিপথের যুদ্ধ গুরুত্বপূর্ণ।",
+"আকবর সাম্রাজ্যকে শক্তিশালী করেন।",
+"মুঘল প্রশাসন ও সংস্কৃতির প্রভাব ছিল বিস্তৃত।",
+"শাহজাহানের সময়ে স্থাপত্যের উন্নতি ঘটে।"
+],
+revision:"Babur → 1526 → First Battle of Panipat → Mughal rule; Akbar → expansion.",
+mcq:[
+["মুঘল সাম্রাজ্যের প্রতিষ্ঠাতা কে?","বাবর","আকবর","শাহজাহান","ঔরঙ্গজেব",0,"বাবর মুঘল সাম্রাজ্যের প্রতিষ্ঠাতা।"],
+["প্রথম পানিপথের যুদ্ধ কবে?","1526","1556","1605","1707",0,"প্রথম পানিপথের যুদ্ধ 1526 সালে।"],
+["প্রথম পানিপথের যুদ্ধে বাবর কাকে পরাজিত করেন?","ইব্রাহিম লোদী","আকবর","শাহজাহান","শের শাহ",0,"বাবর ইব্রাহিম লোদীকে পরাজিত করেন।"],
+["আকবরের শাসনে কী হয়েছিল?","সাম্রাজ্যের বিস্তার","সাম্রাজ্য শেষ","কৃষি বন্ধ","বাণিজ্য বন্ধ",0,"আকবরের সময়ে সাম্রাজ্য শক্তিশালী ও বিস্তৃত হয়।"],
+["তাজমহল কার সঙ্গে যুক্ত?","শাহজাহান","বাবর","আকবর","বাহাদুর শাহ",0,"তাজমহল শাহজাহানের আমলের স্থাপত্য।"],
+["মুঘলদের প্রধান ভাষার একটি ছিল—","ফারসি","ল্যাটিন","জাপানি","গ্রিক",0,"দরবারি প্রশাসনে ফারসির গুরুত্বপূর্ণ ভূমিকা ছিল।"],
+["আকবরের পিতা কে?","হুমায়ুন","বাবর","শাহজাহান","ঔরঙ্গজেব",0,"হুমায়ুন ছিলেন আকবরের পিতা।"],
+["বাবরের আত্মজীবনী—","বাবরনামা","আকবরনামা","আইন-ই-আকবরি","তুজুক",0,"বাবরনামা বাবরের স্মৃতিকথা।"],
+["আকবরের ইতিহাসের সঙ্গে কোন গ্রন্থ যুক্ত?","আকবরনামা","বাবরনামা","রাজতরঙ্গিণী","অর্থশাস্ত্র",0,"আকবরনামা আকবরের শাসনের গুরুত্বপূর্ণ উৎস।"],
+["মুঘল স্থাপত্যের উদাহরণ—","তাজমহল","সাঁচি","নালন্দা","কুতুব মিনার",0,"তাজমহল মুঘল স্থাপত্যের বিখ্যাত নিদর্শন।"]
+]
+},
+
+"আঞ্চলিক শক্তির উত্থান":{
+summary:"মুঘল সাম্রাজ্যের শক্তি দুর্বল হওয়ার পর ভারতের বিভিন্ন অঞ্চলে স্বাধীন বা আধা-স্বাধীন আঞ্চলিক শক্তির উত্থান ঘটে। বাংলায় নবাবদের ক্ষমতা বৃদ্ধি পায় এবং মারাঠা, শিখসহ অন্যান্য শক্তিও গুরুত্বপূর্ণ হয়ে ওঠে।",
+points:[
+"মুঘল শক্তি দুর্বল হলে আঞ্চলিক শক্তি বাড়ে।",
+"বাংলায় নবাবদের ক্ষমতা বৃদ্ধি পায়।",
+"মারাঠারা একটি গুরুত্বপূর্ণ আঞ্চলিক শক্তি ছিল।",
+"শিখ শক্তিরও উত্থান ঘটে।",
+"আঞ্চলিক শক্তির দ্বন্দ্বে রাজনৈতিক পরিস্থিতি জটিল হয়।"
+],
+revision:"Weakening Mughal power → rise of regional states.",
+mcq:[
+["আঞ্চলিক শক্তির উত্থানের প্রধান কারণ কী?","মুঘল শক্তির দুর্বলতা","বৃষ্টি","কৃষি বৃদ্ধি","শিক্ষা",0,"মুঘল সাম্রাজ্য দুর্বল হলে আঞ্চলিক শক্তি বাড়ে।"],
+["বাংলায় কারা শক্তিশালী হয়?","নবাবরা","রোমানরা","গ্রিকরা","জাপানিরা",0,"বাংলায় নবাবদের ক্ষমতা বৃদ্ধি পায়।"],
+["মারাঠারা কী ছিল?","আঞ্চলিক শক্তি","ইউরোপীয় কোম্পানি","নদী","শহর",0,"মারাঠারা গুরুত্বপূর্ণ আঞ্চলিক রাজনৈতিক শক্তি ছিল।"],
+["শিখ শক্তির উত্থান কোথায় গুরুত্বপূর্ণ?","উত্তর-পশ্চিম ভারতে","দক্ষিণ ভারতে মাত্র","বাংলায় মাত্র","শ্রীলঙ্কায়",0,"উত্তর-পশ্চিম ভারতে শিখ শক্তির উত্থান গুরুত্বপূর্ণ।"],
+["মুঘল সাম্রাজ্যের দুর্বলতা কী সৃষ্টি করে?","রাজনৈতিক বিভাজন","সম্পূর্ণ ঐক্য","শিক্ষা বন্ধ","বাণিজ্য বন্ধ",0,"দুর্বলতার ফলে রাজনৈতিক বিভাজন বাড়ে।"],
+["বাংলার নবাবদের মধ্যে বিখ্যাত—","মুর্শিদ কুলি খান","বাবর","আকবর","শাহজাহান",0,"মুর্শিদ কুলি খান বাংলার নবাবদের মধ্যে গুরুত্বপূর্ণ।"],
+["সিরাজউদ্দৌলা কী ছিলেন?","বাংলার নবাব","মুঘল সম্রাট","ইউরোপীয় রাজা","মারাঠা নেতা",0,"সিরাজউদ্দৌলা বাংলার শেষ স্বাধীন নবাবদের অন্যতম।"],
+["আঞ্চলিক শক্তির উত্থান কোন যুগে গুরুত্বপূর্ণ?","18শ শতক","10শ শতক","5শ শতক","1ম শতক",0,"18শ শতকে মুঘল দুর্বলতার সঙ্গে আঞ্চলিক শক্তির উত্থান স্পষ্ট হয়।"],
+["আঞ্চলিক শক্তির উদাহরণ—","মারাঠা","রোমান","গ্রিক", "মিশরীয়",0,"মারাঠারা একটি গুরুত্বপূর্ণ ভারতীয় আঞ্চলিক শক্তি।"],
+["রাজনৈতিক ইতিহাস বুঝতে কী গুরুত্বপূর্ণ?","শক্তির পরিবর্তন","শুধু আবহাওয়া","শুধু ভূমিকম্প","শুধু সাহিত্য",0,"ক্ষমতার পরিবর্তন রাজনৈতিক ইতিহাসের গুরুত্বপূর্ণ অংশ।"]
+]
+},
+
+"ভারতের ঔপনিবেশিক শাসন":{
+summary:"ইস্ট ইন্ডিয়া কোম্পানি ধীরে ধীরে ভারতের বিভিন্ন অঞ্চলে রাজনৈতিক নিয়ন্ত্রণ প্রতিষ্ঠা করে। পলাশীর যুদ্ধ ও বক্সারের যুদ্ধ কোম্পানির ক্ষমতা বৃদ্ধিতে গুরুত্বপূর্ণ ভূমিকা রাখে।",
+points:[
+"পলাশীর যুদ্ধ 1757 সালে।",
+"পলাশীর পর বাংলায় কোম্পানির প্রভাব বাড়ে।",
+"বক্সারের যুদ্ধ 1764 সালে।",
+"1765 সালে কোম্পানি বাংলার দেওয়ানি লাভ করে।",
+"কোম্পানি ধীরে ধীরে রাজনৈতিক শক্তিতে পরিণত হয়।"
+],
+revision:"1757 Plassey → 1764 Buxar → 1765 Diwani.",
+mcq:[
+["পলাশীর যুদ্ধ কবে?","1757","1764","1857","1526",0,"পলাশীর যুদ্ধ 1757 সালে।"],
+["পলাশীর যুদ্ধে বাংলার নবাব কে ছিলেন?","সিরাজউদ্দৌলা","মুর্শিদ কুলি খান","আলিবর্দি খান","আকবর",0,"1757 সালে সিরাজউদ্দৌলা বাংলার নবাব ছিলেন।"],
+["পলাশীর পর কার প্রভাব বাড়ে?","ইস্ট ইন্ডিয়া কোম্পানি","মারাঠা","মুঘল","ফরাসি রাজা",0,"পলাশীর পর কোম্পানির প্রভাব বৃদ্ধি পায়।"],
+["বক্সারের যুদ্ধ কবে?","1764","1757","1857","1526",0,"বক্সারের যুদ্ধ 1764 সালে।"],
+["দেওয়ানি লাভের বছর—","1765","1757","1764","1773",0,"1765 সালে কোম্পানি বাংলার দেওয়ানি লাভ করে।"],
+["দেওয়ানি বলতে কী বোঝায়?","রাজস্ব আদায়ের অধিকার","সামরিক প্রশিক্ষণ","শিক্ষা অধিকার","বন্দর নিয়ন্ত্রণ",0,"দেওয়ানি ছিল রাজস্ব আদায়ের অধিকার।"],
+["পলাশীর যুদ্ধ কোথায়?","বাংলা","পাঞ্জাব","দিল্লি","মহারাষ্ট্র",0,"পলাশী বাংলার নদীয়া অঞ্চলে অবস্থিত।"],
+["বক্সারের যুদ্ধে কোম্পানির বিরোধীদের মধ্যে ছিলেন—","মীর কাসিম","বাবর","আকবর","শাহজাহান",0,"মীর কাসিম কোম্পানির বিরুদ্ধে জোটে ছিলেন।"],
+["কোম্পানির ক্ষমতা কীভাবে বাড়ে?","যুদ্ধ ও রাজনৈতিক কৌশলে","শুধু কৃষিতে","শুধু শিক্ষায়","শুধু ধর্মে",0,"যুদ্ধ, চুক্তি ও রাজনৈতিক কৌশলে কোম্পানির ক্ষমতা বাড়ে।"],
+["ঔপনিবেশিক শাসন বলতে কী বোঝায়?","বিদেশি শক্তির রাজনৈতিক নিয়ন্ত্রণ","স্থানীয় স্বশাসন","শুধু বাণিজ্য","শুধু কৃষি",0,"বিদেশি শক্তির রাজনৈতিক নিয়ন্ত্রণকে ঔপনিবেশিক শাসন বলা হয়।"]
+]
+},
+
+"ভারতীয় সমাজ ও সংস্কৃতির পরিবর্তন":{
+summary:"ঔপনিবেশিক যুগে ভারতীয় সমাজ ও সংস্কৃতিতে নানা পরিবর্তন ঘটে। পাশ্চাত্য শিক্ষার প্রসার, মুদ্রণযন্ত্র, সংবাদপত্র এবং সমাজসংস্কার আন্দোলন নতুন চিন্তার বিকাশে সাহায্য করে।",
+points:[
+"পাশ্চাত্য শিক্ষার প্রসার ঘটে।",
+"মুদ্রণযন্ত্র জ্ঞান ও তথ্য ছড়িয়ে দেয়।",
+"সংবাদপত্র জনমত গঠনে ভূমিকা রাখে।",
+"সমাজসংস্কার আন্দোলন বিভিন্ন কুসংস্কারের বিরুদ্ধে কাজ করে।",
+"শিক্ষা ও সামাজিক সচেতনতা বৃদ্ধি পায়।"
+],
+revision:"Education + Printing + Newspapers + Reform movements = social change.",
+mcq:[
+["ঔপনিবেশিক যুগে কী ছড়ায়?","পাশ্চাত্য শিক্ষা","শুধু যুদ্ধ","শুধু কৃষি","শুধু খেলাধুলা",0,"পাশ্চাত্য শিক্ষার প্রসার ঘটে।"],
+["মুদ্রণযন্ত্রের গুরুত্ব কী?","জ্ঞান ছড়ানো","শুধু ছবি আঁকা","শুধু গান বাজানো","শুধু কৃষি",0,"মুদ্রণযন্ত্র বই ও তথ্য ছড়াতে সাহায্য করে।"],
+["সংবাদপত্র কী করে?","জনমত গঠন","শুধু বিনোদন","শুধু কৃষি","শুধু ব্যবসা",0,"সংবাদপত্র জনমত গঠনে গুরুত্বপূর্ণ।"],
+["সমাজসংস্কার আন্দোলনের লক্ষ্য—","সামাজিক পরিবর্তন","কুসংস্কার বাড়ানো","শিক্ষা বন্ধ","সংবাদপত্র বন্ধ",0,"সংস্কার আন্দোলন সামাজিক উন্নতি চেয়েছিল।"],
+["রাজা রামমোহন রায় কোন আন্দোলনের সঙ্গে যুক্ত?","সমাজসংস্কার","মারাঠা যুদ্ধ","মুঘল যুদ্ধ","কৃষি বিপ্লব",0,"রামমোহন রায় সমাজসংস্কারের অগ্রদূত।"],
+["শিক্ষা কী বাড়াতে পারে?","সচেতনতা","অজ্ঞতা","কুসংস্কার","অন্ধত্ব",0,"শিক্ষা সামাজিক সচেতনতা বাড়ায়।"],
+["মুদ্রণযন্ত্রের ফলে কী সহজ হয়?","বই প্রকাশ","পাহাড় তৈরি","নদী সৃষ্টি","বৃষ্টি",0,"মুদ্রণযন্ত্রে বই ও সংবাদ দ্রুত ছড়ায়।"],
+["সংস্কার বলতে কী বোঝায়?","উন্নতির জন্য পরিবর্তন","ধ্বংস","অবহেলা","স্থিরতা",0,"সংস্কার মানে উন্নতির জন্য পরিবর্তন আনা।"],
+["সংবাদপত্রের পাঠকরা কী পেতে পারে?","তথ্য","শুধু খাদ্য","শুধু পানি","শুধু পোশাক",0,"সংবাদপত্র তথ্য ও মতামত দেয়।"],
+["সমাজ পরিবর্তনে গুরুত্বপূর্ণ—","শিক্ষা ও সচেতনতা","অজ্ঞতা","ভয়","গুজব",0,"শিক্ষা ও সচেতনতা সামাজিক পরিবর্তনে সহায়ক।"]
+]
+}
+}
+
+};
+
+let currentSubject="";
+let currentTopic="";
+let quiz=[];
+let qIndex=0;
+let score=0;
+let answered=false;
+
+const subjectsEl=document.getElementById("subjects");
+const recentList=document.getElementById("recentList");
+
+function show(id){
+  ["home","topicsPage","studyPage","quizPage","resultPage"]
+  .forEach(x=>document.getElementById(x).classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+
+function loadSubjects(){
+  subjectsEl.innerHTML="";
+  Object.entries(data).forEach(([name,obj])=>{
+    const div=document.createElement("div");
+    div.className="subject";
+    div.innerHTML=`
+      <div class="icon">${obj.icon}</div>
+      <h3>${name}</h3>
+      <div class="small">${Object.keys(obj.topics).length} Topics</div>
+    `;
+    div.onclick=()=>openSubject(name);
+    subjectsEl.appendChild(div);
+  });
+}
+
+function openSubject(name){
+  currentSubject=name;
+  document.getElementById("subjectTitle").textContent=
+    data[name].icon+" "+name;
+  const box=document.getElementById("topics");
+  box.innerHTML="";
+
+  Object.keys(data[name].topics).forEach(topic=>{
+    const div=document.createElement("div");
+    div.className="topic";
+    div.innerHTML=`<b>${topic}</b><br>
+    <span class="small">Study Note • MCQ Quiz</span>`;
+    div.onclick=()=>openTopic(topic);
+    box.appendChild(div);
+  });
+
+  show("topicsPage");
+}
+
+function openTopic(topic){
+  currentTopic=topic;
+  const obj=data[currentSubject].topics[topic];
+
+  document.getElementById("studyTitle").textContent=
+    data[currentSubject].icon+" "+topic;
+
+  document.getElementById("summary").textContent=obj.summary;
+
+  const points=document.getElementById("points");
+  points.innerHTML="";
+  obj.points.forEach(p=>{
+    const li=document.createElement("li");
+    li.textContent=p;
+    points.appendChild(li);
+  });
+
+  document.getElementById("revision").textContent=obj.revision;
+
+  saveRecent(currentSubject,topic);
+  show("studyPage");
+}
+
+function saveRecent(subject,topic){
+  let recent=JSON.parse(localStorage.getItem("class8_recent")||"[]");
+  const item={subject,topic};
+  recent=recent.filter(x=>!(x.subject===subject&&x.topic===topic));
+  recent.unshift(item);
+  recent=recent.slice(0,8);
+  localStorage.setItem("class8_recent",JSON.stringify(recent));
+  loadRecent();
+}
+
+function loadRecent(){
+  let recent=JSON.parse(localStorage.getItem("class8_recent")||"[]");
+  recentList.innerHTML="";
+
+  if(!recent.length){
+    recentList.innerHTML='<span class="small">এখনও কোনো Topic পড়া হয়নি।</span>';
+    return;
+  }
+
+  recent.forEach(x=>{
+    const div=document.createElement("span");
+    div.className="recent-item";
+    div.textContent=x.topic;
+    div.onclick=()=>{
+      currentSubject=x.subject;
+      openTopic(x.topic);
+    };
+    recentList.appendChild(div);
+  });
+}
+
+function startQuiz(){
+  quiz=[...data[currentSubject].topics[currentTopic].mcq];
+  quiz=quiz.sort(()=>Math.random()-.5);
+  qIndex=0;
+  score=0;
+  answered=false;
+  show("quizPage");
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered=false;
+  const q=quiz[qIndex];
+
+  document.getElementById("quizCount").textContent=
+    `Question ${qIndex+1} of ${quiz.length}`;
+
+  document.getElementById("question").textContent=q[0];
+
+  const options=document.getElementById("options");
+  options.innerHTML="";
+
+  q.slice(1,5).forEach((opt,i)=>{
+    const div=document.createElement("div");
+    div.className="option";
+    div.textContent=opt;
+    div.onclick=()=>selectAnswer(i,div);
+    options.appendChild(div);
+  });
+
+  document.getElementById("explanation").classList.add("hidden");
+  document.getElementById("nextBtn").classList.add("hidden");
+}
+
+function selectAnswer(index,element){
+  if(answered)return;
+  answered=true;
+
+  const q=quiz[qIndex];
+  const correct=q[5];
+
+  [...document.querySelectorAll(".option")].forEach((el,i)=>{
+    if(i===correct)el.classList.add("correct");
+  });
+
+  if(index===correct){
+    score++;
+    element.classList.add("correct");
+  }else{
+    element.classList.add("wrong");
+  }
+
+  const exp=document.getElementById("explanation");
+  exp.innerHTML=
+    `<b>${index===correct?"✅ Correct!":"❌ Wrong!"}</b><br>
+     <b>Correct Answer:</b> ${q[correct+1]}<br><br>
+     ${q[6]}`;
+  exp.classList.remove("hidden");
+
+  const next=document.getElementById("nextBtn");
+  next.textContent=
+    qIndex===quiz.length-1?"See Result →":"Next →";
+  next.classList.remove("hidden");
+}
+
+function nextQuestion(){
+  if(qIndex<quiz.length-1){
+    qIndex++;
+    renderQuestion();
+  }else{
+    showResult();
+  }
+}
+
+function showResult(){
+  const percent=Math.round((score/quiz.length)*100);
+  document.getElementById("score").textContent=percent+"%";
+
+  let text="";
+  if(percent>=80){
+    text="🌟 Excellent! খুব ভালো হয়েছে।";
+  }else if(percent>=60){
+    text="👍 Good! আরেকবার Revision করলে আরও ভালো হবে।";
+  }else{
+    text="📚 আরও একটু পড়ো এবং আবার চেষ্টা করো।";
+  }
+
+  document.getElementById("resultText").textContent=
+    `${text}  তুমি ${score} / ${quiz.length} সঠিক উত্তর দিয়েছ।`;
+
+  show("resultPage");
+}
+
+function goHome(){
+  show("home");
+  loadRecent();
+}
+
+function backTopics(){
+  openSubject(currentSubject);
+}
+
+function backStudy(){
+  openTopic(currentTopic);
+}
+
+loadSubjects();
+loadRecent();
+</script>
+
+</body>
+</html>
