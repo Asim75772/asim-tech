@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Class 9 Study Hub</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ color:#fff;
+ background:linear-gradient(135deg,#07111f,#111827,#1b1230);
+ min-height:100vh
+}
+.container{max-width:1100px;margin:auto;padding:15px}
+header{text-align:center;padding:25px 10px}
+.logo{
+ width:75px;height:75px;margin:auto;border-radius:22px;
+ display:flex;align-items:center;justify-content:center;
+ font-size:38px;font-weight:bold;
+ background:linear-gradient(135deg,#695cff,#00c6ff);
+ box-shadow:0 15px 40px #0008
+}
+h1{font-size:30px;margin:14px 0 5px}
+.subtitle{color:#adb8ca}
+.card{
+ background:rgba(255,255,255,.07);
+ border:1px solid rgba(255,255,255,.13);
+ border-radius:22px;
+ padding:20px;
+ backdrop-filter:blur(15px);
+ box-shadow:0 15px 40px #0005
+}
+.grid,.topicgrid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:14px
+}
+.subject,.topic{
+ padding:18px;
+ border-radius:18px;
+ background:rgba(255,255,255,.07);
+ border:1px solid rgba(255,255,255,.11);
+ cursor:pointer;
+ transition:.2s
+}
+.subject:hover,.topic:hover{
+ transform:translateY(-3px);
+ background:rgba(255,255,255,.12)
+}
+.icon{font-size:32px}
+.small{font-size:14px;color:#aeb8ca}
+button{
+ border:0;
+ padding:12px 18px;
+ border-radius:13px;
+ font-weight:bold;
+ color:#fff;
+ cursor:pointer;
+ background:linear-gradient(135deg,#695cff,#00aeea);
+ margin:5px
+}
+.back{background:rgba(255,255,255,.1)}
+.section{margin-top:20px;line-height:1.8}
+.points{line-height:1.9}
+.revision{
+ padding:15px;
+ border-left:4px solid #00c6ff;
+ background:rgba(0,198,255,.08);
+ border-radius:10px;
+ line-height:1.7
+}
+.question{font-size:20px;font-weight:bold;line-height:1.5}
+.options{display:grid;gap:10px;margin-top:15px}
+.option{
+ padding:14px;
+ border-radius:13px;
+ background:rgba(255,255,255,.07);
+ border:1px solid rgba(255,255,255,.12);
+ cursor:pointer
+}
+.option.correct{background:rgba(40,210,120,.15);border-color:#35d07f}
+.option.wrong{background:rgba(255,70,90,.15);border-color:#ff5c75}
+.explanation{
+ margin-top:15px;
+ padding:15px;
+ background:rgba(255,255,255,.07);
+ border-radius:12px;
+ line-height:1.7
+}
+.score{text-align:center;font-size:45px;font-weight:bold}
+.center{text-align:center}
+.hidden{display:none}
+.recent-item{
+ display:inline-block;
+ padding:9px 13px;
+ margin:4px;
+ border-radius:20px;
+ background:rgba(255,255,255,.08);
+ cursor:pointer
+}
+@media(max-width:650px){
+ .grid,.topicgrid{grid-template-columns:1fr}
+ h1{font-size:25px}
+ .card{padding:15px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<div class="logo">৯</div>
+<h1>Class 9 Study Hub</h1>
+<div class="subtitle">সহজভাবে পড়ো • বুঝে শেখো • MCQ দিয়ে যাচাই করো</div>
+</header>
+
+<div id="home" class="card">
+<h2>📚 Subjects</h2>
+<div id="subjects" class="grid"></div>
+
+<div style="margin-top:25px">
+<h3>🕘 Recently Studied</h3>
+<div id="recent"></div>
+</div>
+</div>
+
+<div id="topicsPage" class="card hidden">
+<button class="back" onclick="goHome()">← Subjects</button>
+<h2 id="subjectTitle"></h2>
+<div id="topics" class="topicgrid"></div>
+</div>
+
+<div id="studyPage" class="card hidden">
+<button class="back" onclick="backTopics()">← Topics</button>
+<h2 id="studyTitle"></h2>
+
+<div class="section">
+<h3>📖 Study Note</h3>
+<div id="summary"></div>
+</div>
+
+<div class="section">
+<h3>⭐ Important Points</h3>
+<ul id="points" class="points"></ul>
+</div>
+
+<div class="section">
+<h3>🔄 Revision Note</h3>
+<div id="revision" class="revision"></div>
+</div>
+
+<div class="center" style="margin-top:20px">
+<button onclick="startQuiz()">📝 Start MCQ Quiz</button>
+</div>
+</div>
+
+<div id="quizPage" class="card hidden">
+<button class="back" onclick="backStudy()">← Study Note</button>
+<p id="counter" class="small"></p>
+<div id="question" class="question"></div>
+<div id="options" class="options"></div>
+<div id="explanation" class="explanation hidden"></div>
+<div class="center">
+<button id="next" class="hidden" onclick="nextQuestion()">Next →</button>
+</div>
+</div>
+
+<div id="resultPage" class="card hidden">
+<h2 class="center">🎉 Quiz Complete</h2>
+<div id="score" class="score"></div>
+<p id="resultText" class="center"></p>
+<div class="center">
+<button onclick="startQuiz()">🔁 Try Again</button>
+<button onclick="backStudy()">📖 Study Again</button>
+</div>
+</div>
+
+</div>
+
+<script>
+
+/* =========================
+   CLASS 9 DATA
+========================= */
+
+const data={
+
+"বাংলা":{
+icon:"📕",
+topics:{
+"কলিঙ্গদেশে ঝড়-বৃষ্টি":"মুকুন্দরাম চক্রবর্তীর রচনায় প্রকৃতি, মানুষের জীবন ও বাস্তব অভিজ্ঞতার চিত্র ফুটে ওঠে।",
+"ভাঙার গান":"কাজী নজরুল ইসলামের কবিতায় অন্যায় ও শোষণের বিরুদ্ধে প্রতিবাদ এবং নতুনের আহ্বান প্রকাশ পায়।",
+"আকাশে সাতটি তারা":"কবিতায় প্রকৃতি, অনুভূতি ও কল্পনার সৌন্দর্য প্রকাশিত হয়।",
+"স্বামী বিবেকানন্দের চিঠি":"চিঠিতে চিন্তা, আদর্শ, আত্মবিশ্বাস ও কর্মপ্রেরণার নানা দিক প্রকাশ পায়।",
+"ইলিয়াস":"তলস্তয়ের রচনার মাধ্যমে মানবতা, নৈতিকতা ও মানুষের অন্তর্জগতের নানা দিক উপলব্ধি করা যায়।",
+"বাংলা ধ্বনি":"ভাষার ক্ষুদ্রতম উচ্চারিত একককে ধ্বনি বলা হয়। বাংলা ধ্বনির বিভিন্ন শ্রেণি ও পরিবর্তন ভাষাবিজ্ঞানের গুরুত্বপূর্ণ বিষয়।",
+"শব্দ ও পদ":"অর্থপূর্ণ ধ্বনি বা ধ্বনিসমষ্টি শব্দ এবং বাক্যে ব্যবহৃত শব্দের ব্যাকরণগত পরিচয় পদ।",
+"ধাতু ও প্রত্যয়":"ধাতু থেকে শব্দ গঠন এবং প্রত্যয়ের সাহায্যে নতুন শব্দ তৈরির নিয়ম বাংলা ব্যাকরণের গুরুত্বপূর্ণ অংশ।"
+}
+},
+
+"English":{
+icon:"📘",
+topics:{
+"His First Flight":"The story presents a young bird overcoming fear and learning to fly through experience and encouragement.",
+"All About a Dog":"The lesson presents observations about a dog and develops ideas through simple narrative and description.",
+"The Price of Bananas":"The story presents an everyday incident and highlights human behaviour, humour and social observation.",
+"Tales of Bhola Grandpa":"The stories about Bhola Grandpa combine humour, imagination and entertaining narration.",
+"Grammar — Noun":"A noun names a person, place, animal, thing or idea.",
+"Grammar — Tense":"Tense shows the time of an action or state.",
+"Transformation of Sentences":"Sentence transformation changes the form of a sentence while keeping its basic meaning.",
+"Formal Letter":"A formal letter follows a proper format, polite language and a clear purpose."
+}
+},
+
+"গণিত":{
+icon:"📐",
+topics:{
+"বাস্তব সংখ্যা":"বাস্তব সংখ্যার মধ্যে মূলদ ও অমূলদ উভয় সংখ্যাই অন্তর্ভুক্ত। সংখ্যা রেখায় বাস্তব সংখ্যাকে প্রকাশ করা যায়।",
+"সূচকের নিয়মাবলী":"সূচকের নিয়ম ব্যবহার করে একই ভিত্তির গুণ, ভাগ এবং ঘাতের ঘাত সহজে সরল করা যায়।",
+"উৎপাদকে বিশ্লেষণ":"বীজগাণিতিক রাশিকে গুণনীয়কের গুণফল হিসেবে প্রকাশ করাকে উৎপাদকে বিশ্লেষণ বলা হয়।",
+"লাভ ও ক্ষতি":"ক্রয়মূল্য ও বিক্রয়মূল্যের তুলনা থেকে লাভ বা ক্ষতি নির্ণয় করা হয়।",
+"সামান্তরিকের ধর্ম":"সামান্তরিকের বিপরীত বাহু সমান্তরাল ও সমান এবং বিপরীত কোণ সমান।",
+"ত্রিভুজ ও চতুর্ভুজের ক্ষেত্রফল":"ত্রিভুজ ও চতুর্ভুজের বিভিন্ন সূত্র ব্যবহার করে ক্ষেত্রফল নির্ণয় করা যায়।",
+"দূরত্ব সূত্র":"স্থানাঙ্ক জ্যামিতিতে দুটি বিন্দুর মধ্যবর্তী দূরত্ব নির্ণয়ের জন্য দূরত্ব সূত্র ব্যবহার করা হয়।",
+"রাশিবিজ্ঞান":"উপাত্ত সংগ্রহ, সারণি, গড় ও অন্যান্য পরিসংখ্যানগত ধারণার মাধ্যমে তথ্য বিশ্লেষণ করা হয়।"
+}
+},
+
+"Life Science":{
+icon:"🧬",
+topics:{
+"জীবনের উৎপত্তি":"জীবনের উৎপত্তি সম্পর্কে বিভিন্ন বৈজ্ঞানিক ধারণা ও প্রমাণ নিয়ে আলোচনা করা হয়।",
+"কোষ":"কোষ হলো জীবদেহের গঠন ও কাজের মৌলিক একক। উদ্ভিদ ও প্রাণীকোষের বিভিন্ন অঙ্গাণুর বিশেষ কাজ রয়েছে।",
+"শ্রেণিবিন্যাস":"জীবদের সাদৃশ্য ও বৈসাদৃশ্যের ভিত্তিতে বিভিন্ন দলে সাজানোকে শ্রেণিবিন্যাস বলা হয়।",
+"জীবনক্রিয়া — পুষ্টি":"জীবের বৃদ্ধি ও শক্তির জন্য খাদ্য প্রয়োজন। উদ্ভিদ সালোকসংশ্লেষের মাধ্যমে খাদ্য তৈরি করে।",
+"সালোকসংশ্লেষ":"সবুজ উদ্ভিদ সূর্যালোকের উপস্থিতিতে কার্বন ডাই-অক্সাইড ও জল থেকে খাদ্য তৈরি করে এবং অক্সিজেন ছাড়ে।",
+"শ্বসন":"শ্বসনের মাধ্যমে খাদ্য থেকে শক্তি মুক্ত হয়। এটি জীবের জীবনক্রিয়ার জন্য অত্যন্ত গুরুত্বপূর্ণ।",
+"বাষ্পমোচন ও পরিবহন":"উদ্ভিদে জল, খনিজ ও খাদ্য বিভিন্ন পরিবহন কলার মাধ্যমে চলাচল করে। বাষ্পমোচন পাতার মাধ্যমে জলীয় বাষ্প বের হওয়ার প্রক্রিয়া।",
+"স্নায়ুতন্ত্র":"স্নায়ুতন্ত্র উদ্দীপনা গ্রহণ, তথ্য পরিবহন ও দেহের বিভিন্ন কাজের সমন্বয়ে সাহায্য করে।"
+}
+},
+
+"Physical Science":{
+icon:"⚛️",
+topics:{
+"পরিমাপ":"ভৌত রাশি পরিমাপের জন্য উপযুক্ত একক ও যন্ত্র প্রয়োজন। SI একক পদ্ধতি বিজ্ঞানে বহুল ব্যবহৃত।",
+"তাপ":"তাপ শক্তির একটি রূপ। তাপমাত্রার পার্থক্যের কারণে তাপ এক বস্তু থেকে অন্য বস্তুর দিকে সঞ্চালিত হয়।",
+"বল ও গতি":"বল বস্তুর গতির অবস্থা পরিবর্তন করতে পারে। নিউটনের গতিসূত্র গতি ও বলের সম্পর্ক ব্যাখ্যা করে।",
+"শব্দ":"শব্দ একটি যান্ত্রিক তরঙ্গ। শব্দের প্রতিফলন ও প্রতিধ্বনি দৈনন্দিন জীবনে দেখা যায়।",
+"পদার্থ ও পরমাণুর গঠন":"পদার্থ পরমাণু ও অণু দিয়ে গঠিত। পরমাণুর মধ্যে নিউক্লিয়াস ও ইলেকট্রনের ধারণা গুরুত্বপূর্ণ।",
+"অম্ল, ক্ষার ও লবণ":"অম্ল ও ক্ষারের ভিন্ন বৈশিষ্ট্য রয়েছে এবং তাদের বিক্রিয়ায় লবণ ও জল তৈরি হতে পারে।",
+"দ্রবণ":"দ্রাবক ও দ্রবের সমন্বয়ে দ্রবণ তৈরি হয়। ঘনত্ব ও দ্রাব্যতা দ্রবণের গুরুত্বপূর্ণ ধারণা।",
+"শক্তি":"শক্তি কাজ করার সামর্থ্য। শক্তির বিভিন্ন রূপ আছে এবং এক রূপ থেকে অন্য রূপে পরিবর্তিত হতে পারে।"
+}
+},
+
+"History":{
+icon:"🏛️",
+topics:{
+"ফরাসি বিপ্লব":"1789 সালের ফরাসি বিপ্লব স্বাধীনতা, সাম্য ও ভ্রাতৃত্বের ধারণাকে শক্তিশালী করে এবং ইউরোপের রাজনীতিতে গভীর প্রভাব ফেলে।",
+"ইউরোপে জাতীয়তাবাদ":"উনিশ শতকে জাতীয়তাবাদী ধারণার বিকাশ ইউরোপে বিভিন্ন রাজনৈতিক পরিবর্তন ও জাতিরাষ্ট্র গঠনে গুরুত্বপূর্ণ ভূমিকা নেয়।",
+"শিল্পবিপ্লব":"শিল্পবিপ্লব উৎপাদন পদ্ধতি, কারখানা, পরিবহন ও সমাজজীবনে ব্যাপক পরিবর্তন আনে।",
+"উপনিবেশবাদ ও সাম্রাজ্যবাদ":"ইউরোপীয় শক্তিগুলি এশিয়া ও আফ্রিকার বিভিন্ন অঞ্চলে রাজনৈতিক ও অর্থনৈতিক নিয়ন্ত্রণ প্রতিষ্ঠা করে।",
+"রুশ বিপ্লব":"রাশিয়ায় 1917 সালের বিপ্লব রাজনৈতিক ও সামাজিক ব্যবস্থায় বড় পরিবর্তন আনে।",
+"প্রথম বিশ্বযুদ্ধ":"1914-1918 সালের প্রথম বিশ্বযুদ্ধ ইউরোপ ও বিশ্বের রাজনৈতিক মানচিত্রে ব্যাপক পরিবর্তন আনে।",
+"জাতিপুঞ্জ":"প্রথম বিশ্বযুদ্ধের পরে আন্তর্জাতিক শান্তি ও সহযোগিতার উদ্দেশ্যে জাতিপুঞ্জ গঠিত হয়।",
+"জাতীয়তাবাদ ও স্বাধীনতা":"জাতীয়তাবাদী চেতনা বিভিন্ন দেশে স্বাধীনতা ও আত্মনিয়ন্ত্রণের আন্দোলনকে শক্তিশালী করে।"
+}
+},
+
+"Geography":{
+icon:"🌍",
+topics:{
+"পৃথিবীর গতি":"পৃথিবীর আবর্তন ও পরিক্রমণ দিন-রাত্রি, বছর ও ঋতুচক্রের সঙ্গে সম্পর্কিত।",
+"ভূ-গঠন প্রক্রিয়া":"অভ্যন্তরীণ ও বহির্জাত শক্তির প্রভাবে পৃথিবীর বিভিন্ন ভূমিরূপ তৈরি ও পরিবর্তিত হয়।",
+"পর্বত":"পর্বত পৃথিবীর উঁচু ভূমিরূপ। ভাঁজ, স্তূপ ও আগ্নেয় প্রক্রিয়ার মাধ্যমে বিভিন্ন ধরনের পর্বত তৈরি হয়েছে।",
+"মালভূমি":"মালভূমি হলো চারদিকের তুলনায় উঁচু ও অপেক্ষাকৃত সমতল ভূমি।",
+"সমভূমি":"সমভূমি অপেক্ষাকৃত সমতল ভূমি এবং কৃষি ও বসতির জন্য অনেক ক্ষেত্রে উপযোগী।",
+"আবহাওয়া ও জলবায়ু":"আবহাওয়া স্বল্প সময়ের অবস্থা এবং জলবায়ু দীর্ঘ সময়ের গড় বায়ুমণ্ডলীয় বৈশিষ্ট্য।",
+"পশ্চিমবঙ্গের ভূপ্রকৃতি":"পশ্চিমবঙ্গে পাহাড়, তরাই, সমভূমি, মালভূমি ও বদ্বীপসহ বিভিন্ন ভূপ্রাকৃতিক অঞ্চল রয়েছে।",
+"পশ্চিমবঙ্গের নদী":"গঙ্গা ও তার বিভিন্ন শাখা-প্রশাখা এবং অন্যান্য নদী পশ্চিমবঙ্গের ভূপ্রকৃতি ও মানুষের জীবনে গুরুত্বপূর্ণ।"
+}
+}
+
+};
+
+
+/* =========================
+   POINTS
+========================= */
+
+function getPoints(subject,topic){
+
+return [
+"এই বিষয়ের মূল ধারণাটি ভালোভাবে বুঝে পড়ো।",
+"গুরুত্বপূর্ণ সংজ্ঞা ও শব্দ মনে রাখো।",
+"উদাহরণসহ বিষয়টি অনুশীলন করো।",
+"পরীক্ষার আগে বিষয়টি Revision করো।",
+"MCQ দিয়ে নিজের প্রস্তুতি যাচাই করো।"
+];
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function makeQuiz(subject,topic){
+
+let summary=data[subject].topics[topic];
+
+return [
+[
+"এই Topic-এর মূল বিষয় কী?",
+summary,
+"শুধু গল্প",
+"শুধু ছবি",
+"শুধু অঙ্ক",
+0,
+"সঠিক উত্তর হলো Study Note-এ দেওয়া মূল বিষয়টি।"
+],
+[
+"ভালোভাবে শেখার সবচেয়ে ভালো পদ্ধতি কোনটি?",
+"বুঝে শেখা ও অনুশীলন",
+"শুধু অনুমান",
+"শুধু পড়া এড়িয়ে যাওয়া",
+"কোনোটিই নয়",
+0,
+"বিষয় বুঝে নিয়মিত অনুশীলন করা সবচেয়ে কার্যকর।"
+],
+[
+"Revision-এর উদ্দেশ্য কী?",
+"আগে শেখা বিষয় আবার মনে করা",
+"বিষয় ভুলে যাওয়া",
+"বই বন্ধ করা",
+"পড়া বন্ধ করা",
+0,
+"Revision শেখা বিষয়কে আরও দৃঢ় করে।"
+],
+[
+"MCQ দিয়ে কী যাচাই করা যায়?",
+"নিজের প্রস্তুতি",
+"শুধু হাতের লেখা",
+"শুধু ছবি আঁকা",
+"শুধু গতি",
+0,
+"MCQ নিজের জ্ঞান ও প্রস্তুতি যাচাই করতে সাহায্য করে।"
+],
+[
+"Important Points কেন পড়বে?",
+"মূল তথ্য মনে রাখার জন্য",
+"বিষয় ভুলে যাওয়ার জন্য",
+"সময় নষ্ট করার জন্য",
+"বই লুকানোর জন্য",
+0,
+"Important Points দ্রুত Revision করতে সাহায্য করে।"
+],
+[
+"Study Note-এর সুবিধা কী?",
+"বিষয় সংক্ষেপে বোঝা যায়",
+"বিষয় কঠিন হয়",
+"বই নষ্ট হয়",
+"কোনো সুবিধা নেই",
+0,
+"Study Note বিষয়কে সংক্ষেপে বুঝতে সাহায্য করে।"
+],
+[
+"নিয়মিত Revision করলে কী হয়?",
+"বিষয় মনে রাখা সহজ হয়",
+"সব ভুলে যায়",
+"পড়ার প্রয়োজন থাকে না",
+"সময় থেমে যায়",
+0,
+"নিয়মিত Revision স্মৃতি শক্তিশালী করে।"
+],
+[
+"একটি Topic শেখার পরে কী করা ভালো?",
+"Quiz দেওয়া",
+"পড়া বন্ধ করা",
+"বই ফেলে দেওয়া",
+"কিছুই না করা",
+0,
+"Quiz দিয়ে শেখা বিষয় যাচাই করা যায়।"
+],
+[
+"পরীক্ষার প্রস্তুতিতে কী গুরুত্বপূর্ণ?",
+"বোঝা + অনুশীলন + Revision",
+"শুধু অনুমান",
+"শুধু মুখস্থ",
+"শুধু বিশ্রাম",
+0,
+"বোঝা, অনুশীলন ও Revision—তিনটিই গুরুত্বপূর্ণ।"
+],
+[
+"ভালো শিক্ষার্থীর অভ্যাস কোনটি?",
+"নিয়মিত পড়াশোনা",
+"পড়া এড়িয়ে চলা",
+"শেষ মুহূর্তে সব করা",
+"শুধু অনুমান করা",
+0,
+"নিয়মিত পড়াশোনা ভালো শিক্ষার অভ্যাস।"
+]
+];
+
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let currentSubject="";
+let currentTopic="";
+let quiz=[];
+let qIndex=0;
+let score=0;
+let answered=false;
+
+
+/* =========================
+   PAGE
+========================= */
+
+function show(id){
+
+["home","topicsPage","studyPage","quizPage","resultPage"]
+.forEach(function(x){
+document.getElementById(x).classList.add("hidden");
+});
+
+document.getElementById(id).classList.remove("hidden");
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   SUBJECTS
+========================= */
+
+function loadSubjects(){
+
+let box=document.getElementById("subjects");
+
+box.innerHTML="";
+
+Object.keys(data).forEach(function(subject){
+
+let item=document.createElement("div");
+
+item.className="subject";
+
+item.innerHTML=
+"<div class='icon'>"+data[subject].icon+"</div>"+
+"<h3>"+subject+"</h3>"+
+"<div class='small'>"+
+Object.keys(data[subject].topics).length+
+" Topics</div>";
+
+item.onclick=function(){
+openSubject(subject);
+};
+
+box.appendChild(item);
+
+});
+
+}
+
+
+/* =========================
+   SUBJECT
+========================= */
+
+function openSubject(subject){
+
+currentSubject=subject;
+
+document.getElementById("subjectTitle").innerText=
+data[subject].icon+" "+subject;
+
+let box=document.getElementById("topics");
+
+box.innerHTML="";
+
+Object.keys(data[subject].topics).forEach(function(topic){
+
+let item=document.createElement("div");
+
+item.className="topic";
+
+item.innerHTML=
+"<b>"+topic+"</b><br>"+
+"<span class='small'>Study Note • Important Points • MCQ</span>";
+
+item.onclick=function(){
+openTopic(topic);
+};
+
+box.appendChild(item);
+
+});
+
+show("topicsPage");
+
+}
+
+
+/* =========================
+   TOPIC
+========================= */
+
+function openTopic(topic){
+
+currentTopic=topic;
+
+let summary=data[currentSubject].topics[topic];
+
+document.getElementById("studyTitle").innerText=
+data[currentSubject].icon+" "+topic;
+
+document.getElementById("summary").innerText=summary;
+
+let points=document.getElementById("points");
+
+points.innerHTML="";
+
+getPoints(currentSubject,topic).forEach(function(p){
+
+let li=document.createElement("li");
+
+li.innerText=p;
+
+points.appendChild(li);
+
+});
+
+document.getElementById("revision").innerText=
+"Revision: "+summary+
+" মূল ধারণাটি মনে রেখে গুরুত্বপূর্ণ শব্দ ও তথ্য আবার পড়ে নাও।";
+
+saveRecent(currentSubject,topic);
+
+show("studyPage");
+
+}
+
+
+/* =========================
+   RECENT
+========================= */
+
+function saveRecent(subject,topic){
+
+let recent=JSON.parse(
+localStorage.getItem("class9_recent")||"[]"
+);
+
+recent=recent.filter(function(x){
+return !(x.subject===subject&&x.topic===topic);
+});
+
+recent.unshift({
+subject:subject,
+topic:topic
+});
+
+recent=recent.slice(0,8);
+
+localStorage.setItem(
+"class9_recent",
+JSON.stringify(recent)
+);
+
+loadRecent();
+
+}
+
+
+function loadRecent(){
+
+let box=document.getElementById("recent");
+
+let recent=JSON.parse(
+localStorage.getItem("class9_recent")||"[]"
+);
+
+box.innerHTML="";
+
+if(recent.length===0){
+
+box.innerHTML=
+"<span class='small'>এখনও কোনো Topic পড়া হয়নি।</span>";
+
+return;
+
+}
+
+recent.forEach(function(x){
+
+let item=document.createElement("span");
+
+item.className="recent-item";
+
+item.innerText=x.topic;
+
+item.onclick=function(){
+
+currentSubject=x.subject;
+
+openTopic(x.topic);
+
+};
+
+box.appendChild(item);
+
+});
+
+}
+
+
+/* =========================
+   QUIZ START
+========================= */
+
+function startQuiz(){
+
+quiz=makeQuiz(currentSubject,currentTopic);
+
+quiz.sort(function(){
+return Math.random()-.5;
+});
+
+qIndex=0;
+score=0;
+answered=false;
+
+show("quizPage");
+
+renderQuestion();
+
+}
+
+
+/* =========================
+   QUESTION
+========================= */
+
+function renderQuestion(){
+
+answered=false;
+
+let q=quiz[qIndex];
+
+document.getElementById("counter").innerText=
+"Question "+(qIndex+1)+" / "+quiz.length;
+
+document.getElementById("question").innerText=q[0];
+
+let options=document.getElementById("options");
+
+options.innerHTML="";
+
+for(let i=1;i<=4;i++){
+
+let item=document.createElement("div");
+
+item.className="option";
+
+item.innerText=q[i];
+
+item.onclick=function(){
+selectAnswer(i-1,item);
+};
+
+options.appendChild(item);
+
+}
+
+document.getElementById("explanation")
+.classList.add("hidden");
+
+document.getElementById("next")
+.classList.add("hidden");
+
+}
+
+
+/* =========================
+   ANSWER
+========================= */
+
+function selectAnswer(index,element){
+
+if(answered)return;
+
+answered=true;
+
+let q=quiz[qIndex];
+
+let correct=q[5];
+
+let all=document.querySelectorAll(".option");
+
+all.forEach(function(item,i){
+
+if(i===correct){
+item.classList.add("correct");
+}
+
+});
+
+if(index===correct){
+
+score++;
+
+element.classList.add("correct");
+
+}else{
+
+element.classList.add("wrong");
+
+}
+
+let exp=document.getElementById("explanation");
+
+exp.innerHTML=
+(index===correct?"✅ Correct!":"❌ Wrong!")+ 
+"<br><br><b>Correct Answer:</b> "+
+q[correct+1]+
+"<br><br>"+
+q[6];
+
+exp.classList.remove("hidden");
+
+let next=document.getElementById("next");
+
+next.innerText=
+qIndex===quiz.length-1?
+"See Result →":
+"Next →";
+
+next.classList.remove("hidden");
+
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+function nextQuestion(){
+
+if(qIndex<quiz.length-1){
+
+qIndex++;
+
+renderQuestion();
+
+}else{
+
+showResult();
+
+}
+
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+function showResult(){
+
+let percent=
+Math.round((score/quiz.length)*100);
+
+document.getElementById("score").innerText=
+percent+"%";
+
+let message="";
+
+if(percent>=80){
+
+message="🌟 Excellent! খুব ভালো হয়েছে।";
+
+}else if(percent>=60){
+
+message="👍 Good! আরও একটু Revision করো।";
+
+}else{
+
+message="📚 আরও একটু পড়ো এবং আবার চেষ্টা করো।";
+
+}
+
+document.getElementById("resultText").innerText=
+message+
+" তুমি "+score+
+" / "+quiz.length+
+" সঠিক উত্তর দিয়েছ।";
+
+show("resultPage");
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function goHome(){
+
+show("home");
+
+loadRecent();
+
+}
+
+function backTopics(){
+
+openSubject(currentSubject);
+
+}
+
+function backStudy(){
+
+openTopic(currentTopic);
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadSubjects();
+loadRecent();
+
+</script>
+
+</body>
+</html>
