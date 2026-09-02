@@ -1,1 +1,1045 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Hub • Class 6</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,"Noto Sans Bengali",sans-serif;
+ background:#07111f;
+ color:#f4f7fb;
+ min-height:100vh;
+}
+header{
+ padding:28px 18px 22px;
+ background:linear-gradient(135deg,#10243c,#0b1728);
+ border-bottom:1px solid #20344d;
+}
+.logo{
+ font-size:28px;
+ font-weight:800;
+}
+.sub{
+ color:#9fb2c8;
+ margin-top:7px;
+}
+.container{
+ max-width:1100px;
+ margin:auto;
+ padding:20px;
+}
+.badge{
+ display:inline-block;
+ background:#183b61;
+ color:#75c8ff;
+ padding:7px 12px;
+ border-radius:20px;
+ font-size:13px;
+ margin-bottom:12px;
+}
+h1,h2,h3{margin-top:0}
+.subjects{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:14px;
+ margin:20px 0;
+}
+.subject{
+ background:rgba(20,36,57,.9);
+ border:1px solid #263d58;
+ border-radius:18px;
+ padding:20px 14px;
+ cursor:pointer;
+ transition:.2s;
+}
+.subject:hover{
+ transform:translateY(-3px);
+ border-color:#4c9fff;
+}
+.subject.active{
+ border-color:#63b5ff;
+ background:#163454;
+}
+.icon{
+ font-size:30px;
+ margin-bottom:8px;
+}
+.subject small{
+ color:#9fb2c8;
+}
+.topic-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:15px;
+}
+.topic{
+ background:linear-gradient(145deg,#111f31,#0d1827);
+ border:1px solid #263d58;
+ padding:18px;
+ border-radius:18px;
+ cursor:pointer;
+}
+.topic:hover{
+ border-color:#4c9fff;
+}
+.topic p{
+ color:#9fb2c8;
+ font-size:14px;
+ line-height:1.6;
+}
+.btn{
+ border:0;
+ border-radius:12px;
+ padding:12px 18px;
+ background:#2187e8;
+ color:white;
+ font-weight:bold;
+ cursor:pointer;
+ margin:5px 5px 5px 0;
+}
+.btn.secondary{
+ background:#20354d;
+}
+.card{
+ background:rgba(14,28,45,.95);
+ border:1px solid #263d58;
+ border-radius:20px;
+ padding:22px;
+ margin-bottom:18px;
+}
+.note{
+ line-height:1.85;
+ color:#d8e3ef;
+}
+.points li{
+ margin:9px 0;
+ color:#cbd8e7;
+}
+.quiz-option{
+ display:block;
+ width:100%;
+ text-align:left;
+ background:#14263c;
+ color:white;
+ border:1px solid #29425e;
+ border-radius:12px;
+ padding:14px;
+ margin:10px 0;
+ cursor:pointer;
+}
+.quiz-option:hover{
+ background:#1b3858;
+}
+.quiz-option.correct{
+ background:#155c42;
+ border-color:#36c88a;
+}
+.quiz-option.wrong{
+ background:#652f37;
+ border-color:#ef7180;
+}
+.result{
+ font-size:22px;
+ font-weight:bold;
+ padding:15px;
+ border-radius:14px;
+ background:#142d45;
+ margin-top:15px;
+}
+.hidden{display:none}
+.back{
+ color:#75c8ff;
+ cursor:pointer;
+ margin-bottom:15px;
+ display:inline-block;
+}
+.recent{
+ color:#8fd0ff;
+ font-size:14px;
+ margin-top:10px;
+}
+footer{
+ text-align:center;
+ color:#71869e;
+ padding:30px 15px;
+ font-size:13px;
+}
+@media(max-width:600px){
+ .container{padding:14px}
+ .logo{font-size:23px}
+ .card{padding:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="badge">CLASS 6 • STUDY EDITION</div>
+<div class="logo">📚 Study Hub</div>
+<div class="sub">বাংলা • English • গণিত • Geography • Environment & Science • History</div>
+<div id="recent" class="recent"></div>
+</div>
+</header>
+
+<div class="container">
+
+<!-- HOME -->
+<section id="home">
+
+<h2>বিষয় নির্বাচন করুন</h2>
+<p style="color:#9fb2c8">
+Class 6-এর বিষয় বেছে নিয়ে অধ্যায় পড়ুন এবং MCQ অনুশীলন করুন।
+</p>
+
+<div class="subjects" id="subjectList"></div>
+
+<div id="topicArea"></div>
+
+</section>
+
+
+<!-- STUDY -->
+<section id="study" class="hidden">
+
+<span class="back" onclick="goHome()">← সব বিষয়</span>
+
+<div class="card">
+<div class="badge" id="studySubject"></div>
+<h2 id="studyTitle"></h2>
+
+<h3>📖 সহজভাবে বুঝি</h3>
+<div class="note" id="studySummary"></div>
+
+<h3 style="margin-top:25px">⭐ গুরুত্বপূর্ণ বিষয়</h3>
+<ul class="points" id="studyPoints"></ul>
+
+<h3 style="margin-top:25px">📝 পরীক্ষার জন্য মনে রাখো</h3>
+<div class="note" id="studyRevision"></div>
+
+<button class="btn" onclick="startQuiz()">🎯 MCQ Quiz শুরু করুন</button>
+<button class="btn secondary" onclick="goHome()">← অন্য Topic</button>
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+<section id="quiz" class="hidden">
+
+<span class="back" onclick="openStudy()">← Study Note</span>
+
+<div class="card">
+
+<div class="badge" id="quizSubject"></div>
+<h2 id="quizTitle"></h2>
+
+<div id="questionBox"></div>
+
+<div id="quizResult" class="result hidden"></div>
+
+<button id="nextBtn" class="btn hidden" onclick="nextQuestion()">পরের প্রশ্ন →</button>
+<button id="retryBtn" class="btn secondary hidden" onclick="startQuiz()">🔄 আবার চেষ্টা করুন</button>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+Study Hub • Class 6 • Educational Practice App
+</footer>
+
+
+<script>
+
+const subjects = {
+
+"বাংলা":{
+ icon:"📘",
+ topics:[
+
+ {
+ title:"এক ভূতুড়ে কাণ্ড",
+ summary:"এই পাঠে কৌতুক, কল্পনা ও ঘটনাকে সহজভাবে উপস্থাপনের মাধ্যমে পাঠকের আগ্রহ তৈরি করা হয়েছে। গল্পের ঘটনা বুঝতে চরিত্র, পরিবেশ ও ঘটনার ক্রম লক্ষ্য করা গুরুত্বপূর্ণ।",
+ points:[
+ "গল্পের প্রধান ঘটনা নিজের ভাষায় বলতে হবে।",
+ "চরিত্রগুলির আচরণ লক্ষ্য করতে হবে।",
+ "গল্পের হাস্যরস ও কল্পনার দিক বুঝতে হবে।",
+ "অজানা শব্দের অর্থ শিখতে হবে।"
+ ],
+ revision:"গল্প পড়ার সময় কে, কোথায়, কী ঘটল এবং শেষে কী ফল হল—এই চারটি প্রশ্নের উত্তর মনে রাখো।",
+ qs:[
+ ["গল্প বোঝার জন্য কোন বিষয়টি সবচেয়ে গুরুত্বপূর্ণ?","ঘটনার ক্রম","শুধু কঠিন শব্দ","শুধু নাম","শুধু ছবি",0],
+ ["গল্পের চরিত্রের আচরণ থেকে কী বোঝা যায়?","চরিত্রের বৈশিষ্ট্য","শুধু বয়স","শুধু স্থান","শুধু সময়",0],
+ ["গল্পের ঘটনা সাধারণত কীভাবে সাজানো থাকে?","ক্রম অনুসারে","এলোমেলোভাবে","শুধু প্রশ্নে","শুধু উত্তরে",0],
+ ["অজানা শব্দ শেখার ভালো উপায় কোনটি?","অর্থ ও বাক্যে ব্যবহার দেখা","এড়িয়ে যাওয়া","শুধু মুখস্থ করা","লিখবে না",0],
+ ["গল্পের মূল বক্তব্য কীভাবে প্রকাশ করা যায়?","নিজের ভাষায়","শুধু একটি শব্দে","শুধু নাম লিখে","কোনোটিই নয়",0]
+ ]
+ },
+
+ {
+ title:"বাংলা ব্যাকরণ — বিশেষ্য",
+ summary:"যে শব্দ দিয়ে ব্যক্তি, বস্তু, স্থান, প্রাণী বা ধারণার নাম বোঝানো হয় তাকে বিশেষ্য বলে। বাংলা ভাষায় বিশেষ্যের ব্যবহার অত্যন্ত গুরুত্বপূর্ণ।",
+ points:[
+ "ব্যক্তির নাম বিশেষ্য।",
+ "স্থান ও বস্তুর নামও বিশেষ্য।",
+ "প্রাণীর নাম বিশেষ্য।",
+ "অনুভূতি বা ধারণার নামও বিশেষ্য হতে পারে।"
+ ],
+ revision:"মানুষ, নদী, বই, কলকাতা, পাখি, আনন্দ—এগুলি বিশেষ্যের উদাহরণ।",
+ qs:[
+ ["'রাহুল' কোন পদ?","বিশেষ্য","সর্বনাম","ক্রিয়া","অব্যয়",0],
+ ["'কলকাতা' কী?","স্থানবাচক বিশেষ্য","ক্রিয়া","সর্বনাম","বিশেষণ",0],
+ ["'বই' কোন পদ?","বিশেষ্য","ক্রিয়া","সর্বনাম","অব্যয়",0],
+ ["'পাখি' কোন পদ?","বিশেষ্য","ক্রিয়া","বিশেষণ","সর্বনাম",0],
+ ["'আনন্দ' কী বোঝায়?","একটি ধারণা/অনুভূতি","কাজ","স্থান","সর্বনাম",0]
+ ]
+ },
+
+ {
+ title:"বাংলা ব্যাকরণ — সর্বনাম",
+ summary:"বিশেষ্যের পরিবর্তে যে শব্দ ব্যবহৃত হয় তাকে সর্বনাম বলে। একই নাম বারবার না বলে বাক্যকে সুন্দর ও সহজ করতে সর্বনাম ব্যবহৃত হয়।",
+ points:[
+ "বিশেষ্যের পরিবর্তে সর্বনাম ব্যবহৃত হয়।",
+ "আমি, তুমি, সে, আমরা ইত্যাদি সর্বনামের উদাহরণ।",
+ "সর্বনাম বাক্যকে সংক্ষিপ্ত করে।",
+ "একই নাম বারবার বলা এড়ানো যায়।"
+ ],
+ revision:"'রিনা স্কুলে গেল। সে পড়াশোনা করল।' এখানে 'সে' হল সর্বনাম।",
+ qs:[
+ ["'আমি' কোন পদ?","সর্বনাম","বিশেষ্য","ক্রিয়া","বিশেষণ",0],
+ ["'সে' কী?","সর্বনাম","বিশেষ্য","ক্রিয়া","অব্যয়",0],
+ ["সর্বনাম কীসের পরিবর্তে ব্যবহৃত হয়?","বিশেষ্য","ক্রিয়া","বিশেষণ","অব্যয়",0],
+ ["'আমরা' কোন পদ?","সর্বনাম","বিশেষ্য","ক্রিয়া","বিশেষণ",0],
+ ["সর্বনাম ব্যবহারের সুবিধা কী?","নাম বারবার বলা লাগে না","বাক্য বড় হয়","শব্দ কমে না","কোনোটিই নয়",0]
+ ]
+ },
+
+ {
+ title:"বাংলা ব্যাকরণ — ক্রিয়া",
+ summary:"যে শব্দ দ্বারা কোনো কাজ করা, হওয়া বা থাকা বোঝায় তাকে ক্রিয়া বলে। বাক্যের অর্থ সম্পূর্ণ করতে ক্রিয়ার গুরুত্বপূর্ণ ভূমিকা রয়েছে।",
+ points:[
+ "কাজ বোঝালে ক্রিয়া হতে পারে।",
+ "যাওয়া, খাওয়া, পড়া ইত্যাদি ক্রিয়ার উদাহরণ।",
+ "বাক্যে ক্রিয়া কাজের প্রকাশ ঘটায়।",
+ "ক্রিয়া ছাড়া অনেক বাক্যের অর্থ অসম্পূর্ণ থাকে।"
+ ],
+ revision:"'রাহুল বই পড়ে'—এখানে 'পড়ে' হল ক্রিয়া।",
+ qs:[
+ ["'খায়' কী?","ক্রিয়া","বিশেষ্য","সর্বনাম","বিশেষণ",0],
+ ["'পড়ে' কোন পদ?","ক্রিয়া","বিশেষ্য","সর্বনাম","অব্যয়",0],
+ ["ক্রিয়া কী বোঝায়?","কাজ বা হওয়া","শুধু নাম","শুধু স্থান","শুধু গুণ",0],
+ ["'যায়' কী?","ক্রিয়া","বিশেষ্য","বিশেষণ","সর্বনাম",0],
+ ["'রিনা গান গায়' বাক্যে ক্রিয়া কোনটি?","গায়","রিনা","গান","কোনোটিই নয়",0]
+ ]
+ }
+
+ ]},
+
+"English":{
+ icon:"🔤",
+ topics:[
+
+ {
+ title:"The Shop That Never Was",
+ summary:"The lesson develops reading comprehension through a story-like situation. Students should focus on the characters, events, sequence and meaning of important words.",
+ points:[
+ "Understand the main event of the lesson.",
+ "Identify characters and their actions.",
+ "Learn important vocabulary.",
+ "Answer questions from the passage."
+ ],
+ revision:"Remember who did what, where the event happened and what happened at the end.",
+ qs:[
+ ["What is most important while understanding a story?","Sequence of events","Only names","Only pictures","Only grammar",0],
+ ["Characters are important because they show","Actions and behaviour","Only age","Only place","Only date",0],
+ ["Vocabulary means","Words and their meanings","Only sentences","Only verbs","Only punctuation",0],
+ ["Reading comprehension means","Understanding a passage","Copying a passage","Drawing a picture","Memorising letters",0],
+ ["A story usually has","Events","Only words","Only questions","No characters",0]
+ ]
+ },
+
+ {
+ title:"The Rainbow",
+ summary:"This lesson helps learners appreciate nature and poetic language. Colours and natural images are important elements when reading a poem about a rainbow.",
+ points:[
+ "Rainbow is a natural phenomenon.",
+ "A rainbow is commonly seen after rain.",
+ "Colours create visual imagery.",
+ "Poetry often uses beautiful descriptions."
+ ],
+ revision:"Remember the natural setting, colours and descriptive language used in the poem.",
+ qs:[
+ ["A rainbow is a","Natural phenomenon","Building","Vehicle","Animal",0],
+ ["A rainbow is often seen after","Rain","Snow only","Night only","A stormless night",0],
+ ["A rainbow is known for its","Colours","Sound","Weight","Taste",0],
+ ["A poem may use","Imagery","Only numbers","Only equations","Only maps",0],
+ ["Colours in poetry can create","Visual imagery","Grammar rules","Measurements","Dates",0]
+ ]
+ },
+
+ {
+ title:"English Grammar — Noun",
+ summary:"A noun is a word used to name a person, place, animal, thing or idea.",
+ points:[
+ "Person names are nouns.",
+ "Place names are nouns.",
+ "Animal and thing names are nouns.",
+ "Ideas can also be nouns."
+ ],
+ revision:"Examples: teacher, Kolkata, tiger, book, happiness.",
+ qs:[
+ ["Which is a noun?","Teacher","Run","Quickly","Beautiful",0],
+ ["Kolkata is a","Noun","Verb","Adverb","Pronoun",0],
+ ["Tiger is a","Noun","Verb","Adjective","Conjunction",0],
+ ["Book is a","Noun","Verb","Adverb","Pronoun",0],
+ ["Happiness can be a","Noun","Verb","Article","Preposition",0]
+ ]
+ },
+
+ {
+ title:"English Grammar — Verb",
+ summary:"A verb is a word that shows an action, state or occurrence.",
+ points:[
+ "Verbs often show actions.",
+ "Run, eat, read and write are verbs.",
+ "A sentence generally needs a verb to express an action.",
+ "Verb forms can change with tense."
+ ],
+ revision:"In 'Rita reads a book', the word 'reads' is the verb.",
+ qs:[
+ ["Which is a verb?","Run","Book","Teacher","Beautiful",0],
+ ["In 'Rita reads', the verb is","reads","Rita","book","the",0],
+ ["Eat is a","Verb","Noun","Pronoun","Adjective",0],
+ ["Write is a","Verb","Noun","Article","Adverb",0],
+ ["A verb can show","Action","Only colour","Only place","Only name",0]
+ ]
+ }
+
+ ]},
+
+"গণিত":{
+ icon:"➗",
+ topics:[
+
+ {
+ title:"সাত ও আট অঙ্কের সংখ্যা",
+ summary:"বড় সংখ্যাকে স্থানীয় মান অনুযায়ী পড়া, লেখা, তুলনা ও সাজানো এই অধ্যায়ের গুরুত্বপূর্ণ অংশ।",
+ points:[
+ "একক, দশক, শতক ইত্যাদি স্থানীয় মান বুঝতে হবে।",
+ "সংখ্যা ডান দিক থেকে স্থানীয় মান অনুযায়ী পড়তে হবে।",
+ "বড় ও ছোট সংখ্যা তুলনা করতে হবে।",
+ "অঙ্কের অবস্থান বদলালে তার মান বদলে যায়।"
+ ],
+ revision:"সংখ্যা পড়ার আগে অঙ্কগুলিকে স্থানীয় মানের ঘরে ভাগ করো।",
+ qs:[
+ ["7 অঙ্কের সবচেয়ে ছোট সংখ্যা কোনটি?","10,00,000","1,00,000","99,999","10,000",0],
+ ["8 অঙ্কের সবচেয়ে ছোট সংখ্যা কোনটি?","1,00,00,000","10,00,000","99,99,999","1,00,000",0],
+ ["অঙ্কের মান নির্ভর করে","স্থানীয় অবস্থানের উপর","রঙের উপর","পাতার উপর","খাতার উপর",0],
+ ["1,00,000 সংখ্যাটি কত অঙ্কের?","6","5","7","8",0],
+ ["বড় সংখ্যা তুলনায় প্রথমে কী দেখা হয়?","বাম দিকের উচ্চ স্থান","শেষ অঙ্ক","রঙ","চিহ্ন",0]
+ ]
+ },
+
+ {
+ title:"শতকরা",
+ summary:"শতকরা অর্থ প্রতি একশোতে। শতকরা ব্যবহার করে কোনো পরিমাণের অংশকে 100-এর ভিত্তিতে প্রকাশ করা যায়।",
+ points:[
+ "শতকরা চিহ্ন হলো %।",
+ "50% মানে 100-এর মধ্যে 50।",
+ "25% = 25/100।",
+ "শতকরা দৈনন্দিন হিসাবেও ব্যবহৃত হয়।"
+ ],
+ revision:"x% = x/100 — এই মূল ধারণাটি মনে রাখো।",
+ qs:[
+ ["শতকরা চিহ্ন কোনটি?","%","#","@","&",0],
+ ["50% =","50/100","5/10","50/10","100/50",0],
+ ["25% =","1/4","1/2","3/4","1/5",0],
+ ["100% মানে","সম্পূর্ণ","অর্ধেক","এক-চতুর্থাংশ","শূন্য",0],
+ ["20% of 100 =","20","10","40","5",0]
+ ]
+ },
+
+ {
+ title:"সুষম ঘনবস্তুর ধারণা",
+ summary:"ঘনবস্তু তিন মাত্রার—দৈর্ঘ্য, প্রস্থ ও উচ্চতা থাকে। ঘনক ও ঘনায়তন এই ধারণার সঙ্গে সম্পর্কিত।",
+ points:[
+ "ঘনবস্তুর তিনটি মাত্রা থাকে।",
+ "ঘনকের সব প্রান্ত সমান।",
+ "ঘনায়তের দৈর্ঘ্য, প্রস্থ ও উচ্চতা থাকে।",
+ "তিন-মাত্রিক বস্তুকে ঘনবস্তু বলা যায়।"
+ ],
+ revision:"দৈর্ঘ্য + প্রস্থ + উচ্চতা—এই তিনটি মাত্রা মনে রাখো।",
+ qs:[
+ ["ঘনবস্তুর কয়টি মাত্রা থাকে?","3","1","2","4",0],
+ ["ঘনকের সব প্রান্ত","সমান","অসমান","শূন্য","অসীম",0],
+ ["ঘনায়তের মাত্রা কী?","দৈর্ঘ্য, প্রস্থ, উচ্চতা","শুধু দৈর্ঘ্য","শুধু প্রস্থ","শুধু উচ্চতা",0],
+ ["বল কোনটি ঘনবস্তু?","ঘনক","রেখা","বিন্দু","কোণ",0],
+ ["ঘনবস্তু হল","তিন-মাত্রিক বস্তু","দুই-মাত্রিক","এক-মাত্রিক","শূন্য-মাত্রিক",0]
+ ]
+ },
+
+ {
+ title:"Recurring Decimal",
+ summary:"যে দশমিক সংখ্যায় একটি বা একাধিক অঙ্ক নির্দিষ্ট নিয়মে বারবার পুনরাবৃত্ত হয় তাকে recurring decimal বলা হয়।",
+ points:[
+ "Recurring decimal-এ অঙ্ক পুনরাবৃত্ত হয়।",
+ "দশমিকের পরে পুনরাবৃত্তি দেখা যায়।",
+ "এটি সাধারণ দশমিক থেকে আলাদা।",
+ "পুনরাবৃত্ত অঙ্ক চিহ্নিত করা গুরুত্বপূর্ণ।"
+ ],
+ revision:"Recurring মানে repeated বা বারবার ফিরে আসা।",
+ qs:[
+ ["Recurring মানে কী?","পুনরাবৃত্ত","শেষ","বড়","ছোট",0],
+ ["Recurring decimal-এ কী ঘটে?","অঙ্ক বারবার আসে","অঙ্ক মুছে যায়","শুধু পূর্ণসংখ্যা থাকে","কোনোটিই নয়",0],
+ ["Recurring decimal সাধারণত কোথায় পুনরাবৃত্তি দেখায়?","দশমিকের পরে","শুধু পূর্ণাংশে","শুধু চিহ্নে","কোনোটিই নয়",0],
+ ["0.333... কী ধরনের দশমিক?","Recurring decimal","পূর্ণসংখ্যা","স্বাভাবিক সংখ্যা","ভগ্নাংশ নয়",0],
+ ["Recurring-এর বিপরীত ধারণা কী?","অ-পুনরাবৃত্ত","বড়","ছোট","ঋণাত্মক",0]
+ ]
+ }
+
+ ]},
+
+"Geography":{
+ icon:"🌍",
+ topics:[
+
+ {
+ title:"পৃথিবী কি গোল",
+ summary:"পৃথিবী সম্পূর্ণ নিখুঁত গোল নয়; এটি মেরু অঞ্চলে কিছুটা চাপা এবং বিষুব অঞ্চলে কিছুটা স্ফীত। পৃথিবীর আকৃতি বোঝার জন্য globe ব্যবহার করা হয়।",
+ points:[
+ "পৃথিবীর আকৃতি প্রায় গোলাকার।",
+ "Globe পৃথিবীর মডেল।",
+ "পৃথিবীর উত্তর ও দক্ষিণ মেরু আছে।",
+ "বিষুবরেখা পৃথিবীকে উত্তর ও দক্ষিণ গোলার্ধে ভাগ করে।"
+ ],
+ revision:"Globe পৃথিবীর ছোট মডেল—এটি মনে রাখো।",
+ qs:[
+ ["পৃথিবীর মডেলকে কী বলে?","Globe","Map","Compass","Scale",0],
+ ["পৃথিবীর আকৃতি প্রায়","গোলাকার","চৌকো","ত্রিভুজাকার","সমতল",0],
+ ["পৃথিবীর কয়টি মেরু?","2","1","3","4",0],
+ ["বিষুবরেখা পৃথিবীকে ভাগ করে","উত্তর ও দক্ষিণ গোলার্ধে","পূর্ব ও পশ্চিমে","তিন ভাগে","চার ভাগে",0],
+ ["Globe কী?","পৃথিবীর মডেল","একটি নদী","একটি পাহাড়","একটি দেশ",0]
+ ]
+ },
+
+ {
+ title:"আমাদের দেশ ভারত",
+ summary:"ভারত দক্ষিণ এশিয়ার একটি বৃহৎ দেশ। এর ভৌগোলিক বৈচিত্র্যের মধ্যে পর্বত, সমভূমি, মালভূমি, মরুভূমি, উপকূল ও দ্বীপ রয়েছে।",
+ points:[
+ "ভারত দক্ষিণ এশিয়ায় অবস্থিত।",
+ "উত্তরে হিমালয় পর্বতমালা।",
+ "ভারতের বিভিন্ন ধরনের ভূপ্রকৃতি আছে।",
+ "ভারতের দীর্ঘ সমুদ্র উপকূল রয়েছে।"
+ ],
+ revision:"ভারতের ভূপ্রকৃতির বৈচিত্র্য—পর্বত, সমভূমি, মালভূমি, মরুভূমি ও উপকূল—মনে রাখো।",
+ qs:[
+ ["ভারত কোন অঞ্চলে অবস্থিত?","দক্ষিণ এশিয়া","উত্তর ইউরোপ","দক্ষিণ আমেরিকা","আফ্রিকা",0],
+ ["ভারতের উত্তরে কোন পর্বতমালা?","হিমালয়","আল্পস","আন্দিজ","রকি",0],
+ ["ভারতে কী ধরনের ভূপ্রকৃতি আছে?","বৈচিত্র্যময়","শুধু পাহাড়","শুধু সমভূমি","শুধু মরুভূমি",0],
+ ["ভারতের সঙ্গে কোনটি সম্পর্কিত?","সমুদ্র উপকূল","শুধু বরফ","শুধু মরুভূমি","কোনোটিই নয়",0],
+ ["ভারত কোন মহাদেশে?","এশিয়া","ইউরোপ","আফ্রিকা","অস্ট্রেলিয়া",0]
+ ]
+ },
+
+ {
+ title:"ভারতের ভূপ্রকৃতি",
+ summary:"ভারতের প্রধান ভূপ্রাকৃতিক বিভাগগুলির মধ্যে হিমালয়, উত্তর ভারতের সমভূমি, উপদ্বীপীয় মালভূমি, মরুভূমি, উপকূলীয় সমভূমি ও দ্বীপ অঞ্চল উল্লেখযোগ্য।",
+ points:[
+ "হিমালয় উত্তর দিকে অবস্থিত।",
+ "উত্তর ভারতের সমভূমি উর্বর।",
+ "দাক্ষিণাত্য মালভূমি ভারতের একটি গুরুত্বপূর্ণ ভূপ্রকৃতি।",
+ "উপকূলীয় সমভূমি সমুদ্রের পাশে।"
+ ],
+ revision:"প্রধান ভূপ্রকৃতিগুলির নাম ও অবস্থান মিলিয়ে পড়ো।",
+ qs:[
+ ["হিমালয় কোথায়?","উত্তরে","দক্ষিণে","পূর্বে","পশ্চিমে",0],
+ ["উত্তর ভারতের সমভূমি সাধারণত","উর্বর","বরফে ঢাকা","সম্পূর্ণ মরুভূমি","সমুদ্র",0],
+ ["দাক্ষিণাত্য কী?","মালভূমি","নদী","সমুদ্র","দ্বীপ",0],
+ ["উপকূলীয় সমভূমি কোথায়?","সমুদ্রের পাশে","পাহাড়ের চূড়ায়","মরুভূমির মাঝে","মেরুতে",0],
+ ["ভূপ্রকৃতি বলতে বোঝায়","ভূমির বিভিন্ন আকৃতি","শুধু নদী","শুধু জলবায়ু","শুধু মাটি",0]
+ ]
+ },
+
+ {
+ title:"মানচিত্র ও দিক",
+ summary:"মানচিত্রে পৃথিবীর বা কোনো অঞ্চলের ছোট আকারের প্রতিরূপ দেখানো হয়। দিক নির্ণয়ের জন্য উত্তর, দক্ষিণ, পূর্ব ও পশ্চিম ব্যবহার করা হয়।",
+ points:[
+ "মানচিত্র বাস্তব এলাকার ছোট প্রতিরূপ।",
+ "চারটি প্রধান দিক উত্তর, দক্ষিণ, পূর্ব ও পশ্চিম।",
+ "মানচিত্র পড়তে চিহ্ন ও স্কেল গুরুত্বপূর্ণ।",
+ "দিক নির্ণয়ে compass সাহায্য করে।"
+ ],
+ revision:"N = North, S = South, E = East, W = West মনে রাখো।",
+ qs:[
+ ["মানচিত্র কী?","কোনো এলাকার প্রতিরূপ","একটি নদী","একটি পাহাড়","একটি দেশ",0],
+ ["প্রধান দিক কয়টি?","4","2","3","8",0],
+ ["N মানে","North","New","Near","None",0],
+ ["E মানে","East","Earth","End","Every",0],
+ ["দিক নির্ণয়ে কোন যন্ত্র সাহায্য করে?","Compass","Thermometer","Clock","Scale only",0]
+ ]
+ }
+
+ ]},
+
+"Environment & Science":{
+ icon:"🔬",
+ topics:[
+
+ {
+ title:"মাপজোক বা পরিমাপ",
+ summary:"কোনো রাশির পরিমাণ নির্ণয় করাকে পরিমাপ বলা হয়। দৈর্ঘ্য, ভর, সময় ইত্যাদি পরিমাপের জন্য উপযুক্ত একক ও যন্ত্র ব্যবহার করা হয়।",
+ points:[
+ "দৈর্ঘ্যের SI একক মিটার।",
+ "ভরের SI একক কিলোগ্রাম।",
+ "সময় পরিমাপে সেকেন্ড ব্যবহৃত হয়।",
+ "পরিমাপের জন্য উপযুক্ত যন্ত্র প্রয়োজন।"
+ ],
+ revision:"রাশি + একক + উপযুক্ত যন্ত্র—এই তিনটি বিষয় মনে রাখো।",
+ qs:[
+ ["দৈর্ঘ্যের SI একক কী?","মিটার","কিলোগ্রাম","সেকেন্ড","লিটার",0],
+ ["ভরের SI একক কী?","কিলোগ্রাম","মিটার","সেকেন্ড","মিলিলিটার",0],
+ ["সময় পরিমাপের SI একক","সেকেন্ড","মিটার","কিলোগ্রাম","লিটার",0],
+ ["দৈর্ঘ্য মাপার যন্ত্র","স্কেল","ঘড়ি","থার্মোমিটার","কম্পাস",0],
+ ["পরিমাপের জন্য কী প্রয়োজন?","একক","শুধু সংখ্যা","শুধু নাম","শুধু রং",0]
+ ]
+ },
+
+ {
+ title:"পদার্থের তিন অবস্থা",
+ summary:"সাধারণভাবে পদার্থকে কঠিন, তরল ও গ্যাসীয়—এই তিন অবস্থায় দেখা যায়। তাপমাত্রা পরিবর্তনে পদার্থের অবস্থার পরিবর্তন ঘটতে পারে।",
+ points:[
+ "কঠিনের নির্দিষ্ট আকার ও আয়তন থাকে।",
+ "তরলের নির্দিষ্ট আয়তন আছে কিন্তু নিজস্ব আকার নেই।",
+ "গ্যাস পাত্রের স্থান পূর্ণ করে।",
+ "তাপের প্রভাবে অবস্থার পরিবর্তন হতে পারে।"
+ ],
+ revision:"কঠিন → তরল → গ্যাস; গলন ও বাষ্পীভবন প্রক্রিয়া মনে রাখো।",
+ qs:[
+ ["পদার্থের সাধারণ তিন অবস্থা কয়টি?","3","2","4","5",0],
+ ["কঠিনের কী থাকে?","নির্দিষ্ট আকার ও আয়তন","শুধু আয়তন","কোনোটিই নয়","শুধু গতি",0],
+ ["তরলের নিজস্ব","নির্দিষ্ট আয়তন আছে","নির্দিষ্ট আকার আছে","কোনোটিই নেই","শুধু রং আছে",0],
+ ["গ্যাস কী করে?","পাত্রের স্থান পূর্ণ করে","শুধু নিচে থাকে","নিজস্ব আকার রাখে","বরফ হয়",0],
+ ["বরফ গলে কী হয়?","জল","বাষ্প সরাসরি","মাটি","বায়ু",0]
+ ]
+ },
+
+ {
+ title:"মানবদেহ — হাড়, পেশি ও বৃদ্ধি",
+ summary:"মানবদেহের কঙ্কাল দেহকে কাঠামো ও সমর্থন দেয়। পেশি হাড়ের সঙ্গে কাজ করে শরীরের বিভিন্ন অঙ্গকে নড়াচড়া করতে সাহায্য করে।",
+ points:[
+ "কঙ্কাল দেহকে সমর্থন দেয়।",
+ "হাড় শরীরের কাঠামো তৈরি করে।",
+ "পেশি চলাফেরায় সাহায্য করে।",
+ "শিশুদের বৃদ্ধি বয়সের সঙ্গে ঘটে।"
+ ],
+ revision:"হাড় + সন্ধি + পেশি মিলে শরীরের নড়াচড়ায় গুরুত্বপূর্ণ ভূমিকা নেয়।",
+ qs:[
+ ["কঙ্কালের প্রধান কাজ কী?","দেহকে সমর্থন দেওয়া","খাদ্য তৈরি","রক্ত তৈরি করা","শ্বাস নেওয়া",0],
+ ["হাড় কী তৈরি করে?","দেহের কাঠামো","শুধু ত্বক","শুধু রক্ত","শুধু খাদ্য",0],
+ ["পেশি কীতে সাহায্য করে?","নড়াচড়া","শুধু দেখা","শুধু শোনা","শুধু হজম",0],
+ ["মানুষের বৃদ্ধি সাধারণত","বয়সের সঙ্গে ঘটে","কখনও হয় না","শুধু একদিনে হয়","শুধু রাতে হয়",0],
+ ["হাড় ও পেশি একসঙ্গে সাহায্য করে","চলাফেরায়","শুধু ঘুমে","শুধু খাওয়ায়","শুধু শোনায়",0]
+ ]
+ },
+
+ {
+ title:"শিলা ও খনিজ পদার্থ",
+ summary:"শিলা বিভিন্ন খনিজ পদার্থের সমন্বয়ে গঠিত হতে পারে। খনিজ পদার্থ প্রকৃতি ও মানুষের জীবনে গুরুত্বপূর্ণ সম্পদ।",
+ points:[
+ "শিলা প্রাকৃতিকভাবে গঠিত কঠিন পদার্থ।",
+ "বিভিন্ন শিলায় বিভিন্ন খনিজ থাকতে পারে।",
+ "খনিজ প্রাকৃতিক সম্পদ।",
+ "মানুষ বিভিন্ন খনিজ ব্যবহার করে।"
+ ],
+ revision:"শিলা ও খনিজের পার্থক্য এবং ব্যবহার উদাহরণসহ মনে রাখো।",
+ qs:[
+ ["শিলা কী?","প্রাকৃতিক কঠিন পদার্থ","গ্যাস","তরল","জীব",0],
+ ["খনিজ কী?","প্রাকৃতিক সম্পদ","শুধু প্রাণী","শুধু গাছ","কৃত্রিম খাবার",0],
+ ["শিলায় কী থাকতে পারে?","খনিজ","শুধু জল","শুধু বায়ু","শুধু জীব",0],
+ ["খনিজ ব্যবহার হয়","বিভিন্ন কাজে","কোনো কাজেই নয়","শুধু খেলায়","শুধু ঘুমে",0],
+ ["শিলা সাধারণত","কঠিন","গ্যাস","তরল","বাষ্প",0]
+ ]
+ }
+
+ ]},
+
+"History":{
+ icon:"🏛️",
+ topics:[
+
+ {
+ title:"ইতিহাসের ধারণা",
+ summary:"অতীতের মানুষ, সমাজ, সংস্কৃতি ও ঘটনাবলির ধারাবাহিক অধ্যয়নকে ইতিহাসের সঙ্গে যুক্ত করা হয়। বিভিন্ন উৎস থেকে অতীত সম্পর্কে তথ্য জানা যায়।",
+ points:[
+ "ইতিহাস অতীতকে বুঝতে সাহায্য করে।",
+ "লিখিত ও প্রত্নতাত্ত্বিক উৎস গুরুত্বপূর্ণ।",
+ "অতীতের সমাজ ও সংস্কৃতি সম্পর্কে জানা যায়।",
+ "ঘটনার সময় ও ধারাবাহিকতা গুরুত্বপূর্ণ।"
+ ],
+ revision:"ইতিহাসের উৎস → তথ্য → বিশ্লেষণ → অতীতের ধারণা—এই ধারাটি মনে রাখো।",
+ qs:[
+ ["ইতিহাস কী বুঝতে সাহায্য করে?","অতীত","শুধু ভবিষ্যৎ","শুধু আবহাওয়া","শুধু গণিত",0],
+ ["ইতিহাসের একটি উৎস কোনটি?","প্রত্নতাত্ত্বিক নিদর্শন","শুধু খেলনা","শুধু গান","শুধু ছবি",0],
+ ["ইতিহাসে কোনটি গুরুত্বপূর্ণ?","সময় ও ধারাবাহিকতা","শুধু রং","শুধু উচ্চতা","শুধু সংখ্যা",0],
+ ["অতীতের কী জানা যায়?","সমাজ ও সংস্কৃতি","শুধু খাদ্য","শুধু আবহাওয়া","কোনোটিই নয়",0],
+ ["ইতিহাস অধ্যয়নের বিষয়","অতীতের মানুষ ও ঘটনা","শুধু বর্তমান","শুধু ভবিষ্যৎ","শুধু বিজ্ঞান",0]
+ ]
+ },
+
+ {
+ title:"আদিম মানুষ",
+ summary:"মানবসভ্যতার প্রাথমিক পর্যায়ে মানুষ প্রকৃতির উপর নির্ভর করে জীবনযাপন করত। শিকার, খাদ্য সংগ্রহ এবং পরে কৃষি ও স্থায়ী বসতির বিকাশ মানবজীবনে পরিবর্তন আনে।",
+ points:[
+ "প্রথমদিকে মানুষ প্রকৃতির উপর নির্ভরশীল ছিল।",
+ "শিকার ও খাদ্য সংগ্রহ ছিল গুরুত্বপূর্ণ।",
+ "আগুনের ব্যবহার জীবনকে বদলে দেয়।",
+ "কৃষি ও স্থায়ী বসতি সভ্যতার বিকাশে গুরুত্বপূর্ণ।"
+ ],
+ revision:"শিকার-সংগ্রহ → আগুন → কৃষি → স্থায়ী বসতি—এই পরিবর্তনের ধারা মনে রাখো।",
+ qs:[
+ ["আদিম মানুষ প্রধানত কীসের উপর নির্ভর করত?","প্রকৃতি","কারখানা","ইন্টারনেট","বিদ্যুৎ",0],
+ ["আদিম মানুষের একটি কাজ ছিল","শিকার","কম্পিউটার চালানো","কারখানা চালানো","গাড়ি চালানো",0],
+ ["আগুনের ব্যবহার কী বদলেছিল?","মানুষের জীবনযাপন","শুধু ভাষা","শুধু পোশাক","কোনোটিই নয়",0],
+ ["কৃষির ফলে কী বাড়ে?","স্থায়ী বসতি","শুধু শিকার","শুধু ভ্রমণ","শুধু গুহা",0],
+ ["স্থায়ী বসতি গঠনে গুরুত্বপূর্ণ ছিল","কৃষি","শুধু শিকার","শুধু মাছ ধরা","শুধু গুহা",0]
+ ]
+ },
+
+ {
+ title:"প্রাচীন ভারতের শিক্ষা ও সাহিত্য",
+ summary:"প্রাচীন ভারতীয় উপমহাদেশে শিক্ষা, সাহিত্য, বিজ্ঞান ও শিল্পের বিভিন্ন ধারা বিকশিত হয়েছিল। জ্ঞানচর্চা ও সাংস্কৃতিক কর্মকাণ্ড সমাজের গুরুত্বপূর্ণ অংশ ছিল।",
+ points:[
+ "প্রাচীন ভারতে শিক্ষা ও জ্ঞানচর্চার ঐতিহ্য ছিল।",
+ "সাহিত্য ও ভাষার বিকাশ ঘটেছিল।",
+ "বিজ্ঞান ও গণিতের চর্চা ছিল।",
+ "শিল্প ও স্থাপত্যের নানা নিদর্শন পাওয়া যায়।"
+ ],
+ revision:"শিক্ষা, সাহিত্য, বিজ্ঞান ও শিল্প—এই চারটি ক্ষেত্র একসঙ্গে মনে রাখো।",
+ qs:[
+ ["প্রাচীন ভারতের একটি গুরুত্বপূর্ণ ক্ষেত্র","শিক্ষা","শুধু খেলাধুলা","শুধু বাণিজ্য","শুধু যুদ্ধ",0],
+ ["সাহিত্য কোন ক্ষেত্রের সঙ্গে যুক্ত?","জ্ঞান ও সংস্কৃতি","শুধু কৃষি","শুধু যুদ্ধ","শুধু পরিবহন",0],
+ ["প্রাচীন ভারতে কোনটির চর্চা ছিল?","বিজ্ঞান ও গণিত","শুধু কম্পিউটার","শুধু বিমান","শুধু রোবট",0],
+ ["শিল্পের একটি নিদর্শন হতে পারে","স্থাপত্য","শুধু রাস্তা","শুধু জল","শুধু বাতাস",0],
+ ["সংস্কৃতির অংশ কোনটি?","সাহিত্য","শুধু সংখ্যা","শুধু মাটি","শুধু বৃষ্টি",0]
+ ]
+ },
+
+ {
+ title:"প্রাচীন ভারতীয় সংস্কৃতি",
+ summary:"প্রাচীন ভারতীয় উপমহাদেশের সংস্কৃতিতে শিক্ষা, সাহিত্য, বিজ্ঞান, শিল্প, স্থাপত্য ও নানা সামাজিক রীতির বিকাশ লক্ষ্য করা যায়।",
+ points:[
+ "সংস্কৃতি মানুষের জীবনযাত্রার সঙ্গে যুক্ত।",
+ "শিল্প ও স্থাপত্য সাংস্কৃতিক ঐতিহ্যের অংশ।",
+ "সাহিত্য অতীতের চিন্তাধারা জানতে সাহায্য করে।",
+ "প্রাচীন নিদর্শন ইতিহাসের গুরুত্বপূর্ণ উৎস।"
+ ],
+ revision:"কোনো প্রাচীন নিদর্শন দেখলে তার সময়, ব্যবহার ও সাংস্কৃতিক গুরুত্ব ভাবো।",
+ qs:[
+ ["সংস্কৃতি কীসের সঙ্গে যুক্ত?","মানুষের জীবনযাত্রা","শুধু আবহাওয়া","শুধু নদী","শুধু পাহাড়",0],
+ ["স্থাপত্য কীসের অংশ?","সংস্কৃতি","শুধু কৃষি","শুধু গণিত","শুধু জলবায়ু",0],
+ ["সাহিত্য কী জানতে সাহায্য করে?","অতীতের চিন্তাধারা","শুধু আবহাওয়া","শুধু নদী","শুধু পাহাড়",0],
+ ["প্রাচীন নিদর্শন কী?","ইতিহাসের উৎস","শুধু খেলনা","শুধু খাদ্য","শুধু পোশাক",0],
+ ["সংস্কৃতির একটি উপাদান","শিল্প","শুধু সংখ্যা","শুধু বায়ু","শুধু জল",0]
+ ]
+ }
+
+ ]}
+
+};
+
+
+let currentSubject="";
+let currentTopic=null;
+let currentQuestion=0;
+let score=0;
+
+
+/* SUBJECTS */
+
+function loadSubjects(){
+
+ const box=document.getElementById("subjectList");
+ box.innerHTML="";
+
+ Object.keys(subjects).forEach(name=>{
+
+  const s=subjects[name];
+
+  const div=document.createElement("div");
+  div.className="subject";
+  div.innerHTML=`
+   <div class="icon">${s.icon}</div>
+   <h3>${name}</h3>
+   <small>${s.topics.length} Topics</small>
+  `;
+
+  div.onclick=()=>selectSubject(name);
+
+  box.appendChild(div);
+
+ });
+
+}
+
+
+/* TOPICS */
+
+function selectSubject(name){
+
+ currentSubject=name;
+
+ document.querySelectorAll(".subject").forEach(x=>x.classList.remove("active"));
+
+ const area=document.getElementById("topicArea");
+
+ area.innerHTML=`
+ <div class="card">
+ <div class="badge">${subjects[name].icon} ${name}</div>
+ <h2>অধ্যায় / Topic নির্বাচন করুন</h2>
+ <div class="topic-grid" id="topics"></div>
+ </div>
+ `;
+
+ const grid=document.getElementById("topics");
+
+ subjects[name].topics.forEach((topic,index)=>{
+
+  const div=document.createElement("div");
+  div.className="topic";
+
+  div.innerHTML=`
+   <h3>${index+1}. ${topic.title}</h3>
+   <p>${topic.summary}</p>
+   <button class="btn">📖 পড়ুন</button>
+  `;
+
+  div.onclick=()=>{
+   currentTopic=topic;
+   openStudy();
+  };
+
+  grid.appendChild(div);
+
+ });
+
+}
+
+
+/* STUDY */
+
+function openStudy(){
+
+ document.getElementById("home").classList.add("hidden");
+ document.getElementById("quiz").classList.add("hidden");
+ document.getElementById("study").classList.remove("hidden");
+
+ document.getElementById("studySubject").textContent=
+ subjects[currentSubject].icon+" "+currentSubject;
+
+ document.getElementById("studyTitle").textContent=
+ currentTopic.title;
+
+ document.getElementById("studySummary").textContent=
+ currentTopic.summary;
+
+ const list=document.getElementById("studyPoints");
+ list.innerHTML="";
+
+ currentTopic.points.forEach(p=>{
+  const li=document.createElement("li");
+  li.textContent=p;
+  list.appendChild(li);
+ });
+
+ document.getElementById("studyRevision").textContent=
+ currentTopic.revision;
+
+ localStorage.setItem(
+ "class6_recent",
+ currentSubject+" • "+currentTopic.title
+ );
+
+ showRecent();
+
+}
+
+
+/* QUIZ */
+
+function startQuiz(){
+
+ currentQuestion=0;
+ score=0;
+
+ document.getElementById("study").classList.add("hidden");
+ document.getElementById("quiz").classList.remove("hidden");
+
+ document.getElementById("quizSubject").textContent=
+ subjects[currentSubject].icon+" "+currentSubject;
+
+ document.getElementById("quizTitle").textContent=
+ currentTopic.title+" — MCQ Quiz";
+
+ document.getElementById("quizResult").classList.add("hidden");
+ document.getElementById("retryBtn").classList.add("hidden");
+ document.getElementById("nextBtn").classList.add("hidden");
+
+ showQuestion();
+
+}
+
+
+function showQuestion(){
+
+ const q=currentTopic.qs[currentQuestion];
+
+ const box=document.getElementById("questionBox");
+
+ box.innerHTML=`
+ <div style="color:#82c9ff;margin-bottom:12px">
+ প্রশ্ন ${currentQuestion+1} / ${currentTopic.qs.length}
+ </div>
+
+ <h3>${q[0]}</h3>
+
+ <div id="options"></div>
+ `;
+
+ const opt=document.getElementById("options");
+
+ for(let i=1;i<=4;i++){
+
+  const button=document.createElement("button");
+
+  button.className="quiz-option";
+  button.textContent=q[i];
+
+  button.onclick=()=>answer(button,i-1,q[5],q[1]);
+
+  opt.appendChild(button);
+
+ }
+
+}
+
+
+function answer(button,selected,correct,correctText){
+
+ const buttons=document.querySelectorAll(".quiz-option");
+
+ buttons.forEach(b=>b.disabled=true);
+
+ if(selected===correct){
+
+  button.classList.add("correct");
+  score++;
+
+ }else{
+
+  button.classList.add("wrong");
+
+  buttons[correct].classList.add("correct");
+
+ }
+
+ const explanation=document.createElement("div");
+
+ explanation.className="card";
+
+ explanation.style.marginTop="15px";
+
+ explanation.innerHTML=`
+ <strong>সঠিক উত্তর:</strong> ${correctText}<br><br>
+ <span style="color:#9fb2c8">
+ ${selected===correct
+ ? "সঠিক! খুব ভালো হয়েছে।"
+ : "এই প্রশ্নটি আবার পড়ো এবং সঠিক উত্তরটি মনে রাখো।"}
+ </span>
+ `;
+
+ document.getElementById("questionBox").appendChild(explanation);
+
+ document.getElementById("nextBtn").classList.remove("hidden");
+
+}
+
+
+function nextQuestion(){
+
+ currentQuestion++;
+
+ document.getElementById("nextBtn").classList.add("hidden");
+
+ if(currentQuestion<currentTopic.qs.length){
+
+  showQuestion();
+
+ }else{
+
+  finishQuiz();
+
+ }
+
+}
+
+
+function finishQuiz(){
+
+ const total=currentTopic.qs.length;
+ const percent=Math.round((score/total)*100);
+
+ document.getElementById("questionBox").innerHTML=`
+ <div class="result">
+ 🎉 Quiz Complete!<br><br>
+ Score: ${score} / ${total}<br>
+ Percentage: ${percent}%
+ </div>
+ `;
+
+ document.getElementById("retryBtn").classList.remove("hidden");
+
+}
+
+
+/* HOME */
+
+function goHome(){
+
+ document.getElementById("study").classList.add("hidden");
+ document.getElementById("quiz").classList.add("hidden");
+ document.getElementById("home").classList.remove("hidden");
+
+}
+
+function showRecent(){
+
+ const recent=localStorage.getItem("class6_recent");
+
+ if(recent){
+
+  document.getElementById("recent").textContent=
+  "🕘 Recently studied: "+recent;
+
+ }
+
+}
+
+
+/* START */
+
+loadSubjects();
+showRecent();
+
+</script>
+
+</body>
+</html>
