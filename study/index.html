@@ -2,472 +2,178 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ASIM STUDY • Class 5</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",
-  "Noto Sans Bengali",sans-serif;
-  background:
-    radial-gradient(circle at top left,#182a55 0,#0b1224 38%,#050914 100%);
-  color:#f5f7ff;
-  min-height:100vh;
+font-family:system-ui,-apple-system,"Noto Sans Bengali","Segoe UI",sans-serif;
+background:radial-gradient(circle at top left,#172b58,#081020 45%,#040811);
+color:#f5f7ff;min-height:100vh
 }
-
-button{
-  font:inherit;
-  cursor:pointer;
-}
-
-.container{
-  width:min(1150px,94%);
-  margin:auto;
-}
-
-/* HEADER */
+button{font:inherit;cursor:pointer}
+.container{width:min(1180px,94%);margin:auto}
 
 header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter:blur(18px);
-  background:rgba(5,9,20,.78);
-  border-bottom:1px solid rgba(255,255,255,.08);
+position:sticky;top:0;z-index:20;
+background:rgba(4,8,18,.82);
+backdrop-filter:blur(18px);
+border-bottom:1px solid #ffffff12
 }
-
-.nav{
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:900;
-  letter-spacing:.5px;
-}
-
-.logo span{
-  color:#70a5ff;
-}
-
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:23px;font-weight:900}
+.logo span{color:#72a8ff}
 .badge{
-  padding:8px 14px;
-  border-radius:30px;
-  background:rgba(80,140,255,.13);
-  border:1px solid rgba(110,160,255,.25);
-  color:#a9c9ff;
-  font-size:13px;
+padding:8px 14px;border-radius:30px;
+background:#387cf620;color:#9ec3ff;
+border:1px solid #6fa5ff35;font-size:13px;font-weight:700
 }
 
-/* HERO */
-
-.hero{
-  padding:55px 0 35px;
-}
-
+.hero{padding:45px 0 30px}
 .hero-box{
-  padding:34px;
-  border-radius:28px;
-  background:
-    linear-gradient(135deg,rgba(70,120,255,.16),rgba(255,255,255,.045));
-  border:1px solid rgba(255,255,255,.1);
-  box-shadow:0 25px 80px rgba(0,0,0,.25);
+padding:35px;border-radius:28px;
+background:linear-gradient(135deg,#4d8cff22,#ffffff08);
+border:1px solid #ffffff14;
+box-shadow:0 25px 80px #0006
 }
-
-.hero h1{
-  font-size:clamp(32px,6vw,58px);
-  line-height:1.05;
-  margin-bottom:15px;
+.tag{
+display:inline-block;padding:8px 13px;border-radius:20px;
+background:#1a3260;color:#9ec3ff;font-size:13px;font-weight:800;
+margin-bottom:17px
 }
+.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.05}
+.hero h1 span{color:#72a8ff}
+.hero p{margin-top:15px;color:#aeb9ce;line-height:1.8;max-width:780px}
 
-.hero h1 span{
-  color:#72a8ff;
+.title{font-size:24px;margin:25px 0 17px}
+
+.subjects{
+display:grid;grid-template-columns:repeat(4,1fr);gap:15px
 }
-
-.hero p{
-  color:#aab5cc;
-  max-width:720px;
-  line-height:1.7;
-  font-size:16px;
-}
-
-.class-tag{
-  display:inline-block;
-  margin-bottom:18px;
-  padding:8px 13px;
-  border-radius:20px;
-  background:#182c55;
-  color:#8db9ff;
-  font-weight:700;
-  font-size:13px;
-}
-
-/* SUBJECTS */
-
-.section-title{
-  font-size:24px;
-  margin:25px 0 17px;
-}
-
-.subject-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
 .subject{
-  position:relative;
-  padding:22px;
-  min-height:150px;
-  border-radius:23px;
-  background:rgba(255,255,255,.055);
-  border:1px solid rgba(255,255,255,.09);
-  transition:.25s;
-  overflow:hidden;
+padding:22px;border-radius:22px;
+background:#ffffff08;border:1px solid #ffffff12;
+transition:.2s
 }
-
-.subject:hover{
-  transform:translateY(-5px);
-  border-color:rgba(120,170,255,.4);
-  background:rgba(100,150,255,.09);
+.subject:hover,.subject.active{
+transform:translateY(-4px);
+background:#4d8cff12;border-color:#5e99ff55
 }
-
-.subject .icon{
-  font-size:34px;
-  margin-bottom:12px;
-}
-
-.subject h3{
-  font-size:19px;
-  margin-bottom:7px;
-}
-
-.subject p{
-  color:#9faac0;
-  font-size:13px;
-}
-
-.subject.active{
-  border-color:#5c96ff;
-  box-shadow:0 12px 35px rgba(65,125,255,.13);
-}
-
-/* CHAPTERS */
-
-.chapter-area{
-  margin:35px 0;
-}
-
-.chapter-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-
-.chapter{
-  padding:19px;
-  border-radius:20px;
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.08);
-  transition:.2s;
-}
-
-.chapter:hover{
-  background:rgba(85,140,255,.09);
-  transform:translateY(-3px);
-}
-
-.chapter-number{
-  color:#76aaff;
-  font-size:12px;
-  font-weight:800;
-  margin-bottom:8px;
-}
-
-.chapter h3{
-  font-size:16px;
-  line-height:1.45;
-  margin-bottom:12px;
-}
-
-.open-btn{
-  border:0;
-  background:#387cf6;
-  color:white;
-  padding:9px 14px;
-  border-radius:12px;
-  font-size:13px;
-  font-weight:700;
-}
-
-.open-btn:hover{
-  background:#5792ff;
-}
-
-/* RECENT */
+.icon{font-size:34px;margin-bottom:12px}
+.subject h3{font-size:19px;margin-bottom:6px}
+.subject p{font-size:13px;color:#9ca8bd}
 
 .recent{
-  display:none;
-  margin:30px 0;
-  padding:20px;
-  border-radius:22px;
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.08);
+display:none;margin-top:25px;padding:18px 20px;
+border-radius:20px;background:#ffffff08;border:1px solid #ffffff12
 }
-
-.recent.show{
-  display:block;
-}
-
+.recent.show{display:block}
 .recent button{
-  margin-top:12px;
-  border:1px solid rgba(120,170,255,.3);
-  background:rgba(70,130,255,.1);
-  color:#a7c8ff;
-  padding:9px 14px;
-  border-radius:12px;
+margin-top:12px;border:1px solid #679dff45;
+background:#397df61a;color:#a9c8ff;
+padding:9px 14px;border-radius:11px
 }
 
-/* STUDY */
-
-.study{
-  display:none;
-  margin:35px 0;
+.chapters{
+display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+margin-bottom:40px
+}
+.chapter{
+padding:19px;border-radius:19px;
+background:#ffffff07;border:1px solid #ffffff10
+}
+.chapter:hover{background:#4d8cff10}
+.number{font-size:11px;color:#75aaff;font-weight:900;margin-bottom:8px}
+.chapter h3{font-size:16px;line-height:1.5;min-height:48px}
+.open{
+margin-top:12px;border:0;background:#397df6;color:white;
+padding:9px 14px;border-radius:11px;font-weight:700
 }
 
-.study.show{
-  display:block;
+.study{display:none;margin:30px 0 50px}
+.study.show{display:block}
+.studybox{
+padding:28px;border-radius:26px;
+background:#ffffff08;border:1px solid #ffffff14
+}
+.studyhead{
+display:flex;justify-content:space-between;gap:15px;
+margin-bottom:25px
+}
+.subjectname{color:#79aaff;font-size:13px;font-weight:800;margin-bottom:7px}
+.study h2{font-size:29px;line-height:1.3}
+.close{
+border:0;background:#ffffff0d;color:#cbd4e7;
+height:40px;padding:0 14px;border-radius:11px
 }
 
-.study-box{
-  border-radius:27px;
-  background:rgba(255,255,255,.055);
-  border:1px solid rgba(255,255,255,.1);
-  padding:28px;
+.cards{
+display:grid;grid-template-columns:1fr 1fr;gap:15px
 }
-
-.study-top{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  align-items:flex-start;
-  margin-bottom:25px;
+.card{
+padding:20px;border-radius:19px;
+background:#03071388;border:1px solid #ffffff0d
 }
+.card h3{color:#9fc4ff;margin-bottom:11px}
+.card p,.card li{color:#c3cada;line-height:1.8;font-size:15px}
+.card ul{padding-left:20px}
 
-.subject-name{
-  color:#79aaff;
-  font-size:13px;
-  font-weight:800;
-  margin-bottom:8px;
-}
-
-.study h2{
-  font-size:29px;
-  line-height:1.25;
-}
-
-.close-btn{
-  border:0;
-  background:rgba(255,255,255,.08);
-  color:#cbd4e8;
-  padding:9px 14px;
-  border-radius:12px;
-}
-
-/* CONTENT */
-
-.content-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.content-card{
-  padding:21px;
-  border-radius:20px;
-  background:rgba(4,8,18,.38);
-  border:1px solid rgba(255,255,255,.07);
-}
-
-.content-card h3{
-  margin-bottom:12px;
-  color:#9fc3ff;
-}
-
-.content-card p{
-  color:#c3cad9;
-  line-height:1.8;
-  font-size:15px;
-}
-
-.content-card ul{
-  padding-left:20px;
-}
-
-.content-card li{
-  color:#c3cad9;
-  line-height:1.8;
-  margin:4px 0;
-}
-
-/* QUIZ */
-
-.quiz{
-  margin-top:20px;
-}
-
-.quiz-header{
-  margin-bottom:18px;
-}
-
-.quiz-header h3{
-  font-size:23px;
-}
-
+.quiz{margin-top:24px}
+.quiztitle{font-size:23px;margin-bottom:6px}
+.quizsub{color:#8995aa;font-size:13px;margin-bottom:15px}
 .question{
-  padding:21px;
-  margin-bottom:15px;
-  border-radius:19px;
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.07);
+padding:20px;margin-bottom:13px;border-radius:18px;
+background:#ffffff07;border:1px solid #ffffff0d
 }
-
-.question h4{
-  margin-bottom:13px;
-  line-height:1.5;
-}
-
+.question h4{line-height:1.55;margin-bottom:11px}
 .option{
-  display:block;
-  margin:8px 0;
-  padding:12px 14px;
-  border-radius:12px;
-  background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.06);
-  color:#cbd3e3;
+display:block;padding:11px 13px;margin:7px 0;
+border-radius:11px;background:#ffffff06;color:#cbd4e5
 }
-
-.option:hover{
-  background:rgba(80,140,255,.09);
-}
-
-.option input{
-  margin-right:9px;
-}
+.option:hover{background:#4d8cff12}
+.option input{margin-right:8px}
 
 .submit{
-  margin-top:8px;
-  width:100%;
-  border:0;
-  padding:14px;
-  border-radius:15px;
-  background:linear-gradient(135deg,#397cf6,#5d9bff);
-  color:white;
-  font-weight:800;
+width:100%;border:0;margin-top:4px;
+padding:14px;border-radius:14px;
+background:linear-gradient(135deg,#397df6,#5d9bff);
+color:white;font-weight:900
 }
-
 .result{
-  display:none;
-  margin-top:20px;
-  padding:23px;
-  border-radius:20px;
-  background:rgba(60,130,255,.09);
-  border:1px solid rgba(90,150,255,.25);
+display:none;margin-top:18px;padding:22px;
+border-radius:19px;background:#397df612;
+border:1px solid #5d9bff35
 }
-
-.result.show{
-  display:block;
+.result.show{display:block}
+.score{font-size:34px;font-weight:900;color:#82b3ff}
+.feedback{margin-top:6px;color:#cbd4e6}
+.answer{
+margin-top:10px;padding:12px;border-radius:11px;
+background:#00000025;color:#cbd4e5;line-height:1.65
 }
-
-.score{
-  font-size:32px;
-  font-weight:900;
-  color:#83b2ff;
-  margin-bottom:8px;
-}
-
-.explanation{
-  margin-top:12px;
-  padding:12px;
-  border-radius:12px;
-  background:rgba(0,0,0,.18);
-  color:#cbd3e3;
-  line-height:1.6;
-}
-
 .try{
-  margin-top:15px;
-  border:0;
-  background:#263d68;
-  color:#cfe0ff;
-  padding:11px 17px;
-  border-radius:12px;
-  font-weight:700;
+margin-top:15px;border:0;background:#29436f;
+color:#d5e4ff;padding:10px 15px;border-radius:11px
 }
-
-/* FOOTER */
 
 footer{
-  margin-top:60px;
-  padding:30px 0;
-  text-align:center;
-  color:#737e94;
-  border-top:1px solid rgba(255,255,255,.06);
-  font-size:13px;
+margin-top:50px;padding:28px;text-align:center;
+border-top:1px solid #ffffff0d;color:#707c92;font-size:13px
 }
-
-/* MOBILE */
 
 @media(max-width:850px){
-  .subject-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .chapter-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+.subjects{grid-template-columns:1fr 1fr}
+.chapters{grid-template-columns:1fr 1fr}
 }
-
 @media(max-width:600px){
-  .hero{
-    padding-top:30px;
-  }
-
-  .hero-box{
-    padding:24px;
-  }
-
-  .subject-grid,
-  .chapter-grid,
-  .content-grid{
-    grid-template-columns:1fr;
-  }
-
-  .study-box{
-    padding:20px;
-  }
-
-  .study-top{
-    flex-direction:column;
-  }
-
-  .study h2{
-    font-size:24px;
-  }
-
-  .badge{
-    display:none;
-  }
+.hero{padding-top:28px}
+.hero-box{padding:24px}
+.subjects,.chapters,.cards{grid-template-columns:1fr}
+.studybox{padding:20px}
+.studyhead{flex-direction:column}
+.study h2{font-size:24px}
+.badge{display:none}
 }
 </style>
 </head>
@@ -475,896 +181,1041 @@ footer{
 <body>
 
 <header>
-  <div class="container nav">
-    <div class="logo">ASIM <span>STUDY</span></div>
-    <div class="badge">CLASS 5 • 2026</div>
-  </div>
+<div class="container nav">
+<div class="logo">ASIM <span>STUDY</span></div>
+<div class="badge">CLASS 5 • 2026</div>
+</div>
 </header>
 
 <main class="container">
 
 <section class="hero">
-  <div class="hero-box">
-    <div class="class-tag">CLASS 5 • STUDY EDITION</div>
-    <h1>শিখি সহজে,<br><span>মনে রাখি সহজে।</span></h1>
-    <p>
-      Class 5-এর বাংলা, English, গণিত এবং পরিবেশ—
-      প্রতিটি বিষয়ের chapter বেছে নিয়ে সহজ Study Note পড়ুন,
-      Important Points দেখুন এবং শেষে MCQ Quiz দিয়ে নিজের প্রস্তুতি যাচাই করুন।
-    </p>
-  </div>
+<div class="hero-box">
+<div class="tag">CLASS 5 • COMPLETE STUDY EDITION</div>
+<h1>শিখি সহজে,<br><span>মনে রাখি সহজে।</span></h1>
+<p>
+বাংলা, English, গণিত ও পরিবেশ—chapter অনুযায়ী Study Note,
+Important Points এবং 10 প্রশ্নের Quiz দিয়ে Class 5-এর প্রস্তুতি।
+</p>
+</div>
 </section>
 
-<h2 class="section-title">📚 চারটি বিষয়</h2>
+<h2 class="title">📚 চারটি বিষয়</h2>
+<div class="subjects" id="subjects"></div>
 
-<section class="subject-grid" id="subjects"></section>
+<div class="recent" id="recent">
+<b>🕘 Recently Studied</b>
+<div id="recentText"></div>
+<button onclick="openRecent()">Continue Studying →</button>
+</div>
 
-<section class="recent" id="recent">
-  <strong>🕘 Recently Studied</strong>
-  <div id="recentText"></div>
-  <button onclick="openRecent()">Continue Studying →</button>
-</section>
-
-<section class="chapter-area">
-  <h2 class="section-title" id="chapterTitle">📖 Chapter নির্বাচন করুন</h2>
-  <div class="chapter-grid" id="chapters"></div>
-</section>
+<h2 class="title" id="chapterTitle">📖 Chapter নির্বাচন করুন</h2>
+<div class="chapters" id="chapters"></div>
 
 <section class="study" id="study">
-  <div class="study-box">
 
-    <div class="study-top">
-      <div>
-        <div class="subject-name" id="studySubject"></div>
-        <h2 id="studyTitle"></h2>
-      </div>
+<div class="studybox">
 
-      <button class="close-btn" onclick="closeStudy()">✕ Close</button>
-    </div>
+<div class="studyhead">
+<div>
+<div class="subjectname" id="studySubject"></div>
+<h2 id="studyTitle"></h2>
+</div>
+<button class="close" onclick="closeStudy()">✕ Close</button>
+</div>
 
-    <div class="content-grid">
+<div class="cards">
 
-      <div class="content-card">
-        <h3>📘 সহজে বুঝি</h3>
-        <p id="summary"></p>
-      </div>
+<div class="card">
+<h3>📘 সহজে বুঝি</h3>
+<p id="summary"></p>
+</div>
 
-      <div class="content-card">
-        <h3>⭐ গুরুত্বপূর্ণ বিষয়</h3>
-        <ul id="points"></ul>
-      </div>
+<div class="card">
+<h3>⭐ গুরুত্বপূর্ণ বিষয়</h3>
+<ul id="points"></ul>
+</div>
 
-      <div class="content-card">
-        <h3>📝 Study Note</h3>
-        <p id="note"></p>
-      </div>
+<div class="card">
+<h3>📝 Study Note</h3>
+<p id="note"></p>
+</div>
 
-      <div class="content-card">
-        <h3>🎯 পরীক্ষার প্রস্তুতি</h3>
-        <p id="exam"></p>
-      </div>
+<div class="card">
+<h3>🎯 পরীক্ষার প্রস্তুতি</h3>
+<p id="exam"></p>
+</div>
 
-    </div>
+</div>
 
-    <div class="quiz">
-      <div class="quiz-header">
-        <h3>🧠 Chapter Quiz</h3>
-        <p style="color:#929db2;margin-top:5px">
-          প্রতিটি প্রশ্নের সঠিক উত্তর নির্বাচন করুন।
-        </p>
-      </div>
+<div class="quiz">
+<div class="quiztitle">🧠 Chapter Quiz</div>
+<div class="quizsub">১০টি প্রশ্ন • প্রতিটি ১ নম্বর</div>
 
-      <div id="quizBox"></div>
+<div id="quizBox"></div>
 
-      <button class="submit" onclick="submitQuiz()">
-        Submit Quiz
-      </button>
+<button class="submit" onclick="submitQuiz()">Submit Quiz</button>
 
-      <div class="result" id="result"></div>
-    </div>
+<div class="result" id="result"></div>
+</div>
 
-  </div>
+</div>
 </section>
 
 </main>
 
 <footer>
-  ASIM STUDY • Class 5 Learning App
+ASIM STUDY • Class 5 Learning App
 </footer>
-
 
 <script>
 
 /* =========================================================
-   CLASS 5 DATA
+   CLASS 5 CONTENT
 ========================================================= */
 
-const DATA = {
+const DATA={
 
 "বাংলা":{
- icon:"📖",
- desc:"পাঠ, ব্যাকরণ ও ভাষা শিক্ষা",
- chapters:[
+icon:"📖",
+desc:"পাঠ • ব্যাকরণ • ভাষা",
+chapters:[
 
- {
-  title:"ছেলেবেলা",
-  summary:"এই পাঠে শৈশবের স্মৃতি, ছোটবেলার নানা অভিজ্ঞতা এবং শিশুমনের কৌতূহল ও আনন্দের কথা তুলে ধরা হয়েছে।",
-  points:[
-   "শৈশব জীবনের অত্যন্ত আনন্দময় সময়।",
-   "ছোটবেলার অভিজ্ঞতা মানুষের মনে দীর্ঘদিন থাকে।",
-   "কৌতূহল শিশুর শেখার অন্যতম শক্তি।",
-   "পরিবেশ ও পরিবার শিশুর মানসিক বিকাশে গুরুত্বপূর্ণ।"
-  ],
-  note:"পাঠটি পড়ার সময় লেখকের শৈশবের অভিজ্ঞতা এবং শিশুমনের অনুভূতিগুলি আলাদা করে মনে রাখবে।",
-  exam:"পাঠের মূলভাব, লেখকের শৈশবের অভিজ্ঞতা এবং গুরুত্বপূর্ণ শব্দের অর্থ ভালোভাবে অনুশীলন করো.",
-  quiz:[
-   ["ছেলেবেলা বলতে কোন সময়কে বোঝায়?","শৈশব","বার্ধক্য","যৌবন","প্রাপ্তবয়স্ক জীবন",0],
-   ["শিশুর শেখার একটি গুরুত্বপূর্ণ শক্তি কী?","কৌতূহল","অলসতা","ভয়","রাগ",0],
-   ["শৈশবের অভিজ্ঞতা সাধারণত কী করে?","মনে থেকে যায়","ভুলে যায়","কাজ বন্ধ করে","সময় থামিয়ে দেয়",0]
-  ]
- },
+{
+title:"ছেলেবেলা",
+summary:"শৈশবের স্মৃতি, ছোটবেলার অভিজ্ঞতা এবং শিশুমনের কৌতূহল ও আনন্দ এই পাঠের মূল বিষয়।",
+points:[
+"শৈশব জীবনের আনন্দময় সময়।",
+"ছোটবেলার অভিজ্ঞতা মনে দীর্ঘদিন থাকে।",
+"কৌতূহল শেখার বড় শক্তি।",
+"পরিবার ও পরিবেশ শিশুর বিকাশে গুরুত্বপূর্ণ।"
+],
+note:"পাঠের মূলভাব, শৈশবের অভিজ্ঞতা এবং গুরুত্বপূর্ণ শব্দের অর্থ বুঝে পড়ো।",
+exam:"মূলভাব, প্রশ্নোত্তর, শব্দার্থ ও বাক্য রচনা অনুশীলন করো।",
+quiz:[
+["ছেলেবেলা বলতে কোন সময়কে বোঝায়?","শৈশব","যৌবন","বার্ধক্য","প্রাপ্তবয়স্ক জীবন",0],
+["শিশুর শেখার বড় শক্তি কী?","কৌতূহল","অলসতা","ভয়","রাগ",0],
+["শৈশবের অভিজ্ঞতা সাধারণত কী করে?","মনে থেকে যায়","চিরতরে মুছে যায়","কাজ বন্ধ করে","সময় থামায়",0],
+["শিশুর বিকাশে কী গুরুত্বপূর্ণ?","পরিবার ও পরিবেশ","শুধু খেলনা","শুধু টাকা","শুধু পোশাক",0],
+["ছোটবেলার স্মৃতি কোথায় থাকে?","মনে","রাস্তার উপর","জলে","আকাশে",0],
+["শিশুর স্বাভাবিক বৈশিষ্ট্য কোনটি?","কৌতূহল","অবহেলা","নিষ্ঠুরতা","অলসতা",0],
+["শৈশব কেমন সময়?","আনন্দময়","শুধু দুঃখের","অর্থহীন","ভয়ের",0],
+["অভিজ্ঞতা থেকে কী হয়?","শেখা যায়","কিছুই শেখা যায় না","সময় থামে","ঘুম আসে",0],
+["পাঠের মূল বিষয় কোনটির সঙ্গে যুক্ত?","শৈশব","যুদ্ধ","ব্যবসা","জ্যোতির্বিজ্ঞান",0],
+["ভালোভাবে পড়ার জন্য কী দরকার?","বোঝার চেষ্টা","অমনোযোগ","তাড়াহুড়ো","অবহেলা",0]
+]
+},
 
- {
-  title:"একলা",
-  summary:"‘একলা’ পাঠে একা থাকার অনুভূতি, সাহস, নিজের চিন্তা এবং আত্মনির্ভরতার গুরুত্ব বোঝানো হয়েছে।",
-  points:[
-   "একাকীত্ব ও আত্মনির্ভরতা এক জিনিস নয়।",
-   "নিজের সিদ্ধান্ত নেওয়ার সাহস প্রয়োজন।",
-   "ভয়কে জয় করার জন্য আত্মবিশ্বাস দরকার।",
-   "কঠিন পরিস্থিতিতে ধৈর্য গুরুত্বপূর্ণ।"
-  ],
-  note:"পাঠটির মূল বক্তব্য নিজের উপর বিশ্বাস রাখা এবং প্রয়োজন হলে সাহসের সঙ্গে এগিয়ে চলা।",
-  exam:"পাঠের মূলভাব এবং ‘একলা’ শব্দের ভাবগত অর্থ বুঝে রাখো।",
-  quiz:[
-   ["‘একলা’ শব্দের অর্থ কী?","একা","অনেক","দলবদ্ধ","ভিড়",0],
-   ["কঠিন পরিস্থিতিতে কী প্রয়োজন?","সাহস","ভয়","অলসতা","হতাশা",0],
-   ["আত্মনির্ভরতার জন্য কী দরকার?","আত্মবিশ্বাস","অসততা","রাগ","অমনোযোগ",0]
-  ]
- },
+{
+title:"একলা",
+summary:"‘একলা’ পাঠে একা থাকা, আত্মবিশ্বাস, সাহস এবং নিজের শক্তির উপর ভরসা করার বিষয়টি বোঝানো হয়েছে।",
+points:[
+"একা থাকা ও আত্মনির্ভরতা এক নয়।",
+"আত্মবিশ্বাস মানুষকে সাহসী করে।",
+"ভয়কে জয় করার চেষ্টা করতে হয়।",
+"কঠিন সময়ে ধৈর্য প্রয়োজন।"
+],
+note:"নিজের উপর বিশ্বাস রাখা এবং কঠিন পরিস্থিতিতে সাহসী হওয়ার শিক্ষা মনে রাখো।",
+exam:"মূলভাব, শব্দার্থ ও পাঠভিত্তিক প্রশ্ন অনুশীলন করো।",
+quiz:[
+["‘একলা’ শব্দের অর্থ কী?","একা","অনেক","দলবদ্ধ","ভিড়",0],
+["কঠিন সময়ে কী প্রয়োজন?","সাহস","ভয়","অলসতা","রাগ",0],
+["আত্মনির্ভরতার জন্য কী দরকার?","আত্মবিশ্বাস","অবহেলা","অসততা","অমনোযোগ",0],
+["ভয়কে কীভাবে জয় করা যায়?","সাহস ও চেষ্টা দিয়ে","লুকিয়ে","কাঁদতে কাঁদতে","অন্যকে দোষ দিয়ে",0],
+["ধৈর্য কখন প্রয়োজন?","কঠিন সময়ে","শুধু খেলায়","ঘুমের সময়","খাবারের সময়",0],
+["একলা মানেই কি অসহায়?","না","হ্যাঁ, সবসময়","শুধু রাতে","শুধু স্কুলে",0],
+["আত্মবিশ্বাস কী বাড়ায়?","সাহস","ভয়","অলসতা","রাগ",0],
+["নিজের উপর ভরসাকে কী বলা যায়?","আত্মবিশ্বাস","অবহেলা","দুর্বলতা","অসততা",0],
+["পাঠটি কী শেখায়?","সাহসী হতে","ভয় পেতে","হাল ছেড়ে দিতে","অন্যকে ঠকাতে",0],
+["কঠিন কাজে কী দরকার?","চেষ্টা","অলসতা","অমনোযোগ","ভয়",0]
+]
+},
 
- {
-  title:"বুনোহাঁস",
-  summary:"এই গল্পে প্রকৃতি, স্বাধীনতা এবং বুনো হাঁসের জীবনযাত্রার মাধ্যমে প্রাণী ও প্রকৃতির প্রতি ভালোবাসার কথা বোঝানো হয়েছে।",
-  points:[
-   "বন্যপ্রাণীর স্বাধীনভাবে বেঁচে থাকার অধিকার আছে।",
-   "প্রকৃতির ভারসাম্য রক্ষা করা প্রয়োজন।",
-   "প্রাণীদের প্রতি সহানুভূতিশীল হওয়া উচিত।",
-   "প্রকৃতিকে ভালোবাসা পরিবেশ রক্ষার অংশ।"
-  ],
-  note:"বুনোহাঁস পাঠে প্রকৃতি ও প্রাণীর স্বাধীনতার বিষয়টি বিশেষভাবে মনে রাখবে।",
-  exam:"গল্পের মূলভাব, চরিত্র এবং প্রকৃতির সঙ্গে সম্পর্কিত প্রশ্ন অনুশীলন করো।",
-  quiz:[
-   ["বুনোহাঁস কী ধরনের প্রাণী?","বন্য পাখি","গৃহপালিত পশু","মাছ","সরীসৃপ",0],
-   ["বন্যপ্রাণীর প্রতি আমাদের কেমন হওয়া উচিত?","সহানুভূতিশীল","নিষ্ঠুর","উদাসীন","অবহেলাকারী",0],
-   ["প্রকৃতির ভারসাম্য রক্ষায় কী প্রয়োজন?","প্রকৃতি সংরক্ষণ","বন ধ্বংস","দূষণ","অতিরিক্ত শিকার",0]
-  ]
- },
+{
+title:"বুনোহাঁস",
+summary:"বুনোহাঁসের জীবন, প্রকৃতি, স্বাধীনতা এবং প্রাণীর প্রতি মানুষের দায়িত্ব এই পাঠের গুরুত্বপূর্ণ ভাবনা।",
+points:[
+"বন্যপ্রাণীর স্বাধীনভাবে বাঁচার অধিকার আছে।",
+"প্রকৃতির ভারসাম্য রক্ষা জরুরি।",
+"প্রাণীর প্রতি সহানুভূতিশীল হতে হয়।",
+"প্রকৃতি ও প্রাণী পরস্পরের সঙ্গে যুক্ত।"
+],
+note:"গল্পের ঘটনা ও প্রকৃতি সংরক্ষণের শিক্ষা মনে রাখো।",
+exam:"মূলভাব, চরিত্র, শব্দার্থ ও প্রশ্নোত্তর অনুশীলন করো।",
+quiz:[
+["বুনোহাঁস কী?","বন্য পাখি","গৃহপালিত পশু","মাছ","সরীসৃপ",0],
+["বন্যপ্রাণীর প্রতি কেমন হওয়া উচিত?","সহানুভূতিশীল","নিষ্ঠুর","উদাসীন","অবহেলাকারী",0],
+["প্রকৃতির ভারসাম্য কেন দরকার?","জীবনের জন্য","দূষণের জন্য","বন কাটার জন্য","শিকার করার জন্য",0],
+["পাখির স্বাভাবিক জীবন কী?","স্বাধীনভাবে থাকা","খাঁচায় থাকা","শুধু ঘুমানো","শুধু খাওয়া",0],
+["প্রকৃতি রক্ষার একটি কাজ কী?","বন্যপ্রাণী রক্ষা","বন ধ্বংস","জল দূষণ","শিকার",0],
+["বন্যপ্রাণী কোথায় থাকতে পারে?","প্রাকৃতিক পরিবেশে","শুধু ঘরে","শুধু স্কুলে","শুধু বাজারে",0],
+["প্রাণীদের প্রতি কী থাকা উচিত?","মমতা","নিষ্ঠুরতা","ঘৃণা","অবহেলা",0],
+["জীববৈচিত্র্যের অংশ কী?","পাখি ও প্রাণী","শুধু পাথর","শুধু রাস্তা","শুধু বাড়ি",0],
+["প্রকৃতিকে ভালোবাসা কী শেখায়?","সংরক্ষণ","ধ্বংস","দূষণ","অপচয়",0],
+["গল্পের অন্যতম শিক্ষা কী?","প্রাণীর স্বাধীনতা সম্মান করা","প্রাণীকে কষ্ট দেওয়া","বন ধ্বংস করা","শিকার করা",0]
+]
+},
 
- {
-  title:"দারোগাবাবু এবং হাবু",
-  summary:"গল্পটির মাধ্যমে বুদ্ধি, সরলতা, হাস্যরস এবং মানুষের আচরণের বিভিন্ন দিক তুলে ধরা হয়েছে।",
-  points:[
-   "গল্পে হাস্যরসের উপস্থিতি রয়েছে।",
-   "চরিত্রের আচরণ থেকে শিক্ষা নেওয়া যায়।",
-   "বুদ্ধি ও উপস্থিত বুদ্ধি গুরুত্বপূর্ণ।",
-   "ঘটনাকে বুঝে সিদ্ধান্ত নেওয়া উচিত।"
-  ],
-  note:"গল্পের চরিত্রগুলির আচরণ এবং ঘটনাগুলির ধারাবাহিকতা মনে রাখো।",
-  exam:"চরিত্র পরিচয়, গল্পের ঘটনা এবং মূল বক্তব্য অনুশীলন করো।",
-  quiz:[
-   ["গল্পের প্রধান বৈশিষ্ট্য কী?","হাস্যরস","বিজ্ঞান","ভ্রমণ","জীবনী",0],
-   ["সঠিক সিদ্ধান্তের জন্য কী প্রয়োজন?","বুদ্ধি","অবহেলা","অসতর্কতা","অজ্ঞতা",0],
-   ["গল্প থেকে কী শেখা যায়?","ঘটনা বুঝে সিদ্ধান্ত নেওয়া","সবসময় ভয় পাওয়া","অন্যকে ঠকানো","অমনোযোগী হওয়া",0]
-  ]
- },
+{
+title:"দারোগাবাবু এবং হাবু",
+summary:"গল্পে হাস্যরস, বুদ্ধি, উপস্থিত বুদ্ধি এবং মানুষের আচরণের বিভিন্ন দিক ফুটে উঠেছে।",
+points:[
+"গল্পে হাস্যরস আছে।",
+"উপস্থিত বুদ্ধি গুরুত্বপূর্ণ।",
+"ঘটনা বুঝে সিদ্ধান্ত নিতে হয়।",
+"চরিত্রের আচরণ থেকে শিক্ষা পাওয়া যায়।"
+],
+note:"চরিত্র, ঘটনা এবং গল্পের হাস্যরসপূর্ণ দিক মনে রাখো।",
+exam:"চরিত্র পরিচয়, ঘটনা ও মূল বক্তব্য অনুশীলন করো।",
+quiz:[
+["গল্পের একটি প্রধান বৈশিষ্ট্য কী?","হাস্যরস","বিজ্ঞান","ভ্রমণ","জীবনী",0],
+["কঠিন পরিস্থিতিতে কী কাজে লাগে?","উপস্থিত বুদ্ধি","অলসতা","ভয়","অমনোযোগ",0],
+["সিদ্ধান্ত নেওয়ার আগে কী করা উচিত?","ঘটনা বোঝা","তাড়াহুড়ো করা","চোখ বন্ধ করা","অন্যকে দোষ দেওয়া",0],
+["গল্পে চরিত্রের কী গুরুত্বপূর্ণ?","আচরণ","পোশাকের দাম","বাড়ির আকার","জুতোর রং",0],
+["হাস্যরস কী সৃষ্টি করে?","আনন্দ","ভয়","দুঃখ","রাগ",0],
+["বুদ্ধি কী করতে সাহায্য করে?","সমস্যা সমাধান","সমস্যা বাড়ানো","ঘুমানো","অবহেলা",0],
+["গল্প থেকে কী শেখা যায়?","বুদ্ধি দিয়ে পরিস্থিতি সামলানো","ভয় পাওয়া","মিথ্যা বলা","অমনোযোগ",0],
+["চরিত্র বুঝতে কী দেখতে হয়?","তার কাজ ও আচরণ","শুধু নাম","শুধু পোশাক","শুধু বয়স",0],
+["উপস্থিত বুদ্ধি মানে কী?","পরিস্থিতিতে দ্রুত সঠিকভাবে ভাবা","ঘুমানো","চুপ থাকা","পালিয়ে যাওয়া",0],
+["গল্পের উদ্দেশ্য কী হতে পারে?","শিক্ষা ও আনন্দ","শুধু ভয়","শুধু হিসাব","শুধু মানচিত্র",0]
+]
+},
 
- {
-  title:"ব্যাকরণ — লিঙ্গ ও বচন",
-  summary:"লিঙ্গের মাধ্যমে পুরুষ, স্ত্রী বা উভয়জাতীয় অর্থ এবং বচনের মাধ্যমে এক বা একাধিক বোঝানো হয়।",
-  points:[
-   "লিঙ্গের প্রধান ধরন পুংলিঙ্গ ও স্ত্রীলিঙ্গ।",
-   "বচন দিয়ে সংখ্যা বোঝানো হয়।",
-   "একবচনে একজন বা একটি বোঝায়।",
-   "বহুবচনে একাধিক বোঝায়।"
-  ],
-  note:"শব্দের লিঙ্গ ও বচন চেনার জন্য অনেক উদাহরণ লিখে অনুশীলন করো।",
-  exam:"লিঙ্গ পরিবর্তন এবং একবচন-বহুবচন পরিবর্তন অবশ্যই অনুশীলন করো।",
-  quiz:[
-   ["একজন মানুষ বোঝালে কোন বচন?","একবচন","বহুবচন","দ্বিবচন","কোনোটিই নয়",0],
-   ["একাধিক ব্যক্তি বোঝালে কী হয়?","বহুবচন","একবচন","ক্রিয়া","বিশেষণ",0],
-   ["‘বালক’-এর স্ত্রীলিঙ্গ কী?","বালিকা","বালকেরা","শিশু","ছাত্র",0]
-  ]
- }
+{
+title:"ব্যাকরণ — লিঙ্গ",
+summary:"শব্দের মাধ্যমে পুরুষ, স্ত্রী বা সাধারণ অর্থ বোঝাতে লিঙ্গ ব্যবহৃত হয়।",
+points:[
+"পুংলিঙ্গ পুরুষ বোঝায়।",
+"স্ত্রীলিঙ্গ স্ত্রী বোঝায়।",
+"অনেক শব্দের লিঙ্গ পরিবর্তন করা যায়।",
+"উদাহরণ দেখে লিঙ্গ চেনা সহজ।"
+],
+note:"বালক-বালিকা, রাজা-রানি ইত্যাদি জোড়া শব্দ লিখে অনুশীলন করো।",
+exam:"লিঙ্গ পরিবর্তনের অন্তত ২০টি শব্দ অনুশীলন করো।",
+quiz:[
+["‘বালক’-এর স্ত্রীলিঙ্গ কী?","বালিকা","ছাত্র","মানুষ","শিশু",0],
+["‘রাজা’-এর স্ত্রীলিঙ্গ কী?","রানি","রাজকুমার","মানুষ","নর",0],
+["‘ছেলে’-এর স্ত্রীলিঙ্গ কী?","মেয়ে","বালক","পুরুষ","ভাই",0],
+["‘ভাই’-এর স্ত্রীলিঙ্গ কী?","বোন","মাতা","মেয়ে","নারী",0],
+["‘পুত্র’-এর স্ত্রীলিঙ্গ কী?","কন্যা","ভাই","পিতা","বালক",0],
+["পুংলিঙ্গ কী বোঝায়?","পুরুষ","স্ত্রী","স্থান","বস্তু",0],
+["স্ত্রীলিঙ্গ কী বোঝায়?","স্ত্রী","পুরুষ","স্থান","সংখ্যা",0],
+["‘নর’-এর স্ত্রীলিঙ্গ কী?","নারী","বালক","পিতা","ভাই",0],
+["‘অভিনেতা’-এর স্ত্রীলিঙ্গ কী?","অভিনেত্রী","নায়ক","শিক্ষক","ছাত্র",0],
+["লিঙ্গ শেখার ভালো উপায় কী?","উদাহরণ অনুশীলন","শুধু মুখস্থ না করে ছেড়ে দেওয়া","অমনোযোগ","না পড়া",0]
+]
+},
 
- ]
+{
+title:"ব্যাকরণ — বচন",
+summary:"একজন বা একটি বোঝালে একবচন এবং একাধিক বোঝালে বহুবচন হয়।",
+points:[
+"একবচনে একজন বা একটি বোঝায়।",
+"বহুবচনে একাধিক বোঝায়।",
+"বচন পরিবর্তনের নিয়ম অনুশীলন করতে হয়।",
+"বাক্যে বচনের ব্যবহার বুঝতে হবে।"
+],
+note:"একবচন থেকে বহুবচন এবং বহুবচন থেকে একবচন করার অনুশীলন করো।",
+exam:"কমপক্ষে ২০টি একবচন-বহুবচন শব্দ লিখে অনুশীলন করো।",
+quiz:[
+["একজন মানুষ বোঝালে কোন বচন?","একবচন","বহুবচন","দ্বিবচন","কোনোটিই নয়",0],
+["একাধিক মানুষ বোঝালে কোন বচন?","বহুবচন","একবচন","ক্রিয়া","বিশেষণ",0],
+["‘ছেলে’-এর বহুবচন কী?","ছেলেরা","ছেলেটি","ছেলের","ছেলে",0],
+["‘বই’-এর বহুবচন কী?","বইগুলি","বইটি","বইয়ের","বইকে",0],
+["‘পাখি’-এর বহুবচন কী?","পাখিরা","পাখিটি","পাখির","পাখিকে",0],
+["একবচন কী বোঝায়?","একজন বা একটি","অনেক","দুইয়ের বেশি","সবাই",0],
+["বহুবচন কী বোঝায়?","একাধিক","একটি","একজন","শূন্য",0],
+["‘ছাত্ররা’ কোন বচন?","বহুবচন","একবচন","ক্রিয়া","বিশেষণ",0],
+["‘ফুলটি’ কোন বচন?","একবচন","বহুবচন","দ্বিবচন","কোনোটিই নয়",0],
+["বচন শেখার ভালো উপায় কী?","শব্দ পরিবর্তনের অনুশীলন","না পড়া","শুধু দেখা","অমনোযোগ",0]
+]
+}
+
+]
 },
 
 
 "English":{
- icon:"🇬🇧",
- desc:"Reading, vocabulary & comprehension",
- chapters:[
+icon:"🇬🇧",
+desc:"Reading • Vocabulary • Grammar",
+chapters:[
 
- {
-  title:"A Memory in Marble",
-  summary:"The lesson develops the idea of memory, history and the importance of understanding places and events connected with the past.",
-  points:[
-   "Memory connects us with the past.",
-   "Historical places help us learn about history.",
-   "Observation improves understanding.",
-   "New words should be learnt through context."
-  ],
-  note:"Read the lesson carefully and identify the main idea, important characters and new vocabulary.",
-  exam:"Practise short answers, vocabulary, opposites and comprehension questions.",
-  quiz:[
-   ["What does memory connect us with?","The past","The future only","A game","A number",0],
-   ["What can historical places teach us?","History","Only mathematics","Cooking","Sports",0],
-   ["Which skill helps us understand a place better?","Observation","Neglect","Anger","Noise",0]
-  ]
- },
+{
+title:"A Memory in Marble",
+summary:"The lesson connects memory with history and places. It encourages learners to observe, remember and understand the past.",
+points:[
+"Memory connects us with the past.",
+"Historical places tell us about history.",
+"Observation helps us understand.",
+"Vocabulary should be learnt in context."
+],
+note:"Read the lesson carefully and identify its main idea and important words.",
+exam:"Practise comprehension, vocabulary, opposites and short answers.",
+quiz:[
+["What does memory connect us with?","The past","Only games","Only numbers","The future only",0],
+["Historical places can teach us about","history","cooking","sports","music only",0],
+["Which skill helps us understand a place?","Observation","Neglect","Anger","Noise",0],
+["A memory is connected with","remembering","forgetting","sleeping","running",0],
+["History tells us about","the past","only tomorrow","only food","only games",0],
+["A place may have","historical importance","no story","no people","no culture",0],
+["A good learner should","observe carefully","ignore everything","avoid reading","forget words",0],
+["Vocabulary means","words","numbers only","pictures only","games",0],
+["The main idea means","central thought","last word","first letter","page number",0],
+["Comprehension means","understanding","copying only","drawing","counting",0]
+]
+},
 
- {
-  title:"My School Days",
-  summary:"The lesson describes school life, memories, learning experiences and the importance of school in a child's development.",
-  points:[
-   "School provides opportunities to learn.",
-   "School memories can remain important for life.",
-   "Teachers guide students.",
-   "Friendship is an important part of school life."
-  ],
-  note:"Remember the important events and feelings connected with school life in the lesson.",
-  exam:"Practise comprehension, vocabulary and sentence-based questions.",
-  quiz:[
-   ["Where does a student learn many new things?","School","Market","Station","Forest",0],
-   ["Who guides students in school?","Teachers","Drivers","Shopkeepers","Farmers",0],
-   ["School memories can remain important for","life","one minute","one second","nothing",0]
-  ]
- },
+{
+title:"Phulmani's India",
+summary:"The lesson introduces India through people, culture, places and diversity and helps learners understand unity in diversity.",
+points:[
+"India has many cultures.",
+"Different regions have different traditions.",
+"Many languages are spoken in India.",
+"People can live together with unity."
+],
+note:"Learn the central idea and important vocabulary related to India and culture.",
+exam:"Practise comprehension, vocabulary and main-idea questions.",
+quiz:[
+["India is known for its","diversity","one culture only","one language only","one food only",0],
+["Different regions may have different","customs","planets","numbers","machines",0],
+["People in India may speak different","languages","planets","colours only","numbers",0],
+["Unity in diversity means","living together despite differences","everyone is identical","no culture exists","no language exists",0],
+["Culture includes","traditions","only numbers","only roads","only machines",0],
+["India is a","country","city","village","school",0],
+["A region may have its own","traditions","planet","ocean","moon",0],
+["Diversity means","variety","sameness","silence","absence",0],
+["People should respect different","cultures","only games","only books","only clothes",0],
+["The lesson mainly teaches us about","India and its diversity","mathematics","weather only","sports",0]
+]
+},
 
- {
-  title:"Phulmani's India",
-  summary:"The lesson presents India through people, places, culture and experiences, helping learners understand the diversity of the country.",
-  points:[
-   "India has diverse cultures and traditions.",
-   "People may speak different languages.",
-   "Different regions have different customs.",
-   "Unity exists within diversity."
-  ],
-  note:"Learn the central idea and remember the vocabulary related to India, people and culture.",
-  exam:"Practise questions on the passage, vocabulary and main idea.",
-  quiz:[
-   ["India is known for its","diversity","single culture only","one language only","one food only",0],
-   ["Different regions may have different","customs","planets","seasons only","mathematics",0],
-   ["The idea of unity in diversity means","different people can live together","everyone must be identical","no culture exists","languages are unnecessary",0]
-  ]
- },
+{
+title:"My School Days",
+summary:"The lesson describes school life, memories, learning, teachers and friendship.",
+points:[
+"School gives opportunities to learn.",
+"Teachers guide students.",
+"School memories can last long.",
+"Friendship is an important part of school life."
+],
+note:"Remember the main events and important words connected with school life.",
+exam:"Practise comprehension, vocabulary and sentence questions.",
+quiz:[
+["Where does a child learn many things?","School","Market","Forest","Station",0],
+["Who guides students?","Teachers","Drivers","Shopkeepers","Farmers",0],
+["School memories can remain important for","life","one second","one minute","nothing",0],
+["Students meet their","friends","only strangers","animals","machines",0],
+["A teacher helps students to","learn","sleep","run away","fight",0],
+["School is a place for","learning","only shopping","farming","fishing",0],
+["Friendship can make school life","happy","meaningless","dangerous","empty",0],
+["A student should be","attentive","careless","lazy","rude",0],
+["School teaches","many skills","nothing","only games","only food",0],
+["A school memory is something we","remember","throw away","eat","measure",0]
+]
+},
 
- {
-  title:"The Clever Monkey",
-  summary:"The story highlights intelligence, presence of mind and the importance of thinking carefully before taking action.",
-  points:[
-   "Intelligence helps solve difficult situations.",
-   "Presence of mind is valuable.",
-   "We should think before acting.",
-   "Stories can teach moral lessons."
-  ],
-  note:"Follow the sequence of events and identify what makes the monkey clever.",
-  exam:"Practise sequencing, vocabulary, comprehension and moral-based questions.",
-  quiz:[
-   ["What quality is highlighted in the story?","Cleverness","Laziness","Fear","Carelessness",0],
-   ["What should we do before acting?","Think carefully","Run away","Ignore the situation","Sleep",0],
-   ["A story can teach us a","moral lesson","formula only","map","measurement",0]
-  ]
- }
+{
+title:"The Clever Monkey",
+summary:"The story highlights intelligence, presence of mind and careful thinking.",
+points:[
+"Intelligence helps solve problems.",
+"Presence of mind is useful.",
+"We should think before acting.",
+"Stories may teach moral lessons."
+],
+note:"Follow the sequence of events and identify why the monkey is clever.",
+exam:"Practise vocabulary, sequencing, comprehension and moral questions.",
+quiz:[
+["What quality is highlighted?","Cleverness","Laziness","Fear","Carelessness",0],
+["What should we do before acting?","Think carefully","Sleep","Ignore","Run blindly",0],
+["A story can teach a","moral lesson","formula only","map","measurement",0],
+["Clever means","intelligent","lazy","careless","weak",0],
+["Presence of mind means","thinking quickly in a situation","sleeping","forgetting","running",0],
+["A problem can be solved by","thinking","panic","carelessness","anger",0],
+["The monkey is described as","clever","lazy","foolish","silent",0],
+["A moral is a","lesson","number","place","colour",0],
+["Good decisions need","careful thinking","haste","anger","fear",0],
+["The story teaches us to","use intelligence","give up","ignore problems","be careless",0]
+]
+},
 
- ]
+{
+title:"English Grammar — Noun",
+summary:"A noun is a naming word. It can name a person, place, animal or thing.",
+points:[
+"A noun names something.",
+"Person names are nouns.",
+"Place names are nouns.",
+"Animal and thing names are also nouns."
+],
+note:"Find nouns in simple English sentences every day.",
+exam:"Identify nouns and classify person, place, animal and thing.",
+quiz:[
+["Which is a noun?","School","Run","Quickly","Beautiful",0],
+["Which is a person?","Teacher","Table","Kolkata","Tiger",0],
+["Which is a place?","School","Boy","Cat","Book",0],
+["Which is an animal?","Tiger","Chair","School","Teacher",0],
+["Which is a thing?","Book","Boy","Kolkata","Dog",0],
+["A noun is a","naming word","doing word","describing word","joining word",0],
+["‘River’ is a","noun","verb","adjective","adverb",0],
+["‘Rina’ is a noun because it names a","person","place","animal","thing",0],
+["‘Kolkata’ is a","place name","person","animal","verb",0],
+["Finding nouns helps improve","grammar","sleep","drawing","running",0]
+]
+},
+
+{
+title:"English Grammar — Verb",
+summary:"A verb is a doing or action word. It tells us what someone or something does.",
+points:[
+"Verbs show actions.",
+"Run, eat and read are verbs.",
+"A sentence often needs a verb.",
+"Verb choice should match the subject."
+],
+note:"Underline the action word in simple English sentences.",
+exam:"Identify verbs and make short sentences using them.",
+quiz:[
+["Which is a verb?","Run","Book","School","Beautiful",0],
+["‘Eat’ is a","verb","noun","place","adjective",0],
+["‘Read’ shows an","action","object","place","colour",0],
+["Which is an action?","Jump","Table","Boy","Kolkata",0],
+["A verb usually tells us what someone","does","owns only","looks like only","is called",0],
+["Which sentence has a verb?","Rina runs.","Rina book.","School table.","Blue sky.",0],
+["‘Sing’ is a","verb","noun","adjective","place",0],
+["‘Write’ shows","action","colour","place","person",0],
+["Verbs are important in","sentences","maps","numbers","pictures only",0],
+["Which is NOT a verb?","Chair","Run","Read","Jump",0]
+]
+}
+
+]
 },
 
 
 "গণিত":{
- icon:"➗",
- desc:"সংখ্যা, ভাগ, ভগ্নাংশ ও সমস্যা সমাধান",
- chapters:[
+icon:"➗",
+desc:"সংখ্যা • গুণ • ভাগ • ভগ্নাংশ",
+chapters:[
 
- {
-  title:"সংখ্যা ও স্থানীয় মান",
-  summary:"একটি সংখ্যার প্রতিটি অঙ্কের মান তার অবস্থানের উপর নির্ভর করে। একক, দশক, শতক, হাজার ইত্যাদি স্থানীয় মান বুঝতে হবে।",
-  points:[
-   "অঙ্ক ও সংখ্যা এক নয়।",
-   "অঙ্কের অবস্থান তার স্থানীয় মান নির্ধারণ করে।",
-   "ডান দিক থেকে একক দিয়ে স্থান গণনা শুরু হয়।",
-   "বড় সংখ্যা পড়তে স্থানগুলির নাম জানা প্রয়োজন।"
-  ],
-  note:"যেকোনো বড় সংখ্যা নিয়ে প্রতিটি অঙ্কের স্থানীয় মান লিখে অনুশীলন করো।",
-  exam:"সংখ্যা লেখা, পড়া এবং স্থানীয় মান নির্ণয়ের সমস্যা অনুশীলন করো।",
-  quiz:[
-   ["৫৪৩-এ ৪-এর স্থানীয় মান কত?","৪০","৪","৪০০","৫",0],
-   ["ডান দিক থেকে প্রথম স্থান কোনটি?","একক","দশক","শতক","হাজার",0],
-   ["৭০০-এ ৭-এর স্থানীয় মান কত?","৭০০","৭০","৭","০",0]
-  ]
- },
+{
+title:"সংখ্যা ও স্থানীয় মান",
+summary:"একটি সংখ্যার অঙ্কের মান তার অবস্থানের উপর নির্ভর করে। একক, দশক, শতক, হাজার ইত্যাদি স্থানীয় মান বুঝতে হয়।",
+points:[
+"অঙ্ক ও সংখ্যা আলাদা।",
+"অঙ্কের অবস্থান স্থানীয় মান নির্ধারণ করে।",
+"ডান দিক থেকে একক শুরু হয়।",
+"বড় সংখ্যা পড়তে স্থানগুলির নাম জানা দরকার।"
+],
+note:"বড় সংখ্যা লিখে প্রতিটি অঙ্কের স্থানীয় মান বের করো।",
+exam:"সংখ্যা পড়া, লেখা ও স্থানীয় মান নির্ণয় অনুশীলন করো।",
+quiz:[
+["৫৪৩-এ ৪-এর স্থানীয় মান কত?","৪০","৪","৪০০","৫",0],
+["ডান দিক থেকে প্রথম স্থান কোনটি?","একক","দশক","শতক","হাজার",0],
+["৭০০-এ ৭-এর স্থানীয় মান কত?","৭০০","৭০","৭","০",0],
+["৮২-এ ৮-এর স্থানীয় মান কত?","৮০","৮","২","২০",0],
+["৪৫৬-এ ৫ কোন স্থানে?","দশক","একক","শতক","হাজার",0],
+["৯৮৭-এ ৯-এর স্থানীয় মান","৯০০","৯০","৯","৮০০",0],
+["৩২১-এ ১-এর স্থানীয় মান","১","১০","১০০","৩",0],
+["১০০০-এ ১-এর স্থানীয় মান","১০০০","১০০","১০","১",0],
+["স্থানীয় মান কীসের উপর নির্ভর করে?","অবস্থান","রং","আকার","সময়",0],
+["স্থানীয় মান শেখার জন্য কী দরকার?","অঙ্কের স্থান বোঝা","শুধু মুখস্থ","না পড়া","অনুমান",0]
+]
+},
 
- {
-  title:"যোগ ও বিয়োগ",
-  summary:"যোগের মাধ্যমে পরিমাণ একত্র করা হয় এবং বিয়োগের মাধ্যমে একটি পরিমাণ থেকে অন্য পরিমাণ কমানো হয়।",
-  points:[
-   "যোগে সংখ্যা বৃদ্ধি পায়।",
-   "বিয়োগে সাধারণত সংখ্যা কমে।",
-   "স্থানীয় মান অনুযায়ী অঙ্ক সাজানো জরুরি।",
-   "ধার নেওয়া ও carry করার নিয়ম বুঝতে হবে।"
-  ],
-  note:"একক, দশক ও শতকের ঘর ঠিক রেখে হিসাব করো।",
-  exam:"বড় সংখ্যার যোগ-বিয়োগ এবং word problem অনুশীলন করো।",
-  quiz:[
-   ["২৫ + ১৫ = ?","৪০","৩০","৩৫","৪৫",0],
-   ["৫০ - ১৮ = ?","৩২","৩৮","২৮","৪২",0],
-   ["যোগ করার সময় অঙ্কগুলি কীভাবে সাজাতে হয়?","স্থানীয় মান অনুযায়ী","যেভাবে খুশি","উল্টো করে","শুধু একক",0]
-  ]
- },
+{
+title:"যোগ ও বিয়োগ",
+summary:"যোগে পরিমাণ একত্র করা হয় এবং বিয়োগে একটি পরিমাণ থেকে অন্যটি কমানো হয়।",
+points:[
+"যোগে সংখ্যা বাড়ে।",
+"বিয়োগে সংখ্যা কমে।",
+"স্থানীয় মান অনুযায়ী অঙ্ক সাজাতে হয়।",
+"Carry ও borrowing বুঝতে হবে।"
+],
+note:"একক, দশক, শতকের ঘর ঠিক রেখে হিসাব করো।",
+exam:"যোগ-বিয়োগের বড় সংখ্যা এবং word problem অনুশীলন করো।",
+quiz:[
+["২৫+১৫=?","৪০","৩০","৩৫","৪৫",0],
+["৫০-১৮=?","৩২","৩৮","২৮","৪২",0],
+["১০০+২৫=?","১২৫","১১৫","১৩৫","১৫০",0],
+["২০০-৭৫=?","১২৫","১৩৫","১৫০","১৭৫",0],
+["৪৮+১২=?","৬০","৫০","৭০","৫৫",0],
+["৯০-৩৫=?","৫৫","৬৫","৪৫","২৫",0],
+["যোগের ফলকে কী বলে?","সমষ্টি","বিয়োগ","ভাগ","গুণ",0],
+["বিয়োগে প্রথম সংখ্যাকে কী বলা হয়?","বিয়োজ্য","বিয়োগক","ভাগফল","গুণ্য",0],
+["যোগে অঙ্ক কীভাবে সাজানো উচিত?","স্থানীয় মান অনুযায়ী","এলোমেলো","উল্টো","শুধু একক",0],
+["হিসাব করার সময় কী দরকার?","সতর্কতা","তাড়াহুড়ো","অমনোযোগ","অনুমান",0]
+]
+},
 
- {
-  title:"গুণ ও ভাগ",
-  summary:"একই সংখ্যা বারবার যোগ করার সংক্ষিপ্ত পদ্ধতি হল গুণ। একটি পরিমাণকে সমান অংশে ভাগ করা হল ভাগ।",
-  points:[
-   "গুণ repeated addition-এর সংক্ষিপ্ত রূপ।",
-   "ভাগে সমান অংশের ধারণা গুরুত্বপূর্ণ।",
-   "ভাজ্য, ভাজক, ভাগফল ও ভাগশেষ মনে রাখো।",
-   "নামতা গুণ ও ভাগ শেখার ভিত্তি।"
-  ],
-  note:"নামতা ভালোভাবে জানলে গুণ ও ভাগ অনেক সহজ হয়।",
-  exam:"গুণ, ভাগ এবং বাস্তব জীবনের সমান ভাগের সমস্যা অনুশীলন করো।",
-  quiz:[
-   ["৩ × ৪ = ?","১২","৭","৯","১৬",0],
-   ["২০ ÷ ৫ = ?","৪","৫","১৫","২৫",0],
-   ["ভাগে যে সংখ্যাকে ভাগ করা হয় তাকে কী বলে?","ভাজ্য","ভাজক","ভাগফল","ভাগশেষ",0]
-  ]
- },
+{
+title:"গুণ ও ভাগ",
+summary:"একই সংখ্যা বারবার যোগ করার সংক্ষিপ্ত পদ্ধতি গুণ। একটি পরিমাণকে সমান অংশে ভাগ করা ভাগ।",
+points:[
+"গুণ repeated addition-এর সংক্ষিপ্ত রূপ।",
+"ভাগে সমান অংশের ধারণা গুরুত্বপূর্ণ।",
+"ভাজ্য, ভাজক, ভাগফল, ভাগশেষ মনে রাখো।",
+"নামতা গুণ ও ভাগের ভিত্তি।"
+],
+note:"নামতা মুখস্থের পাশাপাশি গুণকে repeated addition দিয়ে বোঝার চেষ্টা করো।",
+exam:"গুণ, ভাগ এবং সমান ভাগের সমস্যা অনুশীলন করো।",
+quiz:[
+["৩×৪=?","১২","৭","৯","১৬",0],
+["২০÷৫=?","৪","৫","১৫","২৫",0],
+["৫×৬=?","৩০","২৫","৩৫","২০",0],
+["৪৮÷৬=?","৮","৬","৭","৯",0],
+["৭×৭=?","৪৯","৪২","৫৬","৩৫",0],
+["৩৬÷৪=?","৯","৮","৬","১২",0],
+["ভাগে যে সংখ্যাকে ভাগ করা হয়?","ভাজ্য","ভাজক","ভাগফল","ভাগশেষ",0],
+["যে সংখ্যা দিয়ে ভাগ করা হয়?","ভাজক","ভাজ্য","ভাগফল","গুণ্য",0],
+["ভাগের ফলকে কী বলে?","ভাগফল","ভাজ্য","ভাজক","গুণনীয়ক",0],
+["নামতা কীতে সাহায্য করে?","গুণ ও ভাগ","শুধু যোগ","শুধু বিয়োগ","শুধু মাপ",0]
+]
+},
 
- {
-  title:"ভগ্নাংশ",
-  summary:"একটি সম্পূর্ণ বস্তুকে সমান অংশে ভাগ করলে তার এক বা একাধিক অংশকে ভগ্নাংশ দিয়ে প্রকাশ করা যায়।",
-  points:[
-   "ভগ্নাংশে লব ও হর থাকে।",
-   "হর মোট সমান অংশের সংখ্যা বোঝায়।",
-   "লব নেওয়া অংশের সংখ্যা বোঝায়।",
-   "সমান ভাগের ধারণা ভগ্নাংশ বোঝার জন্য জরুরি।"
-  ],
-  note:"একটি কাগজ বা ফলকে সমান অংশে ভাগ করে ভগ্নাংশ বোঝার অনুশীলন করো।",
-  exam:"লব-হর চেনা এবং ছবি দেখে ভগ্নাংশ লেখার অনুশীলন করো।",
-  quiz:[
-   ["১/২-এ লব কোনটি?","১","২","৩","০",0],
-   ["৩/৫-এ হর কোনটি?","৫","৩","৮","২",0],
-   ["ভগ্নাংশের হর কী বোঝায়?","মোট সমান অংশ","নেওয়া অংশ","যোগফল","বিয়োগফল",0]
-  ]
- },
+{
+title:"গুণের পরিচয় — নামতা",
+summary:"নামতা গুণের দ্রুত হিসাব করতে সাহায্য করে। একই সংখ্যা বারবার যোগ করেও গুণের ধারণা বোঝা যায়।",
+points:[
+"২-এর নামতা ২ করে বাড়ে।",
+"৫-এর নামতায় শেষ অঙ্ক ০ বা ৫ হয়।",
+"১০-এর নামতায় শেষে ০ থাকে।",
+"নামতা ভাগের হিসাবেও কাজে লাগে।"
+],
+note:"২ থেকে ১০ পর্যন্ত নামতা নিয়মিত লিখে ও মুখে বলো।",
+exam:"নামতা থেকে দ্রুত multiplication ও division practice করো।",
+quiz:[
+["২×৫=?","১০","৭","১২","১৫",0],
+["৫×৬=?","৩০","২৫","৩৫","৪০",0],
+["১০×৮=?","৮০","১৮","৮","১০০",0],
+["৭×৪=?","২৮","২৪","৩২","২১",0],
+["৯×৫=?","৪৫","৪০","৫০","৩৫",0],
+["৬×৬=?","৩৬","৩০","৪২","৪৮",0],
+["৮×৩=?","২৪","২১","১৮","৩২",0],
+["৪×৯=?","৩৬","৩২","৪০","৪৫",0],
+["৫-এর নামতায় শেষ অঙ্ক কী হতে পারে?","০ বা ৫","১ বা ২","৩ বা ৪","৬ বা ৭",0],
+["নামতা কী সহজ করে?","গুণ ও ভাগ","শুধু লেখা","শুধু পড়া","শুধু আঁকা",0]
+]
+},
 
- {
-  title:"চৌবাচ্চায় কত জল আছে দেখি",
-  summary:"এই ধরনের সমস্যায় ধারণক্ষমতা, পরিমাণ, যোগ-বিয়োগ এবং মাপজোকের ব্যবহার বোঝানো হয়।",
-  points:[
-   "জলের পরিমাণ মাপা যায়।",
-   "লিটার ও মিলিলিটার প্রচলিত একক।",
-   "১০০০ মিলিলিটার = ১ লিটার।",
-   "বাস্তব জীবনের সমস্যায় একক ঠিক রাখা জরুরি।"
-  ],
-  note:"লিটার ও মিলিলিটারের সম্পর্ক এবং যোগ-বিয়োগের সমস্যা অনুশীলন করো।",
-  exam:"ধারণক্ষমতা সম্পর্কিত word problem সমাধান করো।",
-  quiz:[
-   ["১ লিটার = কত মিলিলিটার?","১০০০","১০০","১০","১০০00",0],
-   ["জল মাপার একটি প্রচলিত একক কী?","লিটার","কিলোমিটার","কেজি","মিটার",0],
-   ["৫০০ ml + ৫০০ ml = ?","১ লিটার","২ লিটার","৫০০ লিটার","১০০ ml",0]
-  ]
- },
+{
+title:"ভগ্নাংশ",
+summary:"একটি সম্পূর্ণ জিনিসকে সমান অংশে ভাগ করলে তার অংশকে ভগ্নাংশ দিয়ে প্রকাশ করা যায়।",
+points:[
+"ভগ্নাংশে লব ও হর থাকে।",
+"হর মোট সমান অংশ বোঝায়।",
+"লব নেওয়া অংশ বোঝায়।",
+"সমান ভাগ ভগ্নাংশের ভিত্তি।"
+],
+note:"ছবি এঁকে অর্ধেক, এক-তৃতীয়াংশ, এক-চতুর্থাংশ বোঝার অনুশীলন করো।",
+exam:"লব-হর চেনা এবং ছবি দেখে ভগ্নাংশ লেখো।",
+quiz:[
+["১/২-এ লব কোনটি?","১","২","৩","০",0],
+["৩/৫-এ হর কোনটি?","৫","৩","৮","২",0],
+["ভগ্নাংশের হর কী বোঝায়?","মোট সমান অংশ","নেওয়া অংশ","যোগফল","বিয়োগফল",0],
+["২/৭-এ লব","২","৭","৯","৫",0],
+["৪/৯-এ হর","৯","৪","১৩","৫",0],
+["১/৪ কী বোঝায়?","চার সমান অংশের এক অংশ","চারটি সম্পূর্ণ","একটি চার","চার যোগ এক",0],
+["২/৩ মানে","তিন সমান অংশের দুই অংশ","দুই সমান অংশের তিন","তিনটি সম্পূর্ণ","দুই যোগ তিন",0],
+["লব সাধারণত কোথায় থাকে?","উপরে","নিচে","পাশে","বাইরে",0],
+["হর কোথায় থাকে?","নিচে","উপরে","পাশে","বাইরে",0],
+["ভগ্নাংশ বোঝার জন্য কী দরকার?","সমান অংশ","এলোমেলো অংশ","শুধু সংখ্যা","শুধু ছবি",0]
+]
+},
 
- {
-  title:"সবচেয়ে বেশি কতজনের মধ্যে সমান ভাগ করতে পারি?",
-  summary:"কোনো সংখ্যাকে সর্বাধিক কতটি সমান দলে ভাগ করা যায়—এই ধরনের সমস্যায় গুণনীয়ক, ভাগ এবং সমান ভাগের ধারণা ব্যবহার করা হয়।",
-  points:[
-   "সমান ভাগে প্রতিটি দলে সমান সংখ্যা থাকে।",
-   "ভাগ করার আগে মোট সংখ্যা জানা দরকার।",
-   "গুণনীয়ক সমান ভাগের সমস্যা বুঝতে সাহায্য করে।",
-   "বাস্তব জীবনের বণ্টন সমস্যায় এই ধারণা কাজে লাগে।"
-  ],
-  note:"বস্তু বা সংখ্যা কয়েকটি সমান দলে ভাগ করে হাতে-কলমে অনুশীলন করো।",
-  exam:"সমান ভাগ এবং গুণনীয়কভিত্তিক word problem অনুশীলন করো।",
-  quiz:[
-   ["সমান ভাগে প্রতিটি দলে কী থাকে?","সমান সংখ্যা","আলাদা সংখ্যা","শূন্য","অজানা সংখ্যা",0],
-   ["১২টি বস্তু ৩টি সমান দলে ভাগ করলে প্রতিটি দলে কতটি?","৪","৩","৬","৯",0],
-   ["সমান ভাগের সমস্যায় কোন ক্রিয়াটি বেশি ব্যবহৃত হয়?","ভাগ","যোগ","বিয়োগ","শুধু গুণ",0]
-  ]
- }
+{
+title:"চৌবাচ্চায় কত জল আছে দেখি",
+summary:"এই অধ্যায়ে ধারণক্ষমতা ও জলের পরিমাণ মাপা, যোগ-বিয়োগ এবং বাস্তব জীবনের সমস্যা সমাধানের ধারণা দেওয়া হয়।",
+points:[
+"লিটার ও মিলিলিটার মাপের একক।",
+"১০০০ মিলিলিটার = ১ লিটার।",
+"একক ঠিক রেখে হিসাব করতে হয়।",
+"বাস্তব জীবনে ধারণক্ষমতার ব্যবহার আছে।"
+],
+note:"লিটার-মিলিলিটার রূপান্তর এবং যোগ-বিয়োগের সমস্যা অনুশীলন করো।",
+exam:"Capacity word problem সমাধান করো।",
+quiz:[
+["১ লিটার = কত মিলিলিটার?","১০০০","১০০","১০","১০০০০",0],
+["জল মাপার একটি একক কী?","লিটার","মিটার","কেজি","কিলোমিটার",0],
+["৫০০ml+৫০০ml=?","১ লিটার","২ লিটার","৫০০ লিটার","১০০ml",0],
+["২ লিটার = কত ml?","২০০০","১০০০","২০","২০০",0],
+["১ লিটার ২৫০ml = মোট কত ml?","১২৫০","১০৫০","২৫০","১৫০০",0],
+["৭৫০ml+২৫০ml=?","১০০০ml","৫০০ml","১২৫০ml","৭৫০ml",0],
+["৫ লিটার থেকে ২ লিটার বাদ দিলে","৩ লিটার","৭ লিটার","২ লিটার","৪ লিটার",0],
+["ml কী মাপতে ব্যবহৃত হয়?","তরলের পরিমাণ","দূরত্ব","ওজন","সময়",0],
+["Capacity মানে কী?","ধারণক্ষমতা","দূরত্ব","ওজন","সময়",0],
+["মাপের সময় কী জরুরি?","একক ঠিক রাখা","অনুমান","অমনোযোগ","তাড়াহুড়ো",0]
+]
+},
 
- ]
+{
+title:"সবচেয়ে বেশি কতজনের মধ্যে সমান ভাগ করতে পারি?",
+summary:"সমান ভাগের সমস্যায় মোট জিনিসকে সমান দলে ভাগ করা হয়। গুণনীয়ক ও ভাগের ধারণা এখানে কাজে লাগে।",
+points:[
+"সমান ভাগে প্রতিটি দলে সমান সংখ্যা থাকে।",
+"ভাগ ও গুণনীয়কের ধারণা প্রয়োজন।",
+"বাস্তব জীবনে বণ্টনের কাজে এটি ব্যবহৃত হয়।",
+"ভাগশেষ থাকলে সম্পূর্ণ সমান ভাগ হয় না।"
+],
+note:"বস্তু হাতে নিয়ে সমান দলে ভাগ করে practice করো।",
+exam:"Equal grouping এবং factor-based word problem অনুশীলন করো।",
+quiz:[
+["১২টি বস্তু ৩ দলে ভাগ করলে প্রতি দলে","৪","৩","৬","৯",0],
+["২০টি বস্তু ৫ দলে ভাগ করলে","৪","৫","১৫","২৫",0],
+["সমান ভাগে প্রতিটি দলে কী থাকে?","সমান সংখ্যা","আলাদা সংখ্যা","শুধু শূন্য","অজানা",0],
+["১৮÷৩=?","৬","৫","৯","৩",0],
+["২৪÷৪=?","৬","৮","৪","১২",0],
+["৩০টি ৬টি সমান দলে ভাগ করলে","৫","৬","৪","৩",0],
+["সমান ভাগের সঙ্গে কোনটি সম্পর্কিত?","ভাগ","শুধু যোগ","শুধু বিয়োগ","শুধু মাপ",0],
+["১২-এর একটি গুণনীয়ক কোনটি?","৩","৫","৭","৮",0],
+["১০টি ২টি দলে ভাগ করলে প্রতি দলে","৫","২","১০","৮",0],
+["সমান ভাগে ভাগশেষ থাকা উচিত?","না","হ্যাঁ, সবসময়","শুধু ১০-এ","শুধু ২০-এ",0]
+]
+},
+
+{
+title:"পরিমাপ",
+summary:"দৈনন্দিন জীবনে দৈর্ঘ্য, ওজন, ধারণক্ষমতা ও সময় মাপার জন্য বিভিন্ন একক ব্যবহার করা হয়।",
+points:[
+"দৈর্ঘ্যের একক মিটার ও সেন্টিমিটার।",
+"ওজনের জন্য কিলোগ্রাম ও গ্রাম ব্যবহৃত হয়।",
+"তরলের জন্য লিটার ও মিলিলিটার ব্যবহৃত হয়।",
+"সঠিক একক নির্বাচন জরুরি।"
+],
+note:"কোন জিনিস মাপতে কোন একক ব্যবহার হবে তা উদাহরণসহ শেখো।",
+exam:"Measurement-এর unit matching practice করো।",
+quiz:[
+["দৈর্ঘ্যের একটি একক","মিটার","লিটার","কিলোগ্রাম","ঘণ্টা",0],
+["ওজনের একটি একক","কিলোগ্রাম","মিটার","লিটার","সেকেন্ড",0],
+["তরলের পরিমাণের একক","লিটার","মিটার","কেজি","সেন্টিমিটার",0],
+["ছোট দৈর্ঘ্যের জন্য","সেন্টিমিটার","কিলোমিটার","লিটার","কেজি",0],
+["১ কিলোগ্রাম = কত গ্রাম?","১০০০","১০০","১০","৫০০",0],
+["১ মিটার = কত সেন্টিমিটার?","১০০","১০","১০০০","৫০",0],
+["সময় মাপার একক","ঘণ্টা","কেজি","মিটার","লিটার",0],
+["দূরত্বের বড় একক","কিলোমিটার","মিলিলিটার","গ্রাম","সেকেন্ড",0],
+["সঠিক unit কেন দরকার?","সঠিক মাপের জন্য","শুধু লেখার জন্য","গল্পের জন্য","ছবির জন্য",0],
+["Measurement মানে","পরিমাপ","যোগ","ভাগ","গল্প",0]
+]
+}
+
+]
 },
 
 
 "পরিবেশ":{
- icon:"🌱",
- desc:"প্রকৃতি, সমাজ, পশ্চিমবঙ্গ ও পরিবেশ",
- chapters:[
+icon:"🌱",
+desc:"প্রকৃতি • সমাজ • পশ্চিমবঙ্গ",
+chapters:[
 
- {
-  title:"পশ্চিমবঙ্গের সাধারণ পরিচিতি",
-  summary:"পশ্চিমবঙ্গ ভারতের পূর্বাঞ্চলের একটি রাজ্য। এর বিভিন্ন জেলা, শহর, নদী, ভূমিরূপ ও মানুষের জীবনযাত্রার বৈচিত্র্য রয়েছে।",
-  points:[
-   "পশ্চিমবঙ্গ ভারতের পূর্বাঞ্চলে অবস্থিত।",
-   "রাজ্যে বিভিন্ন জেলা ও শহর রয়েছে।",
-   "নদী ও ভূমিরূপ মানুষের জীবনে প্রভাব ফেলে।",
-   "অঞ্চলভেদে মানুষের জীবনযাত্রায় বৈচিত্র্য দেখা যায়।"
-  ],
-  note:"পশ্চিমবঙ্গের জেলা, সদর শহর এবং প্রধান ভৌগোলিক বৈশিষ্ট্যগুলি ধীরে ধীরে শিখো।",
-  exam:"পশ্চিমবঙ্গের অবস্থান, জেলা ও গুরুত্বপূর্ণ শহর সম্পর্কিত প্রশ্ন অনুশীলন করো।",
-  quiz:[
-   ["পশ্চিমবঙ্গ ভারতের কোন অংশে?","পূর্বাঞ্চল","পশ্চিমাঞ্চল","উত্তর-পশ্চিম","দক্ষিণ-পশ্চিম",0],
-   ["একটি রাজ্যের বিভিন্ন অংশে কী থাকতে পারে?","বিভিন্ন শহর ও জেলা","শুধু একটি শহর","শুধু একটি নদী","কিছুই নয়",0],
-   ["মানুষের জীবনযাত্রায় কী প্রভাব ফেলতে পারে?","ভূমি ও নদী","শুধু বই","শুধু খেলনা","কোনোটিই নয়",0]
-  ]
- },
+{
+title:"পশ্চিমবঙ্গের সাধারণ পরিচিতি",
+summary:"পশ্চিমবঙ্গ ভারতের পূর্বাঞ্চলের একটি রাজ্য। এখানে বিভিন্ন জেলা, শহর, নদী, ভূমিরূপ ও মানুষের জীবনযাত্রার বৈচিত্র্য আছে।",
+points:[
+"পশ্চিমবঙ্গ ভারতের পূর্বাঞ্চলে অবস্থিত।",
+"রাজ্যে বিভিন্ন জেলা ও শহর আছে।",
+"নদী ও ভূমিরূপ মানুষের জীবনে প্রভাব ফেলে।",
+"অঞ্চলভেদে জীবনযাত্রায় বৈচিত্র্য দেখা যায়।"
+],
+note:"পশ্চিমবঙ্গের জেলা, সদর ও গুরুত্বপূর্ণ শহর মানচিত্রে দেখার চেষ্টা করো।",
+exam:"অবস্থান, জেলা ও শহর সম্পর্কিত প্রশ্ন অনুশীলন করো।",
+quiz:[
+["পশ্চিমবঙ্গ ভারতের কোন অংশে?","পূর্বাঞ্চল","পশ্চিমাঞ্চল","উত্তর-পশ্চিম","দক্ষিণ-পশ্চিম",0],
+["পশ্চিমবঙ্গে কী আছে?","জেলা ও শহর","শুধু একটি শহর","শুধু একটি নদী","কিছুই নেই",0],
+["মানুষের জীবনে কী প্রভাব ফেলে?","ভূমি ও নদী","শুধু বই","শুধু খেলনা","শুধু পোশাক",0],
+["মানচিত্র কী দেখাতে সাহায্য করে?","স্থান","শুধু সময়","শুধু ওজন","শুধু শব্দ",0],
+["একটি জেলার গুরুত্বপূর্ণ শহর হতে পারে","সদর","সমুদ্র","গ্রহ","পাহাড়",0],
+["পশ্চিমবঙ্গ কী?","একটি রাজ্য","একটি দেশ","একটি মহাদেশ","একটি গ্রহ",0],
+["রাজ্যের বিভিন্ন অংশে কী থাকতে পারে?","বিভিন্ন পরিবেশ","একই সবকিছু","শুধু মরুভূমি","শুধু বরফ",0],
+["নদী কী করতে পারে?","জীবন ও কৃষিতে সাহায্য","শুধু রাস্তা বানায়","শুধু পাহাড় তৈরি করে","কিছুই করে না",0],
+["ভূমিরূপ বলতে কী বোঝায়?","ভূমির আকৃতি ও বৈশিষ্ট্য","শুধু জল","শুধু গাছ","শুধু বাড়ি",0],
+["পশ্চিমবঙ্গের পরিচিতি জানতে কী সাহায্য করে?","মানচিত্র","শুধু ঘড়ি","শুধু ক্যালকুলেটর","শুধু খেলনা",0]
+]
+},
 
- {
-  title:"ভৌত পরিবেশ — মাটি, জল ও জীববৈচিত্র্য",
-  summary:"মাটি, জল, উদ্ভিদ ও প্রাণী আমাদের ভৌত ও জীবন্ত পরিবেশের গুরুত্বপূর্ণ অংশ। এদের পারস্পরিক সম্পর্ক পরিবেশের ভারসাম্য বজায় রাখে।",
-  points:[
-   "মাটি উদ্ভিদের বৃদ্ধিতে সাহায্য করে।",
-   "জল জীবনের জন্য অপরিহার্য।",
-   "উদ্ভিদ ও প্রাণীর বৈচিত্র্যকে জীববৈচিত্র্য বলা হয়।",
-   "পরিবেশের ভারসাম্য রক্ষা করা জরুরি।"
-  ],
-  note:"মাটি, জল, উদ্ভিদ ও প্রাণীর পারস্পরিক সম্পর্ক বুঝে পড়ো।",
-  exam:"জীববৈচিত্র্য, জল ও মাটির গুরুত্ব সম্পর্কে সংক্ষিপ্ত উত্তর প্রস্তুত করো।",
-  quiz:[
-   ["উদ্ভিদের বৃদ্ধির জন্য কোনটি গুরুত্বপূর্ণ?","মাটি","প্লাস্টিক","ধোঁয়া","আবর্জনা",0],
-   ["জীবনের জন্য কোনটি অপরিহার্য?","জল","প্লাস্টিক","ধোঁয়া","শব্দ",0],
-   ["জীববৈচিত্র্য বলতে কী বোঝায়?","জীবের বৈচিত্র্য","শুধু জল","শুধু মাটি","শুধু পাথর",0]
-  ]
- },
+{
+title:"ভৌত পরিবেশ — মাটি, জল ও জীববৈচিত্র্য",
+summary:"মাটি, জল, উদ্ভিদ ও প্রাণী পরিবেশের গুরুত্বপূর্ণ অংশ। তাদের পারস্পরিক সম্পর্ক পরিবেশের ভারসাম্য বজায় রাখে।",
+points:[
+"মাটি উদ্ভিদের বৃদ্ধিতে সাহায্য করে।",
+"জল জীবনের জন্য অপরিহার্য।",
+"উদ্ভিদ ও প্রাণীর বৈচিত্র্য জীববৈচিত্র্য।",
+"পরিবেশের ভারসাম্য রক্ষা জরুরি।"
+],
+note:"মাটি, জল, উদ্ভিদ ও প্রাণীর পারস্পরিক সম্পর্ক বুঝে পড়ো।",
+exam:"জীববৈচিত্র্য, জল ও মাটির গুরুত্ব লিখে অনুশীলন করো।",
+quiz:[
+["উদ্ভিদের বৃদ্ধির জন্য কী গুরুত্বপূর্ণ?","মাটি","প্লাস্টিক","ধোঁয়া","আবর্জনা",0],
+["জীবনের জন্য অপরিহার্য","জল","প্লাস্টিক","ধোঁয়া","শব্দ",0],
+["জীববৈচিত্র্য কী?","জীবের বৈচিত্র্য","শুধু জল","শুধু মাটি","শুধু পাথর",0],
+["মাটি কীতে সাহায্য করে?","উদ্ভিদের বৃদ্ধি","শব্দ তৈরি","ধোঁয়া তৈরি","প্লাস্টিক তৈরি",0],
+["জল ছাড়া কী কঠিন?","জীবন","পাথর","লোহা","কাচ",0],
+["পরিবেশের ভারসাম্য কেন দরকার?","জীবন রক্ষার জন্য","দূষণের জন্য","বন কাটার জন্য","জল নষ্টের জন্য",0],
+["জীববৈচিত্র্যের অংশ","উদ্ভিদ ও প্রাণী","শুধু রাস্তা","শুধু গাড়ি","শুধু বাড়ি",0],
+["জল দূষণ কী করে?","পরিবেশের ক্ষতি","পরিবেশ ভালো করে","গাছ বাড়ায় সবসময়","জল পরিষ্কার করে",0],
+["মাটি রক্ষা করা কেন দরকার?","কৃষি ও জীবনের জন্য","শুধু খেলার জন্য","শুধু রাস্তার জন্য","কিছু নয়",0],
+["পরিবেশ রক্ষায় কী করা উচিত?","দূষণ কমানো","দূষণ বাড়ানো","বন কাটা","জল অপচয়",0]
+]
+},
 
- {
-  title:"পশ্চিমবঙ্গের কৃষি বৈচিত্র্য",
-  summary:"পশ্চিমবঙ্গের বিভিন্ন অঞ্চলে মাটি, জলবায়ু ও জলসম্পদের পার্থক্যের কারণে বিভিন্ন ধরনের ফসল উৎপন্ন হয়।",
-  points:[
-   "কৃষি মানুষের জীবিকার গুরুত্বপূর্ণ অংশ।",
-   "অঞ্চলভেদে ফসলের বৈচিত্র্য দেখা যায়।",
-   "মাটি ও জল ফসল উৎপাদনে গুরুত্বপূর্ণ।",
-   "কৃষির সঙ্গে স্থানীয় পরিবেশের সম্পর্ক রয়েছে।"
-  ],
-  note:"কোন অঞ্চলে কোন ধরনের ফসল হয় এবং তার সঙ্গে পরিবেশের সম্পর্ক বুঝে পড়ো।",
-  exam:"ফসল, মাটি, জল এবং কৃষির সম্পর্ক নিয়ে প্রশ্ন অনুশীলন করো।",
-  quiz:[
-   ["ফসল উৎপাদনে কোনটি গুরুত্বপূর্ণ?","মাটি","প্লাস্টিক","কাচ","ধোঁয়া",0],
-   ["অঞ্চলভেদে কী পরিবর্তিত হতে পারে?","ফসলের ধরন","সূর্যের অস্তিত্ব","দিনের সংখ্যা","পৃথিবীর আকার",0],
-   ["কৃষি কীসের সঙ্গে সম্পর্কিত?","পরিবেশ","শুধু খেলাধুলা","শুধু বই","শুধু যানবাহন",0]
-  ]
- },
+{
+title:"পশ্চিমবঙ্গের কৃষি বৈচিত্র্য",
+summary:"মাটি, জলবায়ু ও জলসম্পদের পার্থক্যের কারণে পশ্চিমবঙ্গের বিভিন্ন অঞ্চলে বিভিন্ন ফসল উৎপন্ন হয়।",
+points:[
+"কৃষি মানুষের জীবিকার গুরুত্বপূর্ণ অংশ।",
+"অঞ্চলভেদে ফসলের বৈচিত্র্য আছে।",
+"মাটি ও জল ফসল উৎপাদনে গুরুত্বপূর্ণ।",
+"কৃষির সঙ্গে পরিবেশের সম্পর্ক রয়েছে।"
+],
+note:"ফসল, মাটি, জল ও অঞ্চলের সম্পর্ক বোঝার চেষ্টা করো।",
+exam:"কৃষি ও পরিবেশের সম্পর্ক নিয়ে short answer practice করো।",
+quiz:[
+["ফসল উৎপাদনে কী গুরুত্বপূর্ণ?","মাটি","প্লাস্টিক","কাচ","ধোঁয়া",0],
+["অঞ্চলভেদে কী পরিবর্তিত হতে পারে?","ফসলের ধরন","পৃথিবীর আকার","দিনের সংখ্যা","সূর্য",0],
+["কৃষি কীসের সঙ্গে যুক্ত?","পরিবেশ","শুধু খেলাধুলা","শুধু বই","শুধু যানবাহন",0],
+["জল কৃষিতে কী কাজে লাগে?","সেচে","রাস্তা বানাতে","বাড়ি রাঙাতে","খেলতে",0],
+["মাটি কাকে প্রভাবিত করে?","ফসল","ঘড়ি","জুতো","বই",0],
+["কৃষক কী করেন?","ফসল উৎপাদন","শুধু মাছ আঁকেন","শুধু বই লেখেন","শুধু গাড়ি চালান",0],
+["ফসলের বৈচিত্র্য মানে","বিভিন্ন ধরনের ফসল","একটিই ফসল","কোনো ফসল নয়","শুধু গাছ",0],
+["কৃষি কার সঙ্গে সম্পর্কিত?","মানুষ ও পরিবেশ","শুধু আকাশ","শুধু রাস্তা","শুধু খেলনা",0],
+["অঞ্চলভেদে কৃষিতে কী হতে পারে?","পার্থক্য","কোনো পার্থক্য নয়","সবসময় একই","কিছুই নয়",0],
+["কৃষি রক্ষায় কী দরকার?","জল ও মাটির যত্ন","দূষণ","অপচয়","বন ধ্বংস",0]
+]
+},
 
- {
-  title:"পরিবেশ ও উৎপাদন",
-  summary:"স্থানীয় পরিবেশ, কৃষি ও উৎপাদনের মধ্যে ঘনিষ্ঠ সম্পর্ক রয়েছে। একটি অঞ্চলের প্রাকৃতিক বৈশিষ্ট্য সেখানে উৎপাদিত পণ্যের ধরনকে প্রভাবিত করে।",
-  points:[
-   "স্থানীয় সম্পদ উৎপাদনে কাজে লাগে।",
-   "কৃষি স্থানীয় পরিবেশের সঙ্গে যুক্ত।",
-   "অঞ্চলভেদে উৎপন্ন ফসল আলাদা হতে পারে।",
-   "মানচিত্রের মাধ্যমে ফসলের অঞ্চল দেখানো যায়।"
-  ],
-  note:"কোন অঞ্চলে কোন ফসল উৎপন্ন হয় তার একটি সহজ মানচিত্র আঁকার চেষ্টা করো।",
-  exam:"উৎপাদন, কৃষিবৈচিত্র্য ও স্থানীয় পরিবেশের সম্পর্ক লিখে অনুশীলন করো।",
-  quiz:[
-   ["স্থানীয় পরিবেশ কীকে প্রভাবিত করতে পারে?","উৎপাদন","শুধু ঘড়ি","শুধু বই","শুধু পোশাক",0],
-   ["ফসলের অঞ্চল দেখাতে কী ব্যবহার করা যায়?","মানচিত্র","ক্যালকুলেটর","ঘড়ি","কম্পাস ছাড়া কিছুই নয়",0],
-   ["অঞ্চলভেদে কী হতে পারে?","উৎপাদনের বৈচিত্র্য","সবকিছু একই","কোনো ফসল নয়","কোনো পরিবেশ নয়",0]
-  ]
- },
+{
+title:"পরিবেশ ও উৎপাদন",
+summary:"স্থানীয় পরিবেশ, কৃষি ও উৎপাদনের মধ্যে ঘনিষ্ঠ সম্পর্ক আছে। অঞ্চলের প্রাকৃতিক বৈশিষ্ট্য উৎপাদনকে প্রভাবিত করে।",
+points:[
+"স্থানীয় সম্পদ উৎপাদনে কাজে লাগে।",
+"কৃষি স্থানীয় পরিবেশের সঙ্গে যুক্ত।",
+"অঞ্চলভেদে ফসল আলাদা হতে পারে।",
+"মানচিত্রে ফসলের অঞ্চল দেখানো যায়।"
+],
+note:"স্থানীয় উৎপাদিত ফসলের একটি সহজ মানচিত্র আঁকো।",
+exam:"উৎপাদন ও পরিবেশের সম্পর্ক লিখে অনুশীলন করো।",
+quiz:[
+["স্থানীয় পরিবেশ কীকে প্রভাবিত করে?","উৎপাদন","ঘড়ি","বই","খেলনা",0],
+["ফসলের অঞ্চল দেখাতে কী ব্যবহার করা যায়?","মানচিত্র","ঘড়ি","ক্যালকুলেটর","খেলনা",0],
+["অঞ্চলভেদে কী হতে পারে?","উৎপাদনের বৈচিত্র্য","সব একই","কোনো ফসল নয়","কোনো পরিবেশ নয়",0],
+["স্থানীয় সম্পদ কী কাজে লাগে?","উৎপাদনে","শুধু খেলায়","শুধু ঘুমে","শুধু আঁকায়",0],
+["উৎপাদনের সঙ্গে কী সম্পর্কিত?","পরিবেশ","শুধু ঘড়ি","শুধু বই","শুধু রাস্তা",0],
+["ফসল কোথায় হয় তা বোঝাতে","মানচিত্র","গল্প","গান","ঘড়ি",0],
+["কৃষিবৈচিত্র্য মানে","বিভিন্ন কৃষি ও ফসল","শুধু একটি ফসল","শুধু গাছ","শুধু জল",0],
+["স্থানীয় উৎপাদন কীকে সাহায্য করে?","স্থানীয় মানুষের জীবন","শুধু আকাশ","শুধু গ্রহ","শুধু নদী",0],
+["পরিবেশের সম্পদ কী?","মাটি ও জল","শুধু প্লাস্টিক","শুধু ধোঁয়া","শুধু আবর্জনা",0],
+["সঠিক উৎপাদনের জন্য কী দরকার?","সম্পদের সঠিক ব্যবহার","অপচয়","দূষণ","বন ধ্বংস",0]
+]
+},
 
- {
-  title:"পরিবেশ ও বনভূমি",
-  summary:"বনভূমি পরিবেশের ভারসাম্য রক্ষা করে এবং বহু উদ্ভিদ ও প্রাণীর আবাসস্থল। বন ও বন্যপ্রাণী সংরক্ষণ করা আমাদের দায়িত্ব।",
-  points:[
-   "বন বহু প্রাণীর আবাসস্থল।",
-   "গাছ পরিবেশের জন্য গুরুত্বপূর্ণ।",
-   "বনভূমি সংরক্ষণ করা প্রয়োজন।",
-   "বন্যপ্রাণী রক্ষাও পরিবেশ সংরক্ষণের অংশ।"
-  ],
-  note:"স্থানীয় বন, গাছপালা ও প্রাণীদের সম্পর্কে তথ্য সংগ্রহ করো।",
-  exam:"বনভূমির গুরুত্ব এবং বন্যপ্রাণী সংরক্ষণ সম্পর্কে উত্তর প্রস্তুত করো।",
-  quiz:[
-   ["বন বহু প্রাণীর কী?","আবাসস্থল","খেলার মাঠ","কারখানা","রাস্তা",0],
-   ["বন সংরক্ষণ করা কেন দরকার?","পরিবেশ রক্ষার জন্য","দূষণ বাড়াতে","বন ধ্বংস করতে","জল নষ্ট করতে",0],
-   ["বন্যপ্রাণী রক্ষা কীসের অংশ?","পরিবেশ সংরক্ষণ","দূষণ","বন ধ্বংস","অপচয়",0]
-  ]
- },
+{
+title:"পরিবেশ ও বনভূমি",
+summary:"বনভূমি পরিবেশের ভারসাম্য রক্ষা করে এবং বহু উদ্ভিদ ও প্রাণীর আবাসস্থল।",
+points:[
+"বন বহু প্রাণীর আবাসস্থল।",
+"গাছ পরিবেশের জন্য গুরুত্বপূর্ণ।",
+"বনভূমি সংরক্ষণ দরকার।",
+"বন্যপ্রাণী রক্ষা পরিবেশ সংরক্ষণের অংশ।"
+],
+note:"স্থানীয় বন, গাছ ও প্রাণীদের সম্পর্কে তথ্য সংগ্রহ করো।",
+exam:"বনভূমির গুরুত্ব ও বন্যপ্রাণী সংরক্ষণ লিখে practice করো।",
+quiz:[
+["বন বহু প্রাণীর কী?","আবাসস্থল","খেলার মাঠ","কারখানা","রাস্তা",0],
+["বন সংরক্ষণ কেন দরকার?","পরিবেশ রক্ষার জন্য","দূষণ বাড়াতে","জল নষ্ট করতে","বন ধ্বংস করতে",0],
+["বন্যপ্রাণী রক্ষা কীসের অংশ?","পরিবেশ সংরক্ষণ","দূষণ","অপচয়","বন ধ্বংস",0],
+["গাছ পরিবেশে কী করে?","ভারসাম্য বজায় রাখতে সাহায্য করে","দূষণ বাড়ায়","জল নষ্ট করে","মাটি নষ্ট করে",0],
+["বন কাটা কী ঘটাতে পারে?","পরিবেশের ক্ষতি","সবসময় উন্নতি","বৃষ্টি বন্ধ করা নিশ্চিত","কিছুই নয়",0],
+["বন্যপ্রাণীর জন্য দরকার","নিরাপদ আবাসস্থল","শিকার","খাঁচা","দূষিত জল",0],
+["বন কী রক্ষা করে?","জীববৈচিত্র্য","শুধু রাস্তা","শুধু গাড়ি","শুধু বাড়ি",0],
+["বনভূমি রক্ষার কাজ","গাছ সংরক্ষণ","অতিরিক্ত গাছ কাটা","আগুন লাগানো","দূষণ",0],
+["প্রকৃতি রক্ষায় কী করা উচিত?","বন সংরক্ষণ","বন ধ্বংস","জল দূষণ","শিকার",0],
+["পরিবেশ রক্ষার দায়িত্ব কার?","সবার","শুধু একজনের","শুধু কৃষকের","শুধু শিক্ষকের",0]
+]
+},
 
- {
-  title:"সূর্যগ্রহণ ও চন্দ্রগ্রহণ, জোয়ার-ভাঁটা",
-  summary:"সূর্য, পৃথিবী ও চাঁদের আপেক্ষিক অবস্থানের কারণে গ্রহণ দেখা যায়। সমুদ্রের জলের ওঠানামাকে জোয়ার-ভাঁটা বলা হয়।",
-  points:[
-   "সূর্যগ্রহণে চাঁদ সূর্য ও পৃথিবীর মাঝখানে আসে।",
-   "চন্দ্রগ্রহণে পৃথিবী সূর্য ও চাঁদের মাঝখানে থাকে।",
-   "জোয়ারে সমুদ্রের জল বেড়ে ওঠে।",
-   "ভাঁটায় সমুদ্রের জল নেমে যায়।"
-  ],
-  note:"সূর্য-পৃথিবী-চাঁদের অবস্থান ছবি এঁকে বোঝার চেষ্টা করো।",
-  exam:"সূর্যগ্রহণ ও চন্দ্রগ্রহণের পার্থক্য এবং জোয়ার-ভাঁটার ধারণা লিখে অনুশীলন করো।",
-  quiz:[
-   ["সূর্যগ্রহণে মাঝখানে কে থাকে?","চাঁদ","মঙ্গল","বৃহস্পতি","শুক্র",0],
-   ["চন্দ্রগ্রহণে মাঝখানে কে থাকে?","পৃথিবী","চাঁদ","সূর্য","মঙ্গল",0],
-   ["সমুদ্রের জল ওঠাকে কী বলে?","জোয়ার","ভাঁটা","বৃষ্টি","বন্যা",0]
-  ]
- }
+{
+title:"পরিবেশ ও সম্পদ",
+summary:"প্রাকৃতিক সম্পদ ও সাংস্কৃতিক সম্পদ মানুষের জীবন ও সমাজের সঙ্গে যুক্ত। এগুলির সঠিক ব্যবহার ও সংরক্ষণ প্রয়োজন।",
+points:[
+"প্রাকৃতিক সম্পদের মধ্যে জল, মাটি, বন ইত্যাদি আছে।",
+"সম্পদের অপচয় করা উচিত নয়।",
+"সাংস্কৃতিক ঐতিহ্যও মূল্যবান সম্পদ।",
+"ভবিষ্যতের জন্য সম্পদ সংরক্ষণ দরকার।"
+],
+note:"নিজের এলাকার প্রাকৃতিক ও সাংস্কৃতিক সম্পদের তালিকা তৈরি করো।",
+exam:"সম্পদ, সংরক্ষণ ও ঐতিহ্য নিয়ে short answer practice করো।",
+quiz:[
+["একটি প্রাকৃতিক সম্পদ কোনটি?","জল","প্লাস্টিক","কাচ","খেলনা",0],
+["আরেকটি প্রাকৃতিক সম্পদ","মাটি","কম্পিউটার","গাড়ি","বই",0],
+["সম্পদের কী করা উচিত নয়?","অপচয়","সঠিক ব্যবহার","সংরক্ষণ","যত্ন",0],
+["সাংস্কৃতিক ঐতিহ্য কী?","সমাজের মূল্যবান ঐতিহ্য","শুধু জল","শুধু মাটি","শুধু রাস্তা",0],
+["ভবিষ্যতের জন্য কী দরকার?","সম্পদ সংরক্ষণ","অপচয়","দূষণ","ধ্বংস",0],
+["বন কী ধরনের সম্পদ?","প্রাকৃতিক","শুধু কৃত্রিম","শুধু ডিজিটাল","কোনোটিই নয়",0],
+["জলকে কীভাবে ব্যবহার করা উচিত?","সচেতনভাবে","অপচয় করে","দূষিত করে","ফেলে দিয়ে",0],
+["ঐতিহ্য সংরক্ষণ কেন দরকার?","পরবর্তী প্রজন্মের জন্য","ধ্বংসের জন্য","অপচয়ের জন্য","দূষণের জন্য",0],
+["সম্পদ সংরক্ষণ মানে","যত্ন করে রক্ষা করা","নষ্ট করা","অপচয় করা","দূষণ করা",0],
+["পরিবেশবান্ধব কাজ কোনটি?","জল সাশ্রয়","জল অপচয়","বন কাটা","আবর্জনা ফেলা",0]
+]
+},
 
- ]
+{
+title:"সূর্যগ্রহণ ও চন্দ্রগ্রহণ",
+summary:"সূর্য, পৃথিবী ও চাঁদের আপেক্ষিক অবস্থানের কারণে সূর্যগ্রহণ ও চন্দ্রগ্রহণ দেখা যায়।",
+points:[
+"সূর্যগ্রহণে চাঁদ সূর্য ও পৃথিবীর মাঝখানে আসে।",
+"চন্দ্রগ্রহণে পৃথিবী সূর্য ও চাঁদের মাঝখানে থাকে।",
+"গ্রহণ একটি জ্যোতির্বৈজ্ঞানিক ঘটনা।",
+"সূর্যগ্রহণ সরাসরি খালি চোখে দেখা নিরাপদ নয়।"
+],
+note:"সূর্য-চাঁদ-পৃথিবীর অবস্থান ছবি এঁকে বোঝার চেষ্টা করো।",
+exam:"দুই ধরনের গ্রহণের পার্থক্য লিখে practice করো।",
+quiz:[
+["সূর্যগ্রহণে মাঝখানে কে থাকে?","চাঁদ","মঙ্গল","বৃহস্পতি","শুক্র",0],
+["চন্দ্রগ্রহণে মাঝখানে কে থাকে?","পৃথিবী","চাঁদ","সূর্য","মঙ্গল",0],
+["গ্রহণ কী ধরনের ঘটনা?","জ্যোতির্বৈজ্ঞানিক","কৃষি","সামাজিক","খেলাধুলা",0],
+["সূর্যগ্রহণে চাঁদ কোথায় থাকে?","সূর্য ও পৃথিবীর মাঝে","পৃথিবীর পিছনে","সূর্যের পিছনে","মঙ্গলের পাশে",0],
+["চন্দ্রগ্রহণে পৃথিবী কোথায় থাকে?","সূর্য ও চাঁদের মাঝে","চাঁদের পিছনে","সূর্যের ভিতরে","মঙ্গলের মাঝে",0],
+["সূর্যগ্রহণ দেখার সময় কী দরকার?","নিরাপদ solar viewing method","খালি চোখ","সাধারণ কাচ","চোখ বন্ধ না করা",0],
+["চাঁদ কী?","পৃথিবীর প্রাকৃতিক উপগ্রহ","গ্রহ","নক্ষত্র","ধূমকেতু",0],
+["সূর্য কী?","নক্ষত্র","গ্রহ","উপগ্রহ","পাথর",0],
+["পৃথিবী কী?","গ্রহ","নক্ষত্র","উপগ্রহ","ধূমকেতু",0],
+["গ্রহণের সঙ্গে কারা সম্পর্কিত?","সূর্য, পৃথিবী ও চাঁদ","শুধু মঙ্গল","শুধু বৃহস্পতি","শুধু তারা",0]
+]
+},
+
+{
+title:"জোয়ার-ভাঁটা",
+summary:"সমুদ্রের জলের নিয়মিত ওঠানামাকে জোয়ার-ভাঁটা বলা হয়। চাঁদের মহাকর্ষীয় প্রভাব এর একটি গুরুত্বপূর্ণ কারণ।",
+points:[
+"জোয়ারে সমুদ্রের জল বেড়ে ওঠে।",
+"ভাঁটায় জল নেমে যায়।",
+"চাঁদের মহাকর্ষ জোয়ার-ভাঁটার সঙ্গে সম্পর্কিত।",
+"উপকূলীয় জীবনে এর প্রভাব আছে।"
+],
+note:"জোয়ার ও ভাঁটার পার্থক্য এবং সমুদ্রের জলের ওঠানামা বোঝো।",
+exam:"জোয়ার-ভাঁটার সংজ্ঞা ও কারণ লিখে practice করো।",
+quiz:[
+["সমুদ্রের জল বেড়ে ওঠাকে কী বলে?","জোয়ার","ভাঁটা","বৃষ্টি","বন্যা",0],
+["সমুদ্রের জল নেমে যাওয়াকে কী বলে?","ভাঁটা","জোয়ার","বৃষ্টি","ঝড়",0],
+["জোয়ার-ভাঁটার সঙ্গে কোনটির সম্পর্ক আছে?","চাঁদের মহাকর্ষ","শুধু বৃষ্টি","শুধু বাতাস","শুধু মাটি",0],
+["জোয়ারে জল কী করে?","ওঠে","নামে","শুকিয়ে যায়","বরফ হয়",0],
+["ভাঁটায় জল কী করে?","নামে","ওঠে","বরফ হয়","উধাও হয়",0],
+["জোয়ার-ভাঁটা কোথায় দেখা যায়?","সমুদ্র ও উপকূলে","শুধু পাহাড়ে","শুধু মরুভূমিতে","শুধু স্কুলে",0],
+["চাঁদ কীভাবে প্রভাব ফেলে?","মহাকর্ষের মাধ্যমে","রঙের মাধ্যমে","শব্দের মাধ্যমে","আলোর মাধ্যমে শুধু",0],
+["উপকূলীয় মানুষের জীবনে জোয়ার-ভাঁটার কী হতে পারে?","প্রভাব","কোনো সম্পর্ক নেই","শুধু ভয়","শুধু আনন্দ",0],
+["জোয়ার ও ভাঁটা কী?","জলের ওঠানামা","বৃষ্টির ধরন","মাটির ধরন","বাতাসের নাম",0],
+["এটি কী ধরনের প্রাকৃতিক ঘটনা?","সমুদ্রের জলস্তরের পরিবর্তন","শুধু কৃষি","শুধু সামাজিক","শুধু খেলাধুলা",0]
+]
+},
+
+{
+title:"স্থানীয় পরিবেশ পর্যবেক্ষণ",
+summary:"নিজের এলাকার জল, মাটি, গাছ, প্রাণী, রাস্তা ও মানুষের জীবনযাত্রা পর্যবেক্ষণ করে পরিবেশ সম্পর্কে জানা যায়।",
+points:[
+"পরিবেশ পর্যবেক্ষণ শেখার গুরুত্বপূর্ণ উপায়।",
+"স্থানীয় গাছ ও প্রাণীর তালিকা করা যায়।",
+"দূষণের উৎস চিহ্নিত করা যায়।",
+"পরিবেশ উন্নত করতে স্থানীয়ভাবে কাজ করা যায়।"
+],
+note:"নিজের এলাকার ৫টি গাছ, ৫টি প্রাণী এবং ৩টি পরিবেশগত সমস্যার তালিকা তৈরি করো।",
+exam:"স্থানীয় পরিবেশের সমস্যা ও সমাধান নিয়ে ছোট paragraph লিখো।",
+quiz:[
+["পরিবেশ জানার ভালো উপায় কী?","পর্যবেক্ষণ","অবহেলা","ধ্বংস","দূষণ",0],
+["স্থানীয় পরিবেশে কী দেখা যায়?","গাছ ও প্রাণী","শুধু বই","শুধু কম্পিউটার","শুধু খেলনা",0],
+["দূষণের একটি উৎস কী হতে পারে?","আবর্জনা","পরিষ্কার জল","গাছ","বাগান",0],
+["পরিবেশ রক্ষায় কী করা যায়?","আবর্জনা ঠিক জায়গায় ফেলা","রাস্তায় ফেলা","জল নষ্ট করা","গাছ কাটা",0],
+["স্থানীয় তথ্য কীভাবে সংগ্রহ করা যায়?","পর্যবেক্ষণ ও নোট","শুধু অনুমান","অমনোযোগ","ভুল তথ্য",0],
+["গাছের তালিকা করা কী?","পর্যবেক্ষণমূলক কাজ","খেলা","গণিত","গান",0],
+["পরিবেশ সমস্যা চিহ্নিত করলে কী করা যায়?","সমাধান ভাবা","আরও দূষণ","অবহেলা","ধ্বংস",0],
+["জল পরিষ্কার রাখা কেন দরকার?","জীবনের জন্য","দূষণের জন্য","শুধু খেলার জন্য","কিছু নয়",0],
+["স্থানীয় পরিবেশ কার সঙ্গে সম্পর্কিত?","মানুষ ও প্রকৃতি","শুধু বই","শুধু গাড়ি","শুধু স্কুল",0],
+["ভালো পরিবেশের জন্য দরকার","সচেতনতা","অপচয়","দূষণ","বন ধ্বংস",0]
+]
+}
+
+]
 }
 
 };
 
 
 /* =========================================================
-   VARIABLES
+APP LOGIC
 ========================================================= */
 
-let currentSubject = "বাংলা";
-let currentChapter = null;
-let lastResult = null;
-
-
-/* =========================================================
-   SUBJECTS
-========================================================= */
+let currentSubject="বাংলা";
+let currentChapter=0;
 
 function renderSubjects(){
-
- const box = document.getElementById("subjects");
-
- box.innerHTML = Object.entries(DATA).map(([name,data]) => `
-   <div class="subject ${name===currentSubject ? "active":""}"
-        onclick="selectSubject('${name}')">
-
-     <div class="icon">${data.icon}</div>
-     <h3>${name}</h3>
-     <p>${data.desc}</p>
-
-   </div>
- `).join("");
+document.getElementById("subjects").innerHTML=
+Object.entries(DATA).map(([name,d])=>`
+<div class="subject ${name===currentSubject?"active":""}"
+onclick="selectSubject('${name}')">
+<div class="icon">${d.icon}</div>
+<h3>${name}</h3>
+<p>${d.desc}</p>
+</div>`).join("");
 }
 
-
-/* =========================================================
-   SELECT SUBJECT
-========================================================= */
-
-function selectSubject(subject){
-
- currentSubject = subject;
-
- renderSubjects();
- renderChapters();
-
- document.getElementById("study").classList.remove("show");
-
- window.scrollTo({
-   top:document.querySelector(".chapter-area").offsetTop-80,
-   behavior:"smooth"
- });
+function selectSubject(name){
+currentSubject=name;
+renderSubjects();
+renderChapters();
+document.getElementById("study").classList.remove("show");
+document.querySelector(".chapters").scrollIntoView({behavior:"smooth"});
 }
-
-
-/* =========================================================
-   CHAPTERS
-========================================================= */
 
 function renderChapters(){
+let d=DATA[currentSubject];
+document.getElementById("chapterTitle").innerHTML=
+`${d.icon} ${currentSubject} — ${d.chapters.length}টি Study Topic`;
 
- const data = DATA[currentSubject];
-
- document.getElementById("chapterTitle").innerHTML =
-   `${data.icon} ${currentSubject} — Chapter নির্বাচন করুন`;
-
- document.getElementById("chapters").innerHTML =
- data.chapters.map((chapter,index)=>`
-
-   <div class="chapter">
-
-     <div class="chapter-number">
-       CHAPTER ${index+1}
-     </div>
-
-     <h3>${chapter.title}</h3>
-
-     <button class="open-btn"
-       onclick="openChapter(${index})">
-       Study Now →
-     </button>
-
-   </div>
-
- `).join("");
+document.getElementById("chapters").innerHTML=
+d.chapters.map((c,i)=>`
+<div class="chapter">
+<div class="number">TOPIC ${i+1}</div>
+<h3>${c.title}</h3>
+<button class="open" onclick="openChapter(${i})">Study Now →</button>
+</div>`).join("");
 }
 
+function openChapter(i){
+currentChapter=i;
+let d=DATA[currentSubject];
+let c=d.chapters[i];
 
-/* =========================================================
-   OPEN CHAPTER
-========================================================= */
+document.getElementById("studySubject").textContent=
+`${d.icon} ${currentSubject}`;
 
-function openChapter(index){
+document.getElementById("studyTitle").textContent=c.title;
+document.getElementById("summary").textContent=c.summary;
+document.getElementById("note").textContent=c.note;
+document.getElementById("exam").textContent=c.exam;
 
- currentChapter = index;
+document.getElementById("points").innerHTML=
+c.points.map(x=>`<li>${x}</li>`).join("");
 
- const data = DATA[currentSubject];
- const chapter = data.chapters[index];
+document.getElementById("study").classList.add("show");
 
- document.getElementById("studySubject").innerText =
-   `${data.icon} ${currentSubject}`;
+localStorage.setItem("asimRecentStudy",
+JSON.stringify({subject:currentSubject,chapter:i}));
 
- document.getElementById("studyTitle").innerText =
-   chapter.title;
+showRecent();
+renderQuiz();
 
- document.getElementById("summary").innerText =
-   chapter.summary;
+document.getElementById("result").classList.remove("show");
 
- document.getElementById("note").innerText =
-   chapter.note;
-
- document.getElementById("exam").innerText =
-   chapter.exam;
-
- document.getElementById("points").innerHTML =
-   chapter.points.map(x=>`<li>${x}</li>`).join("");
-
- document.getElementById("study").classList.add("show");
-
- saveRecent();
-
- renderQuiz();
-
- document.getElementById("result").classList.remove("show");
-
- window.scrollTo({
-   top:document.getElementById("study").offsetTop-75,
-   behavior:"smooth"
- });
+document.getElementById("study").scrollIntoView({
+behavior:"smooth",block:"start"
+});
 }
-
-
-/* =========================================================
-   QUIZ
-========================================================= */
 
 function renderQuiz(){
+let qs=DATA[currentSubject].chapters[currentChapter].quiz;
 
- const questions =
-   DATA[currentSubject].chapters[currentChapter].quiz;
-
- document.getElementById("quizBox").innerHTML =
- questions.map((q,i)=>`
-
-   <div class="question">
-
-     <h4>${i+1}. ${q[0]}</h4>
-
-     ${q.slice(1,5).map((option,j)=>`
-
-       <label class="option">
-         <input
-           type="radio"
-           name="q${i}"
-           value="${j}">
-         ${option}
-       </label>
-
-     `).join("")}
-
-   </div>
-
- `).join("");
+document.getElementById("quizBox").innerHTML=
+qs.map((q,i)=>`
+<div class="question">
+<h4>${i+1}. ${q[0]}</h4>
+${q.slice(1,5).map((op,j)=>`
+<label class="option">
+<input type="radio" name="q${i}" value="${j}">
+${op}
+</label>`).join("")}
+</div>`).join("");
 }
-
-
-/* =========================================================
-   SUBMIT QUIZ
-========================================================= */
 
 function submitQuiz(){
 
- const questions =
-   DATA[currentSubject].chapters[currentChapter].quiz;
+let qs=DATA[currentSubject].chapters[currentChapter].quiz;
+let score=0;
 
- let score = 0;
- let details = [];
+let answers=qs.map((q,i)=>{
+let selected=document.querySelector(
+`input[name="q${i}"]:checked`
+);
+let value=selected?Number(selected.value):-1;
 
- questions.forEach((q,i)=>{
+if(value===q[5])score++;
 
-   const selected =
-     document.querySelector(`input[name="q${i}"]:checked`);
+return{
+correct:value===q[5],
+selected:value===-1?"উত্তর দেওয়া হয়নি":q[value+1],
+answer:q[q[5]+1]
+};
+});
 
-   const answer =
-     selected ? Number(selected.value) : -1;
+let percentage=Math.round(score/qs.length*100);
 
-   if(answer === q[5]){
-     score++;
-   }
+let message=
+percentage===100?"🏆 অসাধারণ! সব উত্তর সঠিক।":
+percentage>=80?"🌟 খুব ভালো!":
+percentage>=50?"👍 ভালো হয়েছে। আর একটু practice করো।":
+"📚 Study Note আবার পড়ে Quiz চেষ্টা করো।";
 
-   details.push({
-     question:q[0],
-     correct:q[q[5]+1],
-     selected:
-       answer===-1 ? "উত্তর দেওয়া হয়নি" : q[answer+1],
-     isCorrect:answer===q[5]
-   });
+let html=`
+<div class="score">${score} / ${qs.length}</div>
+<div class="feedback">${percentage}% • ${message}</div>
+`;
 
- });
+answers.forEach((a,i)=>{
+html+=`
+<div class="answer">
+<b>${i+1}. ${a.correct?"✅ Correct":"❌ Wrong"}</b><br>
+তোমার উত্তর: ${a.selected}<br>
+সঠিক উত্তর: <b>${a.answer}</b>
+</div>`;
+});
 
- lastResult = {
-   score,
-   total:questions.length,
-   details
- };
+html+=`
+<button class="try" onclick="newQuiz()">🔄 Try Again</button>
+`;
 
- let html = `
-   <div class="score">
-     ${score} / ${questions.length}
-   </div>
-
-   <div>
-     ${
-       score===questions.length
-       ? "🎉 অসাধারণ! সবকটি উত্তর সঠিক।"
-       : score>=2
-       ? "👍 খুব ভালো! আরও একটু practice করলে আরও ভালো হবে।"
-       : "📚 আবার Study Note দেখে Quiz চেষ্টা করো।"
-     }
-   </div>
- `;
-
- details.forEach((d,i)=>{
-
-   html += `
-     <div class="explanation">
-
-       <strong>
-         ${i+1}. ${d.isCorrect ? "✅ Correct" : "❌ Incorrect"}
-       </strong>
-
-       <br>
-
-       সঠিক উত্তর:
-       <b>${d.correct}</b>
-
-       <br>
-
-       তোমার উত্তর:
-       ${d.selected}
-
-     </div>
-   `;
-
- });
-
- html += `
-   <button class="try" onclick="newQuiz()">
-     🔄 Try Again
-   </button>
- `;
-
- const result =
-   document.getElementById("result");
-
- result.innerHTML = html;
-
- result.classList.add("show");
-
- result.scrollIntoView({
-   behavior:"smooth",
-   block:"center"
- });
+let r=document.getElementById("result");
+r.innerHTML=html;
+r.classList.add("show");
+r.scrollIntoView({behavior:"smooth",block:"center"});
 }
-
-
-/* =========================================================
-   TRY AGAIN
-========================================================= */
 
 function newQuiz(){
-
- document.getElementById("result")
-   .classList.remove("show");
-
- renderQuiz();
-
- document.getElementById("quizBox")
-   .scrollIntoView({
-     behavior:"smooth",
-     block:"start"
-   });
+document.getElementById("result").classList.remove("show");
+renderQuiz();
+document.getElementById("quizBox").scrollIntoView({
+behavior:"smooth",block:"start"
+});
 }
-
-
-/* =========================================================
-   CLOSE STUDY
-========================================================= */
 
 function closeStudy(){
-
- document.getElementById("study")
-   .classList.remove("show");
-
- window.scrollTo({
-   top:document.querySelector(".chapter-area").offsetTop-70,
-   behavior:"smooth"
- });
+document.getElementById("study").classList.remove("show");
 }
-
-
-/* =========================================================
-   RECENT STUDY
-========================================================= */
-
-function saveRecent(){
-
- const recent = {
-   subject:currentSubject,
-   chapter:currentChapter
- };
-
- localStorage.setItem(
-   "asimRecentStudy",
-   JSON.stringify(recent)
- );
-
- showRecent();
-}
-
 
 function showRecent(){
+let raw=localStorage.getItem("asimRecentStudy");
+if(!raw)return;
 
- const raw =
-   localStorage.getItem("asimRecentStudy");
+let r=JSON.parse(raw);
+if(!DATA[r.subject])return;
 
- if(!raw) return;
+let c=DATA[r.subject].chapters[r.chapter];
+if(!c)return;
 
- const recent =
-   JSON.parse(raw);
-
- if(!DATA[recent.subject]) return;
-
- const chapter =
-   DATA[recent.subject].chapters[recent.chapter];
-
- if(!chapter) return;
-
- document.getElementById("recent")
-   .classList.add("show");
-
- document.getElementById("recentText").innerHTML =
-   `<div style="margin-top:8px;color:#aeb8cc">
-      ${DATA[recent.subject].icon}
-      ${recent.subject} —
-      <strong>${chapter.title}</strong>
-    </div>`;
+document.getElementById("recent").classList.add("show");
+document.getElementById("recentText").innerHTML=
+`<div style="margin-top:7px;color:#aeb9cd">
+${DATA[r.subject].icon} ${r.subject} — <b>${c.title}</b>
+</div>`;
 }
-
 
 function openRecent(){
+let raw=localStorage.getItem("asimRecentStudy");
+if(!raw)return;
 
- const raw =
-   localStorage.getItem("asimRecentStudy");
-
- if(!raw) return;
-
- const recent =
-   JSON.parse(raw);
-
- currentSubject =
-   recent.subject;
-
- renderSubjects();
- renderChapters();
-
- openChapter(recent.chapter);
+let r=JSON.parse(raw);
+currentSubject=r.subject;
+renderSubjects();
+renderChapters();
+openChapter(r.chapter);
 }
-
-
-/* =========================================================
-   START APP
-========================================================= */
 
 renderSubjects();
 renderChapters();
