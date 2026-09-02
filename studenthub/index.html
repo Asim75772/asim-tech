@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub | Class 5–12</title>
+
+    <meta name="description" content="StudentHub - Free study tools and learning resources for Class 5 to 12 students.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo-area">
+            <img src="assets/logo.png" alt="StudentHub Logo" class="logo">
+            <div>
+                <h1>StudentHub</h1>
+                <p>Class 5 – 12</p>
+            </div>
+        </div>
+
+        <button id="darkModeBtn" class="dark-btn">
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <p class="small-title">WELCOME TO STUDENTHUB</p>
+
+            <h2>
+                Learn Better.<br>
+                Practice More.<br>
+                <span>Achieve More.</span>
+            </h2>
+
+            <p class="hero-text">
+                Free learning resources, quizzes, study tools and more
+                for students from Class 5 to Class 12.
+            </p>
+
+        </section>
+
+
+        <!-- ================= CLASS SELECTION ================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+                <h2>🎓 Select Your Class</h2>
+                <p>Choose your class to start learning.</p>
+            </div>
+
+            <div class="class-grid">
+
+                <button class="class-card" data-class="5">
+                    <strong>5</strong>
+                    <span>Class Five</span>
+                </button>
+
+                <button class="class-card" data-class="6">
+                    <strong>6</strong>
+                    <span>Class Six</span>
+                </button>
+
+                <button class="class-card" data-class="7">
+                    <strong>7</strong>
+                    <span>Class Seven</span>
+                </button>
+
+                <button class="class-card" data-class="8">
+                    <strong>8</strong>
+                    <span>Class Eight</span>
+                </button>
+
+                <button class="class-card" data-class="9">
+                    <strong>9</strong>
+                    <span>Class Nine</span>
+                </button>
+
+                <button class="class-card" data-class="10">
+                    <strong>10</strong>
+                    <span>Class Ten</span>
+                </button>
+
+                <button class="class-card" data-class="11">
+                    <strong>11</strong>
+                    <span>Class Eleven</span>
+                </button>
+
+                <button class="class-card" data-class="12">
+                    <strong>12</strong>
+                    <span>Class Twelve</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-section">
+
+            <div class="search-heading">
+                <h2>🔍 Student Search</h2>
+
+                <p>
+                    Search Google, YouTube or Wikipedia.
+                </p>
+            </div>
+
+            <form id="searchForm" class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search anything..."
+                    autocomplete="off"
+                    required
+                >
+
+                <select id="searchEngine">
+
+                    <option value="google">
+                        Google
+                    </option>
+
+                    <option value="youtube">
+                        YouTube
+                    </option>
+
+                    <option value="wikipedia">
+                        Wikipedia
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Search
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= QUICK TOOLS ================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>🧰 Student Toolkit</h2>
+
+                <p>
+                    Useful tools for everyday study.
+                </p>
+
+            </div>
+
+
+            <div class="tool-grid">
+
+                <button class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <strong>Quiz</strong>
+                    <span>Test your knowledge</span>
+                </button>
+
+
+                <button class="tool-card">
+                    <div class="tool-icon">📖</div>
+                    <strong>My Notes</strong>
+                    <span>Write your notes</span>
+                </button>
+
+
+                <button class="tool-card">
+                    <div class="tool-icon">📅</div>
+                    <strong>Study Planner</strong>
+                    <span>Plan your study</span>
+                </button>
+
+
+                <button class="tool-card">
+                    <div class="tool-icon">⏱️</div>
+                    <strong>Study Timer</strong>
+                    <span>Focus & study</span>
+                </button>
+
+
+                <button class="tool-card">
+                    <div class="tool-icon">🧮</div>
+                    <strong>Calculator</strong>
+                    <span>Quick calculations</span>
+                </button>
+
+
+                <button class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <strong>My Progress</strong>
+                    <span>Track your progress</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SUBJECTS ================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>📚 Popular Subjects</h2>
+
+                <p>
+                    Select a subject to start learning.
+                </p>
+
+            </div>
+
+
+            <div class="subject-grid">
+
+                <button class="subject-card">
+                    📐
+                    <span>Mathematics</span>
+                </button>
+
+                <button class="subject-card">
+                    🔬
+                    <span>Science</span>
+                </button>
+
+                <button class="subject-card">
+                    📘
+                    <span>English</span>
+                </button>
+
+                <button class="subject-card">
+                    📖
+                    <span>বাংলা</span>
+                </button>
+
+                <button class="subject-card">
+                    🌍
+                    <span>Geography</span>
+                </button>
+
+                <button class="subject-card">
+                    🏛️
+                    <span>History</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STUDY PLAN ================= -->
+
+        <section class="study-plan">
+
+            <div>
+
+                <p class="small-title">
+                    YOUR DAILY GOAL
+                </p>
+
+                <h2>
+                    Make today productive! 🚀
+                </h2>
+
+                <p>
+                    Create your study plan and complete your daily goals.
+                </p>
+
+            </div>
+
+            <button class="primary-btn">
+                Start Planning
+            </button>
+
+        </section>
+
+
+        <!-- ================= MOTIVATION ================= -->
+
+        <section class="quote-section">
+
+            <div class="quote-icon">
+                💡
+            </div>
+
+            <h2>
+                “Success comes from consistent effort.”
+            </h2>
+
+            <p>
+                Study a little every day and keep improving.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🎓 StudentHub
+        </div>
+
+        <p>
+            Free Student Learning Platform
+        </p>
+
+        <p>
+            Class 5 – 12
+        </p>
+
+        <hr>
+
+        <p class="copyright">
+            © 2026 Asim Tech • StudentHub
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
