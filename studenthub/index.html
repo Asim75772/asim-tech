@@ -1,169 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudentHub - Class 5 to 12</title>
-<link rel="stylesheet" href="style.css">
+<title>StudentHub | ASIM TECH</title>
 <style>
-.study-panel{display:none;margin-top:18px;background:#fff;border:1px solid #d9e5f7;border-radius:22px;overflow:hidden;box-shadow:0 14px 35px rgba(22,62,120,.12);position:relative}
-.study-panel.show{display:block}
-.study-head{background:linear-gradient(135deg,#073f9f,#1680ee);color:#fff;padding:26px 28px}
-.study-head h3{font-size:25px}.study-head p{font-size:13px;opacity:.9;margin-top:4px}
-.chapter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:24px}
-.chapter-card{border:1px solid #e0e7f2;background:#fbfdff;border-radius:16px;padding:18px;text-align:left;transition:.2s}
-.chapter-card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(40,91,160,.12);border-color:#77a9ff}
-.chapter-card .chapter-icon{font-size:25px;margin-bottom:7px}.chapter-card h4{font-size:15px;color:#16244b}.chapter-card p{font-size:11px;color:#748199;margin:4px 0 12px}
-.chapter-actions{display:flex;gap:7px}.chapter-actions button{border:0;border-radius:8px;padding:7px 10px;background:#1268dc;color:#fff;font-size:10px;font-weight:800}.chapter-actions button.video{background:#ed3040}
-.study-close{position:absolute;right:13px;top:13px;width:34px;height:34px;border:0;border-radius:50%;background:#fff;color:#17305f;font-size:22px;z-index:2}
-.material-note{margin:0 24px 24px;padding:12px 15px;border-radius:12px;background:#eef5ff;color:#36547e;font-size:12px}
-@media(max-width:700px){.chapter-grid{grid-template-columns:1fr 1fr;padding:16px}.study-head{padding:22px}.material-note{margin:0 16px 16px}}
-@media(max-width:430px){.chapter-grid{grid-template-columns:1fr}}
-.dark .study-panel{background:#101e3b;border-color:#253b63}.dark .chapter-card{background:#0c1931;border-color:#2b4168}.dark .chapter-card h4{color:#eef4ff}.dark .chapter-card p{color:#aab7ce}.dark .material-note{background:#10284b;color:#b9cae6}
+:root{
+  --bg:#f4f7fb;--surface:#ffffff;--surface2:#f8fafc;--navy:#0b1b33;
+  --blue:#1677c8;--blue2:#2d9be8;--text:#14233a;--muted:#68788d;
+  --line:#e4eaf1;--soft:#edf5fc;--gold:#d99d27;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{text-decoration:none;color:inherit}.container{width:min(1120px,calc(100% - 32px));margin:auto}
+
+/* Header */
+.topbar{background:var(--navy);color:#fff;border-bottom:1px solid #1c3553;position:sticky;top:0;z-index:50}
+.nav{height:72px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:11px;margin-right:auto;min-width:190px}
+.brand-mark{font-size:24px;color:#fff}.brand-name{font-size:20px;font-weight:900;letter-spacing:.5px}.brand-name span{color:#48b5ee}
+.brand-sub{font-size:9px;color:#aab9ca;letter-spacing:.4px;margin-top:2px}
+nav{display:flex;align-items:center;gap:25px;white-space:nowrap}
+nav a{font-size:14px;color:#cbd7e6}nav a:hover,nav a.active{color:#fff}
+.theme{border:1px solid #31506f;background:#102743;color:#dbeaff;border-radius:10px;padding:8px 11px;cursor:pointer}
+
+/* Hero */
+.hero{margin-top:26px;border-radius:24px;min-height:360px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,#0b1b33,#12385c);color:#fff;box-shadow:0 18px 50px #0b1b3317}
+.hero:before{content:"";position:absolute;width:430px;height:430px;right:-150px;top:-170px;border-radius:50%;border:1px solid #7fc7ed2e;box-shadow:0 0 0 60px #7fc7ed09,0 0 0 120px #7fc7ed05}
+.hero:after{content:"";position:absolute;width:7px;height:7px;right:25%;top:24%;border-radius:50%;background:#8ed5f4;box-shadow:0 0 18px #8ed5f4;animation:softFloat 5s ease-in-out infinite}
+.hero-copy{position:relative;z-index:2;padding:48px;max-width:690px}
+.eyebrow{display:inline-block;font-size:10px;letter-spacing:2px;font-weight:800;color:#7dc8ec}
+.hero h1{font-size:clamp(36px,6vw,54px);line-height:1.05;margin:12px 0 14px;letter-spacing:-1.2px}
+.hero h1 span{color:#69c2ec}.hero p{max-width:600px;color:#c9d9e8;font-size:16px;margin:0 0 22px}
+.btn{display:inline-block;padding:11px 17px;border-radius:11px;font-size:13px;font-weight:800}.primary{background:#fff;color:#0d5c9b}.secondary{border:1px solid #7897b2;color:#e9f4fb;margin-left:8px}
+
+@keyframes softFloat{0%,100%{transform:translate(0,0);opacity:.35}50%{transform:translate(8px,-10px);opacity:1}}
+
+/* Sections */
+.section{padding:62px 0 0}.section-head{margin-bottom:23px}.kicker{font-size:10px;letter-spacing:2px;font-weight:900;color:var(--blue)}h2{font-size:30px;margin:5px 0;color:var(--text);letter-spacing:-.5px}.section-head p{margin:0;color:var(--muted);font-size:13px}
+
+/* Classes */
+.class-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.class-card{background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:21px;display:flex;align-items:center;gap:15px;transition:.2s;box-shadow:0 5px 18px #163c6010}
+.class-card:hover{transform:translateY(-3px);border-color:#b9d7eb;box-shadow:0 12px 30px #163c6018}
+.class-card.active{border-color:#9ecce8;background:#f7fbfe}
+.class-no{font-size:26px;font-weight:900;color:var(--blue2);min-width:43px}.class-info strong{display:block;font-size:15px}.class-info small{font-size:10px;color:var(--muted)}.class-card.active small{color:var(--gold);font-weight:700}
+
+/* Dashboard cards */
+.dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.d-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:23px;min-height:145px;box-shadow:0 5px 18px #163c600d;transition:.2s}
+.d-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #163c6016}.d-icon{font-size:21px;margin-bottom:17px}.d-card h3{margin:0 0 5px;font-size:17px}.d-card p{margin:0;color:var(--muted);font-size:12px}.d-card .go{display:block;margin-top:14px;font-size:10px;font-weight:800;color:var(--blue)}
+
+/* Tools */
+.tool-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:11px}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:17px 13px;min-height:128px}.tool b{font-size:20px;color:var(--blue);display:block;margin-bottom:12px}.tool strong{font-size:12px;display:block}.tool span{font-size:9px;color:var(--muted);display:block;margin-top:4px}.soon{display:inline-block;margin-top:11px;font-size:8px;color:#9a7a2e;background:#fff8e8;padding:4px 7px;border-radius:6px}
+
+/* Progress */
+.progress{margin:62px 0 30px;background:var(--navy);color:#fff;border-radius:21px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.progress h2{color:#fff;margin:5px 0}.progress p{color:#b9c9d8;font-size:12px;margin:0}.stats{display:flex;gap:10px}.stat{min-width:105px;padding:15px;text-align:center;border:1px solid #ffffff12;background:#ffffff08;border-radius:13px}.stat strong{display:block;font-size:24px;color:#78c9ef}.stat span{font-size:9px;color:#aebdcb}
+
+/* Footer */
+footer{background:#081426;color:#aebdcb;margin-top:55px;padding:35px 0 18px}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}.footer-title{color:#fff;font-weight:900;font-size:18px}.footer-grid h4{color:#e9f3fb;margin:0 0 8px;font-size:12px}.footer-grid a,.footer-grid p{display:block;font-size:10px;color:#aebdcb;margin:4px 0}.copyright{text-align:center;border-top:1px solid #ffffff0c;margin-top:25px;padding-top:15px;font-size:9px}
+
+/* Dark mode */
+body.dark{--bg:#091421;--surface:#102236;--surface2:#0d1d2e;--text:#eef6fc;--muted:#a8bacb;--line:#20384e;--soft:#12283d}
+body.dark .class-card,body.dark .d-card,body.dark .tool{box-shadow:none}
+body.dark .class-card.active{background:#112c43}
+body.dark .soon{background:#2d291c;color:#e2c56f}
+
+@media(max-width:900px){.class-grid{grid-template-columns:repeat(2,1fr)}.tool-grid{grid-template-columns:repeat(3,1fr)}.dashboard-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){
+ .container{width:min(100% - 24px,560px)}.nav{height:64px;gap:12px}.brand{min-width:0}.brand-sub{display:none}nav{gap:14px;overflow-x:auto;max-width:52%;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav a{font-size:11px}.theme{display:none}
+ .hero{margin-top:14px;min-height:340px}.hero-copy{padding:32px 25px}.hero h1{font-size:39px}.hero p{font-size:14px}
+ .section{padding-top:45px}h2{font-size:25px}.class-grid,.dashboard-grid{grid-template-columns:repeat(2,1fr);gap:10px}.class-card{padding:16px 12px;gap:9px}.class-no{font-size:22px;min-width:36px}.class-info strong{font-size:13px}.class-info small{font-size:9px}
+ .tool-grid{grid-template-columns:repeat(2,1fr)}.progress{display:block;padding:25px;margin-top:45px}.stats{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr)}.stat{min-width:0;padding:12px 5px}.stat strong{font-size:21px}.footer-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<style>
+.contact-box{margin-top:10px;padding:26px 28px;border:1px solid var(--line);border-radius:20px;background:var(--surface);display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 5px 18px #163c600d}
+.contact-box h2{margin:5px 0}.contact-box p{margin:0;color:var(--muted);font-size:12px;max-width:650px}
+.contact-email{padding:12px 16px;border-radius:11px;background:#edf7fd;color:#09639b;border:1px solid #c9e5f4;font-size:12px;font-weight:800;white-space:nowrap}
+body.dark .contact-email{background:#12304a;color:#8bd7ff;border-color:#254a64}
+@media(max-width:680px){.contact-box{display:block;padding:22px}.contact-email{display:inline-block;margin-top:17px;white-space:normal}}
 </style>
 </head>
 <body>
-
-<header class="topbar"><div class="container nav">
-<a class="brand" href="#"><img src="logo.png" alt="StudentHub Logo"><div><div class="brand-name">STUDENT<span>HUB</span></div><div class="brand-sub">Class 5–12 · Learn · Practice · Grow</div></div></a>
-<nav><a class="active" href="#">Home</a><a href="#study-tools">Study Tools</a><a href="#student-tools">Student Tools</a><a href="#classes">Classes</a></nav>
-<button class="theme-btn" onclick="toggleTheme()">☾</button>
-</div></header>
+<header class="topbar">
+ <div class="container nav">
+  <a class="brand" href="#">
+   <span class="brand-mark">▲</span>
+   <div><div class="brand-name">ASIM <span>TECH</span></div><div class="brand-sub">Technology • Education • Resources</div></div>
+  </a>
+  <nav>
+   <a class="active" href="#">Home</a><a href="#dashboard">StudentHub</a><a href="#classes">Classes</a><a href="#tools">Student Tools</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="theme" onclick="toggleTheme()">☾</button>
+ </div>
+</header>
 
 <main>
-<section class="hero container"><div class="hero-copy">
-<span class="eyebrow">🎓 YOUR SMART LEARNING SPACE</span>
-<h1>Learn smarter.<br><span>Grow faster.</span></h1>
-<p>Study, practice and build your confidence with one simple learning platform for Classes 5–12.</p>
-<a class="primary-btn" href="#classes">🚀 Get Started</a>
-</div><div class="hero-art"><img src="logo.png" alt="StudentHub"></div></section>
-
-<section id="classes" class="section container">
-<div class="section-heading"><span>🎓</span><h2>Choose Your Class</h2><p>Select your class to explore subjects.</p></div>
-<div class="class-grid">
-<button class="class-btn" onclick="openClass(5)">🎒 <b>Class 5</b></button>
-<button class="class-btn" onclick="openClass(6)">📘 <b>Class 6</b></button>
-<button class="class-btn" onclick="openClass(7)">⭐ <b>Class 7</b></button>
-<button class="class-btn" onclick="openClass(8)">🧪 <b>Class 8</b></button>
-<button class="class-btn" onclick="openClass(9)">🎯 <b>Class 9</b></button>
-<button class="class-btn" onclick="openClass(10)">🏆 <b>Class 10</b></button>
-<button class="class-btn" onclick="openClass(11)">⚛️ <b>Class 11</b></button>
-<button class="class-btn" onclick="openClass(12)">🎓 <b>Class 12</b></button>
-</div>
-
-<div id="subjectBox" class="subject-panel">
-<button class="close-btn" onclick="closeSubjects()">×</button>
-<div class="subject-side"><div class="side-icon">📚</div><h3 id="classTitle">Class 5</h3><p>Choose a subject to continue your learning journey.</p></div>
-<div id="subjectGrid" class="subject-grid"></div>
-</div>
-
-<div id="studyPanel" class="study-panel">
-<button class="study-close" onclick="closeStudy()">×</button>
-<div class="study-head"><h3 id="studyTitle">Study Materials</h3><p id="studySubtitle">Chapter-wise learning resources</p></div>
-<div id="chapterGrid" class="chapter-grid"></div>
-<div class="material-note">💡 Notes and practice content can be expanded chapter-by-chapter. You can add your own PDFs and links later.</div>
-</div>
+<section class="hero container">
+ <div class="hero-copy">
+  <span class="eyebrow">STUDENTHUB • CLASS 5–12</span>
+  <h1>Learn smarter.<br><span>Grow faster.</span></h1>
+  <p>এক জায়গায় পড়াশোনা, practice, notes এবং useful student tools — সহজ, পরিষ্কার ও distraction-free learning space.</p>
+  <a class="btn primary" href="#classes">Explore Classes</a>
+  <a class="btn secondary" href="#dashboard">Study Hub</a>
+ </div>
 </section>
 
-<section class="search-section container"><div class="search-title">🔎 <strong>Search & Learn</strong></div>
-<div class="search-box"><input id="searchBox" type="text" placeholder="Search any topic...">
-<button class="google" onclick="googleSearch()">G Google</button><button class="youtube" onclick="youtubeSearch()">▶ YouTube</button><button class="wiki" onclick="wikiSearch()">W Wikipedia</button></div></section>
+<section id="classes" class="section container">
+ <div class="section-head"><span class="kicker">CLASSES</span><h2>Choose Your Class</h2><p>Class 5 থেকে 12 — তোমার class বেছে নাও।</p></div>
+ <div class="class-grid">
+  <a class="class-card active" href="class5-maths.html"><div class="class-no">05</div><div class="class-info"><strong>Class 5</strong><small>Mathematics available</small></div></a>
+  <a class="class-card" href="#"><div class="class-no">06</div><div class="class-info"><strong>Class 6</strong><small>Coming soon</small></div></a>
+  <a class="class-card" href="#"><div class="class-no">07</div><div class="class-info"><strong>Class 7</strong><small>Coming soon</small></div></a>
+  <a class="class-card" href="#"><div class="class-no">08</div><div class="class-info"><strong>Class 8</strong><small>Coming soon</small></div></a>
+  <a class="class-card" href="#"><div class="class-no">09</div><div class="class-info"><strong>Class 9</strong><small>Coming soon</small></div></a>
+  <a class="class-card" href="#"><div class="class-no">10</div><div class="class-info"><strong>Class 10</strong><small>Coming soon</small></div></a>
+  <a class="class-card" href="#"><div class="class-no">11</div><div class="class-info"><strong>Class 11</strong><small>Coming soon</small></div></a>
+  <a class="class-card" href="#"><div class="class-no">12</div><div class="class-info"><strong>Class 12</strong><small>Coming soon</small></div></a>
+ </div>
+</section>
 
-<section id="study-tools" class="section container"><div class="section-heading"><span>📚</span><h2>Study Tools</h2><p>Everything you need for effective study.</p></div>
-<div class="tool-grid">
-<div class="tool-card" onclick="document.getElementById('classes').scrollIntoView({behavior:'smooth'})"><div class="tool-icon blue">📖</div><h3>Study Materials</h3><p>Notes, chapters and learning resources</p><button>Use Now</button></div>
-<div class="tool-card"><div class="tool-icon purple">📝</div><h3>Quiz / MCQ</h3><p>Practice questions and test yourself</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon green">📒</div><h3>My Notes</h3><p>Write and save important notes</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon orange">📅</div><h3>Study Planner</h3><p>Plan your daily study routine</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon pink">⏱️</div><h3>Pomodoro Timer</h3><p>Focus with timed study sessions</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon cyan">📊</div><h3>Progress</h3><p>Track your learning and improvement</p><button>Coming Soon</button></div>
-</div></section>
+<section id="dashboard" class="section container">
+ <div class="section-head"><span class="kicker">STUDENTHUB</span><h2>Your Learning Space</h2><p>প্রতিদিনের পড়াশোনার জন্য প্রয়োজনীয় জায়গাগুলো একসঙ্গে।</p></div>
+ <div class="dashboard-grid">
+  <a class="d-card" href="class5-maths.html"><div class="d-icon">📚</div><h3>Study Materials</h3><p>Chapter-wise notes, examples & practice.</p><span class="go">OPEN MATERIALS →</span></a>
+  <a class="d-card" href="#"><div class="d-icon">✓</div><h3>Quiz / MCQ</h3><p>Practice questions and test yourself.</p><span class="go">COMING SOON</span></a>
+  <a class="d-card" href="#"><div class="d-icon">📝</div><h3>My Notes</h3><p>Important points নিজের মতো করে save করুন।</p><span class="go">COMING SOON</span></a>
+  <a class="d-card" href="#"><div class="d-icon">📅</div><h3>Study Planner</h3><p>আজ কী পড়বেন, নিজের plan তৈরি করুন।</p><span class="go">COMING SOON</span></a>
+  <a class="d-card" href="#"><div class="d-icon">⏱</div><h3>Pomodoro</h3><p>Focus timer দিয়ে মন দিয়ে পড়ুন।</p><span class="go">COMING SOON</span></a>
+  <a class="d-card" href="#"><div class="d-icon">📊</div><h3>Progress</h3><p>আপনার learning journey track করুন।</p><span class="go">COMING SOON</span></a>
+ </div>
+</section>
 
-<section id="student-tools" class="section container"><div class="section-heading"><span>🛠️</span><h2>Student Tools</h2><p>Useful tools for everyday student life.</p></div>
-<div class="tool-grid">
-<div class="tool-card"><div class="tool-icon green">🧮</div><h3>Calculator</h3><p>Quick and easy calculations</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon purple">%</div><h3>Percentage</h3><p>Calculate percentage instantly</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon orange">🎂</div><h3>Age Calculator</h3><p>Calculate your exact age</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon blue">↔</div><h3>Unit Converter</h3><p>Convert different units easily</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon pink">⏱</div><h3>Stopwatch</h3><p>Track time with precision</p><button>Coming Soon</button></div>
-<div class="tool-card"><div class="tool-icon cyan">✦</div><h3>More Tools</h3><p>More useful tools coming soon</p><button>Explore</button></div>
-</div></section>
+<section id="tools" class="section container">
+ <div class="section-head"><span class="kicker">STUDENT TOOLS</span><h2>Useful Tools</h2><p>পড়াশোনা ও everyday student life-এর জন্য।</p></div>
+ <div class="tool-grid">
+  <div class="tool"><b>🧮</b><strong>Calculator</strong><span>Quick calculation</span><em class="soon">COMING SOON</em></div>
+  <div class="tool"><b>%</b><strong>Percentage</strong><span>Instant result</span><em class="soon">COMING SOON</em></div>
+  <div class="tool"><b>🎂</b><strong>Age Calculator</strong><span>Calculate age</span><em class="soon">COMING SOON</em></div>
+  <div class="tool"><b>↔</b><strong>Converter</strong><span>Unit conversion</span><em class="soon">COMING SOON</em></div>
+  <div class="tool"><b>⌚</b><strong>Stopwatch</strong><span>Track time</span><em class="soon">COMING SOON</em></div>
+  <div class="tool"><b>🔎</b><strong>Search & Learn</strong><span>Web resources</span><em class="soon">COMING SOON</em></div>
+ </div>
+</section>
 
-<section class="quote container"><div>“</div><p>Success comes from consistent effort.<br>Keep learning every day! 🌟</p></section>
+<section class="container">
+ <div class="progress">
+  <div><span class="kicker">PROGRESS</span><h2>Keep Growing</h2><p>ছোট ছোট steps-এ নিজের learning journey এগিয়ে নাও।</p></div>
+  <div class="stats"><div class="stat"><strong>14</strong><span>Chapters</span></div><div class="stat"><strong>100+</strong><span>Questions</span></div><div class="stat"><strong>∞</strong><span>Practice</span></div></div>
+ </div>
+</section>
+
+<section id="contact" class="section container">
+ <div class="contact-box">
+  <div>
+   <span class="kicker">CONTACT</span>
+   <h2>Get in Touch</h2>
+   <p>StudentHub বা ASIM TECH সম্পর্কে কোনো প্রশ্ন বা suggestion থাকলে আমাদের সঙ্গে যোগাযোগ করুন।</p>
+  </div>
+  <a class="contact-email" href="mailto:aaimkanjilal@gmail.com">✉ aaimkanjilal@gmail.com</a>
+ </div>
+</section>
 </main>
 
-<footer><div class="container footer-grid">
-<div class="footer-brand"><img src="logo.png" alt="StudentHub"><p>Learn · Practice · Grow</p></div>
-<div><h4>Quick Links</h4><a href="#">Home</a><a href="#study-tools">Study Tools</a><a href="#student-tools">Student Tools</a><a href="#classes">Classes 5–12</a></div>
-<div><h4>Resources</h4><a href="#classes">Study Materials</a><a href="#">Quiz / MCQ</a><a href="#">My Notes</a><a href="#">Progress</a></div>
-<div><h4>StudentHub</h4><p>Free learning platform for Classes 5–12.</p><p>Powered by ASIM TECH</p></div>
-</div><div class="copyright">© 2026 StudentHub. All rights reserved. · Powered by ASIM TECH</div></footer>
+<footer>
+ <div class="container footer-grid">
+  <div><div class="footer-title">▲ ASIM TECH</div><p>StudentHub • Learn • Practice • Grow</p></div>
+  <div><h4>StudentHub</h4><a href="#classes">Classes 5–12</a><a href="#dashboard">Study Materials</a><a href="#tools">Student Tools</a></div>
+  <div><h4>About</h4><p>Free learning platform for students.</p><p>Powered by ASIM TECH</p></div>
+ </div>
+ <div class="container copyright">© 2026 ASIM TECH • StudentHub</div>
+</footer>
 
 <script>
-const subjects={
-junior:["Mathematics","English","Bengali","Science","Social Science","Computer","General Knowledge","Environment"],
-secondary:["Mathematics","Physical Science","Life Science","English","Bengali","History","Geography","Computer"],
-higher:["Mathematics","Physics","Chemistry","Biology","English","Bengali","Computer Science","Economics"]
-};
-
-const chapterData={
-"Mathematics":["Number System","Fractions & Decimals","Algebra Basics","Geometry","Mensuration","Data Handling"],
-"English":["Reading Comprehension","Grammar","Vocabulary","Writing Skills","Literature","Practice"],
-"Bengali":["ব্যাকরণ","গদ্য","পদ্য","রচনা","শব্দভাণ্ডার","অনুশীলন"],
-"Science":["Matter & Materials","Living World","Energy","Force & Motion","Environment","Experiments"],
-"Social Science":["History","Geography","Civics","Economics","Maps","Practice"],
-"Computer":["Computer Basics","Internet","Word Processing","Presentation","Coding Basics","Cyber Safety"],
-"General Knowledge":["India","World","Science & Technology","Sports","Current Affairs","Quiz"],
-"Environment":["Nature","Pollution","Water","Plants & Animals","Climate","Conservation"],
-"Physical Science":["Matter","Force & Motion","Work & Energy","Heat","Light","Electricity"],
-"Life Science":["Cell","Life Processes","Heredity","Environment","Health","Evolution"],
-"History":["Ancient India","Medieval India","Modern India","Indian Freedom Movement","World History","Revision"],
-"Geography":["Earth","Physical Geography","India","Resources","Climate","Maps"],
-"Economics":["Basic Economics","Demand & Supply","National Income","Money & Banking","Development","Revision"],
-"Physics":["Units & Measurements","Motion","Laws of Motion","Work Energy Power","Electricity","Optics"],
-"Chemistry":["Atomic Structure","Chemical Bonding","Periodic Table","Chemical Reactions","Organic Chemistry","Practical"],
-"Biology":["Cell Biology","Plant Physiology","Human Physiology","Genetics","Ecology","Evolution"],
-"Computer Science":["Programming","Data Structures","Algorithms","Database","Networking","Cyber Security"]
-};
-
-function openClass(n){
-const list=n<=8?subjects.junior:n<=10?subjects.secondary:subjects.higher;
-document.getElementById("classTitle").textContent="Class "+n;
-const grid=document.getElementById("subjectGrid");grid.innerHTML="";
-list.forEach((s,i)=>{
-const b=document.createElement("button");b.className="subject-btn";
-b.innerHTML=`<span>${["🔢","Aa","অ","🧪","🌍","💻","💡","🌿"][i]}</span><strong>${s}</strong><small>Study Materials</small>`;
-b.onclick=()=>openStudy(n,s);grid.appendChild(b);
-});
-document.getElementById("subjectBox").classList.add("show");
-document.getElementById("subjectBox").scrollIntoView({behavior:"smooth",block:"center"});
-}
-function closeSubjects(){document.getElementById("subjectBox").classList.remove("show")}
-function openStudy(n,subject){
-if(n===5 && subject==="Mathematics"){
-window.location.href="class5-maths.html";
-return;
-}
-const chapters=chapterData[subject]||["Introduction","Chapter 1","Chapter 2","Chapter 3","Practice","Revision"];
-document.getElementById("studyTitle").textContent="Class "+n+" • "+subject;
-document.getElementById("studySubtitle").textContent="Chapter-wise Study Materials";
-const grid=document.getElementById("chapterGrid");grid.innerHTML="";
-chapters.forEach((ch,i)=>{
-const card=document.createElement("div");card.className="chapter-card";
-card.innerHTML=`<div class="chapter-icon">${i===0?"📘":i===1?"📗":i===2?"📙":i===3?"📕":i===4?"📝":"🎯"}</div><h4>Chapter ${i+1}: ${ch}</h4><p>Notes, explanation and practice resources.</p><div class="chapter-actions"><button onclick="showMaterial('${subject}','${ch}')">📖 Read</button><button class="video" onclick="findVideo('${subject}','${ch}')">▶ Video</button></div>`;
-grid.appendChild(card);
-});
-document.getElementById("studyPanel").classList.add("show");
-document.getElementById("studyPanel").scrollIntoView({behavior:"smooth",block:"center"});
-}
-function closeStudy(){document.getElementById("studyPanel").classList.remove("show")}
-function showMaterial(subject,ch){alert(subject+" → "+ch+"\\n\\nDetailed notes and PDFs will be added in the next content step.")}
-function findVideo(subject,ch){window.open("https://www.youtube.com/results?search_query="+encodeURIComponent(subject+" "+ch+" Class 5 6 7 8 9 10 11 12"),"_blank")}
-function q(){return document.getElementById("searchBox").value.trim()}
-function googleSearch(){let x=q();if(x)window.open("https://www.google.com/search?q="+encodeURIComponent(x),"_blank");else alert("Please enter something to search.")}
-function youtubeSearch(){let x=q();if(x)window.open("https://www.youtube.com/results?search_query="+encodeURIComponent(x),"_blank");else alert("Please enter something to search.")}
-function wikiSearch(){let x=q();if(x)window.open("https://en.wikipedia.org/wiki/Special:Search?search="+encodeURIComponent(x),"_blank");else alert("Please enter something to search.")}
-function toggleTheme(){document.body.classList.toggle("dark");localStorage.setItem("studenthubDark",document.body.classList.contains("dark"))}
-if(localStorage.getItem("studenthubDark")==="true")document.body.classList.add("dark");
+function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('studenthubDark',document.body.classList.contains('dark'))}
+if(localStorage.getItem('studenthubDark')==='true')document.body.classList.add('dark');
 </script>
-</body></html>
+</body>
+</html>
