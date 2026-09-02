@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub - Class 5 to 12</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><div class="container nav">
+<a class="brand" href="#"><img src="logo.png" alt="StudentHub Logo"><div><div class="brand-name">STUDENT<span>HUB</span></div><div class="brand-sub">Class 5–12 · Learn · Practice · Grow</div></div></a>
+<nav><a class="active" href="#">Home</a><a href="#study-tools">Study Tools</a><a href="#student-tools">Student Tools</a><a href="#classes">Classes</a></nav>
+<button class="theme-btn" onclick="toggleTheme()">☾</button>
+</div></header>
 
+<main>
+<section class="hero container"><div class="hero-copy">
+<span class="eyebrow">🎓 YOUR SMART LEARNING SPACE</span>
+<h1>Learn smarter.<br><span>Grow faster.</span></h1>
+<p>Study, practice and build your confidence with one simple learning platform for Classes 5–12.</p>
+<a class="primary-btn" href="#classes">🚀 Get Started</a>
+</div><div class="hero-art"><img src="logo.png" alt="StudentHub"></div></section>
+
+<section id="classes" class="section container">
+<div class="section-heading"><span>🎓</span><h2>Choose Your Class</h2><p>Select your class to explore subjects.</p></div>
+<div class="class-grid">
+<button class="class-btn" onclick="openClass(5)">🎒 <b>Class 5</b></button>
+<button class="class-btn" onclick="openClass(6)">📘 <b>Class 6</b></button>
+<button class="class-btn" onclick="openClass(7)">⭐ <b>Class 7</b></button>
+<button class="class-btn" onclick="openClass(8)">🧪 <b>Class 8</b></button>
+<button class="class-btn" onclick="openClass(9)">🎯 <b>Class 9</b></button>
+<button class="class-btn" onclick="openClass(10)">🏆 <b>Class 10</b></button>
+<button class="class-btn" onclick="openClass(11)">⚛️ <b>Class 11</b></button>
+<button class="class-btn" onclick="openClass(12)">🎓 <b>Class 12</b></button>
+</div>
+<div id="subjectBox" class="subject-panel"><button class="close-btn" onclick="closeSubjects()">×</button>
+<div class="subject-side"><div class="side-icon">📚</div><h3 id="classTitle">Class 5</h3><p>Choose a subject to continue your learning journey.</p></div>
+<div id="subjectGrid" class="subject-grid"></div></div>
+</section>
+
+<section class="search-section container"><div class="search-title">🔎 <strong>Search & Learn</strong></div>
+<div class="search-box"><input id="searchBox" type="text" placeholder="Search any topic...">
+<button class="google" onclick="googleSearch()">G Google</button><button class="youtube" onclick="youtubeSearch()">▶ YouTube</button><button class="wiki" onclick="wikiSearch()">W Wikipedia</button></div></section>
+
+<section id="study-tools" class="section container"><div class="section-heading"><span>📚</span><h2>Study Tools</h2><p>Everything you need for effective study.</p></div>
+<div class="tool-grid">
+<div class="tool-card"><div class="tool-icon blue">📖</div><h3>Study Materials</h3><p>Notes, PDFs and learning resources</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon purple">📝</div><h3>Quiz / MCQ</h3><p>Practice questions and test yourself</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon green">📒</div><h3>My Notes</h3><p>Write and save important notes</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon orange">📅</div><h3>Study Planner</h3><p>Plan your daily study routine</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon pink">⏱️</div><h3>Pomodoro Timer</h3><p>Focus with timed study sessions</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon cyan">📊</div><h3>Progress</h3><p>Track your learning and improvement</p><button>Use Now</button></div>
+</div></section>
+
+<section id="student-tools" class="section container"><div class="section-heading"><span>🛠️</span><h2>Student Tools</h2><p>Useful tools for everyday student life.</p></div>
+<div class="tool-grid">
+<div class="tool-card"><div class="tool-icon green">🧮</div><h3>Calculator</h3><p>Quick and easy calculations</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon purple">%</div><h3>Percentage</h3><p>Calculate percentage instantly</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon orange">🎂</div><h3>Age Calculator</h3><p>Calculate your exact age</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon blue">↔</div><h3>Unit Converter</h3><p>Convert different units easily</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon pink">⏱</div><h3>Stopwatch</h3><p>Track time with precision</p><button>Use Now</button></div>
+<div class="tool-card"><div class="tool-icon cyan">✦</div><h3>More Tools</h3><p>More useful tools coming soon</p><button>Explore</button></div>
+</div></section>
+
+<section class="quote container"><div>“</div><p>Success comes from consistent effort.<br>Keep learning every day! 🌟</p></section>
+</main>
+
+<footer><div class="container footer-grid">
+<div class="footer-brand"><img src="logo.png" alt="StudentHub"><p>Learn · Practice · Grow</p></div>
+<div><h4>Quick Links</h4><a href="#">Home</a><a href="#study-tools">Study Tools</a><a href="#student-tools">Student Tools</a><a href="#classes">Classes 5–12</a></div>
+<div><h4>Resources</h4><a href="#">Study Materials</a><a href="#">Quiz / MCQ</a><a href="#">My Notes</a><a href="#">Progress</a></div>
+<div><h4>StudentHub</h4><p>Free learning platform for Classes 5–12.</p><p>Powered by ASIM TECH</p></div>
+</div><div class="copyright">© 2026 StudentHub. All rights reserved. · Powered by ASIM TECH</div></footer>
+
+<script>
+const subjects={junior:["Mathematics","English","Bengali","Science","Social Science","Computer","General Knowledge","Environment"],secondary:["Mathematics","Physical Science","Life Science","English","Bengali","History","Geography","Computer"],higher:["Mathematics","Physics","Chemistry","Biology","English","Bengali","Computer Science","Economics"]};
+function openClass(n){const list=n<=8?subjects.junior:n<=10?subjects.secondary:subjects.higher;document.getElementById("classTitle").textContent="Class "+n;const grid=document.getElementById("subjectGrid");grid.innerHTML="";list.forEach((s,i)=>{const b=document.createElement("button");b.className="subject-btn";b.innerHTML=`<span>${["🔢","Aa","অ","🧪","🌍","💻","💡","🌿"][i]}</span><strong>${s}</strong><small>Study & Practice</small>`;b.onclick=()=>alert("Class "+n+" → "+s+"\n\nStudy materials will be added next.");grid.appendChild(b)});document.getElementById("subjectBox").classList.add("show");document.getElementById("subjectBox").scrollIntoView({behavior:"smooth",block:"center"})}
+function closeSubjects(){document.getElementById("subjectBox").classList.remove("show")}
+function q(){return document.getElementById("searchBox").value.trim()}
+function googleSearch(){let x=q();if(x)window.open("https://www.google.com/search?q="+encodeURIComponent(x),"_blank");else alert("Please enter something to search.")}
+function youtubeSearch(){let x=q();if(x)window.open("https://www.youtube.com/results?search_query="+encodeURIComponent(x),"_blank");else alert("Please enter something to search.")}
+function wikiSearch(){let x=q();if(x)window.open("https://en.wikipedia.org/wiki/Special:Search?search="+encodeURIComponent(x),"_blank");else alert("Please enter something to search.")}
+function toggleTheme(){document.body.classList.toggle("dark");localStorage.setItem("studenthubDark",document.body.classList.contains("dark"))}
+if(localStorage.getItem("studenthubDark")==="true")document.body.classList.add("dark");
+</script>
+</body></html>
