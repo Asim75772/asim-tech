@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 5 Mathematics – Chapter 4 | StudentHub</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.6}
+body.dark{background:#111827;color:#e5e7eb}
+.container{max-width:900px;margin:auto;padding:18px}
+.header{background:linear-gradient(135deg,#1769e0,#123b91);color:white;border-radius:22px;padding:22px;margin-bottom:18px;box-shadow:0 10px 25px #0002}
+.logo{width:95px;height:95px;object-fit:contain;display:block;margin:auto;background:white;border-radius:18px;padding:5px}
+.header h1{text-align:center;margin:10px 0 2px;font-size:25px}
+.header p{text-align:center;margin:0;opacity:.9}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.nav a,.darkbtn{display:inline-block;text-decoration:none;border:0;border-radius:12px;padding:10px 13px;background:white;color:#1769e0;font-weight:bold;box-shadow:0 3px 10px #0001;cursor:pointer}
+body.dark .nav a,body.dark .darkbtn{background:#1f2937;color:#93c5fd}
+.progress{background:white;border-radius:16px;padding:14px;margin-bottom:18px;box-shadow:0 4px 15px #0001}
+body.dark .progress,body.dark .card{background:#1f2937}
+.bar{height:10px;background:#dbe4f0;border-radius:20px;overflow:hidden}
+.fill{height:100%;width:0;background:#1769e0;transition:.3s}
+.card{background:white;border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 5px 18px #0001}
+h2{color:#1769e0;margin-top:0}
+h3{color:#2456a6}
+.formula{background:#eef5ff;border-left:5px solid #1769e0;padding:12px;border-radius:10px;font-weight:bold}
+body.dark .formula{background:#172554}
+.example{background:#f8fafc;border:1px solid #dce5f0;border-radius:12px;padding:13px;margin:10px 0}
+body.dark .example{background:#111827;border-color:#374151}
+.question{padding:12px;border-bottom:1px solid #e5e7eb}
+body.dark .question{border-color:#374151}
+.answer{display:none;margin-top:7px;font-weight:bold;color:#16803c}
+button.show{margin-top:7px;border:0;border-radius:9px;padding:7px 11px;background:#1769e0;color:white}
+.mcq label{display:block;padding:7px;margin:4px 0;border-radius:8px}
+.mcq label:hover{background:#eef5ff}
+.result{font-weight:bold;margin-top:12px}
+.complete{display:flex;align-items:center;gap:10px;font-weight:bold}
+.complete input{width:20px;height:20px}
+.footer{text-align:center;padding:20px;color:#667085}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<img src="logo.png" class="logo" alt="StudentHub">
+<h1>Class 5 Mathematics</h1>
+<p>Chapter 4 • Geometry</p>
+</div>
+
+<div class="nav">
+<a href="index.html">← StudentHub</a>
+<a href="class5-maths-ch3.html">← Chapter 3</a>
+<a href="class5-maths-ch5.html">Chapter 5 →</a>
+<button class="darkbtn" onclick="toggleDark()">🌙 Dark Mode</button>
+</div>
+
+<div class="progress">
+<strong>Chapter Progress: <span id="progressText">0%</span></strong>
+<div class="bar"><div class="fill" id="progressFill"></div></div>
+</div>
+
+<div class="card">
+<h2>📘 Notes</h2>
+<h3>1. What is Geometry?</h3>
+<p>Geometry is the branch of mathematics that helps us study <b>shapes, lines, angles, sides and positions</b>.</p>
+
+<h3>2. Basic Shapes</h3>
+<ul>
+<li><b>Triangle:</b> 3 sides and 3 corners.</li>
+<li><b>Square:</b> 4 equal sides and 4 corners.</li>
+<li><b>Rectangle:</b> 4 sides; opposite sides are equal.</li>
+<li><b>Circle:</b> a round shape with no sides or corners.</li>
+</ul>
+
+<h3>3. Line, Line Segment and Ray</h3>
+<ul>
+<li><b>Line:</b> extends endlessly in both directions.</li>
+<li><b>Line segment:</b> has two fixed endpoints.</li>
+<li><b>Ray:</b> has one endpoint and extends endlessly in one direction.</li>
+</ul>
+
+<h3>4. Angles</h3>
+<p>An angle is formed when two lines or rays meet at a point called the <b>vertex</b>.</p>
+<ul>
+<li><b>Right angle:</b> exactly 90°</li>
+<li><b>Acute angle:</b> less than 90°</li>
+<li><b>Obtuse angle:</b> more than 90° but less than 180°</li>
+<li><b>Straight angle:</b> exactly 180°</li>
+</ul>
+
+<div class="formula">Remember: A right angle = 90°</div>
+
+<h3>5. Perimeter</h3>
+<p>The perimeter is the total distance around a closed shape.</p>
+<div class="formula">Rectangle: Perimeter = 2 × (Length + Breadth)</div>
+<div class="formula">Square: Perimeter = 4 × Side</div>
+
+<h3>6. Symmetry</h3>
+<p>A shape is symmetrical when one half matches the other half after folding along a line called the <b>line of symmetry</b>.</p>
+</div>
+
+<div class="card">
+<h2>✏️ Solved Examples</h2>
+
+<div class="example"><b>Example 1:</b> How many sides does a triangle have?<br>
+<b>Answer:</b> 3 sides.</div>
+
+<div class="example"><b>Example 2:</b> Find the perimeter of a square with side 6 cm.<br>
+<b>Solution:</b> 4 × 6 = <b>24 cm</b>.</div>
+
+<div class="example"><b>Example 3:</b> Find the perimeter of a rectangle of length 8 cm and breadth 5 cm.<br>
+<b>Solution:</b> 2 × (8 + 5) = 2 × 13 = <b>26 cm</b>.</div>
+
+<div class="example"><b>Example 4:</b> What type of angle is 90°?<br>
+<b>Answer:</b> A <b>right angle</b>.</div>
+
+<div class="example"><b>Example 5:</b> Is a square symmetrical?<br>
+<b>Answer:</b> Yes. A square has lines of symmetry.</div>
+
+<div class="example"><b>Example 6:</b> How many endpoints does a line segment have?<br>
+<b>Answer:</b> <b>2 endpoints</b>.</div>
+</div>
+
+<div class="card">
+<h2>📝 Practice</h2>
+
+<div class="question">1. How many sides does a rectangle have?
+<button class="show" onclick="showAns(1)">Show Answer</button><div class="answer" id="a1">4 sides</div></div>
+
+<div class="question">2. Find the perimeter of a square whose side is 9 cm.
+<button class="show" onclick="showAns(2)">Show Answer</button><div class="answer" id="a2">4 × 9 = 36 cm</div></div>
+
+<div class="question">3. What is an angle of 180° called?
+<button class="show" onclick="showAns(3)">Show Answer</button><div class="answer" id="a3">Straight angle</div></div>
+
+<div class="question">4. How many endpoints does a ray have?
+<button class="show" onclick="showAns(4)">Show Answer</button><div class="answer" id="a4">1 endpoint</div></div>
+
+<div class="question">5. Find the perimeter of a rectangle of length 10 cm and breadth 4 cm.
+<button class="show" onclick="showAns(5)">Show Answer</button><div class="answer" id="a5">2 × (10 + 4) = 28 cm</div></div>
+
+<div class="question">6. Is a circle made of straight sides?
+<button class="show" onclick="showAns(6)">Show Answer</button><div class="answer" id="a6">No. A circle is round.</div></div>
+</div>
+
+<div class="card mcq">
+<h2>🎯 MCQ Test</h2>
+
+<p><b>1. How many sides does a triangle have?</b></p>
+<label><input type="radio" name="q1" value="3"> 3</label>
+<label><input type="radio" name="q1" value="4"> 4</label>
+<label><input type="radio" name="q1" value="5"> 5</label>
+
+<p><b>2. A right angle is:</b></p>
+<label><input type="radio" name="q2" value="90"> 90°</label>
+<label><input type="radio" name="q2" value="45"> 45°</label>
+<label><input type="radio" name="q2" value="180"> 180°</label>
+
+<p><b>3. A line segment has:</b></p>
+<label><input type="radio" name="q3" value="2"> 2 endpoints</label>
+<label><input type="radio" name="q3" value="1"> 1 endpoint</label>
+<label><input type="radio" name="q3" value="0"> No endpoint</label>
+
+<p><b>4. Perimeter means:</b></p>
+<label><input type="radio" name="q4" value="around"> Distance around a shape</label>
+<label><input type="radio" name="q4" value="inside"> Space inside a shape</label>
+<label><input type="radio" name="q4" value="weight"> Weight of a shape</label>
+
+<p><b>5. Perimeter of a square of side 5 cm is:</b></p>
+<label><input type="radio" name="q5" value="20"> 20 cm</label>
+<label><input type="radio" name="q5" value="10"> 10 cm</label>
+<label><input type="radio" name="q5" value="25"> 25 cm</label>
+
+<p><b>6. An angle of 180° is:</b></p>
+<label><input type="radio" name="q6" value="straight"> Straight angle</label>
+<label><input type="radio" name="q6" value="right"> Right angle</label>
+<label><input type="radio" name="q6" value="acute"> Acute angle</label>
+
+<p><b>7. A ray has:</b></p>
+<label><input type="radio" name="q7" value="1"> 1 endpoint</label>
+<label><input type="radio" name="q7" value="2"> 2 endpoints</label>
+<label><input type="radio" name="q7" value="0"> 0 endpoints</label>
+
+<p><b>8. A square has:</b></p>
+<label><input type="radio" name="q8" value="equal"> 4 equal sides</label>
+<label><input type="radio" name="q8" value="three"> 3 equal sides</label>
+<label><input type="radio" name="q8" value="two"> 2 sides</label>
+
+<p><b>9. An acute angle is:</b></p>
+<label><input type="radio" name="q9" value="less"> Less than 90°</label>
+<label><input type="radio" name="q9" value="equal"> Equal to 90°</label>
+<label><input type="radio" name="q9" value="more"> More than 180°</label>
+
+<p><b>10. A shape that can be divided into matching halves has:</b></p>
+<label><input type="radio" name="q10" value="symmetry"> Symmetry</label>
+<label><input type="radio" name="q10" value="decimal"> Decimal</label>
+<label><input type="radio" name="q10" value="fraction"> Fraction</label>
+
+<button class="show" onclick="checkQuiz()">Check Score</button>
+<div class="result" id="result"></div>
+</div>
+
+<div class="card">
+<label class="complete">
+<input type="checkbox" id="complete" onchange="completeChapter()">
+I have completed Chapter 4
+</label>
+</div>
+
+<div class="nav">
+<a href="class5-maths-ch3.html">← Chapter 3</a>
+<a href="class5-maths-ch5.html">Chapter 5 →</a>
+</div>
+
+<div class="footer">StudentHub • Learn • Practice • Grow</div>
+</div>
+
+<script>
+function toggleDark(){
+ document.body.classList.toggle("dark");
+ localStorage.setItem("studenthubDark",document.body.classList.contains("dark"));
+}
+if(localStorage.getItem("studenthubDark")==="true") document.body.classList.add("dark");
+
+function showAns(n){
+ const el=document.getElementById("a"+n);
+ el.style.display=el.style.display==="block"?"none":"block";
+}
+
+function checkQuiz(){
+ const answers={q1:"3",q2:"90",q3:"2",q4:"around",q5:"20",q6:"straight",q7:"1",q8:"equal",q9:"less",q10:"symmetry"};
+ let score=0;
+ for(const q in answers){
+   const selected=document.querySelector('input[name="'+q+'"]:checked');
+   if(selected && selected.value===answers[q]) score++;
+ }
+ document.getElementById("result").textContent="Your Score: "+score+"/10";
+}
+
+function completeChapter(){
+ const done=document.getElementById("complete").checked;
+ localStorage.setItem("class5MathsCh4",done?"1":"0");
+ updateProgress();
+}
+
+function updateProgress(){
+ const done=localStorage.getItem("class5MathsCh4")==="1";
+ const p=done?100:0;
+ document.getElementById("progressFill").style.width=p+"%";
+ document.getElementById("progressText").textContent=p+"%";
+ document.getElementById("complete").checked=done;
+}
+updateProgress();
+</script>
+</body>
+</html>
