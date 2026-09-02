@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Class 5 to 12</title>
+</head>
+
+<body>
+
+<h1>🎓 STUDENTHUB</h1>
+
+<h2>Class 5–12 Learning Platform</h2>
+
+<p>Learn • Practice • Grow</p>
+
+<hr>
+
+<h2>Choose Your Class</h2>
+
+<button>Class 5</button>
+<button>Class 6</button>
+<button>Class 7</button>
+<button>Class 8</button>
+<button>Class 9</button>
+<button>Class 10</button>
+<button>Class 11</button>
+<button>Class 12</button>
+
+<hr>
+
+<h2>Study Tools</h2>
+
+<button>📚 Study Materials</button>
+<button>📝 Quiz / MCQ</button>
+<button>📒 My Notes</button>
+<button>📅 Study Planner</button>
+<button>⏱️ Pomodoro Timer</button>
+<button>📊 Progress</button>
+
+<hr>
+
+<h2>Search</h2>
+
+<input type="text" id="searchBox" placeholder="Search anything...">
+
+<button onclick="googleSearch()">Google</button>
+<button onclick="youtubeSearch()">YouTube</button>
+<button onclick="wikiSearch()">Wikipedia</button>
+
+<hr>
+
+<h2>Student Tools</h2>
+
+<button>🧮 Calculator</button>
+<button>📊 Percentage</button>
+<button>🎂 Age Calculator</button>
+<button>🔄 Unit Converter</button>
+<button>⏱️ Stopwatch</button>
+
+<hr>
+
+<footer>
+    <p>© 2026 StudentHub | Powered by ASIM TECH</p>
+</footer>
+
+<script>
+function googleSearch() {
+    let q = document.getElementById("searchBox").value;
+    if (q) {
+        window.open(
+            "https://www.google.com/search?q=" + encodeURIComponent(q),
+            "_blank"
+        );
+    }
+}
+
+function youtubeSearch() {
+    let q = document.getElementById("searchBox").value;
+    if (q) {
+        window.open(
+            "https://www.youtube.com/results?search_query=" + encodeURIComponent(q),
+            "_blank"
+        );
+    }
+}
+
+function wikiSearch() {
+    let q = document.getElementById("searchBox").value;
+    if (q) {
+        window.open(
+            "https://en.wikipedia.org/wiki/Special:Search?search=" + encodeURIComponent(q),
+            "_blank"
+        );
+    }
+}
+</script>
+
+</body>
+</html>
