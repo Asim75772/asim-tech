@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ASIM TECH • StudentHub</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f8ff;color:#14213d}
+body.dark{background:#081225;color:#e8eefc}
+.container{max-width:1100px;margin:auto;padding:0 18px}
+.topbar{background:#071225;color:white;position:sticky;top:0;z-index:20;box-shadow:0 5px 20px #0003}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:white}
+.brand-mark{font-size:24px}.brand-name{font-size:20px;font-weight:900;letter-spacing:.5px}.brand-name span{color:#32a7ff}
+.brand-sub{font-size:10px;color:#aebbd3;margin-top:2px}
+nav{display:flex;gap:22px}nav a{color:#dbe7fb;text-decoration:none;font-size:14px}nav a:hover{color:#38a8ff}
+.theme{border:1px solid #33517d;background:#10213d;color:white;border-radius:10px;padding:9px 12px;cursor:pointer}
+.hero{margin-top:28px;border-radius:28px;overflow:hidden;background:linear-gradient(120deg,#07162f,#123c82 58%,#176fe1);color:white;min-height:390px;display:flex;align-items:center;position:relative}
+.hero:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:#49b5ff33;right:-70px;top:-80px;filter:blur(5px)}
+.hero-copy{width:55%;padding:48px;position:relative;z-index:2}.eyebrow{font-size:12px;letter-spacing:2px;color:#76c7ff;font-weight:bold}
+.hero h1{font-size:48px;line-height:1.08;margin:14px 0}.hero h1 span{color:#62c4ff}.hero p{font-size:17px;color:#d7e4f8;max-width:560px}
+.btn{display:inline-block;text-decoration:none;border-radius:13px;padding:12px 18px;font-weight:bold;margin-top:10px}.primary{background:white;color:#1161bf}.secondary{border:1px solid #ffffff66;color:white;margin-left:8px}
+.student{width:45%;height:330px;display:flex;align-items:end;justify-content:center;position:relative;z-index:2}
+</style>
+<style>
+.hero{position:relative;overflow:hidden}
+.hero-content{position:relative;z-index:3}
+.hero-visual{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.grid-glow{position:absolute;inset:-20%;opacity:.16;background-image:linear-gradient(rgba(77,185,255,.25) 1px,transparent 1px),linear-gradient(90deg,rgba(77,185,255,.25) 1px,transparent 1px);background-size:42px 42px;transform:perspective(500px) rotateX(58deg) scale(1.5);transform-origin:center bottom;animation:gridDrift 12s linear infinite}
+.hero-ring{position:absolute;width:420px;height:420px;border:1px solid rgba(77,185,255,.18);border-radius:50%;right:6%;top:50%;transform:translateY(-50%);box-shadow:0 0 80px rgba(0,150,255,.08),inset 0 0 70px rgba(0,150,255,.05);animation:ringPulse 5s ease-in-out infinite}
+.hero-ring:before,.hero-ring:after{content:"";position:absolute;border:1px solid rgba(255,210,77,.12);border-radius:50%;inset:42px}.hero-ring:after{inset:90px}
+.orb{position:absolute;border-radius:50%;filter:blur(1px);opacity:.7}
+.orb1{width:9px;height:9px;background:#6bc5ff;right:22%;top:22%;box-shadow:0 0 20px #6bc5ff;animation:floatOrb 6s ease-in-out infinite}
+.orb2{width:6px;height:6px;background:#ffd24d;right:39%;top:65%;box-shadow:0 0 18px #ffd24d;animation:floatOrb 7s ease-in-out infinite reverse}
+.orb3{width:5px;height:5px;background:#8ee8ff;right:10%;top:72%;box-shadow:0 0 15px #8ee8ff;animation:floatOrb 5s ease-in-out infinite;animation-delay:1s}
+.floating-card{position:absolute;padding:9px 14px;border:1px solid rgba(120,205,255,.22);border-radius:12px;background:rgba(8,25,55,.55);backdrop-filter:blur(10px);font-size:10px;letter-spacing:1.5px;font-weight:800;color:#bfeaff;box-shadow:0 12px 35px rgba(0,0,0,.16)}
+.card1{right:12%;top:22%;animation:cardFloat 5s ease-in-out infinite}
+.card2{right:29%;top:47%;animation:cardFloat 6s ease-in-out infinite reverse}
+.card3{right:14%;bottom:18%;animation:cardFloat 5.5s ease-in-out infinite;animation-delay:1s}
+@keyframes gridDrift{0%{transform:perspective(500px) rotateX(58deg) scale(1.5) translateY(0)}100%{transform:perspective(500px) rotateX(58deg) scale(1.5) translateY(42px)}}
+@keyframes ringPulse{0%,100%{transform:translateY(-50%) scale(1);opacity:.75}50%{transform:translateY(-50%) scale(1.04);opacity:1}}
+@keyframes floatOrb{0%,100%{transform:translate(0,0);opacity:.35}50%{transform:translate(12px,-18px);opacity:1}}
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:760px){.hero-ring{width:300px;height:300px;right:-90px;top:58%}.card1{right:8%;top:24%}.card2{right:10%;top:48%}.card3{right:9%;bottom:12%}.grid-glow{opacity:.1}}
+@media(prefers-reduced-motion:reduce){.grid-glow,.hero-ring,.orb,.floating-card{animation:none}}
+</style>
+
+<style>
+.student-dashboard{position:relative;z-index:2;padding:78px 6%;background:linear-gradient(180deg,rgba(5,18,42,.2),rgba(3,12,29,.72));border-top:1px solid rgba(104,194,255,.08)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.section-head h2{margin:6px 0 5px;font-size:clamp(25px,3vw,38px);letter-spacing:-.6px}
+.section-head p{margin:0;opacity:.68}.eyebrow{font-size:10px;letter-spacing:2.2px;font-weight:900;color:#6bc5ff}
+.dashboard-link{padding:11px 16px;border:1px solid rgba(107,197,255,.25);border-radius:12px;color:#bde9ff;text-decoration:none;background:rgba(10,40,78,.35)}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:55px}
+.quick-card{min-height:165px;padding:22px;border:1px solid rgba(119,203,255,.13);border-radius:20px;background:linear-gradient(145deg,rgba(13,38,73,.82),rgba(5,18,39,.72));text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:.25s;box-shadow:0 15px 45px rgba(0,0,0,.12)}
+.quick-card:hover{transform:translateY(-5px);border-color:rgba(107,197,255,.38);box-shadow:0 20px 55px rgba(0,95,190,.12)}
+.quick-card.featured{background:linear-gradient(145deg,rgba(12,64,111,.9),rgba(6,24,49,.82))}
+.qicon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:rgba(91,190,255,.12);font-size:20px;margin-bottom:25px}
+.quick-card span{font-size:9px;letter-spacing:1.5px;color:#72c9ff;font-weight:900}.quick-card h3{margin:7px 0;font-size:17px}.quick-card p{margin:0;font-size:12px;opacity:.58;line-height:1.5}.quick-card>b{position:absolute;right:20px;bottom:18px;color:#76d0ff;font-size:20px}
+.classes-panel{padding:30px;border:1px solid rgba(119,203,255,.11);border-radius:25px;background:rgba(6,20,42,.5);margin-bottom:28px}.compact{margin-bottom:22px}.compact h2{font-size:27px}.class-note{font-size:11px;opacity:.55}
+.class-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}.class-card{padding:17px 10px;text-align:center;border:1px solid rgba(119,203,255,.1);border-radius:16px;background:rgba(10,29,55,.58);color:inherit;text-decoration:none;transition:.2s}.class-card:hover,.class-card.active{border-color:rgba(107,197,255,.4);background:rgba(13,53,88,.72);transform:translateY(-3px)}.class-card strong{display:block;font-size:22px;color:#8dd8ff}.class-card span{display:block;font-weight:800;margin-top:3px}.class-card small{display:block;margin-top:5px;font-size:9px;opacity:.5}.class-card.active small{color:#ffd24d;opacity:.9}
+.progress-panel{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:30px;border-radius:25px;background:linear-gradient(110deg,rgba(7,48,84,.75),rgba(6,20,43,.7));border:1px solid rgba(107,197,255,.13)}.progress-panel h2{margin:6px 0}.progress-panel p{margin:0;opacity:.62}.progress-stats{display:flex;gap:10px}.progress-stats div{min-width:105px;padding:17px;text-align:center;border-radius:16px;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.06)}.progress-stats strong{display:block;font-size:25px;color:#8bd8ff}.progress-stats span{font-size:10px;opacity:.55}
+@media(max-width:1000px){.quick-grid{grid-template-columns:repeat(2,1fr)}.class-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:650px){.section-head,.progress-panel{display:block}.dashboard-link{display:inline-block;margin-top:18px}.quick-grid{grid-template-columns:1fr}.class-grid{grid-template-columns:repeat(2,1fr)}.progress-stats{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr)}.progress-stats div{min-width:0}.classes-panel{padding:20px}}
+</style>
+<style>footer{position:relative;z-index:3}</style><style>
+.student-dashboard{color:#e8f5ff}
+.student-dashboard h2,.student-dashboard h3{color:#e8f5ff}
+.student-dashboard p{color:#c7d9e8}
+.quick-card{color:#e8f5ff}
+.quick-card h3{color:#e8f5ff}
+.quick-card p{color:#b8cada;opacity:1}
+.classes-panel,.progress-panel{color:#e8f5ff}
+.class-card{color:#e8f5ff}
+.class-card span{color:#dcefff}
+.class-card small{color:#b4c8da}
+.progress-panel p{color:#c7d9e8;opacity:1}
+.progress-stats span{color:#b4c8da;opacity:1}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="container nav">
+<a class="brand" href="#">
+<div class="brand-mark">▲</div>
+<div><div class="brand-name">ASIM <span>TECH</span></div><div class="brand-sub">Technology • Education • Resources</div></div>
+</a>
+<nav><a href="#">Home</a><a href="#studenthub">StudentHub</a><a href="#classes">Classes</a><a href="#tools">Student Tools</a></nav>
+<button class="theme" onclick="toggleTheme()">☾</button>
+</div>
+</header>
+
+<main class="container">
+<section class="hero">
+<div class="hero-copy">
+<div class="eyebrow">WELCOME TO ASIM TECH</div>
+<h1>Learn smarter.<br><span>Grow faster.</span></h1>
+<p>ASIM TECH-এর StudentHub — Class 5–12-এর পড়াশোনা, অনুশীলন, কুইজ এবং প্রয়োজনীয় Student Tools এক জায়গায়।</p>
+<a class="btn primary" href="#studenthub">🎓 StudentHub খুলুন</a>
+<a class="btn secondary" href="#classes">Classes দেখুন</a>
+</div>
+
+</section>
+
+<section id="studenthub" class="section">
+<h2>🎓 StudentHub</h2>
+<p>শিখি • অনুশীলন করি • নিজের অগ্রগতি দেখি</p>
+<div class="cards">
+<div class="card"><div class="icon">📚</div><h3>Study Materials</h3><p>Class 5–12-এর পাঠ ও পড়াশোনার উপকরণ।</p></div>
+<div class="card"><div class="icon">📝</div><h3>Quiz & MCQ</h3><p>প্রতিটি পাঠের অনুশীলন ও বহুনির্বাচনী পরীক্ষা।</p></div>
+<div class="card"><div class="icon">📒</div><h3>My Notes</h3><p>নিজের গুরুত্বপূর্ণ নোট সংরক্ষণ করুন।</p></div>
+<div class="card"><div class="icon">📊</div><h3>Progress</h3><p>কতটা পড়া শেষ হয়েছে তা দেখুন।</p></div>
+</div>
+</section>
+
+<section id="classes" class="section">
+<h2>📚 নিজের Class বেছে নিন</h2>
+<p>Class 5 থেকে Class 12 পর্যন্ত</p>
+<div class="classes">
+<a class="class-card" href="class5-maths.html"><strong>Class 5</strong><small>আমার গণিত • আরও বিষয় আসছে</small></a>
+<a class="class-card" href="#"><strong>Class 6</strong><small>শীঘ্রই আসছে</small></a>
+<a class="class-card" href="#"><strong>Class 7</strong><small>শীঘ্রই আসছে</small></a>
+<a class="class-card" href="#"><strong>Class 8</strong><small>শীঘ্রই আসছে</small></a>
+<a class="class-card" href="#"><strong>Class 9</strong><small>শীঘ্রই আসছে</small></a>
+<a class="class-card" href="#"><strong>Class 10</strong><small>শীঘ্রই আসছে</small></a>
+<a class="class-card" href="#"><strong>Class 11</strong><small>শীঘ্রই আসছে</small></a>
+<a class="class-card" href="#"><strong>Class 12</strong><small>শীঘ্রই আসছে</small></a>
+</div>
+</section>
+
+<section id="tools" class="section">
+<h2>🧮 Student Tools</h2>
+<p>পড়াশোনার কাজে দরকারি tools এক জায়গায়</p>
+<div class="tools">
+<div class="tool"><h3>⏱️ Pomodoro</h3><p>সময় ভাগ করে মন দিয়ে পড়াশোনা করুন।</p></div>
+<div class="tool"><h3>📅 Study Planner</h3><p>আজ কী পড়বেন, নিজের পরিকল্পনা তৈরি করুন।</p></div>
+<div class="tool"><h3>🔢 Calculator</h3><p>দ্রুত অঙ্ক করার জন্য সহজ calculator।</p></div>
+</div>
+</section>
+
+<section class="student-dashboard" id="student-dashboard">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">STUDENTHUB</span>
+      <h2>Your Learning Dashboard</h2>
+      <p>পড়াশোনা, practice আর progress—সবকিছু এক জায়গায়।</p>
+    </div>
+    <a class="dashboard-link" href="class5-maths.html">Continue Learning →</a>
+  </div>
+
+  <div class="quick-grid">
+    <a class="quick-card featured" href="class5-maths.html">
+      <div class="qicon">📚</div>
+      <div><span>STUDY MATERIALS</span><h3>Class 5 Mathematics</h3><p>Chapter-wise notes, examples & practice</p></div>
+      <b>→</b>
+    </a>
+    <a class="quick-card" href="#quiz">
+      <div class="qicon">✓</div>
+      <div><span>QUIZ & MCQ</span><h3>Test Your Knowledge</h3><p>Practice with quick MCQ tests</p></div>
+      <b>→</b>
+    </a>
+    <a class="quick-card" href="#notes">
+      <div class="qicon">📝</div>
+      <div><span>MY NOTES</span><h3>Save Your Notes</h3><p>Keep important points in one place</p></div>
+      <b>→</b>
+    </a>
+    <a class="quick-card" href="#planner">
+      <div class="qicon">◷</div>
+      <div><span>STUDY PLANNER</span><h3>Plan Your Day</h3><p>Build a simple daily study routine</p></div>
+      <b>→</b>
+    </a>
+  </div>
+
+  <div class="classes-panel" id="classes">
+    <div class="section-head compact">
+      <div><span class="eyebrow">CLASSES</span><h2>Choose Your Class</h2></div>
+      <span class="class-note">Class 5–12 • Free Learning</span>
+    </div>
+    <div class="class-grid">
+      <a class="class-card active" href="class5-maths.html"><strong>05</strong><span>Class 5</span><small>Available now</small></a>
+      <a class="class-card" href="#"><strong>06</strong><span>Class 6</span><small>Coming soon</small></a>
+      <a class="class-card" href="#"><strong>07</strong><span>Class 7</span><small>Coming soon</small></a>
+      <a class="class-card" href="#"><strong>08</strong><span>Class 8</span><small>Coming soon</small></a>
+      <a class="class-card" href="#"><strong>09</strong><span>Class 9</span><small>Coming soon</small></a>
+      <a class="class-card" href="#"><strong>10</strong><span>Class 10</span><small>Coming soon</small></a>
+      <a class="class-card" href="#"><strong>11</strong><span>Class 11</span><small>Coming soon</small></a>
+      <a class="class-card" href="#"><strong>12</strong><span>Class 12</span><small>Coming soon</small></a>
+    </div>
+  </div>
+
+  <div class="progress-panel">
+    <div><span class="eyebrow">PROGRESS</span><h2>Keep Growing</h2><p>তোমার learning journey ধাপে ধাপে এগিয়ে নাও।</p></div>
+    <div class="progress-stats">
+      <div><strong>14</strong><span>Chapters</span></div>
+      <div><strong>100+</strong><span>Questions</span></div>
+      <div><strong>∞</strong><span>Practice</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><b>▲ ASIM TECH</b><br>StudentHub • Learn • Practice • Grow</footer>
+
+<script>
+function toggleTheme(){
+ document.body.classList.toggle("dark");
+ localStorage.setItem("asimTechStudentHubDark",document.body.classList.contains("dark"));
+}
+if(localStorage.getItem("asimTechStudentHubDark")==="true")document.body.classList.add("dark");
+</script>
+</body>
+</html>
