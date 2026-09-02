@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 5 Mathematics – পাঠ ১৪ | StudentHub</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f4f7fb;color:#172033;line-height:1.7}
+body.dark{background:#111827;color:#e5e7eb}
+.container{max-width:900px;margin:auto;padding:18px}
+.header{background:linear-gradient(135deg,#1769e0,#123b91);color:white;border-radius:22px;padding:22px;margin-bottom:18px;box-shadow:0 10px 25px #0002}
+.logo{width:95px;height:95px;object-fit:contain;display:block;margin:auto;background:white;border-radius:18px;padding:5px}
+.header h1{text-align:center;margin:10px 0 2px;font-size:25px}
+.header p{text-align:center;margin:0}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.nav a,.darkbtn{display:inline-block;text-decoration:none;border:0;border-radius:12px;padding:10px 13px;background:white;color:#1769e0;font-weight:bold;box-shadow:0 3px 10px #0001;cursor:pointer}
+body.dark .nav a,body.dark .darkbtn{background:#1f2937;color:#93c5fd}
+.progress{background:white;border-radius:16px;padding:14px;margin-bottom:18px;box-shadow:0 4px 15px #0001}
+body.dark .progress,body.dark .card{background:#1f2937}
+.bar{height:10px;background:#dbe4f0;border-radius:20px;overflow:hidden}
+.fill{height:100%;width:0;background:#1769e0;transition:.3s}
+.card{background:white;border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 5px 18px #0001}
+h2{color:#1769e0;margin-top:0}
+h3{color:#2456a6}
+.formula{background:#eef5ff;border-left:5px solid #1769e0;padding:12px;border-radius:10px;font-weight:bold;margin:10px 0}
+body.dark .formula{background:#172554}
+.example{background:#f8fafc;border:1px solid #dce5f0;border-radius:12px;padding:13px;margin:10px 0}
+body.dark .example{background:#111827;border-color:#374151}
+.question{padding:12px;border-bottom:1px solid #e5e7eb}
+body.dark .question{border-color:#374151}
+.answer{display:none;margin-top:7px;font-weight:bold}
+.show{margin-top:7px;border:0;border-radius:9px;padding:7px 11px;background:#1769e0;color:white}
+.mcq label{display:block;padding:7px;margin:4px 0;border-radius:8px}
+.result{font-weight:bold;margin-top:12px}
+.complete{display:flex;align-items:center;gap:10px;font-weight:bold}
+.complete input{width:20px;height:20px}
+.shape{font-size:34px;text-align:center;padding:10px}
+.footer{text-align:center;padding:20px;color:#667085}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<img src="logo.png" class="logo" alt="StudentHub">
+<h1>Class 5 Mathematics</h1>
+<p>পাঠ ১৪ • এমন কিছু আঁকি যা খুব কম জায়গা নেবে</p>
+</div>
+
+<div class="nav">
+<a href="index.html">← StudentHub</a>
+<a href="class5-maths-ch13.html">← পাঠ ১৩</a>
+<a href="class5-maths-ch15.html">পাঠ ১৫ →</a>
+<button class="darkbtn" onclick="toggleDark()">🌙 ডার্ক মোড</button>
+</div>
+
+<div class="progress">
+<strong>পাঠের অগ্রগতি: <span id="progressText">0%</span></strong>
+<div class="bar"><div class="fill" id="progressFill"></div></div>
+</div>
+
+<div class="card">
+<h2>📘 সহজে শিখি — আকৃতি, বাহু ও কোণ</h2>
+
+<p>কাগজে বা খাতায় বিভিন্ন জ্যামিতিক আকৃতি আঁকার সময় আমাদের বুঝতে হয় কোন আকৃতিতে কতগুলি বাহু, কোণ এবং শীর্ষবিন্দু আছে। এই পাঠে কম জায়গায় বিভিন্ন আকৃতি আঁকা ও তাদের বৈশিষ্ট্য চিনব।</p>
+
+<h3>১. ত্রিভুজ</h3>
+<div class="shape">△</div>
+<p>ত্রিভুজের <b>৩টি বাহু</b> এবং <b>৩টি কোণ</b> থাকে।</p>
+
+<h3>২. চতুর্ভুজ</h3>
+<div class="shape">□</div>
+<p>চতুর্ভুজের <b>৪টি বাহু</b> এবং <b>৪টি কোণ</b> থাকে। বর্গ ও আয়তক্ষেত্র চতুর্ভুজের উদাহরণ।</p>
+
+<h3>৩. বর্গ</h3>
+<p>বর্গের চারটি বাহু সমান এবং চারটি কোণ সমকোণ।</p>
+<div class="formula">বর্গের পরিসীমা = ৪ × এক বাহুর দৈর্ঘ্য</div>
+
+<h3>৪. আয়তক্ষেত্র</h3>
+<p>আয়তক্ষেত্রে বিপরীত বাহুগুলি সমান এবং চারটি কোণই সমকোণ।</p>
+<div class="formula">আয়তক্ষেত্রের পরিসীমা = ২ × (দৈর্ঘ্য + প্রস্থ)</div>
+
+<h3>৫. কম জায়গায় আকৃতি আঁকা</h3>
+<p>একটি বড় কাগজের মধ্যে ছোট ছোট ত্রিভুজ, বর্গ বা আয়তক্ষেত্র পাশাপাশি আঁকলে নির্দিষ্ট জায়গার মধ্যে অনেক আকৃতি সাজানো যায়। আকৃতিগুলিকে ঘুরিয়ে বা পাশাপাশি বসিয়েও জায়গা বাঁচানো যায়।</p>
+
+<h3>৬. শীর্ষবিন্দু</h3>
+<p>যেখানে দুটি বাহু মিলিত হয় তাকে শীর্ষবিন্দু বলা হয়। যেমন, একটি ত্রিভুজে ৩টি শীর্ষবিন্দু থাকে।</p>
+</div>
+
+<div class="card">
+<h2>✏️ সমাধান করা উদাহরণ</h2>
+
+<div class="example">
+<b>উদাহরণ ১:</b> একটি ত্রিভুজের কতগুলি বাহু ও কোণ আছে?<br>
+<b>উত্তর:</b> ৩টি বাহু এবং ৩টি কোণ।
+</div>
+
+<div class="example">
+<b>উদাহরণ ২:</b> একটি বর্গের এক বাহুর দৈর্ঘ্য ৫ সেমি। তার পরিসীমা কত?<br>
+<b>সমাধান:</b> ৪ × ৫ = <b>২০ সেমি</b>।
+</div>
+
+<div class="example">
+<b>উদাহরণ ৩:</b> একটি আয়তক্ষেত্রের দৈর্ঘ্য ৮ সেমি এবং প্রস্থ ৩ সেমি। পরিসীমা কত?<br>
+<b>সমাধান:</b> ২ × (৮ + ৩) = ২ × ১১ = <b>২২ সেমি</b>।
+</div>
+
+<div class="example">
+<b>উদাহরণ ৪:</b> একটি বর্গে কয়টি শীর্ষবিন্দু থাকে?<br>
+<b>উত্তর:</b> <b>৪টি</b>।
+</div>
+
+<div class="example">
+<b>উদাহরণ ৫:</b> ৬ সেমি বাহুর বর্গের পরিসীমা কত?<br>
+<b>সমাধান:</b> ৪ × ৬ = <b>২৪ সেমি</b>।
+</div>
+</div>
+
+<div class="card">
+<h2>📝 অনুশীলনী</h2>
+
+<div class="question">১. ত্রিভুজের কয়টি বাহু?<button class="show" onclick="showAns(1)">উত্তর দেখুন</button><div class="answer" id="a1">৩টি</div></div>
+<div class="question">২. বর্গের এক বাহু ৭ সেমি হলে পরিসীমা কত?<button class="show" onclick="showAns(2)">উত্তর দেখুন</button><div class="answer" id="a2">২৮ সেমি</div></div>
+<div class="question">৩. আয়তক্ষেত্রের দৈর্ঘ্য ১০ সেমি ও প্রস্থ ৪ সেমি হলে পরিসীমা কত?<button class="show" onclick="showAns(3)">উত্তর দেখুন</button><div class="answer" id="a3">২৮ সেমি</div></div>
+<div class="question">৪. চতুর্ভুজের কয়টি বাহু?<button class="show" onclick="showAns(4)">উত্তর দেখুন</button><div class="answer" id="a4">৪টি</div></div>
+<div class="question">৫. বর্গের চারটি বাহুর মধ্যে কী সম্পর্ক?<button class="show" onclick="showAns(5)">উত্তর দেখুন</button><div class="answer" id="a5">চারটি বাহুই সমান</div></div>
+<div class="question">৬. একটি ত্রিভুজে কয়টি শীর্ষবিন্দু?<button class="show" onclick="showAns(6)">উত্তর দেখুন</button><div class="answer" id="a6">৩টি</div></div>
+</div>
+
+<div class="card mcq">
+<h2>🎯 বহুনির্বাচনী পরীক্ষা</h2>
+
+<p><b>১. ত্রিভুজের বাহু কয়টি?</b></p>
+<label><input type="radio" name="q1" value="3"> ৩টি</label>
+<label><input type="radio" name="q1" value="4"> ৪টি</label>
+<label><input type="radio" name="q1" value="5"> ৫টি</label>
+
+<p><b>২. বর্গের এক বাহু ৫ সেমি হলে পরিসীমা কত?</b></p>
+<label><input type="radio" name="q2" value="20"> ২০ সেমি</label>
+<label><input type="radio" name="q2" value="15"> ১৫ সেমি</label>
+<label><input type="radio" name="q2" value="25"> ২৫ সেমি</label>
+
+<p><b>৩. চতুর্ভুজের বাহু কয়টি?</b></p>
+<label><input type="radio" name="q3" value="4"> ৪টি</label>
+<label><input type="radio" name="q3" value="3"> ৩টি</label>
+<label><input type="radio" name="q3" value="6"> ৬টি</label>
+
+<p><b>৪. বর্গের চারটি বাহু কেমন?</b></p>
+<label><input type="radio" name="q4" value="equal"> সমান</label>
+<label><input type="radio" name="q4" value="different"> সব আলাদা</label>
+<label><input type="radio" name="q4" value="none"> কোনোটিই নয়</label>
+
+<p><b>৫. আয়তক্ষেত্রের পরিসীমার সূত্র কোনটি?</b></p>
+<label><input type="radio" name="q5" value="2(l+w)"> ২ × (দৈর্ঘ্য + প্রস্থ)</label>
+<label><input type="radio" name="q5" value="l+w"> দৈর্ঘ্য + প্রস্থ</label>
+<label><input type="radio" name="q5" value="4l"> ৪ × দৈর্ঘ্য</label>
+
+<p><b>৬. একটি বর্গের এক বাহু ৬ সেমি হলে পরিসীমা:</b></p>
+<label><input type="radio" name="q6" value="24"> ২৪ সেমি</label>
+<label><input type="radio" name="q6" value="18"> ১৮ সেমি</label>
+<label><input type="radio" name="q6" value="36"> ৩৬ সেমি</label>
+
+<p><b>৭. দুটি বাহু যেখানে মিলিত হয় তাকে কী বলে?</b></p>
+<label><input type="radio" name="q7" value="vertex"> শীর্ষবিন্দু</label>
+<label><input type="radio" name="q7" value="side"> বাহু</label>
+<label><input type="radio" name="q7" value="circle"> বৃত্ত</label>
+
+<p><b>৮. আয়তক্ষেত্রের দৈর্ঘ্য ৮ সেমি, প্রস্থ ৩ সেমি। পরিসীমা:</b></p>
+<label><input type="radio" name="q8" value="22"> ২২ সেমি</label>
+<label><input type="radio" name="q8" value="24"> ২৪ সেমি</label>
+<label><input type="radio" name="q8" value="18"> ১৮ সেমি</label>
+
+<p><b>৯. ত্রিভুজের শীর্ষবিন্দু কয়টি?</b></p>
+<label><input type="radio" name="q9" value="3"> ৩টি</label>
+<label><input type="radio" name="q9" value="4"> ৪টি</label>
+<label><input type="radio" name="q9" value="2"> ২টি</label>
+
+<p><b>১০. কম জায়গায় অনেক আকৃতি আঁকার একটি উপায়:</b></p>
+<label><input type="radio" name="q10" value="arrange"> আকৃতিগুলি পাশাপাশি সাজানো</label>
+<label><input type="radio" name="q10" value="erase"> সব মুছে ফেলা</label>
+<label><input type="radio" name="q10" value="large"> সব আকৃতি বড় করা</label>
+
+<button class="show" onclick="checkQuiz()">ফলাফল দেখুন</button>
+<div class="result" id="result"></div>
+</div>
+
+<div class="card">
+<label class="complete">
+<input type="checkbox" id="complete" onchange="completeChapter()">
+আমি পাঠ ১৪ সম্পূর্ণ করেছি
+</label>
+</div>
+
+<div class="nav">
+<a href="class5-maths-ch13.html">← পাঠ ১৩</a>
+<a href="class5-maths-ch15.html">পাঠ ১৫ →</a>
+</div>
+
+<div class="footer">StudentHub • Learn • Practice • Grow</div>
+</div>
+
+<script>
+function toggleDark(){
+document.body.classList.toggle("dark");
+localStorage.setItem("studenthubDark",document.body.classList.contains("dark"));
+}
+if(localStorage.getItem("studenthubDark")==="true")document.body.classList.add("dark");
+
+function showAns(n){
+let e=document.getElementById("a"+n);
+e.style.display=e.style.display==="block"?"none":"block";
+}
+
+function checkQuiz(){
+const a={q1:"3",q2:"20",q3:"4",q4:"equal",q5:"2(l+w)",q6:"24",q7:"vertex",q8:"22",q9:"3",q10:"arrange"};
+let s=0;
+for(let q in a){
+let x=document.querySelector('input[name="'+q+'"]:checked');
+if(x&&x.value===a[q])s++;
+}
+document.getElementById("result").textContent="তোমার প্রাপ্ত নম্বর: "+s+"/10";
+}
+
+function completeChapter(){
+localStorage.setItem("class5MathsCh14",document.getElementById("complete").checked?"1":"0");
+updateProgress();
+}
+
+function updateProgress(){
+let d=localStorage.getItem("class5MathsCh14")==="1";
+let p=d?100:0;
+document.getElementById("progressFill").style.width=p+"%";
+document.getElementById("progressText").textContent=p+"%";
+document.getElementById("complete").checked=d;
+}
+updateProgress();
+</script>
+</body>
+</html>
