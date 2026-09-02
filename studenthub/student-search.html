@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Search & Learn | StudentHub</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f8fc;color:#17233b}
+header{background:#081a33;color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:800}.logo span{color:#36afea}nav a{color:#fff;text-decoration:none;margin:0 7px;font-size:14px}
+.hero{background:linear-gradient(135deg,#0b2a52,#1769aa);color:#fff;padding:38px 20px;text-align:center}
+.hero h1{margin:0 0 8px;font-size:31px}.hero p{margin:0;opacity:.9}
+.container{max-width:850px;margin:auto;padding:22px 16px}.card{background:#fff;border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 6px 22px rgba(20,50,90,.08)}
+h2{margin-top:0;color:#1265a5}.searchbox{display:flex;gap:10px;margin-top:16px}
+input{flex:1;border:1px solid #cbdbea;border-radius:12px;padding:15px;font-size:16px;outline:none}
+input:focus{border-color:#1686c5;box-shadow:0 0 0 3px #1686c51a}
+button{border:0;border-radius:12px;padding:0 20px;background:#1265a5;color:#fff;font-size:15px;font-weight:700}
+.buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.btn{display:block;text-align:center;text-decoration:none;border:1px solid #d6e3ef;border-radius:13px;padding:15px 10px;background:#f9fcff;color:#1265a5;font-weight:800}
+.btn small{display:block;color:#718096;font-weight:400;margin-top:5px}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.quick button{background:#eaf5fc;color:#1265a5;padding:9px 12px;font-size:13px}
+.note{color:#718096;font-size:13px;line-height:1.6}
+.back{display:inline-block;margin:4px 0 20px;color:#1265a5;text-decoration:none;font-weight:700}
+footer{text-align:center;padding:25px;color:#718096;font-size:13px}
+@media(max-width:650px){.searchbox{flex-direction:column}.searchbox button{height:48px}.buttons{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">ASIM <span>TECH</span></div>
+<nav>
+<a href="index.html">Home</a>
+<a href="class5.html">Classes</a>
+<a href="class5-maths.html">Mathematics</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Search & Learn</h1>
+<p>এক জায়গা থেকে Google, YouTube ও Wikipedia-তে পড়াশোনার বিষয় খুঁজে নাও</p>
+</section>
+
+<main class="container">
+<div class="card">
+<h2>🔎 Search anything</h2>
+<p class="note">একটি topic লিখে নিচের search button বেছে নাও।</p>
+<div class="searchbox">
+<input id="q" type="search" placeholder="যেমন: fractions, photosynthesis, English grammar..." autocomplete="off">
+<button onclick="googleSearch()">Search</button>
+</div>
+
+<div class="buttons">
+<a class="btn" id="google" href="#" target="_blank" rel="noopener">🔍 Google<small>Web search</small></a>
+<a class="btn" id="youtube" href="#" target="_blank" rel="noopener">▶️ YouTube<small>Study videos</small></a>
+<a class="btn" id="wiki" href="#" target="_blank" rel="noopener">📚 Wikipedia<small>Quick reference</small></a>
+</div>
+
+<div class="quick">
+<button onclick="setQ('Class 5 Mathematics')">Class 5 Maths</button>
+<button onclick="setQ('Class 5 English grammar')">English Grammar</button>
+<button onclick="setQ('science for class 5')">Science</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Student Search Tips</h2>
+<p class="note">প্রথমে topic লিখে Google দিয়ে তথ্য খুঁজে নাও। Video বুঝতে চাইলে YouTube ব্যবহার করো। কোনো বিষয় সম্পর্কে দ্রুত reference দরকার হলে Wikipedia দেখতে পারো। গুরুত্বপূর্ণ তথ্য বই বা শিক্ষক দিয়ে মিলিয়ে নাও।</p>
+</div>
+
+<a class="back" href="index.html">← Back to StudentHub Home</a>
+</main>
+<footer>© ASIM TECH • StudentHub • Search & Learn</footer>
+
+<script>
+function clean(){
+  return document.getElementById('q').value.trim();
+}
+function updateLinks(){
+  const q=clean();
+  const e=encodeURIComponent(q);
+  document.getElementById('google').href=q ? 'https://www.google.com/search?q='+e : 'https://www.google.com/';
+  document.getElementById('youtube').href=q ? 'https://www.youtube.com/results?search_query='+e : 'https://www.youtube.com/';
+  document.getElementById('wiki').href=q ? 'https://en.wikipedia.org/wiki/Special:Search?search='+e : 'https://en.wikipedia.org/';
+}
+function googleSearch(){
+  updateLinks();
+  const url=document.getElementById('google').href;
+  window.open(url,'_blank');
+}
+function setQ(text){
+  document.getElementById('q').value=text;
+  updateLinks();
+}
+document.getElementById('q').addEventListener('input',updateLinks);
+updateLinks();
+</script>
+</body>
+</html>
