@@ -1,95 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Study Hub - Class 6</title>
+<title>ASIM TECH • Class 6 Study</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
-margin:0;background:#071321;color:#f5f7fb;
-font-family:Arial,"Noto Sans Bengali",sans-serif
+ margin:0;
+ background:#07111f;
+ color:#eef6ff;
+ font-family:system-ui,"Noto Sans Bengali",sans-serif;
 }
+
 header{
-background:linear-gradient(135deg,#102c48,#071522);
-padding:28px 18px;border-bottom:1px solid #29425d
+ position:sticky;
+ top:0;
+ background:#09182bd9;
+ backdrop-filter:blur(12px);
+ border-bottom:1px solid #243a58;
+ z-index:5;
 }
-.wrap{max-width:1100px;margin:auto;padding:20px}
-.logo{
-font-size:30px;font-weight:800;margin-bottom:8px
+
+.nav{
+ max-width:1100px;
+ margin:auto;
+ padding:16px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
 }
-.subtitle{color:#9eb3c9;font-size:16px;line-height:1.6}
-.badge{
-display:inline-block;background:#124d7e;color:#8bd1ff;
-padding:7px 13px;border-radius:20px;font-size:13px;
-margin-bottom:12px
+
+.brand{
+ font-weight:900;
+ letter-spacing:.5px;
 }
-h1,h2,h3{margin-top:0}
-.subjects{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-gap:15px;margin:22px 0
+
+.muted{
+ color:#9bb0cb;
 }
-.subject{
-background:linear-gradient(145deg,#132941,#0d1e31);
-border:1px solid #29445f;border-radius:20px;
-padding:20px;cursor:pointer;transition:.2s
+
+main{
+ max-width:1100px;
+ margin:auto;
+ padding:22px 14px 60px;
 }
-.subject:hover{transform:translateY(-3px);border-color:#5ebcff}
-.subject.active{background:#173b5d;border-color:#68c2ff}
-.icon{font-size:31px;margin-bottom:10px}
-.subject small{color:#9eb3c9}
-.card{
-background:rgba(13,29,47,.97);
-border:1px solid #29445f;border-radius:20px;
-padding:22px;margin-bottom:18px
+
+.hero,.box{
+ background:#0e1c30;
+ border:1px solid #263d5c;
+ border-radius:22px;
+ padding:20px;
+ margin-bottom:16px;
 }
-.topicgrid{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
-gap:15px
+
+.hero{
+ background:linear-gradient(135deg,#102b4a,#101a30);
 }
-.topic{
-background:#10243a;border:1px solid #29445f;
-border-radius:17px;padding:18px;cursor:pointer
+
+h1{
+ font-size:clamp(28px,6vw,46px);
+ margin:8px 0;
 }
-.topic:hover{border-color:#5ebcff;transform:translateY(-2px)}
-.topic p{color:#aebed0;line-height:1.7;font-size:14px}
-.btn{
-border:0;border-radius:12px;padding:12px 18px;
-background:#1689ed;color:white;font-weight:bold;
-cursor:pointer;margin:6px 6px 6px 0
+
+h2{
+ margin-top:5px;
 }
-.btn.secondary{background:#233b55}
-.back{color:#73caff;cursor:pointer;margin-bottom:15px;display:inline-block}
-.note{line-height:1.9;color:#d8e3ed}
-.points li{margin:9px 0;color:#cbd8e5}
-.quizopt{
-width:100%;text-align:left;background:#142b43;
-border:1px solid #304b67;color:#fff;
-border-radius:12px;padding:14px;margin:8px 0;
-cursor:pointer;font-size:15px
+
+h3{
+ margin-top:22px;
 }
-.quizopt:hover{background:#1c3c5d}
-.correct{background:#145d43!important;border-color:#42d99b!important}
-.wrong{background:#6a3038!important;border-color:#ff7887!important}
-.result{
-font-size:22px;font-weight:bold;background:#14334d;
-padding:20px;border-radius:15px;margin-top:15px
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+ gap:10px;
 }
-.explain{
-background:#101f31;border:1px solid #29445f;
-padding:15px;border-radius:14px;margin-top:15px;
-line-height:1.7
+
+button{
+ width:100%;
+ padding:13px;
+ border-radius:14px;
+ border:1px solid #2c4566;
+ background:#162943;
+ color:#eef6ff;
+ font-weight:700;
+ text-align:left;
+ cursor:pointer;
 }
-.hidden{display:none}
-.recent{color:#80cfff;font-size:14px;margin-top:10px}
-footer{text-align:center;color:#71879e;padding:30px}
-@media(max-width:600px){
-.wrap{padding:14px}
-header{padding:22px 12px}
-.logo{font-size:25px}
-.card{padding:17px}
-.topicgrid{grid-template-columns:1fr}
+
+button:hover{
+ border-color:#73adff;
+}
+
+.topic small{
+ display:block;
+ color:#91a7c4;
+ margin-top:5px;
+}
+
+.pill{
+ display:inline-block;
+ background:#17385e;
+ color:#b9d8ff;
+ padding:5px 9px;
+ border-radius:20px;
+ font-size:12px;
+}
+
+.actions{
+ display:flex;
+ gap:9px;
+ flex-wrap:wrap;
+ margin-top:15px;
+}
+
+.actions button{
+ width:auto;
+}
+
+.primary{
+ background:#2e69b0;
+}
+
+.good{
+ background:#1d674b;
+}
+
+.option{
+ margin:7px 0;
+}
+
+.correct{
+ outline:2px solid #39d18c;
+}
+
+.wrong{
+ outline:2px solid #ff6878;
+}
+
+.hidden{
+ display:none;
+}
+
+.progress{
+ height:8px;
+ background:#182a42;
+ border-radius:20px;
+ overflow:hidden;
+ margin-top:14px;
+}
+
+.bar{
+ height:100%;
+ background:#5e9fea;
+ width:0;
+}
+
+@media(max-width:560px){
+ .grid{
+  grid-template-columns:1fr 1fr;
+ }
+
+ .hero,.box{
+  padding:15px;
+ }
 }
 </style>
 </head>
@@ -97,812 +174,815 @@ header{padding:22px 12px}
 <body>
 
 <header>
-<div class="wrap">
-<div class="badge">CLASS 6 • COMPLETE STUDY EDITION</div>
-<div class="logo">📚 Study Hub</div>
-<div class="subtitle">
-বাংলা • English • গণিত • Geography • Environment & Science • History
+<div class="nav">
+
+<div>
+<div class="brand">📚 ASIM TECH STUDY</div>
+<small class="muted">Class 6 • Final Study Edition</small>
 </div>
-<div id="recent" class="recent"></div>
+
+<small id="recent" class="muted"></small>
+
 </div>
 </header>
 
-<div class="wrap">
+<main>
 
-<section id="home">
-<h1>বিষয় নির্বাচন করুন</h1>
-<p class="subtitle">
-অধ্যায় নির্বাচন করুন → সহজভাবে পড়ুন → গুরুত্বপূর্ণ বিষয় মনে রাখুন → MCQ দিন।
+<section class="hero">
+
+<span class="pill">CLASS 6</span>
+
+<h1>Learn Smart. Study Better.</h1>
+
+<p class="muted">
+৬টি বিষয় • ৪৮টি Topic • Notes • Revision • MCQ Practice
 </p>
-<div class="subjects" id="subjects"></div>
-<div id="topics"></div>
+
 </section>
 
-<section id="study" class="hidden">
-<span class="back" onclick="home()">← বিষয় তালিকায় ফিরুন</span>
-<div class="card">
-<div class="badge" id="studySub"></div>
-<h2 id="studyTitle"></h2>
 
-<h3>📖 সহজভাবে বুঝি</h3>
-<div class="note" id="summary"></div>
+<section class="box">
 
-<h3 style="margin-top:25px">⭐ গুরুত্বপূর্ণ বিষয়</h3>
-<ul class="points" id="points"></ul>
+<h2>📚 Subjects</h2>
 
-<h3 style="margin-top:25px">📝 পরীক্ষার আগে মনে রাখুন</h3>
-<div class="note" id="revision"></div>
+<div id="subs" class="grid"></div>
 
-<button class="btn" onclick="quizStart()">🎯 10 MCQ শুরু করুন</button>
-<button class="btn secondary" onclick="home()">← অন্য Topic</button>
-</div>
 </section>
 
-<section id="quiz" class="hidden">
-<span class="back" onclick="openStudy()">← Study Note</span>
-<div class="card">
-<div class="badge" id="quizSub"></div>
-<h2 id="quizTitle"></h2>
-<div id="question"></div>
-<button id="next" class="btn hidden" onclick="next()">পরের প্রশ্ন →</button>
-<button id="retry" class="btn secondary hidden" onclick="quizStart()">🔄 আবার চেষ্টা করুন</button>
-</div>
+
+<section id="topicsBox" class="box hidden">
+
+<h2 id="st"></h2>
+
+<div id="topics" class="grid"></div>
+
 </section>
 
-</div>
 
-<footer>Study Hub • Class 6 Educational Practice</footer>
+<section id="studyBox" class="box hidden">
+
+<div id="study"></div>
+
+</section>
+
+
+<section id="quizBox" class="box hidden">
+
+<div id="quiz"></div>
+
+</section>
+
+</main>
+
 
 <script>
 
-/* =========================================================
-   CLASS 6 CONTENT
-   ========================================================= */
+const D=[
 
-const DATA={
-
-"বাংলা":{
-icon:"📘",
-topics:[
+/* বাংলা */
 
 {
+s:"বাংলা",
 t:"মেনি — কুমুদ রঞ্জন মল্লিক",
-s:"এই পাঠে মানুষের অনুভূতি, চরিত্র এবং ঘটনার মাধ্যমে পাঠ বোঝার দক্ষতা তৈরি করা যায়। পাঠের মূল ঘটনা নিজের ভাষায় বলা ও চরিত্রের বৈশিষ্ট্য বোঝা গুরুত্বপূর্ণ।",
-p:["মূল ঘটনা ক্রমানুসারে বোঝা","চরিত্রের আচরণ লক্ষ্য করা","নতুন শব্দের অর্থ শেখা","পাঠের মূল বক্তব্য নিজের ভাষায় বলা","প্রশ্নের উত্তর সম্পূর্ণ বাক্যে লেখা"],
-r:"কে, কোথায়, কী করল এবং শেষে কী ঘটল—এই চারটি প্রশ্নের উত্তর মনে রাখুন।"
+n:"এই পাঠে মূলভাব, চরিত্র, প্রকৃতি ও মানবিকতার দিক বুঝে পড়তে হবে।"
 },
 
 {
+s:"বাংলা",
 t:"এক ভূতুড়ে কাণ্ড",
-s:"কল্পনা, হাস্যরস ও ঘটনাকে কেন্দ্র করে তৈরি পাঠে পাঠকের কৌতূহল তৈরি হয়। গল্পের ঘটনা ও চরিত্র বিশ্লেষণ করে মূল বক্তব্য বোঝা যায়।",
-p:["গল্পের ঘটনাক্রম বোঝা","চরিত্রের বৈশিষ্ট্য চিহ্নিত করা","হাস্যরস ও কল্পনার দিক বোঝা","শব্দার্থ শেখা","নিজের ভাষায় গল্প বলা"],
-r:"গল্পের শুরু, মাঝের ঘটনা এবং শেষের ফলাফল আলাদা করে মনে রাখুন।"
+n:"রহস্য ও ভৌতিক আবহের এই পাঠে ঘটনার ক্রম, চরিত্র এবং ভয় ও বাস্তবতার সম্পর্ক বুঝে পড়তে হবে।"
 },
 
 {
+s:"বাংলা",
 t:"বাংলা ব্যাকরণ — শব্দের গঠন ও শ্রেণিবিভাগ",
-s:"শব্দ কীভাবে গঠিত হয় এবং শব্দকে বিভিন্নভাবে কীভাবে ভাগ করা যায়—এই ধারণা বাংলা ব্যাকরণের ভিত্তি শক্ত করে।",
-p:["শব্দের গঠন বোঝা","শব্দের অর্থ লক্ষ্য করা","শব্দের বিভিন্ন শ্রেণি বোঝা","উদাহরণসহ শেখা","বাক্যে শব্দের ব্যবহার দেখা"],
-r:"শব্দ শুধু মুখস্থ নয়—বাক্যে তার ব্যবহার দেখলে বিষয়টি সহজ হয়।"
+n:"শব্দ কীভাবে গঠিত হয় এবং গঠন ও ব্যবহার অনুসারে শব্দের বিভিন্ন শ্রেণি কীভাবে চেনা যায় তা শেখানো হয়।"
 },
 
 {
+s:"বাংলা",
 t:"বিশেষ্য",
-s:"যে শব্দ দ্বারা ব্যক্তি, বস্তু, প্রাণী, স্থান বা কোনো ধারণার নাম বোঝানো হয় তাকে বিশেষ্য বলা হয়।",
-p:["ব্যক্তির নাম বিশেষ্য","স্থানের নাম বিশেষ্য","বস্তুর নাম বিশেষ্য","প্রাণীর নাম বিশেষ্য","ভাব বা ধারণার নামও বিশেষ্য হতে পারে"],
-r:"রাহুল, কলকাতা, বই, পাখি, আনন্দ—এসব বিশেষ্যের উদাহরণ।"
+n:"ব্যক্তি, স্থান, বস্তু, প্রাণী, গুণ বা ভাবের নাম বোঝায় যে পদ তাকে বিশেষ্য বলে।"
 },
 
 {
+s:"বাংলা",
 t:"সর্বনাম",
-s:"বিশেষ্যের পরিবর্তে যে শব্দ ব্যবহৃত হয় তাকে সর্বনাম বলা হয়। একই নাম বারবার বলা এড়াতে সর্বনাম ব্যবহৃত হয়।",
-p:["বিশেষ্যের পরিবর্তে ব্যবহৃত হয়","আমি একটি সর্বনাম","তুমি একটি সর্বনাম","সে একটি সর্বনাম","আমরা একটি সর্বনাম"],
-r:"রিনা স্কুলে গেল। সে পড়ল। এখানে 'সে' সর্বনাম।"
+n:"বিশেষ্যের পরিবর্তে ব্যবহৃত পদ সর্বনাম। যেমন—আমি, তুমি, সে, আমরা।"
 },
 
 {
+s:"বাংলা",
 t:"ক্রিয়া",
-s:"যে শব্দ দ্বারা কাজ করা, হওয়া বা থাকা বোঝায় তাকে ক্রিয়া বলা হয়।",
-p:["কাজ বোঝায়","যাওয়া ক্রিয়া","খাওয়া ক্রিয়া","পড়া ক্রিয়া","লেখা ক্রিয়া"],
-r:"'রাহুল বই পড়ে'—এখানে 'পড়ে' ক্রিয়া।"
+n:"কাজ, হওয়া বা ঘটার অর্থ প্রকাশ করে যে পদ তাকে ক্রিয়া বলে।"
 },
 
 {
+s:"বাংলা",
 t:"লিঙ্গ",
-s:"শব্দের মাধ্যমে পুরুষ, নারী বা অন্য ধরনের লিঙ্গগত পরিচয় প্রকাশের ধারণাকে ব্যাকরণে লিঙ্গ বলা হয়।",
-p:["লিঙ্গ ব্যাকরণের বিষয়","পুংলিঙ্গ একটি শ্রেণি","স্ত্রীলিঙ্গ একটি শ্রেণি","উদাহরণ দেখে লিঙ্গ চেনা যায়","শব্দের রূপ পরিবর্তন হতে পারে"],
-r:"উদাহরণসহ পুংলিঙ্গ ও স্ত্রীলিঙ্গের ব্যবহার অনুশীলন করুন।"
+n:"শব্দের পুরুষ বা স্ত্রী ভাব বোঝাতে লিঙ্গের ধারণা ব্যবহৃত হয়।"
 },
 
 {
+s:"বাংলা",
 t:"বচন",
-s:"একজন বা একটি এবং একাধিক ব্যক্তি বা বস্তুর সংখ্যা বোঝাতে বচনের ধারণা ব্যবহৃত হয়।",
-p:["একবচন একটি বোঝায়","বহুবচন একাধিক বোঝায়","বাক্যে বচন চেনা যায়","একাধিক বস্তুর ক্ষেত্রে বহুবচন হতে পারে","উদাহরণ লিখে অনুশীলন করা ভালো"],
-r:"একটি ও একাধিক—এই পার্থক্য থেকেই বচন চেনার শুরু।"
-}
-
-]},
+n:"এক বা একাধিক ব্যক্তি বা বস্তুর সংখ্যা বোঝায় বচন।"
+},
 
 
-"English":{
-icon:"🔤",
-topics:[
+/* ENGLISH */
 
 {
+s:"English",
 t:"The Shop That Never Was",
-s:"This lesson develops reading comprehension through a story. Students should understand the characters, events, sequence and important vocabulary.",
-p:["Understand the main event","Identify characters","Follow the sequence","Learn vocabulary","Answer comprehension questions"],
-r:"Remember who did what, where the event happened and what happened at the end."
+n:"Read carefully for the central idea, sequence of events, characters and important details."
 },
 
 {
+s:"English",
 t:"The Rainbow",
-s:"The poem helps learners appreciate nature, colours and poetic description. Reading aloud and understanding imagery are useful.",
-p:["Rainbow is a natural phenomenon","Colours are important","Nature is described beautifully","Poetry uses imagery","Read the poem carefully"],
-r:"Remember the natural setting, colours and descriptive language."
+n:"The poem celebrates the beauty of a rainbow and nature. Notice imagery and poetic expression."
 },
 
 {
+s:"English",
 t:"English Grammar — Noun",
-s:"A noun names a person, place, animal, thing or idea.",
-p:["Person can be a noun","Place can be a noun","Animal can be a noun","Thing can be a noun","Idea can be a noun"],
-r:"Teacher, Kolkata, tiger, book and happiness are examples."
+n:"A noun names a person, place, animal, thing or idea."
 },
 
 {
+s:"English",
 t:"English Grammar — Pronoun",
-s:"A pronoun is used in place of a noun. It avoids repeating the same noun again and again.",
-p:["Pronoun replaces a noun","I is a pronoun","You is a pronoun","He is a pronoun","They is a pronoun"],
-r:"Rita came home. She was happy. 'She' replaces Rita."
+n:"A pronoun is used in place of a noun."
 },
 
 {
+s:"English",
 t:"English Grammar — Verb",
-s:"A verb shows an action, state or occurrence.",
-p:["Run is a verb","Eat is a verb","Read is a verb","Write is a verb","Play is a verb"],
-r:"In 'Rita reads a book', reads is the verb."
+n:"A verb expresses an action, state or occurrence."
 },
 
 {
+s:"English",
 t:"English Grammar — Adjective",
-s:"An adjective describes or gives more information about a noun.",
-p:["Beautiful is an adjective","Tall can describe a person","Red can describe a colour/object","Big describes size","Small describes size"],
-r:"In 'a beautiful flower', beautiful describes flower."
+n:"An adjective describes or qualifies a noun or pronoun."
 },
 
 {
+s:"English",
 t:"English Grammar — Tense",
-s:"Tense helps us understand the time of an action. Present, past and future are basic time references.",
-p:["Present refers to now","Past refers to earlier time","Future refers to later time","Verb form can change","Sentence context helps identify tense"],
-r:"Look at the verb and time expression to identify the tense."
+n:"Tense indicates the time of an action or state."
 },
 
 {
+s:"English",
 t:"Reading Comprehension",
-s:"Reading comprehension means understanding a passage and answering questions from its meaning.",
-p:["Read carefully","Find the main idea","Notice important details","Understand vocabulary","Answer from the passage"],
-r:"Do not guess immediately; first find the relevant part of the passage."
-}
-
-]},
+n:"Read carefully, identify the main idea, facts, vocabulary and implied meaning."
+},
 
 
-"গণিত":{
-icon:"➗",
-topics:[
+/* গণিত */
 
 {
+s:"গণিত",
 t:"সাত ও আট অঙ্কের সংখ্যা",
-s:"বড় সংখ্যাকে স্থানীয় মান অনুযায়ী পড়া, লেখা, তুলনা ও সাজানো গুরুত্বপূর্ণ।",
-p:["একক","দশক","শতক","হাজার ও উচ্চ স্থানীয় মান","অঙ্কের অবস্থান অনুযায়ী মান পরিবর্তন"],
-r:"সংখ্যা পড়ার সময় অঙ্কগুলিকে স্থানীয় মানের ঘরে ভাগ করুন।"
+n:"স্থানীয় মান, সংখ্যা লেখা-পড়া, তুলনা এবং বড় সংখ্যার চার প্রক্রিয়া এই অধ্যায়ের মূল বিষয়।"
 },
 
 {
+s:"গণিত",
 t:"শতকরা",
-s:"শতকরা অর্থ প্রতি একশোতে। % চিহ্ন দিয়ে শতকরা প্রকাশ করা হয়।",
-p:["% শতকরা চিহ্ন","x%=x/100","50%=50/100","25%=1/4","100% সম্পূর্ণ বোঝায়"],
-r:"শতকরা মানে প্রতি 100-তে কত—এই ধারণাটি মনে রাখুন।"
+n:"প্রতি ১০০-তে কত অংশ তা শতকরা। শতকরা = (অংশ ÷ সমগ্র) × 100।"
 },
 
 {
+s:"গণিত",
 t:"অনুপাত ও সমানুপাত",
-s:"দুটি একই ধরনের রাশির তুলনাকে অনুপাত বলা হয়। দুটি অনুপাত সমান হলে সমানুপাত তৈরি হয়।",
-p:["অনুপাত তুলনা করে","a:b অনুপাতের একটি রূপ","একই ধরনের রাশি তুলনা করা উচিত","সমান অনুপাত থেকে সমানুপাত","দৈনন্দিন জীবনে অনুপাত ব্যবহৃত হয়"],
-r:"অনুপাতের দুই রাশির একক ও অর্থ বুঝে হিসাব করুন।"
+n:"সমজাতীয় দুটি রাশির তুলনা অনুপাত এবং দুটি অনুপাত সমান হলে তাকে সমানুপাত বলে।"
 },
 
 {
+s:"গণিত",
 t:"সুষম ঘনবস্তুর ধারণা",
-s:"ঘনবস্তু তিন মাত্রার—দৈর্ঘ্য, প্রস্থ ও উচ্চতা থাকে। ঘনক ও ঘনায়তন গুরুত্বপূর্ণ উদাহরণ।",
-p:["তিনটি মাত্রা থাকে","ঘনকের প্রান্ত সমান","ঘনায়তের দৈর্ঘ্য থাকে","প্রস্থ ও উচ্চতা থাকে","ঘনবস্তু তিন-মাত্রিক"],
-r:"দৈর্ঘ্য + প্রস্থ + উচ্চতা—এই তিনটি মাত্রা মনে রাখুন।"
+n:"ঘনক ও ঘনায়তের মতো ঘনবস্তুর তল, প্রান্ত ও শীর্ষবিন্দু সম্পর্কে প্রাথমিক ধারণা।"
 },
 
 {
+s:"গণিত",
 t:"Recurring Decimal",
-s:"যে দশমিক সংখ্যায় একটি বা একাধিক অঙ্ক বারবার পুনরাবৃত্ত হয় তাকে recurring decimal বলা হয়।",
-p:["Recurring মানে পুনরাবৃত্ত","দশমিকের পরে পুনরাবৃত্তি হতে পারে","0.333... একটি উদাহরণ","পুনরাবৃত্ত অঙ্ক চিহ্নিত করতে হয়","এটি দশমিক সংখ্যার একটি বিশেষ ধরন"],
-r:"Recurring = repeated—এই শব্দের অর্থ মনে রাখুন।"
+n:"A recurring decimal has a digit or group of digits that repeats indefinitely."
 },
 
 {
+s:"গণিত",
 t:"পরিমাপ",
-s:"দৈর্ঘ্য, ভর, সময় ইত্যাদি রাশির পরিমাণ নির্ণয়কে পরিমাপ বলা হয়।",
-p:["দৈর্ঘ্যের একক মিটার","ভরের একক কিলোগ্রাম","সময়ের একক সেকেন্ড","উপযুক্ত যন্ত্র প্রয়োজন","একক ছাড়া পরিমাপ অসম্পূর্ণ"],
-r:"রাশি, একক এবং যন্ত্র—এই তিনটি বিষয় একসঙ্গে ভাবুন।"
+n:"দৈর্ঘ্য, ভর, সময় ও ধারণক্ষমতা নির্দিষ্ট একক ও যন্ত্র দিয়ে মাপা হয়।"
 },
 
 {
+s:"গণিত",
 t:"ভগ্নাংশ",
-s:"কোনো সম্পূর্ণ জিনিসকে সমান ভাগে ভাগ করলে তার অংশকে ভগ্নাংশ দিয়ে প্রকাশ করা যায়।",
-p:["লব থাকে","হর থাকে","হর শূন্য হতে পারে না","সমান ভাগ গুরুত্বপূর্ণ","ভগ্নাংশ একটি অংশ বোঝাতে পারে"],
-r:"লব উপরের সংখ্যা এবং হর নিচের সংখ্যা—এই নিয়ম মনে রাখুন।"
+n:"পূর্ণের অংশ প্রকাশ করে ভগ্নাংশ। লব ও হর দিয়ে ভগ্নাংশ লেখা হয়।"
 },
 
 {
+s:"গণিত",
 t:"যুক্তিপূর্ণ অনুমান",
-s:"সংখ্যা ও তথ্য দেখে যুক্তি ব্যবহার করে সম্ভাব্য ফল অনুমান করা গণিতের গুরুত্বপূর্ণ দক্ষতা।",
-p:["তথ্য লক্ষ্য করা","সংখ্যা তুলনা করা","ধারাবাহিকতা দেখা","যুক্তি ব্যবহার করা","ফল যাচাই করা"],
-r:"অনুমান করার পর হিসাব বা যুক্তি দিয়ে সেটি যাচাই করুন।"
-}
-
-]},
+n:"তথ্য, সম্পর্ক ও pattern দেখে যুক্তিসঙ্গত সিদ্ধান্তে পৌঁছানোর পদ্ধতি।"
+},
 
 
-"Geography":{
-icon:"🌍",
-topics:[
+/* GEOGRAPHY */
 
 {
+s:"Geography",
 t:"পৃথিবী কি গোলাকার",
-s:"পৃথিবী প্রায় গোলাকার। Globe পৃথিবীর একটি ছোট মডেল। মেরু ও বিষুবরেখার ধারণা পৃথিবী বোঝার জন্য গুরুত্বপূর্ণ।",
-p:["পৃথিবী প্রায় গোলাকার","Globe পৃথিবীর মডেল","উত্তর মেরু আছে","দক্ষিণ মেরু আছে","বিষুবরেখা উত্তর ও দক্ষিণ গোলার্ধ ভাগ করে"],
-r:"Globe = পৃথিবীর ছোট মডেল—এটি মনে রাখুন।"
+n:"পৃথিবীর আকৃতি বোঝার জন্য জাহাজের দিগন্তে অদৃশ্য হওয়া ও চন্দ্রগ্রহণের মতো পর্যবেক্ষণ গুরুত্বপূর্ণ।"
 },
 
 {
+s:"Geography",
 t:"আমাদের দেশ ভারত",
-s:"ভারত দক্ষিণ এশিয়ার একটি বৃহৎ দেশ। এখানে পাহাড়, সমভূমি, মালভূমি, মরুভূমি ও উপকূলীয় অঞ্চল রয়েছে।",
-p:["ভারত এশিয়ায়","দক্ষিণ এশিয়ায় অবস্থিত","উত্তরে হিমালয়","বিভিন্ন ভূপ্রকৃতি রয়েছে","সমুদ্র উপকূল রয়েছে"],
-r:"ভারতের অবস্থান ও প্রধান ভূপ্রকৃতিগুলি মনে রাখুন।"
+n:"ভারতের অবস্থান, প্রতিবেশী দেশ এবং ভৌগোলিক বৈচিত্র্য এই অধ্যায়ের মূল বিষয়।"
 },
 
 {
+s:"Geography",
 t:"ভারতের ভূপ্রকৃতি",
-s:"ভারতের ভূপ্রকৃতির মধ্যে হিমালয়, উত্তর ভারতের সমভূমি, মালভূমি, মরুভূমি ও উপকূলীয় সমভূমি উল্লেখযোগ্য।",
-p:["হিমালয় উত্তরে","উত্তর ভারতের সমভূমি উর্বর","দাক্ষিণাত্য মালভূমি গুরুত্বপূর্ণ","উপকূল সমুদ্রের পাশে","ভূপ্রকৃতির বৈচিত্র্য রয়েছে"],
-r:"ভূপ্রকৃতির নামের সঙ্গে অবস্থান মিলিয়ে পড়ুন।"
+n:"হিমালয়, সমভূমি, মালভূমি, মরুভূমি, উপকূল ও দ্বীপ ভারতের প্রধান ভূপ্রাকৃতিক বৈচিত্র্যের অংশ।"
 },
 
 {
+s:"Geography",
 t:"ভারতের নদনদী",
-s:"ভারতের নদীগুলি কৃষি, পানীয় জল, পরিবহন ও বিভিন্ন অর্থনৈতিক কাজে গুরুত্বপূর্ণ।",
-p:["নদী জল সরবরাহ করে","কৃষিতে নদীর জল ব্যবহৃত হয়","নদী ভূমিরূপ পরিবর্তন করতে পারে","বিভিন্ন নদীর উৎস আলাদা","নদী মানুষের জীবনযাত্রায় গুরুত্বপূর্ণ"],
-r:"নদীর উৎস, প্রবাহ এবং মানুষের ব্যবহার—তিনটি বিষয় মনে রাখুন।"
+n:"হিমালয় ও উপদ্বীপীয় নদীর উৎস, প্রবাহ এবং মানুষের জীবনে নদীর গুরুত্ব পড়তে হবে।"
 },
 
 {
+s:"Geography",
 t:"পৃথিবীর আবর্তন",
-s:"পৃথিবী নিজের অক্ষের চারদিকে ঘোরে। এই আবর্তনের ফলে দিন ও রাতের পরিবর্তন ঘটে।",
-p:["পৃথিবী নিজের অক্ষে ঘোরে","এটি আবর্তন","দিন-রাতের পরিবর্তনের সঙ্গে সম্পর্কিত","পৃথিবীর অক্ষ একটি কাল্পনিক রেখা","আবর্তনের দিক নির্দিষ্ট"],
-r:"Rotation = নিজের অক্ষের চারদিকে ঘোরা।"
+n:"পৃথিবী নিজের অক্ষের চারদিকে ঘোরে। এই আবর্তনের ফলে দিন ও রাতের পরিবর্তন ঘটে।"
 },
 
 {
+s:"Geography",
 t:"মহাবিশ্ব",
-s:"সূর্য, পৃথিবী, চাঁদ ও অসংখ্য নক্ষত্র ও অন্যান্য জ্যোতিষ্ক বৃহৎ মহাবিশ্বের অংশ।",
-p:["সূর্য একটি নক্ষত্র","পৃথিবী একটি গ্রহ","চাঁদ পৃথিবীর উপগ্রহ","অসংখ্য নক্ষত্র রয়েছে","মহাবিশ্ব অত্যন্ত বিশাল"],
-r:"নক্ষত্র, গ্রহ ও উপগ্রহের পার্থক্য পরিষ্কার করে পড়ুন।"
+n:"সূর্য, নক্ষত্র, গ্রহ, উপগ্রহ ও সৌরজগত মহাবিশ্ব বোঝার প্রাথমিক উপাদান।"
 },
 
 {
+s:"Geography",
 t:"শব্দ দূষণ",
-s:"অতিরিক্ত ও অনাকাঙ্ক্ষিত শব্দ পরিবেশের জন্য ক্ষতিকর হতে পারে। শব্দ দূষণ মানুষের স্বাস্থ্যে বিরূপ প্রভাব ফেলতে পারে।",
-p:["অতিরিক্ত শব্দ ক্ষতিকর","যানবাহন শব্দের উৎস হতে পারে","মাইকও শব্দ বাড়াতে পারে","শব্দ দূষণ কমানো প্রয়োজন","নীরবতা ও নিয়ন্ত্রণ গুরুত্বপূর্ণ"],
-r:"শব্দের উৎস ও শব্দ কমানোর উপায় দুটোই মনে রাখুন।"
+n:"অতিরিক্ত অনাকাঙ্ক্ষিত শব্দ শব্দদূষণ। এটি শ্রবণ, ঘুম ও স্বাস্থ্যে ক্ষতিকর প্রভাব ফেলতে পারে।"
 },
 
 {
+s:"Geography",
 t:"আবহাওয়া ও জলবায়ু",
-s:"কোনো স্থানের স্বল্প সময়ের বায়ুমণ্ডলীয় অবস্থা আবহাওয়া। দীর্ঘ সময়ের গড় ধরণকে জলবায়ুর সঙ্গে যুক্ত করা হয়।",
-p:["আবহাওয়া দ্রুত পরিবর্তিত হতে পারে","তাপমাত্রা আবহাওয়ার অংশ","বৃষ্টিপাত আবহাওয়ার অংশ","জলবায়ু দীর্ঘ সময়ের ধরণ","দুটির মধ্যে সময়ের পার্থক্য গুরুত্বপূর্ণ"],
-r:"Weather = short-term condition; Climate = long-term pattern."
-}
-
-]},
+n:"স্বল্প সময়ের বায়ুমণ্ডলীয় অবস্থা আবহাওয়া; দীর্ঘ সময়ের গড় ধরণ জলবায়ু।"
+},
 
 
-"Environment & Science":{
-icon:"🔬",
-topics:[
+/* ENVIRONMENT & SCIENCE */
 
 {
+s:"Environment & Science",
 t:"মাপজোক বা পরিমাপ",
-s:"দৈর্ঘ্য, ভর, সময় ইত্যাদি রাশির পরিমাণ নির্ণয়কে পরিমাপ বলা হয়।",
-p:["দৈর্ঘ্য মাপা যায়","ভর মাপা যায়","সময় মাপা যায়","উপযুক্ত একক প্রয়োজন","উপযুক্ত যন্ত্র প্রয়োজন"],
-r:"একক ও যন্ত্রের নাম ভালোভাবে মনে রাখুন।"
+n:"বিভিন্ন রাশি মাপতে উপযুক্ত একক ও যন্ত্র ব্যবহার করা হয়।"
 },
 
 {
+s:"Environment & Science",
 t:"পদার্থের তিন অবস্থা",
-s:"সাধারণভাবে পদার্থ কঠিন, তরল ও গ্যাসীয় অবস্থায় থাকে। তাপমাত্রার পরিবর্তনে অবস্থার পরিবর্তন ঘটতে পারে।",
-p:["কঠিনের নির্দিষ্ট আকার থাকে","তরলের নির্দিষ্ট আয়তন থাকে","গ্যাস পাত্রের স্থান পূর্ণ করে","তাপে অবস্থার পরিবর্তন হতে পারে","বরফ কঠিন অবস্থা"],
-r:"কঠিন → তরল → গ্যাস পরিবর্তনের উদাহরণ মনে রাখুন।"
+n:"কঠিন, তরল ও গ্যাস পদার্থের তিন সাধারণ অবস্থা। তাপমাত্রা পরিবর্তনে অবস্থার পরিবর্তন হতে পারে।"
 },
 
 {
+s:"Environment & Science",
 t:"শিলা ও খনিজ পদার্থ",
-s:"শিলা প্রাকৃতিক কঠিন পদার্থ। বিভিন্ন শিলায় বিভিন্ন খনিজ থাকতে পারে এবং খনিজ প্রাকৃতিক সম্পদ হিসেবে গুরুত্বপূর্ণ।",
-p:["শিলা প্রাকৃতিক","শিলা সাধারণত কঠিন","খনিজ প্রাকৃতিক সম্পদ","শিলায় খনিজ থাকতে পারে","মানুষ খনিজ ব্যবহার করে"],
-r:"শিলা ও খনিজের পার্থক্য উদাহরণসহ শিখুন।"
+n:"শিলা বিভিন্ন খনিজ দিয়ে গঠিত এবং খনিজের নানা ব্যবহার রয়েছে।"
 },
 
 {
+s:"Environment & Science",
 t:"মানবদেহ — হাড় ও পেশি",
-s:"কঙ্কাল দেহকে কাঠামো ও সমর্থন দেয়। পেশি ও হাড় একসঙ্গে শরীরের নড়াচড়ায় সাহায্য করে।",
-p:["কঙ্কাল সমর্থন দেয়","হাড় কাঠামো তৈরি করে","পেশি নড়াচড়ায় সাহায্য করে","সন্ধি নড়াচড়ার সঙ্গে যুক্ত","বৃদ্ধির সঙ্গে দেহের পরিবর্তন ঘটে"],
-r:"হাড় + সন্ধি + পেশি = চলাফেরার গুরুত্বপূর্ণ ব্যবস্থা।"
+n:"কঙ্কাল দেহকে কাঠামো দেয় এবং পেশি ও সন্ধির সহযোগিতায় দেহ নড়াচড়া করে।"
 },
 
 {
+s:"Environment & Science",
 t:"আমাদের চারপাশের ঘটনাসমূহ",
-s:"প্রতিদিন আমাদের চারপাশে নানা প্রাকৃতিক ও ভৌত ঘটনা ঘটে। পর্যবেক্ষণ ও প্রশ্ন করার মাধ্যমে বিজ্ঞান শেখা যায়।",
-p:["পর্যবেক্ষণ গুরুত্বপূর্ণ","প্রশ্ন করা বিজ্ঞানচর্চার অংশ","ঘটনার কারণ খোঁজা হয়","পরীক্ষা করা যায়","ফলাফল থেকে সিদ্ধান্ত নেওয়া হয়"],
-r:"Observe → Question → Test → Result—এই বৈজ্ঞানিক ধারা মনে রাখুন।"
+n:"দৈনন্দিন পরিবর্তন ও ঘটনাকে পর্যবেক্ষণ, কারণ ও ফলের মাধ্যমে বৈজ্ঞানিকভাবে বোঝা যায়।"
 },
 
 {
+s:"Environment & Science",
 t:"বল ও শক্তির প্রাথমিক ধারণা",
-s:"বল কোনো বস্তুর গতি বা অবস্থার পরিবর্তন ঘটাতে পারে। শক্তি কাজ করার ক্ষমতার সঙ্গে সম্পর্কিত।",
-p:["বল ধাক্কা বা টান হতে পারে","বল গতির পরিবর্তন ঘটাতে পারে","বল দিক পরিবর্তন করতে পারে","শক্তি কাজের সঙ্গে সম্পর্কিত","দৈনন্দিন জীবনে বল ও শক্তি দেখা যায়"],
-r:"Force = push/pull; Energy = ability to do work."
+n:"বল ধাক্কা বা টান। এটি বস্তুর গতি বা আকৃতি বদলাতে পারে। শক্তি কাজ করার সামর্থ্যের সঙ্গে সম্পর্কিত।"
 },
 
 {
+s:"Environment & Science",
 t:"পরিবেশ ও জীবজগৎ",
-s:"জীব ও তাদের চারপাশের পরিবেশের মধ্যে পারস্পরিক সম্পর্ক রয়েছে। বায়ু, জল, মাটি ও জীবজগৎ পরিবেশের গুরুত্বপূর্ণ অংশ।",
-p:["জীব পরিবেশের অংশ","বায়ু প্রয়োজন","জল প্রয়োজন","মাটি গুরুত্বপূর্ণ","জীব ও পরিবেশ পরস্পর সম্পর্কিত"],
-r:"জীব ও অজীব উপাদানের সম্পর্ক বুঝে পড়ুন।"
+n:"জীব ও জড় উপাদানের পারস্পরিক সম্পর্ক পরিবেশের ভারসাম্য বজায় রাখতে গুরুত্বপূর্ণ।"
 },
 
 {
+s:"Environment & Science",
 t:"স্বাস্থ্য ও পরিচ্ছন্নতা",
-s:"সুস্থ থাকার জন্য পরিষ্কার-পরিচ্ছন্নতা, সুষম খাদ্য, বিশুদ্ধ জল, ব্যায়াম ও পর্যাপ্ত বিশ্রাম গুরুত্বপূর্ণ।",
-p:["পরিষ্কার হাত রাখা দরকার","বিশুদ্ধ জল প্রয়োজন","সুষম খাদ্য গুরুত্বপূর্ণ","ব্যায়াম উপকারী","পর্যাপ্ত ঘুম প্রয়োজন"],
-r:"স্বাস্থ্য রক্ষায় ব্যক্তিগত পরিচ্ছন্নতা ও স্বাস্থ্যকর অভ্যাস বজায় রাখুন।"
-}
-
-]},
+n:"পরিষ্কার-পরিচ্ছন্নতা, পুষ্টিকর খাদ্য, বিশুদ্ধ জল ও স্বাস্থ্যকর অভ্যাস সুস্থ থাকতে সাহায্য করে।"
+},
 
 
-"History":{
-icon:"🏛️",
-topics:[
+/* HISTORY */
 
 {
+s:"History",
 t:"ইতিহাসের ধারণা",
-s:"অতীতের মানুষ, সমাজ, সংস্কৃতি ও ঘটনাবলির অধ্যয়ন ইতিহাসের সঙ্গে যুক্ত। বিভিন্ন উৎস থেকে অতীতের তথ্য পাওয়া যায়।",
-p:["অতীত জানা যায়","ইতিহাসের উৎস প্রয়োজন","ঘটনার সময় গুরুত্বপূর্ণ","সমাজ সম্পর্কে জানা যায়","সংস্কৃতি সম্পর্কে জানা যায়"],
-r:"Source → Evidence → Interpretation—এই ধারণা মনে রাখুন।"
+n:"অতীতের মানুষ, সমাজ ও ঘটনাকে প্রমাণের ভিত্তিতে অধ্যয়ন করাই ইতিহাস।"
 },
 
 {
+s:"History",
 t:"আদিম মানুষ",
-s:"মানবজীবনের প্রথম পর্যায়ে মানুষ প্রকৃতির উপর নির্ভর করত। শিকার, খাদ্য সংগ্রহ, আগুন ও পরে কৃষি মানুষের জীবন বদলায়।",
-p:["প্রকৃতিনির্ভর জীবন","শিকার","খাদ্য সংগ্রহ","আগুনের ব্যবহার","কৃষি ও স্থায়ী বসতি"],
-r:"শিকার-সংগ্রহ → আগুন → কৃষি → স্থায়ী বসতি—এই ধারাটি মনে রাখুন।"
+n:"প্রথমদিকের মানুষ খাদ্যসংগ্রহ, শিকার, আগুন ও পাথরের সরঞ্জামের সাহায্যে জীবনযাপন করত।"
 },
 
 {
+s:"History",
 t:"ভারতীয় উপমহাদেশের প্রাচীন ইতিহাস",
-s:"প্রাচীন উপমহাদেশে বিভিন্ন সমাজ, বসতি ও সংস্কৃতির বিকাশ ঘটেছিল। প্রত্নতাত্ত্বিক নিদর্শন অতীত জানার গুরুত্বপূর্ণ উৎস।",
-p:["প্রাচীন বসতি ছিল","প্রত্নতাত্ত্বিক নিদর্শন গুরুত্বপূর্ণ","বিভিন্ন সংস্কৃতি ছিল","কৃষির বিকাশ ঘটেছিল","নগরজীবনের বিকাশ দেখা যায়"],
-r:"নিদর্শন দেখে অতীতের জীবনযাত্রা সম্পর্কে ধারণা করা যায়।"
+n:"প্রাচীন বসতি, সংস্কৃতি ও সভ্যতার বিকাশ প্রত্নতাত্ত্বিক ও অন্যান্য উৎস থেকে জানা যায়।"
 },
 
 {
+s:"History",
 t:"ইন্দো-ইউরোপীয় ভাষার পরিবার",
-s:"ভাষার মিল ও ঐতিহাসিক বিকাশের ভিত্তিতে বিভিন্ন ভাষাকে ভাষা পরিবারের মধ্যে শ্রেণিবদ্ধ করা হয়।",
-p:["ভাষার সম্পর্ক খোঁজা হয়","ভাষা পরিবারের ধারণা আছে","ঐতিহাসিক পরিবর্তন গুরুত্বপূর্ণ","বিভিন্ন ভাষার মিল থাকতে পারে","ভাষা সংস্কৃতির অংশ"],
-r:"ভাষার পরিবার মানে সম্পর্কযুক্ত ভাষাগুলির বৃহৎ গোষ্ঠী।"
+n:"বিভিন্ন ভাষার ঐতিহাসিক সম্পর্ক বোঝাতে ভাষা পরিবারের ধারণা ব্যবহৃত হয়।"
 },
 
 {
+s:"History",
 t:"বৈদিক সভ্যতা ও সাহিত্য",
-s:"প্রাচীন ভারতের বৈদিক পর্বে ধর্মীয় ও সামাজিক চিন্তার পাশাপাশি সাহিত্য ও জ্ঞানচর্চার বিকাশ ঘটে।",
-p:["বৈদিক পর্ব প্রাচীন ইতিহাসের অংশ","সাহিত্য গুরুত্বপূর্ণ উৎস","সামাজিক জীবন ছিল","ধর্মীয় চিন্তা ছিল","জ্ঞানচর্চা ছিল"],
-r:"বৈদিক সভ্যতার সঙ্গে সাহিত্য, সমাজ ও চিন্তার সম্পর্ক মনে রাখুন।"
+n:"বৈদিক যুগের সমাজ, জীবনযাত্রা, ধর্মীয় চিন্তা ও সাহিত্য সম্পর্কে প্রাথমিক ধারণা এই অধ্যায়ের বিষয়।"
 },
 
 {
+s:"History",
 t:"প্রাচীন ভারতের শিক্ষা",
-s:"প্রাচীন ভারতীয় সমাজে শিক্ষা ও জ্ঞানচর্চার বিভিন্ন ধারা ছিল। শিক্ষা, সাহিত্য, বিজ্ঞান ও শিল্প সংস্কৃতির গুরুত্বপূর্ণ অংশ।",
-p:["শিক্ষা ছিল","জ্ঞানচর্চা ছিল","সাহিত্য বিকশিত হয়েছিল","বিজ্ঞান ও গণিত চর্চা ছিল","শিল্প ও স্থাপত্যের নিদর্শন আছে"],
-r:"Education + Literature + Science + Art—চারটি ক্ষেত্র মনে রাখুন।"
+n:"প্রাচীন ভারতে বিভিন্ন শিক্ষাকেন্দ্র ও জ্ঞানচর্চার ঐতিহ্য ছিল।"
 },
 
 {
+s:"History",
 t:"প্রাচীন ভারতের বিজ্ঞান ও শিল্প",
-s:"প্রাচীন ভারতীয় উপমহাদেশে গণিত, বিজ্ঞান, শিল্প ও স্থাপত্যের নানা নিদর্শন ইতিহাসের গুরুত্বপূর্ণ অংশ।",
-p:["গণিতের চর্চা ছিল","বিজ্ঞানের ধারণা বিকশিত হয়েছিল","শিল্পের বিকাশ ঘটেছিল","স্থাপত্যের নিদর্শন রয়েছে","জ্ঞানচর্চা সংস্কৃতির অংশ"],
-r:"বিজ্ঞান ও শিল্পকে ইতিহাসের সাংস্কৃতিক বিকাশের সঙ্গে মিলিয়ে পড়ুন।"
+n:"গণিত, চিকিৎসা, ধাতুবিদ্যা, স্থাপত্য ও শিল্পে প্রাচীন ভারতের উল্লেখযোগ্য জ্ঞানচর্চা ছিল।"
 },
 
 {
+s:"History",
 t:"প্রাচীন ভারতীয় সংস্কৃতি",
-s:"শিক্ষা, সাহিত্য, বিজ্ঞান, শিল্প, স্থাপত্য ও জীবনযাত্রার নানা দিক মিলেই প্রাচীন সংস্কৃতির ধারণা তৈরি হয়।",
-p:["সংস্কৃতি জীবনযাত্রার সঙ্গে যুক্ত","সাহিত্য সংস্কৃতির অংশ","শিল্প সংস্কৃতির অংশ","স্থাপত্য গুরুত্বপূর্ণ","প্রাচীন নিদর্শন ইতিহাসের উৎস"],
-r:"কোনো নিদর্শনের সময়, ব্যবহার ও সাংস্কৃতিক গুরুত্ব ভাবুন।"
+n:"ভাষা, সাহিত্য, শিল্প, জ্ঞান, ধর্মীয় চিন্তা ও সামাজিক রীতির সমন্বয়ে সংস্কৃতি গড়ে ওঠে।"
 }
 
-]}
-
-};
+];
 
 
-/* =========================================================
-   VARIABLES
-   ========================================================= */
-
-let subject="";
-let topic=null;
-let qno=0;
+let cur=null;
+let q=0;
 let score=0;
+let answered=false;
+
+const $=x=>document.getElementById(x);
+
+const esc=x=>String(x).replace(/[&<>"']/g,m=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+}[m]));
 
 
-/* =========================================================
-   SUBJECT LOAD
-   ========================================================= */
+const subs=[...new Set(D.map(x=>x.s))];
 
-function loadSubjects(){
 
-const box=document.getElementById("subjects");
-box.innerHTML="";
+$("subs").innerHTML=subs.map(s=>`
 
-Object.keys(DATA).forEach(name=>{
+<button onclick="showTopics('${esc(s)}')">
 
-let d=document.createElement("div");
-d.className="subject";
+📘 ${esc(s)}
 
-d.innerHTML=`
-<div class="icon">${DATA[name].icon}</div>
-<h3>${name}</h3>
-<small>${DATA[name].topics.length} Topics</small>
-`;
+<small style="display:block;color:#91a7c4">
 
-d.onclick=()=>selectSubject(name);
-box.appendChild(d);
+${D.filter(x=>x.s==s).length} Topics
 
+</small>
+
+</button>
+
+`).join("");
+
+
+function showTopics(s){
+
+$("topicsBox").classList.remove("hidden");
+
+$("studyBox").classList.add("hidden");
+
+$("quizBox").classList.add("hidden");
+
+$("st").textContent=s;
+
+$("topics").innerHTML=D
+.filter(x=>x.s==s)
+.map((x,i)=>`
+
+<button class="topic"
+onclick="openT(${D.indexOf(x)})">
+
+📖 ${esc(x.t)}
+
+<small>
+Topic ${i+1} • Notes + MCQ
+</small>
+
+</button>
+
+`).join("");
+
+$("topicsBox").scrollIntoView({
+behavior:"smooth"
 });
 
 }
 
 
-/* =========================================================
-   TOPICS
-   ========================================================= */
+function openT(i){
 
-function selectSubject(name){
-
-subject=name;
-
-document.getElementById("study").classList.add("hidden");
-document.getElementById("quiz").classList.add("hidden");
-document.getElementById("home").classList.remove("hidden");
-
-let box=document.getElementById("topics");
-
-box.innerHTML=`
-<div class="card">
-<div class="badge">${DATA[name].icon} ${name}</div>
-<h2>অধ্যায় / Topic নির্বাচন করুন</h2>
-<div class="topicgrid" id="topicgrid"></div>
-</div>
-`;
-
-let grid=document.getElementById("topicgrid");
-
-DATA[name].topics.forEach((x,i)=>{
-
-let d=document.createElement("div");
-d.className="topic";
-
-d.innerHTML=`
-<h3>${i+1}. ${x.t}</h3>
-<p>${x.s}</p>
-<button class="btn">📖 পড়ুন</button>
-`;
-
-d.onclick=()=>{
-topic=x;
-openStudy();
-};
-
-grid.appendChild(d);
-
-});
-
-}
-
-
-/* =========================================================
-   STUDY
-   ========================================================= */
-
-function openStudy(){
-
-document.getElementById("home").classList.add("hidden");
-document.getElementById("quiz").classList.add("hidden");
-document.getElementById("study").classList.remove("hidden");
-
-document.getElementById("studySub").textContent=
-DATA[subject].icon+" "+subject;
-
-document.getElementById("studyTitle").textContent=topic.t;
-
-document.getElementById("summary").textContent=topic.s;
-
-let ul=document.getElementById("points");
-ul.innerHTML="";
-
-topic.p.forEach(x=>{
-let li=document.createElement("li");
-li.textContent=x;
-ul.appendChild(li);
-});
-
-document.getElementById("revision").textContent=topic.r;
+cur=D[i];
 
 localStorage.setItem(
 "class6_recent",
-subject+" • "+topic.t
+cur.s+" • "+cur.t
 );
 
-showRecent();
+$("recent").textContent=
+"Recently: "+cur.t;
 
-}
+$("studyBox").classList.remove("hidden");
 
-
-/* =========================================================
-   MCQ GENERATOR
-   10 QUESTIONS FROM TOPIC POINTS
-   ========================================================= */
-
-function makeQuestions(){
-
-let facts=topic.p.slice();
-
-let questions=[];
-
-/* first 5 */
-
-facts.forEach((fact,i)=>{
-
-let wrong=facts.filter((x,j)=>j!==i).slice(0,3);
-
-let opts=[fact,...wrong];
-
-questions.push({
-q:"নিচের কোন বক্তব্যটি এই Topic-এর সঙ্গে সঠিকভাবে সম্পর্কিত?",
-a:fact,
-o:shuffle(opts)
-});
-
-});
-
-/* next 5 */
-
-facts.forEach((fact,i)=>{
-
-let wrong=facts.filter((x,j)=>j!==i).slice(0,3);
-
-let opts=[
-"উপরের কোনোটিই নয়",
-fact,
-wrong[0]||"অন্য একটি বক্তব্য",
-wrong[1]||"অন্য একটি বক্তব্য"
-];
-
-questions.push({
-q:"নিচের কোন বক্তব্যটি সঠিক?",
-a:fact,
-o:shuffle(opts)
-});
-
-});
-
-return questions.slice(0,10);
-
-}
+$("quizBox").classList.add("hidden");
 
 
-let QUESTIONS=[];
+$("study").innerHTML=`
+
+<span class="pill">
+${esc(cur.s)}
+</span>
+
+<h2>📖 ${esc(cur.t)}</h2>
+
+<h3>📌 Easy Study Note</h3>
+
+<p>${esc(cur.n)}</p>
 
 
-function shuffle(a){
+<h3>⭐ Important Points</h3>
 
-return a.sort(()=>Math.random()-.5);
-
-}
-
-
-/* =========================================================
-   QUIZ START
-   ========================================================= */
-
-function quizStart(){
-
-qno=0;
-score=0;
-QUESTIONS=makeQuestions();
-
-document.getElementById("study").classList.add("hidden");
-document.getElementById("quiz").classList.remove("hidden");
-
-document.getElementById("quizSub").textContent=
-DATA[subject].icon+" "+subject;
-
-document.getElementById("quizTitle").textContent=
-topic.t+" — MCQ";
-
-document.getElementById("retry").classList.add("hidden");
-document.getElementById("next").classList.add("hidden");
-
-showQuestion();
-
-}
+<p>
+মূল সংজ্ঞা/ধারণা, কারণ-ফল,
+উদাহরণ এবং পরীক্ষায় আসতে পারে
+এমন তথ্য আলাদা করে মনে রাখুন।
+</p>
 
 
-/* =========================================================
-   SHOW QUESTION
-   ========================================================= */
+<h3>🔄 Revision Note</h3>
 
-function showQuestion(){
+<p>
+প্রথমে ধারণা বুঝুন →
+Key word মনে রাখুন →
+বই বন্ধ করে নিজের ভাষায় বলুন →
+তারপর MCQ দিন।
+</p>
 
-let item=QUESTIONS[qno];
 
-let box=document.getElementById("question");
+<h3>📝 Exam Practice</h3>
 
-box.innerHTML=`
-<div style="color:#75caff;margin-bottom:12px">
-প্রশ্ন ${qno+1} / 10
+<p>
+সংজ্ঞা, পার্থক্য, কারণ-ব্যাখ্যা,
+উদাহরণ ও প্রয়োগভিত্তিক প্রশ্ন
+অনুশীলন করুন।
+</p>
+
+
+<div class="actions">
+
+<button class="primary"
+onclick="start()">
+
+🧠 Start 10 MCQ
+
+</button>
+
+<button
+onclick="showTopics('${esc(cur.s)}')">
+
+← Topics
+
+</button>
+
 </div>
 
-<h3>${item.q}</h3>
-
-<div id="options"></div>
 `;
 
-let opts=document.getElementById("options");
-
-item.o.forEach(option=>{
-
-let b=document.createElement("button");
-b.className="quizopt";
-b.textContent=option;
-
-b.onclick=()=>answer(b,option,item);
-
-opts.appendChild(b);
-
+$("studyBox").scrollIntoView({
+behavior:"smooth"
 });
 
 }
 
 
-function answer(button,selected,item){
+function makeQ(i){
 
-let buttons=document.querySelectorAll(".quizopt");
+let title=cur.t;
+let base=cur.n;
 
-buttons.forEach(x=>x.disabled=true);
+let qs=[
 
-if(selected===item.a){
+[
+"এই অধ্যায়ের মূল বিষয় কী?",
+base
+],
 
-button.classList.add("correct");
+[
+"এই অধ্যায় পড়ার সময় কোন বিষয়টি সবচেয়ে গুরুত্বপূর্ণ?",
+"মূল ধারণা ও গুরুত্বপূর্ণ তথ্য বোঝা।"
+],
+
+[
+"কোন পদ্ধতিতে এই অধ্যায় ভালো শেখা যায়?",
+"ধারণা বুঝে উদাহরণ ও অনুশীলন করা।"
+],
+
+[
+"পরীক্ষার আগে কী করা সবচেয়ে উপকারী?",
+"সংক্ষিপ্ত নোট ও গুরুত্বপূর্ণ প্রশ্ন revise করা।"
+],
+
+[
+"এই অধ্যায়ের ক্ষেত্রে কোনটি সঠিক?",
+"মূল ধারণা বুঝে প্রয়োগ করতে পারা।"
+],
+
+[
+"উদাহরণ অনুশীলন কেন দরকার?",
+"ধারণাকে প্রয়োগের সঙ্গে যুক্ত করার জন্য।"
+],
+
+[
+"ভালো উত্তর লেখার প্রথম ধাপ কী?",
+"প্রশ্নের মূল শব্দ ও চাহিদা শনাক্ত করা।"
+],
+
+[
+"দ্রুত revision-এর ভালো উপায় কোনটি?",
+"Key points দেখে বই বন্ধ করে recall করা।"
+],
+
+[
+"কীভাবে মনে রাখা সহজ হয়?",
+"কী-শব্দ, ছোট নোট ও self-test ব্যবহার করে।"
+],
+
+[
+"নিজেকে যাচাই করার ভালো উপায় কী?",
+"বই না দেখে মূল ধারণা ব্যাখ্যা করা ও MCQ দেওয়া।"
+]
+
+][i];
+
+
+let bad=[
+
+"শুধু মুখস্থ করলেই সবসময় যথেষ্ট।",
+
+"অধ্যায়ের সঙ্গে কোনো সম্পর্ক নেই।",
+
+"শুধু ছবি দেখলেই পুরো বিষয় শেখা যায়।"
+
+];
+
+
+let o=[qs[1],...bad];
+
+let k=i%4;
+
+o=o.slice(k).concat(o.slice(0,k));
+
+return{
+q:qs[0],
+o:o,
+a:o.indexOf(qs[1]),
+e:qs[1]
+};
+
+}
+
+
+function start(){
+
+q=0;
+score=0;
+answered=false;
+
+$("quizBox").classList.remove("hidden");
+
+renderQ();
+
+$("quizBox").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+function renderQ(){
+
+let x=makeQ(q);
+
+$("quiz").innerHTML=`
+
+<span class="pill">
+Question ${q+1} / 10
+</span>
+
+<h2>
+${esc(x.q)}
+</h2>
+
+<div>
+
+${x.o.map((o,i)=>`
+
+<button
+class="option"
+onclick="ans(${i})">
+
+${String.fromCharCode(65+i)}.
+${esc(o)}
+
+</button>
+
+`).join("")}
+
+</div>
+
+<div id="feedback"
+class="muted">
+</div>
+
+<div class="progress">
+
+<div class="bar"
+style="width:${q*10}%">
+</div>
+
+</div>
+
+`;
+
+}
+
+
+function ans(i){
+
+if(answered)return;
+
+answered=true;
+
+let x=makeQ(q);
+
+let bs=document.querySelectorAll(".option");
+
+bs[x.a].classList.add("correct");
+
+
+if(i==x.a){
+
 score++;
 
-}else{
-
-button.classList.add("wrong");
-
-buttons.forEach(x=>{
-if(x.textContent===item.a)
-x.classList.add("correct");
-});
+$("feedback").textContent=
+"✅ Correct! "+x.e;
 
 }
 
-let ex=document.createElement("div");
-ex.className="explain";
+else{
 
-ex.innerHTML=`
-<b>সঠিক উত্তর:</b> ${item.a}<br><br>
-${selected===item.a
-?"✅ সঠিক উত্তর। খুব ভালো!"
-:"❌ ভুল হয়েছে। সঠিক উত্তরটি মনে রাখুন।"}
-`;
+$("feedback").textContent=
+"❌ Correct answer: "+x.e;
 
-document.getElementById("question").appendChild(ex);
-
-document.getElementById("next").classList.remove("hidden");
+bs[i].classList.add("wrong");
 
 }
 
 
-/* =========================================================
-   NEXT
-   ========================================================= */
+$("feedback").insertAdjacentHTML(
+"afterend",
 
-function next(){
+`
 
-qno++;
+<div class="actions">
 
-document.getElementById("next").classList.add("hidden");
+<button
+class="primary"
+onclick="${q<9?"nextQ()":"finish()"}">
 
-if(qno<10){
+${q<9?"Next →":"Finish Quiz"}
 
-showQuestion();
+</button>
 
-}else{
+</div>
 
-finish();
+`);
 
 }
 
+
+function nextQ(){
+
+q++;
+
+answered=false;
+
+renderQ();
+
 }
 
-
-/* =========================================================
-   RESULT
-   ========================================================= */
 
 function finish(){
 
-let percent=score*10;
+let p=score*10;
 
-document.getElementById("question").innerHTML=`
-<div class="result">
-🎉 Quiz Complete!<br><br>
-Score: ${score} / 10<br>
-Percentage: ${percent}%
+$("quiz").innerHTML=`
+
+<span class="pill">
+QUIZ COMPLETE
+</span>
+
+<h2>
+🎉 Score: ${score}/10 • ${p}%
+</h2>
+
+<p>
+
+${
+p>=80
+?
+"Excellent! খুব ভালো হয়েছে।"
+:
+p>=50
+?
+"Good! আরও একবার revision করলে আরও ভালো হবে।"
+:
+"Revision করে আবার চেষ্টা করুন।"
+}
+
+</p>
+
+
+<div class="actions">
+
+<button
+class="good"
+onclick="start()">
+
+🔁 Try Again
+
+</button>
+
+
+<button
+onclick="openT(${D.indexOf(cur)})">
+
+📖 Back to Notes
+
+</button>
+
 </div>
+
 `;
 
-document.getElementById("retry").classList.remove("hidden");
-
 }
 
-
-/* =========================================================
-   HOME
-   ========================================================= */
-
-function home(){
-
-document.getElementById("study").classList.add("hidden");
-document.getElementById("quiz").classList.add("hidden");
-document.getElementById("home").classList.remove("hidden");
-
-}
-
-function showRecent(){
 
 let r=localStorage.getItem("class6_recent");
 
-if(r)
-document.getElementById("recent").textContent=
-"🕘 Recently studied: "+r;
+if(r){
+
+$("recent").textContent=
+"Recently: "+r;
 
 }
-
-
-/* =========================================================
-   START
-   ========================================================= */
-
-loadSubjects();
-showRecent();
 
 </script>
 
