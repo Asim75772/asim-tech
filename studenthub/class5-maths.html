@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 5 Mathematics | StudentHub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{background:#f5f8ff}.page{max-width:1100px;width:92%;margin:28px auto 60px}
+.back{display:inline-block;margin-bottom:18px;color:#1261d6;font-weight:800}
+.course-head{background:linear-gradient(135deg,#063b9d,#1680ee);color:#fff;border-radius:24px;padding:30px;box-shadow:0 14px 35px #164d9d25}
+.course-head h1{font-size:34px}.course-head p{opacity:.9;margin-top:6px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.tab{border:1px solid #dce5f3;background:#fff;border-radius:12px;padding:11px 16px;font-weight:800;color:#26395f;cursor:pointer}
+.tab.active,.tab:hover{background:#1268dc;color:#fff;border-color:#1268dc}
+.content{background:#fff;border:1px solid #e0e8f5;border-radius:20px;padding:28px;box-shadow:0 10px 25px #1e417810}
+.content h2{color:#173b70;margin-bottom:15px}.content h3{margin:20px 0 8px;color:#1261d6}.content p{color:#586780;margin:8px 0}.formula{background:#eef5ff;border-left:4px solid #1769e0;padding:15px;border-radius:10px;font-weight:800;margin:15px 0}.example{background:#f8fafc;border:1px solid #e2e9f3;border-radius:14px;padding:17px;margin:12px 0}.practice{display:none}.practice.show{display:block}.q{background:#f8fbff;border:1px solid #e1e8f4;border-radius:14px;padding:17px;margin:12px 0}.q label{display:block;margin:7px 0}.check{border:0;background:#1268dc;color:#fff;border-radius:10px;padding:10px 16px;font-weight:800;margin-top:8px}.result{font-weight:800;margin-left:10px}.video{display:inline-block;margin-top:18px;background:#ed3040;color:#fff;padding:11px 16px;border-radius:10px;font-weight:800}
+@media(max-width:600px){.course-head h1{font-size:27px}.content{padding:20px}.page{width:94%}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="container nav">
+<a class="brand" href="index.html"><img src="logo.png" alt="StudentHub Logo"><div><div class="brand-name">STUDENT<span>HUB</span></div><div class="brand-sub">Class 5–12 · Learn · Practice · Grow</div></div></a>
+<nav><a href="index.html">Home</a><a class="active" href="#study">Study</a></nav>
+<button class="theme-btn" onclick="toggleTheme()">☾</button>
+</div></header>
+
+<div class="page">
+<a class="back" href="index.html">← Back to StudentHub</a>
+<section class="course-head"><h1>📘 Class 5 Mathematics</h1><p>Learn concepts, examples and practice questions chapter by chapter.</p></section>
+
+<div class="tabs">
+<button class="tab active" onclick="showTab('notes',this)">📖 Notes</button>
+<button class="tab" onclick="showTab('examples',this)">🧮 Examples</button>
+<button class="tab" onclick="showTab('practice',this)">📝 Practice</button>
+<button class="tab" onclick="showTab('mcq',this)">✅ MCQ</button>
+</div>
+
+<section id="notes" class="content">
+<h2>🔢 Chapter 1: Number System</h2>
+<p>Numbers help us count, compare and describe quantities. In Class 5, we work with large numbers, place value, comparison and basic operations.</p>
+<h3>1. Place Value</h3>
+<p>In a number, the value of a digit depends on its position. For example, in <b>45,672</b>:</p>
+<div class="formula">4 = Ten Thousands &nbsp; | &nbsp; 5 = Thousands &nbsp; | &nbsp; 6 = Hundreds &nbsp; | &nbsp; 7 = Tens &nbsp; | &nbsp; 2 = Ones</div>
+<h3>2. Expanded Form</h3>
+<p>We can write a number as the sum of the values of all its digits.</p>
+<div class="example"><b>45,672 = 40,000 + 5,000 + 600 + 70 + 2</b></div>
+<h3>3. Comparing Numbers</h3>
+<p>First compare the number of digits. If both have the same number of digits, compare digits from the left.</p>
+<div class="example"><b>56,430 &gt; 54,999</b> because 6 thousands is greater than 4 thousands.</div>
+<h3>4. Rounding Numbers</h3>
+<p>To round to the nearest hundred, look at the tens digit. If it is 5 or more, increase the hundreds digit by 1.</p>
+<div class="example"><b>3,650 → 3,700</b> (nearest hundred)</div>
+</section>
+
+<section id="examples" class="content" style="display:none">
+<h2>🧮 Solved Examples</h2>
+<div class="example"><h3>Example 1</h3><p>Write 72,405 in expanded form.</p><p><b>Answer:</b> 70,000 + 2,000 + 400 + 5</p></div>
+<div class="example"><h3>Example 2</h3><p>Which is greater: 68,245 or 68,425?</p><p><b>Answer:</b> 68,425 is greater.</p></div>
+<div class="example"><h3>Example 3</h3><p>Round 8,764 to the nearest hundred.</p><p><b>Answer:</b> 8,800.</p></div>
+<div class="example"><h3>Example 4</h3><p>Add 24,350 + 13,275.</p><p><b>Answer:</b> 37,625.</p></div>
+<a class="video" target="_blank" href="https://www.youtube.com/results?search_query=Class+5+Maths+Number+System">▶ Watch Number System Videos</a>
+</section>
+
+<section id="practice" class="content practice">
+<h2>📝 Practice Questions</h2>
+<div class="q"><b>1.</b> Write 54,321 in expanded form.<br><button class="check" onclick="alert('Answer: 50,000 + 4,000 + 300 + 20 + 1')">Show Answer</button></div>
+<div class="q"><b>2.</b> Which is greater: 45,678 or 45,768?<br><button class="check" onclick="alert('Answer: 45,768')">Show Answer</button></div>
+<div class="q"><b>3.</b> Round 6,749 to the nearest hundred.<br><button class="check" onclick="alert('Answer: 6,700')">Show Answer</button></div>
+<div class="q"><b>4.</b> Add 12,450 + 23,550.<br><button class="check" onclick="alert('Answer: 36,000')">Show Answer</button></div>
+</section>
+
+<section id="mcq" class="content" style="display:none">
+<h2>✅ Quick MCQ Test</h2>
+<div class="q"><b>1. What is the place value of 7 in 57,234?</b>
+<label><input type="radio" name="q1" value="1"> 7,000</label><label><input type="radio" name="q1"> 700</label></div>
+<div class="q"><b>2. Which is greater?</b>
+<label><input type="radio" name="q2"> 34,567</label><label><input type="radio" name="q2" value="1"> 35,467</label></div>
+<div class="q"><b>3. 4,650 rounded to nearest hundred is:</b>
+<label><input type="radio" name="q3" value="1"> 4,700</label><label><input type="radio" name="q3"> 4,600</label></div>
+<button class="check" onclick="checkMCQ()">Submit Test</button><span id="score" class="result"></span>
+</section>
+</div>
+
+<script>
+function showTab(id,btn){
+document.querySelectorAll('.content').forEach(x=>x.style.display='none');
+document.getElementById(id).style.display='block';
+document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+btn.classList.add('active');window.scrollTo({top:250,behavior:'smooth'});
+}
+function checkMCQ(){let s=0;['q1','q2','q3'].forEach(n=>{let x=document.querySelector('input[name="'+n+'"]:checked');if(x&&x.value==='1')s++});document.getElementById('score').textContent='Score: '+s+'/3';}
+function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('studenthubDark',document.body.classList.contains('dark'))}
+if(localStorage.getItem('studenthubDark')==='true')document.body.classList.add('dark');
+</script>
+</body>
+</html>
