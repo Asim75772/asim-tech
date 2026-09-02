@@ -1,100 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>StudentHub - Class 5 to 12</title>
+
+    <!-- CSS FILE -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-<h1>🎓 STUDENTHUB</h1>
 
-<h2>Class 5–12 Learning Platform</h2>
+<!-- ================= HEADER ================= -->
 
-<p>Learn • Practice • Grow</p>
+<header>
 
-<hr>
+    <div class="container logo-area">
 
-<h2>Choose Your Class</h2>
+        <div>
 
-<button>Class 5</button>
-<button>Class 6</button>
-<button>Class 7</button>
-<button>Class 8</button>
-<button>Class 9</button>
-<button>Class 10</button>
-<button>Class 11</button>
-<button>Class 12</button>
+            <h1>🎓 STUDENTHUB</h1>
 
-<hr>
+            <p>
+                Class 5–12 • Learn • Practice • Grow
+            </p>
 
-<h2>Study Tools</h2>
+        </div>
 
-<button>📚 Study Materials</button>
-<button>📝 Quiz / MCQ</button>
-<button>📒 My Notes</button>
-<button>📅 Study Planner</button>
-<button>⏱️ Pomodoro Timer</button>
-<button>📊 Progress</button>
+    </div>
 
-<hr>
+</header>
 
-<h2>Search</h2>
 
-<input type="text" id="searchBox" placeholder="Search anything...">
 
-<button onclick="googleSearch()">Google</button>
-<button onclick="youtubeSearch()">YouTube</button>
-<button onclick="wikiSearch()">Wikipedia</button>
+<!-- ================= HERO ================= -->
 
-<hr>
+<section class="hero">
 
-<h2>Student Tools</h2>
+    <div class="container">
 
-<button>🧮 Calculator</button>
-<button>📊 Percentage</button>
-<button>🎂 Age Calculator</button>
-<button>🔄 Unit Converter</button>
-<button>⏱️ Stopwatch</button>
+        <h2>
+            Your Smart Learning Space
+        </h2>
 
-<hr>
+        <p>
+            Study better, practice more and achieve your goals.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CLASS ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            🎓 Choose Your Class
+        </h2>
+
+
+        <div class="class-grid">
+
+            <button class="class-btn">
+                Class 5
+            </button>
+
+            <button class="class-btn">
+                Class 6
+            </button>
+
+            <button class="class-btn">
+                Class 7
+            </button>
+
+            <button class="class-btn">
+                Class 8
+            </button>
+
+            <button class="class-btn">
+                Class 9
+            </button>
+
+            <button class="class-btn">
+                Class 10
+            </button>
+
+            <button class="class-btn">
+                Class 11
+            </button>
+
+            <button class="class-btn">
+                Class 12
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            🔎 Search & Learn
+        </h2>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchBox"
+                placeholder="Search any topic..."
+            >
+
+
+            <button onclick="googleSearch()">
+                Google
+            </button>
+
+
+            <button onclick="youtubeSearch()">
+                YouTube
+            </button>
+
+
+            <button onclick="wikiSearch()">
+                Wikipedia
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= STUDY TOOLS ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            📚 Study Tools
+        </h2>
+
+
+        <div class="tool-grid">
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📖
+                </div>
+
+                <h3>
+                    Study Materials
+                </h3>
+
+                <p>
+                    Notes and learning resources
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Quiz / MCQ
+                </h3>
+
+                <p>
+                    Practice your knowledge
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📒
+                </div>
+
+                <h3>
+                    My Notes
+                </h3>
+
+                <p>
+                    Save your important notes
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Study Planner
+                </h3>
+
+                <p>
+                    Plan your daily study
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    ⏱️
+                </div>
+
+                <h3>
+                    Pomodoro
+                </h3>
+
+                <p>
+                    Focus with study sessions
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Progress
+                </h3>
+
+                <p>
+                    Track your learning
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= STUDENT TOOLS ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            🛠️ Student Tools
+        </h2>
+
+
+        <div class="tool-grid">
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    🧮
+                </div>
+
+                <h3>
+                    Calculator
+                </h3>
+
+                <p>
+                    Quick calculations
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Percentage
+                </h3>
+
+                <p>
+                    Calculate percentage
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    🎂
+                </div>
+
+                <h3>
+                    Age Calculator
+                </h3>
+
+                <p>
+                    Calculate your age
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    Unit Converter
+                </h3>
+
+                <p>
+                    Convert different units
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    ⏱️
+                </div>
+
+                <h3>
+                    Stopwatch
+                </h3>
+
+                <p>
+                    Track your time
+                </p>
+
+            </div>
+
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    💡
+                </div>
+
+                <h3>
+                    More Tools
+                </h3>
+
+                <p>
+                    More useful tools coming soon
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MOTIVATION ================= -->
+
+<section class="container">
+
+    <div class="quote">
+
+        <p>
+            “Success comes from consistent effort.
+            Keep learning every day!”
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
-    <p>© 2026 StudentHub | Powered by ASIM TECH</p>
+
+    <p>
+        © 2026 StudentHub
+    </p>
+
+    <p>
+        Powered by ASIM TECH
+    </p>
+
 </footer>
 
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
+
+
 function googleSearch() {
-    let q = document.getElementById("searchBox").value;
+
+    let q =
+        document
+        .getElementById("searchBox")
+        .value
+        .trim();
+
+
     if (q) {
+
         window.open(
-            "https://www.google.com/search?q=" + encodeURIComponent(q),
+
+            "https://www.google.com/search?q="
+            + encodeURIComponent(q),
+
             "_blank"
+
         );
+
+    } else {
+
+        alert(
+            "Please enter something to search."
+        );
+
     }
+
 }
+
+
 
 function youtubeSearch() {
-    let q = document.getElementById("searchBox").value;
+
+    let q =
+        document
+        .getElementById("searchBox")
+        .value
+        .trim();
+
+
     if (q) {
+
         window.open(
-            "https://www.youtube.com/results?search_query=" + encodeURIComponent(q),
+
+            "https://www.youtube.com/results?search_query="
+            + encodeURIComponent(q),
+
             "_blank"
+
         );
+
+    } else {
+
+        alert(
+            "Please enter something to search."
+        );
+
     }
+
 }
+
+
 
 function wikiSearch() {
-    let q = document.getElementById("searchBox").value;
+
+    let q =
+        document
+        .getElementById("searchBox")
+        .value
+        .trim();
+
+
     if (q) {
+
         window.open(
-            "https://en.wikipedia.org/wiki/Special:Search?search=" + encodeURIComponent(q),
+
+            "https://en.wikipedia.org/wiki/Special:Search?search="
+            + encodeURIComponent(q),
+
             "_blank"
+
         );
+
+    } else {
+
+        alert(
+            "Please enter something to search."
+        );
+
     }
+
 }
+
+
 </script>
 
+
 </body>
+
 </html>
