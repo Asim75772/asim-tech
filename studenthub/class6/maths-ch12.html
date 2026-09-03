@@ -1,54 +1,158 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Class 6 Mathematics | তিনটি সংখ্যার গ.সা.গু. ও ল.সা.গু. | StudentHub</title><style>
-body{margin:0;background:#061321;color:#eef6ff;font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.7}
-.wrap{max-width:900px;margin:auto;padding:22px}.brand{color:#59b8ff;font-weight:700}
-h1{color:#67c5ff}h2{color:#ffd35a}.card{background:#102d49;border:1px solid #214766;border-radius:16px;padding:18px;margin:14px 0}
-.mcq{background:#0a1d31;border-radius:12px;padding:14px;margin:10px 0}.ans{color:#7ee2a8;font-weight:700}
-a{color:#70c9ff;text-decoration:none}.nav{display:flex;justify-content:space-between;gap:10px}
-
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 12 – তথ্য সাজানো ও বিচার | StudentHub</title>
 <style>
-.option{display:block;background:#102d49;border:1px solid #28526f;border-radius:10px;padding:11px;margin:8px 0;cursor:pointer}
-.option:hover{border-color:#67c5ff}
-.option input{margin-right:8px;accent-color:#67c5ff}
-.submit,.reset{border:0;border-radius:10px;padding:11px 16px;margin:8px 6px 8px 0;cursor:pointer;font-weight:700}
-.submit{background:#67c5ff;color:#061321}.reset{background:#214766;color:#eef6ff}
-.result{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#0a1d31;color:#7ee2a8;font-weight:700}
-.result.show{display:block}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#07111f;color:#eaf4ff;line-height:1.7}
+.container{max-width:900px;margin:auto;padding:22px}
+.header{background:linear-gradient(135deg,#0b2340,#07111f);border:1px solid #1687ff55;border-radius:18px;padding:24px;margin-bottom:20px}
+h1{margin:0 0 8px;color:#42a5ff;font-size:27px}
+h2{color:#ffd34d;margin-top:0}
+h3{color:#63b5ff}
+.card{background:#0d1b2c;border:1px solid #1c5f91;border-radius:15px;padding:20px;margin:18px 0}
+.example{background:#091725;border-left:4px solid #42a5ff;padding:12px 15px;margin:10px 0;border-radius:8px}
+.practice li{margin:10px 0}
+.question{background:#0a1726;border:1px solid #244866;border-radius:12px;padding:15px;margin:14px 0}
+label{display:block;margin:8px 0;cursor:pointer}
+button{border:0;border-radius:10px;padding:11px 18px;margin:8px 6px 0 0;font-weight:bold;cursor:pointer;background:#1687ff;color:white}
+#result{font-size:18px;font-weight:bold;margin-top:15px;color:#ffd34d}
+.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.nav a{display:inline-block;text-decoration:none;background:#123653;color:#fff;padding:10px 16px;border-radius:10px;border:1px solid #1c73aa}
+.note{color:#bcd3e8}
+.formula{font-size:19px;color:#fff;background:#10283d;padding:10px;border-radius:8px;margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{border:1px solid #315875;padding:9px;text-align:center}
+th{color:#ffd34d}
 </style>
-</style></head><body><div class="wrap"><div class="brand">ASIM TECH • StudentHub • Class 6</div>
-<h1>12. তিনটি সংখ্যার গ.সা.গু. ও ল.সা.গু.</h1><div class="card"><h2>Notes</h2><p>তিনটি সংখ্যার গরিষ্ঠ সাধারণ গুণনীয়ক ও লঘিষ্ঠ সাধারণ গুণিতক নির্ণয়।</p><ul><li>গ.সা.গু. হলো সাধারণ গুণনীয়কদের মধ্যে সবচেয়ে বড়।</li><li>ল.সা.গু. হলো সাধারণ গুণিতকদের মধ্যে সবচেয়ে ছোট।</li><li>মৌলিক গুণনীয়কে বিশ্লেষণ করে গ.সা.গু. ও ল.সা.গু. নির্ণয় করা যায়।</li></ul></div>
-<div class="card"><h2>Examples</h2><p><b>Example 1:</b> 12, 18, 24-এর গ.সা.গু. = 6</p><p><b>Example 2:</b> 4, 6, 8-এর ল.সা.গু. = 24</p><p><b>Example 3:</b> 6, 9, 12-এর গ.সা.গু. = 3</p></div><div class="card"><h2>Practice</h2><ol><li>8, 12, 16-এর গ.সা.গু. নির্ণয় করো।</li><li>3, 4, 6-এর ল.সা.গু. নির্ণয় করো।</li><li>6, 10, 15-এর গ.সা.গু. নির্ণয় করো।</li></ol></div>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>12. তথ্য সাজানো ও বিচার</h1>
+<div class="note">Class 6 Mathematics • Notes • Examples • Practice • MCQ Test</div>
+</div>
+
+<div class="card">
+<h2>Notes</h2>
+<p>বিভিন্ন বিষয় সম্পর্কে সংগৃহীত সংখ্যা বা তথ্যকে <b>তথ্য (Data)</b> বলা হয়। তথ্যকে সুন্দরভাবে সাজিয়ে উপস্থাপন করলে তা থেকে সহজে সিদ্ধান্ত নেওয়া যায়।</p>
+
+<h3>1. তথ্য সংগ্রহ</h3>
+<p>কোনো প্রশ্নের উত্তর জানার জন্য মানুষের কাছ থেকে, গণনা করে বা পর্যবেক্ষণের মাধ্যমে তথ্য সংগ্রহ করা যায়।</p>
+
+<h3>2. তথ্য সাজানো</h3>
+<p>এলোমেলো তথ্যকে ছোট থেকে বড়, বড় থেকে ছোট অথবা কোনো নির্দিষ্ট শ্রেণিতে সাজানো যায়।</p>
+
+<h3>3. ট্যালি চিহ্ন</h3>
+<p>একই ধরনের তথ্য কতবার এসেছে তা গোনার জন্য ট্যালি চিহ্ন ব্যবহার করা হয়। প্রতি 5টি গণনার জন্য একটি দল করা যায়।</p>
+<div class="formula">5টি = ||||/</div>
+
+<h3>4. বারম্বারতা</h3>
+<p>কোনো তথ্য কতবার ঘটেছে বা এসেছে, সেই সংখ্যাকে তার <b>বারম্বারতা (Frequency)</b> বলা হয়।</p>
+
+<h3>5. সারণি থেকে বিচার</h3>
+<p>তথ্য সারণি, ট্যালি ও বারম্বারতা দেখে কোনটি বেশি, কোনটি কম, মোট কতটি তথ্য আছে ইত্যাদি নির্ণয় করা যায়।</p>
+
+<table>
+<tr><th>প্রিয় ফল</th><th>বারম্বারতা</th></tr>
+<tr><td>আম</td><td>8</td></tr>
+<tr><td>কলা</td><td>5</td></tr>
+<tr><td>আপেল</td><td>7</td></tr>
+</table>
+<p class="note">উপরের সারণিতে আম সবচেয়ে বেশি পছন্দ করা হয়েছে।</p>
+</div>
+
+<div class="card">
+<h2>Examples</h2>
+<div class="example"><b>Example 1:</b> 4, 2, 7, 3, 5 সংখ্যাগুলিকে ছোট থেকে বড় সাজাও।<br><b>উত্তর: 2, 3, 4, 5, 7</b></div>
+
+<div class="example"><b>Example 2:</b> 2, 3, 2, 5, 2, 4-এ 2 কতবার আছে?<br><b>উত্তর: 3 বার।</b> তাই 2-এর বারম্বারতা 3।</div>
+
+<div class="example"><b>Example 3:</b> একটি শ্রেণিতে ক্রিকেট পছন্দ করে 12 জন এবং ফুটবল পছন্দ করে 8 জন। কোন খেলাটি বেশি জনপ্রিয়?<br><b>উত্তর: ক্রিকেট।</b></div>
+
+<div class="example"><b>Example 4:</b> 5, 5, 6, 7, 5, 8, 6 তথ্যটিতে সবচেয়ে বেশি বার কোন সংখ্যা এসেছে?<br>5 এসেছে 3 বার, 6 এসেছে 2 বার। তাই <b>5</b> সবচেয়ে বেশি বার এসেছে।</div>
+
+<div class="example"><b>Example 5:</b> আম 8 জন, কলা 5 জন ও আপেল 7 জন পছন্দ করলে মোট কতজন?<br>8 + 5 + 7 = <b>20 জন</b>।</div>
+</div>
+
+<div class="card">
+<h2>Practice</h2>
+<ol class="practice">
+<li>8, 3, 6, 2, 5-কে ছোট থেকে বড় সাজাও।</li>
+<li>4, 4, 2, 5, 4, 3-এ 4-এর বারম্বারতা নির্ণয় করো।</li>
+<li>একটি সারণিতে আম 9, কলা 6 ও আপেল 5 বার এসেছে। মোট কতটি তথ্য আছে?</li>
+<li>7, 3, 7, 2, 7, 5, 3-এ কোন সংখ্যা সবচেয়ে বেশি বার এসেছে?</li>
+<li>ট্যালি চিহ্ন কী কাজে ব্যবহার করা হয়?</li>
+<li>তথ্য সাজানো কেন দরকার? নিজের ভাষায় লেখো।</li>
+</ol>
+<p class="note">নিজে সারণি বানিয়ে তথ্য সাজানোর অনুশীলন করো।</p>
+</div>
 
 <div class="card">
 <h2>MCQ Test</h2>
-<p>প্রতিটি প্রশ্নে সঠিক উত্তরটি নির্বাচন করে <b>Submit Test</b> চাপো।</p>
-<div id="quiz">
-<div class="mcq"><p><b>1. 12, 18, 24-এর গ.সা.গু. = ?</b></p><label class="option"><input type="radio" name="q1" value="A"> <span><b>A)</b> 6</span></label><label class="option"><input type="radio" name="q1" value="B"> <span><b>B)</b> 12</span></label><label class="option"><input type="radio" name="q1" value="C"> <span><b>C)</b> 18</span></label><label class="option"><input type="radio" name="q1" value="D"> <span><b>D)</b> 24</span></label></div><div class="mcq"><p><b>2. 4, 6, 8-এর ল.সা.গু. = ?</b></p><label class="option"><input type="radio" name="q2" value="A"> <span><b>A)</b> 24</span></label><label class="option"><input type="radio" name="q2" value="B"> <span><b>B)</b> 12</span></label><label class="option"><input type="radio" name="q2" value="C"> <span><b>C)</b> 16</span></label><label class="option"><input type="radio" name="q2" value="D"> <span><b>D)</b> 48</span></label></div><div class="mcq"><p><b>3. 6, 9, 12-এর গ.সা.গু. = ?</b></p><label class="option"><input type="radio" name="q3" value="A"> <span><b>A)</b> 3</span></label><label class="option"><input type="radio" name="q3" value="B"> <span><b>B)</b> 6</span></label><label class="option"><input type="radio" name="q3" value="C"> <span><b>C)</b> 9</span></label><label class="option"><input type="radio" name="q3" value="D"> <span><b>D)</b> 12</span></label></div>
+
+<div class="question">
+<b>1. 4, 2, 7, 3, 5-কে ছোট থেকে বড় সাজালে প্রথম সংখ্যা কোনটি?</b>
+<label><input type="radio" name="q1" value="a"> A) 4</label>
+<label><input type="radio" name="q1" value="b"> B) 2</label>
+<label><input type="radio" name="q1" value="c"> C) 5</label>
+<label><input type="radio" name="q1" value="d"> D) 7</label>
 </div>
-<button class="submit" onclick="checkQuiz()">Submit Test</button>
-<button class="reset" onclick="resetQuiz()">Try Again</button>
-<div id="result" class="result"></div>
+
+<div class="question">
+<b>2. 2, 3, 2, 5, 2, 4-এ 2-এর বারম্বারতা কত?</b>
+<label><input type="radio" name="q2" value="a"> A) 2</label>
+<label><input type="radio" name="q2" value="b"> B) 3</label>
+<label><input type="radio" name="q2" value="c"> C) 4</label>
+<label><input type="radio" name="q2" value="d"> D) 5</label>
 </div>
+
+<div class="question">
+<b>3. 8, 5 ও 7-এর মোট যোগফল কত?</b>
+<label><input type="radio" name="q3" value="a"> A) 18</label>
+<label><input type="radio" name="q3" value="b"> B) 19</label>
+<label><input type="radio" name="q3" value="c"> C) 20</label>
+<label><input type="radio" name="q3" value="d"> D) 21</label>
+</div>
+
+<div class="question">
+<b>4. কোনো তথ্য কতবার ঘটেছে তাকে কী বলে?</b>
+<label><input type="radio" name="q4" value="a"> A) গুণিতক</label>
+<label><input type="radio" name="q4" value="b"> B) বারম্বারতা</label>
+<label><input type="radio" name="q4" value="c"> C) পরিসীমা</label>
+<label><input type="radio" name="q4" value="d"> D) ক্ষেত্রফল</label>
+</div>
+
+<button onclick="submitTest()">Submit Test</button>
+<button onclick="tryAgain()">Try Again</button>
+<div id="result"></div>
+</div>
+
+<div class="nav">
+<a href="maths-ch11.html">← Previous</a>
+<a href="maths.html">⌂ Maths Home</a>
+<a href="maths-ch13.html">Next →</a>
+</div>
+
+</div>
+
 <script>
-function checkQuiz(){
-  const answers = ['A', 'A', 'A'];
-  let score = 0, answered = 0;
-  answers.forEach((ans, idx) => {
-    const chosen = document.querySelector('input[name="q'+(idx+1)+'"]:checked');
-    if(chosen){
-      answered++;
-      if(chosen.value === ans) score++;
-    }
-  });
-  const result = document.getElementById('result');
-  result.textContent = 'Score: ' + score + ' / ' + answers.length + ' | Answered: ' + answered + ' / ' + answers.length;
-  result.classList.add('show');
+function submitTest(){
+ const answers={q1:"b",q2:"b",q3:"c",q4:"b"};
+ let score=0,answered=0;
+ for(const q in answers){
+  const selected=document.querySelector('input[name="'+q+'"]:checked');
+  if(selected){answered++;if(selected.value===answers[q])score++;}
+ }
+ document.getElementById("result").textContent="Score: "+score+"/4 | Answered: "+answered+"/4";
 }
-function resetQuiz(){
-  document.querySelectorAll('input[type="radio"]').forEach(x => x.checked = false);
-  const result = document.getElementById('result');
-  result.textContent = '';
-  result.classList.remove('show');
+function tryAgain(){
+ document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);
+ document.getElementById("result").textContent="";
 }
 </script>
-<div class="nav"><a href="maths-ch11.html">← Previous</a><a href="index.html">Class 6 Home</a><a href="maths-ch13.html">Next →</a></div></div></body></html>
+</body>
+</html>
