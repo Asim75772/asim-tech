@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ASIM TECH StudentHub — Class 5 to 12 learning platform with study materials, practice and useful student tools.">
+<title>ASIM TECH | StudentHub</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f4f7fb;color:#18263e;font-family:Arial,Helvetica,sans-serif}
+a{text-decoration:none;color:inherit}
+header{height:58px;background:#06243d;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 5%;font-size:12px}
+.brand{font-weight:700;letter-spacing:.2px}
+.brand:before{content:"▲ ";font-size:10px}
+nav{display:flex;gap:24px;color:#d9e5ed}
+.hero{background:linear-gradient(135deg,#07385b,#00658d);color:#fff;padding:48px 5% 54px;border-radius:0 0 38px 38px}
+.heroin{max-width:1180px;margin:auto}
+.kicker{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#d8edf5}
+h1{font-size:48px;line-height:1.05;margin:12px 0 14px}
+.hero p{max-width:650px;color:#dcecf4;line-height:1.7;font-size:14px;margin:0}
+.buttons{display:flex;gap:14px;margin-top:25px}
+.btn{padding:13px 23px;border-radius:10px;border:1px solid #54bddc;font-size:13px;font-weight:700}
+.primary{background:#fff;color:#075278;border-color:#fff}
+main{max-width:1180px;margin:auto;padding:34px 5% 55px}
+.label{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#0793b5;margin-top:8px}
+h2{font-size:30px;margin:8px 0 6px}
+.sub{color:#738092;font-size:14px;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.class{background:#fff;border:1px solid #e1e9ef;border-radius:17px;padding:18px;min-height:88px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 15px rgba(20,45,70,.06)}
+.class.active{border-color:#b8dbe6}
+.num{font-size:28px;font-weight:700;color:#08a1c3}
+.class strong{font-size:15px}
+.class small{display:block;color:#87929d;font-size:11px;margin-top:6px}
+.class.active small{color:#b79419}
+.section{margin-top:38px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.card{background:#fff;border:1px solid #e2e9ef;border-radius:16px;padding:20px;box-shadow:0 4px 15px rgba(20,45,70,.06)}
+.icon{font-size:22px;margin-bottom:9px}
+.card strong{display:block;color:#075c80;font-size:14px}
+.card span{display:block;color:#7c8793;font-size:11px;line-height:1.5;margin-top:7px}
+footer{background:#06243d;color:#b8cbd8;text-align:center;padding:28px;font-size:11px}
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr 1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  nav{gap:12px}
+}
+@media(max-width:520px){
+  header{padding:0 16px}
+  nav a:nth-child(n+3){display:none}
+  .hero{padding:38px 20px 45px;border-radius:0 0 28px 28px}
+  main{padding:28px 15px 45px}
+  h1{font-size:36px}
+  h2{font-size:27px}
+  .grid,.cards{gap:10px}
+  .class{padding:14px;min-height:78px}
+  .num{font-size:25px}
+  .card{padding:15px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">ASIM TECH</div>
+  <nav>
+    <a href="../">Home</a>
+    <a href="./">StudentHub</a>
+    <a href="#classes">Classes</a>
+    <a href="#tools">Student Tools</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="heroin">
+    <div class="kicker">StudentHub • Class 5–12</div>
+    <h1>Grow faster.<br>Learn better.</h1>
+    <p>এক জায়গায় পড়াশোনা, practice, notes এবং useful student tools — সহজ, পরিষ্কার ও distraction-free learning space.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#classes">Explore Classes</a>
+      <a class="btn" href="#study">Study Hub</a>
+    </div>
+  </div>
+</section>
+
+<main>
+<section id="classes">
+  <div class="label">Classes</div>
+  <h2>Choose Your Class</h2>
+  <p class="sub">Class 5 থেকে 12 — তোমার class থেকে নাও।</p>
+
+  <div class="grid">
+    <a class="class active" href="class5.html">
+      <div class="num">05</div><div><strong>Class 5</strong><small>Mathematics • English • বাংলা available</small></div>
+    </a>
+    <div class="class"><div class="num">06</div><div><strong>Class 6</strong><small>Coming soon</small></div></div>
+    <div class="class"><div class="num">07</div><div><strong>Class 7</strong><small>Coming soon</small></div></div>
+    <div class="class"><div class="num">08</div><div><strong>Class 8</strong><small>Coming soon</small></div></div>
+    <div class="class"><div class="num">09</div><div><strong>Class 9</strong><small>Coming soon</small></div></div>
+    <div class="class"><div class="num">10</div><div><strong>Class 10</strong><small>Coming soon</small></div></div>
+    <div class="class"><div class="num">11</div><div><strong>Class 11</strong><small>Coming soon</small></div></div>
+    <div class="class"><div class="num">12</div><div><strong>Class 12</strong><small>Coming soon</small></div></div>
+  </div>
+</section>
+
+<section id="study" class="section">
+  <div class="label">Study Hub</div>
+  <h2>Learn • Practice • Grow</h2>
+  <div class="cards">
+    <a class="card" href="class5.html"><div class="icon">📚</div><strong>Study Materials</strong><span>Class-wise subjects, chapters and lessons.</span></a>
+    <div class="card"><div class="icon">📝</div><strong>Quiz / MCQ</strong><span>Practice questions and MCQ tests.</span></div>
+    <div class="card"><div class="icon">📒</div><strong>My Notes</strong><span>Keep your study notes organised.</span></div>
+    <div class="card"><div class="icon">📅</div><strong>Study Planner</strong><span>Plan your daily study routine.</span></div>
+    <div class="card"><div class="icon">⏱️</div><strong>Pomodoro</strong><span>Study with focused sessions.</span></div>
+    <div class="card"><div class="icon">📈</div><strong>Progress</strong><span>Track your learning progress.</span></div>
+  </div>
+</section>
+
+<section id="tools" class="section">
+  <div class="label">Student Tools</div>
+  <h2>Useful Tools</h2>
+  <div class="cards">
+    <div class="card"><div class="icon">🧮</div><strong>Calculator</strong><span>Quick everyday calculations.</span></div>
+    <div class="card"><div class="icon">📊</div><strong>Percentage</strong><span>Calculate percentages easily.</span></div>
+    <div class="card"><div class="icon">🎂</div><strong>Age Calculator</strong><span>Calculate age from date of birth.</span></div>
+    <div class="card"><div class="icon">↔️</div><strong>Converter</strong><span>Convert common units quickly.</span></div>
+    <div class="card"><div class="icon">⏱️</div><strong>Stopwatch</strong><span>Simple study stopwatch.</span></div>
+    <a class="card" href="student-search.html"><div class="icon">🔎</div><strong>Search &amp; Learn</strong><span>Google, YouTube and Wikipedia resources.</span></a>
+  </div>
+</section>
+</main>
+
+<footer>© ASIM TECH • StudentHub • Learn • Practice • Grow</footer>
+</body>
+</html>
