@@ -1,1 +1,119 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ec1970">
+<title>Ladies Hostel Finder</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7f8fc;color:#202433}
+header{background:linear-gradient(135deg,#151b2b,#ec1970);color:#fff;padding:18px 16px;position:sticky;top:0;z-index:5}
+.head{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:#fff;color:#ec1970;display:grid;place-items:center;font-size:25px;font-weight:bold}
+.brand h1{font-size:21px;margin:0}.brand p{margin:3px 0 0;font-size:12px;opacity:.85}
+nav button{border:0;background:transparent;color:#fff;margin-left:8px;cursor:pointer;font-weight:600}
+.hero{background:linear-gradient(135deg,#ffe5f0,#fff);padding:32px 16px 25px}
+.wrap{max-width:1100px;margin:auto}.hero h2{font-size:35px;margin:5px 0 8px;color:#c91862}.hero p{margin:0 0 20px;color:#555}
+.search{background:#fff;padding:16px;border-radius:18px;box-shadow:0 10px 30px #00000012;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr auto;gap:10px}
+input,select{width:100%;padding:13px;border:1px solid #ddd;border-radius:11px;background:#fff;font-size:14px}
+.btn{border:0;border-radius:11px;padding:13px 18px;background:#ec1970;color:#fff;font-weight:bold;cursor:pointer}
+.section{padding:25px 16px}.section h3{margin:0 0 15px;font-size:21px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid #ddd;background:#fff;border-radius:30px;padding:9px 15px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border-radius:17px;overflow:hidden;box-shadow:0 5px 20px #0000000d;border:1px solid #eee}
+.pic{height:155px;background:linear-gradient(135deg,#f8a9c7,#7c6ce5);display:grid;place-items:center;color:#fff;font-size:52px}
+.body{padding:15px}.row{display:flex;justify-content:space-between;gap:10px;align-items:start}.name{font-size:18px;font-weight:bold}.badge{background:#dff7e8;color:#12833e;padding:5px 8px;border-radius:8px;font-size:11px;font-weight:bold;white-space:nowrap}.full{background:#ffe2e2;color:#b42318}.muted{color:#737887;font-size:13px;margin:7px 0}.price{font-size:20px;color:#ec1970;font-weight:bold}.amen{font-size:12px;color:#555;margin:10px 0;line-height:1.7}.actions{display:flex;gap:8px}.actions .btn{flex:1;padding:10px;font-size:12px}.outline{background:#fff;color:#ec1970;border:1px solid #ec1970}
+.empty{text-align:center;padding:35px;background:#fff;border-radius:16px;color:#777}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;padding:18px;overflow:auto}.modalbox{max-width:650px;margin:30px auto;background:#fff;border-radius:18px;padding:20px}.modalbox h3{margin-top:0}.close{float:right;border:0;background:#eee;border-radius:50%;width:32px;height:32px;cursor:pointer}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.formgrid .wide{grid-column:1/-1}
+.detail{display:none;position:fixed;inset:0;background:#fff;z-index:15;overflow:auto}.detailbox{max-width:900px;margin:auto;padding:18px}.back{border:0;background:#f1f2f5;padding:10px 15px;border-radius:10px;cursor:pointer}.detailpic{height:280px;border-radius:18px;background:linear-gradient(135deg,#f59abe,#6f63d9);display:grid;place-items:center;font-size:80px;color:white;margin:15px 0}.info{display:grid;grid-template-columns:2fr 1fr;gap:18px}.panel{background:#fff;border:1px solid #eee;border-radius:16px;padding:18px}.panel h3{margin-top:0}.kv{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kv div{background:#f8f8fb;padding:11px;border-radius:10px;font-size:13px}
+footer{text-align:center;padding:35px;color:#777;font-size:12px}
+@media(max-width:850px){.search{grid-template-columns:1fr 1fr}.search .btn{grid-column:1/-1}.grid{grid-template-columns:1fr 1fr}.info{grid-template-columns:1fr}}
+@media(max-width:550px){nav{display:none}.hero h2{font-size:28px}.search,.grid,.formgrid{grid-template-columns:1fr}.formgrid .wide{grid-column:auto}.section{padding:20px 12px}.pic{height:170px}}
+</style>
+</head>
+<body>
+<header><div class="head">
+<div class="brand"><div class="logo">⌂</div><div><h1>Ladies Hostel Finder</h1><p>Find Safe & Comfortable Hostel Near You</p></div></div>
+<nav><button onclick="scrollTo(0,0)">Home</button><button onclick="openAdd()">＋ Add Hostel</button></nav>
+</div></header>
 
+<section class="hero"><div class="wrap">
+<h2>Find the Best Ladies Hostel</h2><p>Safe • Comfortable • Affordable — search by location, room and budget.</p>
+<div class="search">
+<input id="loc" placeholder="📍 City or area">
+<select id="room"><option value="">Any room type</option><option>Single</option><option>Double</option><option>Triple</option></select>
+<select id="budget"><option value="">Any budget</option><option value="5000">Under ₹5,000</option><option value="7500">Under ₹7,500</option><option value="10000">Under ₹10,000</option></select>
+<select id="avail"><option value="">All hostels</option><option value="yes">Available only</option></select>
+<button class="btn" onclick="searchHostels()">🔍 Search</button>
+</div></div></section>
+
+<section class="section"><div class="wrap">
+<h3>📍 Popular Locations</h3>
+<div class="chips">
+<button class="chip" onclick="quick('Bankura')">Bankura</button><button class="chip" onclick="quick('Purulia')">Purulia</button>
+<button class="chip" onclick="quick('Durgapur')">Durgapur</button><button class="chip" onclick="quick('Kolkata')">Kolkata</button>
+<button class="chip" onclick="quick('Bishnupur')">Bishnupur</button>
+</div></div></section>
+
+<section class="section"><div class="wrap">
+<div class="row"><h3>🏠 Available Hostels</h3><span id="count" class="muted"></span></div>
+<div id="grid" class="grid"></div>
+</div></section>
+
+<footer>© 2026 Ladies Hostel Finder • Listings are collected from publicly available sources. Room availability, rent and phone details should be verified directly with the hostel before booking.</footer>
+
+<div id="modal" class="modal"><div class="modalbox">
+<button class="close" onclick="closeAdd()">×</button><h3>➕ Add Your Hostel</h3>
+<p class="muted">এই demo version-এ তথ্য এই browser-এ save হবে।</p>
+<div class="formgrid">
+<input id="aname" placeholder="Hostel name"><input id="aphone" placeholder="Phone number">
+<input id="aloc" placeholder="City / Area"><input id="aprice" type="number" placeholder="Monthly rent">
+<select id="aroom"><option>Single</option><option>Double</option><option>Triple</option></select>
+<select id="aavail"><option value="yes">Rooms Available</option><option value="no">Full</option></select>
+<input id="aamen" class="wide" placeholder="Amenities: Wi-Fi, Food, CCTV, Security">
+<input id="aaddr" class="wide" placeholder="Full address">
+<button class="btn wide" onclick="addHostel()">Save Hostel</button>
+</div></div></div>
+
+<div id="detail" class="detail"><div class="detailbox">
+<button class="back" onclick="closeDetail()">← Back</button><div id="detailContent"></div>
+</div></div>
+
+<script>
+let hostels=[
+{id:1,name:"Doctor's Ladies Hostel 2",loc:"Kenduadihi, Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Ladies hostel • Student housing",addr:"Kenduadihi, Bankura, West Bengal 722102"},
+{id:2,name:"Binapani Ladies Mess",loc:"Nutanchati, Bankura",price:0,room:"Contact for room type",phone:"+919641634913",available:null,amen:"Working women's hostel • Ladies mess",addr:"Sarada Palli, Professor Colony, near PWD Office, Bankura, West Bengal 722101"},
+{id:3,name:"দীপ্তি কুঞ্জ ছাত্রী নিবাস",loc:"School Danga, Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Working women's hostel",addr:"Shubhankar Sarani Road, near Srishti Diagnostic Centre, School Danga, Bankura, West Bengal 722101"},
+{id:4,name:"Subhadra Chhatri Nibas",loc:"Katjuridanga, Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Working women's hostel • Girls hostel",addr:"Sarat Pally, Katjuridanga, Bankura, West Bengal 722102"},
+{id:5,name:"সারদা ছাত্রী নিবাস",loc:"Keshiakole, Bankura",price:0,room:"Contact for room type",phone:"+919732047548",available:null,amen:"Working women's hostel",addr:"Satighat Hever More, Keshiakole, Bankura, West Bengal 722155"},
+{id:6,name:"Jyotsna Ladies Mess (Matri Bhaban)",loc:"Jogeshpally, Bankura",price:0,room:"Contact for room type",phone:"+919475002088",available:null,amen:"Girls hostel • Ladies mess",addr:"Near Hari Mandir, Jogeshpally Mathpara, Bankura, West Bengal 722101"},
+{id:7,name:"Punam Ladies Mess",loc:"Paddapukur Palli, Bankura",price:0,room:"Contact for room type",phone:"+917908371417",available:null,amen:"Girls hostel • Ladies mess",addr:"Nutanchati Road, near PWD Office, Paddapukur Palli, Bankura, West Bengal 722101"},
+{id:8,name:"Mandal Ladies Mess",loc:"Katjuridanga, Bankura",price:0,room:"Contact for room type",phone:"+919153531476",available:null,amen:"Girls hostel • Working women's hostel",addr:"Katjuridanga, Bankura, West Bengal 722102"},
+{id:9,name:"Nandi Ladies Mess",loc:"Paddapukur Palli, Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Girls hostel",addr:"Paddapukur Palli, Bankura, West Bengal 722101"},
+{id:10,name:"Laxmi Ladies Mess",loc:"Jogeshpally, Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Working women's hostel",addr:"Near Durga Mandir, Jogeshpally, Bankura, West Bengal 722101"},
+{id:11,name:"Saraswati Chatri Nibas",loc:"Katjuridanga, Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Girls hostel",addr:"Katjuridanga, Bankura, West Bengal 722102"},
+{id:12,name:"Chhatri Nibas",loc:"Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Working women's hostel",addr:"Bankura, West Bengal 722102"},
+{id:13,name:"Zenith Girls Hostel",loc:"Kenduadihi, Bankura",price:0,room:"Contact for room type",phone:"",available:null,amen:"Girls hostel",addr:"Bankura Sammilani Medical College Road, Kenduadihi, Bankura, West Bengal 722102"},
+{id:14,name:"Maa Sarada Hostel for Girls — Bankura Sammilani College",loc:"Kenduadihi, Bankura",price:0,room:"College hostel",phone:"+913242250741",available:null,amen:"Girls hostel • Wi-Fi • Water • Electricity",addr:"Bankura Sammilani College, Kenduadihi, Bankura, West Bengal"},
+{id:15,name:"Maa Sarada Chatrinibas — Nikhil Banga Sikshan Mahavidyalaya",loc:"Bishnupur, Bankura",price:0,room:"B.Ed girls hostel",phone:"+913244256936",available:null,amen:"Girls student hostel • Institute-managed",addr:"Tilbari, Bishnupur, Bankura - 722122, West Bengal"},
+{id:16,name:"Girls Hostel — Durgapur Institute of Polytechnic",loc:"Rajbandh, Durgapur",price:0,room:"College hostel",phone:"+917797660066",available:null,amen:"Girls hostel • Wi-Fi • Sports • Gym",addr:"NH-2, Rajbandh, Durgapur, West Bengal 713212"}
+];
+
+function card(h){return `<article class="card"><div class="pic">🏠</div><div class="body">
+<div class="row"><div class="name">${h.name}</div><span class="badge ${h.available===true?'':'full'}">${h.available===true?'✓ Available':h.available===false?'Full':'☎ Verify'}</span></div>
+<div class="muted">📍 ${h.loc}</div><div>${h.price?`<span class="price">₹${Number(h.price).toLocaleString()}</span> <span class="muted">/ month</span>`:`<span class="muted">Rent: Contact hostel</span>`}</div>
+<div class="muted">🛏️ ${h.room}</div><div class="amen">${h.amen}</div>
+<div class="actions"><button class="btn outline" onclick="showDetail(${h.id})">View Details</button>${h.phone?`<button class="btn" onclick="callHostel('${h.phone}')">📞 Call</button>`:''}</div>
+</div></article>`}
+
+function render(list=hostels){document.getElementById('grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">কোনও hostel পাওয়া যায়নি। অন্য location বা budget দিয়ে চেষ্টা করুন।</div>';document.getElementById('count').textContent=list.length+' hostels';}
+function searchHostels(){let l=document.getElementById('loc').value.toLowerCase(),r=document.getElementById('room').value,b=Number(document.getElementById('budget').value||999999),a=document.getElementById('avail').value;
+let x=hostels.filter(h=>(!l||h.loc.toLowerCase().includes(l)||h.name.toLowerCase().includes(l))&&(!r||h.room.toLowerCase().includes(r.toLowerCase()))&&h.price<=b&&(!a||h.available));render(x)}
+function quick(x){document.getElementById('loc').value=x;searchHostels();scrollTo({top:250,behavior:'smooth'})}
+function callHostel(p){location.href='tel:'+p.replace(/[^+0-9]/g,'')}
+function showDetail(id){let h=hostels.find(x=>x.id===id);document.getElementById('detailContent').innerHTML=`<div class="detailpic">🏠</div><div class="info"><div class="panel"><span class="badge ${h.available===true?'':'full'}">${h.available===true?'✓ Rooms Available':h.available===false?'Full':'☎ Verify Availability'}</span><h1>${h.name}</h1><p>📍 ${h.loc}</p><h2 class="price">${h.price?`₹${Number(h.price).toLocaleString()} / Month`:'Rent: Contact Hostel'}</h2><p>🛏️ ${h.room}</p><p>${h.amen}</p><hr><h3>Address</h3><p>${h.addr}</p></div><div class="panel"><h3>Contact</h3><p><b>${h.phone||'Phone number not publicly listed'}</b></p>${h.phone?`<button class="btn" style="width:100%;margin-bottom:8px" onclick="callHostel('${h.phone}')">📞 Call Now</button><a class="btn" style="display:block;text-align:center;text-decoration:none" href="https://wa.me/${h.phone.replace(/[^0-9]/g,'')}" target="_blank">💬 WhatsApp</a>`:''}<h3 style="margin-top:25px">Facilities</h3><div class="kv"><div>🔒 Security</div><div>📹 CCTV</div><div>📶 Wi-Fi</div><div>🍛 Food</div></div></div></div>`;document.getElementById('detail').style.display='block'}
+function closeDetail(){document.getElementById('detail').style.display='none'}
+function openAdd(){document.getElementById('modal').style.display='block'}function closeAdd(){document.getElementById('modal').style.display='none'}
+function addHostel(){let h={id:Date.now(),name:aname.value,loc:aloc.value,price:Number(aprice.value),room:aroom.value,phone:aphone.value,available:aavail.value==='yes',amen:aamen.value||'Security • CCTV',addr:aaddr.value};if(!h.name||!h.loc||!h.phone||!h.price){alert('Name, location, rent and phone number দিন।');return}hostels.push(h);render();closeAdd();document.querySelectorAll('#modal input').forEach(x=>x.value='');alert('Hostel added successfully.')}
+render();
+</script>
+</body></html>
