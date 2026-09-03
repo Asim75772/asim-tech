@@ -1,54 +1,785 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Class 6 Mathematics | অনুপাত | StudentHub</title><style>
-body{margin:0;background:#061321;color:#eef6ff;font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.7}
-.wrap{max-width:900px;margin:auto;padding:22px}.brand{color:#59b8ff;font-weight:700}
-h1{color:#67c5ff}h2{color:#ffd35a}.card{background:#102d49;border:1px solid #214766;border-radius:16px;padding:18px;margin:14px 0}
-.mcq{background:#0a1d31;border-radius:12px;padding:14px;margin:10px 0}.ans{color:#7ee2a8;font-weight:700}
-a{color:#70c9ff;text-decoration:none}.nav{display:flex;justify-content:space-between;gap:10px}
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 16 – ক্ষেত্রফল ও পরিসীমা | StudentHub</title>
 
 <style>
-.option{display:block;background:#102d49;border:1px solid #28526f;border-radius:10px;padding:11px;margin:8px 0;cursor:pointer}
-.option:hover{border-color:#67c5ff}
-.option input{margin-right:8px;accent-color:#67c5ff}
-.submit,.reset{border:0;border-radius:10px;padding:11px 16px;margin:8px 6px 8px 0;cursor:pointer;font-weight:700}
-.submit{background:#67c5ff;color:#061321}.reset{background:#214766;color:#eef6ff}
-.result{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#0a1d31;color:#7ee2a8;font-weight:700}
-.result.show{display:block}
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,"Noto Sans Bengali",sans-serif;
+    background:#07111f;
+    color:#eaf4ff;
+    line-height:1.7;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:22px;
+}
+
+.header{
+    background:#0b2340;
+    border:1px solid #1687ff55;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:20px;
+}
+
+h1{
+    margin:0 0 8px;
+    color:#42a5ff;
+    font-size:28px;
+}
+
+h2{
+    color:#ffd34d;
+}
+
+h3{
+    color:#63b5ff;
+}
+
+.card{
+    background:#0d1b2c;
+    border:1px solid #1c5f91;
+    border-radius:15px;
+    padding:20px;
+    margin:18px 0;
+}
+
+.example{
+    background:#091725;
+    border-left:4px solid #42a5ff;
+    padding:12px 15px;
+    margin:10px 0;
+    border-radius:8px;
+}
+
+.question{
+    background:#0a1726;
+    border:1px solid #244866;
+    border-radius:12px;
+    padding:15px;
+    margin:14px 0;
+}
+
+label{
+    display:block;
+    margin:8px 0;
+    cursor:pointer;
+}
+
+button{
+    border:0;
+    border-radius:10px;
+    padding:11px 18px;
+    margin:8px 6px 0 0;
+    font-weight:bold;
+    cursor:pointer;
+    background:#1687ff;
+    color:#fff;
+}
+
+button:hover{
+    opacity:.85;
+}
+
+#result{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:15px;
+    color:#ffd34d;
+}
+
+.nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:24px;
+}
+
+.nav a{
+    display:inline-block;
+    text-decoration:none;
+    background:#123653;
+    color:#fff;
+    padding:10px 16px;
+    border-radius:10px;
+    border:1px solid #1c73aa;
+}
+
+.note{
+    color:#bcd3e8;
+}
+
+.formula{
+    background:#10283d;
+    padding:10px;
+    border-radius:8px;
+    margin:10px 0;
+    font-size:19px;
+}
 </style>
-</style></head><body><div class="wrap"><div class="brand">ASIM TECH • StudentHub • Class 6</div>
-<h1>16. অনুপাত</h1><div class="card"><h2>Notes</h2><p>একই ধরনের দুটি রাশির তুলনা অনুপাতের মাধ্যমে প্রকাশ করা।</p><ul><li>অনুপাত সাধারণত একই এককের সমজাতীয় রাশির তুলনা করে।</li><li>অনুপাতকে সাধারণ গুণনীয়ক দিয়ে ভাগ করে সরল করা যায়।</li><li>3:6 = 1:2।</li></ul></div>
-<div class="card"><h2>Examples</h2><p><b>Example 1:</b> 6 জন ছেলে ও 9 জন মেয়ে → ছেলে:মেয়ে = 2:3।</p><p><b>Example 2:</b> 12:18 = 2:3।</p><p><b>Example 3:</b> 4:10 = 2:5।</p></div><div class="card"><h2>Practice</h2><ol><li>8:12 সরল করো।</li><li>15:20 সরল করো।</li><li>5 জন ও 10 জনের অনুপাত লেখো।</li></ol></div>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>16. ক্ষেত্রফল ও পরিসীমা</h1>
+
+<div class="note">
+Class 6 Mathematics • Notes • Examples • Practice • MCQ Test
+</div>
+
+</div>
+
+
+<!-- NOTES -->
 
 <div class="card">
+
+<h2>Notes</h2>
+
+<h3>1. পরিসীমা কী?</h3>
+
+<p>
+কোনো সমতল আকৃতির চারপাশের মোট দৈর্ঘ্যকে
+সেই আকৃতির <b>পরিসীমা</b> বলে।
+</p>
+
+
+<h3>2. আয়তের পরিসীমা</h3>
+
+<p>
+আয়তের দৈর্ঘ্য = l এবং প্রস্থ = b হলে,
+</p>
+
+<div class="formula">
+পরিসীমা = 2 × (দৈর্ঘ্য + প্রস্থ)
+</div>
+
+
+<h3>3. আয়তের ক্ষেত্রফল</h3>
+
+<div class="formula">
+ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ
+</div>
+
+<p>
+ক্ষেত্রফলের একক হয় বর্গ একক,
+যেমন cm², m²।
+</p>
+
+
+<h3>4. বর্গের পরিসীমা</h3>
+
+<p>
+বর্গের চারটি বাহুর দৈর্ঘ্য সমান।
+বাহু = a হলে,
+</p>
+
+<div class="formula">
+পরিসীমা = 4 × বাহু
+</div>
+
+
+<h3>5. বর্গের ক্ষেত্রফল</h3>
+
+<div class="formula">
+ক্ষেত্রফল = বাহু × বাহু
+</div>
+
+<div class="formula">
+ক্ষেত্রফল = a²
+</div>
+
+
+<h3>6. এককের ব্যবহার</h3>
+
+<p>
+ক্ষেত্রফল নির্ণয়ের সময় দৈর্ঘ্য ও প্রস্থের
+একক একই রাখতে হবে।
+</p>
+
+<p>
+পরিসীমার একক হয় cm, m ইত্যাদি।
+কিন্তু ক্ষেত্রফলের একক হয় cm², m² ইত্যাদি।
+</p>
+
+</div>
+
+
+<!-- EXAMPLES -->
+
+<div class="card">
+
+<h2>Examples</h2>
+
+
+<div class="example">
+
+<b>Example 1:</b>
+
+<br><br>
+
+একটি আয়তের দৈর্ঘ্য 12 cm এবং প্রস্থ 8 cm।
+পরিসীমা নির্ণয় করো।
+
+<br><br>
+
+পরিসীমা
+= 2 × (দৈর্ঘ্য + প্রস্থ)
+
+<br>
+
+= 2 × (12 + 8)
+
+<br>
+
+= 2 × 20
+
+<br>
+
+= <b>40 cm</b>
+
+</div>
+
+
+<div class="example">
+
+<b>Example 2:</b>
+
+<br><br>
+
+দৈর্ঘ্য 12 cm এবং প্রস্থ 8 cm
+আয়তের ক্ষেত্রফল কত?
+
+<br><br>
+
+ক্ষেত্রফল
+= দৈর্ঘ্য × প্রস্থ
+
+<br>
+
+= 12 × 8
+
+<br>
+
+= <b>96 cm²</b>
+
+</div>
+
+
+<div class="example">
+
+<b>Example 3:</b>
+
+<br><br>
+
+একটি বর্গের বাহু 7 cm।
+তার পরিসীমা কত?
+
+<br><br>
+
+পরিসীমা = 4 × বাহু
+
+<br>
+
+= 4 × 7
+
+<br>
+
+= <b>28 cm</b>
+
+</div>
+
+
+<div class="example">
+
+<b>Example 4:</b>
+
+<br><br>
+
+একটি বর্গের বাহু 9 cm।
+তার ক্ষেত্রফল কত?
+
+<br><br>
+
+ক্ষেত্রফল = বাহু × বাহু
+
+<br>
+
+= 9 × 9
+
+<br>
+
+= <b>81 cm²</b>
+
+</div>
+
+
+<div class="example">
+
+<b>Example 5:</b>
+
+<br><br>
+
+একটি আয়তের দৈর্ঘ্য 15 m এবং
+প্রস্থ 6 m।
+
+<br>
+
+ক্ষেত্রফল এবং পরিসীমা নির্ণয় করো।
+
+<br><br>
+
+ক্ষেত্রফল = 15 × 6
+
+<br>
+
+= <b>90 m²</b>
+
+<br><br>
+
+পরিসীমা
+= 2 × (15 + 6)
+
+<br>
+
+= 2 × 21
+
+<br>
+
+= <b>42 m</b>
+
+</div>
+
+
+<div class="example">
+
+<b>Example 6:</b>
+
+<br><br>
+
+একটি বর্গের বাহু 12 m।
+ক্ষেত্রফল কত?
+
+<br><br>
+
+ক্ষেত্রফল = 12 × 12
+
+<br>
+
+= <b>144 m²</b>
+
+</div>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="card">
+
+<h2>Practice</h2>
+
+<ol>
+
+<li>
+একটি আয়তের দৈর্ঘ্য 10 cm এবং প্রস্থ 5 cm।
+ক্ষেত্রফল নির্ণয় করো।
+</li>
+
+<li>
+দৈর্ঘ্য 14 cm এবং প্রস্থ 6 cm
+আয়তের পরিসীমা নির্ণয় করো।
+</li>
+
+<li>
+একটি বর্গের বাহু 8 cm।
+ক্ষেত্রফল ও পরিসীমা নির্ণয় করো।
+</li>
+
+<li>
+একটি বর্গের বাহু 12 m হলে
+তার পরিসীমা কত?
+</li>
+
+<li>
+একটি আয়তের দৈর্ঘ্য 20 m এবং
+প্রস্থ 7 m হলে ক্ষেত্রফল কত?
+</li>
+
+<li>
+একটি বর্গের বাহু 15 cm হলে
+তার ক্ষেত্রফল কত?
+</li>
+
+<li>
+একটি আয়তের দৈর্ঘ্য 18 m এবং
+প্রস্থ 9 m হলে পরিসীমা নির্ণয় করো।
+</li>
+
+<li>
+ক্ষেত্রফলের একক কেন বর্গ এককে
+লেখা হয়?
+</li>
+
+</ol>
+
+</div>
+
+
+<!-- MCQ TEST -->
+
+<div class="card">
+
 <h2>MCQ Test</h2>
-<p>প্রতিটি প্রশ্নে সঠিক উত্তরটি নির্বাচন করে <b>Submit Test</b> চাপো।</p>
-<div id="quiz">
-<div class="mcq"><p><b>1. 6:9-এর সরল অনুপাত কোনটি?</b></p><label class="option"><input type="radio" name="q1" value="A"> <span><b>A)</b> 2:3</span></label><label class="option"><input type="radio" name="q1" value="B"> <span><b>B)</b> 3:2</span></label><label class="option"><input type="radio" name="q1" value="C"> <span><b>C)</b> 1:3</span></label><label class="option"><input type="radio" name="q1" value="D"> <span><b>D)</b> 6:3</span></label></div><div class="mcq"><p><b>2. 4:10-এর সরল অনুপাত কোনটি?</b></p><label class="option"><input type="radio" name="q2" value="A"> <span><b>A)</b> 2:5</span></label><label class="option"><input type="radio" name="q2" value="B"> <span><b>B)</b> 4:5</span></label><label class="option"><input type="radio" name="q2" value="C"> <span><b>C)</b> 1:2</span></label><label class="option"><input type="radio" name="q2" value="D"> <span><b>D)</b> 5:2</span></label></div><div class="mcq"><p><b>3. 15:20 = ?</b></p><label class="option"><input type="radio" name="q3" value="A"> <span><b>A)</b> 3:4</span></label><label class="option"><input type="radio" name="q3" value="B"> <span><b>B)</b> 4:3</span></label><label class="option"><input type="radio" name="q3" value="C"> <span><b>C)</b> 2:3</span></label><label class="option"><input type="radio" name="q3" value="D"> <span><b>D)</b> 5:4</span></label></div>
+
+
+<div class="question">
+
+<b>
+1. একটি আয়তের দৈর্ঘ্য 10 cm এবং
+প্রস্থ 5 cm হলে ক্ষেত্রফল কত?
+</b>
+
+<label>
+<input type="radio" name="q1" value="a">
+A) 30 cm²
+</label>
+
+<label>
+<input type="radio" name="q1" value="b">
+B) 50 cm²
+</label>
+
+<label>
+<input type="radio" name="q1" value="c">
+C) 60 cm²
+</label>
+
+<label>
+<input type="radio" name="q1" value="d">
+D) 100 cm²
+</label>
+
 </div>
-<button class="submit" onclick="checkQuiz()">Submit Test</button>
-<button class="reset" onclick="resetQuiz()">Try Again</button>
-<div id="result" class="result"></div>
+
+
+<div class="question">
+
+<b>
+2. দৈর্ঘ্য 12 cm ও প্রস্থ 8 cm
+আয়তের পরিসীমা কত?
+</b>
+
+<label>
+<input type="radio" name="q2" value="a">
+A) 20 cm
+</label>
+
+<label>
+<input type="radio" name="q2" value="b">
+B) 32 cm
+</label>
+
+<label>
+<input type="radio" name="q2" value="c">
+C) 40 cm
+</label>
+
+<label>
+<input type="radio" name="q2" value="d">
+D) 96 cm
+</label>
+
 </div>
+
+
+<div class="question">
+
+<b>
+3. একটি বর্গের বাহু 7 cm হলে
+পরিসীমা কত?
+</b>
+
+<label>
+<input type="radio" name="q3" value="a">
+A) 14 cm
+</label>
+
+<label>
+<input type="radio" name="q3" value="b">
+B) 21 cm
+</label>
+
+<label>
+<input type="radio" name="q3" value="c">
+C) 28 cm
+</label>
+
+<label>
+<input type="radio" name="q3" value="d">
+D) 49 cm
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>
+4. একটি বর্গের বাহু 9 cm হলে
+ক্ষেত্রফল কত?
+</b>
+
+<label>
+<input type="radio" name="q4" value="a">
+A) 18 cm²
+</label>
+
+<label>
+<input type="radio" name="q4" value="b">
+B) 36 cm²
+</label>
+
+<label>
+<input type="radio" name="q4" value="c">
+C) 72 cm²
+</label>
+
+<label>
+<input type="radio" name="q4" value="d">
+D) 81 cm²
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>
+5. আয়তের ক্ষেত্রফলের সঠিক সূত্র কোনটি?
+</b>
+
+<label>
+<input type="radio" name="q5" value="a">
+A) 2 × (দৈর্ঘ্য + প্রস্থ)
+</label>
+
+<label>
+<input type="radio" name="q5" value="b">
+B) 4 × বাহু
+</label>
+
+<label>
+<input type="radio" name="q5" value="c">
+C) দৈর্ঘ্য × প্রস্থ
+</label>
+
+<label>
+<input type="radio" name="q5" value="d">
+D) দৈর্ঘ্য + প্রস্থ
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>
+6. একটি আয়তের দৈর্ঘ্য 15 m এবং
+প্রস্থ 6 m হলে ক্ষেত্রফল কত?
+</b>
+
+<label>
+<input type="radio" name="q6" value="a">
+A) 21 m²
+</label>
+
+<label>
+<input type="radio" name="q6" value="b">
+B) 42 m²
+</label>
+
+<label>
+<input type="radio" name="q6" value="c">
+C) 90 m²
+</label>
+
+<label>
+<input type="radio" name="q6" value="d">
+D) 120 m²
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>
+7. একটি বর্গের বাহু 12 m হলে
+তার ক্ষেত্রফল কত?
+</b>
+
+<label>
+<input type="radio" name="q7" value="a">
+A) 24 m²
+</label>
+
+<label>
+<input type="radio" name="q7" value="b">
+B) 48 m²
+</label>
+
+<label>
+<input type="radio" name="q7" value="c">
+C) 120 m²
+</label>
+
+<label>
+<input type="radio" name="q7" value="d">
+D) 144 m²
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>
+8. পরিসীমার ক্ষেত্রে কোন এককটি
+সঠিক?
+</b>
+
+<label>
+<input type="radio" name="q8" value="a">
+A) cm
+</label>
+
+<label>
+<input type="radio" name="q8" value="b">
+B) cm²
+</label>
+
+<label>
+<input type="radio" name="q8" value="c">
+C) m²
+</label>
+
+<label>
+<input type="radio" name="q8" value="d">
+D) cm³
+</label>
+
+</div>
+
+
+<button onclick="submitTest()">
+Submit Test
+</button>
+
+<button onclick="tryAgain()">
+Try Again
+</button>
+
+<div id="result"></div>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+<a href="maths-ch15.html">
+← Previous
+</a>
+
+<a href="maths.html">
+⌂ Maths Home
+</a>
+
+<a href="maths-ch17.html">
+Next →
+</a>
+
+</div>
+
+</div>
+
+
 <script>
-function checkQuiz(){
-  const answers = ['A', 'A', 'A'];
-  let score = 0, answered = 0;
-  answers.forEach((ans, idx) => {
-    const chosen = document.querySelector('input[name="q'+(idx+1)+'"]:checked');
-    if(chosen){
-      answered++;
-      if(chosen.value === ans) score++;
-    }
-  });
-  const result = document.getElementById('result');
-  result.textContent = 'Score: ' + score + ' / ' + answers.length + ' | Answered: ' + answered + ' / ' + answers.length;
-  result.classList.add('show');
+
+function submitTest(){
+
+const answers = {
+q1:"b",
+q2:"c",
+q3:"c",
+q4:"d",
+q5:"c",
+q6:"c",
+q7:"d",
+q8:"a"
+};
+
+let score = 0;
+let answered = 0;
+
+for(const q in answers){
+
+const selected =
+document.querySelector(
+'input[name="' + q + '"]:checked'
+);
+
+if(selected){
+
+answered++;
+
+if(selected.value === answers[q]){
+score++;
 }
-function resetQuiz(){
-  document.querySelectorAll('input[type="radio"]').forEach(x => x.checked = false);
-  const result = document.getElementById('result');
-  result.textContent = '';
-  result.classList.remove('show');
+
 }
+
+}
+
+document.getElementById("result").textContent =
+"Score: " + score + "/8 | Answered: " + answered + "/8";
+
+}
+
+
+function tryAgain(){
+
+document
+.querySelectorAll('input[type="radio"]')
+.forEach(function(x){
+
+x.checked = false;
+
+});
+
+document.getElementById("result").textContent = "";
+
+}
+
 </script>
-<div class="nav"><a href="maths-ch15.html">← Previous</a><a href="index.html">Class 6 Home</a><a href="maths-ch17.html">Next →</a></div></div></body></html>
+
+</body>
+</html>
