@@ -1,54 +1,147 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Class 6 Mathematics | শতকরা | StudentHub</title><style>
-body{margin:0;background:#061321;color:#eef6ff;font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.7}
-.wrap{max-width:900px;margin:auto;padding:22px}.brand{color:#59b8ff;font-weight:700}
-h1{color:#67c5ff}h2{color:#ffd35a}.card{background:#102d49;border:1px solid #214766;border-radius:16px;padding:18px;margin:14px 0}
-.mcq{background:#0a1d31;border-radius:12px;padding:14px;margin:10px 0}.ans{color:#7ee2a8;font-weight:700}
-a{color:#70c9ff;text-decoration:none}.nav{display:flex;justify-content:space-between;gap:10px}
-
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 9 – আবৃত্ত দশমিক সংখ্যা | StudentHub</title>
 <style>
-.option{display:block;background:#102d49;border:1px solid #28526f;border-radius:10px;padding:11px;margin:8px 0;cursor:pointer}
-.option:hover{border-color:#67c5ff}
-.option input{margin-right:8px;accent-color:#67c5ff}
-.submit,.reset{border:0;border-radius:10px;padding:11px 16px;margin:8px 6px 8px 0;cursor:pointer;font-weight:700}
-.submit{background:#67c5ff;color:#061321}.reset{background:#214766;color:#eef6ff}
-.result{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#0a1d31;color:#7ee2a8;font-weight:700}
-.result.show{display:block}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#07111f;color:#eaf4ff;line-height:1.7}
+.container{max-width:900px;margin:auto;padding:22px}
+.header{background:linear-gradient(135deg,#0b2340,#07111f);border:1px solid #1687ff55;border-radius:18px;padding:24px;margin-bottom:20px;box-shadow:0 0 25px #0088ff18}
+h1{margin:0 0 8px;color:#42a5ff;font-size:27px}
+h2{color:#ffd34d;margin-top:0}
+h3{color:#63b5ff}
+.card{background:#0d1b2c;border:1px solid #1c5f91;border-radius:15px;padding:20px;margin:18px 0}
+.example{background:#091725;border-left:4px solid #42a5ff;padding:12px 15px;margin:10px 0;border-radius:8px}
+.practice li{margin:10px 0}
+.question{background:#0a1726;border:1px solid #244866;border-radius:12px;padding:15px;margin:14px 0}
+label{display:block;margin:8px 0;cursor:pointer}
+button{border:0;border-radius:10px;padding:11px 18px;margin:8px 6px 0 0;font-weight:bold;cursor:pointer;background:#1687ff;color:white}
+button:hover{opacity:.9}
+#result{font-size:18px;font-weight:bold;margin-top:15px;color:#ffd34d}
+.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.nav a{display:inline-block;text-decoration:none;background:#123653;color:#fff;padding:10px 16px;border-radius:10px;border:1px solid #1c73aa}
+.note{color:#bcd3e8}
+.formula{font-size:19px;color:#fff;background:#10283d;padding:10px;border-radius:8px;margin:8px 0}
 </style>
-</style></head><body><div class="wrap"><div class="brand">ASIM TECH • StudentHub • Class 6</div>
-<h1>9. শতকরা</h1><div class="card"><h2>Notes</h2><p>শতকরা মানে প্রতি 100-তে কত অংশ। ভগ্নাংশ ও দশমিকের সঙ্গে শতকরার সম্পর্ক।</p><ul><li>25% = 25/100 = 1/4।</li><li>50% = 1/2।</li><li>শতাংশ নির্ণয়ে মোট রাশির নির্দিষ্ট অংশ বের করা যায়।</li></ul></div>
-<div class="card"><h2>Examples</h2><p><b>Example 1:</b> 200-এর 15% = 30</p><p><b>Example 2:</b> 80-এর 25% = 20</p><p><b>Example 3:</b> 50% of 60 = 30</p></div><div class="card"><h2>Practice</h2><ol><li>300-এর 10% কত?</li><li>120-এর 25% কত?</li><li>40-এর 50% কত?</li></ol></div>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>9. আবৃত্ত দশমিক সংখ্যা</h1>
+<div class="note">Class 6 Mathematics • Notes • Examples • Practice • MCQ Test</div>
+</div>
+
+<div class="card">
+<h2>Notes</h2>
+<p>যে দশমিক সংখ্যায় দশমিকের পর এক বা একাধিক অঙ্কের ধারা বারবার পুনরাবৃত্ত হয়, তাকে <b>আবৃত্ত দশমিক সংখ্যা</b> বলা হয়।</p>
+
+<h3>1. আবৃত্ত দশমিক চিনে নেওয়া</h3>
+<p>যেমন, <b>0.333...</b>-এ 3 বারবার আসছে। তাই এটি একটি আবৃত্ত দশমিক সংখ্যা।</p>
+<div class="formula">0.333... = 0.3̅</div>
+
+<h3>2. একটি অঙ্কের পুনরাবৃত্তি</h3>
+<p>কোনো একটি অঙ্ক বারবার পুনরাবৃত্ত হলে তার উপরে দাগ দিয়ে পুনরাবৃত্ত অংশ বোঝানো যায়।</p>
+<div class="formula">0.777... = 0.7̅</div>
+
+<h3>3. একাধিক অঙ্কের পুনরাবৃত্তি</h3>
+<p>একাধিক অঙ্ক একসঙ্গে বারবার পুনরাবৃত্ত হতে পারে।</p>
+<div class="formula">0.121212... = 0.1̅2̅</div>
+<p class="note">এখানে 12 ধারাটি বারবার পুনরাবৃত্ত হচ্ছে।</p>
+
+<h3>4. ভগ্নাংশ থেকে আবৃত্ত দশমিক</h3>
+<p>কোনো ভগ্নাংশকে দশমিক আকারে প্রকাশ করতে লবকে হর দিয়ে ভাগ করা হয়। ভাগের ফলের কোনো অংশ বারবার এলে আবৃত্ত দশমিক পাওয়া যায়।</p>
+</div>
+
+<div class="card">
+<h2>Examples</h2>
+<div class="example"><b>Example 1:</b> 1/3 কে দশমিকে প্রকাশ করো।<br>1 ÷ 3 = <b>0.333...</b></div>
+<div class="example"><b>Example 2:</b> 2/3 কে দশমিকে প্রকাশ করো।<br>2 ÷ 3 = <b>0.666...</b></div>
+<div class="example"><b>Example 3:</b> 1/11 কে দশমিকে প্রকাশ করো।<br>1 ÷ 11 = <b>0.090909...</b></div>
+<div class="example"><b>Example 4:</b> 0.555... কি আবৃত্ত দশমিক?<br>হ্যাঁ। এখানে <b>5</b> অঙ্কটি বারবার পুনরাবৃত্ত হচ্ছে।</div>
+<div class="example"><b>Example 5:</b> 0.272727...-এ কোন অঙ্কগুলি পুনরাবৃত্ত হচ্ছে?<br><b>27</b> ধারাটি বারবার পুনরাবৃত্ত হচ্ছে।</div>
+</div>
+
+<div class="card">
+<h2>Practice</h2>
+<ol class="practice">
+<li>1/3-কে দশমিক আকারে লেখো।</li>
+<li>2/3-কে দশমিক আকারে লেখো।</li>
+<li>1/11-কে দশমিক আকারে লেখো।</li>
+<li>0.444... কি আবৃত্ত দশমিক সংখ্যা? কারণ লেখো।</li>
+<li>0.121212...-এ পুনরাবৃত্ত অংশটি কী?</li>
+<li>0.666...-এ কোন অঙ্কটি বারবার এসেছে?</li>
+</ol>
+<p class="note">নিজে খাতায় সমাধান করে তারপর উত্তর যাচাই করো।</p>
+</div>
 
 <div class="card">
 <h2>MCQ Test</h2>
-<p>প্রতিটি প্রশ্নে সঠিক উত্তরটি নির্বাচন করে <b>Submit Test</b> চাপো।</p>
-<div id="quiz">
-<div class="mcq"><p><b>1. 25% = ?</b></p><label class="option"><input type="radio" name="q1" value="A"> <span><b>A)</b> 1/4</span></label><label class="option"><input type="radio" name="q1" value="B"> <span><b>B)</b> 1/2</span></label><label class="option"><input type="radio" name="q1" value="C"> <span><b>C)</b> 1/5</span></label><label class="option"><input type="radio" name="q1" value="D"> <span><b>D)</b> 3/4</span></label></div><div class="mcq"><p><b>2. 200-এর 15% = ?</b></p><label class="option"><input type="radio" name="q2" value="A"> <span><b>A)</b> 30</span></label><label class="option"><input type="radio" name="q2" value="B"> <span><b>B)</b> 20</span></label><label class="option"><input type="radio" name="q2" value="C"> <span><b>C)</b> 25</span></label><label class="option"><input type="radio" name="q2" value="D"> <span><b>D)</b> 35</span></label></div><div class="mcq"><p><b>3. 80-এর 25% = ?</b></p><label class="option"><input type="radio" name="q3" value="A"> <span><b>A)</b> 20</span></label><label class="option"><input type="radio" name="q3" value="B"> <span><b>B)</b> 15</span></label><label class="option"><input type="radio" name="q3" value="C"> <span><b>C)</b> 25</span></label><label class="option"><input type="radio" name="q3" value="D"> <span><b>D)</b> 30</span></label></div>
+
+<div class="question">
+<b>1. নিচের কোনটি আবৃত্ত দশমিক সংখ্যা?</b>
+<label><input type="radio" name="q1" value="a"> A) 0.25</label>
+<label><input type="radio" name="q1" value="b"> B) 0.333...</label>
+<label><input type="radio" name="q1" value="c"> C) 1.25</label>
+<label><input type="radio" name="q1" value="d"> D) 2.5</label>
 </div>
-<button class="submit" onclick="checkQuiz()">Submit Test</button>
-<button class="reset" onclick="resetQuiz()">Try Again</button>
-<div id="result" class="result"></div>
+
+<div class="question">
+<b>2. 1/3-এর দশমিক রূপ কোনটি?</b>
+<label><input type="radio" name="q2" value="a"> A) 0.3</label>
+<label><input type="radio" name="q2" value="b"> B) 0.33</label>
+<label><input type="radio" name="q2" value="c"> C) 0.333...</label>
+<label><input type="radio" name="q2" value="d"> D) 3.33</label>
 </div>
+
+<div class="question">
+<b>3. 0.272727...-এ কোন ধারাটি পুনরাবৃত্ত হচ্ছে?</b>
+<label><input type="radio" name="q3" value="a"> A) 2</label>
+<label><input type="radio" name="q3" value="b"> B) 7</label>
+<label><input type="radio" name="q3" value="c"> C) 27</label>
+<label><input type="radio" name="q3" value="d"> D) 72</label>
+</div>
+
+<div class="question">
+<b>4. 2/3-এর দশমিক রূপ কোনটি?</b>
+<label><input type="radio" name="q4" value="a"> A) 0.222...</label>
+<label><input type="radio" name="q4" value="b"> B) 0.333...</label>
+<label><input type="radio" name="q4" value="c"> C) 0.666...</label>
+<label><input type="radio" name="q4" value="d"> D) 0.666</label>
+</div>
+
+<button onclick="submitTest()">Submit Test</button>
+<button onclick="tryAgain()">Try Again</button>
+<div id="result"></div>
+</div>
+
+<div class="nav">
+<a href="maths-ch8.html">← Previous</a>
+<a href="maths.html">⌂ Maths Home</a>
+<a href="maths-ch10.html">Next →</a>
+</div>
+
+</div>
+
 <script>
-function checkQuiz(){
-  const answers = ['A', 'A', 'A'];
-  let score = 0, answered = 0;
-  answers.forEach((ans, idx) => {
-    const chosen = document.querySelector('input[name="q'+(idx+1)+'"]:checked');
-    if(chosen){
+function submitTest(){
+  const answers={q1:"b",q2:"c",q3:"c",q4:"c"};
+  let score=0,answered=0;
+  for(const q in answers){
+    const selected=document.querySelector('input[name="'+q+'"]:checked');
+    if(selected){
       answered++;
-      if(chosen.value === ans) score++;
+      if(selected.value===answers[q]) score++;
     }
-  });
-  const result = document.getElementById('result');
-  result.textContent = 'Score: ' + score + ' / ' + answers.length + ' | Answered: ' + answered + ' / ' + answers.length;
-  result.classList.add('show');
+  }
+  document.getElementById("result").textContent="Score: "+score+"/4 | Answered: "+answered+"/4";
 }
-function resetQuiz(){
-  document.querySelectorAll('input[type="radio"]').forEach(x => x.checked = false);
-  const result = document.getElementById('result');
-  result.textContent = '';
-  result.classList.remove('show');
+function tryAgain(){
+  document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);
+  document.getElementById("result").textContent="";
 }
 </script>
-<div class="nav"><a href="maths-ch8.html">← Previous</a><a href="index.html">Class 6 Home</a><a href="maths-ch10.html">Next →</a></div></div></body></html>
+</body>
+</html>
