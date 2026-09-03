@@ -1,16 +1,19 @@
-LADIES HOSTEL FINDER — ASIM TECH
+LADIES HOSTEL FINDER — VERSION 2
 
-Contents:
+Upload these two files together inside:
+asim-tech/hostel/
+
 - index.html
-- images/ladies-hostel-finder-logo.svg
+- ladies-hostel-finder-logo.png
 
-GitHub deployment:
-Create/use:
-asim-tech/hostel/index.html
-asim-tech/hostel/images/ladies-hostel-finder-logo.svg
+V2 features:
+- Search + room/budget/availability filters
+- Facility filters
+- Favourite/Save hostel (stored on the user's device)
+- Hostel details with room information
+- Last checked/verification label
+- Call, WhatsApp and Google Maps
+- Mobile responsive premium UI
 
-Then open:
-https://asim75772.github.io/asim-tech/hostel/
-
-The app includes public listing data, search, filters, details, phone, WhatsApp and Google Maps links.
-Availability and rent are marked as Verify when not publicly confirmed. Verify details directly before booking.
+Important:
+Availability/rent are marked Verify unless publicly confirmed. The app does not claim live room availability without verification.

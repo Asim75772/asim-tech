@@ -26,6 +26,21 @@ input,select{border:1px solid #e1e2e8;border-radius:11px;padding:13px;font-size:
 footer{padding:35px 18px;text-align:center;color:#777;font-size:12px}
 @media(max-width:950px){.grid{grid-template-columns:repeat(2,1fr)}.heroGrid{grid-template-columns:1fr}.search{grid-template-columns:1fr 1fr}.search .btn{grid-column:1/-1}.detailgrid{grid-template-columns:1fr}}
 @media(max-width:600px){nav{display:none}.hero h1{font-size:31px}.grid{grid-template-columns:1fr}.search,.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}.heroArt{height:180px}.section{padding:22px 12px}}
+
+/* Version 2 enhancements */
+.facilitybar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.fchip{background:#fff;border:1px solid #e5e1ea;border-radius:20px;padding:7px 11px;font-size:11px;cursor:pointer}
+.fchip.active{background:#ec1970;color:#fff;border-color:#ec1970}
+.roombox{margin-top:10px;border-top:1px solid #eee;padding-top:9px;font-size:11px}
+.roomrow{display:flex;justify-content:space-between;padding:5px 7px;background:#faf9fc;border-radius:7px;margin-top:4px}
+.verified-date{font-size:10px;color:#7b7284;margin-top:6px}
+.fav{position:absolute;top:10px;right:10px;border:0;width:34px;height:34px;border-radius:50%;background:#fff;cursor:pointer;font-size:18px;box-shadow:0 3px 10px #0002}
+.fav.on{color:#ec1970}
+.card .photo img{width:100%;height:100%;object-fit:cover}
+.toolbar{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-bottom:12px}
+.toolbar button{border:1px solid #ddd;background:#fff;border-radius:10px;padding:8px 11px;font-size:11px;cursor:pointer}
+.smallnote{font-size:11px;color:#777;margin-top:8px}
+
 </style>
 </head>
 <body>
@@ -34,13 +49,24 @@ footer{padding:35px 18px;text-align:center;color:#777;font-size:12px}
 <section class="hero"><div class="wrap">
 <div class="heroGrid"><div><h1>Find Safe & Comfortable <span>Ladies Hostels</span> Near You</h1><p>Search, compare and contact ladies hostels, girls' hostels, PGs and messes in one place.</p></div><div class="heroArt"></div></div>
 <div class="search"><input id="loc" placeholder="📍 Enter city or area"><select id="room"><option value="">Any Room Type</option><option>Single</option><option>Double</option><option>Triple</option><option>PG</option></select><select id="budget"><option value="">Any Budget</option><option value="5000">Under ₹5,000</option><option value="7500">Under ₹7,500</option><option value="10000">Under ₹10,000</option></select><select id="avail"><option value="">All Listings</option><option value="yes">Available Only</option></select><button class="btn" onclick="searchHostels()">🔍 Search Hostels</button></div>
+<div class="facilitybar">
+<button class="fchip" data-f="Wi-Fi" onclick="toggleFacility(this)">📶 Wi-Fi</button>
+<button class="fchip" data-f="Food" onclick="toggleFacility(this)">🍛 Food</button>
+<button class="fchip" data-f="CCTV" onclick="toggleFacility(this)">📹 CCTV</button>
+<button class="fchip" data-f="Security" onclick="toggleFacility(this)">🔒 Security</button>
+<button class="fchip" data-f="Parking" onclick="toggleFacility(this)">🅿️ Parking</button>
+<button class="fchip" data-f="AC" onclick="toggleFacility(this)">❄️ AC</button>
+<button class="fchip" data-f="Favourite" onclick="showFavourites()">❤️ Favourites</button>
+</div>
 </div></section>
 
 <section class="section"><div class="wrap"><h2>📍 Popular Locations</h2><div class="chips">
 <button class="chip" onclick="quick('Bankura')">Bankura</button><button class="chip" onclick="quick('Bishnupur')">Bishnupur</button><button class="chip" onclick="quick('Durgapur')">Durgapur</button><button class="chip" onclick="quick('Purulia')">Purulia</button><button class="chip" onclick="quick('Kolkata')">Kolkata</button>
 </div></div></section>
 
-<section class="section" id="hostels"><div class="wrap"><div class="toprow"><h2>🏠 Popular Hostels</h2><span id="count" class="muted"></span></div><div id="grid" class="grid"></div></div></section>
+<section class="section" id="hostels"><div class="wrap"><div class="toprow"><h2>🏠 Popular Hostels</h2><span id="count" class="muted"></span></div>
+<div class="toolbar"><button onclick="clearFilters()">↺ Clear Filters</button><button onclick="showFavourites()">❤️ Saved</button></div>
+<div id="grid" class="grid"></div></div></section>
 <section class="section" style="padding-top:0"><div class="wrap"><div id="googleSearchBox"></div></div></section>
 <section class="section"><div class="wrap"><div class="notice">ℹ️ <b>Verification:</b> Online listings can change. Room availability, rent and contact details should be verified directly with the hostel before booking. “Verify” means current availability was not publicly confirmed.</div></div></section>
 <footer>© 2026 Ladies Hostel Finder • Powered by Asim Tech</footer>
@@ -71,25 +97,63 @@ let hostels=[
 {id:18,name:"Maa Sarada Chatrinibas — Nikhil Banga Sikshan Mahavidyalaya",loc:"Bishnupur, Bankura",price:0,room:"B.Ed Girls Hostel",phone:"+913244256936",available:null,amen:"Girls student hostel • Institute managed",addr:"Tilbari, Bishnupur, Bankura 722122, West Bengal",rating:"Official"}
 ];
 
+
+const extraInfo={
+1:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Security"],verified:"03 Sep 2026"},
+2:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+3:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+4:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+5:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+6:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+7:{rooms:[["Single","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+8:{rooms:[["Single","Contact"]],fac:["Food"],verified:"03 Sep 2026"},
+9:{rooms:[["Single","Contact"]],fac:["Security"],verified:"03 Sep 2026"},
+10:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Security"],verified:"03 Sep 2026"},
+11:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+12:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"03 Sep 2026"},
+13:{rooms:[["Single","Contact"]],fac:["Food"],verified:"03 Sep 2026"},
+14:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Security"],verified:"03 Sep 2026"},
+15:{rooms:[["College Hostel","Official source"]],fac:["Wi-Fi","Food","Security","Parking"],verified:"03 Sep 2026"},
+16:{rooms:[["University Hostel","Official source"]],fac:["Food","Security","Parking"],verified:"03 Sep 2026"},
+17:{rooms:[["College Hostel","Official source"]],fac:["Food","Security","Parking"],verified:"03 Sep 2026"},
+18:{rooms:[["B.Ed Girls Hostel","Official source"]],fac:["Food","Security"],verified:"03 Sep 2026"}
+};
+hostels.forEach(h=>{h.info=extraInfo[h.id]||{rooms:[["Room","Contact"]],fac:[],verified:"03 Sep 2026"}});
+
+let favourites=JSON.parse(localStorage.getItem("ladiesHostelFavs")||"[]");
+let selectedFacilities=[];
+function saveFavs(){localStorage.setItem("ladiesHostelFavs",JSON.stringify(favourites))}
+function isFav(id){return favourites.includes(id)}
+function toggleFav(id){if(isFav(id)) favourites=favourites.filter(x=>x!==id); else favourites.push(id); saveFavs(); render(currentList)}
+function toggleFacility(btn){let f=btn.dataset.f;if(f==="Favourite"){showFavourites();return}btn.classList.toggle("active");selectedFacilities=Array.from(document.querySelectorAll(".fchip.active")).map(x=>x.dataset.f);searchHostels()}
+function clearFilters(){loc.value="";room.value="";budget.value="";avail.value="";selectedFacilities=[];document.querySelectorAll(".fchip").forEach(x=>x.classList.remove("active"));render(hostels)}
+function showFavourites(){render(hostels.filter(h=>isFav(h.id)));location.hash="hostels"}
+
+let currentList=hostels;
 function status(h){return h.available===true?'<span class="status y">✓ Available</span>':h.available===false?'<span class="status n">Full</span>':'<span class="status">☎ Verify</span>'}
-function card(h){return `<article class="card"><div class="photo"><span>🏠</span><div class="verified">✓ PUBLIC LISTING</div></div><div class="cbody"><div class="toprow"><div class="title">${h.name}</div>${status(h)}</div><div class="loc">📍 ${h.loc}</div><div class="price">${h.price?'₹'+Number(h.price).toLocaleString()+' / month':'Rent: Contact hostel'}</div><div class="facts">🛏️ ${h.room}<br>⭐ ${h.rating} &nbsp; • &nbsp; ${h.amen}</div><div class="actions"><button class="btn outline" onclick="showDetail(${h.id})">View Details</button>${h.phone?`<button class="btn" onclick="callHostel('${h.phone}')">📞 Call</button>`:''}</div></div></article>`}
-function render(list=hostels){grid.innerHTML=list.map(card).join('');count.textContent=list.length+' listings'}
+function card(h){
+let info=h.info||{rooms:[],fac:[],verified:"Not verified"};
+let rooms=info.rooms.map(r=>`<div class="roomrow"><span>🛏️ ${r[0]}</span><b>${r[1]}</b></div>`).join('');
+return `<article class="card"><div class="photo"><span>🏠</span><div class="verified">✓ PUBLIC LISTING</div><button class="fav ${isFav(h.id)?'on':''}" onclick="toggleFav(${h.id})">${isFav(h.id)?'♥':'♡'}</button></div>
+<div class="cbody"><div class="toprow"><div class="title">${h.name}</div>${status(h)}</div>
+<div class="loc">📍 ${h.loc}</div><div class="price">${h.price?'₹'+Number(h.price).toLocaleString()+' / month':'Rent: Contact hostel'}</div>
+<div class="facts">⭐ ${h.rating} &nbsp; • &nbsp; ${h.amen}</div>
+<div class="roombox">${rooms}<div class="verified-date">✓ Last verified/listing checked: ${info.verified}</div></div>
+<div class="actions"><button class="btn outline" onclick="showDetail(${h.id})">View Details</button>${h.phone?`<button class="btn" onclick="callHostel('${h.phone}')">📞 Call</button>`:''}</div></div></article>`}
+function render(list=hostels){currentList=list;grid.innerHTML=list.map(card).join('');count.textContent=list.length+' listings'}
 function searchHostels(){
 let raw=loc.value.trim(),l=raw.toLowerCase(),r=room.value.toLowerCase(),b=Number(budget.value||999999),a=avail.value;
 let x=hostels.filter(h=>(!l||h.loc.toLowerCase().includes(l)||h.name.toLowerCase().includes(l))&&(!r||h.room.toLowerCase().includes(r))&&(!h.price||h.price<=b)&&(!a||h.available===true));
+if(selectedFacilities.length)x=x.filter(h=>selectedFacilities.every(f=>(h.info?.fac||[]).includes(f)));
 render(x);location.hash='hostels';
-if(raw){
-  let q=encodeURIComponent(raw+' ladies hostel girls hostel PG');
-  document.getElementById('googleSearchBox').innerHTML=
-  `<div class="notice" style="margin-top:14px"><b>🌐 Google Maps Search</b><br>
-  Search nearby hostels directly on Google Maps for <b>${raw}</b>.
-  <button class="btn" style="margin-top:9px" onclick="openGoogle('${q}')">📍 Search on Google Maps</button></div>`;
-}}
+if(raw){let q=encodeURIComponent(raw+' ladies hostel girls hostel PG');document.getElementById('googleSearchBox').innerHTML=`<div class="notice" style="margin-top:14px"><b>🌐 Google Maps Search</b><br>Search nearby hostels directly on Google Maps for <b>${raw}</b>.<button class="btn" style="margin-top:9px" onclick="openGoogle('${q}')">📍 Search on Google Maps</button></div>`}
+}
 function openGoogle(q){window.open('https://www.google.com/maps/search/?api=1&query='+q,'_blank')}
 
 function quick(x){loc.value=x;searchHostels()}
 function callHostel(p){location.href='tel:'+p.replace(/[^+0-9]/g,'')}
-function showDetail(id){let h=hostels.find(x=>x.id===id);detailContent.innerHTML=`<div class="detailphoto">🏠</div><div class="detailgrid"><div class="panel">${status(h)}<h2>${h.name}</h2><p class="muted">📍 ${h.addr}</p><h2 class="price">${h.price?'₹'+Number(h.price).toLocaleString()+' / Month':'Rent: Contact Hostel'}</h2><p>🛏️ ${h.room}</p><h3>Facilities</h3><div class="kv"><div>🔒 Security</div><div>📹 CCTV</div><div>📶 Wi-Fi</div><div>🍛 Food</div></div><h3 style="margin-top:18px">Verification</h3><p class="muted">Availability and pricing are not publicly confirmed in this listing. Please contact the hostel before booking.</p></div><div class="panel"><h3>Contact</h3><p><b>${h.phone||'Phone number not publicly listed'}</b></p>${h.phone?`<button class="btn" style="width:100%" onclick="callHostel('${h.phone}')">📞 Call Now</button><a class="btn" style="display:block;text-align:center;text-decoration:none;margin-top:8px" target="_blank" href="https://wa.me/${h.phone.replace(/[^0-9]/g,'')}">💬 WhatsApp</a>`:''}<h3 style="margin-top:22px">📍 Map</h3><a class="btn outline" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.addr)}">View on Google Maps</a></div></div>`;detail.style.display='block'}
+function showDetail(id){let h=hostels.find(x=>x.id===id);detailContent.innerHTML=`<div class="detailphoto">🏠</div><div class="detailgrid"><div class="panel">${status(h)}<h2>${h.name}</h2><p class="muted">📍 ${h.addr}</p><h2 class="price">${h.price?'₹'+Number(h.price).toLocaleString()+' / Month':'Rent: Contact Hostel'}</h2><p>🛏️ ${h.room}</p><h3>Rooms & Facilities</h3><div class="roombox">${(h.info?.rooms||[]).map(r=>`<div class="roomrow"><span>🛏️ ${r[0]}</span><b>${r[1]}</b></div>`).join('')}</div>
+<div class="kv">${(h.info?.fac||[]).map(f=>`<div>✓ ${f}</div>`).join('')||'<div>Contact hostel to verify facilities</div>'}</div><h3 style="margin-top:18px">Verification</h3><p class="muted">Availability and pricing are not publicly confirmed in this listing. Please contact the hostel before booking.<br><br>✓ Last checked: ${h.info?.verified||"Not verified"}</p></div><div class="panel"><h3>Contact</h3><p><b>${h.phone||'Phone number not publicly listed'}</b></p>${h.phone?`<button class="btn" style="width:100%" onclick="callHostel('${h.phone}')">📞 Call Now</button><a class="btn" style="display:block;text-align:center;text-decoration:none;margin-top:8px" target="_blank" href="https://wa.me/${h.phone.replace(/[^0-9]/g,'')}">💬 WhatsApp</a>`:''}<h3 style="margin-top:22px">📍 Map</h3><a class="btn outline" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.addr)}">View on Google Maps</a></div></div>`;detail.style.display='block'}
 function closeDetail(){detail.style.display='none'}function openAdd(){modal.style.display='block'}function closeAdd(){modal.style.display='none'}
 function addHostel(){let h={id:Date.now(),name:aname.value,loc:aloc.value,price:Number(aprice.value)||0,room:'Hostel / PG',phone:aphone.value,available:null,amen:aamen.value||'Facilities to be verified',addr:aaddr.value||aloc.value,rating:'New'};if(!h.name||!h.loc||!h.phone){alert('Name, location and contact number দিন।');return}hostels.unshift(h);render();closeAdd();alert('Listing added on this device.')}
 render();
