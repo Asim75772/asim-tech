@@ -27,7 +27,12 @@ button{background:#4f46e5;color:white;border:0;padding:11px 18px;border-radius:9
 .nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0}
 .nav a{background:#111827;color:white;text-decoration:none;padding:9px 14px;border-radius:8px}
 footer{text-align:center;padding:25px;color:#6b7280;font-size:13px}
-</style>
+<style>
+.mcq{margin:12px 0;padding:12px;background:#f8faff;border-radius:10px}
+.option{display:block;margin:7px 0;padding:9px;border:1px solid #ddd;border-radius:8px;cursor:pointer}
+.option:hover{background:#f3f4f6}
+.result{font-weight:bold;margin-top:12px}
+</style></style>
 </head>
 <body>
 
@@ -182,5 +187,66 @@ function checkQuiz(){
 }
 </script>
 
-</body>
+<div class="card"><h2>🎯 MCQ Quiz – 10 Questions</h2>
+<div class="mcq"><p><b>1. The main character of this lesson is:</b></p>
+<label class="option"><input type="radio" name="quiz2_1" value="A"> A. Tuffy</label>
+<label class="option"><input type="radio" name="quiz2_1" value="B"> B. Rip Van Winkle</label>
+<label class="option"><input type="radio" name="quiz2_1" value="C"> C. The Blind Boy</label>
+</div>
+<div class="mcq"><p><b>2. Tuffy is a:</b></p>
+<label class="option"><input type="radio" name="quiz2_2" value="A"> A. toy clown</label>
+<label class="option"><input type="radio" name="quiz2_2" value="B"> B. farmer</label>
+<label class="option"><input type="radio" name="quiz2_2" value="C"> C. sailor</label>
+</div>
+<div class="mcq"><p><b>3. A good reader should focus on:</b></p>
+<label class="option"><input type="radio" name="quiz2_3" value="A"> A. main ideas and events</label>
+<label class="option"><input type="radio" name="quiz2_3" value="B"> B. page colour</label>
+<label class="option"><input type="radio" name="quiz2_3" value="C"> C. font size</label>
+</div>
+<div class="mcq"><p><b>4. Vocabulary practice helps students:</b></p>
+<label class="option"><input type="radio" name="quiz2_4" value="A"> A. understand words</label>
+<label class="option"><input type="radio" name="quiz2_4" value="B"> B. avoid reading</label>
+<label class="option"><input type="radio" name="quiz2_4" value="C"> C. skip questions</label>
+</div>
+<div class="mcq"><p><b>5. A good exam answer should be:</b></p>
+<label class="option"><input type="radio" name="quiz2_5" value="A"> A. clear and relevant</label>
+<label class="option"><input type="radio" name="quiz2_5" value="B"> B. random</label>
+<label class="option"><input type="radio" name="quiz2_5" value="C"> C. unrelated</label>
+</div>
+<div class="mcq"><p><b>6. Writing practice mainly develops:</b></p>
+<label class="option"><input type="radio" name="quiz2_6" value="A"> A. language expression</label>
+<label class="option"><input type="radio" name="quiz2_6" value="B"> B. internet speed</label>
+<label class="option"><input type="radio" name="quiz2_6" value="C"> C. weather knowledge</label>
+</div>
+<div class="mcq"><p><b>7. For revision, students should remember:</b></p>
+<label class="option"><input type="radio" name="quiz2_7" value="A"> A. important ideas and message</label>
+<label class="option"><input type="radio" name="quiz2_7" value="B"> B. only the cover</label>
+<label class="option"><input type="radio" name="quiz2_7" value="C"> C. only page number</label>
+</div>
+<div class="mcq"><p><b>8. The best way to learn a lesson is to:</b></p>
+<label class="option"><input type="radio" name="quiz2_8" value="A"> A. understand and practise</label>
+<label class="option"><input type="radio" name="quiz2_8" value="B"> B. guess answers</label>
+<label class="option"><input type="radio" name="quiz2_8" value="C"> C. skip the lesson</label>
+</div>
+<div class="mcq"><p><b>9. Comprehension questions should be answered in:</b></p>
+<label class="option"><input type="radio" name="quiz2_9" value="A"> A. complete sentences</label>
+<label class="option"><input type="radio" name="quiz2_9" value="B"> B. random words</label>
+<label class="option"><input type="radio" name="quiz2_9" value="C"> C. only emojis</label>
+</div>
+<div class="mcq"><p><b>10. The lesson is part of:</b></p>
+<label class="option"><input type="radio" name="quiz2_10" value="A"> A. Class 6 English</label>
+<label class="option"><input type="radio" name="quiz2_10" value="B"> B. Class 6 Maths</label>
+<label class="option"><input type="radio" name="quiz2_10" value="C"> C. Class 6 Science</label>
+</div>
+<button onclick="checkQuiz2()">Check Score</button><div id="result2" class="result"></div></div><script>
+function checkQuiz2(){
+const answers=['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'];
+let score=0;
+for(let i=1;i<=10;i++){
+const s=document.querySelector('input[name="quiz2_'+i+'"]:checked');
+if(s&&s.value===answers[i-1])score++;
+}
+document.getElementById("result2").textContent="Your Score: "+score+" / 10";
+}
+</script></body>
 </html>
