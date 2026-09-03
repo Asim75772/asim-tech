@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ec1970"/><stop offset="1" stop-color="#5525a8"/></linearGradient></defs>
+<rect width="800" height="800" rx="150" fill="#fff"/>
+<circle cx="400" cy="280" r="205" fill="none" stroke="url(#g)" stroke-width="28"/>
+<path d="M205 310L400 125l195 185M255 285v185h290V285" fill="none" stroke="#5525a8" stroke-width="35" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M340 470V350h120v120" fill="#ec1970"/>
+<circle cx="400" cy="270" r="70" fill="#ec1970"/>
+<path d="M325 270c10-65 125-75 150 15-25 50-85 75-140 40-20-15-25-35-10-55Z" fill="#5525a8"/>
+<circle cx="465" cy="350" r="42" fill="#ec1970" stroke="#fff" stroke-width="12"/><circle cx="465" cy="350" r="11" fill="#fff"/>
+<text x="400" y="575" text-anchor="middle" font-family="Arial" font-size="66" font-weight="800" fill="#5525a8">LADIES</text>
+<text x="400" y="645" text-anchor="middle" font-family="Arial" font-size="55" font-weight="800" fill="#ec1970">HOSTEL FINDER</text>
+<text x="400" y="705" text-anchor="middle" font-family="Arial" font-size="28" font-weight="600" fill="#333">Safe • Secure • Affordable</text>
+</svg>
