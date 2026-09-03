@@ -5,7 +5,50 @@ body{margin:0;background:#061321;color:#eef6ff;font-family:Arial,"Noto Sans Beng
 h1{color:#67c5ff}h2{color:#ffd35a}.card{background:#102d49;border:1px solid #214766;border-radius:16px;padding:18px;margin:14px 0}
 .mcq{background:#0a1d31;border-radius:12px;padding:14px;margin:10px 0}.ans{color:#7ee2a8;font-weight:700}
 a{color:#70c9ff;text-decoration:none}.nav{display:flex;justify-content:space-between;gap:10px}
+
+<style>
+.option{display:block;background:#102d49;border:1px solid #28526f;border-radius:10px;padding:11px;margin:8px 0;cursor:pointer}
+.option:hover{border-color:#67c5ff}
+.option input{margin-right:8px;accent-color:#67c5ff}
+.submit,.reset{border:0;border-radius:10px;padding:11px 16px;margin:8px 6px 8px 0;cursor:pointer;font-weight:700}
+.submit{background:#67c5ff;color:#061321}.reset{background:#214766;color:#eef6ff}
+.result{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#0a1d31;color:#7ee2a8;font-weight:700}
+.result.show{display:block}
+</style>
 </style></head><body><div class="wrap"><div class="brand">ASIM TECH • StudentHub • Class 6</div>
 <h1>14. সরলরেখা, রেখাংশ, রশ্মি ও বিন্দু বিষয়ক বিস্তৃত ধারণা</h1><div class="card"><h2>Notes</h2><p>সরলরেখা, রেখাংশ, রশ্মি ও বিন্দুর পার্থক্য এবং চিত্রে তাদের চেনা।</p><ul><li>সরলরেখা দুই দিকেই অসীম প্রসারিত।</li><li>রেখাংশের নির্দিষ্ট দৈর্ঘ্য আছে এবং দুটি প্রান্তবিন্দু আছে।</li><li>রশ্মির একটি প্রান্তবিন্দু থাকে এবং একদিকে অসীম প্রসারিত।</li></ul></div>
 <div class="card"><h2>Examples</h2><p><b>Example 1:</b> AB রেখাংশে A ও B দুটি প্রান্তবিন্দু।</p><p><b>Example 2:</b> OA রশ্মিতে O প্রান্তবিন্দু।</p><p><b>Example 3:</b> একটি সরলরেখার কোনো নির্দিষ্ট প্রান্তবিন্দু নেই।</p></div><div class="card"><h2>Practice</h2><ol><li>দুটি প্রান্তবিন্দু আছে এমন জ্যামিতিক বস্তু কোনটি?</li><li>রশ্মির প্রান্তবিন্দু কতটি?</li><li>সরলরেখা কয়দিকে প্রসারিত?</li></ol></div>
-<div class="card"><h2>MCQ Test</h2><div class="mcq"><p><b>1. দুটি প্রান্তবিন্দু কোনটির?</b></p><p>A) রেখাংশ<br>B) রশ্মি<br>C) সরলরেখা<br>D) বিন্দু</p><p class="ans">Answer: A)</p></div><div class="mcq"><p><b>2. রশ্মির প্রান্তবিন্দু কয়টি?</b></p><p>A) 1<br>B) 2<br>C) 0<br>D) 3</p><p class="ans">Answer: A)</p></div><div class="mcq"><p><b>3. সরলরেখা কয়দিকে প্রসারিত?</b></p><p>A) 2 দিকে<br>B) 1 দিকে<br>C) কোনো দিকে নয়<br>D) 3 দিকে</p><p class="ans">Answer: A)</p></div></div><div class="nav"><a href="maths-ch13.html">← Previous</a><a href="index.html">Class 6 Home</a><a href="maths-ch15.html">Next →</a></div></div></body></html>
+
+<div class="card">
+<h2>MCQ Test</h2>
+<p>প্রতিটি প্রশ্নে সঠিক উত্তরটি নির্বাচন করে <b>Submit Test</b> চাপো।</p>
+<div id="quiz">
+<div class="mcq"><p><b>1. দুটি প্রান্তবিন্দু কোনটির?</b></p><label class="option"><input type="radio" name="q1" value="A"> <span><b>A)</b> রেখাংশ</span></label><label class="option"><input type="radio" name="q1" value="B"> <span><b>B)</b> রশ্মি</span></label><label class="option"><input type="radio" name="q1" value="C"> <span><b>C)</b> সরলরেখা</span></label><label class="option"><input type="radio" name="q1" value="D"> <span><b>D)</b> বিন্দু</span></label></div><div class="mcq"><p><b>2. রশ্মির প্রান্তবিন্দু কয়টি?</b></p><label class="option"><input type="radio" name="q2" value="A"> <span><b>A)</b> 1</span></label><label class="option"><input type="radio" name="q2" value="B"> <span><b>B)</b> 2</span></label><label class="option"><input type="radio" name="q2" value="C"> <span><b>C)</b> 0</span></label><label class="option"><input type="radio" name="q2" value="D"> <span><b>D)</b> 3</span></label></div><div class="mcq"><p><b>3. সরলরেখা কয়দিকে প্রসারিত?</b></p><label class="option"><input type="radio" name="q3" value="A"> <span><b>A)</b> 2 দিকে</span></label><label class="option"><input type="radio" name="q3" value="B"> <span><b>B)</b> 1 দিকে</span></label><label class="option"><input type="radio" name="q3" value="C"> <span><b>C)</b> কোনো দিকে নয়</span></label><label class="option"><input type="radio" name="q3" value="D"> <span><b>D)</b> 3 দিকে</span></label></div>
+</div>
+<button class="submit" onclick="checkQuiz()">Submit Test</button>
+<button class="reset" onclick="resetQuiz()">Try Again</button>
+<div id="result" class="result"></div>
+</div>
+<script>
+function checkQuiz(){
+  const answers = ['A', 'A', 'A'];
+  let score = 0, answered = 0;
+  answers.forEach((ans, idx) => {
+    const chosen = document.querySelector('input[name="q'+(idx+1)+'"]:checked');
+    if(chosen){
+      answered++;
+      if(chosen.value === ans) score++;
+    }
+  });
+  const result = document.getElementById('result');
+  result.textContent = 'Score: ' + score + ' / ' + answers.length + ' | Answered: ' + answered + ' / ' + answers.length;
+  result.classList.add('show');
+}
+function resetQuiz(){
+  document.querySelectorAll('input[type="radio"]').forEach(x => x.checked = false);
+  const result = document.getElementById('result');
+  result.textContent = '';
+  result.classList.remove('show');
+}
+</script>
+<div class="nav"><a href="maths-ch13.html">← Previous</a><a href="index.html">Class 6 Home</a><a href="maths-ch15.html">Next →</a></div></div></body></html>
