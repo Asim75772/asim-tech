@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 - It All Began With Drip-Drip</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f5f7fb;color:#202124;line-height:1.6}
+header{background:linear-gradient(135deg,#0f766e,#2563eb);color:white;padding:28px 16px;text-align:center}
+.container{max-width:900px;margin:18px auto;padding:0 14px}
+.card{background:white;padding:20px;margin:15px 0;border-radius:16px;box-shadow:0 3px 14px rgba(0,0,0,.08)}
+h2{color:#1d4ed8}.word{font-weight:bold;color:#0f766e}
+table{width:100%;border-collapse:collapse}th,td{padding:10px;border:1px solid #ddd;text-align:left}
+.question{background:#eff6ff;padding:12px;border-radius:10px;margin:10px 0}
+button{padding:11px 16px;border:0;border-radius:10px;background:#2563eb;color:white;cursor:pointer}
+.result{font-weight:bold;margin-top:10px}
+.back{display:inline-block;color:white;text-decoration:none;margin-top:10px}
+</style>
+</head>
+<body>
+<header>
+<h1>Lesson 1</h1>
+<h2>It All Began With Drip-Drip</h2>
+<p>WBBSE Class 6 • Blossoms</p>
+<a class="back" href="index.html">← Back to English Home</a>
+</header>
+
+<div class="container">
+<div class="card">
+<h2>📘 Lesson Overview</h2>
+<p>This humorous story centres on Bholenath, a simple potter, and a misunderstanding involving the mysterious sound “drip-drip”. A frightened tiger mistakes the sound for something dangerous, while events later lead Bholenath into an unexpected adventure.</p>
+<p><b>Learning focus:</b> reading comprehension, sequencing events, vocabulary, adjectives, verbs and sentence construction.</p>
+</div>
+
+<div class="card">
+<h2>🔤 Important Words</h2>
+<table>
+<tr><th>Word</th><th>Simple Meaning</th><th>Bengali Meaning</th></tr>
+<tr><td class="word">shelter</td><td>a safe place to stay</td><td>আশ্রয়</td></tr>
+<tr><td class="word">ill-tempered</td><td>easily annoyed or angry</td><td>বদমেজাজি</td></tr>
+<tr><td class="word">creature</td><td>an animal or living being</td><td>জীব / প্রাণী</td></tr>
+<tr><td class="word">potter</td><td>a person who makes things from clay</td><td>কুমোর</td></tr>
+<tr><td class="word">astonished</td><td>very surprised</td><td>বিস্মিত</td></tr>
+<tr><td class="word">fierce</td><td>wild and dangerous</td><td>হিংস্র / ভয়ংকর</td></tr>
+<tr><td class="word">stallion</td><td>an adult male horse</td><td>পুরুষ ঘোড়া</td></tr>
+<tr><td class="word">helplessly</td><td>without knowing what to do</td><td>অসহায়ভাবে</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>💡 Easy Explanation</h2>
+<p>The story uses a funny misunderstanding to create suspense. A tiger hears a repeated sound and imagines that “Drip-Drip” is a frightening creature. Bholenath, unaware of the tiger’s fear, becomes part of a chain of comic events. The story shows how fear and misunderstanding can make an ordinary situation seem extraordinary.</p>
+</div>
+
+<div class="card">
+<h2>❓ Short Questions & Answers</h2>
+<div class="question"><b>1. Who was Bholenath?</b><br>Bholenath was a simple potter.</div>
+<div class="question"><b>2. Why did the tiger take shelter near the old woman’s hut?</b><br>It was seeking a safe place to hide.</div>
+<div class="question"><b>3. What did the tiger think “Drip-Drip” was?</b><br>The tiger misunderstood the sound and thought it was a dangerous creature.</div>
+<div class="question"><b>4. Why is the story humorous?</b><br>It is humorous because the characters misunderstand ordinary events, creating unexpected and funny situations.</div>
+</div>
+
+<div class="card">
+<h2>🧠 Practice MCQ</h2>
+<p>Choose the correct answer.</p>
+<form id="quiz">
+<p>1. Bholenath was a —<br>
+<label><input type="radio" name="q1" value="a"> farmer</label><br>
+<label><input type="radio" name="q1" value="b"> potter</label><br>
+<label><input type="radio" name="q1" value="c"> king</label></p>
+
+<p>2. The tiger misunderstood —<br>
+<label><input type="radio" name="q2" value="a"> a horse</label><br>
+<label><input type="radio" name="q2" value="b"> Drip-Drip</label><br>
+<label><input type="radio" name="q2" value="c"> Bholenath's wife</label></p>
+
+<p>3. “Astonished” means —<br>
+<label><input type="radio" name="q3" value="a"> very surprised</label><br>
+<label><input type="radio" name="q3" value="b"> very tired</label><br>
+<label><input type="radio" name="q3" value="c"> very angry</label></p>
+
+<button type="button" onclick="checkQuiz()">Check Answer</button>
+<div id="result" class="result"></div>
+</form>
+</div>
+
+<div class="card">
+<h2>✍️ Writing Practice</h2>
+<ol>
+<li>Write 5 sentences about a funny incident you have seen or heard.</li>
+<li>Write a paragraph on “A Brave Person”.</li>
+<li>Make sentences with: shelter, creature, astonished, fierce.</li>
+</ol>
+</div>
+</div>
+
+<script>
+function checkQuiz(){
+ let score=0;
+ if(document.querySelector('input[name="q1"]:checked')?.value==="b") score++;
+ if(document.querySelector('input[name="q2"]:checked')?.value==="b") score++;
+ if(document.querySelector('input[name="q3"]:checked')?.value==="a") score++;
+ document.getElementById("result").textContent="Your Score: "+score+"/3";
+}
+</script>
+</body>
+</html>
