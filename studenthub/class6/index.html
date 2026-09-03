@@ -4,36 +4,250 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Class 6 | StudentHub</title>
+
 <style>
-body{margin:0;background:#061321;color:#eef6ff;font-family:Arial,"Noto Sans Bengali",sans-serif}
-.wrap{max-width:900px;margin:auto;padding:22px}
-.brand{color:#59b8ff;font-weight:700}
-h1{color:#67c5ff}
-.card{display:block;background:#102d49;border:1px solid #214766;border-radius:16px;padding:17px;margin:10px 0}
-h2{color:#ffd35a;margin:0 0 6px}
-a{color:#70c9ff;text-decoration:none}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#061321;
+  color:#eef6ff;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  line-height:1.5;
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:22px;
+}
+
+.brand{
+  color:#59b8ff;
+  font-weight:700;
+  font-size:15px;
+  margin-bottom:12px;
+}
+
+h1{
+  color:#67c5ff;
+  font-size:38px;
+  margin:10px 0 5px;
+}
+
+.intro{
+  color:#c5d5e3;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.card{
+  display:block;
+  background:#102d49;
+  border:1px solid #214766;
+  border-radius:16px;
+  padding:19px;
+  margin:12px 0;
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  border-color:#59b8ff;
+  background:#123653;
+}
+
+.card h2{
+  color:#ffd35a;
+  margin:0 0 7px;
+  font-size:20px;
+}
+
+.card p{
+  color:#c5d5e3;
+  margin:5px 0 12px;
+  font-size:13px;
+}
+
+.open{
+  color:#70c9ff;
+  font-weight:700;
+  font-size:12px;
+}
+
+.coming{
+  opacity:.8;
+}
+
+.back{
+  display:inline-block;
+  margin-top:20px;
+  color:#70c9ff;
+  text-decoration:none;
+  padding:10px 14px;
+  border:1px solid #214766;
+  border-radius:10px;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+@media(max-width:600px){
+
+  .wrap{
+    padding:18px;
+  }
+
+  h1{
+    font-size:32px;
+  }
+
+  .card{
+    padding:16px;
+  }
+
+}
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
-<div class="brand">ASIM TECH • StudentHub</div>
-<h1>Class 6</h1>
-<p>Class 6-এর subject-wise learning space।</p>
 
-<a class="card" href="./maths.html">
-<h2>📐 গণিত প্রভা</h2>
-<p>17টি অধ্যায় • Notes • Examples • Practice • MCQ</p>
-OPEN →
-</a>
+  <div class="brand">
+    ASIM TECH • StudentHub
+  </div>
 
-<div class="card"><h2>📚 বাংলা</h2><p>Coming next</p></div>
-<div class="card"><h2>📖 English</h2><p>Coming next</p></div>
-<div class="card"><h2>🔬 পরিবেশ ও বিজ্ঞান</h2><p>Coming next</p></div>
-<div class="card"><h2>🌍 পরিবেশ ও ভূগোল</h2><p>Coming next</p></div>
-<div class="card"><h2>🏛️ ইতিহাস</h2><p>Coming next</p></div>
-<div class="card"><h2>🏃 স্বাস্থ্য ও শারীরশিক্ষা</h2><p>Coming next</p></div>
+  <h1>Class 6</h1>
 
-<p><a href="../index.html">← StudentHub Home</a></p>
+  <p class="intro">
+    Class 6-এর subject-wise learning space। 
+    তোমার পছন্দের subject বেছে নিয়ে পড়াশোনা শুরু করো।
+  </p>
+
+
+  <!-- MATHEMATICS -->
+  <a class="card" href="./maths.html">
+
+    <h2>📐 গণিত</h2>
+
+    <p>
+      17টি অধ্যায় • Notes • Examples • Practice • MCQ
+    </p>
+
+    <span class="open">
+      OPEN MATHEMATICS →
+    </span>
+
+  </a>
+
+
+  <!-- ENGLISH -->
+  <a class="card" href="./english/">
+
+    <h2>📖 English</h2>
+
+    <p>
+      Blossoms • 12 Lessons • Vocabulary • Explanation • Questions • MCQ
+    </p>
+
+    <span class="open">
+      OPEN ENGLISH →
+    </span>
+
+  </a>
+
+
+  <!-- BANGLA -->
+  <div class="card coming">
+
+    <h2>📚 বাংলা</h2>
+
+    <p>
+      Class 6 বাংলা study materials খুব শীঘ্রই আসছে।
+    </p>
+
+    <span class="open">
+      COMING SOON
+    </span>
+
+  </div>
+
+
+  <!-- ENVIRONMENT -->
+  <div class="card coming">
+
+    <h2>🔬 পরিবেশ ও বিজ্ঞান</h2>
+
+    <p>
+      Class 6 Environment study materials খুব শীঘ্রই আসছে।
+    </p>
+
+    <span class="open">
+      COMING SOON
+    </span>
+
+  </div>
+
+
+  <!-- GEOGRAPHY -->
+  <div class="card coming">
+
+    <h2>🌍 পরিবেশ ও ভূগোল</h2>
+
+    <p>
+      Class 6 Geography materials খুব শীঘ্রই আসছে।
+    </p>
+
+    <span class="open">
+      COMING SOON
+    </span>
+
+  </div>
+
+
+  <!-- HISTORY -->
+  <div class="card coming">
+
+    <h2>🏛️ ইতিহাস</h2>
+
+    <p>
+      Class 6 History materials খুব শীঘ্রই আসছে।
+    </p>
+
+    <span class="open">
+      COMING SOON
+    </span>
+
+  </div>
+
+
+  <!-- HEALTH -->
+  <div class="card coming">
+
+    <h2>🏃 স্বাস্থ্য ও শারীরশিক্ষা</h2>
+
+    <p>
+      Class 6 Health & Physical Education materials খুব শীঘ্রই আসছে।
+    </p>
+
+    <span class="open">
+      COMING SOON
+    </span>
+
+  </div>
+
+
+  <!-- HOME -->
+  <a class="back" href="../index.html">
+    ← StudentHub Home
+  </a>
+
 </div>
+
 </body>
 </html>
