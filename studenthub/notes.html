@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>My Notes | ASIM TECH StudentHub</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#14233a;font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.5}
+.top{background:#0b1b33;color:#fff;padding:18px 20px;text-align:center}.top h1{margin:0;font-size:24px}.top p{margin:3px 0 0;color:#bcd0e2;font-size:12px}
+.wrap{width:min(900px,calc(100% - 24px));margin:20px auto}.card{background:#fff;border:1px solid #e2e9f0;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 5px 18px #163c6010}
+h2{margin:0 0 12px;color:#0879b9;font-size:22px}.btn{display:inline-block;background:#087fc5;color:#fff;border:0;border-radius:9px;padding:9px 14px;text-decoration:none;cursor:pointer;margin:4px}.back{color:#087fc5;text-decoration:none;font-size:13px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #d7e0e8;border-radius:9px;margin:6px 0 10px;font-size:14px}textarea{min-height:180px}
+.result{font-size:28px;font-weight:800;text-align:center;padding:18px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.q{padding:13px 0;border-bottom:1px solid #e5ebf0}.q:last-child{border:0}.options label{display:block;margin:6px 0}.status{text-align:center;font-size:18px;font-weight:700}
+</style></head><body><header class="top"><h1>ASIM TECH • StudentHub</h1><p>My Notes</p></header><main class="wrap"><a class="back" href="index.html">← StudentHub Home</a>
+<div class="card"><h2>My Notes</h2><p>আপনার গুরুত্বপূর্ণ পড়ার নোট এখানে লিখে Save করুন। নোট এই browser-এই থাকবে।</p>
+<textarea id="notes" placeholder="এখানে আপনার notes লিখুন..."></textarea>
+<button class="btn" onclick="saveNotes()">Save Notes</button><button class="btn" onclick="clearNotes()">Clear</button>
+<p id="msg" class="status"></p></div>
+<script>
+const n=document.getElementById('notes');n.value=localStorage.getItem('studenthub_notes')||'';
+function saveNotes(){localStorage.setItem('studenthub_notes',n.value);document.getElementById('msg').textContent='Notes saved ✓';}
+function clearNotes(){n.value='';localStorage.removeItem('studenthub_notes');document.getElementById('msg').textContent='Notes cleared';}
+</script>
+</main></body></html>

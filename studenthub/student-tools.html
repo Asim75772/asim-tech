@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Student Tools | ASIM TECH StudentHub</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#14233a;font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.5}
+.top{background:#0b1b33;color:#fff;padding:18px 20px;text-align:center}.top h1{margin:0;font-size:24px}.top p{margin:3px 0 0;color:#bcd0e2;font-size:12px}
+.wrap{width:min(900px,calc(100% - 24px));margin:20px auto}.card{background:#fff;border:1px solid #e2e9f0;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 5px 18px #163c6010}
+h2{margin:0 0 12px;color:#0879b9;font-size:22px}.btn{display:inline-block;background:#087fc5;color:#fff;border:0;border-radius:9px;padding:9px 14px;text-decoration:none;cursor:pointer;margin:4px}.back{color:#087fc5;text-decoration:none;font-size:13px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #d7e0e8;border-radius:9px;margin:6px 0 10px;font-size:14px}textarea{min-height:180px}
+.result{font-size:28px;font-weight:800;text-align:center;padding:18px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.q{padding:13px 0;border-bottom:1px solid #e5ebf0}.q:last-child{border:0}.options label{display:block;margin:6px 0}.status{text-align:center;font-size:18px;font-weight:700}
+</style></head><body><header class="top"><h1>ASIM TECH • StudentHub</h1><p>Student Tools</p></header><main class="wrap"><a class="back" href="index.html">← StudentHub Home</a>
+<div class="grid">
+<div class="card" id="calculator"><h2>🧮 Calculator</h2><input id="calc" placeholder="যেমন 125*4+20"><button class="btn" onclick="calculate()">Calculate</button><div id="cr" class="result"></div></div>
+<div class="card" id="percentage"><h2>% Percentage</h2><input id="part" type="number" placeholder="প্রাপ্ত নম্বর"><input id="total" type="number" placeholder="মোট নম্বর"><button class="btn" onclick="percent()">Calculate</button><div id="pr" class="result"></div></div>
+<div class="card" id="age"><h2>🎂 Age Calculator</h2><input id="dob" type="date"><button class="btn" onclick="age()">Calculate Age</button><div id="ar" class="result"></div></div>
+<div class="card" id="converter"><h2>↔ Converter</h2><input id="km" type="number" placeholder="Kilometres"><button class="btn" onclick="convert()">Convert to metres</button><div id="conv" class="result"></div></div>
+<div class="card" id="stopwatch"><h2>⌚ Stopwatch</h2><div id="sw" class="result">00:00</div><button class="btn" onclick="swStart()">Start</button><button class="btn" onclick="swStop()">Stop</button><button class="btn" onclick="swReset()">Reset</button></div>
+</div>
+<script>
+function calculate(){try{let v=Function('return '+document.getElementById('calc').value)();document.getElementById('cr').textContent=v}catch(e){document.getElementById('cr').textContent='Invalid expression'}}
+function percent(){let p=+part.value,t=+total.value;pr.textContent=t?((p/t)*100).toFixed(2)+'%':'Enter total marks'}
+function age(){if(!dob.value)return;let d=new Date(dob.value),n=new Date();let y=n.getFullYear()-d.getFullYear();let md=n.getMonth()-d.getMonth();if(md<0||(md===0&&n.getDate()<d.getDate()))y--;ar.textContent=y+' years'}
+function convert(){conv.textContent=((+km.value||0)*1000)+' metres'}
+let s=0,st=null;function swShow(){let m=Math.floor(s/60),x=s%60;sw.textContent=String(m).padStart(2,'0')+':'+String(x).padStart(2,'0')}function swStart(){if(st)return;st=setInterval(()=>{s++;swShow()},1000)}function swStop(){clearInterval(st);st=null}function swReset(){swStop();s=0;swShow()}swShow();
+</script>
+</main></body></html>

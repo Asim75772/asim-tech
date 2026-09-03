@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Pomodoro | ASIM TECH StudentHub</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#14233a;font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.5}
+.top{background:#0b1b33;color:#fff;padding:18px 20px;text-align:center}.top h1{margin:0;font-size:24px}.top p{margin:3px 0 0;color:#bcd0e2;font-size:12px}
+.wrap{width:min(900px,calc(100% - 24px));margin:20px auto}.card{background:#fff;border:1px solid #e2e9f0;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 5px 18px #163c6010}
+h2{margin:0 0 12px;color:#0879b9;font-size:22px}.btn{display:inline-block;background:#087fc5;color:#fff;border:0;border-radius:9px;padding:9px 14px;text-decoration:none;cursor:pointer;margin:4px}.back{color:#087fc5;text-decoration:none;font-size:13px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #d7e0e8;border-radius:9px;margin:6px 0 10px;font-size:14px}textarea{min-height:180px}
+.result{font-size:28px;font-weight:800;text-align:center;padding:18px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.q{padding:13px 0;border-bottom:1px solid #e5ebf0}.q:last-child{border:0}.options label{display:block;margin:6px 0}.status{text-align:center;font-size:18px;font-weight:700}
+</style></head><body><header class="top"><h1>ASIM TECH • StudentHub</h1><p>Pomodoro</p></header><main class="wrap"><a class="back" href="index.html">← StudentHub Home</a>
+<div class="card" style="text-align:center"><h2>Pomodoro Timer</h2><div id="time" style="font-size:56px;font-weight:900;margin:20px">25:00</div>
+<button class="btn" onclick="start()">Start</button><button class="btn" onclick="pause()">Pause</button><button class="btn" onclick="resetT()">Reset</button>
+<p id="msg">25 মিনিট focus session</p></div>
+<script>
+let sec=1500,timer=null;
+function show(){let m=Math.floor(sec/60),s=sec%60;document.getElementById('time').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+function start(){if(timer)return;timer=setInterval(()=>{if(sec>0){sec--;show()}else{clearInterval(timer);timer=null;document.getElementById('msg').textContent='Session complete ✓'}},1000)}
+function pause(){clearInterval(timer);timer=null}
+function resetT(){pause();sec=1500;document.getElementById('msg').textContent='25 মিনিট focus session';show()}show();
+</script>
+</main></body></html>
