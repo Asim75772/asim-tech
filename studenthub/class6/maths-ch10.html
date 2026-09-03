@@ -1,54 +1,150 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Class 6 Mathematics | আবৃত্ত দশমিক সংখ্যা | StudentHub</title><style>
-body{margin:0;background:#061321;color:#eef6ff;font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.7}
-.wrap{max-width:900px;margin:auto;padding:22px}.brand{color:#59b8ff;font-weight:700}
-h1{color:#67c5ff}h2{color:#ffd35a}.card{background:#102d49;border:1px solid #214766;border-radius:16px;padding:18px;margin:14px 0}
-.mcq{background:#0a1d31;border-radius:12px;padding:14px;margin:10px 0}.ans{color:#7ee2a8;font-weight:700}
-a{color:#70c9ff;text-decoration:none}.nav{display:flex;justify-content:space-between;gap:10px}
-
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 10 – সুষম ঘনবস্তু গঠন বিষয়ক জ্যামিতিক ধারণা | StudentHub</title>
 <style>
-.option{display:block;background:#102d49;border:1px solid #28526f;border-radius:10px;padding:11px;margin:8px 0;cursor:pointer}
-.option:hover{border-color:#67c5ff}
-.option input{margin-right:8px;accent-color:#67c5ff}
-.submit,.reset{border:0;border-radius:10px;padding:11px 16px;margin:8px 6px 8px 0;cursor:pointer;font-weight:700}
-.submit{background:#67c5ff;color:#061321}.reset{background:#214766;color:#eef6ff}
-.result{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#0a1d31;color:#7ee2a8;font-weight:700}
-.result.show{display:block}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#07111f;color:#eaf4ff;line-height:1.7}
+.container{max-width:900px;margin:auto;padding:22px}
+.header{background:linear-gradient(135deg,#0b2340,#07111f);border:1px solid #1687ff55;border-radius:18px;padding:24px;margin-bottom:20px;box-shadow:0 0 25px #0088ff18}
+h1{margin:0 0 8px;color:#42a5ff;font-size:26px}
+h2{color:#ffd34d;margin-top:0}
+h3{color:#63b5ff}
+.card{background:#0d1b2c;border:1px solid #1c5f91;border-radius:15px;padding:20px;margin:18px 0}
+.example{background:#091725;border-left:4px solid #42a5ff;padding:12px 15px;margin:10px 0;border-radius:8px}
+.practice li{margin:10px 0}
+.question{background:#0a1726;border:1px solid #244866;border-radius:12px;padding:15px;margin:14px 0}
+label{display:block;margin:8px 0;cursor:pointer}
+button{border:0;border-radius:10px;padding:11px 18px;margin:8px 6px 0 0;font-weight:bold;cursor:pointer;background:#1687ff;color:white}
+#result{font-size:18px;font-weight:bold;margin-top:15px;color:#ffd34d}
+.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.nav a{display:inline-block;text-decoration:none;background:#123653;color:#fff;padding:10px 16px;border-radius:10px;border:1px solid #1c73aa}
+.note{color:#bcd3e8}
+.formula{font-size:19px;color:#fff;background:#10283d;padding:10px;border-radius:8px;margin:8px 0}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{border:1px solid #315875;padding:9px;text-align:left}
+th{color:#ffd34d}
 </style>
-</style></head><body><div class="wrap"><div class="brand">ASIM TECH • StudentHub • Class 6</div>
-<h1>10. আবৃত্ত দশমিক সংখ্যা</h1><div class="card"><h2>Notes</h2><p>যে দশমিক সংখ্যায় একটি বা একাধিক অঙ্ক নিয়মিতভাবে পুনরাবৃত্ত হয় তাকে আবৃত্ত দশমিক বলা হয়।</p><ul><li>1/3 = 0.333... একটি আবৃত্ত দশমিক।</li><li>2/11 = 0.1818...-এ 18 পুনরাবৃত্ত হয়।</li><li>দশমিকের পরে একই অঙ্ক বা অঙ্কসমষ্টি বারবার আসতে পারে।</li></ul></div>
-<div class="card"><h2>Examples</h2><p><b>Example 1:</b> 1/3 = 0.333...</p><p><b>Example 2:</b> 2/11 = 0.1818...</p><p><b>Example 3:</b> 0.272727...-এ 27 পুনরাবৃত্ত।</p></div><div class="card"><h2>Practice</h2><ol><li>1/3-এর দশমিক রূপ লেখো।</li><li>0.454545...-এ পুনরাবৃত্ত অংশ কী?</li><li>2/11-এর দশমিক রূপ লেখো।</li></ol></div>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>10. সুষম ঘনবস্তু গঠন বিষয়ক জ্যামিতিক ধারণা</h1>
+<div class="note">Class 6 Mathematics • Notes • Examples • Practice • MCQ Test</div>
+</div>
+
+<div class="card">
+<h2>Notes</h2>
+<p>তিন মাত্রার যে সব বস্তুর দৈর্ঘ্য, প্রস্থ ও উচ্চতা আছে, তাদের <b>ঘনবস্তু</b> বলা হয়। ঘনবস্তু নিয়ে কাজ করার সময় মুখ, প্রান্ত ও শীর্ষবিন্দু সম্পর্কে ধারণা থাকা দরকার।</p>
+
+<h3>1. ঘনক (Cube)</h3>
+<p>ঘনকের সব মুখ বর্গাকার এবং সব প্রান্তের দৈর্ঘ্য সমান।</p>
+<div class="formula">ঘনকের 6টি মুখ, 12টি প্রান্ত ও 8টি শীর্ষবিন্দু আছে।</div>
+
+<h3>2. আয়তঘন (Cuboid)</h3>
+<p>আয়তঘনের মুখগুলি আয়তক্ষেত্রাকার হতে পারে। দৈর্ঘ্য, প্রস্থ ও উচ্চতা সাধারণত আলাদা হতে পারে।</p>
+<div class="formula">আয়তঘনের 6টি মুখ, 12টি প্রান্ত ও 8টি শীর্ষবিন্দু আছে।</div>
+
+<h3>3. সুষম ঘনবস্তু</h3>
+<p>যে ঘনবস্তু নিয়ম মেনে সমান আকারের নির্দিষ্ট মুখ দিয়ে তৈরি হয়, তাকে সুষম ঘনবস্তু হিসেবে চিনতে পারি। ঘনক একটি পরিচিত উদাহরণ।</p>
+
+<h3>4. জালিকা বা Net</h3>
+<p>ঘনবস্তুর মুখগুলিকে সমতলে খুলে সাজালে যে দ্বিমাত্রিক নকশা পাওয়া যায় তাকে <b>জালিকা (Net)</b> বলা হয়। জালিকা ভাঁজ করলে আবার ঘনবস্তু তৈরি করা যায়।</p>
+
+<table>
+<tr><th>ঘনবস্তু</th><th>মুখ</th><th>প্রান্ত</th><th>শীর্ষবিন্দু</th></tr>
+<tr><td>ঘনক</td><td>6</td><td>12</td><td>8</td></tr>
+<tr><td>আয়তঘন</td><td>6</td><td>12</td><td>8</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Examples</h2>
+<div class="example"><b>Example 1:</b> একটি ঘনকের কয়টি মুখ আছে?<br><b>উত্তর: 6টি।</b></div>
+<div class="example"><b>Example 2:</b> একটি ঘনকের কয়টি প্রান্ত আছে?<br><b>উত্তর: 12টি।</b></div>
+<div class="example"><b>Example 3:</b> একটি ঘনকের কয়টি শীর্ষবিন্দু আছে?<br><b>উত্তর: 8টি।</b></div>
+<div class="example"><b>Example 4:</b> ঘনবস্তুর মুখ খুলে সমতলে সাজালে তাকে কী বলে?<br><b>উত্তর: জালিকা (Net)।</b></div>
+<div class="example"><b>Example 5:</b> একটি ঘনকের প্রতিটি মুখ কী আকৃতির?<br><b>উত্তর: বর্গাকার।</b></div>
+</div>
+
+<div class="card">
+<h2>Practice</h2>
+<ol class="practice">
+<li>ঘনক ও আয়তঘনের মধ্যে একটি পার্থক্য লেখো।</li>
+<li>একটি ঘনকের 6টি মুখের নাম/অবস্থান ছবি এঁকে দেখাও।</li>
+<li>ঘনকের প্রান্তের সংখ্যা লেখো।</li>
+<li>ঘনকের শীর্ষবিন্দুর সংখ্যা লেখো।</li>
+<li>জালিকা (Net) কী? নিজের ভাষায় লেখো।</li>
+<li>একটি ঘনক ও একটি আয়তঘনের ছবি আঁকো।</li>
+</ol>
+<p class="note">নিজে খাতায় ছবি এঁকে অনুশীলন করলে বিষয়টি আরও সহজ হবে।</p>
+</div>
 
 <div class="card">
 <h2>MCQ Test</h2>
-<p>প্রতিটি প্রশ্নে সঠিক উত্তরটি নির্বাচন করে <b>Submit Test</b> চাপো।</p>
-<div id="quiz">
-<div class="mcq"><p><b>1. 1/3 = ?</b></p><label class="option"><input type="radio" name="q1" value="A"> <span><b>A)</b> 0.333...</span></label><label class="option"><input type="radio" name="q1" value="B"> <span><b>B)</b> 0.3 ঠিক</span></label><label class="option"><input type="radio" name="q1" value="C"> <span><b>C)</b> 0.03</span></label><label class="option"><input type="radio" name="q1" value="D"> <span><b>D)</b> 3.3</span></label></div><div class="mcq"><p><b>2. 0.272727...-এ পুনরাবৃত্ত অংশ কোনটি?</b></p><label class="option"><input type="radio" name="q2" value="A"> <span><b>A)</b> 27</span></label><label class="option"><input type="radio" name="q2" value="B"> <span><b>B)</b> 2</span></label><label class="option"><input type="radio" name="q2" value="C"> <span><b>C)</b> 7</span></label><label class="option"><input type="radio" name="q2" value="D"> <span><b>D)</b> 272</span></label></div><div class="mcq"><p><b>3. 2/11 = ?</b></p><label class="option"><input type="radio" name="q3" value="A"> <span><b>A)</b> 0.1818...</span></label><label class="option"><input type="radio" name="q3" value="B"> <span><b>B)</b> 0.22</span></label><label class="option"><input type="radio" name="q3" value="C"> <span><b>C)</b> 0.18 ঠিক</span></label><label class="option"><input type="radio" name="q3" value="D"> <span><b>D)</b> 1.18</span></label></div>
+
+<div class="question">
+<b>1. একটি ঘনকের মুখের সংখ্যা কত?</b>
+<label><input type="radio" name="q1" value="a"> A) 4</label>
+<label><input type="radio" name="q1" value="b"> B) 6</label>
+<label><input type="radio" name="q1" value="c"> C) 8</label>
+<label><input type="radio" name="q1" value="d"> D) 12</label>
 </div>
-<button class="submit" onclick="checkQuiz()">Submit Test</button>
-<button class="reset" onclick="resetQuiz()">Try Again</button>
-<div id="result" class="result"></div>
+
+<div class="question">
+<b>2. একটি ঘনকের প্রান্তের সংখ্যা কত?</b>
+<label><input type="radio" name="q2" value="a"> A) 6</label>
+<label><input type="radio" name="q2" value="b"> B) 8</label>
+<label><input type="radio" name="q2" value="c"> C) 12</label>
+<label><input type="radio" name="q2" value="d"> D) 16</label>
 </div>
+
+<div class="question">
+<b>3. একটি ঘনকের শীর্ষবিন্দুর সংখ্যা কত?</b>
+<label><input type="radio" name="q3" value="a"> A) 6</label>
+<label><input type="radio" name="q3" value="b"> B) 8</label>
+<label><input type="radio" name="q3" value="c"> C) 10</label>
+<label><input type="radio" name="q3" value="d"> D) 12</label>
+</div>
+
+<div class="question">
+<b>4. ঘনবস্তুর মুখগুলিকে সমতলে খুলে সাজালে তাকে কী বলে?</b>
+<label><input type="radio" name="q4" value="a"> A) রেখাংশ</label>
+<label><input type="radio" name="q4" value="b"> B) কোণ</label>
+<label><input type="radio" name="q4" value="c"> C) জালিকা (Net)</label>
+<label><input type="radio" name="q4" value="d"> D) ব্যাস</label>
+</div>
+
+<button onclick="submitTest()">Submit Test</button>
+<button onclick="tryAgain()">Try Again</button>
+<div id="result"></div>
+</div>
+
+<div class="nav">
+<a href="maths-ch9.html">← Previous</a>
+<a href="maths.html">⌂ Maths Home</a>
+<a href="maths-ch11.html">Next →</a>
+</div>
+
+</div>
+
 <script>
-function checkQuiz(){
-  const answers = ['A', 'A', 'A'];
-  let score = 0, answered = 0;
-  answers.forEach((ans, idx) => {
-    const chosen = document.querySelector('input[name="q'+(idx+1)+'"]:checked');
-    if(chosen){
-      answered++;
-      if(chosen.value === ans) score++;
-    }
-  });
-  const result = document.getElementById('result');
-  result.textContent = 'Score: ' + score + ' / ' + answers.length + ' | Answered: ' + answered + ' / ' + answers.length;
-  result.classList.add('show');
+function submitTest(){
+ const answers={q1:"b",q2:"c",q3:"b",q4:"c"};
+ let score=0,answered=0;
+ for(const q in answers){
+  const selected=document.querySelector('input[name="'+q+'"]:checked');
+  if(selected){answered++; if(selected.value===answers[q])score++;}
+ }
+ document.getElementById("result").textContent="Score: "+score+"/4 | Answered: "+answered+"/4";
 }
-function resetQuiz(){
-  document.querySelectorAll('input[type="radio"]').forEach(x => x.checked = false);
-  const result = document.getElementById('result');
-  result.textContent = '';
-  result.classList.remove('show');
+function tryAgain(){
+ document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);
+ document.getElementById("result").textContent="";
 }
 </script>
-<div class="nav"><a href="maths-ch9.html">← Previous</a><a href="index.html">Class 6 Home</a><a href="maths-ch11.html">Next →</a></div></div></body></html>
+</body>
+</html>
