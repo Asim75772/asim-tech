@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#1557c0">
+<title>Asim Office Suite V6</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png" type="image/png">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033;line-height:1.6}
+button,input,select{font-family:inherit}button{cursor:pointer}.top{min-height:68px;background:#fff;border-bottom:1px solid #dbe3ef;padding:10px 18px;position:sticky;top:0;z-index:10}.bar{display:flex;justify-content:space-between;align-items:center;gap:10px}.logo{font-size:23px;font-weight:bold;color:#1557c0}.sub{font-size:12px;color:#7a8799}.header-buttons{display:flex;gap:7px;align-items:center}.brand{font-weight:bold}.toolbtn{border:1px solid #cbd5e1;background:#f8fafc;padding:9px 12px;border-radius:8px;font-weight:bold;color:#172033}.back-btn{text-decoration:none;background:#eef4ff}.layout{display:flex;min-height:calc(100vh - 68px)}.side{width:210px;background:#fff;border-right:1px solid #dbe3ef;padding:18px 12px;flex-shrink:0}.side button{width:100%;border:0;background:#eef4ff;padding:12px 10px;margin-bottom:9px;border-radius:10px;text-align:left;font-size:15px}.content{flex:1;padding:25px;overflow:auto}.screen{display:none}.screen.active{display:block}.hero{background:linear-gradient(135deg,#0750b8,#1685ff);color:#fff;border-radius:18px;padding:40px;margin-bottom:25px}.hero h1{font-size:36px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #dbe3ef;border-radius:16px;padding:25px;cursor:pointer}.icon{font-size:35px}.muted{color:#718096}.panel{background:#fff;border:1px solid #dbe3ef;border-radius:15px;padding:20px}.toolbar{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.editor{min-height:430px;border:1px solid #cbd5e1;border-radius:9px;padding:20px;outline:none;background:#fff}.sheet-wrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:650px}th,td{border:1px solid #cbd5e1;padding:9px;min-width:80px}th{background:#eef4ff}.drop{border:2px dashed #aebbd0;border-radius:12px;padding:45px 20px;text-align:center}.scan-actions{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}.scan-box{border:1px solid #dbe3ef;border-radius:12px;padding:20px}.scan-button{border:1px solid #cbd5e1;background:#fff;padding:11px 15px;border-radius:8px;font-weight:bold;margin-top:10px}.preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:20px}.preview-item{background:#fff;border:1px solid #dbe3ef;border-radius:10px;padding:8px}.preview-item img{width:100%;height:160px;object-fit:cover}.remove-button{width:100%;margin-top:7px;border:0;background:#ef4444;color:#fff;padding:8px;border-radius:6px}.file-item{padding:13px;border:1px solid #dbe3ef;border-radius:9px;margin:8px 0;background:#fff}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#172033;color:#fff;padding:12px 20px;border-radius:9px;display:none;z-index:500}
+@media(max-width:800px){.brand{display:none}.side{width:120px;padding:12px 8px}.side button{font-size:13px;padding:11px 7px}.content{padding:10px}.cards{grid-template-columns:1fr}.hero{padding:25px}.hero h1{font-size:28px}.logo{font-size:18px}}
+/* IMPORTANT: browser print contains only the document */
+@media print{.top,.side,.toolbar,#home,#sheet,#pdf,#scan,#files,#doc>.panel>h2{display:none!important}.content{padding:0!important;margin:0!important;width:100%!important}#doc{display:block!important}#doc>.panel{padding:0!important;margin:0!important;border:0!important;box-shadow:none!important}.editor{border:0!important;padding:0!important;margin:0!important;min-height:auto!important;background:#fff!important;color:#000!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="bar"><div><div class="logo">▲ ASIM TECH</div><div class="sub">Office • Documents • PDF • Spreadsheet</div></div><div class="header-buttons"><div class="brand">Asim Office Suite V6</div><a href="../" class="toolbtn back-btn">← Back to Asim Tech</a><button class="toolbtn" onclick="toggleDark()">🌙</button></div></div></header>
+<div class="layout">
+<aside class="side">
+<button onclick="show('home')">🏠 Home</button><button onclick="show('doc')">📄 Document</button><button onclick="show('sheet')">📊 Spreadsheet</button><button onclick="show('pdf')">📑 PDF Tools</button><button onclick="show('scan')">📷 Scanner</button><button onclick="show('files')">📁 My Files</button>
+</aside>
+<main class="content">
+<section id="home" class="screen active"><div class="hero"><h1>Asim Office Suite V6</h1><p>Create documents, spreadsheets and PDF files in one simple place.</p></div><div class="cards"><div class="card" onclick="show('doc')"><div class="icon">📄</div><h3>Document</h3><p class="muted">Create and edit documents.</p></div><div class="card" onclick="show('sheet')"><div class="icon">📊</div><h3>Spreadsheet</h3><p class="muted">Work with rows, columns and formulas.</p></div><div class="card" onclick="show('pdf')"><div class="icon">📑</div><h3>PDF Tools</h3><p class="muted">Create and manage PDF documents.</p></div></div></section>
+
+<section id="doc" class="screen"><div class="panel"><h2>📄 Document Editor</h2>
+<div class="toolbar"><select class="toolbtn" onchange="fontSize(this.value)"><option value="3">Size</option><option value="1">Small</option><option value="3">Normal</option><option value="5">Large</option><option value="7">Huge</option></select><button class="toolbtn" onclick="cmd('bold')"><b>B</b></button><button class="toolbtn" onclick="cmd('italic')"><i>I</i></button><button class="toolbtn" onclick="cmd('underline')"><u>U</u></button><button class="toolbtn" onclick="cmd('insertUnorderedList')">☷ List</button><button class="toolbtn" onclick="cmd('justifyLeft')">⬅</button><button class="toolbtn" onclick="cmd('justifyCenter')">↔</button><button class="toolbtn" onclick="cmd('justifyRight')">➡</button><button class="toolbtn" onclick="saveDoc()">💾 Save</button><button class="toolbtn" onclick="downloadDocx()">📥 DOCX</button><button class="toolbtn" onclick="printPDF()">🖨️ PDF</button></div>
+<div id="editor" class="editor" contenteditable="true"><h2>Welcome to Asim Office Suite V6</h2><p>Start typing your document here...</p></div>
+</div></section>
+
+<section id="sheet" class="screen"><div class="panel"><h2>📊 Spreadsheet</h2><div class="toolbar"><input id="formula" class="input" placeholder="Formula e.g. =SUM(A1:A4)"><button class="toolbtn" onclick="applyFormula()">Calculate</button><button class="toolbtn" onclick="addRow()">+ Row</button><button class="toolbtn" onclick="addCol()">+ Column</button><button class="toolbtn" onclick="xlsxDownload()">📥 XLSX</button><button class="toolbtn" onclick="csvDownload()">📥 CSV</button></div><div class="sheet-wrap"><table id="sheetTable"><thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr></thead><tbody>
+<tr><th>1</th><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr><tr><th>2</th><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr><tr><th>3</th><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr><tr><th>4</th><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr><tr><th>5</th><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td><td contenteditable></td></tr>
+</tbody></table></div></div></section>
+
+<section id="pdf" class="screen"><div class="panel"><h2>📑 PDF Tools</h2><div class="drop"><h3>Create PDF</h3><p class="muted">Create a PDF from your document.</p><br><button class="toolbtn" onclick="printPDF()">🖨️ Print / Save as PDF</button></div></div></section>
+
+<section id="scan" class="screen"><div class="panel"><h2>📷 Document Scanner</h2><p class="muted">Take photos with camera or select images.</p><div class="scan-actions"><div class="scan-box"><h3>📷 Camera</h3><button class="scan-button" onclick="document.getElementById('scanCamera').click()">📷 Open Camera</button><input type="file" id="scanCamera" accept="image/*" capture="environment" hidden></div><div class="scan-box"><h3>🖼️ Gallery</h3><button class="scan-button" onclick="document.getElementById('scanFiles').click()">🖼️ Choose Images</button><input type="file" id="scanFiles" accept="image/*" multiple hidden></div></div><div id="scanPreview" class="preview-grid"></div><button class="scan-button" onclick="scanPDF()">📄 Create PDF from Scanned Images</button><button class="toolbtn" onclick="clearScans()" style="width:100%">🗑️ Clear All Images</button></div></section>
+
+<section id="files" class="screen"><div class="panel"><h2>📁 My Files</h2><p class="muted">Files saved in this browser.</p><div id="fileList"></div></div></section>
+</main></div><div id="toast" class="toast"></div></div>
+
+<script>
+const screens=document.querySelectorAll(".screen");
+function show(id){screens.forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0)}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.style.display="block";clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display="none",2200)}
+function toggleDark(){document.body.classList.toggle("dark");localStorage.setItem("asimDark",document.body.classList.contains("dark"))}
+if(localStorage.getItem("asimDark")==="true")document.body.classList.add("dark")
+function cmd(c){document.execCommand(c,false,null);document.getElementById("editor").focus()}
+function fontSize(v){document.execCommand("fontSize",false,v);document.getElementById("editor").focus()}
+
+/* SAVE = browser draft + clean downloadable HTML, without editor/page UI */
+function saveDoc(){
+ const html=document.getElementById("editor").innerHTML;
+ localStorage.setItem("asimDoc",html);
+ const file=`<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Asim Document</title><style>@page{size:A4;margin:20mm}body{font-family:Arial,sans-serif;color:#000;line-height:1.6;margin:0}img{max-width:100%}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #000;padding:6px}</style></head><body>${html}</body></html>`;
+ const a=document.createElement("a"),url=URL.createObjectURL(new Blob([file],{type:"text/html"}));
+ a.href=url;a.download="Asim-Document.html";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ saveFileMeta("Asim-Document.html","Document");toast("Document saved");
+}
+const saved=localStorage.getItem("asimDoc");if(saved)document.getElementById("editor").innerHTML=saved;
+
+/* PDF = print a separate clean window containing ONLY editor */
+function printPDF(){
+ const content=document.getElementById("editor").innerHTML;
+ const w=window.open("","_blank","width=800,height=1000");
+ if(!w){toast("Allow pop-ups to create PDF");return}
+ w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Asim Document</title><style>@page{size:A4;margin:20mm}body{font-family:Arial,sans-serif;color:#000;line-height:1.6;margin:0}.document{width:100%;word-wrap:break-word}.document img{max-width:100%}table{border-collapse:collapse;max-width:100%}td,th{border:1px solid #000;padding:6px}</style></head><body><div class="document">${content}</div><script>window.onload=function(){setTimeout(function(){window.print()},300)};window.onafterprint=function(){window.close()}<\/script></body></html>`);
+ w.document.close();
+}
+
+/* DOCX = only editor text */
+async function downloadDocx(){
+ if(!window.docx){toast("DOCX library unavailable");return}
+ try{
+  const text=document.getElementById("editor").innerText||"";
+  const children=text.split("\n").map(x=>new docx.Paragraph({children:[new docx.TextRun({text:x})]}));
+  const d=new docx.Document({sections:[{children}]});
+  const blob=await docx.Packer.toBlob(d),url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="Asim-Office-Document.docx";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  saveFileMeta("Asim-Office-Document.docx","DOCX");toast("DOCX downloaded");
+ }catch(e){console.error(e);toast("DOCX creation failed")}
+}
+
+/* Spreadsheet */
+function addRow(){const t=document.getElementById("sheetTable"),b=t.querySelector("tbody"),r=b.insertRow(),h=document.createElement("th");h.textContent=b.rows.length;r.appendChild(h);for(let i=1;i<t.rows[0].cells.length;i++){const c=r.insertCell();c.contentEditable="true"}}
+function columnLetter(n){let r="";while(n>0){let x=(n-1)%26;r=String.fromCharCode(65+x)+r;n=Math.floor((n-1)/26)}return r}
+function addCol(){const t=document.getElementById("sheetTable"),h=t.querySelector("thead tr"),n=h.cells.length,q=document.createElement("th");q.textContent=columnLetter(n);h.appendChild(q);t.querySelectorAll("tbody tr").forEach(r=>{const c=r.insertCell();c.contentEditable="true"})}
+function applyFormula(){const f=document.getElementById("formula").value.trim().toUpperCase(),m=f.match(/^=(SUM|AVERAGE|MIN|MAX)\(([A-Z]+)(\d+):([A-Z]+)(\d+)\)$/);if(!m){toast("Supported: SUM, AVERAGE, MIN, MAX");return}const t=document.getElementById("sheetTable"),v=[];let sc=m[2].charCodeAt(0)-65,sr=+m[3]-1,ec=m[4].charCodeAt(0)-65,er=+m[5]-1;for(let r=sr;r<=er;r++)for(let c=sc;c<=ec;c++){let cell=t.rows[r+1]?.cells[c+1];if(cell)v.push(parseFloat(cell.innerText)||0)}let z=m[1]=="SUM"?v.reduce((a,b)=>a+b,0):m[1]=="AVERAGE"?(v.length?v.reduce((a,b)=>a+b,0)/v.length:0):m[1]=="MIN"?Math.min(...v):Math.max(...v);toast("Result: "+z)}
+function xlsxDownload(){if(!window.XLSX){toast("XLSX library unavailable");return}XLSX.writeFile(XLSX.utils.table_to_book(document.getElementById("sheetTable")),"Asim-Spreadsheet.xlsx");toast("XLSX downloaded")}
+function csvDownload(){const rows=[...document.querySelectorAll("#sheetTable tr")],csv=rows.map(r=>[...r.cells].map(c=>`"${c.innerText.replace(/"/g,'""')}"`).join(",")).join("\n"),a=document.createElement("a"),url=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.href=url;a.download="Asim-Spreadsheet.csv";a.click();URL.revokeObjectURL(url);toast("CSV downloaded")}
+
+/* Scanner */
+let scans=[];
+function addScanFiles(files){[...files].forEach(f=>{if(!f.type.startsWith("image/"))return;const r=new FileReader();r.onload=e=>{scans.push({src:e.target.result,name:f.name});renderScans()};r.readAsDataURL(f)})}
+document.getElementById("scanCamera").onchange=e=>{addScanFiles(e.target.files);e.target.value=""};
+document.getElementById("scanFiles").onchange=e=>{addScanFiles(e.target.files);e.target.value=""};
+function renderScans(){const p=document.getElementById("scanPreview");p.innerHTML="";scans.forEach((x,i)=>{const d=document.createElement("div");d.className="preview-item";d.innerHTML=`<img src="${x.src}"><div>${i+1}. ${x.name}</div><button class="remove-button" onclick="scans.splice(${i},1);renderScans()">Remove</button>`;p.appendChild(d)})}
+function clearScans(){scans=[];renderScans();toast("Images cleared")}
+async function scanPDF(){if(!scans.length){toast("Choose an image first");return}if(!window.jspdf){toast("PDF library unavailable");return}const {jsPDF}=window.jspdf,pdf=new jsPDF({format:"a4"});for(let i=0;i<scans.length;i++)await new Promise(resolve=>{const img=new Image();img.onload=()=>{if(i)pdf.addPage();const ratio=Math.min(190/img.width,277/img.height);pdf.addImage(img,scans[i].src.startsWith("data:image/png")?"PNG":"JPEG",(210-img.width*ratio)/2,(297-img.height*ratio)/2,img.width*ratio,img.height*ratio);resolve()};img.src=scans[i].src});pdf.save("Asim-Scanned-Document.pdf");toast("PDF created")}
+
+/* My Files */
+function saveFileMeta(name,type){let f=JSON.parse(localStorage.getItem("asimFiles")||"[]");f.unshift({name,type,date:new Date().toLocaleString()});localStorage.setItem("asimFiles",JSON.stringify(f.slice(0,30)));refreshFiles()}
+function refreshFiles(){const l=document.getElementById("fileList"),f=JSON.parse(localStorage.getItem("asimFiles")||"[]");l.innerHTML=f.length?f.map(x=>`<div class="file-item"><b>📄 ${x.name}</b><br><span class="muted">${x.type} • ${x.date}</span></div>`).join(""):"<p class='muted'>No saved files yet.</p>"}
+refreshFiles();
+</script>
+</body>
+</html>
