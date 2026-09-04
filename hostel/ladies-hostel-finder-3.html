@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ladies Hostel Finder</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+:root{
+  --pink:#e92b91;
+  --pink2:#ff4aa8;
+  --purple:#32105f;
+  --purple2:#6417a5;
+  --light:#fff5fb;
+  --text:#25153b;
+  --muted:#71687d;
+  --green:#16b86a;
+  --border:#eee5f2;
+  --shadow:0 12px 35px rgba(72,27,102,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:#fff;line-height:1.45}
+a{text-decoration:none;color:inherit}
+button,select,input{font:inherit}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+
+/* NAV */
+.nav{height:76px;background:#fff;display:flex;align-items:center;border-bottom:1px solid #f1eaf3;position:sticky;top:0;z-index:50}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;color:var(--pink);font-size:22px}
+.brand-icon{width:43px;height:43px;border-radius:13px;background:linear-gradient(135deg,#ff3b9e,#b91e78);color:#fff;display:grid;place-items:center;font-size:23px;box-shadow:0 7px 18px #e92b9130}
+.brand small{display:block;color:#7d7285;font-size:11px;font-weight:500;letter-spacing:.2px}
+.navlinks{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:600}
+.navlinks a:hover{color:var(--pink)}
+.navlinks .active{color:#4d1684}
+.login{border:0;color:#fff;background:linear-gradient(90deg,#ef2c8d,#8e20b8);padding:12px 31px;border-radius:28px;font-weight:800;cursor:pointer;box-shadow:0 7px 18px #c9278a38}
+.menu{display:none;font-size:27px;background:none;border:0}
+
+/* HERO */
+.hero{background:linear-gradient(105deg,#fff0f8 0%,#ffe9f5 48%,#f9eafc 100%);padding:30px 0 45px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;min-height:320px;align-items:center}
+.hero-copy{padding:18px 10px 10px 2px;z-index:2}
+.hero h1{font-size:58px;line-height:.98;letter-spacing:-2.5px;color:#250c4b;margin-bottom:14px}
+.hero h1 span{color:var(--pink)}
+.hero p{font-size:16px;font-weight:600;max-width:470px;margin-bottom:23px}
+.hero-badges{display:flex;gap:19px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600}
+.badge i{font-style:normal;width:26px;height:26px;border-radius:50%;background:#ed2d90;color:#fff;display:grid;place-items:center}
+.hero-art{height:330px;border-radius:26px;overflow:hidden;position:relative;background:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=85') center/cover}
+.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,235,247,.1),rgba(255,213,235,.05))}
+.quote{position:absolute;left:9%;top:17%;font-family:'Playfair Display',serif;font-size:25px;font-style:italic;color:#4a185e;max-width:220px;transform:rotate(-5deg);z-index:2}
+
+/* SEARCH */
+.search-wrap{margin-top:-35px;position:relative;z-index:10}
+.search{background:#fff;border-radius:20px;padding:12px;display:grid;grid-template-columns:1.05fr 1.15fr .9fr 1.15fr auto;gap:10px;box-shadow:0 10px 35px #4c1b6920}
+.field{border:1px solid #eee6f1;border-radius:13px;padding:9px 14px;background:#fff}
+.field label{display:block;font-size:11px;font-weight:800;color:#5a5360;margin-bottom:2px}
+.field select,.field input{border:0;outline:0;width:100%;background:#fff;color:#716a78;font-size:13px}
+.search-btn{border:0;border-radius:13px;padding:0 25px;background:linear-gradient(90deg,#ef2a8d,#a11fb4);color:#fff;font-weight:800;cursor:pointer;min-height:60px}
+.search-btn:hover{filter:brightness(1.05)}
+
+/* CATEGORIES */
+.categories{padding:22px 0 16px}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cat{border-radius:17px;padding:18px 12px;text-align:center;cursor:pointer;transition:.2s;border:1px solid transparent}
+.cat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.cat:nth-child(1){background:#ffe8f4}.cat:nth-child(2){background:#eee0ff}.cat:nth-child(3){background:#ffeadf}.cat:nth-child(4){background:#ffe6f2}
+.cat-icon{font-size:31px;margin-bottom:5px}
+.cat h3{font-size:16px;color:#32114f}.cat p{font-size:12px;color:#64566c}
+
+/* COMMON */
+.section{padding:18px 0 26px}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:13px}
+.section-title{font-size:29px;color:#2b0d4f;letter-spacing:-1px}
+.section-sub{color:#6c6375;font-size:15px}
+.viewall{color:#5c1594;font-weight:800;font-size:14px}
+
+/* HOSTELS */
+.hostel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.card{border:1px solid #eee8f1;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 6px 20px #4b1b6710;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.photo{height:145px;position:relative;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}.hostel-emoji{background:linear-gradient(135deg,#ffe4f2,#eee1ff);display:grid;place-items:center}.big-emoji{font-size:64px;filter:drop-shadow(0 8px 8px rgba(60,20,80,.12))}.empty-hostel{grid-column:1/-1;text-align:center;background:linear-gradient(135deg,#fff0f8,#f4eaff);border:1px dashed #d9b7e8;border-radius:18px;padding:34px 20px;color:#35105e}.empty-hostel>div{font-size:58px}.empty-hostel h3{margin:8px 0 6px;font-size:20px}.empty-hostel p{color:#74667a;font-size:13px;margin-bottom:15px}.empty-hostel button{border:0;background:#e92b91;color:#fff;padding:10px 20px;border-radius:22px;font-weight:800;cursor:pointer}
+.verified{position:absolute;left:9px;top:9px;background:#1fc26c;color:#fff;border-radius:16px;padding:5px 9px;font-size:11px;font-weight:800}
+.heart{position:absolute;right:9px;top:8px;width:31px;height:31px;border-radius:50%;border:2px solid #e72a91;background:#fff;color:#e72a91;cursor:pointer;font-size:18px}
+.heart.saved{background:#e72a91;color:#fff}
+.card-body{padding:10px}
+.card h3{font-size:15px;margin-bottom:4px;color:#28103f}
+.location{font-size:11px;color:#706675;margin-bottom:6px}
+.rating{font-size:12px;color:#6e6272}.rating b{color:#e09a00}.price{font-size:15px;font-weight:800;color:#e52a8b;margin:4px 0 8px}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px}
+.tag{font-size:10px;background:#f4f2f6;border:1px solid #e8e4eb;padding:4px 6px;border-radius:5px;color:#544b5b}
+.sharing{font-size:11px;color:#5f5666;margin-bottom:9px}
+.actions{display:grid;grid-template-columns:1.2fr .7fr .9fr;gap:5px}
+.actions button{height:34px;border-radius:7px;border:1px solid #e62b8d;background:#fff;color:#5c1594;font-size:10px;font-weight:800;cursor:pointer}
+.actions button:first-child{background:#e62b8d;color:#fff}
+.actions .wa{border-color:#16b86a;color:#119c5a}
+
+/* DISTRICTS */
+.districts{background:#fff}
+.district-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.district{height:118px;border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+.district img{width:100%;height:100%;object-fit:cover;transition:.25s}
+.district:hover img{transform:scale(1.08)}
+.district:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.district span{position:absolute;left:10px;bottom:10px;color:#fff;font-weight:800;font-size:15px;z-index:2}.district-emoji{background:linear-gradient(135deg,#eadfff,#ffdceb);display:grid;place-items:center}.district-emoji>div{font-size:54px;margin-top:-8px}.district-emoji:after{background:linear-gradient(transparent,rgba(30,10,45,.72))}
+
+/* WHY */
+.why{background:linear-gradient(100deg,#fff3fa,#fff9fd);padding:27px 0}
+.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.reason{text-align:center}
+.reason-icon{width:48px;height:48px;border-radius:50%;background:#ea2d91;color:#fff;display:grid;place-items:center;margin:0 auto 8px;font-size:21px}
+.reason h4{font-size:13px}.reason p{font-size:11px;color:#71677b}
+
+/* FOOTER */
+footer{background:linear-gradient(105deg,#34105f,#5b1880);color:#fff;padding:30px 0 16px}
+.footer-grid{display:grid;grid-template-columns:1.35fr .8fr .8fr 1.15fr;gap:35px}
+.footer-brand{font-size:20px;font-weight:800;margin-bottom:6px}
+footer p,footer a{font-size:12px;color:#e9dff0}
+footer h4{margin-bottom:10px}
+.footer-links{display:grid;gap:7px}
+.socials{display:flex;gap:9px}
+.socials a{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#5a1981;font-weight:800}
+.list-box{background:#ffe8f5;color:#4b155f;border-radius:17px;padding:17px;text-align:center}
+.list-box h3{font-size:16px;margin-bottom:4px}
+.list-box p{color:#71566f;margin-bottom:10px}
+.list-btn{display:inline-block;background:#e72a8e;color:#fff;padding:9px 19px;border-radius:20px;font-size:11px;font-weight:800}
+.copyright{border-top:1px solid #ffffff25;margin-top:24px;padding-top:12px;display:flex;justify-content:space-between;font-size:11px;color:#ddd0e6}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:#1d092c99;z-index:100;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.modal-box{background:#fff;border-radius:20px;max-width:480px;width:100%;padding:24px;position:relative;box-shadow:0 25px 70px #1d092c40}
+.close{position:absolute;right:15px;top:12px;border:0;background:#f7edf5;width:32px;height:32px;border-radius:50%;cursor:pointer}
+.modal-box h2{color:#35105e;margin-bottom:8px}
+.modal-box p{font-size:13px;color:#6e6374}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#2f1450;color:#fff;padding:11px 18px;border-radius:25px;font-size:12px;z-index:150;transition:.25s}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* MOBILE */
+@media(max-width:1000px){
+  .hostel-grid{grid-template-columns:repeat(2,1fr)}
+  .district-grid{grid-template-columns:repeat(3,1fr)}
+  .search{grid-template-columns:repeat(2,1fr)}
+  .search-btn{min-height:55px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .container{width:min(100% - 24px,1180px)}
+  .nav{height:65px}.navlinks{display:none}.menu{display:block}.login{padding:9px 18px}
+  .hero{padding:20px 0 35px}.hero-grid{grid-template-columns:1fr;min-height:auto}
+  .hero h1{font-size:45px}.hero-art{height:270px;margin-top:18px}.quote{font-size:20px}
+  .search-wrap{margin-top:-24px}.search{grid-template-columns:1fr;padding:10px}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}.hostel-grid{grid-template-columns:1fr 1fr}
+  .photo{height:125px}.actions{grid-template-columns:1fr 1fr}.actions button:first-child{grid-column:1/-1}
+  .district-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr);gap:22px}
+  .footer-grid{grid-template-columns:1fr}.copyright{display:block}.copyright span{display:block;margin-top:5px}
+}
+@media(max-width:460px){
+  .hero h1{font-size:39px}.hostel-grid{grid-template-columns:1fr}.photo{height:165px}
+  .section-title{font-size:25px}.section-sub{font-size:12px}.viewall{font-size:12px}
+  .hero-badges{gap:9px}.badge{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#">
+      <div class="brand-icon">⌂</div>
+      <div>Ladies Hostel Finder<small>Safe Stay&nbsp; • &nbsp;Bright Tomorrow</small></div>
+    </a>
+    <nav class="navlinks">
+      <a class="active" href="#">Home</a>
+      <a href="#explore">Explore⌄</a>
+      <a href="#why">About</a>
+      <a href="#footer">Contact</a>
+      <a href="#" onclick="showSaved();return false">♡ Saved</a>
+      <button class="login" onclick="openModal('Login')">Login</button>
+    </nav>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>Find Your<br><span>Safe Stay</span></h1>
+      <p>Verified Ladies Hostels &nbsp;•&nbsp; PG &nbsp;•&nbsp; Working Women Hostels<br>Across West Bengal</p>
+      <div class="hero-badges">
+        <div class="badge"><i>✓</i> Safe & Secure</div>
+        <div class="badge"><i>✓</i> Verified Listings</div>
+        <div class="badge"><i>₹</i> Affordable Stay</div>
+        <div class="badge"><i>♥</i> For Students & Women</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="quote">A Safer<br>Brighter You<br>Starts Here ♡</div>
+    </div>
+  </div>
+</section>
+
+<div class="container search-wrap">
+  <div class="search">
+    <div class="field"><label>📍 LOCATION</label><select id="location"><option value="">Select District or City</option><option value="Alipurduar">Alipurduar</option><option value="Bankura">Bankura</option><option value="Birbhum">Birbhum</option><option value="Cooch Behar">Cooch Behar</option><option value="Dakshin Dinajpur">Dakshin Dinajpur</option><option value="Darjeeling">Darjeeling</option><option value="Hooghly">Hooghly</option><option value="Howrah">Howrah</option><option value="Jalpaiguri">Jalpaiguri</option><option value="Jhargram">Jhargram</option><option value="Kalimpong">Kalimpong</option><option value="Kolkata">Kolkata</option><option value="Malda">Malda</option><option value="Murshidabad">Murshidabad</option><option value="Nadia">Nadia</option><option value="North 24 Parganas">North 24 Parganas</option><option value="Paschim Bardhaman">Paschim Bardhaman</option><option value="Paschim Medinipur">Paschim Medinipur</option><option value="Purba Bardhaman">Purba Bardhaman</option><option value="Purba Medinipur">Purba Medinipur</option><option value="Purulia">Purulia</option><option value="South 24 Parganas">South 24 Parganas</option><option value="Uttar Dinajpur">Uttar Dinajpur</option></select></div>
+    <div class="field"><label>🏠 HOSTEL TYPE</label><select id="type"><option value="">Girls Hostel / PG / Working Women</option><option>Girls Hostel</option><option>PG</option><option>Working Women</option></select></div>
+    <div class="field"><label>₹ BUDGET</label><select id="budget"><option value="">Select Budget</option><option>Under ₹5,000</option><option>₹5,000 - ₹7,000</option><option>Above ₹7,000</option></select></div>
+    <div class="field"><label>🔎 AREA</label><input id="area" placeholder="City / Area"></div>
+    <button class="search-btn" onclick="searchHostels()">🔍 Search</button>
+  </div>
+</div>
+
+<section class="categories">
+  <div class="container">
+    <div class="cat-grid">
+      <div class="cat" onclick="quickSearch('Students')"><div class="cat-icon">🎓</div><h3>For Students</h3><p>Near Colleges & Universities</p></div>
+      <div class="cat" onclick="quickSearch('Working Women')"><div class="cat-icon">💼</div><h3>For Working Women</h3><p>Safe & Convenient Stay</p></div>
+      <div class="cat" onclick="quickSearch('Girls Hostel')"><div class="cat-icon">🏠</div><h3>Girls Hostel</h3><p>Comfortable Living</p></div>
+      <div class="cat" onclick="quickSearch('PG')"><div class="cat-icon">🛏️</div><h3>PG Accommodation</h3><p>Flexible & Affordable</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="explore">
+<div class="container">
+  <div class="section-head">
+    <div><h2 class="section-title">Featured Hostels</h2><p class="section-sub">Handpicked & Verified for Your Comfort</p></div>
+    <a class="viewall" href="#" onclick="showAll();return false">View All →</a>
+  </div>
+  <div class="hostel-grid" id="hostelGrid"></div>
+</div>
+</section>
+
+<section class="section districts">
+<div class="container">
+  <div class="section-head">
+    <div><h2 class="section-title">Explore Hostels by District</h2><p class="section-sub">Find accommodation in your preferred area</p></div>
+    <a class="viewall" href="#" onclick="showAll();return false">View All Districts →</a>
+  </div>
+  <div class="district-grid">
+    <div class="district" onclick="district('Kolkata')"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Victoria_Memorial_Hall%2C_Kolkata.jpg" alt="Kolkata landmark"><span>Kolkata</span></div>
+    <div class="district" onclick="district('Bankura')"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Rash_Mancha_of_Bishnupur%2C_Bankura_district%2C_West_Bengal.jpg" alt="Bankura landmark"><span>Bankura</span></div>
+    <div class="district" onclick="district('Darjeeling')"><img src="https://cdn.audleytravel.com/-/-/79/009221173087029082252176183099049125096167163057.jpg" alt="Darjeeling with Kanchenjunga"><span>Darjeeling</span></div>
+    <div class="district district-emoji" onclick="district('Durgapur')"><div>🏭</div><span>Durgapur</span></div>
+    <div class="district district-emoji" onclick="district('Jhargram')"><div>🌳</div><span>Jhargram</span></div>
+    <div class="district" onclick="district('Howrah')"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Howrahbridge.jpg" alt="Howrah landmark"><span>Howrah</span></div>
+  </div>
+</div>
+</section>
+
+<section class="why" id="why">
+<div class="container">
+  <div class="section-head"><div><h2 class="section-title">Why Choose Us?</h2><p class="section-sub">Simple, safe and convenient hostel discovery</p></div></div>
+  <div class="why-grid">
+    <div class="reason"><div class="reason-icon">✓</div><h4>Verified & Trusted</h4><p>Listings checked</p></div>
+    <div class="reason"><div class="reason-icon">₹</div><h4>Affordable Options</h4><p>Different budgets</p></div>
+    <div class="reason"><div class="reason-icon">👩</div><h4>For Students & Women</h4><p>Purpose-built search</p></div>
+    <div class="reason"><div class="reason-icon">☎</div><h4>Direct Contact</h4><p>Call or WhatsApp</p></div>
+    <div class="reason"><div class="reason-icon">♥</div><h4>Save Favourites</h4><p>Compare later</p></div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer id="footer">
+<div class="container">
+  <div class="footer-grid">
+    <div><div class="footer-brand">🏠 Ladies Hostel Finder</div><p>Safe Stay&nbsp; • &nbsp;Bright Tomorrow</p><br><p>Helping women find safe, comfortable and affordable hostels across West Bengal.</p></div>
+    <div><h4>Quick Links</h4><div class="footer-links"><a href="#">Home</a><a href="#explore">Explore</a><a href="#why">About Us</a><a href="#footer">Contact</a></div></div>
+    <div><h4>Follow Us</h4><div class="socials"><a href="#">f</a><a href="#">◎</a><a href="#">▶</a><a href="#">◉</a></div></div>
+    <div class="list-box"><h3>Have a Hostel to List?</h3><p>Join us and reach more students and working women.</p><a class="list-btn" href="#" onclick="openModal('List Your Hostel');return false">List Your Hostel →</a></div>
+  </div>
+  <div class="copyright"><span>© 2026 Ladies Hostel Finder. All rights reserved.</span><span>Made with ♥ for a Safer Tomorrow</span></div>
+</div>
+</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <h2 id="modalTitle">Login</h2>
+    <p id="modalText">This demo interface is ready. Connect this button to your login, listing or booking system.</p>
+    <br><button class="search-btn" style="height:46px;width:100%" onclick="closeModal()">Continue</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const hostels=[
+ {name:'Shree Balaji Girls Hostel',loc:'Kolkata, West Bengal',district:'Kolkata',rating:'4.5',reviews:'120',price:'₹ 6,000 / month',img:'🏠',tags:['Wi-Fi','Food','CCTV']},
+ {name:'Sunshine Ladies PG',loc:'Salt Lake, Kolkata',district:'Kolkata',rating:'4.3',reviews:'98',price:'₹ 7,500 / month',img:'🛏️',tags:['Wi-Fi','Food','CCTV']},
+ {name:'Comfort Stay Hostel',loc:'Durgapur, Paschim Bardhaman',district:'Paschim Bardhaman',rating:'4.7',reviews:'86',price:'₹ 5,000 / month',img:'🏡',tags:['Wi-Fi','Food','Security']},
+ {name:'Dream Home PG',loc:'Siliguri / Darjeeling area',district:'Darjeeling',rating:'4.4',reviews:'64',price:'₹ 6,500 / month',img:'🌸',tags:['Wi-Fi','Food','CCTV']}
+];
+
+function renderHostels(list=hostels, selectedDistrict=''){
+ const grid=document.getElementById('hostelGrid');
+ if(!list.length){
+   grid.innerHTML=`<div class="empty-hostel"><div>🏠</div><h3>${selectedDistrict || 'This area'}-এ এখনও Hostel Listing যোগ করা হয়নি</h3><p>Hostel owner-রা listing যোগ করলে এখানে hostel details, rent, facilities ও contact দেখা যাবে.</p><button onclick="openModal('List Your Hostel')">+ List Your Hostel</button></div>`;
+   return;
+ }
+ grid.innerHTML=list.map((h,i)=>`
+ <article class="card">
+   <div class="photo hostel-emoji"><span class="big-emoji">${h.img}</span><span class="verified">✓ Verified</span><button class="heart" id="heart${i}" onclick="saveCard(${i})">♡</button></div>
+   <div class="card-body">
+     <h3>${h.name}</h3><div class="location">📍 ${h.loc}</div>
+     <div class="rating"><b>★ ${h.rating}</b> (${h.reviews} reviews)</div>
+     <div class="price">${h.price}</div>
+     <div class="tags">${h.tags.map(x=>`<span class="tag">◉ ${x}</span>`).join('')}</div>
+     <div class="sharing">Single, Double Sharing</div>
+     <div class="actions">
+       <button onclick="openDetails('${h.name}')">View Details</button>
+       <button onclick="showToast('Call option selected')">☎ Call</button>
+       <button class="wa" onclick="showToast('WhatsApp option selected')">◉ WhatsApp</button>
+     </div>
+   </div>
+ </article>`).join('');
+}
+function saveCard(i){
+ const b=document.getElementById('heart'+i); b.classList.toggle('saved'); b.textContent=b.classList.contains('saved')?'♥':'♡';
+ showToast(b.classList.contains('saved')?'Saved to favourites':'Removed from favourites');
+}
+function searchHostels(){
+ const loc=document.getElementById('location').value;
+ const area=document.getElementById('area').value.toLowerCase();
+ const budget=document.getElementById('budget').value;
+ let list=hostels.filter(h=>
+   (!loc || h.district===loc) &&
+   (!area || h.loc.toLowerCase().includes(area)||h.name.toLowerCase().includes(area))
+ );
+ if(budget==='Under ₹5,000') list=list.filter(h=>h.price.includes('5,000'));
+ if(budget==='₹5,000 - ₹7,000') list=list.filter(h=>h.price.includes('5,000')||h.price.includes('6,000')||h.price.includes('6,500'));
+ if(budget==='Above ₹7,000') list=list.filter(h=>h.price.includes('7,500'));
+ renderHostels(list, loc);
+ document.getElementById('explore').scrollIntoView({behavior:'smooth'});
+ if(loc) showToast(list.length ? `${loc}: ${list.length} hostel listing(s)` : `${loc}: No hostel added yet`);
+ else showToast(list.length ? `${list.length} hostel listing(s) found` : 'No matching hostel found');
+}
+function quickSearch(type){document.getElementById('type').value=type==='Students'?'':type;showToast(type+' selected');document.getElementById('explore').scrollIntoView({behavior:'smooth'});}
+function district(name){document.getElementById('location').value=name;searchHostels();}
+function openDetails(name){openModal(name);document.getElementById('modalText').textContent='Hostel details, availability, facilities, rules and contact information can be connected here.'}
+function openModal(title){document.getElementById('modalTitle').textContent=title;document.getElementById('modalText').textContent='This demo interface is ready. Connect this button to your login, listing or booking system.';document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function showAll(){renderHostels(hostels);document.getElementById('explore').scrollIntoView({behavior:'smooth'});}
+function showSaved(){showToast('Saved hostels will appear here');}
+function showToast(t){const x=document.getElementById('toast');x.textContent=t;x.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.remove('show'),2200)}
+function toggleMenu(){showToast('Mobile menu ready — connect navigation links here')}
+
+
+
+
+renderHostels();
+</script>
+</body>
+</html>
