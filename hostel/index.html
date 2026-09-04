@@ -1,196 +1,2549 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ec1970">
+
 <title>Ladies Hostel Finder | Asim Tech</title>
+
 <style>
-:root{--pink:#ec1970;--purple:#5525a8;--ink:#202433;--muted:#707687;--bg:#f8f8fc;--green:#17a957;--yellow:#f2b300}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:linear-gradient(110deg,#171629,#5525a8,#ec1970);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 5px 25px #0002}
-.head{max-width:1180px;margin:auto;padding:13px 18px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:11px;align-items:center}
-.brand img{width:48px;height:48px;border-radius:13px;background:#fff}.brand b{font-size:19px}.brand small{display:block;opacity:.8;margin-top:2px}
-nav a{color:#fff;text-decoration:none;margin-left:20px;font-size:13px;font-weight:700}
-.hero{background:linear-gradient(120deg,#fff0f6,#f2eaff);padding:42px 18px 34px}.wrap{max-width:1180px;margin:auto}
-.heroGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center}.hero h1{font-size:44px;line-height:1.05;margin:0 0 12px;color:#542091}.hero h1 span{color:var(--pink)}.hero p{color:#656b78;font-size:16px;line-height:1.6}
-.heroArt{height:250px;border-radius:30px;background:linear-gradient(135deg,#f8b1cf,#7359c9);position:relative;overflow:hidden;display:grid;place-items:center;box-shadow:0 18px 45px #5525a833}.heroArt:after{content:"🏠";font-size:105px;filter:drop-shadow(0 10px 10px #0003)}
-.search{margin-top:25px;background:#fff;padding:14px;border-radius:18px;box-shadow:0 12px 35px #00000014;display:grid;grid-template-columns:1fr 1.4fr 1fr 1fr 1fr auto;gap:9px}
-input,select{border:1px solid #e1e2e8;border-radius:11px;padding:13px;font-size:14px;outline:none;background:#fff}.btn{border:0;border-radius:11px;padding:12px 17px;background:linear-gradient(90deg,var(--pink),#ff3f8f);color:#fff;font-weight:800;cursor:pointer}.btn.outline{background:#fff;color:var(--pink);border:1px solid #f19}.section{padding:26px 18px}.section h2{font-size:22px;margin:0 0 15px}.chips{display:flex;gap:9px;flex-wrap:wrap}.chip{background:#fff;border:1px solid #ddd;border-radius:25px;padding:9px 16px;cursor:pointer}
-.toprow{display:flex;justify-content:space-between;align-items:center}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{background:#fff;border:1px solid #ececf1;border-radius:18px;overflow:hidden;box-shadow:0 7px 25px #0000000b;transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #0002}
-.photo{height:170px;background:linear-gradient(135deg,#f5a5c7,#7558d0);display:grid;place-items:center;position:relative}.photo span{font-size:67px;filter:drop-shadow(0 8px 8px #0003)}.verified{position:absolute;top:10px;left:10px;background:#fff;color:#6b1ca5;border-radius:9px;padding:5px 8px;font-size:10px;font-weight:800}
-.cbody{padding:14px}.title{font-weight:800;font-size:17px}.loc{margin:6px 0;color:#777;font-size:12px}.status{display:inline-block;border-radius:8px;padding:5px 8px;font-size:10px;font-weight:800;background:#fff1cc;color:#9a6b00}.status.y{background:#ddf7e7;color:#138844}.status.n{background:#ffe1e1;color:#b42318}.price{font-size:18px;color:var(--pink);font-weight:900;margin:8px 0}.facts{font-size:11px;line-height:1.7;color:#59606e;min-height:42px}.actions{display:flex;gap:7px;margin-top:10px}.actions button{flex:1;padding:9px;font-size:11px}
-.notice{background:#fff;border-left:4px solid var(--pink);padding:14px 16px;border-radius:12px;color:#5f6470;font-size:12px;line-height:1.5}
-.modal,.detail{display:none;position:fixed;inset:0;background:#0009;z-index:50;padding:15px;overflow:auto}.modalbox,.detailbox{max-width:850px;margin:25px auto;background:#fff;border-radius:20px;padding:20px}.close{float:right;border:0;background:#eee;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:20px}.detailphoto{height:300px;border-radius:17px;background:linear-gradient(135deg,#f2a0c4,#6c55cf);display:grid;place-items:center;font-size:95px;margin:12px 0}.detailgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:15px}.panel{border:1px solid #eee;border-radius:15px;padding:16px}.panel h2,.panel h3{margin-top:0}.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kv div{background:#f7f7fa;padding:10px;border-radius:9px;font-size:12px}
-.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.wide{grid-column:1/-1}
-footer{padding:35px 18px;text-align:center;color:#777;font-size:12px}
-@media(max-width:950px){.search{grid-template-columns:1fr 1fr}.grid{grid-template-columns:repeat(2,1fr)}.heroGrid{grid-template-columns:1fr}.search{grid-template-columns:1fr 1fr}.search .btn{grid-column:1/-1}.detailgrid{grid-template-columns:1fr}}
-@media(max-width:600px){nav{display:none}.hero h1{font-size:31px}.grid{grid-template-columns:1fr}.search,.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}.heroArt{height:180px}.section{padding:22px 12px}}
+:root{
+ --pink:#ec1970;
+ --pink2:#ff3f8f;
+ --purple:#5525a8;
+ --dark:#171629;
+ --ink:#202433;
+ --muted:#707687;
+ --bg:#f8f8fc;
+ --green:#17a957;
+ --yellow:#f2b300;
+ --border:#e7e7ee;
+}
 
-/* Version 2 enhancements */
-.facilitybar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.fchip{background:#fff;border:1px solid #e5e1ea;border-radius:20px;padding:7px 11px;font-size:11px;cursor:pointer}
-.fchip.active{background:#ec1970;color:#fff;border-color:#ec1970}
-.roombox{margin-top:10px;border-top:1px solid #eee;padding-top:9px;font-size:11px}
-.roomrow{display:flex;justify-content:space-between;padding:5px 7px;background:#faf9fc;border-radius:7px;margin-top:4px}
-.verified-date{font-size:10px;color:#7b7284;margin-top:6px}
-.fav{position:absolute;top:10px;right:10px;border:0;width:34px;height:34px;border-radius:50%;background:#fff;cursor:pointer;font-size:18px;box-shadow:0 3px 10px #0002}
-.fav.on{color:#ec1970}
-.card .photo img{width:100%;height:100%;object-fit:cover}
-.toolbar{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-bottom:12px}
-.toolbar button{border:1px solid #ddd;background:#fff;border-radius:10px;padding:8px 11px;font-size:11px;cursor:pointer}
-.smallnote{font-size:11px;color:#777;margin-top:8px}
+*{box-sizing:border-box}
 
+html{scroll-behavior:smooth}
+
+body{
+ margin:0;
+ font-family:Inter,Arial,sans-serif;
+ background:var(--bg);
+ color:var(--ink);
+}
+
+header{
+ background:linear-gradient(110deg,#171629,#5525a8,#ec1970);
+ color:#fff;
+ position:sticky;
+ top:0;
+ z-index:20;
+ box-shadow:0 5px 25px #0002;
+}
+
+.head{
+ max-width:1180px;
+ margin:auto;
+ padding:12px 18px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+
+.brand{
+ display:flex;
+ gap:11px;
+ align-items:center;
+}
+
+.brand img{
+ width:48px;
+ height:48px;
+ border-radius:13px;
+ background:#fff;
+ object-fit:contain;
+}
+
+.brand b{
+ font-size:19px;
+}
+
+.brand small{
+ display:block;
+ opacity:.8;
+ margin-top:2px;
+}
+
+nav a{
+ color:#fff;
+ text-decoration:none;
+ margin-left:20px;
+ font-size:13px;
+ font-weight:700;
+}
+
+.hero{
+ background:linear-gradient(120deg,#fff0f6,#f2eaff);
+ padding:42px 18px 34px;
+}
+
+.wrap{
+ max-width:1180px;
+ margin:auto;
+}
+
+.heroGrid{
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ gap:25px;
+ align-items:center;
+}
+
+.hero h1{
+ font-size:44px;
+ line-height:1.05;
+ margin:0 0 12px;
+ color:#542091;
+}
+
+.hero h1 span{
+ color:var(--pink);
+}
+
+.hero p{
+ color:#656b78;
+ font-size:16px;
+ line-height:1.6;
+}
+
+.heroArt{
+ height:250px;
+ border-radius:30px;
+ background:linear-gradient(135deg,#f8b1cf,#7359c9);
+ position:relative;
+ overflow:hidden;
+ display:grid;
+ place-items:center;
+ box-shadow:0 18px 45px #5525a833;
+}
+
+.heroArt:after{
+ content:"🏠";
+ font-size:105px;
+ filter:drop-shadow(0 10px 10px #0003);
+}
+
+.search{
+ margin-top:25px;
+ background:#fff;
+ padding:14px;
+ border-radius:18px;
+ box-shadow:0 12px 35px #00000014;
+ display:grid;
+ grid-template-columns:1fr 1.4fr 1fr 1fr 1fr auto;
+ gap:9px;
+}
+
+input,select{
+ border:1px solid #e1e2e8;
+ border-radius:11px;
+ padding:13px;
+ font-size:14px;
+ outline:none;
+ background:#fff;
+ width:100%;
+}
+
+input:focus,select:focus{
+ border-color:var(--pink);
+ box-shadow:0 0 0 3px #ec197018;
+}
+
+.btn{
+ border:0;
+ border-radius:11px;
+ padding:12px 17px;
+ background:linear-gradient(90deg,var(--pink),var(--pink2));
+ color:#fff;
+ font-weight:800;
+ cursor:pointer;
+}
+
+.btn:hover{
+ opacity:.92;
+}
+
+.btn.outline{
+ background:#fff;
+ color:var(--pink);
+ border:1px solid #f19;
+}
+
+.facilitybar{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ margin-top:12px;
+}
+
+.fchip{
+ background:#fff;
+ border:1px solid #e5e1ea;
+ border-radius:20px;
+ padding:7px 11px;
+ font-size:11px;
+ cursor:pointer;
+}
+
+.fchip.active{
+ background:var(--pink);
+ color:#fff;
+ border-color:var(--pink);
+}
+
+.section{
+ padding:26px 18px;
+}
+
+.section h2{
+ font-size:22px;
+ margin:0 0 15px;
+}
+
+.chips{
+ display:flex;
+ gap:9px;
+ flex-wrap:wrap;
+}
+
+.chip{
+ background:#fff;
+ border:1px solid #ddd;
+ border-radius:25px;
+ padding:9px 16px;
+ cursor:pointer;
+}
+
+.toprow{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+}
+
+.muted{
+ color:var(--muted);
+ font-size:13px;
+}
+
+.toolbar{
+ display:flex;
+ gap:8px;
+ align-items:center;
+ justify-content:flex-end;
+ margin-bottom:12px;
+ flex-wrap:wrap;
+}
+
+.toolbar button{
+ border:1px solid #ddd;
+ background:#fff;
+ border-radius:10px;
+ padding:8px 11px;
+ font-size:11px;
+ cursor:pointer;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:16px;
+}
+
+.card{
+ background:#fff;
+ border:1px solid #ececf1;
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:0 7px 25px #0000000b;
+ transition:.2s;
+}
+
+.card:hover{
+ transform:translateY(-3px);
+ box-shadow:0 12px 30px #0002;
+}
+
+.photo{
+ height:180px;
+ background:linear-gradient(135deg,#f5a5c7,#7558d0);
+ display:grid;
+ place-items:center;
+ position:relative;
+ overflow:hidden;
+}
+
+.photo img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.photo span{
+ font-size:67px;
+ filter:drop-shadow(0 8px 8px #0003);
+}
+
+.verified{
+ position:absolute;
+ top:10px;
+ left:10px;
+ background:#fff;
+ color:#6b1ca5;
+ border-radius:9px;
+ padding:5px 8px;
+ font-size:10px;
+ font-weight:800;
+}
+
+.fav{
+ position:absolute;
+ top:10px;
+ right:10px;
+ border:0;
+ width:36px;
+ height:36px;
+ border-radius:50%;
+ background:#fff;
+ cursor:pointer;
+ font-size:20px;
+ box-shadow:0 3px 10px #0002;
+}
+
+.fav.on{
+ color:var(--pink);
+}
+
+.cbody{
+ padding:14px;
+}
+
+.title{
+ font-weight:800;
+ font-size:16px;
+ line-height:1.3;
+}
+
+.loc{
+ margin:6px 0;
+ color:#777;
+ font-size:12px;
+}
+
+.status{
+ display:inline-block;
+ border-radius:8px;
+ padding:5px 8px;
+ font-size:10px;
+ font-weight:800;
+ background:#fff1cc;
+ color:#9a6b00;
+ white-space:nowrap;
+}
+
+.status.y{
+ background:#ddf7e7;
+ color:#138844;
+}
+
+.status.n{
+ background:#ffe1e1;
+ color:#b42318;
+}
+
+.price{
+ font-size:18px;
+ color:var(--pink);
+ font-weight:900;
+ margin:8px 0;
+}
+
+.facts{
+ font-size:11px;
+ line-height:1.7;
+ color:#59606e;
+ min-height:42px;
+}
+
+.facilities{
+ display:flex;
+ flex-wrap:wrap;
+ gap:5px;
+ margin-top:8px;
+}
+
+.facilities span{
+ background:#f7f3fa;
+ border-radius:7px;
+ padding:4px 7px;
+ font-size:10px;
+}
+
+.roombox{
+ margin-top:10px;
+ border-top:1px solid #eee;
+ padding-top:9px;
+ font-size:11px;
+}
+
+.roomrow{
+ display:flex;
+ justify-content:space-between;
+ padding:5px 7px;
+ background:#faf9fc;
+ border-radius:7px;
+ margin-top:4px;
+}
+
+.verified-date{
+ font-size:10px;
+ color:#7b7284;
+ margin-top:6px;
+}
+
+.actions{
+ display:flex;
+ gap:7px;
+ margin-top:10px;
+}
+
+.actions button,
+.actions a{
+ flex:1;
+ padding:9px;
+ font-size:11px;
+ text-align:center;
+ text-decoration:none;
+}
+
+.notice{
+ background:#fff;
+ border-left:4px solid var(--pink);
+ padding:14px 16px;
+ border-radius:12px;
+ color:#5f6470;
+ font-size:12px;
+ line-height:1.5;
+}
+
+.detail{
+ display:none;
+ position:fixed;
+ inset:0;
+ background:#0009;
+ z-index:50;
+ padding:15px;
+ overflow:auto;
+}
+
+.detailbox{
+ max-width:850px;
+ margin:25px auto;
+ background:#fff;
+ border-radius:20px;
+ padding:20px;
+}
+
+.close{
+ float:right;
+ border:0;
+ background:#eee;
+ width:34px;
+ height:34px;
+ border-radius:50%;
+ cursor:pointer;
+ font-size:20px;
+}
+
+.detailphoto{
+ height:300px;
+ border-radius:17px;
+ background:linear-gradient(135deg,#f2a0c4,#6c55cf);
+ display:grid;
+ place-items:center;
+ overflow:hidden;
+ font-size:95px;
+ margin:12px 0;
+}
+
+.detailphoto img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.detailgrid{
+ display:grid;
+ grid-template-columns:1.5fr 1fr;
+ gap:15px;
+}
+
+.panel{
+ border:1px solid #eee;
+ border-radius:15px;
+ padding:16px;
+}
+
+.panel h2,
+.panel h3{
+ margin-top:0;
+}
+
+.kv{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:8px;
+}
+
+.kv div{
+ background:#f7f7fa;
+ padding:10px;
+ border-radius:9px;
+ font-size:12px;
+}
+
+footer{
+ padding:35px 18px;
+ text-align:center;
+ color:#777;
+ font-size:12px;
+}
+
+.empty{
+ background:#fff;
+ border:1px dashed #ccc;
+ border-radius:16px;
+ padding:35px;
+ text-align:center;
+ color:#777;
+ grid-column:1/-1;
+}
+
+.smallnote{
+ font-size:11px;
+ color:#777;
+ margin-top:8px;
+}
+
+@media(max-width:950px){
+
+ .search{
+  grid-template-columns:1fr 1fr;
+ }
+
+ .grid{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .heroGrid{
+  grid-template-columns:1fr;
+ }
+
+ .search .btn{
+  grid-column:1/-1;
+ }
+
+ .detailgrid{
+  grid-template-columns:1fr;
+ }
+}
+
+@media(max-width:600px){
+
+ nav{
+  display:none;
+ }
+
+ .hero h1{
+  font-size:31px;
+ }
+
+ .grid{
+  grid-template-columns:1fr;
+ }
+
+ .search{
+  grid-template-columns:1fr;
+ }
+
+ .search .btn{
+  grid-column:auto;
+ }
+
+ .heroArt{
+  height:180px;
+ }
+
+ .section{
+  padding:22px 12px;
+ }
+
+ .kv{
+  grid-template-columns:1fr;
+ }
+
+ .actions{
+  flex-wrap:wrap;
+ }
+
+ .actions button,
+ .actions a{
+  min-width:100%;
+ }
+}
 </style>
 </head>
+
 <body>
-<header><div class="head"><div class="brand"><img src="ladies-hostel-finder-logo.png" alt="Ladies Hostel Finder"><div><b>Ladies Hostel Finder</b><small>Safe • Secure • Affordable</small></div></div><nav><a href="#">Home</a><a href="#hostels">Hostels</a><a href="#" onclick="openAdd();return false">＋ Add Hostel</a></nav></div></header>
 
-<section class="hero"><div class="wrap">
-<div class="heroGrid"><div><h1>Find Safe & Comfortable <span>Ladies Hostels</span> Near You</h1><p>Search, compare and contact ladies hostels, girls' hostels, PGs and messes in one place.</p></div><div class="heroArt"></div></div>
-<div class="search"><select id="district"><option value="">All Districts</option><option>Alipurduar</option><option>Bankura</option><option>Birbhum</option><option>Cooch Behar</option><option>Dakshin Dinajpur</option><option>Darjeeling</option><option>Hooghly</option><option>Howrah</option><option>Jalpaiguri</option><option>Jhargram</option><option>Kolkata</option><option>Kalimpong</option><option>Malda</option><option>Murshidabad</option><option>Nadia</option><option>North 24 Parganas</option><option>Paschim Bardhaman</option><option>Paschim Medinipur</option><option>Purba Bardhaman</option><option>Purba Medinipur</option><option>Purulia</option><option>South 24 Parganas</option><option>Uttar Dinajpur</option></select><input id="loc" placeholder="📍 Enter city or area"><select id="room"><option value="">Any Room Type</option><option>Single</option><option>Double</option><option>Triple</option><option>PG</option></select><select id="budget"><option value="">Any Budget</option><option value="5000">Under ₹5,000</option><option value="7500">Under ₹7,500</option><option value="10000">Under ₹10,000</option></select><select id="avail"><option value="">All Listings</option><option value="yes">Available Only</option></select><button class="btn" onclick="searchHostels()">🔍 Search Hostels</button></div>
-<div class="facilitybar">
-<button class="fchip" data-f="Wi-Fi" onclick="toggleFacility(this)">📶 Wi-Fi</button>
-<button class="fchip" data-f="Food" onclick="toggleFacility(this)">🍛 Food</button>
-<button class="fchip" data-f="CCTV" onclick="toggleFacility(this)">📹 CCTV</button>
-<button class="fchip" data-f="Security" onclick="toggleFacility(this)">🔒 Security</button>
-<button class="fchip" data-f="Parking" onclick="toggleFacility(this)">🅿️ Parking</button>
-<button class="fchip" data-f="AC" onclick="toggleFacility(this)">❄️ AC</button>
-<button class="fchip" data-f="Favourite" onclick="showFavourites()">❤️ Favourites</button>
+<header>
+<div class="head">
+
+<div class="brand">
+<img src="ladies-hostel-finder-logo.png" alt="Ladies Hostel Finder">
+
+<div>
+<b>Ladies Hostel Finder</b>
+<small>Safe • Secure • Affordable</small>
 </div>
-</div></section>
+</div>
 
-<section class="section"><div class="wrap"><h2>📍 Popular Locations</h2><div class="chips">
-<button class="chip" onclick="quick('Bankura')">Bankura</button><button class="chip" onclick="quick('Bishnupur')">Bishnupur</button><button class="chip" onclick="quick('Durgapur')">Durgapur</button><button class="chip" onclick="quick('Purulia')">Purulia</button><button class="chip" onclick="quick('Kolkata')">Kolkata</button>
-</div></div></section>
+<nav>
+<a href="#">Home</a>
+<a href="#hostels">Hostels</a>
+<a href="#locations">Locations</a>
+</nav>
 
-<section class="section" id="hostels"><div class="wrap"><div class="toprow"><h2>🏠 Popular Hostels</h2><span id="count" class="muted"></span></div>
-<div class="toolbar"><button onclick="clearFilters()">↺ Clear Filters</button><button onclick="showFavourites()">❤️ Saved</button></div>
-<div id="grid" class="grid"></div></div></section>
-<section class="section" style="padding-top:0"><div class="wrap"><div id="googleSearchBox"></div></div></section>
-<section class="section"><div class="wrap"><div class="notice">ℹ️ <b>Verification:</b> Online listings can change. Room availability, rent and contact details should be verified directly with the hostel before booking. “Verify” means current availability was not publicly confirmed.</div></div></section>
-<footer>© 2026 Ladies Hostel Finder • Powered by Asim Tech</footer>
+</div>
+</header>
 
-<div id="modal" class="modal"><div class="modalbox"><button class="close" onclick="closeAdd()">×</button><h2>＋ Add Your Hostel</h2><p class="muted">Hostel owners can submit their listing details.</p><div class="formgrid">
-<input id="aname" placeholder="Hostel name"><input id="aphone" placeholder="Contact number"><input id="aloc" placeholder="City / Area"><input id="aprice" type="number" placeholder="Monthly rent"><input id="aaddr" class="wide" placeholder="Full address"><input id="aamen" class="wide" placeholder="Facilities: Wi-Fi, Food, CCTV..."><button class="btn wide" onclick="addHostel()">Submit Listing</button></div></div></div>
-<div id="detail" class="detail"><div class="detailbox"><button class="close" onclick="closeDetail()">×</button><div id="detailContent"></div></div></div>
+
+<section class="hero">
+
+<div class="wrap">
+
+<div class="heroGrid">
+
+<div>
+
+<h1>
+Find Safe & Comfortable
+<span>Ladies Hostels</span>
+Near You
+</h1>
+
+<p>
+Search, compare and contact ladies hostels,
+girls' hostels, PGs and working women's hostels
+in one place.
+</p>
+
+</div>
+
+<div class="heroArt"></div>
+
+</div>
+
+
+<div class="search">
+
+<select id="district">
+<option value="">All Districts</option>
+<option>Alipurduar</option>
+<option>Bankura</option>
+<option>Birbhum</option>
+<option>Cooch Behar</option>
+<option>Dakshin Dinajpur</option>
+<option>Darjeeling</option>
+<option>Hooghly</option>
+<option>Howrah</option>
+<option>Jalpaiguri</option>
+<option>Jhargram</option>
+<option>Kolkata</option>
+<option>Kalimpong</option>
+<option>Malda</option>
+<option>Murshidabad</option>
+<option>Nadia</option>
+<option>North 24 Parganas</option>
+<option>Paschim Bardhaman</option>
+<option>Paschim Medinipur</option>
+<option>Purba Bardhaman</option>
+<option>Purba Medinipur</option>
+<option>Purulia</option>
+<option>South 24 Parganas</option>
+<option>Uttar Dinajpur</option>
+</select>
+
+<input id="loc" placeholder="📍 Enter city or area">
+
+<select id="room">
+<option value="">Any Room Type</option>
+<option>Single</option>
+<option>Double</option>
+<option>Triple</option>
+<option>PG</option>
+<option>Girls Hostel</option>
+<option>Working Women</option>
+<option>University</option>
+<option>College</option>
+</select>
+
+<select id="budget">
+<option value="">Any Budget</option>
+<option value="5000">Under ₹5,000</option>
+<option value="7500">Under ₹7,500</option>
+<option value="10000">Under ₹10,000</option>
+<option value="15000">Under ₹15,000</option>
+</select>
+
+<select id="avail">
+<option value="">All Listings</option>
+<option value="yes">Available Only</option>
+</select>
+
+<button class="btn" onclick="searchHostels()">
+🔍 Search Hostels
+</button>
+
+</div>
+
+
+<div class="facilitybar">
+
+<button class="fchip" data-f="Wi-Fi" onclick="toggleFacility(this)">
+📶 Wi-Fi
+</button>
+
+<button class="fchip" data-f="Food" onclick="toggleFacility(this)">
+🍛 Food
+</button>
+
+<button class="fchip" data-f="CCTV" onclick="toggleFacility(this)">
+📹 CCTV
+</button>
+
+<button class="fchip" data-f="Security" onclick="toggleFacility(this)">
+🔒 Security
+</button>
+
+<button class="fchip" data-f="Parking" onclick="toggleFacility(this)">
+🅿️ Parking
+</button>
+
+<button class="fchip" data-f="AC" onclick="toggleFacility(this)">
+❄️ AC
+</button>
+
+<button class="fchip" onclick="showFavourites()">
+❤️ Favourites
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="section" id="locations">
+
+<div class="wrap">
+
+<h2>📍 Popular Locations</h2>
+
+<div class="chips">
+
+<button class="chip" onclick="quick('Bankura')">
+Bankura
+</button>
+
+<button class="chip" onclick="quick('Bishnupur')">
+Bishnupur
+</button>
+
+<button class="chip" onclick="quick('Durgapur')">
+Durgapur
+</button>
+
+<button class="chip" onclick="quick('Purulia')">
+Purulia
+</button>
+
+<button class="chip" onclick="quick('Kolkata')">
+Kolkata
+</button>
+
+<button class="chip" onclick="quick('Siliguri')">
+Siliguri
+</button>
+
+<button class="chip" onclick="quick('Darjeeling')">
+Darjeeling
+</button>
+
+<button class="chip" onclick="quick('Jhargram')">
+Jhargram
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="section" id="hostels">
+
+<div class="wrap">
+
+<div class="toprow">
+
+<h2>🏠 Ladies Hostels</h2>
+
+<span id="count" class="muted"></span>
+
+</div>
+
+
+<div class="toolbar">
+
+<button onclick="clearFilters()">
+↺ Clear Filters
+</button>
+
+<button onclick="showFavourites()">
+❤️ Saved
+</button>
+
+<select id="sort" onchange="sortHostels()">
+<option value="">Sort By</option>
+<option value="price">Lowest Rent</option>
+<option value="rating">Highest Rating</option>
+<option value="name">Name A-Z</option>
+</select>
+
+</div>
+
+
+<div id="grid" class="grid"></div>
+
+</div>
+</section>
+
+
+<section class="section" style="padding-top:0">
+
+<div class="wrap">
+
+<div id="googleSearchBox"></div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="wrap">
+
+<div class="notice">
+
+ℹ️ <b>Important Verification Notice:</b>
+
+Online listings can change. Room availability,
+rent, facilities and contact details should always
+be verified directly with the hostel before booking.
+
+<br><br>
+
+✓ “Verified” indicates that the listing information
+was checked on the stated date. It does not guarantee
+current room availability.
+
+</div>
+
+</div>
+</section>
+
+
+<footer>
+
+© 2026 Ladies Hostel Finder • Powered by Asim Tech
+
+</footer>
+
+
+<div id="detail" class="detail">
+
+<div class="detailbox">
+
+<button class="close" onclick="closeDetail()">×</button>
+
+<div id="detailContent"></div>
+
+</div>
+
+</div>
+
 
 <script>
-let hostels=[
-{id:1,name:"Doctor's Ladies Hostel 2",loc:"Kenduadihi, Bankura",price:0,room:"Ladies Hostel",phone:"",available:null,amen:"Student housing • Ladies hostel",addr:"Kenduadihi, Bankura, West Bengal 722102",rating:"4.4"},
-{id:2,name:"Binapani Ladies Mess",loc:"Nutanchati, Bankura",price:0,room:"Ladies Mess / PG",phone:"+919641634913",available:null,amen:"Working women's hostel • Ladies mess",addr:"Sarada Palli, Professor Colony, near PWD Office, Bankura, West Bengal 722101",rating:"4.3"},
-{id:3,name:"Subhadra Chhatri Nibas",loc:"Katjuridanga, Bankura",price:0,room:"Girls Hostel",phone:"",available:null,amen:"Working women's hostel • Girls hostel",addr:"Sarat Pally, Katjuridanga, Bankura, West Bengal 722102",rating:"4.6"},
-{id:4,name:"Jyotsna Ladies Mess (Matri Bhaban)",loc:"Jogeshpally, Bankura",price:0,room:"Ladies Mess",phone:"+919475002088",available:null,amen:"Girls hostel • Ladies mess",addr:"Near Hari Mandir, Jogeshpally Mathpara, Bankura, West Bengal 722101",rating:"4.0"},
-{id:5,name:"Punam Ladies Mess",loc:"Paddapukur Palli, Bankura",price:0,room:"Ladies Mess",phone:"+917908371417",available:null,amen:"Girls hostel • Ladies mess",addr:"Nutanchati Road, near PWD office, Paddapukur Palli, Bankura, West Bengal 722101",rating:"5.0"},
-{id:6,name:"Mandal Ladies Mess",loc:"Katjuridanga, Bankura",price:0,room:"Ladies Mess",phone:"+919153531476",available:null,amen:"Girls hostel • Working women's hostel",addr:"Katjuridanga, Bankura, West Bengal 722102",rating:"2.0"},
-{id:7,name:"Nandi Ladies Mess",loc:"Paddapukur Palli, Bankura",price:0,room:"Girls Hostel",phone:"",available:null,amen:"Girls hostel • Home-style meals",addr:"63R2+J7M, Paddapukur Palli, Bankura, West Bengal 722101",rating:"5.0"},
-{id:8,name:"Laxmi Ladies Mess",loc:"Jogeshpally, Bankura",price:0,room:"Ladies Mess",phone:"",available:null,amen:"Working women's hostel",addr:"Durga Mandir, Jogeshpally, Bankura, West Bengal 722101",rating:"4.0"},
-{id:9,name:"Saraswati Chatri Nibas",loc:"Katjuridanga, Bankura",price:0,room:"Girls Hostel",phone:"",available:null,amen:"Girls hostel",addr:"Katjuridanga, Bankura, West Bengal 722102",rating:"5.0"},
-{id:10,name:"Zenith Girls Hostel",loc:"Kenduadihi, Bankura",price:0,room:"Girls Hostel",phone:"",available:null,amen:"Girls hostel",addr:"Bankura Sammilani Medical College Road, Kenduadihi, Bankura, West Bengal 722102",rating:"4.0"},
-{id:11,name:"Bishnu Paying Guest (Girls)",loc:"Keshiakole, Bankura",price:0,room:"Girls PG",phone:"+918918515331",available:null,amen:"Girls hostel • PG",addr:"Balarampur, beside NH 60, Block II, Keshiakole, Bankura, West Bengal 722155",rating:"3.8"},
-{id:12,name:"SERENE STAY P.G",loc:"Bankura Lokepur",price:0,room:"Girls PG",phone:"+917908732261",available:null,amen:"Student housing • PG",addr:"Near Sammilani Medical College, Bankura Lokepur, Bankura, West Bengal 722102",rating:"5.0"},
-{id:13,name:"Tuli Ladies Mess",loc:"School Danga, Bankura",price:0,room:"Ladies Mess",phone:"",available:null,amen:"Working women's hostel",addr:"School Danga, Bankura, West Bengal 722101",rating:"1.0"},
-{id:14,name:"Manasi Chhatri Nibas",loc:"Katjuridanga, Bankura",price:0,room:"Girls Hostel",phone:"+916294708357",available:null,amen:"Girls hostel",addr:"Sarat Pally, Lane no. 1, Katjuridanga, Bankura, West Bengal 722102",rating:"3.9"},
-{id:15,name:"Maa Sarada Girls Hostel — Bankura Sammilani College",loc:"Kenduadihi, Bankura",price:0,room:"College Hostel",phone:"+913242250741",available:null,amen:"Wi-Fi • Drinking water • Electricity • Playground",addr:"Bankura Sammilani College, Kenduadihi, Bankura, West Bengal",rating:"Official"},
-{id:16,name:"Girls Hostel — Bankura University",loc:"Purandarpur, Bankura",price:0,room:"University Hostel",phone:"",available:null,amen:"25 rooms • Dining room • Common rooms • Parking",addr:"Bankura University Main Campus, Purandarpur, Bankura, West Bengal 722155",rating:"Official"},
-{id:17,name:"Girls Hostel — Bankura Unnayani Institute of Engineering",loc:"Pohabagan, Bankura",price:0,room:"College Hostel",phone:"+919153056388",available:null,amen:"Girls hostel • Wardens • Medical support • Meals",addr:"Subhankar Nagar, Pohabagan, Bankura, West Bengal 722146",rating:"Official"},
-{id:18,name:"Maa Sarada Chatrinibas — Nikhil Banga Sikshan Mahavidyalaya",loc:"Bishnupur, Bankura",price:0,room:"B.Ed Girls Hostel",phone:"+913244256936",available:null,amen:"Girls student hostel • Institute managed",addr:"Tilbari, Bishnupur, Bankura 722122, West Bengal",rating:"Official"}
-,{id:19,name:"Darjeeling Govt. College — Heather Lodge Girls’ Hostel",loc:"Darjeeling",district:"Darjeeling",price:0,room:"Girls Hostel",phone:"+913542255020",available:null,amen:"Food • Security • Student hostel",addr:"Kutchery More, near D.M. Office, Darjeeling, West Bengal 734101",rating:"Official"}
-,{id:20,name:"Salesian College Women’s Hostel",loc:"Siliguri",district:"Darjeeling",price:0,room:"Women’s Hostel",phone:"+917047841622",available:null,amen:"Food • Wi-Fi • Security • Furnished rooms",addr:"Don Bosco Rd, Ward 42, Don Bosco Colony, Siliguri, West Bengal 734001",rating:"Official"}
-,{id:21,name:"Babu Jagjiban Ram Chhatrabas Central Girls’ Hostel",loc:"Cooch Behar",district:"Cooch Behar",price:0,room:"Girls Hostel",phone:"+918158807460",available:null,amen:"Government-aided • Girls hostel",addr:"Cooch Behar, West Bengal",rating:"Official"}
-,{id:22,name:"Cooch Behar Panchanan Barma University — Torsa Girls’ Hostel",loc:"Cooch Behar",district:"Cooch Behar",price:0,room:"University Girls Hostel",phone:"+919476468333",available:null,amen:"University hostel • Student accommodation",addr:"Panchanan Nagar, Vivekananda Street, Cooch Behar 736101, West Bengal",rating:"Official"}
-,{id:23,name:"Suchetana Bhavan — Malda Women’s College Girls’ Hostel",loc:"English Bazar, Malda",district:"Malda",price:0,room:"Girls Hostel",phone:"+913512252597",available:null,amen:"Food • 24-hour security • Student hostel",addr:"Santigopal Sen Sarani, Pirojpur, English Bazar, Malda 732101, West Bengal",rating:"Official"}
-,{id:24,name:"Kadambini Girls’ Hostel — WBUAFS Mohanpur",loc:"Mohanpur, Nadia",district:"Nadia",price:0,room:"University Girls Hostel",phone:"+919862714273",available:null,amen:"University hostel • Student accommodation",addr:"Mohanpur Campus, Nadia, West Bengal",rating:"Official"}
-,{id:25,name:"Shimurali Sachinandan College of Education — Girls’ Hostel",loc:"Shimurali, Nadia",district:"Nadia",price:1500,room:"Girls Hostel",phone:"+913473351021",available:null,amen:"CCTV • Wi-Fi • Purified water • Generator",addr:"P.O. Shimurali, Nadia 741248, West Bengal",rating:"Official"}
-,{id:26,name:"Berhampore Girls’ College — Nibedita Chhatri Nibas",loc:"Berhampore, Murshidabad",district:"Murshidabad",price:0,room:"Girls Hostel",phone:"+913482257524",available:null,amen:"Student hostel • Safe campus",addr:"Berhampore, Murshidabad, West Bengal",rating:"Official"}
-,{id:27,name:"Magrahat College Girls’ Hostel",loc:"Magrahat",district:"South 24 Parganas",price:0,room:"Girls Hostel",phone:"+917477869381",available:null,amen:"College girls hostel",addr:"Magrahat, South 24 Parganas, West Bengal",rating:"Official"}
-,{id:28,name:"DIET Joynagar Girls’ Hostel",loc:"Joynagar, South 24 Parganas",district:"South 24 Parganas",price:0,room:"Girls Hostel",phone:"+913218228154",available:null,amen:"Purified water • Generator • Girls hostel",addr:"Kulpi Road, P.O. Ramakantanagar, P.S. Mandirbazar, South 24 Parganas 743395, West Bengal",rating:"Official"}
-,{id:29,name:"Gushkara Mahavidyalaya — Nivedita Chhatri Nibas",loc:"Gushkara",district:"Purba Bardhaman",price:0,room:"Girls Hostel",phone:"+913452255105",available:null,amen:"60-seat girls hostel • College managed",addr:"Gushkara, Purba Bardhaman, West Bengal",rating:"Official"}
-,{id:30,name:"Haldia Government College — Saheed Matangini Hazra Girls’ Hostel",loc:"Haldia",district:"Purba Medinipur",price:0,room:"Girls Hostel",phone:"+919433578859",available:null,amen:"College girls hostel",addr:"Debhog, Haldia, Purba Medinipur, West Bengal",rating:"Official"}
-,{id:31,name:"Haldia Institute of Technology — Ladies Hostel",loc:"Haldia",district:"Purba Medinipur",price:0,room:"Ladies Hostel",phone:"+918583937675",available:null,amen:"Ladies hostel • Student accommodation",addr:"ICARE Complex, Hatiberia, Haldia, Purba Medinipur, West Bengal 721657",rating:"Official"}
-,{id:32,name:"Vivekananda Mission Mahavidyalaya — Girls’ Hostel",loc:"Haldia",district:"Purba Medinipur",price:0,room:"Girls Hostel",phone:"",available:null,amen:"CCTV • Wi-Fi • Separate girls hostel • Canteen",addr:"Haldia region, Purba Medinipur, West Bengal",rating:"Official"}
-,{id:33,name:"Seva Bharati Mahavidyalaya — Girls’ Hostel",loc:"Kapgari",district:"Jhargram",price:1000,room:"Girls Hostel",phone:"+919433122259",available:null,amen:"110-seat girls hostel • Mess • College hostel",addr:"Kapgari, P.S. Jamboni, Jhargram, West Bengal 721505",rating:"Official"}
-,{id:34,name:"Sadhu Ramchand Murmu University — Shahid Matangini Girls’ Hostel",loc:"Jitusol, Jhargram",district:"Jhargram",price:0,room:"University Girls Hostel",phone:"+913221291036",available:null,amen:"100-bed girls hostel • University hostel",addr:"Jitusol, Jhargram, West Bengal",rating:"Official"}
-,{id:35,name:"Jhargram Government Medical College — Girls’ Hostel",loc:"Jhargram",district:"Jhargram",price:12,room:"Girls Hostel",phone:"",available:null,amen:"24-hour security • Canteen • Medical college hostel",addr:"New Campus, near Bongshi More, Jhargram, West Bengal",rating:"Official"}
-,{id:36,name:"Working Women’s Hostel — Midnapore",loc:"Midnapore",district:"Paschim Medinipur",price:3000,room:"Working Women Hostel",phone:"",available:null,amen:"Government hostel • 45 available seats/rooms listed",addr:"Near Midnapore College Playground, Midnapore, Paschim Medinipur 721101, West Bengal",rating:"Govt"}
-,{id:37,name:"Working Women’s Hostel — Haldia",loc:"Haldia",district:"Purba Medinipur",price:0,room:"Working Women Hostel",phone:"",available:null,amen:"Government hostel • 36 available seats/rooms listed",addr:"Haldia, Purba Medinipur, West Bengal",rating:"Govt"}
-,{id:38,name:"Working Women’s Hostel — Mal",loc:"Mal",district:"Jalpaiguri",price:1035,room:"Working Women Hostel",phone:"",available:null,amen:"Government hostel • 60 available seats/rooms listed",addr:"Mal, Jalpaiguri, West Bengal",rating:"Govt"}
-,{id:39,name:"Working Women’s Hostel — Rudranagar",loc:"Rudranagar, Sagar",district:"South 24 Parganas",price:1200,room:"Working Women Hostel",phone:"",available:null,amen:"Government hostel • 48 available seats/rooms listed",addr:"Rudranagar, Sagar, South 24 Parganas, West Bengal",rating:"Govt"}
-,{id:40,name:"Working Women’s Hostel — Jhargram",loc:"Jhargram",district:"Jhargram",price:0,room:"Working Women Hostel",phone:"",available:null,amen:"Government hostel • 41 available seats/rooms listed",addr:"Jhargram, West Bengal 721507",rating:"Govt"}
-,{id:41,name:"Swayambhara Working Women’s Hostel",loc:"Purbachal, Kolkata",district:"Kolkata",price:925,room:"Working Women Hostel",phone:"",available:null,amen:"112 beds • Single & dormitory rooms",addr:"Block-GA, P.O. Purbachal, Kolkata 700097",rating:"Govt"}
-,{id:42,name:"Swayamsiddha Working Women’s Hostel",loc:"Purbachal, Kolkata",district:"Kolkata",price:925,room:"Working Women Hostel",phone:"",available:null,amen:"44 single-seated beds",addr:"Block-GA, P.O. Purbachal, Kolkata 700097",rating:"Govt"}
-,{id:43,name:"Gariahat Working Women’s Hostel",loc:"Gariahat, Kolkata",district:"Kolkata",price:0,room:"Working Women Hostel",phone:"",available:null,amen:"177 beds • 59 rooms",addr:"28/1A, Gariahat Road, Kolkata 700029",rating:"Govt"}
-,{id:44,name:"Ibrahimpur Road Working Women’s Hostel",loc:"Jadavpur, Kolkata",district:"Kolkata",price:1025,room:"Working Women Hostel",phone:"",available:null,amen:"76 single-seated beds",addr:"Ibrahimpur Road, Jadavpur, Kolkata 700032",rating:"Govt"}
-,{id:45,name:"Becharam Chatterjee Road Working Women’s Hostel",loc:"Behala, Kolkata",district:"Kolkata",price:1025,room:"Working Women Hostel",phone:"",available:null,amen:"34 single-seated beds",addr:"Sakar Math, Ward 128, Behala, Kolkata",rating:"Govt"}
-,{id:46,name:"Banamali Naskar Road Working Women’s Hostel",loc:"Behala, Kolkata",district:"Kolkata",price:1025,room:"Working Women Hostel",phone:"",available:null,amen:"61 single-seated beds",addr:"Plot 573(P), Ward 132, Behala, Kolkata",rating:"Govt"}
-,{id:47,name:"Working Women’s Hostel — Regent Park",loc:"Tollygunge, Kolkata",district:"Kolkata",price:1025,room:"Working Women Hostel",phone:"",available:null,amen:"34 single-seated beds",addr:"Regent Park RHE, Tollygunge, Kolkata",rating:"Govt"}
-,{id:48,name:"Working Women’s Hostel — H.K. Seth Lane",loc:"Kolkata",district:"Kolkata",price:1025,room:"Working Women Hostel",phone:"",available:null,amen:"76 single-seated beds",addr:"20, H.K. Seth Lane, Kolkata",rating:"Govt"}
-,{id:49,name:"NIFT Kolkata Girls’ Hostel",loc:"Salt Lake, Kolkata",district:"Kolkata",price:0,room:"Girls Hostel",phone:"+913323358350",available:null,amen:"180 students • 24-hour security • Laundry • RO water",addr:"GE Block, Plot-4, Sector-III, Salt Lake City, Kolkata 700106",rating:"Official"}
-,{id:50,name:"Working Women’s Hostel — Durgapur",loc:"City Centre, Durgapur",district:"Paschim Bardhaman",price:0,room:"Working Women Hostel",phone:"",available:null,amen:"Government project • 40 single-occupancy units",addr:"RHE City Centre, Durgapur, Paschim Bardhaman, West Bengal",rating:"Govt"}
+
+/* =========================================================
+   HOSTEL DATA
+   Keep your existing 50 hostel records here.
+   ========================================================= */
+
+const hostels = [
+
+{
+id:1,
+name:"Doctor's Ladies Hostel 2",
+loc:"Kenduadihi, Bankura",
+district:"Bankura",
+price:0,
+room:"Ladies Hostel",
+phone:"",
+available:null,
+amen:"Student housing • Ladies hostel",
+addr:"Kenduadihi, Bankura, West Bengal 722102",
+rating:4.4,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:2,
+name:"Binapani Ladies Mess",
+loc:"Nutanchati, Bankura",
+district:"Bankura",
+price:0,
+room:"Ladies Mess / PG",
+phone:"+919641634913",
+available:null,
+amen:"Working women's hostel • Ladies mess",
+addr:"Sarada Palli, Professor Colony, near PWD Office, Bankura, West Bengal 722101",
+rating:4.3,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:3,
+name:"Subhadra Chhatri Nibas",
+loc:"Katjuridanga, Bankura",
+district:"Bankura",
+price:0,
+room:"Girls Hostel",
+phone:"",
+available:null,
+amen:"Working women's hostel • Girls hostel",
+addr:"Sarat Pally, Katjuridanga, Bankura, West Bengal 722102",
+rating:4.6,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:4,
+name:"Jyotsna Ladies Mess (Matri Bhaban)",
+loc:"Jogeshpally, Bankura",
+district:"Bankura",
+price:0,
+room:"Ladies Mess",
+phone:"+919475002088",
+available:null,
+amen:"Girls hostel • Ladies mess",
+addr:"Near Hari Mandir, Jogeshpally Mathpara, Bankura, West Bengal 722101",
+rating:4.0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:5,
+name:"Punam Ladies Mess",
+loc:"Paddapukur Palli, Bankura",
+district:"Bankura",
+price:0,
+room:"Ladies Mess",
+phone:"+917908371417",
+available:null,
+amen:"Girls hostel • Ladies mess",
+addr:"Nutanchati Road, near PWD office, Paddapukur Palli, Bankura, West Bengal 722101",
+rating:5.0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:6,
+name:"Mandal Ladies Mess",
+loc:"Katjuridanga, Bankura",
+district:"Bankura",
+price:0,
+room:"Ladies Mess",
+phone:"+919153531476",
+available:null,
+amen:"Girls hostel • Working women's hostel",
+addr:"Katjuridanga, Bankura, West Bengal 722102",
+rating:2.0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:7,
+name:"Nandi Ladies Mess",
+loc:"Paddapukur Palli, Bankura",
+district:"Bankura",
+price:0,
+room:"Girls Hostel",
+phone:"",
+available:null,
+amen:"Girls hostel • Home-style meals",
+addr:"63R2+J7M, Paddapukur Palli, Bankura, West Bengal 722101",
+rating:5.0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"]
+]
+},
+
+{
+id:8,
+name:"Laxmi Ladies Mess",
+loc:"Jogeshpally, Bankura",
+district:"Bankura",
+price:0,
+room:"Ladies Mess",
+phone:"",
+available:null,
+amen:"Working women's hostel",
+addr:"Durga Mandir, Jogeshpally, Bankura, West Bengal 722101",
+rating:4.0,
+fac:["Food"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"]
+]
+},
+
+{
+id:9,
+name:"Saraswati Chatri Nibas",
+loc:"Katjuridanga, Bankura",
+district:"Bankura",
+price:0,
+room:"Girls Hostel",
+phone:"",
+available:null,
+amen:"Girls hostel",
+addr:"Katjuridanga, Bankura, West Bengal 722102",
+rating:5.0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"]
+]
+},
+
+{
+id:10,
+name:"Zenith Girls Hostel",
+loc:"Kenduadihi, Bankura",
+district:"Bankura",
+price:0,
+room:"Girls Hostel",
+phone:"",
+available:null,
+amen:"Girls hostel",
+addr:"Bankura Sammilani Medical College Road, Kenduadihi, Bankura, West Bengal 722102",
+rating:4.0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:11,
+name:"Bishnu Paying Guest (Girls)",
+loc:"Keshiakole, Bankura",
+district:"Bankura",
+price:0,
+room:"Girls PG",
+phone:"+918918515331",
+available:null,
+amen:"Girls hostel • PG",
+addr:"Balarampur, beside NH 60, Block II, Keshiakole, Bankura, West Bengal 722155",
+rating:3.8,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:12,
+name:"SERENE STAY P.G",
+loc:"Bankura Lokepur",
+district:"Bankura",
+price:0,
+room:"Girls PG",
+phone:"+917908732261",
+available:null,
+amen:"Student housing • PG",
+addr:"Near Sammilani Medical College, Bankura Lokepur, Bankura, West Bengal 722102",
+rating:5.0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:13,
+name:"Tuli Ladies Mess",
+loc:"School Danga, Bankura",
+district:"Bankura",
+price:0,
+room:"Ladies Mess",
+phone:"",
+available:null,
+amen:"Working women's hostel",
+addr:"School Danga, Bankura, West Bengal 722101",
+rating:1.0,
+fac:["Food"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"]
+]
+},
+
+{
+id:14,
+name:"Manasi Chhatri Nibas",
+loc:"Katjuridanga, Bankura",
+district:"Bankura",
+price:0,
+room:"Girls Hostel",
+phone:"+916294708357",
+available:null,
+amen:"Girls hostel",
+addr:"Sarat Pally, Lane no. 1, Katjuridanga, Bankura, West Bengal 722102",
+rating:3.9,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[
+["Single","Contact"],
+["Double","Contact"]
+]
+},
+
+{
+id:15,
+name:"Maa Sarada Girls Hostel — Bankura Sammilani College",
+loc:"Kenduadihi, Bankura",
+district:"Bankura",
+price:0,
+room:"College Hostel",
+phone:"+913242250741",
+available:null,
+amen:"Wi-Fi • Drinking water • Electricity • Playground",
+addr:"Bankura Sammilani College, Kenduadihi, Bankura, West Bengal",
+rating:0,
+fac:["Wi-Fi","Food","Security","Parking"],
+verified:"04 Sep 2026",
+rooms:[
+["College Hostel","Official source"]
+]
+},
+
+{
+id:16,
+name:"Girls Hostel — Bankura University",
+loc:"Purandarpur, Bankura",
+district:"Bankura",
+price:0,
+room:"University Hostel",
+phone:"",
+available:null,
+amen:"25 rooms • Dining room • Common rooms • Parking",
+addr:"Bankura University Main Campus, Purandarpur, Bankura, West Bengal 722155",
+rating:0,
+fac:["Food","Security","Parking"],
+verified:"04 Sep 2026",
+rooms:[
+["University Hostel","Official source"]
+]
+},
+
+{
+id:17,
+name:"Girls Hostel — Bankura Unnayani Institute of Engineering",
+loc:"Pohabagan, Bankura",
+district:"Bankura",
+price:0,
+room:"College Hostel",
+phone:"+919153056388",
+available:null,
+amen:"Girls hostel • Wardens • Medical support • Meals",
+addr:"Subhankar Nagar, Pohabagan, Bankura, West Bengal 722146",
+rating:0,
+fac:["Food","Security","Parking"],
+verified:"04 Sep 2026",
+rooms:[
+["College Hostel","Official source"]
+]
+},
+
+{
+id:18,
+name:"Maa Sarada Chatrinibas — Nikhil Banga Sikshan Mahavidyalaya",
+loc:"Bishnupur, Bankura",
+district:"Bankura",
+price:0,
+room:"B.Ed Girls Hostel",
+phone:"+913244256936",
+available:null,
+amen:"Girls student hostel • Institute managed",
+addr:"Tilbari, Bishnupur, Bankura 722122, West Bengal",
+rating:0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[
+["B.Ed Girls Hostel","Official source"]
+]
+},
+
+{
+id:19,
+name:"Darjeeling Govt. College — Heather Lodge Girls’ Hostel",
+loc:"Darjeeling",
+district:"Darjeeling",
+price:0,
+room:"Girls Hostel",
+phone:"+913542255020",
+available:null,
+amen:"Food • Security • Student hostel",
+addr:"Kutchery More, near D.M. Office, Darjeeling, West Bengal 734101",
+rating:0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:20,
+name:"Salesian College Women’s Hostel",
+loc:"Siliguri",
+district:"Darjeeling",
+price:0,
+room:"Women’s Hostel",
+phone:"+917047841622",
+available:null,
+amen:"Food • Wi-Fi • Security • Furnished rooms",
+addr:"Don Bosco Rd, Ward 42, Don Bosco Colony, Siliguri, West Bengal 734001",
+rating:0,
+fac:["Food","Wi-Fi","Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:21,
+name:"Babu Jagjiban Ram Chhatrabas Central Girls’ Hostel",
+loc:"Cooch Behar",
+district:"Cooch Behar",
+price:0,
+room:"Girls Hostel",
+phone:"+918158807460",
+available:null,
+amen:"Government-aided • Girls hostel",
+addr:"Cooch Behar, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:22,
+name:"Cooch Behar Panchanan Barma University — Torsa Girls’ Hostel",
+loc:"Cooch Behar",
+district:"Cooch Behar",
+price:0,
+room:"University Girls Hostel",
+phone:"+919476468333",
+available:null,
+amen:"University hostel • Student accommodation",
+addr:"Panchanan Nagar, Vivekananda Street, Cooch Behar 736101, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:23,
+name:"Suchetana Bhavan — Malda Women’s College Girls’ Hostel",
+loc:"English Bazar, Malda",
+district:"Malda",
+price:0,
+room:"Girls Hostel",
+phone:"+913512252597",
+available:null,
+amen:"Food • 24-hour security • Student hostel",
+addr:"Santigopal Sen Sarani, Pirojpur, English Bazar, Malda 732101, West Bengal",
+rating:0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:24,
+name:"Kadambini Girls’ Hostel — WBUAFS Mohanpur",
+loc:"Mohanpur, Nadia",
+district:"Nadia",
+price:0,
+room:"University Girls Hostel",
+phone:"+919862714273",
+available:null,
+amen:"University hostel • Student accommodation",
+addr:"Mohanpur Campus, Nadia, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:25,
+name:"Shimurali Sachinandan College of Education — Girls’ Hostel",
+loc:"Shimurali, Nadia",
+district:"Nadia",
+price:1500,
+room:"Girls Hostel",
+phone:"+913473351021",
+available:null,
+amen:"CCTV • Wi-Fi • Purified water • Generator",
+addr:"P.O. Shimurali, Nadia 741248, West Bengal",
+rating:0,
+fac:["CCTV","Wi-Fi"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:26,
+name:"Berhampore Girls’ College — Nibedita Chhatri Nibas",
+loc:"Berhampore, Murshidabad",
+district:"Murshidabad",
+price:0,
+room:"Girls Hostel",
+phone:"+913482257524",
+available:null,
+amen:"Student hostel • Safe campus",
+addr:"Berhampore, Murshidabad, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:27,
+name:"Magrahat College Girls’ Hostel",
+loc:"Magrahat",
+district:"South 24 Parganas",
+price:0,
+room:"Girls Hostel",
+phone:"+917477869381",
+available:null,
+amen:"College girls hostel",
+addr:"Magrahat, South 24 Parganas, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:28,
+name:"DIET Joynagar Girls’ Hostel",
+loc:"Joynagar, South 24 Parganas",
+district:"South 24 Parganas",
+price:0,
+room:"Girls Hostel",
+phone:"+913218228154",
+available:null,
+amen:"Purified water • Generator • Girls hostel",
+addr:"Kulpi Road, P.O. Ramakantanagar, P.S. Mandirbazar, South 24 Parganas 743395, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:29,
+name:"Gushkara Mahavidyalaya — Nivedita Chhatri Nibas",
+loc:"Gushkara",
+district:"Purba Bardhaman",
+price:0,
+room:"Girls Hostel",
+phone:"+913452255105",
+available:null,
+amen:"60-seat girls hostel • College managed",
+addr:"Gushkara, Purba Bardhaman, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:30,
+name:"Haldia Government College — Saheed Matangini Hazra Girls’ Hostel",
+loc:"Haldia",
+district:"Purba Medinipur",
+price:0,
+room:"Girls Hostel",
+phone:"+919433578859",
+available:null,
+amen:"College girls hostel",
+addr:"Debhog, Haldia, Purba Medinipur, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:31,
+name:"Haldia Institute of Technology — Ladies Hostel",
+loc:"Haldia",
+district:"Purba Medinipur",
+price:0,
+room:"Ladies Hostel",
+phone:"+918583937675",
+available:null,
+amen:"Ladies hostel • Student accommodation",
+addr:"ICARE Complex, Hatiberia, Haldia, Purba Medinipur, West Bengal 721657",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:32,
+name:"Vivekananda Mission Mahavidyalaya — Girls’ Hostel",
+loc:"Haldia",
+district:"Purba Medinipur",
+price:0,
+room:"Girls Hostel",
+phone:"",
+available:null,
+amen:"CCTV • Wi-Fi • Separate girls hostel • Canteen",
+addr:"Haldia region, Purba Medinipur, West Bengal",
+rating:0,
+fac:["CCTV","Wi-Fi","Food"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:33,
+name:"Seva Bharati Mahavidyalaya — Girls’ Hostel",
+loc:"Kapgari",
+district:"Jhargram",
+price:1000,
+room:"Girls Hostel",
+phone:"+919433122259",
+available:null,
+amen:"110-seat girls hostel • Mess • College hostel",
+addr:"Kapgari, P.S. Jamboni, Jhargram, West Bengal 721505",
+rating:0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:34,
+name:"Sadhu Ramchand Murmu University — Shahid Matangini Girls’ Hostel",
+loc:"Jitusol, Jhargram",
+district:"Jhargram",
+price:0,
+room:"University Girls Hostel",
+phone:"+913221291036",
+available:null,
+amen:"100-bed girls hostel • University hostel",
+addr:"Jitusol, Jhargram, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:35,
+name:"Jhargram Government Medical College — Girls’ Hostel",
+loc:"Jhargram",
+district:"Jhargram",
+price:12,
+room:"Girls Hostel",
+phone:"",
+available:null,
+amen:"24-hour security • Canteen • Medical college hostel",
+addr:"New Campus, near Bongshi More, Jhargram, West Bengal",
+rating:0,
+fac:["Food","Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:36,
+name:"Working Women’s Hostel — Midnapore",
+loc:"Midnapore",
+district:"Paschim Medinipur",
+price:3000,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"Government hostel • 45 available seats/rooms listed",
+addr:"Near Midnapore College Playground, Midnapore, Paschim Medinipur 721101, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:37,
+name:"Working Women’s Hostel — Haldia",
+loc:"Haldia",
+district:"Purba Medinipur",
+price:0,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"Government hostel • 36 available seats/rooms listed",
+addr:"Haldia, Purba Medinipur, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:38,
+name:"Working Women’s Hostel — Mal",
+loc:"Mal",
+district:"Jalpaiguri",
+price:1035,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"Government hostel • 60 available seats/rooms listed",
+addr:"Mal, Jalpaiguri, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:39,
+name:"Working Women’s Hostel — Rudranagar",
+loc:"Rudranagar, Sagar",
+district:"South 24 Parganas",
+price:1200,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"Government hostel • 48 available seats/rooms listed",
+addr:"Rudranagar, Sagar, South 24 Parganas, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:40,
+name:"Working Women’s Hostel — Jhargram",
+loc:"Jhargram",
+district:"Jhargram",
+price:0,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"Government hostel • 41 available seats/rooms listed",
+addr:"Jhargram, West Bengal 721507",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Contact hostel","Verify"]]
+},
+
+{
+id:41,
+name:"Swayambhara Working Women’s Hostel",
+loc:"Purbachal, Kolkata",
+district:"Kolkata",
+price:925,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"112 beds • Single & dormitory rooms",
+addr:"Block-GA, P.O. Purbachal, Kolkata 700097",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single / Dormitory","Verify"]]
+},
+
+{
+id:42,
+name:"Swayamsiddha Working Women’s Hostel",
+loc:"Purbachal, Kolkata",
+district:"Kolkata",
+price:925,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"44 single-seated beds",
+addr:"Block-GA, P.O. Purbachal, Kolkata 700097",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single","Verify"]]
+},
+
+{
+id:43,
+name:"Gariahat Working Women’s Hostel",
+loc:"Gariahat, Kolkata",
+district:"Kolkata",
+price:0,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"177 beds • 59 rooms",
+addr:"28/1A, Gariahat Road, Kolkata 700029",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Room","Verify"]]
+},
+
+{
+id:44,
+name:"Ibrahimpur Road Working Women’s Hostel",
+loc:"Jadavpur, Kolkata",
+district:"Kolkata",
+price:1025,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"76 single-seated beds",
+addr:"Ibrahimpur Road, Jadavpur, Kolkata 700032",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single","Verify"]]
+},
+
+{
+id:45,
+name:"Becharam Chatterjee Road Working Women’s Hostel",
+loc:"Behala, Kolkata",
+district:"Kolkata",
+price:1025,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"34 single-seated beds",
+addr:"Sakar Math, Ward 128, Behala, Kolkata",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single","Verify"]]
+},
+
+{
+id:46,
+name:"Banamali Naskar Road Working Women’s Hostel",
+loc:"Behala, Kolkata",
+district:"Kolkata",
+price:1025,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"61 single-seated beds",
+addr:"Plot 573(P), Ward 132, Behala, Kolkata",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single","Verify"]]
+},
+
+{
+id:47,
+name:"Working Women’s Hostel — Regent Park",
+loc:"Tollygunge, Kolkata",
+district:"Kolkata",
+price:1025,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"34 single-seated beds",
+addr:"Regent Park RHE, Tollygunge, Kolkata",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single","Verify"]]
+},
+
+{
+id:48,
+name:"Working Women’s Hostel — H.K. Seth Lane",
+loc:"Kolkata",
+district:"Kolkata",
+price:1025,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"76 single-seated beds",
+addr:"20, H.K. Seth Lane, Kolkata",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single","Verify"]]
+},
+
+{
+id:49,
+name:"NIFT Kolkata Girls’ Hostel",
+loc:"Salt Lake, Kolkata",
+district:"Kolkata",
+price:0,
+room:"Girls Hostel",
+phone:"+913323358350",
+available:null,
+amen:"180 students • 24-hour security • Laundry • RO water",
+addr:"GE Block, Plot-4, Sector-III, Salt Lake City, Kolkata 700106",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Girls Hostel","Verify"]]
+},
+
+{
+id:50,
+name:"Working Women’s Hostel — Durgapur",
+loc:"City Centre, Durgapur",
+district:"Paschim Bardhaman",
+price:0,
+room:"Working Women Hostel",
+phone:"",
+available:null,
+amen:"Government project • 40 single-occupancy units",
+addr:"RHE City Centre, Durgapur, Paschim Bardhaman, West Bengal",
+rating:0,
+fac:["Security"],
+verified:"04 Sep 2026",
+rooms:[["Single Occupancy","Verify"]]
+}
 
 ];
 
 
-const extraInfo={
-1:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Security"],verified:"04 Sep 2026"},
-2:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-3:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-4:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-5:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-6:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-7:{rooms:[["Single","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-8:{rooms:[["Single","Contact"]],fac:["Food"],verified:"04 Sep 2026"},
-9:{rooms:[["Single","Contact"]],fac:["Security"],verified:"04 Sep 2026"},
-10:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Security"],verified:"04 Sep 2026"},
-11:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-12:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Food","Security"],verified:"04 Sep 2026"},
-13:{rooms:[["Single","Contact"]],fac:["Food"],verified:"04 Sep 2026"},
-14:{rooms:[["Single","Contact"],["Double","Contact"]],fac:["Security"],verified:"04 Sep 2026"},
-15:{rooms:[["College Hostel","Official source"]],fac:["Wi-Fi","Food","Security","Parking"],verified:"04 Sep 2026"},
-16:{rooms:[["University Hostel","Official source"]],fac:["Food","Security","Parking"],verified:"04 Sep 2026"},
-17:{rooms:[["College Hostel","Official source"]],fac:["Food","Security","Parking"],verified:"04 Sep 2026"},
-18:{rooms:[["B.Ed Girls Hostel","Official source"]],fac:["Food","Security"],verified:"04 Sep 2026"}
-};
+/* =========================================================
+   FAVOURITES
+   ========================================================= */
 
-for(let i=19;i<=50;i++){if(!extraInfo[i]) extraInfo[i]={rooms:[["Contact hostel","Verify"]],fac:[],verified:"04 Sep 2026"};}
-hostels.forEach(h=>{if(!h.district) h.district="Bankura"; h.info=extraInfo[h.id]||{rooms:[["Room","Contact"]],fac:[],verified:"04 Sep 2026"}});
+let favourites=
+JSON.parse(localStorage.getItem("ladiesHostelFavs")||"[]");
 
-let favourites=JSON.parse(localStorage.getItem("ladiesHostelFavs")||"[]");
 let selectedFacilities=[];
-function saveFavs(){localStorage.setItem("ladiesHostelFavs",JSON.stringify(favourites))}
-function isFav(id){return favourites.includes(id)}
-function toggleFav(id){if(isFav(id)) favourites=favourites.filter(x=>x!==id); else favourites.push(id); saveFavs(); render(currentList)}
-function toggleFacility(btn){let f=btn.dataset.f;if(f==="Favourite"){showFavourites();return}btn.classList.toggle("active");selectedFacilities=Array.from(document.querySelectorAll(".fchip.active")).map(x=>x.dataset.f);searchHostels()}
-function clearFilters(){document.getElementById("district").value="";loc.value="";room.value="";budget.value="";avail.value="";selectedFacilities=[];document.querySelectorAll(".fchip").forEach(x=>x.classList.remove("active"));render(hostels)}
-function showFavourites(){render(hostels.filter(h=>isFav(h.id)));location.hash="hostels"}
+let currentList=[...hostels];
 
-let currentList=hostels;
-function status(h){return h.available===true?'<span class="status y">✓ Available</span>':h.available===false?'<span class="status n">Full</span>':'<span class="status">☎ Verify</span>'}
-function card(h){
-let info=h.info||{rooms:[],fac:[],verified:"Not verified"};
-let rooms=info.rooms.map(r=>`<div class="roomrow"><span>🛏️ ${r[0]}</span><b>${r[1]}</b></div>`).join('');
-return `<article class="card"><div class="photo"><span>🏠</span><div class="verified">✓ PUBLIC LISTING</div><button class="fav ${isFav(h.id)?'on':''}" onclick="toggleFav(${h.id})">${isFav(h.id)?'♥':'♡'}</button></div>
-<div class="cbody"><div class="toprow"><div class="title">${h.name}</div>${status(h)}</div>
-<div class="loc">📍 ${h.loc}</div><div class="price">${h.price?'₹'+Number(h.price).toLocaleString()+' / month':'Rent: Contact hostel'}</div>
-<div class="facts">⭐ ${h.rating} &nbsp; • &nbsp; ${h.amen}</div>
-<div class="roombox">${rooms}<div class="verified-date">✓ Last verified/listing checked: ${info.verified}</div></div>
-<div class="actions"><button class="btn outline" onclick="showDetail(${h.id})">View Details</button>${h.phone?`<button class="btn" onclick="callHostel('${h.phone}')">📞 Call</button>`:''}</div></div></article>`}
-function render(list=hostels){currentList=list;grid.innerHTML=list.map(card).join('');count.textContent=list.length+' listings'}
-function searchHostels(){
-let raw=loc.value.trim(),l=raw.toLowerCase(),r=room.value.toLowerCase(),b=Number(budget.value||999999),a=avail.value;
-let d=(document.getElementById("district")?.value||"").toLowerCase(); let x=hostels.filter(h=>(!d||((h.district||"").toLowerCase()===d))&&(!l||h.loc.toLowerCase().includes(l)||h.name.toLowerCase().includes(l)||((l==="bankura")&&(h.district||"").toLowerCase()==="bankura"))&&(!r||h.room.toLowerCase().includes(r))&&(!h.price||h.price<=b)&&(!a||h.available===true));
-if(selectedFacilities.length)x=x.filter(h=>selectedFacilities.every(f=>(h.info?.fac||[]).includes(f)));
-render(x);location.hash='hostels';
-if(raw){let q=encodeURIComponent(raw+' ladies hostel girls hostel PG');document.getElementById('googleSearchBox').innerHTML=`<div class="notice" style="margin-top:14px"><b>🌐 Google Maps Search</b><br>Search nearby hostels directly on Google Maps for <b>${raw}</b>.<button class="btn" style="margin-top:9px" onclick="openGoogle('${q}')">📍 Search on Google Maps</button></div>`}
+function saveFavs(){
+ localStorage.setItem(
+  "ladiesHostelFavs",
+  JSON.stringify(favourites)
+ );
 }
-function openGoogle(q){window.open('https://www.google.com/maps/search/?api=1&query='+q,'_blank')}
 
-function quick(x){loc.value=x;if(x==="Bankura") document.getElementById("district").value="Bankura"; else document.getElementById("district").value="";searchHostels()}
-function callHostel(p){location.href='tel:'+p.replace(/[^+0-9]/g,'')}
-function showDetail(id){let h=hostels.find(x=>x.id===id);detailContent.innerHTML=`<div class="detailphoto">🏠</div><div class="detailgrid"><div class="panel">${status(h)}<h2>${h.name}</h2><p class="muted">📍 ${h.addr}</p><h2 class="price">${h.price?'₹'+Number(h.price).toLocaleString()+' / Month':'Rent: Contact Hostel'}</h2><p>🛏️ ${h.room}</p><h3>Rooms & Facilities</h3><div class="roombox">${(h.info?.rooms||[]).map(r=>`<div class="roomrow"><span>🛏️ ${r[0]}</span><b>${r[1]}</b></div>`).join('')}</div>
-<div class="kv">${(h.info?.fac||[]).map(f=>`<div>✓ ${f}</div>`).join('')||'<div>Contact hostel to verify facilities</div>'}</div><h3 style="margin-top:18px">Verification</h3><p class="muted">Availability and pricing are not publicly confirmed in this listing. Please contact the hostel before booking.<br><br>✓ Last checked: ${h.info?.verified||"Not verified"}</p></div><div class="panel"><h3>Contact</h3><p><b>${h.phone||'Phone number not publicly listed'}</b></p>${h.phone?`<button class="btn" style="width:100%" onclick="callHostel('${h.phone}')">📞 Call Now</button><a class="btn" style="display:block;text-align:center;text-decoration:none;margin-top:8px" target="_blank" href="https://wa.me/${h.phone.replace(/[^0-9]/g,'')}">💬 WhatsApp</a>`:''}<h3 style="margin-top:22px">📍 Map</h3><a class="btn outline" style="display:block;text-align:center;text-decoration:none" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.addr)}">View on Google Maps</a></div></div>`;detail.style.display='block'}
-function closeDetail(){detail.style.display='none'}function openAdd(){modal.style.display='block'}function closeAdd(){modal.style.display='none'}
-function addHostel(){let h={id:Date.now(),name:aname.value,loc:aloc.value,price:Number(aprice.value)||0,room:'Hostel / PG',phone:aphone.value,available:null,amen:aamen.value||'Facilities to be verified',addr:aaddr.value||aloc.value,rating:'New'};if(!h.name||!h.loc||!h.phone){alert('Name, location and contact number দিন।');return}hostels.unshift(h);render();closeAdd();alert('Listing added on this device.')}
-render();
+function isFav(id){
+ return favourites.includes(id);
+}
+
+function toggleFav(id){
+
+ if(isFav(id)){
+  favourites=favourites.filter(x=>x!==id);
+ }else{
+  favourites.push(id);
+ }
+
+ saveFavs();
+ render(currentList);
+}
+
+
+/* =========================================================
+   FACILITY FILTER
+   ========================================================= */
+
+function toggleFacility(btn){
+
+ const f=btn.dataset.f;
+
+ btn.classList.toggle("active");
+
+ selectedFacilities=
+ Array.from(document.querySelectorAll(".fchip.active"))
+ .map(x=>x.dataset.f);
+
+ searchHostels();
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+function status(h){
+
+ if(h.available===true)
+  return '<span class="status y">✓ Available</span>';
+
+ if(h.available===false)
+  return '<span class="status n">Full</span>';
+
+ return '<span class="status">☎ Verify</span>';
+}
+
+
+/* =========================================================
+   RATING
+   ========================================================= */
+
+function ratingText(h){
+
+ if(!h.rating)
+  return "Not rated";
+
+ return "⭐ "+h.rating;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+function card(h){
+
+ const rooms=(h.rooms||[])
+ .map(r=>`
+ <div class="roomrow">
+  <span>🛏️ ${r[0]}</span>
+  <b>${r[1]}</b>
+ </div>
+ `)
+ .join("");
+
+ const facilities=(h.fac||[])
+ .map(f=>`<span>${f}</span>`)
+ .join("");
+
+ const photo=h.photo
+ ? `<img src="${h.photo}" alt="${h.name}">`
+ : `<span>🏠</span>`;
+
+ return `
+
+ <article class="card">
+
+ <div class="photo">
+
+ ${photo}
+
+ <div class="verified">
+ ✓ PUBLIC LISTING
+ </div>
+
+ <button
+ class="fav ${isFav(h.id)?"on":""}"
+ onclick="toggleFav(${h.id})"
+ aria-label="Favourite"
+ >
+ ${isFav(h.id)?"♥":"♡"}
+ </button>
+
+ </div>
+
+
+ <div class="cbody">
+
+ <div class="toprow">
+
+ <div class="title">
+ ${h.name}
+ </div>
+
+ ${status(h)}
+
+ </div>
+
+
+ <div class="loc">
+ 📍 ${h.loc}
+ </div>
+
+
+ <div class="price">
+
+ ${h.price
+ ? "₹"+Number(h.price).toLocaleString()+" / month"
+ : "Rent: Contact hostel"}
+
+ </div>
+
+
+ <div class="facts">
+
+ ${ratingText(h)}
+ &nbsp; • &nbsp;
+ ${h.room}
+
+ </div>
+
+
+ <div class="facilities">
+
+ ${facilities}
+
+ </div>
+
+
+ <div class="roombox">
+
+ ${rooms}
+
+ <div class="verified-date">
+ ✓ Last checked: ${h.verified||"Not verified"}
+ </div>
+
+ </div>
+
+
+ <div class="actions">
+
+ <button
+ class="btn outline"
+ onclick="showDetail(${h.id})"
+ >
+ View Details
+ </button>
+
+ ${h.phone
+ ? `<button
+ class="btn"
+ onclick="callHostel('${h.phone}')"
+ >
+ 📞 Call
+ </button>`
+ : ""}
+
+ </div>
+
+ </div>
+
+ </article>
+
+ `;
+}
+
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+function render(list=hostels){
+
+ currentList=[...list];
+
+ const grid=document.getElementById("grid");
+
+ if(!list.length){
+
+  grid.innerHTML=`
+  <div class="empty">
+
+  <div style="font-size:45px">🔎</div>
+
+  <h3>No hostel found</h3>
+
+  <p>
+  Try another district, location, budget or filter.
+  </p>
+
+  <button class="btn" onclick="clearFilters()">
+  Clear Filters
+  </button>
+
+  </div>
+  `;
+
+ }else{
+
+  grid.innerHTML=list.map(card).join("");
+
+ }
+
+ document.getElementById("count").textContent=
+ list.length+" listings";
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+function searchHostels(){
+
+ const district=
+ document.getElementById("district").value
+ .toLowerCase();
+
+ const raw=
+ document.getElementById("loc").value
+ .trim()
+ .toLowerCase();
+
+ const room=
+ document.getElementById("room").value
+ .toLowerCase();
+
+ const budget=
+ Number(document.getElementById("budget").value||999999);
+
+ const avail=
+ document.getElementById("avail").value;
+
+
+ let results=hostels.filter(h=>{
+
+  const location=
+  (h.loc+" "+h.name+" "+h.addr)
+  .toLowerCase();
+
+  const hroom=
+  (h.room||"").toLowerCase();
+
+  const districtOK=
+  !district ||
+  (h.district||"").toLowerCase()===district;
+
+  const locationOK=
+  !raw ||
+  location.includes(raw);
+
+  const roomOK=
+  !room ||
+  hroom.includes(room) ||
+  (room==="pg" && hroom.includes("pg")) ||
+  (room==="girls hostel" && hroom.includes("girls")) ||
+  (room==="working women" && hroom.includes("working"));
+
+  const budgetOK=
+  !h.price || h.price<=budget;
+
+  const availableOK=
+  !avail || h.available===true;
+
+  const facilityOK=
+  !selectedFacilities.length ||
+  selectedFacilities.every(f=>
+   (h.fac||[]).includes(f)
+  );
+
+  return districtOK &&
+         locationOK &&
+         roomOK &&
+         budgetOK &&
+         availableOK &&
+         facilityOK;
+
+ });
+
+
+ render(results);
+
+ document.getElementById("hostels")
+ .scrollIntoView({behavior:"smooth"});
+
+
+ if(raw){
+
+  const q=encodeURIComponent(
+   raw+" ladies hostel girls hostel PG"
+  );
+
+  document.getElementById("googleSearchBox").innerHTML=`
+
+  <div class="notice">
+
+  <b>🌐 Search more hostels on Google Maps</b>
+
+  <br>
+
+  Search nearby hostels directly on Google Maps
+  for <b>${raw}</b>.
+
+  <br>
+
+  <button
+  class="btn"
+  style="margin-top:9px"
+  onclick="openGoogle('${q}')"
+  >
+  📍 Search on Google Maps
+  </button>
+
+  </div>
+
+  `;
+
+ }
+
+}
+
+
+/* =========================================================
+   QUICK LOCATION
+   ========================================================= */
+
+function quick(x){
+
+ document.getElementById("loc").value=x;
+
+ const district=document.getElementById("district");
+
+ const option=
+ Array.from(district.options)
+ .find(o=>o.value.toLowerCase()===x.toLowerCase());
+
+ if(option)
+  district.value=option.value;
+
+ searchHostels();
+}
+
+
+/* =========================================================
+   CLEAR FILTERS
+   ========================================================= */
+
+function clearFilters(){
+
+ document.getElementById("district").value="";
+ document.getElementById("loc").value="";
+ document.getElementById("room").value="";
+ document.getElementById("budget").value="";
+ document.getElementById("avail").value="";
+ document.getElementById("sort").value="";
+
+ selectedFacilities=[];
+
+ document
+ .querySelectorAll(".fchip")
+ .forEach(x=>x.classList.remove("active"));
+
+ document.getElementById("googleSearchBox").innerHTML="";
+
+ render(hostels);
+}
+
+
+/* =========================================================
+   FAVOURITES
+   ========================================================= */
+
+function showFavourites(){
+
+ const list=
+ hostels.filter(h=>isFav(h.id));
+
+ render(list);
+
+ document.getElementById("hostels")
+ .scrollIntoView({behavior:"smooth"});
+}
+
+
+/* =========================================================
+   SORT
+   ========================================================= */
+
+function sortHostels(){
+
+ const type=document.getElementById("sort").value;
+
+ let list=[...currentList];
+
+ if(type==="price"){
+
+  list.sort((a,b)=>{
+   const pa=a.price||999999;
+   const pb=b.price||999999;
+   return pa-pb;
+  });
+
+ }
+
+ if(type==="rating"){
+
+  list.sort((a,b)=>
+   (b.rating||0)-(a.rating||0)
+  );
+
+ }
+
+ if(type==="name"){
+
+  list.sort((a,b)=>
+   a.name.localeCompare(b.name)
+  );
+
+ }
+
+ render(list);
+}
+
+
+/* =========================================================
+   CALL
+   ========================================================= */
+
+function callHostel(phone){
+
+ const number=
+ phone.replace(/[^+0-9]/g,"");
+
+ window.location.href="tel:"+number;
+}
+
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+function whatsappHostel(phone){
+
+ const number=
+ phone.replace(/[^0-9]/g,"");
+
+ window.open(
+  "https://wa.me/"+number,
+  "_blank"
+ );
+}
+
+
+/* =========================================================
+   GOOGLE MAPS
+   ========================================================= */
+
+function openGoogle(q){
+
+ window.open(
+  "https://www.google.com/maps/search/?api=1&query="+q,
+  "_blank"
+ );
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+function showDetail(id){
+
+ const h=
+ hostels.find(x=>x.id===id);
+
+ if(!h)return;
+
+ const rooms=
+ (h.rooms||[])
+ .map(r=>`
+ <div class="roomrow">
+  <span>🛏️ ${r[0]}</span>
+  <b>${r[1]}</b>
+ </div>
+ `)
+ .join("");
+
+ const facilities=
+ (h.fac||[])
+ .map(f=>`
+ <div>✓ ${f}</div>
+ `)
+ .join("");
+
+ const photo=
+ h.photo
+ ? `<img src="${h.photo}" alt="${h.name}">`
+ : `🏠`;
+
+
+ document.getElementById("detailContent").innerHTML=`
+
+ <div class="detailphoto">
+ ${photo}
+ </div>
+
+
+ <div class="detailgrid">
+
+
+ <div class="panel">
+
+ ${status(h)}
+
+ <h2>${h.name}</h2>
+
+ <p class="muted">
+ 📍 ${h.addr}
+ </p>
+
+ <h2 class="price">
+
+ ${h.price
+ ? "₹"+Number(h.price).toLocaleString()+" / Month"
+ : "Rent: Contact Hostel"}
+
+ </h2>
+
+ <p>
+ 🛏️ <b>${h.room}</b>
+ </p>
+
+ <p>
+ ${ratingText(h)}
+ </p>
+
+
+ <h3>
+ Rooms & Facilities
+ </h3>
+
+ <div class="roombox">
+
+ ${rooms||`
+ <div class="roomrow">
+ Contact hostel for room details
+ </div>
+ `}
+
+ </div>
+
+
+ <div class="kv">
+
+ ${facilities||`
+ <div>
+ Contact hostel to verify facilities
+ </div>
+ `}
+
+ </div>
+
+
+ <h3 style="margin-top:18px">
+ Verification
+ </h3>
+
+ <p class="muted">
+
+ Availability, pricing and facilities
+ are subject to change.
+
+ Please contact the hostel directly
+ before booking.
+
+ <br><br>
+
+ ✓ Last checked:
+ ${h.verified||"Not verified"}
+
+ </p>
+
+ </div>
+
+
+ <div class="panel">
+
+ <h3>
+ Contact
+ </h3>
+
+ <p>
+
+ <b>
+ ${h.phone||"Phone number not publicly listed"}
+ </b>
+
+ </p>
+
+
+ ${h.phone
+ ? `
+
+ <button
+ class="btn"
+ style="width:100%"
+ onclick="callHostel('${h.phone}')"
+ >
+ 📞 Call Now
+ </button>
+
+
+ <button
+ class="btn"
+ style="width:100%;margin-top:8px"
+ onclick="whatsappHostel('${h.phone}')"
+ >
+ 💬 WhatsApp
+ </button>
+
+ `
+ : `
+ <div class="notice">
+ Phone number is not publicly listed.
+ </div>
+ `}
+
+
+ <h3 style="margin-top:22px">
+ 📍 Location
+ </h3>
+
+
+ <button
+ class="btn outline"
+ style="width:100%"
+ onclick="openGoogle('${encodeURIComponent(h.addr)}')"
+ >
+ 🗺️ View on Google Maps
+ </button>
+
+
+ <h3 style="margin-top:22px">
+ ❤️ Favourite
+ </h3>
+
+
+ <button
+ class="btn outline"
+ style="width:100%"
+ onclick="toggleFav(${h.id});showDetail(${h.id})"
+ >
+ ${isFav(h.id)
+ ? "♥ Remove Favourite"
+ : "♡ Save Favourite"}
+ </button>
+
+ </div>
+
+ </div>
+
+ `;
+
+
+ document.getElementById("detail")
+ .style.display="block";
+}
+
+
+/* =========================================================
+   CLOSE DETAIL
+   ========================================================= */
+
+function closeDetail(){
+
+ document.getElementById("detail")
+ .style.display="none";
+}
+
+
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+   ========================================================= */
+
+document.getElementById("detail")
+.addEventListener("click",function(e){
+
+ if(e.target===this)
+  closeDetail();
+
+});
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+render(hostels);
+
 </script>
-</body></html>
+
+</body>
+</html>
