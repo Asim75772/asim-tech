@@ -1,10 +1,23 @@
-StudentHub Final AdSense-ready homepage.
+StudentHub Policy Pages – Upload Instructions
 
-Upload index.html into your GitHub Pages studenthub/ folder.
-Class 6 is active (class6/).
-Three responsive AdSense placements are included.
+Files:
+- privacy-policy.html
+- terms.html
+- about.html
 
 IMPORTANT:
-Replace ca-pub-XXXXXXXXXXXXXXX with your real AdSense Publisher ID.
-Replace data-ad-slot="XXXXXXXXXX" with the Ad Unit ID from AdSense.
-Privacy Policy and Terms links expect privacy-policy.html and terms.html in the same folder.
+Upload these files into the SAME StudentHub root folder where index.html is located:
+asim-tech/studenthub/
+
+Do NOT delete or replace your existing class5.html or class6/ folder.
+
+The current live homepage already points to privacy-policy.html and terms.html.
+These files fix those broken 404 links.
+
+After uploading, check:
+https://asim75772.github.io/asim-tech/studenthub/privacy-policy.html
+https://asim75772.github.io/asim-tech/studenthub/terms.html
+https://asim75772.github.io/asim-tech/studenthub/about.html
+
+Note:
+This is general website-policy wording, not legal advice. Review it before publishing if you need terms tailored to a particular business or jurisdiction.
