@@ -1,1 +1,1 @@
-Class 6 Bangla Chapters 6-10 improved study pages. Replace only bangla-ch6.html to bangla-ch10.html in studenthub/class6/bangla/.
+Replace only bangla-ch11.html to bangla-ch15.html in studenthub/class6/bangla/. Keep index.html, revision.html and chapters 1-10 unchanged.
