@@ -1,16 +1,10 @@
-StudentHub AdSense-ready homepage
+StudentHub Final AdSense-ready homepage.
 
-1. Upload index.html to your website.
-2. Before using live AdSense, replace:
-   ca-pub-XXXXXXXXXXXXXXX
-   with your real Google AdSense Publisher ID.
-3. Replace each:
-   data-ad-slot="XXXXXXXXXX"
-   with the Ad Unit ID supplied by AdSense.
-4. Keep the Google AdSense script only once in <head>.
-5. Do not click your own ads or ask visitors to click ads.
-6. AdSense approval is required before normal ad serving/revenue.
+Upload index.html into your GitHub Pages studenthub/ folder.
+Class 6 is active (class6/).
+Three responsive AdSense placements are included.
 
-This ZIP contains the homepage only. Your existing class5.html, class6/, quiz.html,
-notes.html, planner.html, pomodoro.html, progress.html, student-tools.html and
-student-search.html should remain in your existing website structure.
+IMPORTANT:
+Replace ca-pub-XXXXXXXXXXXXXXX with your real AdSense Publisher ID.
+Replace data-ad-slot="XXXXXXXXXX" with the Ad Unit ID from AdSense.
+Privacy Policy and Terms links expect privacy-policy.html and terms.html in the same folder.
