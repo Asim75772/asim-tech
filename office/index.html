@@ -566,7 +566,7 @@ gap:4px;
 
 }
 
-/* ================= PRINT ================= */
+/* ================= PRINT / SAVE PDF ================= */
 
 @media print{
 
@@ -577,28 +577,42 @@ gap:4px;
 #sheet,
 #pdf,
 #scan,
-#files{
-display:none!important;
+#files,
+#doc > .panel > h2{
+display:none !important;
 }
 
 .content{
-padding:0;
+padding:0 !important;
+margin:0 !important;
+width:100% !important;
 }
 
 #doc{
-display:block!important;
+display:block !important;
 }
 
-.panel{
-border:0;
-box-shadow:none;
+#doc > .panel{
+padding:0 !important;
+margin:0 !important;
+border:0 !important;
+box-shadow:none !important;
 }
 
 .editor{
-border:0;
+display:block !important;
+border:0 !important;
+box-shadow:none !important;
+padding:0 !important;
+margin:0 !important;
+min-height:auto !important;
+background:#fff !important;
+color:#000 !important;
 }
 
 }
+
+/* ================= END PRINT ================= */
 
 </style>
 
@@ -1209,8 +1223,6 @@ from Gallery / Files.
 <div class="scan-actions">
 
 
-<!-- CAMERA -->
-
 <div class="scan-box">
 
 <h3>
@@ -1243,8 +1255,6 @@ style="display:none;"
 
 </div>
 
-
-<!-- GALLERY -->
 
 <div class="scan-box">
 
@@ -1281,15 +1291,11 @@ style="display:none;"
 </div>
 
 
-<!-- PREVIEW -->
-
 <div
 id="scanPreview"
 class="preview-grid">
 </div>
 
-
-<!-- CREATE PDF -->
 
 <div style="margin-top:20px">
 
@@ -1303,8 +1309,6 @@ onclick="scanPDF()">
 
 </div>
 
-
-<!-- CLEAR -->
 
 <div style="margin-top:10px">
 
