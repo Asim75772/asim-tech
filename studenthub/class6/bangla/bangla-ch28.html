@@ -12,7 +12,24 @@ h1{font-size:30px;margin:8px 0}.meta{color:#a9c1d9;margin-bottom:18px}
 h2{font-size:19px;margin-top:0;color:#8fc7ff}p,li{line-height:1.7}.tag{display:inline-block;padding:5px 10px;border-radius:20px;background:#173653;color:#9ed0ff;font-size:13px}
 a{color:#9ed0ff;text-decoration:none}.back{display:inline-block;margin-top:18px;padding:10px 14px;border:1px solid #315473;border-radius:12px}
 .note{color:#c4d4e4;font-size:14px}
-</style></head>
+</style><style>
+.quiz label{display:inline-block;padding:7px 8px;margin:2px 0;cursor:pointer}
+.quiz input{transform:scale(1.15);margin-right:7px}
+.quiz button{margin-top:14px;padding:11px 16px;border:0;border-radius:10px;background:#1d5f91;color:#fff;font-weight:700;cursor:pointer}
+.result{margin-top:14px;font-weight:700}
+</style>
+<script>
+function checkQuiz(){
+  const answers={q1:"a",q2:"a",q3:"b"};
+  let score=0,total=Object.keys(answers).length;
+  for(const q in answers){
+    const el=document.querySelector('input[name="'+q+'"]:checked');
+    if(el && el.value===answers[q]) score++;
+  }
+  const r=document.getElementById("result");
+  r.textContent="তোমার স্কোর: "+score+" / "+total;
+}
+</script></head>
 <body><div class="wrap">
 <div class="brand">ASIM TECH • StudentHub • Class 6 বাংলা</div>
 <h1>ধরাতল</h1>
@@ -26,8 +43,23 @@ a{color:#9ed0ff;text-decoration:none}.back{display:inline-block;margin-top:18px;
 <div class="card"><h2>❓ প্রশ্নোত্তর অনুশীলন</h2>
 <ul><li>পাঠটির বিষয় কী?</li><li>লেখক/কবি কী বার্তা দিতে চেয়েছেন?</li><li>পাঠ থেকে শেখার মতো বিষয় কী?</li></ul></div>
 <div class="card"><h2>📝 MCQ Practice</h2>
-<p><strong>১.</strong> এই পাঠের ধরন কী?</p><p>ক) কবিতা &nbsp; খ) গল্প &nbsp; গ) প্রবন্ধ &nbsp; ঘ) নাটক</p>
-<p class="note">সঠিক উত্তর পাঠের ধরন অনুযায়ী নির্বাচন করো।</p></div>
+<div class="quiz">
+  <p><strong>১.</strong> এই পাঠের ধরন কী?</p>
+  <label><input type="radio" name="q1" value="a"> ক) কবিতা</label><br>
+  <label><input type="radio" name="q1" value="b"> খ) গল্প</label><br>
+  <label><input type="radio" name="q1" value="c"> গ) প্রবন্ধ</label><br>
+  <label><input type="radio" name="q1" value="d"> ঘ) নাটক</label>
+  <p><strong>২.</strong> পাঠের লেখক/কবির নাম মনে আছে?</p>
+  <label><input type="radio" name="q2" value="a"> ক) হ্যাঁ</label><br>
+  <label><input type="radio" name="q2" value="b"> খ) না</label>
+  <p><strong>৩.</strong> পাঠটি ভালোভাবে শেখার সেরা উপায় কোনটি?</p>
+  <label><input type="radio" name="q3" value="a"> ক) শুধু শিরোনাম পড়া</label><br>
+  <label><input type="radio" name="q3" value="b"> খ) পাঠ পড়ে প্রশ্নোত্তর অনুশীলন</label><br>
+  <label><input type="radio" name="q3" value="c"> গ) কিছুই না পড়া</label>
+  <button type="button" onclick="checkQuiz()">✅ Submit MCQ</button>
+  <div id="result" class="result"></div>
+</div>
+</div>
 <div class="card"><h2>🎯 Quick Revision</h2>
 <ul><li>পাঠের নাম ও লেখক/কবি মনে রাখো।</li><li>মূলভাব ৩–৪টি বাক্যে লিখতে শেখো।</li><li>গুরুত্বপূর্ণ শব্দ ও প্রশ্ন আলাদা করে অনুশীলন করো।</li></ul></div>
 <a class="back" href="./index.html">← বাংলা অধ্যায় তালিকা</a>
