@@ -15,20 +15,28 @@
 
 body{
   font-family:"Noto Sans Bengali","Nirmala UI",Arial,sans-serif;
-  background:#041a2d;
+  background:#031a2b;
   color:#eaf6ff;
   min-height:100vh;
 }
 
+.container{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  padding:0 18px;
+}
+
+/* HEADER */
 header{
-  padding:25px 18px 15px;
+  padding:28px 0 20px;
 }
 
 .brand{
-  color:#67c8ff;
+  color:#68c8ff;
   font-size:18px;
   font-weight:bold;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 
 h1{
@@ -38,79 +46,80 @@ h1{
 }
 
 .subtitle{
-  color:#b8d4e8;
+  color:#b9d6e9;
   font-size:16px;
   line-height:1.7;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:0 18px 40px;
-}
-
+/* BACK */
 .back{
   display:inline-block;
-  color:#42b7ff;
   text-decoration:none;
+  color:#35b7ff;
   font-weight:bold;
-  margin:12px 0 22px;
+  margin:8px 0 22px;
 }
 
+/* HERO */
 .hero{
-  background:#073451;
-  border:1px solid #14587e;
+  background:#063b59;
+  border:1px solid #12668d;
   border-radius:20px;
-  padding:22px;
-  margin-bottom:24px;
+  padding:24px 22px;
+  margin-bottom:22px;
 }
 
 .hero h2{
-  color:#ffd21c;
-  font-size:24px;
-  margin-bottom:8px;
+  color:#ffd21a;
+  font-size:25px;
+  margin-bottom:10px;
 }
 
 .hero p{
-  color:#c7ddec;
-  line-height:1.7;
+  color:#c8dfed;
+  font-size:17px;
+  line-height:1.8;
 }
 
+/* REVISION */
 .revision{
   display:block;
-  background:#07517a;
-  color:white;
   text-decoration:none;
-  border-radius:16px;
-  padding:18px 20px;
-  margin-bottom:22px;
-  border:1px solid #1680b8;
+  color:white;
+  background:#075b87;
+  border:1px solid #16a4e0;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:24px;
 }
 
 .revision strong{
   display:block;
-  color:#ffd21c;
-  font-size:20px;
-  margin-bottom:6px;
+  color:#ffd21a;
+  font-size:21px;
+  margin-bottom:7px;
 }
 
 .revision span{
-  color:#d5ecfa;
+  color:#d8edf8;
+  font-size:15px;
 }
 
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-  gap:16px;
+  gap:17px;
 }
 
+/* CARD */
 .card{
   display:block;
   text-decoration:none;
   color:#eaf6ff;
-  background:#063752;
-  border:1px solid #145b80;
-  border-radius:18px;
+  background:#063a56;
+  border:1px solid #126084;
+  border-radius:19px;
   padding:20px;
   min-height:175px;
   transition:.2s;
@@ -118,48 +127,63 @@ h1{
 
 .card:hover{
   transform:translateY(-3px);
-  border-color:#31b7ff;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  border-color:#25baff;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
 }
 
 .number{
-  color:#67c8ff;
-  font-size:14px;
+  color:#5ec5ff;
+  font-size:15px;
   font-weight:bold;
-  margin-bottom:8px;
+  margin-bottom:9px;
 }
 
 .card h2{
-  color:#ffd21c;
+  color:#ffd21a;
   font-size:21px;
-  line-height:1.4;
-  margin-bottom:8px;
+  line-height:1.45;
+  margin-bottom:9px;
 }
 
 .author{
-  color:#b8d4e8;
+  color:#b9d7e9;
   font-size:14px;
-  line-height:1.5;
+  line-height:1.6;
 }
 
 .open{
   display:inline-block;
-  margin-top:15px;
-  color:#35b5ff;
-  font-weight:bold;
+  margin-top:16px;
+  color:#32b7ff;
   font-size:14px;
+  font-weight:bold;
 }
 
+/* FOOTER */
 footer{
   text-align:center;
-  color:#7fa9c0;
-  padding:25px 15px;
+  color:#7fa8bd;
   font-size:13px;
+  padding:30px 15px;
 }
 
+/* MOBILE */
 @media(max-width:600px){
+
   h1{
     font-size:30px;
+  }
+
+  .hero{
+    padding:21px 18px;
+  }
+
+  .hero h2{
+    font-size:23px;
+  }
+
+  .hero p{
+    font-size:16px;
   }
 
   .grid{
@@ -167,7 +191,7 @@ footer{
   }
 
   .card{
-    min-height:155px;
+    min-height:160px;
   }
 }
 </style>
@@ -178,7 +202,9 @@ footer{
 <header>
   <div class="container">
 
-    <div class="brand">ASIM TECH • StudentHub</div>
+    <div class="brand">
+      ASIM TECH • StudentHub
+    </div>
 
     <h1>📚 বাংলা</h1>
 
@@ -189,301 +215,799 @@ footer{
   </div>
 </header>
 
+
 <div class="container">
 
-  <a class="back" href="../index.html">← Class 6 Home</a>
+  <!-- BACK TO CLASS 6 -->
+  <a class="back" href="../index.html">
+    ← Class 6 Home
+  </a>
 
+
+  <!-- HERO -->
   <section class="hero">
-    <h2>Class 6 বাংলা</h2>
+
+    <h2>
+      Class 6 বাংলা
+    </h2>
+
     <p>
-      সাহিত্য মেলার অধ্যায়ভিত্তিক Notes, শব্দার্থ, প্রশ্নোত্তর,
-      MCQ, Practice এবং Quick Revision।
+      সাহিত্য মেলার অধ্যায়ভিত্তিক Notes, শব্দার্থ,
+      প্রশ্নোত্তর, MCQ, Practice এবং Quick Revision।
     </p>
+
   </section>
+
 
   <!-- REVISION -->
   <a class="revision" href="./revision.html">
-    <strong>📝 বাংলা Revision</strong>
-    <span>দ্রুত Revision • গুরুত্বপূর্ণ প্রশ্ন • MCQ Practice</span>
+
+    <strong>
+      📝 বাংলা Revision
+    </strong>
+
+    <span>
+      দ্রুত Revision • গুরুত্বপূর্ণ প্রশ্ন • MCQ Practice
+    </span>
+
   </a>
 
+
+  <!-- CHAPTER GRID -->
   <div class="grid">
 
-    <!-- 1 -->
-    <a class="card" href="../bangla-ch1.html">
-      <div class="number">অধ্যায় ১</div>
-      <h2>ভরদুপুরে</h2>
-      <div class="author">নীরেন্দ্রনাথ চক্রবর্তী • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 1 -->
+    <a class="card" href="./bangla-ch1.html">
+
+      <div class="number">
+        অধ্যায় ১
+      </div>
+
+      <h2>
+        ভরদুপুরে
+      </h2>
+
+      <div class="author">
+        নীরেন্দ্রনাথ চক্রবর্তী • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 2 -->
-    <a class="card" href="../bangla-ch2.html">
-      <div class="number">অধ্যায় ২</div>
-      <h2>সেনাপতি শংকর</h2>
-      <div class="author">শ্যামল গঙ্গোপাধ্যায় • গল্প</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 2 -->
+    <a class="card" href="./bangla-ch2.html">
+
+      <div class="number">
+        অধ্যায় ২
+      </div>
+
+      <h2>
+        সেনাপতি শংকর
+      </h2>
+
+      <div class="author">
+        শ্যামল গঙ্গোপাধ্যায় • গল্প
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 3 -->
-    <a class="card" href="../bangla-ch3.html">
-      <div class="number">অধ্যায় ৩</div>
-      <h2>খোলামেলা দিনগুলি</h2>
-      <div class="author">শান্তিসুধা ঘোষ • স্মৃতিকথা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 3 -->
+    <a class="card" href="./bangla-ch3.html">
+
+      <div class="number">
+        অধ্যায় ৩
+      </div>
+
+      <h2>
+        খোলামেলা দিনগুলি
+      </h2>
+
+      <div class="author">
+        শান্তিসুধা ঘোষ • স্মৃতিকথা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 4 -->
-    <a class="card" href="../bangla-ch4.html">
-      <div class="number">অধ্যায় ৪</div>
-      <h2>পাইন গাছের আকাশে নরম তুলি</h2>
-      <div class="author">হাইনরিশ হাইনে / তরজমা সোমেন্দ্রনাথ ঠাকুর • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 4 -->
+    <a class="card" href="./bangla-ch4.html">
+
+      <div class="number">
+        অধ্যায় ৪
+      </div>
+
+      <h2>
+        পাইন গাছের আকাশে নরম তুলি
+      </h2>
+
+      <div class="author">
+        হাইনরিশ হাইনে / তরজমা সোমেন্দ্রনাথ ঠাকুর • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 5 -->
-    <a class="card" href="../bangla-ch5.html">
-      <div class="number">অধ্যায় ৫</div>
-      <h2>আকাশভরা সূর্য-তারা</h2>
-      <div class="author">রবীন্দ্রনাথ ঠাকুর • সংগীত</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 5 -->
+    <a class="card" href="./bangla-ch5.html">
+
+      <div class="number">
+        অধ্যায় ৫
+      </div>
+
+      <h2>
+        আকাশভরা সূর্য-তারা
+      </h2>
+
+      <div class="author">
+        রবীন্দ্রনাথ ঠাকুর • সংগীত
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 6 -->
-    <a class="card" href="../bangla-ch6.html">
-      <div class="number">অধ্যায় ৬</div>
-      <h2>মন-ভালো-করা</h2>
-      <div class="author">শক্তি চট্টোপাধ্যায় • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 6 -->
+    <a class="card" href="./bangla-ch6.html">
+
+      <div class="number">
+        অধ্যায় ৬
+      </div>
+
+      <h2>
+        মন-ভালো-করা
+      </h2>
+
+      <div class="author">
+        শক্তি চট্টোপাধ্যায় • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 7 -->
-    <a class="card" href="../bangla-ch7.html">
-      <div class="number">অধ্যায় ৭</div>
-      <h2>মেনি</h2>
-      <div class="author">কুমুদরঞ্জন মল্লিক • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 7 -->
+    <a class="card" href="./bangla-ch7.html">
+
+      <div class="number">
+        অধ্যায় ৭
+      </div>
+
+      <h2>
+        মেনি
+      </h2>
+
+      <div class="author">
+        কুমুদরঞ্জন মল্লিক • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 8 -->
-    <a class="card" href="../bangla-ch8.html">
-      <div class="number">অধ্যায় ৮</div>
-      <h2>পশুপাখির ভাষা</h2>
-      <div class="author">সুবিনয় রায়চৌধুরী • প্রবন্ধ</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 8 -->
+    <a class="card" href="./bangla-ch8.html">
+
+      <div class="number">
+        অধ্যায় ৮
+      </div>
+
+      <h2>
+        পশুপাখির ভাষা
+      </h2>
+
+      <div class="author">
+        সুবিনয় রায়চৌধুরী • প্রবন্ধ
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 9 -->
-    <a class="card" href="../bangla-ch9.html">
-      <div class="number">অধ্যায় ৯</div>
-      <h2>ঘাসফড়িং</h2>
-      <div class="author">অরুণ মিত্র • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 9 -->
+    <a class="card" href="./bangla-ch9.html">
+
+      <div class="number">
+        অধ্যায় ৯
+      </div>
+
+      <h2>
+        ঘাসফড়িং
+      </h2>
+
+      <div class="author">
+        অরুণ মিত্র • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 10 -->
-    <a class="card" href="../bangla-ch10.html">
-      <div class="number">অধ্যায় ১০</div>
-      <h2>কুমোরে-পোকার বাসাবাড়ি</h2>
-      <div class="author">গোপালচন্দ্র ভট্টাচার্য • প্রবন্ধ</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 10 -->
+    <a class="card" href="./bangla-ch10.html">
+
+      <div class="number">
+        অধ্যায় ১০
+      </div>
+
+      <h2>
+        কুমোরে-পোকার বাসাবাড়ি
+      </h2>
+
+      <div class="author">
+        গোপালচন্দ্র ভট্টাচার্য • প্রবন্ধ
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 11 -->
-    <a class="card" href="../bangla-ch11.html">
-      <div class="number">অধ্যায় ১১</div>
-      <h2>আমার ময়ূর</h2>
-      <div class="author">প্রিয়ম্বদা দেবী • গল্প</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 11 -->
+    <a class="card" href="./bangla-ch11.html">
+
+      <div class="number">
+        অধ্যায় ১১
+      </div>
+
+      <h2>
+        আমার ময়ূর
+      </h2>
+
+      <div class="author">
+        প্রিয়ম্বদা দেবী • গল্প
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 12 -->
-    <a class="card" href="../bangla-ch12.html">
-      <div class="number">অধ্যায় ১২</div>
-      <h2>চিঠি</h2>
-      <div class="author">জসীমউদ্দীন • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 12 -->
+    <a class="card" href="./bangla-ch12.html">
+
+      <div class="number">
+        অধ্যায় ১২
+      </div>
+
+      <h2>
+        চিঠি
+      </h2>
+
+      <div class="author">
+        জসীমউদ্দীন • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 13 -->
-    <a class="card" href="../bangla-ch13.html">
-      <div class="number">অধ্যায় ১৩</div>
-      <h2>মরশুমের দিনে</h2>
-      <div class="author">সুভাষ মুখোপাধ্যায় • প্রবন্ধ</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 13 -->
+    <a class="card" href="./bangla-ch13.html">
+
+      <div class="number">
+        অধ্যায় ১৩
+      </div>
+
+      <h2>
+        মরশুমের দিনে
+      </h2>
+
+      <div class="author">
+        সুভাষ মুখোপাধ্যায় • প্রবন্ধ
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 14 -->
-    <a class="card" href="../bangla-ch14.html">
-      <div class="number">অধ্যায় ১৪</div>
-      <h2>খোজা খিজিরের উৎসব</h2>
-      <div class="author">বিনয় ঘোষ • প্রবন্ধ</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 14 -->
+    <a class="card" href="./bangla-ch14.html">
+
+      <div class="number">
+        অধ্যায় ১৪
+      </div>
+
+      <h2>
+        খোজা খিজিরের উৎসব
+      </h2>
+
+      <div class="author">
+        বিনয় ঘোষ • প্রবন্ধ
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 15 -->
-    <a class="card" href="../bangla-ch15.html">
-      <div class="number">অধ্যায় ১৫</div>
-      <h2>হাট</h2>
-      <div class="author">যতীন্দ্রনাথ সেনগুপ্ত • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 15 -->
+    <a class="card" href="./bangla-ch15.html">
+
+      <div class="number">
+        অধ্যায় ১৫
+      </div>
+
+      <h2>
+        হাট
+      </h2>
+
+      <div class="author">
+        যতীন্দ্রনাথ সেনগুপ্ত • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 16 -->
-    <a class="card" href="../bangla-ch16.html">
-      <div class="number">অধ্যায় ১৬</div>
-      <h2>মাটির ঘরে দেওয়ালচিত্র</h2>
-      <div class="author">তপন কর • প্রবন্ধ</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 16 -->
+    <a class="card" href="./bangla-ch16.html">
+
+      <div class="number">
+        অধ্যায় ১৬
+      </div>
+
+      <h2>
+        মাটির ঘরে দেওয়ালচিত্র
+      </h2>
+
+      <div class="author">
+        তপন কর • প্রবন্ধ
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 17 -->
-    <a class="card" href="../bangla-ch17.html">
-      <div class="number">অধ্যায় ১৭</div>
-      <h2>বুমুর</h2>
-      <div class="author">দুর্গেশন দাস • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 17 -->
+    <a class="card" href="./bangla-ch17.html">
+
+      <div class="number">
+        অধ্যায় ১৭
+      </div>
+
+      <h2>
+        বুমুর
+      </h2>
+
+      <div class="author">
+        দুর্গেশন দাস • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 18 -->
-    <a class="card" href="../bangla-ch18.html">
-      <div class="number">অধ্যায় ১৮</div>
-      <h2>পিঁপড়ে</h2>
-      <div class="author">অমিয় চক্রবর্তী • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 18 -->
+    <a class="card" href="./bangla-ch18.html">
+
+      <div class="number">
+        অধ্যায় ১৮
+      </div>
+
+      <h2>
+        পিঁপড়ে
+      </h2>
+
+      <div class="author">
+        অমিয় চক্রবর্তী • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 19 -->
-    <a class="card" href="../bangla-ch19.html">
-      <div class="number">অধ্যায় ১৯</div>
-      <h2>ফাঁকি</h2>
-      <div class="author">রাজকিশোর পট্টনায়ক / বাংলা অনুবাদ: জ্যোতিরিন্দ্র মোহন জোয়ারদার • সংগীত</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 19 -->
+    <a class="card" href="./bangla-ch19.html">
+
+      <div class="number">
+        অধ্যায় ১৯
+      </div>
+
+      <h2>
+        ফাঁকি
+      </h2>
+
+      <div class="author">
+        রাজকিশোর পট্টনায়ক / বাংলা অনুবাদ: জ্যোতিরিন্দ্র মোহন জোয়ারদার • সংগীত
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 20 -->
-    <a class="card" href="../bangla-ch20.html">
-      <div class="number">অধ্যায় ২০</div>
-      <h2>উজ্জ্বল এক ঝাঁক পায়রা</h2>
-      <div class="author">বিমলচন্দ্র ঘোষ • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 20 -->
+    <a class="card" href="./bangla-ch20.html">
+
+      <div class="number">
+        অধ্যায় ২০
+      </div>
+
+      <h2>
+        উজ্জ্বল এক ঝাঁক পায়রা
+      </h2>
+
+      <div class="author">
+        বিমলচন্দ্র ঘোষ • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 21 -->
-    <a class="card" href="../bangla-ch21.html">
-      <div class="number">অধ্যায় ২১</div>
-      <h2>চিত্রগ্রীব</h2>
-      <div class="author">ধনগোপাল মুখোপাধ্যায় • চিত্রকথা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 21 -->
+    <a class="card" href="./bangla-ch21.html">
+
+      <div class="number">
+        অধ্যায় ২১
+      </div>
+
+      <h2>
+        চিত্রগ্রীব
+      </h2>
+
+      <div class="author">
+        ধনগোপাল মুখোপাধ্যায় • চিত্রকথা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 22 -->
-    <a class="card" href="../bangla-ch22.html">
-      <div class="number">অধ্যায় ২২</div>
-      <h2>আশীর্বাদ</h2>
-      <div class="author">দক্ষিণারঞ্জন মিত্র মজুমদার • সংগীত</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 22 -->
+    <a class="card" href="./bangla-ch22.html">
+
+      <div class="number">
+        অধ্যায় ২২
+      </div>
+
+      <h2>
+        আশীর্বাদ
+      </h2>
+
+      <div class="author">
+        দক্ষিণারঞ্জন মিত্র মজুমদার • সংগীত
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 23 -->
-    <a class="card" href="../bangla-ch23.html">
-      <div class="number">অধ্যায় ২৩</div>
-      <h2>এক ভুতুড়ে কাণ্ড</h2>
-      <div class="author">শিবরাম চক্রবর্তী • সংগীত</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 23 -->
+    <a class="card" href="./bangla-ch23.html">
+
+      <div class="number">
+        অধ্যায় ২৩
+      </div>
+
+      <h2>
+        এক ভুতুড়ে কাণ্ড
+      </h2>
+
+      <div class="author">
+        শিবরাম চক্রবর্তী • সংগীত
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 24 -->
-    <a class="card" href="../bangla-ch24.html">
-      <div class="number">অধ্যায় ২৪</div>
-      <h2>বাঘ</h2>
-      <div class="author">নবনীতা দেবসেন • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 24 -->
+    <a class="card" href="./bangla-ch24.html">
+
+      <div class="number">
+        অধ্যায় ২৪
+      </div>
+
+      <h2>
+        বাঘ
+      </h2>
+
+      <div class="author">
+        নবনীতা দেবসেন • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 25 -->
-    <a class="card" href="../bangla-ch25.html">
-      <div class="number">অধ্যায় ২৫</div>
-      <h2>বঙ্গ আমার! জননী আমার!</h2>
-      <div class="author">দ্বিজেন্দ্রলাল রায় • সংগীত</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 25 -->
+    <a class="card" href="./bangla-ch25.html">
+
+      <div class="number">
+        অধ্যায় ২৫
+      </div>
+
+      <h2>
+        বঙ্গ আমার! জননী আমার!
+      </h2>
+
+      <div class="author">
+        দ্বিজেন্দ্রলাল রায় • সংগীত
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 26 -->
-    <a class="card" href="../bangla-ch26.html">
-      <div class="number">অধ্যায় ২৬</div>
-      <h2>শহিদ যতীন্দ্রনাথ দাশ</h2>
-      <div class="author">আশিসকুমার মুখোপাধ্যায় • গদ্য</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 26 -->
+    <a class="card" href="./bangla-ch26.html">
+
+      <div class="number">
+        অধ্যায় ২৬
+      </div>
+
+      <h2>
+        শহিদ যতীন্দ্রনাথ দাশ
+      </h2>
+
+      <div class="author">
+        আশিসকুমার মুখোপাধ্যায় • গদ্য
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 27 -->
-    <a class="card" href="../bangla-ch27.html">
-      <div class="number">অধ্যায় ২৭</div>
-      <h2>চলে চল সবে ভারত সন্তান</h2>
-      <div class="author">জ্যোতিরিন্দ্রনাথ ঠাকুর • সংগীত</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 27 -->
+    <a class="card" href="./bangla-ch27.html">
+
+      <div class="number">
+        অধ্যায় ২৭
+      </div>
+
+      <h2>
+        চলে চল সবে ভারত সন্তান
+      </h2>
+
+      <div class="author">
+        জ্যোতিরিন্দ্রনাথ ঠাকুর • সংগীত
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 28 -->
-    <a class="card" href="../bangla-ch28.html">
-      <div class="number">অধ্যায় ২৮</div>
-      <h2>ধরাতল</h2>
-      <div class="author">রবীন্দ্রনাথ ঠাকুর • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 28 -->
+    <a class="card" href="./bangla-ch28.html">
+
+      <div class="number">
+        অধ্যায় ২৮
+      </div>
+
+      <h2>
+        ধরাতল
+      </h2>
+
+      <div class="author">
+        রবীন্দ্রনাথ ঠাকুর • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 29 -->
-    <a class="card" href="../bangla-ch29.html">
-      <div class="number">অধ্যায় ২৯</div>
-      <h2>সেথায় যেতে যে চায়</h2>
-      <div class="author">বন্দে আলী মিয়া • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 29 -->
+    <a class="card" href="./bangla-ch29.html">
+
+      <div class="number">
+        অধ্যায় ২৯
+      </div>
+
+      <h2>
+        সেথায় যেতে যে চায়
+      </h2>
+
+      <div class="author">
+        বন্দে আলী মিয়া • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 30 -->
-    <a class="card" href="../bangla-ch30.html">
-      <div class="number">অধ্যায় ৩০</div>
-      <h2>হাবুর বিপদ</h2>
-      <div class="author">অজয় রায় • কবিতা</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 30 -->
+    <a class="card" href="./bangla-ch30.html">
+
+      <div class="number">
+        অধ্যায় ৩০
+      </div>
+
+      <h2>
+        হাবুর বিপদ
+      </h2>
+
+      <div class="author">
+        অজয় রায় • কবিতা
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 31 -->
-    <a class="card" href="../bangla-ch31.html">
-      <div class="number">অধ্যায় ৩১</div>
-      <h2>না পাওয়ার পরীক্ষা</h2>
-      <div class="author">শম্ভু ঘোষ • প্রবন্ধ</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 31 -->
+    <a class="card" href="./bangla-ch31.html">
+
+      <div class="number">
+        অধ্যায় ৩১
+      </div>
+
+      <h2>
+        না পাওয়ার পরীক্ষা
+      </h2>
+
+      <div class="author">
+        শম্ভু ঘোষ • প্রবন্ধ
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 32 -->
-    <a class="card" href="../bangla-ch32.html">
-      <div class="number">অধ্যায় ৩২</div>
-      <h2>কিশোর বিজ্ঞানী</h2>
-      <div class="author">অনাদাশঙ্কর রায় • জীবনী</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 32 -->
+    <a class="card" href="./bangla-ch32.html">
+
+      <div class="number">
+        অধ্যায় ৩২
+      </div>
+
+      <h2>
+        কিশোর বিজ্ঞানী
+      </h2>
+
+      <div class="author">
+        অনাদাশঙ্কর রায় • জীবনী
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 33 -->
-    <a class="card" href="../bangla-ch33.html">
-      <div class="number">অধ্যায় ৩৩</div>
-      <h2>ননীদা নট আউট</h2>
-      <div class="author">মতি নন্দী • গল্প</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 33 -->
+    <a class="card" href="./bangla-ch33.html">
+
+      <div class="number">
+        অধ্যায় ৩৩
+      </div>
+
+      <h2>
+        ননীদা নট আউট
+      </h2>
+
+      <div class="author">
+        মতি নন্দী • গল্প
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
-    <!-- 34 -->
-    <a class="card" href="../bangla-ch34.html">
-      <div class="number">অধ্যায় ৩৪</div>
-      <h2>বইপড়ার কায়দাকানুন</h2>
-      <div class="author">প্রবন্ধ</div>
-      <span class="open">OPEN CHAPTER →</span>
+
+    <!-- CHAPTER 34 -->
+    <a class="card" href="./bangla-ch34.html">
+
+      <div class="number">
+        অধ্যায় ৩৪
+      </div>
+
+      <h2>
+        বইপড়ার কায়দাকানুন
+      </h2>
+
+      <div class="author">
+        প্রবন্ধ
+      </div>
+
+      <span class="open">
+        OPEN CHAPTER →
+      </span>
+
     </a>
 
   </div>
 
 </div>
+
 
 <footer>
   © 2026 StudentHub • Class 6 বাংলা
