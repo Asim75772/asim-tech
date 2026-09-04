@@ -1,1 +1,1 @@
-Improved Class 6 Bangla Chapters 2–5. Upload only bangla-ch2.html to bangla-ch5.html into studenthub/class6/bangla/. Keep index.html and revision.html unchanged. Original study-guide content; no full textbook reproduction.
+Class 6 Bangla Chapters 6-10 improved study pages. Replace only bangla-ch6.html to bangla-ch10.html in studenthub/class6/bangla/.
