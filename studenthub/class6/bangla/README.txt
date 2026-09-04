@@ -1,1 +1,1 @@
-Replace only bangla-ch11.html to bangla-ch15.html in studenthub/class6/bangla/. Keep index.html, revision.html and chapters 1-10 unchanged.
+Replace only bangla-ch16.html to bangla-ch20.html in studenthub/class6/bangla/. Keep index.html, revision.html and chapters 1-15 unchanged.
