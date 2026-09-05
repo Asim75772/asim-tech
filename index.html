@@ -418,7 +418,9 @@ border-color:var(--blue);
 box-shadow:0 0 0 3px rgba(0,160,255,.08)
 }
 
-.search-box input::placeholder{color:#71899c}
+.search-box input::placeholder{
+color:#71899c
+}
 
 .search-icon{
 position:absolute;
@@ -511,7 +513,9 @@ border-color:rgba(30,190,255,.65);
 box-shadow:0 22px 50px rgba(0,120,220,.18)
 }
 
-.app-card.hidden{display:none}
+.app-card.hidden{
+display:none
+}
 
 .app-image{
 position:relative;
@@ -663,6 +667,12 @@ linear-gradient(
 )
 }
 
+.hostel .app-image img{
+object-fit:contain;
+padding:0;
+background:transparent
+}
+
 .hostel .fallback-icon{
 width:105px;
 height:105px;
@@ -780,7 +790,9 @@ background:rgba(8,22,36,.65);
 color:var(--muted)
 }
 
-.no-results.show{display:block}
+.no-results.show{
+display:block
+}
 
 .no-results strong{
 display:block;
@@ -1941,8 +1953,17 @@ data-name="Ladies Hostel Finder">
 
 <div class="app-image">
 
-<div class="fallback-icon">
+<img
+src="images/14-ladies-hostel-finder.png"
+alt="Ladies Hostel Finder"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div
+class="fallback-icon"
+style="display:none">
+
 🏠
+
 </div>
 
 </div>
@@ -1950,8 +1971,15 @@ data-name="Ladies Hostel Finder">
 <div class="app-content">
 
 <div class="app-title-row">
-<h3>Ladies Hostel Finder</h3>
-<span class="app-type">WEB APP</span>
+
+<h3>
+Ladies Hostel Finder
+</h3>
+
+<span class="app-type">
+WEB APP
+</span>
+
 </div>
 
 <p>
@@ -1980,9 +2008,13 @@ class="app-btn blue-btn">
 
 <!-- NO RESULTS -->
 
-<div class="no-results" id="noResults">
+<div
+class="no-results"
+id="noResults">
 
-<strong>No app found</strong>
+<strong>
+No app found
+</strong>
 
 Try another search term or category.
 
@@ -2071,7 +2103,9 @@ Responsive experiences designed for phones, tablets and computers.
 
 <!-- UPDATES -->
 
-<section id="updates" class="info-box">
+<section
+id="updates"
+class="info-box">
 
 <h2>
 🆕 Latest Updates
@@ -2087,7 +2121,9 @@ regularly. Check back for new releases and improvements.
 
 <!-- ABOUT -->
 
-<section id="about" class="info-box">
+<section
+id="about"
+class="info-box">
 
 <h2>
 ✦ About Asim Tech
@@ -2105,7 +2141,9 @@ tasks simpler and easier.
 
 <!-- CONTACT -->
 
-<section id="contact" class="info-box">
+<section
+id="contact"
+class="info-box">
 
 <h2>
 📧 Contact Asim Tech
@@ -2147,8 +2185,12 @@ Apps • Tools • Innovation • Hostel Finder
 
 <br>
 
-<a href="#top" class="back-top">
+<a
+href="#top"
+class="back-top">
+
 ↑ Back to Top
+
 </a>
 
 </footer>
@@ -2263,15 +2305,20 @@ menuBtn.textContent="☰";
 
 /* SEARCH + FILTER */
 
-const searchInput=document.getElementById("appSearch");
+const searchInput=
+document.getElementById("appSearch");
 
-const filterButtons=document.querySelectorAll(".filter-btn");
+const filterButtons=
+document.querySelectorAll(".filter-btn");
 
-const appCards=document.querySelectorAll(".app-card");
+const appCards=
+document.querySelectorAll(".app-card");
 
-const status=document.getElementById("searchStatus");
+const status=
+document.getElementById("searchStatus");
 
-const noResults=document.getElementById("noResults");
+const noResults=
+document.getElementById("noResults");
 
 let currentFilter="all";
 
@@ -2394,7 +2441,9 @@ function(){
 
 filterButtons.forEach(
 function(btn){
+
 btn.classList.remove("active");
+
 }
 );
 
@@ -2425,7 +2474,9 @@ document.activeElement!==searchInput
 event.preventDefault();
 
 if(searchInput){
+
 searchInput.focus();
+
 }
 
 }
@@ -2452,6 +2503,11 @@ nav.classList.remove("open");
 menuBtn.setAttribute(
 "aria-expanded",
 "false"
+);
+
+menuBtn.setAttribute(
+"aria-label",
+"Open menu"
 );
 
 menuBtn.textContent="☰";
