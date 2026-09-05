@@ -1,1 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asim Image Compressor</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#071a35,#24115c);color:#fff;min-height:100vh}
+.container{width:min(950px,94%);margin:auto;padding:25px 0 45px}
+.header{text-align:center;padding:20px 10px 25px}
+.header h1{margin:0 0 8px;font-size:32px}.header p{margin:0;color:#cbd5e1}
+.card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:22px;margin-bottom:20px;backdrop-filter:blur(10px)}
+label{display:block;font-weight:bold;margin:12px 0 7px}
+input,select,button{font:inherit}
+input[type="number"],select{width:100%;padding:12px;border:0;border-radius:10px;background:#fff;color:#111}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.quick button{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;padding:9px 12px;border-radius:9px;cursor:pointer}
+.quick button:hover{background:rgba(255,255,255,.22)}
+.upload{border:2px dashed #94a3b8;border-radius:15px;padding:28px;text-align:center;cursor:pointer;background:rgba(255,255,255,.05)}
+.upload input{display:none}
+.primary{width:100%;padding:14px;border:0;border-radius:11px;background:#fff;color:#111;font-weight:bold;cursor:pointer;margin-top:18px}
+.secondary{padding:11px 15px;border:0;border-radius:10px;background:#334155;color:#fff;cursor:pointer}
+.file-list{margin-top:14px;color:#dbeafe;font-size:14px}
+.note{font-size:13px;color:#cbd5e1;line-height:1.5;margin-top:10px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0}
+.stat{background:rgba(0,0,0,.18);padding:13px;border-radius:12px;text-align:center}
+.stat b{display:block;font-size:19px;margin-top:4px}
+.result{display:none}
+.item{display:grid;grid-template-columns:110px 1fr auto;gap:14px;align-items:center;padding:13px;border:1px solid rgba(255,255,255,.12);border-radius:13px;margin:10px 0;background:rgba(255,255,255,.05)}
+.item img{width:110px;height:80px;object-fit:contain;background:#fff;border-radius:8px}
+.item .meta{font-size:13px;color:#dbeafe;line-height:1.6}
+.item button{padding:9px 12px;border:0;border-radius:8px;cursor:pointer;background:#fff;color:#111;font-weight:bold}
+.empty{text-align:center;color:#cbd5e1;padding:20px}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.14);font-size:12px;margin-left:5px}
+@media(max-width:650px){
+ .row{grid-template-columns:1fr}.stats{grid-template-columns:1fr}
+ .item{grid-template-columns:85px 1fr}.item img{width:85px;height:70px}.item button{grid-column:1/-1;width:100%}
+ .header h1{font-size:27px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🗜️ Asim Image Compressor</h1>
+    <p>Compress images by target size — KB or MB</p>
+  </div>
 
+  <div class="card">
+    <div class="upload" onclick="document.getElementById('files').click()">
+      <div style="font-size:42px">📷</div>
+      <b>Select Images</b>
+      <div class="note">JPG, JPEG, PNG, WebP • Multiple images supported</div>
+      <input id="files" type="file" accept="image/*" multiple>
+    </div>
+    <div id="fileList" class="file-list">No images selected.</div>
+
+    <div class="row">
+      <div>
+        <label for="targetValue">Target Size</label>
+        <input id="targetValue" type="number" min="1" step="0.1" value="200">
+      </div>
+      <div>
+        <label for="targetUnit">Unit</label>
+        <select id="targetUnit">
+          <option value="KB">KB</option>
+          <option value="MB">MB</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Quick Target Size</label>
+    <div class="quick">
+      <button data-value="50" data-unit="KB">50 KB</button>
+      <button data-value="100" data-unit="KB">100 KB</button>
+      <button data-value="200" data-unit="KB">200 KB</button>
+      <button data-value="500" data-unit="KB">500 KB</button>
+      <button data-value="1" data-unit="MB">1 MB</button>
+      <button data-value="2" data-unit="MB">2 MB</button>
+      <button data-value="5" data-unit="MB">5 MB</button>
+      <button data-value="10" data-unit="MB">10 MB</button>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="format">Output Format</label>
+        <select id="format">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/webp">WebP</option>
+          <option value="image/png">PNG</option>
+        </select>
+      </div>
+      <div>
+        <label for="maxWidth">Max Width</label>
+        <select id="maxWidth">
+          <option value="0">Original</option>
+          <option value="1920">1920 px</option>
+          <option value="1600">1600 px</option>
+          <option value="1280">1280 px</option>
+          <option value="1024">1024 px</option>
+          <option value="800">800 px</option>
+        </select>
+      </div>
+    </div>
+
+    <label for="quality">Starting Quality: <span id="qualityText">82</span>%</label>
+    <input id="quality" type="range" min="20" max="95" value="82" style="width:100%">
+
+    <button class="primary" id="compressBtn">Compress Images</button>
+    <button class="secondary" id="resetBtn" style="width:100%;margin-top:10px">Reset</button>
+    <div class="note">
+      Images are processed locally in your browser. They are not uploaded to a server.
+      For accurate target-size compression, JPG/WebP usually works better than PNG.
+    </div>
+  </div>
+
+  <div class="card result" id="resultCard">
+    <h2 style="margin-top:0">Compression Results</h2>
+    <div class="stats">
+      <div class="stat">Images<b id="countStat">0</b></div>
+      <div class="stat">Original<b id="originalStat">0 KB</b></div>
+      <div class="stat">Compressed<b id="compressedStat">0 KB</b></div>
+    </div>
+    <div id="results"></div>
+  </div>
+</div>
+
+<script>
+const filesInput = document.getElementById('files');
+const fileList = document.getElementById('fileList');
+const targetValue = document.getElementById('targetValue');
+const targetUnit = document.getElementById('targetUnit');
+const quality = document.getElementById('quality');
+const qualityText = document.getElementById('qualityText');
+const format = document.getElementById('format');
+const maxWidth = document.getElementById('maxWidth');
+const compressBtn = document.getElementById('compressBtn');
+const resetBtn = document.getElementById('resetBtn');
+const resultCard = document.getElementById('resultCard');
+const results = document.getElementById('results');
+
+let selectedFiles = [];
+let compressedItems = [];
+
+filesInput.addEventListener('change', () => {
+  selectedFiles = Array.from(filesInput.files || []);
+  showFileList();
+});
+
+quality.addEventListener('input', () => {
+  qualityText.textContent = quality.value;
+});
+
+document.querySelectorAll('.quick button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    targetValue.value = btn.dataset.value;
+    targetUnit.value = btn.dataset.unit;
+  });
+});
+
+function showFileList(){
+  if(!selectedFiles.length){
+    fileList.textContent = 'No images selected.';
+    return;
+  }
+  fileList.innerHTML = selectedFiles.map((f,i) =>
+    `${i+1}. ${escapeHtml(f.name)} — ${formatBytes(f.size)}`
+  ).join('<br>');
+}
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+  }[c]));
+}
+
+function formatBytes(bytes){
+  if(bytes < 1024) return bytes + ' B';
+  if(bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
+  return (bytes/(1024*1024)).toFixed(2) + ' MB';
+}
+
+function targetBytes(){
+  const n = parseFloat(targetValue.value);
+  if(!isFinite(n) || n <= 0) return 0;
+  return Math.round(n * (targetUnit.value === 'MB' ? 1024*1024 : 1024));
+}
+
+function loadImage(file){
+  return new Promise((resolve,reject)=>{
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(img);
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('Could not read image'));
+    };
+    img.src = url;
+  });
+}
+
+function canvasBlob(canvas, mime, q){
+  return new Promise(resolve => canvas.toBlob(resolve, mime, q));
+}
+
+async function makeCompressed(file, wantedBytes){
+  const img = await loadImage(file);
+  const chosenMax = parseInt(maxWidth.value,10) || 0;
+  const mime = format.value;
+
+  let scale = 1;
+  if(chosenMax > 0 && img.width > chosenMax) scale = chosenMax / img.width;
+
+  let width = Math.max(1, Math.round(img.width * scale));
+  let height = Math.max(1, Math.round(img.height * scale));
+
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // JPEG needs a white background for transparent PNGs.
+  function draw(){
+    canvas.width = width;
+    canvas.height = height;
+    ctx.clearRect(0,0,width,height);
+    if(mime === 'image/jpeg'){
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0,0,width,height);
+    }
+    ctx.drawImage(img,0,0,width,height);
+  }
+
+  draw();
+
+  // If the original is already below target, still re-encode at requested settings.
+  let bestBlob = await canvasBlob(canvas, mime, Number(quality.value)/100);
+  if(!bestBlob) throw new Error('Compression failed');
+
+  // PNG does not support quality in browser canvas. Resize repeatedly if needed.
+  if(mime === 'image/png'){
+    let tries = 0;
+    while(bestBlob.size > wantedBytes && tries < 7 && width > 300){
+      width = Math.max(300, Math.round(width * 0.85));
+      height = Math.max(1, Math.round(height * 0.85));
+      draw();
+      const b = await canvasBlob(canvas,mime,1);
+      if(b && b.size < bestBlob.size) bestBlob = b;
+      tries++;
+    }
+    return bestBlob;
+  }
+
+  // Binary search quality for the current dimensions.
+  let low = 0.15, high = 0.98;
+  for(let i=0;i<9;i++){
+    const q = (low + high) / 2;
+    const b = await canvasBlob(canvas,mime,q);
+    if(!b) break;
+    bestBlob = b;
+    if(b.size > wantedBytes) high = q;
+    else low = q;
+  }
+
+  // If still too large, reduce dimensions and try again.
+  let attempts = 0;
+  while(bestBlob.size > wantedBytes && attempts < 8 && width > 300){
+    width = Math.max(300, Math.round(width * 0.88));
+    height = Math.max(1, Math.round(height * 0.88));
+    draw();
+
+    let localBest = await canvasBlob(canvas,mime,0.55);
+    for(let i=0;i<7;i++){
+      const q = 0.20 + (0.70 * i / 6);
+      const b = await canvasBlob(canvas,mime,q);
+      if(b && Math.abs(b.size-wantedBytes) < Math.abs(localBest.size-wantedBytes)) localBest = b;
+    }
+    bestBlob = localBest;
+    attempts++;
+  }
+
+  return bestBlob;
+}
+
+function extensionForMime(mime){
+  if(mime === 'image/png') return 'png';
+  if(mime === 'image/webp') return 'webp';
+  return 'jpg';
+}
+
+function downloadBlob(blob, filename){
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    a.remove();
+    URL.revokeObjectURL(url);
+  }, 1500);
+}
+
+compressBtn.addEventListener('click', async () => {
+  if(!selectedFiles.length){
+    alert('Please select at least one image.');
+    return;
+  }
+
+  const wanted = targetBytes();
+  if(!wanted){
+    alert('Please enter a valid target size.');
+    return;
+  }
+
+  compressBtn.disabled = true;
+  compressBtn.textContent = 'Compressing...';
+  results.innerHTML = '<div class="empty">Please wait…</div>';
+  resultCard.style.display = 'block';
+  compressedItems = [];
+
+  let totalOriginal = 0;
+  let totalCompressed = 0;
+
+  for(let i=0;i<selectedFiles.length;i++){
+    const file = selectedFiles[i];
+    totalOriginal += file.size;
+
+    try{
+      const blob = await makeCompressed(file,wanted);
+      totalCompressed += blob.size;
+      compressedItems.push({file,blob});
+
+      const ext = extensionForMime(format.value);
+      const base = file.name.replace(/\.[^/.]+$/,'');
+      const filename = base + '-compressed.' + ext;
+      const overTarget = blob.size > wanted;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'item';
+
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(blob);
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.innerHTML =
+        `<b>${escapeHtml(filename)}</b><br>` +
+        `Original: ${formatBytes(file.size)}<br>` +
+        `Compressed: ${formatBytes(blob.size)}<br>` +
+        `Target: ${formatBytes(wanted)}` +
+        (overTarget ? `<br><span class="badge">Target not fully reached</span>` : '');
+
+      const button = document.createElement('button');
+      button.textContent = 'Download';
+      button.onclick = () => downloadBlob(blob,filename);
+
+      wrap.appendChild(img);
+      wrap.appendChild(meta);
+      wrap.appendChild(button);
+      results.appendChild(wrap);
+    }catch(err){
+      const errBox = document.createElement('div');
+      errBox.className = 'item';
+      errBox.innerHTML = `<div style="grid-column:1/-1">❌ ${escapeHtml(file.name)} — ${escapeHtml(err.message || 'Compression failed')}</div>`;
+      results.appendChild(errBox);
+    }
+  }
+
+  document.getElementById('countStat').textContent = compressedItems.length;
+  document.getElementById('originalStat').textContent = formatBytes(totalOriginal);
+  document.getElementById('compressedStat').textContent = formatBytes(totalCompressed);
+
+  if(!compressedItems.length) results.innerHTML = '<div class="empty">No image was compressed.</div>';
+
+  compressBtn.disabled = false;
+  compressBtn.textContent = 'Compress Images';
+});
+
+resetBtn.addEventListener('click', () => {
+  selectedFiles = [];
+  compressedItems = [];
+  filesInput.value = '';
+  targetValue.value = 200;
+  targetUnit.value = 'KB';
+  quality.value = 82;
+  qualityText.textContent = '82';
+  format.value = 'image/jpeg';
+  maxWidth.value = '0';
+  resultCard.style.display = 'none';
+  results.innerHTML = '';
+  showFileList();
+});
+</script>
+</body>
+</html>
