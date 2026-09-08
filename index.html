@@ -136,52 +136,6 @@ footer{margin-top:60px;padding:38px 20px;text-align:center;border-top:1px solid 
 .update-text{color:#8fa9bb;font-size:10px;line-height:1.5}
 .update-link{display:inline-flex;margin-top:7px;color:#6bdcff;font-size:10px;font-weight:900;text-decoration:none}
 .update-close{position:absolute;right:8px;top:7px;width:23px;height:23px;display:flex;align-items:center;justify-content:center;border:0;border-radius:50%;background:rgba(255,255,255,.06);color:#8ca4b5;font-size:13px;cursor:pointer}
-
-/* =========================
-   ASIM TECH SEARCH LINK + INSTALL
-   Added without changing existing apps
-========================= */
-.browser-link{
-display:inline-flex;
-align-items:center;
-gap:6px;
-padding:9px 12px;
-border-radius:9px;
-color:#fff !important;
-text-decoration:none;
-font-size:11px;
-font-weight:900;
-background:linear-gradient(135deg,#009fff,#0068ef);
-box-shadow:0 0 18px rgba(0,160,255,.20);
-transition:.25s;
-}
-.browser-link:hover{
-transform:translateY(-2px);
-filter:brightness(1.08);
-}
-.install-switch{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:9px 12px;
-border:1px solid rgba(0,220,150,.35);
-border-radius:9px;
-color:#fff;
-background:linear-gradient(135deg,#00b956,#008f69);
-font-size:11px;
-font-weight:900;
-cursor:pointer;
-box-shadow:0 0 18px rgba(0,190,120,.18);
-transition:.25s;
-}
-.install-switch:hover{
-transform:translateY(-2px);
-filter:brightness(1.08);
-}
-@media(max-width:700px){
-.browser-link,.install-switch{width:100%;justify-content:center;margin-top:2px}
-}
-
 @media(max-width:700px){
 header{padding:0 4%}.menu-btn{display:block}
 nav{display:none;position:absolute;top:67px;left:4%;right:4%;flex-direction:column;align-items:stretch;padding:7px;border:1px solid var(--border);border-radius:14px;background:rgba(2,9,18,.98)}
@@ -193,6 +147,15 @@ nav.open{display:flex}nav a{text-align:center;padding:12px}
 .hero h1{font-size:37px}.hero-description{font-size:13px}.hero-buttons{flex-direction:column;align-items:center}.hero-btn{width:220px}.phone{width:225px;height:420px}.app-image{height:185px}.app-content h3{font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+
+.browser .app-image{background:linear-gradient(135deg,#063a66,#071b2d,#321060)}
+.browser-brand-card{position:relative;z-index:2;display:flex;align-items:center;gap:12px;padding:16px 20px;border:1px solid rgba(80,210,255,.35);border-radius:18px;background:rgba(1,12,24,.78);box-shadow:0 0 30px rgba(0,160,255,.20),inset 0 0 20px rgba(0,160,255,.06)}
+.browser-brand-mark{width:58px;height:58px;display:flex;align-items:center;justify-content:center;border-radius:15px;color:#fff;font-size:30px;font-weight:900;background:linear-gradient(135deg,#00aaff,#0063ed);box-shadow:0 0 25px rgba(0,160,255,.35)}
+.browser-brand-text{font-size:20px;font-weight:900;letter-spacing:1px;color:#fff}
+.browser-brand-text span{color:#00a8ff}
+.browser-nav-link{color:#fff !important;background:rgba(0,160,255,.10)}
+.browser-install-link{color:#fff !important;background:linear-gradient(135deg,#00b956,#008f69);box-shadow:0 0 15px rgba(0,190,120,.18)}
+@media(max-width:700px){.browser-nav-link,.browser-install-link{text-align:center}}
 </style>
 </head>
 
@@ -203,8 +166,8 @@ nav.open{display:flex}nav a{text-align:center;padding:12px}
 <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Open menu">☰</button>
 <nav id="mainNav">
 <a href="./">Home</a><a href="#apps">Apps</a><a href="#features">Tools</a><a href="#updates">Updates</a><a href="#about">About</a><a href="#contact">Contact</a>
-<a href="https://asim75772.github.io/asim-tech-search/" target="_blank" class="browser-link">🌐 Asim Tech Search</a>
-<button id="installBrowserBtn" class="install-switch" style="display:none;">📲 Install</button>
+<a href="https://asim75772.github.io/asim-tech-search/" target="_blank" class="browser-nav-link">🌐 Browser</a>
+<a href="https://asim75772.github.io/asim-tech-search/" target="_blank" class="browser-install-link">📲 Install Browser</a>
 </nav>
 </header>
 
@@ -260,7 +223,7 @@ nav.open{display:flex}nav a{text-align:center;padding:12px}
 <button class="filter-btn" data-filter="tools">🛠️ Tools</button>
 <button class="filter-btn" data-filter="hostel">🏠 Hostel</button>
 </div>
-<div class="search-status" id="searchStatus">Showing 15 applications</div>
+<div class="search-status" id="searchStatus">Showing 16 applications</div>
 </div>
 
 <div class="apps" id="appsGrid">
@@ -361,6 +324,25 @@ nav.open{display:flex}nav a{text-align:center;padding:12px}
 <div class="tags">Image • Compress • KB • MB • JPG • PNG • WebP</div>
 <a href="image-compressor/" class="app-btn blue-btn">🗜️ Open Image Compressor</a>
 </div>
+</article>
+
+<!-- 16 ASIM TECH BROWSER -->
+<article class="app-card browser" data-category="web tools" data-name="Asim Tech Browser">
+  <div class="app-image browser-image">
+    <div class="browser-brand-card">
+      <div class="browser-brand-mark">▲</div>
+      <div class="browser-brand-text">ASIM <span>TECH</span></div>
+    </div>
+  </div>
+  <div class="app-content">
+    <div class="app-title-row">
+      <h3>Asim Tech Browser</h3>
+      <span class="app-type">WEB APP</span>
+    </div>
+    <p>Fast search browser with Web, Images, News, Videos, AI, Voice and Visual Search.</p>
+    <div class="tags">Browser • Search • AI • Voice • Visual</div>
+    <a href="https://asim75772.github.io/asim-tech-search/" target="_blank" class="app-btn blue-btn">🌐 Open Asim Tech Browser</a>
+  </div>
 </article>
 
 </div>
@@ -520,43 +502,6 @@ setTimeout(function(){updateNotification.style.display="none";},300);
 
 if(updateClose)updateClose.addEventListener("click",hideNotification);
 if(updateLink)updateLink.addEventListener("click",hideNotification);
-
-
-/* =========================
-   ASIM TECH SEARCH PWA INSTALL
-   The install prompt belongs to the Browser/PWA origin.
-========================= */
-let deferredInstallPrompt = null;
-const installBrowserBtn = document.getElementById("installBrowserBtn");
-
-window.addEventListener("beforeinstallprompt", function(event){
-event.preventDefault();
-deferredInstallPrompt = event;
-if(installBrowserBtn) installBrowserBtn.style.display = "inline-flex";
-});
-
-if(installBrowserBtn){
-installBrowserBtn.addEventListener("click", async function(){
-if(!deferredInstallPrompt){
-window.open("https://asim75772.github.io/asim-tech-search/","_blank");
-return;
-}
-deferredInstallPrompt.prompt();
-const choice = await deferredInstallPrompt.userChoice;
-if(choice.outcome === "accepted"){
-installBrowserBtn.textContent = "✅ Installed";
-installBrowserBtn.disabled = true;
-}
-deferredInstallPrompt = null;
-});
-}
-
-window.addEventListener("appinstalled", function(){
-if(installBrowserBtn){
-installBrowserBtn.textContent = "✅ Installed";
-installBrowserBtn.disabled = true;
-}
-});
 
 filterApps();
 })();
