@@ -1,0 +1,49 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Find Android project ZIP
+        run: |
+          mkdir -p android-project
+          unzip -o app-builder/madhu-music-world-android-project.zip -d android-project
+
+      - name: Find Gradle project
+        run: |
+          echo "Searching for gradlew..."
+          find android-project -name gradlew -type f
+
+      - name: Make gradlew executable
+        run: |
+          chmod +x $(find android-project -name gradlew -type f | head -1)
+
+      - name: Build APK
+        run: |
+          GRADLEW=$(find android-project -name gradlew -type f | head -1)
+          PROJECT_DIR=$(dirname "$GRADLEW")
+          cd "$PROJECT_DIR"
+          ./gradlew assembleDebug
+
+      - name: Find APK
+        run: |
+          find android-project -name "*.apk" -type f
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: android-project/**/build/outputs/apk/debug/*.apk
