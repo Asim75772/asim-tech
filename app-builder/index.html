@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+<title>Asim Tech App Builder</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#02060d;
+  color:#fff;
+  min-height:100vh;
+}
+
+:root{
+  --blue:#00a8ff;
+  --cyan:#42dcff;
+  --panel:#071321;
+  --panel2:#0a1929;
+  --border:rgba(80,190,255,.20);
+  --muted:#8da5b8;
+}
+
+header{
+  height:65px;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#050d17;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:900;
+}
+
+.logo span{
+  color:var(--blue);
+}
+
+.back{
+  color:#bcd0dd;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.container{
+  width:95%;
+  max-width:1200px;
+  margin:20px auto;
+}
+
+.welcome{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.welcome h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.welcome h1 span{
+  color:var(--blue);
+}
+
+.welcome p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* CREATE */
+
+.create-box{
+  max-width:600px;
+  margin:25px auto;
+  padding:25px;
+  background:linear-gradient(145deg,#071321,#0a1929);
+  border:1px solid var(--border);
+  border-radius:18px;
+}
+
+.create-box h2{
+  margin-bottom:18px;
+  font-size:20px;
+}
+
+label{
+  display:block;
+  color:#a9bdca;
+  font-size:12px;
+  font-weight:bold;
+  margin:13px 0 6px;
+}
+
+input,select{
+  width:100%;
+  height:45px;
+  border:1px solid #29465e;
+  border-radius:10px;
+  background:#020a13;
+  color:#fff;
+  padding:0 13px;
+  outline:none;
+}
+
+input:focus,select:focus{
+  border-color:var(--blue);
+}
+
+.create-btn{
+  width:100%;
+  border:0;
+  margin-top:20px;
+  padding:14px;
+  border-radius:11px;
+  background:linear-gradient(135deg,#009fff,#0069f0);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* BUILDER */
+
+#builder{
+  display:none;
+}
+
+.builder{
+  display:grid;
+  grid-template-columns:190px 1fr 220px;
+  gap:12px;
+  min-height:650px;
+}
+
+.panel{
+  background:#071321;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:14px;
+}
+
+.panel-title{
+  color:#69caff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:13px;
+}
+
+/* COMPONENTS */
+
+.component{
+  width:100%;
+  padding:12px 8px;
+  margin-bottom:8px;
+  border:1px solid #244258;
+  border-radius:9px;
+  background:#0a1929;
+  color:#dce8f2;
+  cursor:pointer;
+  text-align:left;
+  font-size:12px;
+}
+
+.component:hover{
+  border-color:var(--blue);
+  background:#0b2338;
+}
+
+/* PHONE */
+
+.workspace{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  background:#030912;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:20px;
+}
+
+.phone{
+  width:280px;
+  height:560px;
+  border:7px solid #384d5d;
+  border-radius:38px;
+  background:#000;
+  padding:8px;
+  box-shadow:0 0 40px rgba(0,160,255,.15);
+}
+
+.phone-screen{
+  width:100%;
+  height:100%;
+  border-radius:28px;
+  background:#f5f7fa;
+  color:#111;
+  overflow:auto;
+  padding:18px;
+}
+
+.phone-header{
+  text-align:center;
+  font-size:16px;
+  font-weight:bold;
+  padding:10px;
+  border-bottom:1px solid #ddd;
+  margin-bottom:15px;
+}
+
+/* ELEMENTS */
+
+.element{
+  padding:10px;
+  margin:8px 0;
+  border:1px dashed #bbb;
+  cursor:pointer;
+}
+
+.element:hover{
+  border-color:#009fff;
+}
+
+.preview-text{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.preview-button{
+  display:block;
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:8px;
+  background:#087ff5;
+  color:white;
+  font-weight:bold;
+}
+
+.preview-input{
+  width:100%;
+  padding:11px;
+  border:1px solid #aaa;
+  border-radius:7px;
+}
+
+.preview-image{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* PROPERTIES */
+
+.property{
+  margin-bottom:12px;
+}
+
+.property button{
+  width:100%;
+  padding:9px;
+  border:1px solid #29465e;
+  background:#0a1929;
+  color:#fff;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.color-input{
+  width:100%;
+  height:40px;
+  padding:2px;
+}
+
+/* BOTTOM */
+
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:15px;
+}
+
+.toolbar button{
+  border:1px solid #29465e;
+  background:#081827;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:11px;
+}
+
+.toolbar button:hover{
+  border-color:var(--blue);
+}
+
+.success{
+  color:#52e39a;
+  text-align:center;
+  font-size:11px;
+  margin-top:8px;
+}
+
+@media(max-width:800px){
+
+  .builder{
+    grid-template-columns:1fr;
+  }
+
+  .panel{
+    width:100%;
+  }
+
+  .components-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:7px;
+  }
+
+  .component{
+    margin:0;
+  }
+
+  .workspace{
+    order:-1;
+  }
+
+  .phone{
+    width:260px;
+    height:520px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">ASIM <span>TECH</span></div>
+  <a class="back" href="../index.html">← Back to Asim Tech</a>
+</header>
+
+<div class="container">
+
+<section class="welcome">
+  <h1>Asim Tech <span>App Builder</span></h1>
+  <p>Create a simple mobile app directly from your browser — Free.</p>
+</section>
+
+<!-- CREATE APP -->
+
+<div id="createScreen">
+
+  <div class="create-box">
+
+    <h2>🚀 Create Your App</h2>
+
+    <label>App Name</label>
+    <input id="appName" placeholder="Example: My Calculator">
+
+    <label>Package Name</label>
+    <input id="packageName"
+           placeholder="com.example.myapp"
+           value="com.asimtech.myapp">
+
+    <label>Theme</label>
+    <select id="theme">
+      <option value="blue">Blue</option>
+      <option value="dark">Dark</option>
+      <option value="purple">Purple</option>
+      <option value="green">Green</option>
+    </select>
+
+    <button class="create-btn" onclick="createApp()">
+      + CREATE APP
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- BUILDER -->
+
+<div id="builder">
+
+  <div class="builder">
+
+    <!-- COMPONENTS -->
+
+    <div class="panel">
+
+      <div class="panel-title">
+        COMPONENTS
+      </div>
+
+      <div class="components-list">
+
+        <button class="component"
+                onclick="addText()">
+          📝 Text
+        </button>
+
+        <button class="component"
+                onclick="addButton()">
+          🔘 Button
+        </button>
+
+        <button class="component"
+                onclick="addInput()">
+          ⌨️ Input
+        </button>
+
+        <button class="component"
+                onclick="addImage()">
+          🖼️ Image
+        </button>
+
+        <button class="component"
+                onclick="addTitle()">
+          🔤 Title
+        </button>
+
+        <button class="component"
+                onclick="addLink()">
+          🔗 Link
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- PHONE PREVIEW -->
+
+    <div class="workspace">
+
+      <div class="phone">
+
+        <div class="phone-screen"
+             id="phoneScreen">
+
+          <div class="phone-header"
+               id="phoneTitle">
+            My App
+          </div>
+
+          <div id="appContent"></div>
+
+        </div>
+
+      </div>
+
+      <div class="toolbar">
+
+        <button onclick="previewApp()">
+          ▶ Preview
+        </button>
+
+        <button onclick="saveApp()">
+          💾 Save
+        </button>
+
+        <button onclick="clearApp()">
+          🗑 Clear
+        </button>
+
+        <button onclick="exportApp()">
+          📦 Export
+        </button>
+
+      </div>
+
+      <div id="status"></div>
+
+    </div>
+
+
+    <!-- PROPERTIES -->
+
+    <div class="panel">
+
+      <div class="panel-title">
+        PROPERTIES
+      </div>
+
+      <div id="properties">
+
+        <p style="color:#71899c;font-size:11px;line-height:1.6">
+          Select an element from the phone preview to edit it.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let appData = {
+  name:"",
+  package:"",
+  theme:"blue",
+  elements:[]
+};
+
+let selectedElement = null;
+
+
+/* CREATE APP */
+
+function createApp(){
+
+  let name =
+    document.getElementById("appName").value.trim();
+
+  let pkg =
+    document.getElementById("packageName").value.trim();
+
+  let theme =
+    document.getElementById("theme").value;
+
+  if(!name){
+
+    alert("Please enter App Name.");
+
+    return;
+  }
+
+  appData.name = name;
+  appData.package = pkg;
+  appData.theme = theme;
+
+  document.getElementById("phoneTitle").innerText =
+    name;
+
+  document.getElementById("createScreen").style.display =
+    "none";
+
+  document.getElementById("builder").style.display =
+    "block";
+
+}
+
+
+/* ADD TEXT */
+
+function addText(){
+
+  let id = Date.now();
+
+  appData.elements.push({
+    id:id,
+    type:"text",
+    text:"Hello World!"
+  });
+
+  render();
+
+}
+
+
+/* ADD TITLE */
+
+function addTitle(){
+
+  let id = Date.now();
+
+  appData.elements.push({
+    id:id,
+    type:"title",
+    text:"Welcome!"
+  });
+
+  render();
+
+}
+
+
+/* ADD BUTTON */
+
+function addButton(){
+
+  let id = Date.now();
+
+  appData.elements.push({
+    id:id,
+    type:"button",
+    text:"Click Me"
+  });
+
+  render();
+
+}
+
+
+/* ADD INPUT */
+
+function addInput(){
+
+  let id = Date.now();
+
+  appData.elements.push({
+    id:id,
+    type:"input",
+    text:"Enter text"
+  });
+
+  render();
+
+}
+
+
+/* ADD IMAGE */
+
+function addImage(){
+
+  let id = Date.now();
+
+  appData.elements.push({
+    id:id,
+    type:"image",
+    text:"https://picsum.photos/300/150"
+  });
+
+  render();
+
+}
+
+
+/* ADD LINK */
+
+function addLink(){
+
+  let id = Date.now();
+
+  appData.elements.push({
+    id:id,
+    type:"link",
+    text:"Open Website"
+  });
+
+  render();
+
+}
+
+
+/* RENDER */
+
+function render(){
+
+  let container =
+    document.getElementById("appContent");
+
+  container.innerHTML = "";
+
+  appData.elements.forEach(element => {
+
+    let div =
+      document.createElement("div");
+
+    div.className = "element";
+
+    div.dataset.id = element.id;
+
+    div.onclick = function(){
+
+      selectElement(element.id);
+
+    };
+
+
+    if(element.type === "text"){
+
+      div.innerHTML =
+        `<div class="preview-text">
+          ${escapeHTML(element.text)}
+        </div>`;
+
+    }
+
+
+    if(element.type === "title"){
+
+      div.innerHTML =
+        `<h2>${escapeHTML(element.text)}</h2>`;
+
+    }
+
+
+    if(element.type === "button"){
+
+      div.innerHTML =
+        `<button class="preview-button">
+          ${escapeHTML(element.text)}
+        </button>`;
+
+    }
+
+
+    if(element.type === "input"){
+
+      div.innerHTML =
+        `<input class="preview-input"
+          placeholder="${escapeHTML(element.text)}">`;
+
+    }
+
+
+    if(element.type === "image"){
+
+      div.innerHTML =
+        `<img class="preview-image"
+          src="${escapeHTML(element.text)}">`;
+
+    }
+
+
+    if(element.type === "link"){
+
+      div.innerHTML =
+        `<a href="#"
+          style="color:#087ff5;font-weight:bold">
+          ${escapeHTML(element.text)}
+        </a>`;
+
+    }
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+/* SELECT */
+
+function selectElement(id){
+
+  selectedElement =
+    appData.elements.find(e => e.id === id);
+
+  if(!selectedElement) return;
+
+  let properties =
+    document.getElementById("properties");
+
+  properties.innerHTML = `
+
+    <div class="property">
+
+      <label>Text / Content</label>
+
+      <input
+        id="editText"
+        value="${escapeHTML(selectedElement.text)}"
+        oninput="updateText(this.value)">
+
+    </div>
+
+    <div class="property">
+
+      <label>Delete Element</label>
+
+      <button onclick="deleteElement()">
+        🗑 Delete
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* UPDATE */
+
+function updateText(value){
+
+  if(!selectedElement) return;
+
+  selectedElement.text = value;
+
+  render();
+
+}
+
+
+/* DELETE */
+
+function deleteElement(){
+
+  if(!selectedElement) return;
+
+  appData.elements =
+    appData.elements.filter(
+      e => e.id !== selectedElement.id
+    );
+
+  selectedElement = null;
+
+  document.getElementById("properties").innerHTML =
+    `<p style="color:#71899c;font-size:11px">
+      Select an element to edit.
+    </p>`;
+
+  render();
+
+}
+
+
+/* SAVE */
+
+function saveApp(){
+
+  localStorage.setItem(
+    "asimTechApp",
+    JSON.stringify(appData)
+  );
+
+  showStatus("✓ App saved successfully");
+
+}
+
+
+/* LOAD */
+
+function loadApp(){
+
+  let saved =
+    localStorage.getItem("asimTechApp");
+
+  if(!saved) return;
+
+  try{
+
+    appData = JSON.parse(saved);
+
+    document.getElementById("createScreen").style.display =
+      "none";
+
+    document.getElementById("builder").style.display =
+      "block";
+
+    document.getElementById("phoneTitle").innerText =
+      appData.name;
+
+    render();
+
+  }catch(e){
+
+    console.log(e);
+
+  }
+
+}
+
+
+/* CLEAR */
+
+function clearApp(){
+
+  if(!confirm("Clear all elements?"))
+    return;
+
+  appData.elements = [];
+
+  render();
+
+}
+
+
+/* PREVIEW */
+
+function previewApp(){
+
+  render();
+
+  showStatus("✓ Preview updated");
+
+}
+
+
+/* EXPORT */
+
+function exportApp(){
+
+  let html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+<title>${escapeHTML(appData.name)}</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+padding:20px;
+background:#f5f7fa;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+}
+
+button{
+padding:12px;
+background:#087ff5;
+color:white;
+border:0;
+border-radius:8px;
+}
+
+input{
+padding:12px;
+width:100%;
+box-sizing:border-box;
+}
+
+img{
+max-width:100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>${escapeHTML(appData.name)}</h2>
+
+${appData.elements.map(e => {
+
+  if(e.type === "text")
+    return `<p>${escapeHTML(e.text)}</p>`;
+
+  if(e.type === "title")
+    return `<h2>${escapeHTML(e.text)}</h2>`;
+
+  if(e.type === "button")
+    return `<button>${escapeHTML(e.text)}</button>`;
+
+  if(e.type === "input")
+    return `<input placeholder="${escapeHTML(e.text)}">`;
+
+  if(e.type === "image")
+    return `<img src="${escapeHTML(e.text)}">`;
+
+  if(e.type === "link")
+    return `<a href="#">${escapeHTML(e.text)}</a>`;
+
+  return "";
+
+}).join("\n")}
+
+</div>
+
+</body>
+</html>`;
+
+
+  let blob =
+    new Blob([html],
+      {type:"text/html"});
+
+  let url =
+    URL.createObjectURL(blob);
+
+  let a =
+    document.createElement("a");
+
+  a.href = url;
+
+  a.download =
+    appData.name.replace(/\s+/g,"-")
+    + ".html";
+
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  showStatus("✓ App exported");
+
+}
+
+
+/* STATUS */
+
+function showStatus(message){
+
+  document.getElementById("status").innerHTML =
+    `<div class="success">${message}</div>`;
+
+  setTimeout(() => {
+
+    document.getElementById("status").innerHTML = "";
+
+  },3000);
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* LOAD SAVED APP */
+
+loadApp();
+
+</script>
+
+</body>
+</html>
