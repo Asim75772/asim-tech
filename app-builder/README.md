@@ -1,17 +1,21 @@
-# Asim Tech App Builder
+# Asim Tech App Builder V2
 
-Free browser-based simple app builder for Asim Tech.
+Enhanced browser-based app builder for Asim Tech.
 
-## GitHub Pages
-Upload the `app-builder` folder to the root of your `asim-tech` repository.
-
-URL:
-https://asim75772.github.io/asim-tech/app-builder/
-
-The builder currently supports:
+Features:
 - Create app
-- Text, title, button, input, image and link components
-- Edit/delete elements
-- Local save
+- Drag & drop components on desktop
+- Tap-to-add on mobile
+- Text, Title, Button, Input, Image and Link
+- Edit font size, text color and background color
+- Button/link URL
+- Image URL or local image upload
+- Reorder components by dragging
+- Save to browser localStorage
 - Preview
-- Export a basic HTML app
+- Export standalone HTML
+
+Upload `index.html` to:
+`asim-tech/app-builder/index.html`
+
+Note: APK generation is intentionally not included yet.

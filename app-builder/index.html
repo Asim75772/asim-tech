@@ -8,79 +8,220 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:#02060d;color:#fff;min-height:100vh}
-:root{--blue:#00a8ff;--panel:#071321;--border:rgba(80,190,255,.20);--muted:#8da5b8}
+:root{--blue:#00a8ff;--panel:#071321;--panel2:#0a1929;--border:rgba(80,190,255,.22);--muted:#8da5b8}
 header{height:65px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;background:#050d17;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
 .logo{font-size:20px;font-weight:900}.logo span{color:var(--blue)}
 .back{color:#bcd0dd;text-decoration:none;font-size:13px;font-weight:bold}
-.container{width:95%;max-width:1200px;margin:20px auto}
-.welcome{text-align:center;margin-bottom:20px}.welcome h1{font-size:30px;margin-bottom:8px}.welcome h1 span{color:var(--blue)}.welcome p{color:var(--muted);font-size:13px}
+.container{width:95%;max-width:1250px;margin:20px auto}
+.welcome{text-align:center;margin-bottom:18px}.welcome h1{font-size:30px;margin-bottom:7px}.welcome h1 span{color:var(--blue)}.welcome p{color:var(--muted);font-size:13px}
 .create-box{max-width:600px;margin:25px auto;padding:25px;background:linear-gradient(145deg,#071321,#0a1929);border:1px solid var(--border);border-radius:18px}
-.create-box h2{margin-bottom:18px;font-size:20px}
-label{display:block;color:#a9bdca;font-size:12px;font-weight:bold;margin:13px 0 6px}
-input,select{width:100%;height:45px;border:1px solid #29465e;border-radius:10px;background:#020a13;color:#fff;padding:0 13px;outline:none}
+.create-box h2{margin-bottom:18px}label{display:block;color:#a9bdca;font-size:12px;font-weight:bold;margin:12px 0 6px}
+input,select{width:100%;height:44px;border:1px solid #29465e;border-radius:10px;background:#020a13;color:#fff;padding:0 12px;outline:none}
 input:focus,select:focus{border-color:var(--blue)}
-.create-btn{width:100%;border:0;margin-top:20px;padding:14px;border-radius:11px;background:linear-gradient(135deg,#009fff,#0069f0);color:#fff;font-weight:900;cursor:pointer}
-#builder{display:none}.builder{display:grid;grid-template-columns:190px 1fr 220px;gap:12px;min-height:650px}
-.panel{background:#071321;border:1px solid var(--border);border-radius:15px;padding:14px}.panel-title{color:#69caff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:13px}
-.component{width:100%;padding:12px 8px;margin-bottom:8px;border:1px solid #244258;border-radius:9px;background:#0a1929;color:#dce8f2;cursor:pointer;text-align:left;font-size:12px}
-.component:hover{border-color:var(--blue);background:#0b2338}
-.workspace{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;background:#030912;border:1px solid var(--border);border-radius:15px;padding:20px}
+.create-btn{width:100%;border:0;margin-top:18px;padding:14px;border-radius:11px;background:linear-gradient(135deg,#009fff,#0069f0);color:#fff;font-weight:900;cursor:pointer}
+#builder{display:none}
+.builder{display:grid;grid-template-columns:190px minmax(300px,1fr) 250px;gap:12px;min-height:650px}
+.panel,.workspace{background:#071321;border:1px solid var(--border);border-radius:15px;padding:14px}
+.panel-title{color:#69caff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:13px}
+.components-list{display:grid;gap:8px}.component{width:100%;padding:12px 8px;border:1px solid #244258;border-radius:9px;background:#0a1929;color:#dce8f2;cursor:grab;text-align:left;font-size:12px}.component:active{cursor:grabbing}
+.workspace{display:flex;flex-direction:column;align-items:center;background:#030912}
 .phone{width:280px;height:560px;border:7px solid #384d5d;border-radius:38px;background:#000;padding:8px;box-shadow:0 0 40px rgba(0,160,255,.15)}
 .phone-screen{width:100%;height:100%;border-radius:28px;background:#f5f7fa;color:#111;overflow:auto;padding:18px}
 .phone-header{text-align:center;font-size:16px;font-weight:bold;padding:10px;border-bottom:1px solid #ddd;margin-bottom:15px}
-.element{padding:10px;margin:8px 0;border:1px dashed #bbb;cursor:pointer}.element:hover{border-color:#009fff}
-.preview-text{font-size:16px;font-weight:bold}.preview-button{display:block;width:100%;padding:12px;border:0;border-radius:8px;background:#087ff5;color:white;font-weight:bold}.preview-input{width:100%;padding:11px;border:1px solid #aaa;border-radius:7px}.preview-image{width:100%;height:120px;object-fit:cover;border-radius:8px}
+.drop-zone{min-height:420px;padding:4px;border:2px dashed transparent;border-radius:10px;transition:.2s}
+.drop-zone.drag-over{border-color:#009fff;background:rgba(0,159,255,.06)}
+.element{position:relative;padding:10px;margin:8px 0;border:1px dashed #aaa;border-radius:7px;cursor:pointer;background:rgba(255,255,255,.15)}
+.element.selected{border:2px solid #009fff;background:rgba(0,159,255,.08)}
+.element.dragging{opacity:.45}
+.preview-text{font-size:16px;font-weight:bold}.preview-title{font-size:22px;font-weight:800}
+.preview-button{display:block;width:100%;padding:12px;border:0;border-radius:8px;background:#087ff5;color:white;font-weight:bold}
+.preview-input{width:100%;padding:11px;border:1px solid #aaa;border-radius:7px}
+.preview-image{width:100%;height:120px;object-fit:cover;border-radius:8px}
+.preview-link{color:#087ff5;font-weight:bold}
 .toolbar{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:15px}.toolbar button,.property button{border:1px solid #29465e;background:#081827;color:#fff;padding:10px 14px;border-radius:9px;cursor:pointer;font-weight:bold;font-size:11px}.toolbar button:hover,.property button:hover{border-color:var(--blue)}
-.property{margin-bottom:12px}.success{color:#52e39a;text-align:center;font-size:11px;margin-top:8px}
-@media(max-width:800px){.builder{grid-template-columns:1fr}.workspace{order:-1}.components-list{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.component{margin:0}.phone{width:260px;height:520px}}
+.property{margin-bottom:12px}.property input,.property select{height:40px}.property .color{height:40px;padding:3px}.delete-btn{width:100%;background:#541621!important;border-color:#a33!important}
+.hint{color:#71899c;font-size:10px;line-height:1.6;margin-top:10px}
+.success{color:#52e39a;text-align:center;font-size:11px;margin-top:8px}
+@media(max-width:850px){
+.builder{grid-template-columns:1fr}.workspace{order:-1}.panel{width:100%}.components-list{grid-template-columns:repeat(2,1fr)}
+.phone{width:260px;height:520px}
+}
+@media(max-width:430px){.welcome h1{font-size:25px}.phone{width:240px;height:490px}.components-list{grid-template-columns:repeat(2,1fr)}header{padding:0 12px}}
 </style>
 </head>
 <body>
 <header><div class="logo">ASIM <span>TECH</span></div><a class="back" href="../index.html">← Back to Asim Tech</a></header>
 <div class="container">
-<section class="welcome"><h1>Asim Tech <span>App Builder</span></h1><p>Create a simple mobile app directly from your browser — Free.</p></section>
+<section class="welcome"><h1>Asim Tech <span>App Builder</span></h1><p>Design a simple mobile app directly from your browser — Free.</p></section>
 
-<div id="createScreen"><div class="create-box">
+<div id="createScreen">
+<div class="create-box">
 <h2>🚀 Create Your App</h2>
 <label>App Name</label><input id="appName" placeholder="Example: My Calculator">
-<label>Package Name</label><input id="packageName" placeholder="com.example.myapp" value="com.asimtech.myapp">
+<label>Package Name</label><input id="packageName" value="com.asimtech.myapp" placeholder="com.example.myapp">
 <label>Theme</label><select id="theme"><option value="blue">Blue</option><option value="dark">Dark</option><option value="purple">Purple</option><option value="green">Green</option></select>
 <button class="create-btn" onclick="createApp()">+ CREATE APP</button>
-</div></div>
+</div>
+</div>
 
-<div id="builder"><div class="builder">
-<div class="panel"><div class="panel-title">COMPONENTS</div><div class="components-list">
-<button class="component" onclick="addText()">📝 Text</button>
-<button class="component" onclick="addButton()">🔘 Button</button>
-<button class="component" onclick="addInput()">⌨️ Input</button>
-<button class="component" onclick="addImage()">🖼️ Image</button>
-<button class="component" onclick="addTitle()">🔤 Title</button>
-<button class="component" onclick="addLink()">🔗 Link</button>
-</div></div>
+<div id="builder">
+<div class="builder">
+<div class="panel">
+<div class="panel-title">COMPONENTS</div>
+<div class="components-list">
+<button class="component" draggable="true" data-type="text" onclick="addElement('text')">📝 Text</button>
+<button class="component" draggable="true" data-type="button" onclick="addElement('button')">🔘 Button</button>
+<button class="component" draggable="true" data-type="input" onclick="addElement('input')">⌨️ Input</button>
+<button class="component" draggable="true" data-type="image" onclick="addElement('image')">🖼️ Image</button>
+<button class="component" draggable="true" data-type="title" onclick="addElement('title')">🔤 Title</button>
+<button class="component" draggable="true" data-type="link" onclick="addElement('link')">🔗 Link</button>
+</div>
+<p class="hint">Desktop: drag a component into the phone. Mobile: tap a component to add it.</p>
+</div>
 
-<div class="workspace"><div class="phone"><div class="phone-screen" id="phoneScreen"><div class="phone-header" id="phoneTitle">My App</div><div id="appContent"></div></div></div>
-<div class="toolbar"><button onclick="previewApp()">▶ Preview</button><button onclick="saveApp()">💾 Save</button><button onclick="clearApp()">🗑 Clear</button><button onclick="exportApp()">📦 Export</button></div><div id="status"></div></div>
+<div class="workspace">
+<div class="phone"><div class="phone-screen" id="phoneScreen"><div class="phone-header" id="phoneTitle">My App</div><div id="dropZone" class="drop-zone"></div></div></div>
+<div class="toolbar">
+<button onclick="previewApp()">▶ Preview</button><button onclick="saveApp()">💾 Save</button><button onclick="clearApp()">🗑 Clear</button><button onclick="exportApp()">📦 Export</button>
+</div><div id="status"></div>
+</div>
 
-<div class="panel"><div class="panel-title">PROPERTIES</div><div id="properties"><p style="color:#71899c;font-size:11px;line-height:1.6">Select an element from the phone preview to edit it.</p></div></div>
-</div></div>
+<div class="panel">
+<div class="panel-title">PROPERTIES</div>
+<div id="properties"><p class="hint">Select an element from the phone preview to edit it.</p></div>
+</div>
+</div>
+</div>
 </div>
 
 <script>
-let appData={name:"",package:"",theme:"blue",elements:[]},selectedElement=null;
-function createApp(){let name=document.getElementById("appName").value.trim(),pkg=document.getElementById("packageName").value.trim(),theme=document.getElementById("theme").value;if(!name){alert("Please enter App Name.");return}appData={name,package:pkg,theme,elements:[]};document.getElementById("phoneTitle").innerText=name;document.getElementById("createScreen").style.display="none";document.getElementById("builder").style.display="block"}
-function add(type,text){appData.elements.push({id:Date.now()+Math.random(),type,text});render()}
-function addText(){add("text","Hello World!")}function addTitle(){add("title","Welcome!")}function addButton(){add("button","Click Me")}function addInput(){add("input","Enter text")}function addImage(){add("image","https://picsum.photos/300/150")}function addLink(){add("link","Open Website")}
-function render(){let c=document.getElementById("appContent");c.innerHTML="";appData.elements.forEach(e=>{let d=document.createElement("div");d.className="element";d.onclick=()=>selectElement(e.id);if(e.type==="text")d.innerHTML='<div class="preview-text">'+escapeHTML(e.text)+"</div>";if(e.type==="title")d.innerHTML="<h2>"+escapeHTML(e.text)+"</h2>";if(e.type==="button")d.innerHTML='<button class="preview-button">'+escapeHTML(e.text)+"</button>";if(e.type==="input")d.innerHTML='<input class="preview-input" placeholder="'+escapeHTML(e.text)+'">';if(e.type==="image")d.innerHTML='<img class="preview-image" src="'+escapeHTML(e.text)+'">';if(e.type==="link")d.innerHTML='<a href="#" style="color:#087ff5;font-weight:bold">'+escapeHTML(e.text)+"</a>";c.appendChild(d)})}
-function selectElement(id){selectedElement=appData.elements.find(e=>e.id===id);if(!selectedElement)return;document.getElementById("properties").innerHTML='<div class="property"><label>Text / Content</label><input id="editText" value="'+escapeHTML(selectedElement.text)+'" oninput="updateText(this.value)"></div><div class="property"><label>Delete Element</label><button onclick="deleteElement()">🗑 Delete</button></div>'}
-function updateText(v){if(selectedElement){selectedElement.text=v;render();}}
-function deleteElement(){if(!selectedElement)return;appData.elements=appData.elements.filter(e=>e.id!==selectedElement.id);selectedElement=null;document.getElementById("properties").innerHTML='<p style="color:#71899c;font-size:11px">Select an element to edit.</p>';render()}
-function saveApp(){localStorage.setItem("asimTechApp",JSON.stringify(appData));showStatus("✓ App saved successfully")}
-function loadApp(){let s=localStorage.getItem("asimTechApp");if(!s)return;try{appData=JSON.parse(s);document.getElementById("createScreen").style.display="none";document.getElementById("builder").style.display="block";document.getElementById("phoneTitle").innerText=appData.name;render()}catch(e){}}
-function clearApp(){if(!confirm("Clear all elements?"))return;appData.elements=[];render()}
+let appData={name:"",package:"com.asimtech.myapp",theme:"blue",elements:[]};
+let selectedId=null;
+
+function createApp(){
+ const name=document.getElementById("appName").value.trim();
+ if(!name){alert("Please enter App Name.");return}
+ appData.name=name;
+ appData.package=document.getElementById("packageName").value.trim()||"com.asimtech.myapp";
+ appData.theme=document.getElementById("theme").value;
+ document.getElementById("phoneTitle").innerText=name;
+ document.getElementById("createScreen").style.display="none";
+ document.getElementById("builder").style.display="block";
+ render();
+}
+
+function addElement(type){
+ const defaults={
+ text:{text:"Hello World!",fontSize:16,color:"#111111",bg:"#ffffff"},
+ title:{text:"Welcome!",fontSize:24,color:"#111111",bg:"#ffffff"},
+ button:{text:"Click Me",fontSize:15,color:"#ffffff",bg:"#087ff5",link:""},
+ input:{text:"Enter text",fontSize:15,color:"#111111",bg:"#ffffff"},
+ image:{text:"https://picsum.photos/300/150",fontSize:15,color:"#111111",bg:"#ffffff"},
+ link:{text:"Open Website",fontSize:15,color:"#087ff5",bg:"#ffffff",link:"https://example.com"}
+ };
+ appData.elements.push({id:Date.now()+Math.random(),type,...defaults[type]});
+ render();
+}
+
+function render(){
+ const zone=document.getElementById("dropZone"); zone.innerHTML="";
+ appData.elements.forEach(e=>{
+   const div=document.createElement("div"); div.className="element"+(selectedId===e.id?" selected":""); div.dataset.id=e.id;
+   div.draggable=true;
+   div.addEventListener("dragstart",ev=>{ev.stopPropagation();div.classList.add("dragging");ev.dataTransfer.setData("text/plain",String(e.id));});
+   div.addEventListener("dragend",()=>div.classList.remove("dragging"));
+   div.addEventListener("dragover",ev=>ev.preventDefault());
+   div.addEventListener("drop",ev=>{ev.preventDefault();ev.stopPropagation();const id=ev.dataTransfer.getData("text/plain");reorder(id,e.id);});
+   div.onclick=ev=>{ev.stopPropagation();selectElement(e.id)};
+   div.style.background=e.bg||"#fff";
+   if(e.type==="text"){div.innerHTML='<div class="preview-text"></div>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
+   if(e.type==="title"){div.innerHTML='<div class="preview-title"></div>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
+   if(e.type==="button"){div.innerHTML='<button class="preview-button"></button>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.background=e.bg;div.firstChild.style.color=e.color}
+   if(e.type==="input"){div.innerHTML='<input class="preview-input">';div.firstChild.placeholder=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
+   if(e.type==="image"){div.innerHTML='<img class="preview-image">';div.firstChild.src=e.text;div.firstChild.alt="App image"}
+   if(e.type==="link"){div.innerHTML='<a class="preview-link" href="'+escapeAttr(e.link||"#")+'" target="_blank"></a>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
+   zone.appendChild(div);
+ });
+}
+
+function selectElement(id){
+ selectedId=id;
+ render();
+ const e=appData.elements.find(x=>x.id===id); if(!e)return;
+ document.getElementById("properties").innerHTML=`
+ <div class="property"><label>Text / Content</label><input id="pText" value="${escapeAttr(e.text)}" oninput="updateProp('text',this.value)"></div>
+ <div class="property"><label>Font Size (px)</label><input type="number" min="8" max="72" value="${e.fontSize||16}" oninput="updateProp('fontSize',this.value)"></div>
+ <div class="property"><label>Text Color</label><input class="color" type="color" value="${validColor(e.color)?e.color:'#111111'}" oninput="updateProp('color',this.value)"></div>
+ <div class="property"><label>Background Color</label><input class="color" type="color" value="${validColor(e.bg)?e.bg:'#ffffff'}" oninput="updateProp('bg',this.value)"></div>
+ ${e.type==="button"||e.type==="link"?`<div class="property"><label>Button / Link URL</label><input value="${escapeAttr(e.link||"")}" placeholder="https://example.com" oninput="updateProp('link',this.value)"></div>`:""}
+ ${e.type==="image"?`<div class="property"><label>Image URL</label><input value="${escapeAttr(e.text)}" oninput="updateProp('text',this.value)"><label>Or Upload Image</label><input type="file" accept="image/*" onchange="uploadImage(event)">`:""}
+ <div class="property"><button class="delete-btn" onclick="deleteElement()">🗑 Delete Element</button></div>`;
+}
+
+function updateProp(key,value){
+ const e=appData.elements.find(x=>x.id===selectedId); if(!e)return;
+ e[key]=key==="fontSize"?Math.max(8,Math.min(72,Number(value)||16)):value;
+ render();
+ selectElement(selectedId);
+}
+
+function uploadImage(ev){
+ const file=ev.target.files&&ev.target.files[0]; if(!file)return;
+ const reader=new FileReader();
+ reader.onload=()=>{updateProp("text",reader.result)};
+ reader.readAsDataURL(file);
+}
+
+function deleteElement(){
+ appData.elements=appData.elements.filter(e=>e.id!==selectedId);selectedId=null;
+ document.getElementById("properties").innerHTML='<p class="hint">Select an element from the phone preview to edit it.</p>';render();
+}
+
+function reorder(fromId,toId){
+ if(String(fromId)===String(toId))return;
+ const fromIndex=appData.elements.findIndex(e=>String(e.id)===String(fromId));
+ const toIndex=appData.elements.findIndex(e=>String(e.id)===String(toId));
+ if(fromIndex<0||toIndex<0)return;
+ const [item]=appData.elements.splice(fromIndex,1);appData.elements.splice(toIndex,0,item);render();
+}
+
+const zone=document.getElementById("dropZone");
+zone.addEventListener("dragover",e=>{e.preventDefault();zone.classList.add("drag-over")});
+zone.addEventListener("dragleave",()=>zone.classList.remove("drag-over"));
+zone.addEventListener("drop",e=>{
+ e.preventDefault();zone.classList.remove("drag-over");
+ const type=e.dataTransfer.getData("text/plain");
+ if(["text","button","input","image","title","link"].includes(type))addElement(type);
+});
+
+function saveApp(){localStorage.setItem("asimTechAppV2",JSON.stringify(appData));showStatus("✓ App saved successfully")}
+function loadApp(){
+ const saved=localStorage.getItem("asimTechAppV2");if(!saved)return;
+ try{appData=JSON.parse(saved);if(!appData.elements)appData.elements=[];
+ document.getElementById("createScreen").style.display="none";document.getElementById("builder").style.display="block";
+ document.getElementById("phoneTitle").innerText=appData.name||"My App";render();
+ }catch(e){}
+}
+function clearApp(){if(!confirm("Clear all elements?"))return;appData.elements=[];selectedId=null;render()}
 function previewApp(){render();showStatus("✓ Preview updated")}
-function exportApp(){let html='<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+escapeHTML(appData.name)+'</title><style>body{font-family:Arial;margin:0;padding:20px;background:#f5f7fa}.container{max-width:500px;margin:auto}button{padding:12px;background:#087ff5;color:white;border:0;border-radius:8px}input{padding:12px;width:100%;box-sizing:border-box}img{max-width:100%}</style></head><body><div class="container"><h2>'+escapeHTML(appData.name)+'</h2>'+appData.elements.map(e=>e.type==="text"?'<p>'+escapeHTML(e.text)+"</p>":e.type==="title"?"<h2>"+escapeHTML(e.text)+"</h2>":e.type==="button"?'<button>'+escapeHTML(e.text)+"</button>":e.type==="input"?'<input placeholder="'+escapeHTML(e.text)+'">':e.type==="image"?'<img src="'+escapeHTML(e.text)+'">':e.type==="link"?'<a href="#">'+escapeHTML(e.text)+"</a>":"").join("\n")+'</div></body></html>';let blob=new Blob([html],{type:"text/html"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=appData.name.replace(/\s+/g,"-")+".html";a.click();URL.revokeObjectURL(url);showStatus("✓ App exported")}
-function showStatus(m){document.getElementById("status").innerHTML='<div class="success">'+m+"</div>";setTimeout(()=>document.getElementById("status").innerHTML="",3000)}
-function escapeHTML(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
+
+function exportApp(){
+ const body=appData.elements.map(e=>{
+   if(e.type==="text")return `<p style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg}">${escapeHTML(e.text)}</p>`;
+   if(e.type==="title")return `<h2 style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg}">${escapeHTML(e.text)}</h2>`;
+   if(e.type==="button")return `<button onclick="location.href='${escapeAttr(e.link||"#")}' style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg};padding:12px;border:0;border-radius:8px">${escapeHTML(e.text)}</button>`;
+   if(e.type==="input")return `<input placeholder="${escapeAttr(e.text)}" style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg};padding:12px;width:100%;box-sizing:border-box">`;
+   if(e.type==="image")return `<img src="${escapeAttr(e.text)}" style="max-width:100%;border-radius:8px">`;
+   if(e.type==="link")return `<p><a href="${escapeAttr(e.link||"#")}" target="_blank" style="font-size:${e.fontSize}px;color:${e.color}">${escapeHTML(e.text)}</a></p>`;
+   return "";
+ }).join("\n");
+ const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHTML(appData.name)}</title><style>body{font-family:Arial;margin:0;padding:20px;background:#f5f7fa}.container{max-width:500px;margin:auto}p,h2{padding:8px}button{cursor:pointer}</style></head><body><div class="container"><h2>${escapeHTML(appData.name)}</h2>${body}</div></body></html>`;
+ const blob=new Blob([html],{type:"text/html"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=(appData.name||"asim-tech-app").replace(/\s+/g,"-")+".html";a.click();URL.revokeObjectURL(url);showStatus("✓ App exported");
+}
+function showStatus(message){document.getElementById("status").innerHTML='<div class="success">'+message+"</div>";setTimeout(()=>document.getElementById("status").innerHTML="",3000)}
+function escapeHTML(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
+function escapeAttr(s){return escapeHTML(s)}
+function validColor(s){return /^#[0-9a-f]{6}$/i.test(s||"")}
 loadApp();
 </script>
 </body>
