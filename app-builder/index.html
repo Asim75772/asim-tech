@@ -113,7 +113,7 @@ function buildAPKProject(){
  "app/build.gradle":`plugins { id 'com.android.application' }\n\nandroid { namespace '${pkg}'; compileSdk 35\n defaultConfig { applicationId '${pkg}'; minSdk 23; targetSdk 35; versionCode 1; versionName '1.0' }\n}\n`,
  "app/src/main/AndroidManifest.xml":`<manifest xmlns:android="http://schemas.android.com/apk/res/android"><application android:theme="@style/AppTheme" android:label="${escXML(appData.name)}" android:allowBackup="true" android:supportsRtl="true"><activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity></application></manifest>`,
  "app/src/main/res/values/styles.xml":`<resources><style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:colorAccent">#009FFF</item><item name="android:navigationBarColor">#02060D</item><item name="android:statusBarColor">#050D17</item></style></resources>`,
- "app/src/main/java/${pkg.replace(/\\./g,"/")}/MainActivity.java":makeJava(project)
+ ["app/src/main/java/"+pkg.replace(/\./g,"/")+"/MainActivity.java"]:makeJava(project)
  };
  const zip=new JSZipLite();
  Object.entries(files).forEach(([n,c])=>zip.file(n,c));
