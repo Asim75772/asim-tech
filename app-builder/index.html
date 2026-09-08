@@ -4,224 +4,147 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#07111f">
-<title>Asim Tech App Builder</title>
+<title>Asim Tech App Builder V3</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:#02060d;color:#fff;min-height:100vh}
-:root{--blue:#00a8ff;--panel:#071321;--panel2:#0a1929;--border:rgba(80,190,255,.22);--muted:#8da5b8}
+:root{--blue:#00a8ff;--border:rgba(80,190,255,.22);--muted:#8da5b8}
 header{height:65px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;background:#050d17;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.logo{font-size:20px;font-weight:900}.logo span{color:var(--blue)}
-.back{color:#bcd0dd;text-decoration:none;font-size:13px;font-weight:bold}
-.container{width:95%;max-width:1250px;margin:20px auto}
-.welcome{text-align:center;margin-bottom:18px}.welcome h1{font-size:30px;margin-bottom:7px}.welcome h1 span{color:var(--blue)}.welcome p{color:var(--muted);font-size:13px}
+.logo{font-size:20px;font-weight:900}.logo span{color:var(--blue)}.back{color:#bcd0dd;text-decoration:none;font-size:13px;font-weight:bold}
+.container{width:95%;max-width:1250px;margin:20px auto}.welcome{text-align:center;margin-bottom:18px}.welcome h1{font-size:30px;margin-bottom:7px}.welcome h1 span{color:var(--blue)}.welcome p{color:var(--muted);font-size:13px}
 .create-box{max-width:600px;margin:25px auto;padding:25px;background:linear-gradient(145deg,#071321,#0a1929);border:1px solid var(--border);border-radius:18px}
 .create-box h2{margin-bottom:18px}label{display:block;color:#a9bdca;font-size:12px;font-weight:bold;margin:12px 0 6px}
 input,select{width:100%;height:44px;border:1px solid #29465e;border-radius:10px;background:#020a13;color:#fff;padding:0 12px;outline:none}
 input:focus,select:focus{border-color:var(--blue)}
 .create-btn{width:100%;border:0;margin-top:18px;padding:14px;border-radius:11px;background:linear-gradient(135deg,#009fff,#0069f0);color:#fff;font-weight:900;cursor:pointer}
-#builder{display:none}
-.builder{display:grid;grid-template-columns:190px minmax(300px,1fr) 250px;gap:12px;min-height:650px}
-.panel,.workspace{background:#071321;border:1px solid var(--border);border-radius:15px;padding:14px}
-.panel-title{color:#69caff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:13px}
-.components-list{display:grid;gap:8px}.component{width:100%;padding:12px 8px;border:1px solid #244258;border-radius:9px;background:#0a1929;color:#dce8f2;cursor:grab;text-align:left;font-size:12px}.component:active{cursor:grabbing}
-.workspace{display:flex;flex-direction:column;align-items:center;background:#030912}
-.phone{width:280px;height:560px;border:7px solid #384d5d;border-radius:38px;background:#000;padding:8px;box-shadow:0 0 40px rgba(0,160,255,.15)}
-.phone-screen{width:100%;height:100%;border-radius:28px;background:#f5f7fa;color:#111;overflow:auto;padding:18px}
-.phone-header{text-align:center;font-size:16px;font-weight:bold;padding:10px;border-bottom:1px solid #ddd;margin-bottom:15px}
-.drop-zone{min-height:420px;padding:4px;border:2px dashed transparent;border-radius:10px;transition:.2s}
-.drop-zone.drag-over{border-color:#009fff;background:rgba(0,159,255,.06)}
-.element{position:relative;padding:10px;margin:8px 0;border:1px dashed #aaa;border-radius:7px;cursor:pointer;background:rgba(255,255,255,.15)}
-.element.selected{border:2px solid #009fff;background:rgba(0,159,255,.08)}
-.element.dragging{opacity:.45}
-.preview-text{font-size:16px;font-weight:bold}.preview-title{font-size:22px;font-weight:800}
-.preview-button{display:block;width:100%;padding:12px;border:0;border-radius:8px;background:#087ff5;color:white;font-weight:bold}
-.preview-input{width:100%;padding:11px;border:1px solid #aaa;border-radius:7px}
-.preview-image{width:100%;height:120px;object-fit:cover;border-radius:8px}
-.preview-link{color:#087ff5;font-weight:bold}
-.toolbar{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:15px}.toolbar button,.property button{border:1px solid #29465e;background:#081827;color:#fff;padding:10px 14px;border-radius:9px;cursor:pointer;font-weight:bold;font-size:11px}.toolbar button:hover,.property button:hover{border-color:var(--blue)}
-.property{margin-bottom:12px}.property input,.property select{height:40px}.property .color{height:40px;padding:3px}.delete-btn{width:100%;background:#541621!important;border-color:#a33!important}
-.hint{color:#71899c;font-size:10px;line-height:1.6;margin-top:10px}
-.success{color:#52e39a;text-align:center;font-size:11px;margin-top:8px}
-@media(max-width:850px){
-.builder{grid-template-columns:1fr}.workspace{order:-1}.panel{width:100%}.components-list{grid-template-columns:repeat(2,1fr)}
-.phone{width:260px;height:520px}
-}
-@media(max-width:430px){.welcome h1{font-size:25px}.phone{width:240px;height:490px}.components-list{grid-template-columns:repeat(2,1fr)}header{padding:0 12px}}
+#builder{display:none}.builder{display:grid;grid-template-columns:190px minmax(300px,1fr) 250px;gap:12px;min-height:650px}
+.panel,.workspace{background:#071321;border:1px solid var(--border);border-radius:15px;padding:14px}.panel-title{color:#69caff;font-size:11px;font-weight:900;letter-spacing:1px;margin-bottom:13px}
+.components-list{display:grid;gap:8px}.component{width:100%;padding:12px 8px;border:1px solid #244258;border-radius:9px;background:#0a1929;color:#dce8f2;cursor:grab;text-align:left;font-size:12px}
+.workspace{display:flex;flex-direction:column;align-items:center;background:#030912}.phone{width:280px;height:560px;border:7px solid #384d5d;border-radius:38px;background:#000;padding:8px;box-shadow:0 0 40px rgba(0,160,255,.15)}
+.phone-screen{width:100%;height:100%;border-radius:28px;background:#f5f7fa;color:#111;overflow:auto;padding:18px}.phone-header{text-align:center;font-size:16px;font-weight:bold;padding:10px;border-bottom:1px solid #ddd;margin-bottom:15px}
+.drop-zone{min-height:420px;padding:4px;border:2px dashed transparent;border-radius:10px}.drop-zone.drag-over{border-color:#009fff;background:rgba(0,159,255,.06)}
+.element{padding:10px;margin:8px 0;border:1px dashed #aaa;border-radius:7px;cursor:pointer;background:rgba(255,255,255,.15)}.element.selected{border:2px solid #009fff}
+.preview-text{font-size:16px;font-weight:bold}.preview-title{font-size:22px;font-weight:800}.preview-button{display:block;width:100%;padding:12px;border:0;border-radius:8px;background:#087ff5;color:white;font-weight:bold}.preview-input{width:100%;padding:11px;border:1px solid #aaa;border-radius:7px}.preview-image{width:100%;height:120px;object-fit:cover;border-radius:8px}.preview-link{color:#087ff5;font-weight:bold}
+.toolbar{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:15px}.toolbar button,.property button{border:1px solid #29465e;background:#081827;color:#fff;padding:10px 14px;border-radius:9px;cursor:pointer;font-weight:bold;font-size:11px}.build-btn{background:linear-gradient(135deg,#00b956,#008f69)!important;border-color:#16d98a!important}
+.property{margin-bottom:12px}.property input,.property select{height:40px}.color{height:40px!important;padding:3px!important}.delete-btn{width:100%;background:#541621!important;border-color:#a33!important}.hint{color:#71899c;font-size:10px;line-height:1.6;margin-top:10px}.success{color:#52e39a;text-align:center;font-size:11px;margin-top:8px}
+@media(max-width:850px){.builder{grid-template-columns:1fr}.workspace{order:-1}.components-list{grid-template-columns:repeat(2,1fr)}.phone{width:260px;height:520px}}
+@media(max-width:430px){.welcome h1{font-size:25px}.phone{width:240px;height:490px}header{padding:0 12px}}
 </style>
 </head>
 <body>
 <header><div class="logo">ASIM <span>TECH</span></div><a class="back" href="../index.html">← Back to Asim Tech</a></header>
 <div class="container">
-<section class="welcome"><h1>Asim Tech <span>App Builder</span></h1><p>Design a simple mobile app directly from your browser — Free.</p></section>
+<section class="welcome"><h1>Asim Tech <span>App Builder</span></h1><p>Design, preview and prepare an Android app project — Free.</p></section>
 
-<div id="createScreen">
-<div class="create-box">
+<div id="createScreen"><div class="create-box">
 <h2>🚀 Create Your App</h2>
 <label>App Name</label><input id="appName" placeholder="Example: My Calculator">
 <label>Package Name</label><input id="packageName" value="com.asimtech.myapp" placeholder="com.example.myapp">
 <label>Theme</label><select id="theme"><option value="blue">Blue</option><option value="dark">Dark</option><option value="purple">Purple</option><option value="green">Green</option></select>
 <button class="create-btn" onclick="createApp()">+ CREATE APP</button>
-</div>
-</div>
+</div></div>
 
-<div id="builder">
-<div class="builder">
-<div class="panel">
-<div class="panel-title">COMPONENTS</div>
-<div class="components-list">
+<div id="builder"><div class="builder">
+<div class="panel"><div class="panel-title">COMPONENTS</div><div class="components-list">
 <button class="component" draggable="true" data-type="text" onclick="addElement('text')">📝 Text</button>
 <button class="component" draggable="true" data-type="button" onclick="addElement('button')">🔘 Button</button>
 <button class="component" draggable="true" data-type="input" onclick="addElement('input')">⌨️ Input</button>
 <button class="component" draggable="true" data-type="image" onclick="addElement('image')">🖼️ Image</button>
 <button class="component" draggable="true" data-type="title" onclick="addElement('title')">🔤 Title</button>
 <button class="component" draggable="true" data-type="link" onclick="addElement('link')">🔗 Link</button>
-</div>
-<p class="hint">Desktop: drag a component into the phone. Mobile: tap a component to add it.</p>
-</div>
+</div><p class="hint">Desktop: drag into phone. Mobile: tap to add.</p></div>
 
-<div class="workspace">
-<div class="phone"><div class="phone-screen" id="phoneScreen"><div class="phone-header" id="phoneTitle">My App</div><div id="dropZone" class="drop-zone"></div></div></div>
-<div class="toolbar">
-<button onclick="previewApp()">▶ Preview</button><button onclick="saveApp()">💾 Save</button><button onclick="clearApp()">🗑 Clear</button><button onclick="exportApp()">📦 Export</button>
-</div><div id="status"></div>
-</div>
+<div class="workspace"><div class="phone"><div class="phone-screen"><div class="phone-header" id="phoneTitle">My App</div><div id="dropZone" class="drop-zone"></div></div></div>
+<div class="toolbar"><button onclick="previewApp()">▶ Preview</button><button onclick="saveApp()">💾 Save</button><button onclick="clearApp()">🗑 Clear</button><button onclick="exportApp()">📦 HTML</button><button class="build-btn" onclick="buildAPKProject()">🤖 Build APK</button></div><div id="status"></div></div>
 
-<div class="panel">
-<div class="panel-title">PROPERTIES</div>
-<div id="properties"><p class="hint">Select an element from the phone preview to edit it.</p></div>
-</div>
-</div>
-</div>
-</div>
+<div class="panel"><div class="panel-title">PROPERTIES</div><div id="properties"><p class="hint">Select an element from the phone preview to edit it.</p></div></div>
+</div></div></div>
 
 <script>
-let appData={name:"",package:"com.asimtech.myapp",theme:"blue",elements:[]};
-let selectedId=null;
-
-function createApp(){
- const name=document.getElementById("appName").value.trim();
- if(!name){alert("Please enter App Name.");return}
- appData.name=name;
- appData.package=document.getElementById("packageName").value.trim()||"com.asimtech.myapp";
- appData.theme=document.getElementById("theme").value;
- document.getElementById("phoneTitle").innerText=name;
- document.getElementById("createScreen").style.display="none";
- document.getElementById("builder").style.display="block";
- render();
-}
-
-function addElement(type){
- const defaults={
- text:{text:"Hello World!",fontSize:16,color:"#111111",bg:"#ffffff"},
- title:{text:"Welcome!",fontSize:24,color:"#111111",bg:"#ffffff"},
- button:{text:"Click Me",fontSize:15,color:"#ffffff",bg:"#087ff5",link:""},
- input:{text:"Enter text",fontSize:15,color:"#111111",bg:"#ffffff"},
- image:{text:"https://picsum.photos/300/150",fontSize:15,color:"#111111",bg:"#ffffff"},
- link:{text:"Open Website",fontSize:15,color:"#087ff5",bg:"#ffffff",link:"https://example.com"}
- };
- appData.elements.push({id:Date.now()+Math.random(),type,...defaults[type]});
- render();
-}
-
-function render(){
- const zone=document.getElementById("dropZone"); zone.innerHTML="";
- appData.elements.forEach(e=>{
-   const div=document.createElement("div"); div.className="element"+(selectedId===e.id?" selected":""); div.dataset.id=e.id;
-   div.draggable=true;
-   div.addEventListener("dragstart",ev=>{ev.stopPropagation();div.classList.add("dragging");ev.dataTransfer.setData("text/plain",String(e.id));});
-   div.addEventListener("dragend",()=>div.classList.remove("dragging"));
-   div.addEventListener("dragover",ev=>ev.preventDefault());
-   div.addEventListener("drop",ev=>{ev.preventDefault();ev.stopPropagation();const id=ev.dataTransfer.getData("text/plain");reorder(id,e.id);});
-   div.onclick=ev=>{ev.stopPropagation();selectElement(e.id)};
-   div.style.background=e.bg||"#fff";
-   if(e.type==="text"){div.innerHTML='<div class="preview-text"></div>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
-   if(e.type==="title"){div.innerHTML='<div class="preview-title"></div>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
-   if(e.type==="button"){div.innerHTML='<button class="preview-button"></button>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.background=e.bg;div.firstChild.style.color=e.color}
-   if(e.type==="input"){div.innerHTML='<input class="preview-input">';div.firstChild.placeholder=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
-   if(e.type==="image"){div.innerHTML='<img class="preview-image">';div.firstChild.src=e.text;div.firstChild.alt="App image"}
-   if(e.type==="link"){div.innerHTML='<a class="preview-link" href="'+escapeAttr(e.link||"#")+'" target="_blank"></a>';div.firstChild.textContent=e.text;div.firstChild.style.fontSize=e.fontSize+"px";div.firstChild.style.color=e.color}
-   zone.appendChild(div);
- });
-}
-
-function selectElement(id){
- selectedId=id;
- render();
- const e=appData.elements.find(x=>x.id===id); if(!e)return;
- document.getElementById("properties").innerHTML=`
- <div class="property"><label>Text / Content</label><input id="pText" value="${escapeAttr(e.text)}" oninput="updateProp('text',this.value)"></div>
- <div class="property"><label>Font Size (px)</label><input type="number" min="8" max="72" value="${e.fontSize||16}" oninput="updateProp('fontSize',this.value)"></div>
- <div class="property"><label>Text Color</label><input class="color" type="color" value="${validColor(e.color)?e.color:'#111111'}" oninput="updateProp('color',this.value)"></div>
- <div class="property"><label>Background Color</label><input class="color" type="color" value="${validColor(e.bg)?e.bg:'#ffffff'}" oninput="updateProp('bg',this.value)"></div>
- ${e.type==="button"||e.type==="link"?`<div class="property"><label>Button / Link URL</label><input value="${escapeAttr(e.link||"")}" placeholder="https://example.com" oninput="updateProp('link',this.value)"></div>`:""}
- ${e.type==="image"?`<div class="property"><label>Image URL</label><input value="${escapeAttr(e.text)}" oninput="updateProp('text',this.value)"><label>Or Upload Image</label><input type="file" accept="image/*" onchange="uploadImage(event)">`:""}
- <div class="property"><button class="delete-btn" onclick="deleteElement()">🗑 Delete Element</button></div>`;
-}
-
-function updateProp(key,value){
- const e=appData.elements.find(x=>x.id===selectedId); if(!e)return;
- e[key]=key==="fontSize"?Math.max(8,Math.min(72,Number(value)||16)):value;
- render();
- selectElement(selectedId);
-}
-
-function uploadImage(ev){
- const file=ev.target.files&&ev.target.files[0]; if(!file)return;
- const reader=new FileReader();
- reader.onload=()=>{updateProp("text",reader.result)};
- reader.readAsDataURL(file);
-}
-
-function deleteElement(){
- appData.elements=appData.elements.filter(e=>e.id!==selectedId);selectedId=null;
- document.getElementById("properties").innerHTML='<p class="hint">Select an element from the phone preview to edit it.</p>';render();
-}
-
-function reorder(fromId,toId){
- if(String(fromId)===String(toId))return;
- const fromIndex=appData.elements.findIndex(e=>String(e.id)===String(fromId));
- const toIndex=appData.elements.findIndex(e=>String(e.id)===String(toId));
- if(fromIndex<0||toIndex<0)return;
- const [item]=appData.elements.splice(fromIndex,1);appData.elements.splice(toIndex,0,item);render();
-}
-
-const zone=document.getElementById("dropZone");
-zone.addEventListener("dragover",e=>{e.preventDefault();zone.classList.add("drag-over")});
-zone.addEventListener("dragleave",()=>zone.classList.remove("drag-over"));
-zone.addEventListener("drop",e=>{
- e.preventDefault();zone.classList.remove("drag-over");
- const type=e.dataTransfer.getData("text/plain");
- if(["text","button","input","image","title","link"].includes(type))addElement(type);
-});
-
-function saveApp(){localStorage.setItem("asimTechAppV2",JSON.stringify(appData));showStatus("✓ App saved successfully")}
-function loadApp(){
- const saved=localStorage.getItem("asimTechAppV2");if(!saved)return;
- try{appData=JSON.parse(saved);if(!appData.elements)appData.elements=[];
- document.getElementById("createScreen").style.display="none";document.getElementById("builder").style.display="block";
- document.getElementById("phoneTitle").innerText=appData.name||"My App";render();
- }catch(e){}
-}
-function clearApp(){if(!confirm("Clear all elements?"))return;appData.elements=[];selectedId=null;render()}
+let appData={name:"",package:"com.asimtech.myapp",theme:"blue",elements:[]},selectedId=null;
+const defaults={text:{text:"Hello World!",fontSize:16,color:"#111111",bg:"#ffffff"},title:{text:"Welcome!",fontSize:24,color:"#111111",bg:"#ffffff"},button:{text:"Click Me",fontSize:15,color:"#ffffff",bg:"#087ff5",link:""},input:{text:"Enter text",fontSize:15,color:"#111111",bg:"#ffffff"},image:{text:"https://picsum.photos/300/150",fontSize:15,color:"#111111",bg:"#ffffff"},link:{text:"Open Website",fontSize:15,color:"#087ff5",bg:"#ffffff",link:"https://example.com"}};
+function createApp(){let name=document.getElementById("appName").value.trim();if(!name){alert("Please enter App Name.");return}appData={name,package:document.getElementById("packageName").value.trim()||"com.asimtech.myapp",theme:document.getElementById("theme").value,elements:[]};document.getElementById("phoneTitle").innerText=name;document.getElementById("createScreen").style.display="none";document.getElementById("builder").style.display="block";render()}
+function addElement(type){appData.elements.push({id:Date.now()+Math.random(),type,...defaults[type]});render()}
+function render(){let z=document.getElementById("dropZone");z.innerHTML="";appData.elements.forEach(e=>{let d=document.createElement("div");d.className="element"+(selectedId===e.id?" selected":"");d.draggable=true;d.dataset.id=e.id;d.onclick=ev=>{ev.stopPropagation();selectElement(e.id)};d.addEventListener("dragstart",ev=>{ev.stopPropagation();ev.dataTransfer.setData("text/plain",String(e.id))});d.addEventListener("dragover",ev=>ev.preventDefault());d.addEventListener("drop",ev=>{ev.preventDefault();ev.stopPropagation();reorder(ev.dataTransfer.getData("text/plain"),e.id)});d.style.background=e.bg||"#fff";
+if(e.type==="text"){d.innerHTML='<div class="preview-text"></div>';d.firstChild.textContent=e.text;d.firstChild.style.cssText+=`font-size:${e.fontSize}px;color:${e.color}`}
+if(e.type==="title"){d.innerHTML='<div class="preview-title"></div>';d.firstChild.textContent=e.text;d.firstChild.style.cssText+=`font-size:${e.fontSize}px;color:${e.color}`}
+if(e.type==="button"){d.innerHTML='<button class="preview-button"></button>';d.firstChild.textContent=e.text;d.firstChild.style.cssText+=`font-size:${e.fontSize}px;background:${e.bg};color:${e.color}`}
+if(e.type==="input"){d.innerHTML='<input class="preview-input">';d.firstChild.placeholder=e.text;d.firstChild.style.cssText+=`font-size:${e.fontSize}px;color:${e.color};background:${e.bg}`}
+if(e.type==="image"){d.innerHTML='<img class="preview-image">';d.firstChild.src=e.text}
+if(e.type==="link"){d.innerHTML='<a class="preview-link" target="_blank"></a>';d.firstChild.textContent=e.text;d.firstChild.href=e.link||"#";d.firstChild.style.cssText+=`font-size:${e.fontSize}px;color:${e.color}`}
+z.appendChild(d)})}
+function selectElement(id){selectedId=id;render();let e=appData.elements.find(x=>x.id===id);if(!e)return;document.getElementById("properties").innerHTML=`<div class="property"><label>Text / Content</label><input value="${esc(e.text)}" oninput="updateProp('text',this.value)"></div><div class="property"><label>Font Size</label><input type="number" min="8" max="72" value="${e.fontSize||16}" oninput="updateProp('fontSize',this.value)"></div><div class="property"><label>Text Color</label><input class="color" type="color" value="${valid(e.color)?e.color:'#111111'}" oninput="updateProp('color',this.value)"></div><div class="property"><label>Background Color</label><input class="color" type="color" value="${valid(e.bg)?e.bg:'#ffffff'}" oninput="updateProp('bg',this.value)"></div>${e.type==="button"||e.type==="link"?`<div class="property"><label>URL</label><input value="${esc(e.link||"")}" placeholder="https://example.com" oninput="updateProp('link',this.value)"></div>`:""}${e.type==="image"?`<div class="property"><label>Image URL</label><input value="${esc(e.text)}" oninput="updateProp('text',this.value)"><label>Or Upload Image</label><input type="file" accept="image/*" onchange="uploadImage(event)"></div>`:""}<div class="property"><button class="delete-btn" onclick="deleteElement()">🗑 Delete Element</button></div>`}
+function updateProp(k,v){let e=appData.elements.find(x=>x.id===selectedId);if(!e)return;e[k]=k==="fontSize"?Math.max(8,Math.min(72,Number(v)||16)):v;render();selectElement(selectedId)}
+function uploadImage(ev){let f=ev.target.files&&ev.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>updateProp("text",r.result);r.readAsDataURL(f)}
+function deleteElement(){appData.elements=appData.elements.filter(e=>e.id!==selectedId);selectedId=null;render();document.getElementById("properties").innerHTML='<p class="hint">Select an element from the phone preview to edit it.</p>'}
+function reorder(a,b){if(a===b)return;let i=appData.elements.findIndex(e=>String(e.id)===String(a)),j=appData.elements.findIndex(e=>String(e.id)===String(b));if(i<0||j<0)return;let x=appData.elements.splice(i,1)[0];appData.elements.splice(j,0,x);render()}
+document.getElementById("dropZone").addEventListener("dragover",e=>{e.preventDefault();e.currentTarget.classList.add("drag-over")});
+document.getElementById("dropZone").addEventListener("dragleave",e=>e.currentTarget.classList.remove("drag-over"));
+document.getElementById("dropZone").addEventListener("drop",e=>{e.preventDefault();e.currentTarget.classList.remove("drag-over");let t=e.dataTransfer.getData("text/plain");if(defaults[t])addElement(t)});
+function saveApp(){localStorage.setItem("asimTechAppV3",JSON.stringify(appData));showStatus("✓ App saved")}
+function loadApp(){let s=localStorage.getItem("asimTechAppV3");if(!s)return;try{appData=JSON.parse(s);document.getElementById("createScreen").style.display="none";document.getElementById("builder").style.display="block";document.getElementById("phoneTitle").innerText=appData.name||"My App";render()}catch(e){}}
+function clearApp(){if(confirm("Clear all elements?")){appData.elements=[];selectedId=null;render()}}
 function previewApp(){render();showStatus("✓ Preview updated")}
+function exportApp(){downloadText(makeHTML(),"text/html",(appData.name||"asim-tech-app").replace(/\s+/g,"-")+".html");showStatus("✓ HTML exported")}
 
-function exportApp(){
- const body=appData.elements.map(e=>{
-   if(e.type==="text")return `<p style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg}">${escapeHTML(e.text)}</p>`;
-   if(e.type==="title")return `<h2 style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg}">${escapeHTML(e.text)}</h2>`;
-   if(e.type==="button")return `<button onclick="location.href='${escapeAttr(e.link||"#")}' style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg};padding:12px;border:0;border-radius:8px">${escapeHTML(e.text)}</button>`;
-   if(e.type==="input")return `<input placeholder="${escapeAttr(e.text)}" style="font-size:${e.fontSize}px;color:${e.color};background:${e.bg};padding:12px;width:100%;box-sizing:border-box">`;
-   if(e.type==="image")return `<img src="${escapeAttr(e.text)}" style="max-width:100%;border-radius:8px">`;
-   if(e.type==="link")return `<p><a href="${escapeAttr(e.link||"#")}" target="_blank" style="font-size:${e.fontSize}px;color:${e.color}">${escapeHTML(e.text)}</a></p>`;
-   return "";
- }).join("\n");
- const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHTML(appData.name)}</title><style>body{font-family:Arial;margin:0;padding:20px;background:#f5f7fa}.container{max-width:500px;margin:auto}p,h2{padding:8px}button{cursor:pointer}</style></head><body><div class="container"><h2>${escapeHTML(appData.name)}</h2>${body}</div></body></html>`;
- const blob=new Blob([html],{type:"text/html"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=(appData.name||"asim-tech-app").replace(/\s+/g,"-")+".html";a.click();URL.revokeObjectURL(url);showStatus("✓ App exported");
+function buildAPKProject(){
+ if(!appData.name){alert("Create an app first.");return}
+ const pkg=safePackage(appData.package||"com.asimtech.myapp");
+ const project={name:appData.name,package:pkg,theme:appData.theme,elements:appData.elements};
+ const files={
+ "settings.gradle":`pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }\ndependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories{ google(); mavenCentral() } }\nrootProject.name="${escapeGradle(appData.name)}"\ninclude ":app"\n`,
+ "build.gradle":`plugins {\n    id 'com.android.application' version '8.6.1' apply false\n}\n`,
+ "gradle.properties":"org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8\nandroid.useAndroidX=true\n",
+ ".github/workflows/build-apk.yml":`name: Build APK\non:\n  workflow_dispatch:\n  push:\n    paths:\n      - 'app/**'\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-java@v4\n        with:\n          distribution: temurin\n          java-version: '17'\n      - uses: android-actions/setup-android@v3\n      - uses: gradle/actions/setup-gradle@v4\n        with:\n          gradle-version: '8.7'\n      - name: Build Debug APK\n        run: gradle :app:assembleDebug\n      - uses: actions/upload-artifact@v4\n        with:\n          name: ${safeFile(appData.name)}-debug-apk\n          path: app/build/outputs/apk/debug/app-debug.apk\n`,
+ "app/build.gradle":`plugins { id 'com.android.application' }\n\nandroid { namespace '${pkg}'; compileSdk 35\n defaultConfig { applicationId '${pkg}'; minSdk 23; targetSdk 35; versionCode 1; versionName '1.0' }\n}\n`,
+ "app/src/main/AndroidManifest.xml":`<manifest xmlns:android="http://schemas.android.com/apk/res/android"><application android:theme="@style/AppTheme" android:label="${escXML(appData.name)}" android:allowBackup="true" android:supportsRtl="true"><activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity></application></manifest>`,
+ "app/src/main/res/values/styles.xml":`<resources><style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:colorAccent">#009FFF</item><item name="android:navigationBarColor">#02060D</item><item name="android:statusBarColor">#050D17</item></style></resources>`,
+ "app/src/main/java/"+pkg.replace(/\./g,"/")+"/MainActivity.java":makeJava(project)
+ };
+ const zip=new JSZipLite();
+ Object.entries(files).forEach(([n,c])=>zip.file(n,c));
+ downloadBlob(zip.build(),"application/zip",safeFile(appData.name)+"-android-project.zip");
+ showStatus("✓ Android project ZIP created");
+ alert("Android project ZIP created. Upload it to a GitHub repository and run Actions → Build APK. The workflow will produce app-debug.apk.");
 }
-function showStatus(message){document.getElementById("status").innerHTML='<div class="success">'+message+"</div>";setTimeout(()=>document.getElementById("status").innerHTML="",3000)}
-function escapeHTML(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
-function escapeAttr(s){return escapeHTML(s)}
-function validColor(s){return /^#[0-9a-f]{6}$/i.test(s||"")}
+function makeJava(p){
+ let bg=p.theme==="dark"?"0xFF071321":p.theme==="purple"?"0xFF24113D":p.theme==="green"?"0xFF063A25":"0xFFF5F7FA";
+ let s=`package ${p.package};\n\nimport android.app.*;import android.os.*;import android.graphics.Color;import android.content.*;import android.net.Uri;import android.view.*;import android.widget.*;\n\npublic class MainActivity extends Activity{\n public void onCreate(Bundle b){super.onCreate(b); LinearLayout root=new LinearLayout(this);root.setOrientation(LinearLayout.VERTICAL);root.setPadding(24,24,24,24);root.setBackgroundColor(${bg});\n TextView header=new TextView(this);header.setText("${java(p.name)}");header.setTextSize(24);header.setTextColor(Color.BLACK);header.setGravity(Gravity.CENTER);root.addView(header,new LinearLayout.LayoutParams(-1,-2));\n`;
+ let i=0;
+ for(const e of p.elements){
+  let v="v"+(++i);
+  if(e.type==="title") s+=`TextView ${v}=new TextView(this);${v}.setText("${java(e.text)}");${v}.setTextSize(${Number(e.fontSize)||24});root.addView(${v});\n`;
+  else if(e.type==="text") s+=`TextView ${v}=new TextView(this);${v}.setText("${java(e.text)}");${v}.setTextSize(${Number(e.fontSize)||16});root.addView(${v});\n`;
+  else if(e.type==="button"){let action=e.link?`startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("${java(e.link)}")));`:`Toast.makeText(this,"Button clicked",Toast.LENGTH_SHORT).show();`;s+=`Button ${v}=new Button(this);${v}.setText("${java(e.text)}");root.addView(${v});${v}.setOnClickListener(x->{${action}});\n`;}
+  else if(e.type==="input") s+=`EditText ${v}=new EditText(this);${v}.setHint("${java(e.text)}");root.addView(${v});\n`;
+  else if(e.type==="link") s+=`TextView ${v}=new TextView(this);${v}.setText("${java(e.text)}");root.addView(${v});${v}.setOnClickListener(x->{startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("${java(e.link||"https://example.com")}")));});\n`;
+  else if(e.type==="image") s+=`ImageView ${v}=new ImageView(this);${v}.setImageResource(android.R.drawable.ic_menu_gallery);root.addView(${v},new LinearLayout.LayoutParams(-1,220));\n`;
+ }
+ return s+`setContentView(root);}\n}`;
+}
+function rand(){return "v"+Math.random().toString(36).slice(2,8)}
+function last(c){let m=c.match(/(v[a-z0-9]+)=new (?:TextView|Button|EditText|ImageView)/g);return m?m[m.length-1].split("=")[0]:"v0"}
+function makeHTML(){return `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(appData.name)}</title><style>body{font-family:Arial;margin:0;padding:20px;background:#f5f7fa}.container{max-width:500px;margin:auto}button{padding:12px;background:#087ff5;color:white;border:0;border-radius:8px}input{padding:12px;width:100%;box-sizing:border-box}img{max-width:100%}</style></head><body><div class="container"><h2>${esc(appData.name)}</h2>${appData.elements.map(e=>e.type==="text"?`<p>${esc(e.text)}</p>`:e.type==="title"?`<h2>${esc(e.text)}</h2>`:e.type==="button"?`<button onclick="location.href='${esc(e.link||"#")}'">${esc(e.text)}</button>`:e.type==="input"?`<input placeholder="${esc(e.text)}">`:e.type==="image"?`<img src="${esc(e.text)}">`:e.type==="link"?`<p><a href="${esc(e.link||"#")}" target="_blank">${esc(e.text)}</a></p>`:"").join("")}</div></body></html>`}
+function showStatus(m){document.getElementById("status").innerHTML='<div class="success">'+m+"</div>";setTimeout(()=>document.getElementById("status").innerHTML="",4000)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
+function escXML(s){return esc(s).replace(/"/g,"&quot;")}
+function java(s){return String(s).replace(/\\/g,"\\\\").replace(/"/g,'\\"').replace(/\n/g,"\\n")}
+function escapeGradle(s){return String(s).replace(/"/g,'\\"')}
+function safePackage(p){p=String(p).toLowerCase().replace(/[^a-z0-9_.]/g,"");if(!/^[a-z]/.test(p))p="com.asimtech."+p;if(!p.includes("."))p="com.asimtech."+p;return p}
+function safeFile(s){return String(s||"asim-tech-app").replace(/[^a-zA-Z0-9_-]+/g,"-").replace(/^-+|-+$/g,"").toLowerCase()||"asim-tech-app"}
+function valid(s){return /^#[0-9a-f]{6}$/i.test(s||"")}
+function downloadText(t,type,n){downloadBlob(new TextEncoder().encode(t),type,n)}
+function downloadBlob(data,type,n){let b=new Blob([data],{type}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=n;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+class JSZipLite{
+ constructor(){this.files=[]}
+ file(n,c){this.files.push([n,c]);return this}
+ build(){return makeZip(this.files)}
+}
+function crc32(bytes){let table=crc32.t||(crc32.t=(()=>{let t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);t[n]=c>>>0}return t})());let c=0xFFFFFFFF;for(let b of bytes)c=table[(c^b)&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function u16(n){return new Uint8Array([n&255,(n>>>8)&255])}
+function u32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255])}
+function cat(...a){let len=a.reduce((s,x)=>s+x.length,0),o=new Uint8Array(len),p=0;for(let x of a){o.set(x,p);p+=x.length}return o}
+function makeZip(files){let locals=[],centrals=[],offset=0;for(let [name,content] of files){let nb=new TextEncoder().encode(name),db=new TextEncoder().encode(content),crc=crc32(db),local=cat(new Uint8Array([80,75,3,4]),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(db.length),u32(db.length),u16(nb.length),u16(0),nb,db);locals.push(local);let cen=cat(new Uint8Array([80,75,1,2]),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(db.length),u32(db.length),u16(nb.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(offset),nb);centrals.push(cen);offset+=local.length}let cd=cat(...centrals),body=cat(...locals),end=cat(new Uint8Array([80,75,5,6]),u16(0),u16(0),u16(files.length),u16(files.length),u32(cd.length),u32(body.length),u16(0));return cat(body,cd,end)}
 loadApp();
 </script>
 </body>

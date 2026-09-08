@@ -1,21 +1,15 @@
-# Asim Tech App Builder V2
+# Asim Tech App Builder V3
 
-Enhanced browser-based app builder for Asim Tech.
+V3 adds a **Build APK** button.
 
-Features:
-- Create app
-- Drag & drop components on desktop
-- Tap-to-add on mobile
-- Text, Title, Button, Input, Image and Link
-- Edit font size, text color and background color
-- Button/link URL
-- Image URL or local image upload
-- Reorder components by dragging
-- Save to browser localStorage
-- Preview
-- Export standalone HTML
+The button generates a ready-to-build Android Studio/Gradle project ZIP from the current app design. The ZIP includes a GitHub Actions workflow at `.github/workflows/build-apk.yml`.
 
-Upload `index.html` to:
-`asim-tech/app-builder/index.html`
+Workflow:
+1. Upload/extract the generated Android project into a GitHub repository.
+2. Open GitHub → Actions.
+3. Run **Build APK** (or push a change under `app/`).
+4. Download the `app-debug.apk` artifact from the completed workflow.
 
-Note: APK generation is intentionally not included yet.
+This uses GitHub Actions and does not require a paid API.
+
+Important: the browser itself cannot compile an APK on GitHub Pages. The Build APK button therefore prepares the Android project and build workflow; GitHub Actions performs the actual APK compilation.
