@@ -17,33 +17,52 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Find Android project ZIP
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Extract Android project
         run: |
+          rm -rf android-project
           mkdir -p android-project
-          unzip -o app-builder/madhu-music-world-android-project.zip -d android-project
 
-      - name: Find Gradle project
-        run: |
-          echo "Searching for gradlew..."
-          find android-project -name gradlew -type f
+          unzip -o \
+            app-builder/madhu-music-world-android-project.zip \
+            -d android-project
 
-      - name: Make gradlew executable
+      - name: Find Android project
         run: |
-          chmod +x $(find android-project -name gradlew -type f | head -1)
+          echo "Searching for build.gradle files..."
+          find android-project -name "build.gradle" -o -name "build.gradle.kts"
 
       - name: Build APK
         run: |
-          GRADLEW=$(find android-project -name gradlew -type f | head -1)
-          PROJECT_DIR=$(dirname "$GRADLEW")
+          PROJECT_DIR=$(find android-project \
+            -name "settings.gradle" \
+            -o -name "settings.gradle.kts" \
+            | head -1 \
+            | xargs -r dirname)
+
+          echo "Project directory: $PROJECT_DIR"
+
+          if [ -z "$PROJECT_DIR" ]; then
+            echo "ERROR: Android Gradle project not found."
+            exit 1
+          fi
+
           cd "$PROJECT_DIR"
-          ./gradlew assembleDebug
+
+          gradle assembleDebug --no-daemon --stacktrace
 
       - name: Find APK
         run: |
-          find android-project -name "*.apk" -type f
+          echo "Searching for APK..."
+          find android-project -type f -name "*.apk"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
           path: android-project/**/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
