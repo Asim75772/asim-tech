@@ -41,7 +41,7 @@ input:focus,select:focus{border-color:var(--blue)}
 <label>App Name</label><input id="appName" placeholder="Example: My Calculator">
 <label>Package Name</label><input id="packageName" value="com.asimtech.myapp" placeholder="com.example.myapp">
 <label>Theme</label><select id="theme"><option value="blue">Blue</option><option value="dark">Dark</option><option value="purple">Purple</option><option value="green">Green</option></select>
-<button class="create-btn" onclick="createApp()">+ CREATE APP</button>
+<button type="button" class="create-btn" onclick="createApp()">+ CREATE APP</button>
 </div></div>
 
 <div id="builder"><div class="builder">
@@ -63,7 +63,21 @@ input:focus,select:focus{border-color:var(--blue)}
 <script>
 let appData={name:"",package:"com.asimtech.myapp",theme:"blue",elements:[]},selectedId=null;
 const defaults={text:{text:"Hello World!",fontSize:16,color:"#111111",bg:"#ffffff"},title:{text:"Welcome!",fontSize:24,color:"#111111",bg:"#ffffff"},button:{text:"Click Me",fontSize:15,color:"#ffffff",bg:"#087ff5",link:""},input:{text:"Enter text",fontSize:15,color:"#111111",bg:"#ffffff"},image:{text:"https://picsum.photos/300/150",fontSize:15,color:"#111111",bg:"#ffffff"},link:{text:"Open Website",fontSize:15,color:"#087ff5",bg:"#ffffff",link:"https://example.com"}};
-function createApp(){let name=document.getElementById("appName").value.trim();if(!name){alert("Please enter App Name.");return}appData={name,package:document.getElementById("packageName").value.trim()||"com.asimtech.myapp",theme:document.getElementById("theme").value,elements:[]};document.getElementById("phoneTitle").innerText=name;document.getElementById("createScreen").style.display="none";document.getElementById("builder").style.display="block";render()}
+function createApp(){
+  const nameInput=document.getElementById("appName");
+  const packageInput=document.getElementById("packageName");
+  const themeInput=document.getElementById("theme");
+  const name=(nameInput.value.trim()||"My App");
+  let pkg=(packageInput.value.trim()||"com.asimtech.myapp").toLowerCase();
+  pkg=pkg.replace(/[^a-z0-9_.]/g,"").replace(/\.{2,}/g,".").replace(/^\.|\.$/g,"");
+  if(!pkg) pkg="com.asimtech.myapp";
+  appData={name:name,package:pkg,theme:themeInput.value,elements:[]};
+  document.getElementById("phoneTitle").textContent=name;
+  document.getElementById("createScreen").style.display="none";
+  document.getElementById("builder").style.display="block";
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
 function addElement(type){appData.elements.push({id:Date.now()+Math.random(),type,...defaults[type]});render()}
 function render(){let z=document.getElementById("dropZone");z.innerHTML="";appData.elements.forEach(e=>{let d=document.createElement("div");d.className="element"+(selectedId===e.id?" selected":"");d.draggable=true;d.dataset.id=e.id;d.onclick=ev=>{ev.stopPropagation();selectElement(e.id)};d.addEventListener("dragstart",ev=>{ev.stopPropagation();ev.dataTransfer.setData("text/plain",String(e.id))});d.addEventListener("dragover",ev=>ev.preventDefault());d.addEventListener("drop",ev=>{ev.preventDefault();ev.stopPropagation();reorder(ev.dataTransfer.getData("text/plain"),e.id)});d.style.background=e.bg||"#fff";
 if(e.type==="text"){d.innerHTML='<div class="preview-text"></div>';d.firstChild.textContent=e.text;d.firstChild.style.cssText+=`font-size:${e.fontSize}px;color:${e.color}`}
@@ -99,7 +113,7 @@ function buildAPKProject(){
  "app/build.gradle":`plugins { id 'com.android.application' }\n\nandroid { namespace '${pkg}'; compileSdk 35\n defaultConfig { applicationId '${pkg}'; minSdk 23; targetSdk 35; versionCode 1; versionName '1.0' }\n}\n`,
  "app/src/main/AndroidManifest.xml":`<manifest xmlns:android="http://schemas.android.com/apk/res/android"><application android:theme="@style/AppTheme" android:label="${escXML(appData.name)}" android:allowBackup="true" android:supportsRtl="true"><activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity></application></manifest>`,
  "app/src/main/res/values/styles.xml":`<resources><style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:colorAccent">#009FFF</item><item name="android:navigationBarColor">#02060D</item><item name="android:statusBarColor">#050D17</item></style></resources>`,
- "app/src/main/java/"+pkg.replace(/\./g,"/")+"/MainActivity.java":makeJava(project)
+ "app/src/main/java/${pkg.replace(/\\./g,"/")}/MainActivity.java":makeJava(project)
  };
  const zip=new JSZipLite();
  Object.entries(files).forEach(([n,c])=>zip.file(n,c));
